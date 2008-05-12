@@ -1,0 +1,62 @@
+% xu-bghyphen.tex
+% Wrapper for XeTeX to read Bulgarian hyphenation patterns
+% Jonathan Kew, 2006-08-20
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+
+  \input bghyphen.tex
+  
+\else
+
+  \catcode"A0=\active \def^^a0{^^^^0430}% \cyra
+  \catcode"A1=\active \def^^a1{^^^^0431}% \cyrb
+  \catcode"A2=\active \def^^a2{^^^^0432}% \cyrv
+  \catcode"A3=\active \def^^a3{^^^^0433}% \cyrg
+  \catcode"A4=\active \def^^a4{^^^^0434}% \cyrd
+  \catcode"A5=\active \def^^a5{^^^^0435}% \cyre
+  \catcode"A6=\active \def^^a6{^^^^0436}% \cyrzh
+  \catcode"A7=\active \def^^a7{^^^^0437}% \cyrz
+  \catcode"A8=\active \def^^a8{^^^^0438}% \cyri
+  \catcode"A9=\active \def^^a9{^^^^0439}% \cyrishrt
+  \catcode"AA=\active \def^^aa{^^^^043a}% \cyrk
+  \catcode"AB=\active \def^^ab{^^^^043b}% \cyrl
+  \catcode"AC=\active \def^^ac{^^^^043c}% \cyrm
+  \catcode"AD=\active \def^^ad{^^^^043d}% \cyrn
+  \catcode"AE=\active \def^^ae{^^^^043e}% \cyro
+  \catcode"AF=\active \def^^af{^^^^043f}% \cyrp
+  \catcode"B0=\active \def^^b0{^^^^0440}% \cyrr
+  \catcode"B1=\active \def^^b1{^^^^0441}% \cyrs
+  \catcode"B2=\active \def^^b2{^^^^0442}% \cyrt
+  \catcode"B3=\active \def^^b3{^^^^0443}% \cyru
+  \catcode"B4=\active \def^^b4{^^^^0444}% \cyrf
+  \catcode"B5=\active \def^^b5{^^^^0445}% \cyrh
+  \catcode"B6=\active \def^^b6{^^^^0446}% \cyrc
+  \catcode"B7=\active \def^^b7{^^^^0447}% \cyrch
+  \catcode"B8=\active \def^^b8{^^^^0448}% \cyrsh
+  \catcode"B9=\active \def^^b9{^^^^0449}% \cyrshch
+  \catcode"BA=\active \def^^ba{^^^^044a}% \cyrhrdsn
+  \catcode"BB=\active \def^^bb{^^^^044b}% \cyrery
+  \catcode"BC=\active \def^^bc{^^^^044c}% \cyrsftsn
+  \catcode"BD=\active \def^^bd{^^^^044d}% \cyrerev
+  \catcode"BE=\active \def^^be{^^^^044e}% \cyryu
+  \catcode"BF=\active \def^^bf{^^^^044f}% \cyrya
+
+  \let\PATTERNS=\patterns
+  \def\patterns{%
+    \XeTeXinputencoding "bytes"
+    \PATTERNS
+  }
+  
+  \input bghyphsi.tex
+
+\fi
+
+\endgroup
+
+\lefthyphenmin2
+\righthyphenmin2
+
+\endinput

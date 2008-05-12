@@ -1,0 +1,32 @@
+% xu-pyhyph.tex
+% Wrapper for XeTeX to read pyhyph.tex
+% Jonathan Kew, 2006-08-17
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  % pyhyph.tex is Latin1 with 8-bit char used for u-umlaut
+  \lccode"27="27 % allow apostrophe in patterns
+
+  \let\BEGINGROUP=\begingroup
+  \def\begingroup{% at the initial \begingroup in pyhyph...
+    \XeTeXinputencoding "bytes" % read the rest of the file as raw bytes
+    \BEGINGROUP
+  }
+
+  \let\PATTERNS=\patterns
+  \def\patterns{% at the \patterns command...
+    \endgroup % end group containing pyhyph.tex's local definitions
+    \BEGINGROUP % and start our own (to match \endgroup in pyhyph.tex)
+    \PATTERNS % and then load the real patterns
+  }
+
+\fi
+
+\input pyhyph.tex
+
+\endgroup
+\endinput

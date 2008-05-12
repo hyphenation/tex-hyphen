@@ -1,0 +1,24 @@
+% xu-ethyph.tex
+% Wrapper for XeTeX to read ethyph.tex
+% Jonathan Kew, 2006-08-15
+% Public domain
+
+\begingroup
+
+\let\INPUT=\input
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  % ethyph.tex uses ^^xx for T1 characters;
+  % redefine them to access the required Unicode characters
+  \input xu-t1.tex
+  % and disable \input so that it won't read cathyph.tex
+  \def\input #1 {}
+
+\fi
+
+\INPUT ethyph.tex
+
+\endgroup
+\endinput

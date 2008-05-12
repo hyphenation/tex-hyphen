@@ -1,0 +1,50 @@
+% xu-ukrhyph.tex
+% Wrapper for XeTeX to read Ukrainian hyphenation patterns
+% Jonathan Kew, 2006-08-20
+% Public domain
+
+\begingroup
+
+% Please uncomment the pattern value you need before
+% creating a new format file containing Ukrainian hyphenation 
+% patterns. 
+% Note: `sm' offers most break points, so it is better 
+% for narrow columns, `mp' offers least break points,
+% and `st' and `mt' are in between. 
+
+\ifx\Pattern\undefined
+%\def\Pattern{sm}  %% by Andrij Shvaika, modern rules
+%\def\Pattern{st}  %% by Andrij Shvaika, modern rules, 
+                   %%   ``with removed suspicious breaks''
+%\def\Pattern{mt}  %% by Maksym Polyakov old rules
+\def\Pattern{mp}   %% by Maksym Polyakov old rules, breaking 
+                   %%   into syllables according to phonetical principles. 
+%\def\Pattern{fa}  %% derived from Russian patterns created by Dimitri Vulis
+\fi
+
+% For non-XeTeX use, also check the encoding options in ukrhyph.tex
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+
+  \input ukrhyph.tex
+
+\else
+
+  \let\PATTERNS=\patterns
+  \def\patterns{%
+    \XeTeXinputencoding "bytes"
+    \input xu-cp866nav.tex
+    \lccode`\'=`\'
+    \PATTERNS
+  }
+
+  \input ukrhyp\Pattern
+
+\fi
+
+\endgroup
+
+\lefthyphenmin2 % settings copied from ukrhyph.tex
+\righthyphenmin2
+
+\endinput

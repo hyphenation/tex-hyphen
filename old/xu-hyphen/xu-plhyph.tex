@@ -1,0 +1,24 @@
+% xu-plhyph.tex
+% Wrapper for XeTeX to read plhyph.tex
+% Jonathan Kew, 2006-08-15
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  % plhyph.tex will not redefine slash if it is already active,
+  % so we define it to access the required Unicode characters
+  \catcode`\/=\active
+  \def/#1{%
+    \ifx#1a^^^^0105\else\ifx#1c^^^^0107\else\ifx#1e^^^^0119\else\ifx#1l^^^^0142\else
+    \ifx#1n^^^^0144\else\ifx#1o^^^^00f3\else\ifx#1s^^^^015b\else\ifx#1x^^^^017a\else
+    \ifx#1z^^^^017c\fi\fi\fi\fi\fi\fi\fi\fi\fi}%
+
+\fi
+
+\input plhyph.tex
+
+\endgroup
+\endinput

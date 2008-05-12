@@ -1,0 +1,29 @@
+% xu-mnhyph.tex
+% Wrapper for XeTeX to read mnhyph.tex
+% Jonathan Kew, 2006-08-18
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  \catcode`^^b2=13 \def^^b2{^^^^0161}% s-caron
+  \catcode`^^b3=13 \def^^b3{^^^^015f}% s-cedilla
+  \catcode`^^b4=13 \def^^b4{^^^^0165}% t-caron
+  \catcode`^^b6=13 \def^^b6{^^^^0171}% u-hungarianumlaut
+  \catcode`^^b5=13 \def^^b5{^^^^0163}% t-cedilla
+
+  \let\PATTERNS=\patterns
+  \def\patterns{%
+    \endgroup
+    \begingroup
+    \PATTERNS
+  }
+
+\fi
+
+\input mnhyph.tex
+
+\endgroup
+\endinput

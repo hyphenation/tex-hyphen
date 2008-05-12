@@ -1,0 +1,388 @@
+% Hyphenation patterns for Catalan.
+% This is version 1.11
+% Compiled by Gon\c{c}al Badenes and Francina Turon,
+%       December 1991-January 1995.
+%
+% Copyright (C) 1991-2003 Gon\c{c}al Badenes
+%
+% -----------------------------------------------------------------
+% IMPORTANT NOTICE:
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
+% -----------------------------------------------------------------
+%
+%%% ====================================================================
+%%%  @TeX-hyphen-file{
+%%%     author          = "Gon\c{c}al Badenes",
+%%%     version         = "1.11",
+%%%     date            = "15 July 2003",
+%%%     time            = "15:08:12 CET",
+%%%     filename        = "cahyph.tex",
+%%%     email           = "g.badenes@ieee.org",
+%%%     codetable       = "ISO/ASCII",
+%%%     keywords        = "TeX, hyphen, catalan",
+%%%     supported       = "yes",
+%%%     abstract        = "Catalan hyphenation patterns",
+%%%     docstring       = "This file contains the hyphenation patterns
+%%%                        for the catalan language",
+%%%  }
+%%% ====================================================================
+%
+% NOTICE: Version 1.11 is identical to version 1.10 (issued on January 17,
+%         1995) except for the updated copyright notice above.
+%
+% The macros used were created for ghyph31.tex by Bernd Raichle (see the
+% German hyphenation pattern files for further details)
+%
+% This patterns have been created using standard, conservative
+% hyphenation rules for catalan. The results have refined running them
+% through patgen. In that way, the number of hits has been increased.
+%
+% These rules produce no wrong patterns (Results checked against the
+% ``Diccionari Ortogr\`afic i de Pron\'uncia'', Enciclop\`edia
+% Catalana. The percentage of valid hyphen misses is lower than 1%
+%
+% Some of the patterns below represent combinations that never
+% happen in Catalan. We have tried to keep them to a minimum.
+%
+% *** IMPORTANT ***
+% \lefthyphenmin and \righthyphenmin should be set to 2 and 2
+% respectively. If you set them below these values incorrect breaks
+% will happen (specially at the beginning of foreign words and words
+% which begin with some prefixes).
+% *** IMPORTANT ***
+%
+% Please report any problem you might have to the authors!!!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\message{Catalan Hyphenation Patterns `cahyphen' Version 1.11 <2003/07/15>}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begingroup
+\ifnum 0\ifx\inputlineno\undefined \else
+        \ifnum\inputlineno<1 \else 1\fi\fi<1
+  \let\x=\endgroup
+\else
+  \def\x{\endgroup
+%
+% The following commands ensure correct \catcodes, \lccodes and
+% \uccodes if your TeX implementations uses these character codes.
+%
+\catcode"C0=11 \lccode"C0="E0 \uccode"C0="C0    % \`A
+\catcode"C7=11 \lccode"C7="E7 \uccode"C7="C7    % \c{C}
+\catcode"C8=11 \lccode"C8="E8 \uccode"C8="C8    % \`E
+\catcode"C9=11 \lccode"C9="E9 \uccode"C9="C9    % \'E
+\catcode"CD=11 \lccode"CD="ED \uccode"CD="CD    % \'\I
+\catcode"CF=11 \lccode"CF="EF \uccode"CF="CF    % \"\I
+\catcode"D2=11 \lccode"D2="F2 \uccode"D2="D2    % \`O
+\catcode"D3=11 \lccode"D3="F3 \uccode"D3="D3    % \'O
+\catcode"DA=11 \lccode"DA="FA \uccode"DA="DA    % \'U
+\catcode"DC=11 \lccode"DC="FC \uccode"DC="DC    % \"U
+%
+\catcode"E0=11 \lccode"E0="E0 \uccode"E0="C0    % \`a
+\catcode"E7=11 \lccode"E7="E7 \uccode"E7="C7    % \c{c}
+\catcode"E8=11 \lccode"E8="E8 \uccode"E8="C8    % \`e
+\catcode"E9=11 \lccode"E9="E9 \uccode"E9="C9    % \'e
+\catcode"ED=11 \lccode"ED="ED \uccode"ED="CD    % \'\i
+\catcode"EF=11 \lccode"EF="EF \uccode"EF="CF    % \"\i
+\catcode"F2=11 \lccode"F2="F2 \uccode"F2="D2    % \`o
+\catcode"F3=11 \lccode"F3="F3 \uccode"F3="D3    % \'o
+\catcode"FA=11 \lccode"FA="FA \uccode"FA="DA    % \'u
+\catcode"FC=11 \lccode"FC="FC \uccode"FC="DC    % \"u
+%
+}
+\fi
+% Now execute the changes of the above \*codes for TeX 3.x
+\x
+%
+% Next we define some commands, which are used inside the patterns.
+% To keep them local, we enclose the rest of the file in a group
+% (The \patterns command globally changes the hyphenation trie!).
+%
+\begingroup
+%
+% Because we use ^^E4, ^^F6, ... in the following definition,
+% we have to ensure that the catcodes of ^^E and ^^F are ok
+% for TeX 2.  (The macro is not used for TeX 2.)
+\catcode"0E=12 \catcode"0F=12
+%
+% ... and define a macro to allow the use of this file
+% with TeX 2 and TeX 3.
+\ifnum 0\ifx\inputlineno\undefined \else
+        \ifnum\inputlineno<1 \else 1\fi\fi<1
+  % for TeX 2:
+  %   ignore the patterns with 8-bit characters
+  \def\n#1{}
+\else
+  % for TeX 3:
+  %   patterns with umlauts are ok
+  \def\n#1{#1}
+\fi
+%
+\patterns{%
+%
+% Attach vowel groups to left consonant
+1ba 1be 1bi 1bo 1bu
+1ca 1ce 1ci 1co 1cu
+1da 1de 1di 1do 3du
+1fa 1fe 1fi 1fo 1fu
+1ga 1ge 1gi 1go 1gu
+1ha 1he 1hi 1ho 1hu
+1ja 1je 1ji 1jo 1ju
+1la 1le 1li 1lo 1lu
+1ma 1me 1mi 1mo 1mu
+1na 1ne 3ni 1no 1nu
+1pa 3pe 3pi 3po 1pu
+1qu
+1ra 1re 1ri 1ro 1ru
+1sa 1se 1si 1so 1su
+1ta 1te 1ti 1to 1tu
+1va 1ve 1vi 1vo 1vu
+1xa 1xe 1xi 1xo 1xu
+1za 1ze 1zi 1zo 1zu
+\n{1b^^e9} \n{1b^^ed} \n{1b^^f3} \n{1b^^fa} \n{1b^^e0} \n{1b^^e8} \n{1b^^f2}
+\n{1c^^e9} \n{1c^^ed} \n{1c^^f3} \n{1c^^fa} \n{1c^^e0} \n{1c^^e8} \n{1c^^f2}
+\n{1^^e7o} \n{1^^e7a} \n{1^^e7u}
+\n{1^^e7^^f3} \n{1^^e7^^fa} \n{1^^e7^^e0} \n{1^^e7^^f2}
+\n{1d^^e9} \n{1d^^ed} \n{1d^^f3} \n{1d^^fa} \n{1d^^e0} \n{1d^^e8} \n{1d^^f2}
+\n{1f^^e9} \n{1f^^ed} \n{1f^^f3} \n{1f^^fa} \n{1f^^e0} \n{1f^^e8} \n{1f^^f2}
+\n{1g^^e9} \n{1g^^ed} \n{1g^^f3} \n{1g^^fa} \n{1g^^e0} \n{1g^^e8}
+\n{1g^^f2} \n{1g^^fc}
+\n{1h^^e9} \n{1h^^ed} \n{1h^^f3} \n{1h^^fa} \n{1h^^e0} \n{1h^^e8} \n{1h^^f2}
+\n{1j^^e9} \n{1j^^ed} \n{1j^^f3} \n{1j^^fa} \n{1j^^e0} \n{1j^^e8} \n{1j^^f2}
+\n{1l^^e9} \n{1l^^ed} \n{1l^^f3} \n{1l^^fa} \n{1l^^e0} \n{1l^^e8} \n{1l^^f2}
+\n{1m^^e9} \n{1m^^ed} \n{1m^^f3} \n{1m^^fa} \n{1m^^e0} \n{1m^^e8} \n{1m^^f2}
+\n{1n^^e9} \n{1n^^ed} \n{1n^^f3} \n{1n^^fa} \n{1n^^e0} \n{1n^^e8} \n{1n^^f2}
+\n{1p^^e9} \n{1p^^ed} \n{1p^^f3} \n{1p^^fa} \n{1p^^e0} \n{1p^^e8} \n{1p^^f2}
+\n{1q^^fc}
+\n{1r^^e9} \n{1r^^ed} \n{1r^^f3} \n{1r^^fa} \n{1r^^e0} \n{1r^^e8} \n{1r^^f2}
+\n{1s^^e9} \n{1s^^ed} \n{1s^^f3} \n{1s^^fa} \n{1s^^e0} \n{1s^^e8} \n{1s^^f2}
+\n{1t^^e9} \n{1t^^ed} \n{1t^^f3} \n{1t^^fa} \n{1t^^e0} \n{1t^^e8} \n{1t^^f2}
+\n{1v^^e9} \n{1v^^ed} \n{1v^^f3} \n{1v^^fa} \n{1v^^e0} \n{1v^^e8} \n{1v^^f2}
+\n{1x^^e9} \n{1x^^ed} \n{1x^^f3} \n{1x^^fa} \n{1x^^e0} \n{1x^^e8} \n{1x^^f2}
+\n{1z^^e9} \n{1z^^ed} \n{1z^^f3} \n{1z^^fa} \n{1z^^e0} \n{1z^^e8} \n{1z^^f2}
+%
+% Build legal consonant groups, leave other consonants bound to
+% the previous group. This overrides part of the previous pattern
+% group.
+3l2la 1l2le 1l2li 3l2lo 1l2lu
+1b2la 1b2le 1b2li 1b2lo 1b2lu
+1b2ra 1b2re 1b2ri 1b2ro 1b2ru
+1c2la 1c2le 1c2li 1c2lo 1c2lu
+1c2ra 1c2re 1c2ri 1c2ro 1c2ru
+1d2ra 1d2re 1d2ri 1d2ro 1d2ru
+1f2la 1f2le 1f2li 1f2lo 1f2lu
+1f2ra 1f2re 1f2ri 1f2ro 1f2ru
+1g2la 1g2le 1g2li 1g2lo 1g2lu
+1g2ra 1g2re 1g2ri 1g2ro 1g2ru
+1p2la 1p2le 1p2li 1p2lo 1p2lu
+1p2ra 1p2re 1p2ri 1p2ro 1p2ru
+1t2ra 1t2re 1t2ri 1t2ro 1t2ru
+1n2ya 1n2ye 1n2yi 1n2yo 1n2yu
+\n{1l2l^^e9} \n{1l2l^^ed} \n{1l2l^^f3} \n{1l2l^^fa} \n{1l2l^^e0}
+\n{1l2l^^e8} \n{1l2l^^f2}
+\n{1b2l^^e9} \n{1b2l^^ed} \n{1b2l^^f3} \n{1b2l^^fa} \n{1b2l^^e0}
+\n{1b2l^^e8} \n{1b2l^^f2}
+\n{1b2r^^e9} \n{1b2r^^ed} \n{1b2r^^f3} \n{1b2r^^fa} \n{1b2r^^e0}
+\n{1b2r^^e8} \n{1b2r^^f2}
+\n{1c2l^^e9} \n{1c2l^^ed} \n{1c2l^^f3} \n{1c2l^^fa} \n{1c2l^^e0}
+\n{1c2l^^e8} \n{1c2l^^f2}
+\n{1c2r^^e9} \n{1c2r^^ed} \n{1c2r^^f3} \n{1c2r^^fa} \n{1c2r^^e0}
+\n{1c2r^^e8} \n{1c2r^^f2}
+\n{1d2r^^e9} \n{1d2r^^ed} \n{1d2r^^f3} \n{1d2r^^fa} \n{1d2r^^e0}
+\n{1d2r^^e8} \n{1d2r^^f2}
+\n{1f2l^^e9} \n{1f2l^^ed} \n{1f2l^^f3} \n{1f2l^^fa} \n{1f2l^^e0}
+\n{1f2l^^e8} \n{1f2l^^f2}
+\n{1f2r^^e9} \n{1f2r^^ed} \n{1f2r^^f3} \n{1f2r^^fa} \n{1f2r^^e0}
+\n{1f2r^^e8} \n{1f2r^^f2}
+\n{1g2l^^e9} \n{1g2l^^ed} \n{1g2l^^f3} \n{1g2l^^fa} \n{1g2l^^e0}
+\n{1g2l^^e8} \n{1g2l^^f2}
+\n{1g2r^^e9} \n{1g2r^^ed} \n{1g2r^^f3} \n{1g2r^^fa} \n{1g2r^^e0}
+\n{1g2r^^e8} \n{1g2r^^f2}
+\n{1p2l^^e9} \n{1p2l^^ed} \n{1p2l^^f3} \n{1p2l^^fa} \n{1p2l^^e0}
+\n{1p2l^^e8} \n{1p2l^^f2}
+\n{1p2r^^e9} \n{1p2r^^ed} \n{1p2r^^f3} \n{1p2r^^fa} \n{1p2r^^e0}
+\n{1p2r^^e8} \n{1p2r^^f2}
+\n{1t2r^^e9} \n{1t2r^^ed} \n{1t2r^^f3} \n{1t2r^^fa} \n{1t2r^^e0}
+\n{1t2r^^e8} \n{1t2r^^f2}
+\n{1n2y^^e9} \n{1n2y^^ed} \n{1n2y^^f3} \n{1n2y^^fa} \n{1n2y^^e0}
+\n{1n2y^^e8} \n{1n2y^^f2}
+%
+% Vowels are kept together by the defaults
+% We break here diphthongs and the like
+a1a a1e a1o
+e1a e1e e1o
+i1a i1e i1o
+o1a o1e o1o
+u1a u1e u1o
+\n{a1^^e9} \n{a1^^ed} \n{a1^^f3} \n{a1^^fa} \n{a1^^e0} \n{a1^^e8}
+\n{a1^^f2} \n{a1^^ef} \n{a1^^fc}
+\n{e1^^e9} \n{e1^^ed} \n{e1^^f3} \n{e1^^fa} \n{e1^^e0} \n{e1^^e8}
+\n{e1^^f2} \n{e1^^ef} \n{e1^^fc}
+\n{i1^^e9} \n{i1^^ed} \n{i1^^f3} \n{i1^^fa} \n{i1^^e0} \n{i1^^e8}
+\n{i1^^f2} \n{i1^^ef} \n{i1^^fc}
+\n{o1^^e9} \n{o1^^ed} \n{o1^^f3} \n{o1^^fa} \n{o1^^e0} \n{o1^^e8}
+\n{o1^^f2} \n{o1^^ef} \n{o1^^fc}
+\n{u1^^e9} \n{u1^^ed} \n{u1^^f3} \n{u1^^fa} \n{u1^^e0} \n{u1^^e8}
+\n{u1^^f2} \n{u1^^ef} \n{u1^^fc}
+\n{^^e91a} \n{^^e91e} \n{^^e91o}
+\n{^^e91^^ef} \n{^^e91^^fc}
+\n{^^ed1a} \n{^^ed1e} \n{^^ed1o}
+\n{^^ed1^^ef} \n{^^ed1^^fc}
+\n{^^f31a} \n{^^f31e} \n{^^f31o}
+\n{^^f31^^ef} \n{^^f31^^fc}
+\n{^^fa1a} \n{^^fa1e} \n{^^fa1o}
+\n{^^fa1^^ef} \n{^^fa1^^fc}
+\n{^^e01a} \n{^^e01e} \n{^^e01o}
+\n{^^e01^^ef} \n{^^e01^^fc}
+\n{^^e81a} \n{^^e81e} \n{^^e81o}
+\n{^^e81^^ef} \n{^^e81^^fc}
+\n{^^f21a} \n{^^f21e} \n{^^f21o}
+\n{^^f21^^ef} \n{^^f21^^fc}
+\n{^^ef1a} \n{^^ef1e} \n{^^ef1o} \n{^^ef1^^e9} \n{^^ef1^^ed}
+\n{^^ef1^^f3} \n{^^ef1^^fa} \n{^^ef1^^e0}
+\n{^^ef1^^e8} \n{^^ef1^^f2} \n{^^ef1i}
+\n{^^fc1a} \n{^^fc1e} \n{^^fc1o} \n{^^fc1^^e9} \n{^^fc1^^ed}
+\n{^^fc1^^f3} \n{^^fc1^^fa} \n{^^fc1^^e0}
+\n{^^fc1^^e8} \n{^^fc1^^f2}
+%
+% We consider here i and u as semiconsonants
+a1i2a a1i2e a1i2o a1i2u
+a1u2a a1u2e a1u2i a1u2o a1u2u
+e1i2a e1i2e e1i2o e1i2u
+e1u2a e1u2e e1u2i e1u2o e1u2u
+i1i2a i1i2e i1i2o i1i2u
+i1u2a i1u2e i1u2i i1u2o i1u2u
+o1i2a o1i2e o1i2o o1i2u
+o1u2a o1u2e o1u2o o1u2i o1u2u
+u1i2a u1i2e u1i2o u1i2u
+u1u2a u1u2e u1u2i u1u2o u1u2u
+\n{a1i2^^e9} \n{a1i2^^ed} \n{a1i2^^f3} \n{a1i2^^fa} \n{a1i2^^e0}
+\n{a1i2^^e8} \n{a1i2^^f2}
+\n{a1u2^^e9} \n{a1u2^^ed} \n{a1u2^^f3} \n{a1u2^^fa} \n{a1u2^^e0}
+\n{a1u2^^e8} \n{a1u2^^f2}
+\n{e1i2^^e9} \n{e1i2^^ed} \n{e1i2^^f3} \n{e1i2^^fa} \n{e1i2^^e0}
+\n{e1i2^^e8} \n{e1i2^^f2}
+\n{e1u2^^e9} \n{e1u2^^ed} \n{e1u2^^f3} \n{e1u2^^fa} \n{e1u2^^e0}
+\n{e1u2^^e8} \n{e1u2^^f2}
+\n{i1i2^^e9} \n{i1i2^^ed} \n{i1i2^^f3} \n{i1i2^^fa} \n{i1i2^^e0}
+\n{i1i2^^e8} \n{i1i2^^f2}
+\n{i1u2^^e9} \n{i1u2^^ed} \n{i1u2^^f3} \n{i1u2^^fa} \n{i1u2^^e0}
+\n{i1u2^^e8} \n{i1u2^^f2}
+\n{o1i2^^e9} \n{o1i2^^ed} \n{o1i2^^f3} \n{o1i2^^fa} \n{o1i2^^e0}
+\n{o1i2^^e8} \n{o1i2^^f2}
+\n{o1u2^^e9} \n{o1u2^^ed} \n{o1u2^^f3} \n{o1u2^^fa} \n{o1u2^^e0}
+\n{o1u2^^e8} \n{o1u2^^f2}
+\n{u1i2^^e9} \n{u1i2^^ed} \n{u1i2^^f3} \n{u1i2^^fa} \n{u1i2^^e0}
+\n{u1i2^^e8} \n{u1i2^^f2}
+\n{u1u2^^e9} \n{u1u2^^ed} \n{u1u2^^f3} \n{u1u2^^fa} \n{u1u2^^e0}
+\n{u1u2^^e8} \n{u1u2^^f2}
+\n{^^e91i2a} \n{^^e91i2e} \n{^^e91i2o} \n{^^e91i2u}
+\n{^^e91u2a} \n{^^e91u2e} \n{^^e91u2o} \n{^^e91u2i} \n{^^e91u2u}
+\n{^^ed1i2a} \n{^^ed1i2e} \n{^^ed1i2o} \n{^^ed1i2u}
+\n{^^ed1u2a} \n{^^ed1u2e} \n{^^ed1u2o} \n{^^ed1u2i} \n{^^ed1u2u}
+\n{^^f31i2a} \n{^^f31i2e} \n{^^f31i2o} \n{^^f31i2u}
+\n{^^f31u2a} \n{^^f31u2e} \n{^^f31u2o} \n{^^f31u2i} \n{^^f31u2u}
+\n{^^fa1i2a} \n{^^fa1i2e} \n{^^fa1i2o} \n{^^fa1i2u}
+\n{^^fa1u2a} \n{^^fa1u2e} \n{^^fa1u2o} \n{^^fa1u2i} \n{^^fa1u2u}
+\n{^^e01i2a} \n{^^e01i2e} \n{^^e01i2o} \n{^^e01i2u}
+\n{^^e01u2a} \n{^^e01u2e} \n{^^e01u2o} \n{^^e01u2i} \n{^^e01u2u}
+\n{^^e81i2a} \n{^^e81i2e} \n{^^e81i2o} \n{^^e81i2u}
+\n{^^e81u2a} \n{^^e81u2e} \n{^^e81u2o} \n{^^e81u2i} \n{^^e81u2u}
+\n{^^f21i2a} \n{^^f21i2e} \n{^^f21i2o} \n{^^f21i2u}
+\n{^^f21u2a} \n{^^f21u2e} \n{^^f21u2o} \n{^^f21u2i} \n{^^f21u2u}
+\n{^^ef1i2a} \n{^^ef1i2e} \n{^^ef1i2o} \n{^^ef1i2^^e9} \n{^^ef1i2^^ed}
+\n{^^ef1i2^^f3}
+\n{^^ef1i2^^fa} \n{^^ef1i2^^e0}
+\n{^^ef1i2^^e8} \n{^^ef1i2^^f2} \n{^^ef1i2u}
+\n{^^ef1u2a} \n{^^ef1u2e} \n{^^ef1u2o} \n{^^ef1u2^^e9} \n{^^ef1u2^^ed}
+\n{^^ef1u2^^f3}
+\n{^^ef1u2^^fa} \n{^^ef1u2^^e0}
+\n{^^ef1u2^^e8} \n{^^ef1u2^^f2} \n{^^ef1u2i} \n{^^ef1u2u}
+\n{^^fc1i2a} \n{^^fc1i2e} \n{^^fc1i2o} \n{^^fc1i2^^e9} \n{^^fc1i2^^ed}
+\n{^^fc1i2^^f3}
+\n{^^fc1i2^^fa} \n{^^fc1i2^^e0}
+\n{^^fc1i2^^e8} \n{^^fc1i2^^f2} \n{^^fc1i2u}
+\n{^^fc1u2a} \n{^^fc1u2e} \n{^^fc1u2o} \n{^^fc1u2^^e9} \n{^^fc1u2^^ed}
+\n{^^fc1u2^^f3}
+\n{^^fc1u2^^fa} \n{^^fc1u2^^e0}
+\n{^^fc1u2^^e8} \n{^^fc1u2^^f2} \n{^^fc1u2i} \n{^^fc1u2u}
+%
+% Semiconsonants at the beginning of word
+% .i2a .i2e .i2o .i2u .u2a .u2e .u2i .u2o
+.hi2a .hi2e .hi2o .hi2u .hu2a .hu2e .hu2i .hu2o
+% \n{.i2^^e9} \n{.i2^^ed} \n{.i2^^f3} \n{.i2^^fa} \n{.i2^^e0}
+\n{.i2^^e8} \n{.i2^^f2}
+% \n{.u2^^e9} \n{.u2^^ed} \n{.u2^^f3} \n{.u2^^fa} \n{.u2^^e0}
+\n{.u2^^e8} \n{.u2^^f2}
+\n{.hi2^^e9} \n{.hi2^^f3} \n{.hi2^^fa} \n{.hi2^^e0} \n{.hi2^^e8}
+\n{.hi2^^f2}
+\n{.hu2^^e9} \n{.hu2^^ed} \n{.hu2^^f3} \n{.hu2^^e0} \n{.hu2^^e8}
+\n{.hu2^^f2}
+%
+% And now the crescent diphtongs
+gu2a gu2e gu2i gu2o qu2a qu2e qu2i qu2o
+\n{gu2^^e9} \n{gu2^^ed} \n{gu2^^f3} \n{gu2^^e0} \n{gu2^^e8}
+\n{gu2^^f2}
+\n{qu2^^e9} \n{qu2^^ed} \n{qu2^^f3} \n{qu2^^e0} \n{qu2^^e8}
+\n{qu2^^f2}
+\n{g^^fc2e} \n{g^^fc2^^e9} \n{g^^fc2^^ed} \n{g^^fc2^^e8} \n{g^^fc2i}
+\n{q^^fc2e} \n{q^^fc2^^e9} \n{q^^fc2^^ed} \n{q^^fc2^^e8} \n{q^^fc2i}
+%
+% We add here some exceptions to the rules for diaeresis
+a1isme. e1isme. i1isme. o1isme. u1isme.
+a1ista. e1ista. i1ista. o1ista. u1ista.
+a1um. e1um. i1um. o1um. u1um.
+% a1us. e1us. i1us. o1us. u1us.
+%
+% disallow hyphenation on possible prefixes
+.antihi2 .be2n .be2s .bi2s .ca2p .ce2l .cla2r .co2ll .co2n .co2r .de2s
+.di2s .en3a .hipe2r .hiperm2n .in3ac .in3ad .in3ap .in3es .in3o
+.inte2r .ma2l .mal1t2hus .pa2n .pe2r .pe3ri .pos2t .psa2l .rebe2s
+.re2d .su2b .sub3o .subde2s .supe2r .tran2s
+% .a2b .a2n .e2n .e2x .g2h .g2n .i2n .o2b .p2s
+%
+% Avoid hyphenation on some intra-word groups
+g2no p2si p2se p2neu
+\n{g2n^^f2} \n{p2s^^ed}
+%
+% Avoid wrong hyphenation on some foreign-origin words
+.ch2 .th2
+% .c2h2 .d2h2 .k2s2 .m2n2 .r2h2 .s2 .t2h2 .t2s2 .t2x2 .w2h2
+ein1s2tein ru1t2herford ni2etz1sc2he
+%
+% Add some good patterns found by patgen
+3exp 3nef 3nei 3pr 3ser a3ne a3ri bi3se des3ag des3ar des3av des3enc
+e3ism e3le e3rio e3ris es3aco es3af es3ap es3arr es3as es3int
+ig3n in3ex n3si o3ro qui3e s3emp s3esp sub3a ui3et
+\n{o3gn^^f2}
+}
+% Finally, add exception list
+\hyphenation{
+ cu-rie cu-ries gei-sha gei-shes goua-che goua-ches hip-py hip-pies
+ hob-by hob-bies jeep jeeps joule joules klee-nex klee-nexs
+ lar-ghet-ti lar-ghet-to lied lieder nos-al-tres
+% me-nhir me-nhirs
+ ro-yal-ties ro-yal-ty vos-al-tres whis-ky whis-kies
+}
+\endgroup
+\relax\endinput
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%

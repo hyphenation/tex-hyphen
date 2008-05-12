@@ -1,0 +1,28 @@
+% xu-glhyph.tex
+% Wrapper for XeTeX to read glhyph.tex
+% Jonathan Kew, 2006-09-13
+% Updated for glhyph 2.2, 2007-05-05
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  % at the first comment in the file, we will switch input encoding
+  
+  \catcode`\$=14 % temporary comment char
+  \catcode`\%=\active $ make percent active
+  \catcode`\^^M=12 $
+  \def\gobbleline#1^^M{\catcode`\^^M=5 } $ macro to gobble line
+  \catcode`\^^M=5 $
+  \def%{\XeTeXinputencoding "iso-8859-1" 
+        \catcode`\%=14 $ restore catcode of percent
+        \catcode`\^^M=12 $ prepare for gobbleline macro
+        \gobbleline} $ and ignore the rest of the line
+\fi
+
+\input glhyph.tex
+
+\endgroup
+\endinput

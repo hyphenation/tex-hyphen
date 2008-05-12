@@ -1,0 +1,29 @@
+% xu-nohyphbx.tex
+% Wrapper for XeTeX to read nohyphbx.tex
+% Jonathan Kew, 2006-08-17
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  \let\BEGINGROUP=\begingroup
+  \def\begingroup{% at the initial \begingroup in nohyphbx...
+    \XeTeXinputencoding "bytes" % read the rest of the file as raw bytes
+    \BEGINGROUP
+  }
+
+  \let\PATTERNS=\patterns
+  \def\patterns{% at the \patterns command...
+    \endgroup % end group containing nohyphbx.tex's local definitions
+    \BEGINGROUP % and start our own (to match \endgroup in nohyphbx.tex)
+    \PATTERNS % and then load the real patterns
+  }
+
+\fi
+
+\input nohyphbx.tex
+
+\endgroup
+\endinput

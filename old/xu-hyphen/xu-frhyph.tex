@@ -1,0 +1,21 @@
+% xu-frhyph.tex
+% Wrapper for XeTeX to read frhyph.tex
+% Jonathan Kew, 2006-08-15
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  % frhyph.tex uses ^^xx for T1 characters
+  % redefine them to access the required Unicode characters
+  % (only \oe{} actually matters here!)
+  \input xu-t1.tex
+
+\fi
+
+\input frhyph.tex
+
+\endgroup
+\endinput

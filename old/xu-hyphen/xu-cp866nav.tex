@@ -1,0 +1,88 @@
+% cp866nav.tex
+%
+% convert CP866NAV Cyrillic letters to Unicode characters
+% for loading Ukrainian hyphenation patterns in XeTeX
+% (actually, upper case is not needed for this)
+% NB: read the pattern file as raw bytes to use this mapping!
+%
+% Jonathan Kew, 2006-08-20
+% Public domain
+
+\catcode"80=13 \def^^80{^^^^0410}% cyrillic capital letter a
+\catcode"81=13 \def^^81{^^^^0411}% cyrillic capital letter be
+\catcode"82=13 \def^^82{^^^^0412}% cyrillic capital letter ve
+\catcode"83=13 \def^^83{^^^^0413}% cyrillic capital letter ghe
+\catcode"84=13 \def^^84{^^^^0414}% cyrillic capital letter de
+\catcode"85=13 \def^^85{^^^^0415}% cyrillic capital letter ie
+\catcode"86=13 \def^^86{^^^^0416}% cyrillic capital letter zhe
+\catcode"87=13 \def^^87{^^^^0417}% cyrillic capital letter ze
+\catcode"88=13 \def^^88{^^^^0418}% cyrillic capital letter i
+\catcode"89=13 \def^^89{^^^^0419}% cyrillic capital letter short i
+\catcode"8A=13 \def^^8a{^^^^041a}% cyrillic capital letter ka
+\catcode"8B=13 \def^^8b{^^^^041b}% cyrillic capital letter el
+\catcode"8C=13 \def^^8c{^^^^041c}% cyrillic capital letter em
+\catcode"8D=13 \def^^8d{^^^^041d}% cyrillic capital letter en
+\catcode"8E=13 \def^^8e{^^^^041e}% cyrillic capital letter o
+\catcode"8F=13 \def^^8f{^^^^041f}% cyrillic capital letter pe
+\catcode"90=13 \def^^90{^^^^0420}% cyrillic capital letter er
+\catcode"91=13 \def^^91{^^^^0421}% cyrillic capital letter es
+\catcode"92=13 \def^^92{^^^^0422}% cyrillic capital letter te
+\catcode"93=13 \def^^93{^^^^0423}% cyrillic capital letter u
+\catcode"94=13 \def^^94{^^^^0424}% cyrillic capital letter ef
+\catcode"95=13 \def^^95{^^^^0425}% cyrillic capital letter ha
+\catcode"96=13 \def^^96{^^^^0426}% cyrillic capital letter tse
+\catcode"97=13 \def^^97{^^^^0427}% cyrillic capital letter che
+\catcode"98=13 \def^^98{^^^^0428}% cyrillic capital letter sha
+\catcode"99=13 \def^^99{^^^^0429}% cyrillic capital letter shcha
+\catcode"9A=13 \def^^9a{^^^^042a}% cyrillic capital letter hard sign
+\catcode"9B=13 \def^^9b{^^^^042b}% cyrillic capital letter yeru
+\catcode"9C=13 \def^^9c{^^^^042c}% cyrillic capital letter soft sign
+\catcode"9D=13 \def^^9d{^^^^042d}% cyrillic capital letter e
+\catcode"9E=13 \def^^9e{^^^^042e}% cyrillic capital letter yu
+\catcode"9F=13 \def^^9f{^^^^042f}% cyrillic capital letter ya
+\catcode"A0=13 \def^^a0{^^^^0430}% cyrillic small letter a
+\catcode"A1=13 \def^^a1{^^^^0431}% cyrillic small letter be
+\catcode"A2=13 \def^^a2{^^^^0432}% cyrillic small letter ve
+\catcode"A3=13 \def^^a3{^^^^0433}% cyrillic small letter ghe
+\catcode"A4=13 \def^^a4{^^^^0434}% cyrillic small letter de
+\catcode"A5=13 \def^^a5{^^^^0435}% cyrillic small letter ie
+\catcode"A6=13 \def^^a6{^^^^0436}% cyrillic small letter zhe
+\catcode"A7=13 \def^^a7{^^^^0437}% cyrillic small letter ze
+\catcode"A8=13 \def^^a8{^^^^0438}% cyrillic small letter i
+\catcode"A9=13 \def^^a9{^^^^0439}% cyrillic small letter short i
+\catcode"AA=13 \def^^aa{^^^^043a}% cyrillic small letter ka
+\catcode"AB=13 \def^^ab{^^^^043b}% cyrillic small letter el
+\catcode"AC=13 \def^^ac{^^^^043c}% cyrillic small letter em
+\catcode"AD=13 \def^^ad{^^^^043d}% cyrillic small letter en
+\catcode"AE=13 \def^^ae{^^^^043e}% cyrillic small letter o
+\catcode"AF=13 \def^^af{^^^^043f}% cyrillic small letter pe
+\catcode"E0=13 \def^^e0{^^^^0440}% cyrillic small letter er
+\catcode"E1=13 \def^^e1{^^^^0441}% cyrillic small letter es
+\catcode"E2=13 \def^^e2{^^^^0442}% cyrillic small letter te
+\catcode"E3=13 \def^^e3{^^^^0443}% cyrillic small letter u
+\catcode"E4=13 \def^^e4{^^^^0444}% cyrillic small letter ef
+\catcode"E5=13 \def^^e5{^^^^0445}% cyrillic small letter ha
+\catcode"E6=13 \def^^e6{^^^^0446}% cyrillic small letter tse
+\catcode"E7=13 \def^^e7{^^^^0447}% cyrillic small letter che
+\catcode"E8=13 \def^^e8{^^^^0448}% cyrillic small letter sha
+\catcode"E9=13 \def^^e9{^^^^0449}% cyrillic small letter shcha
+\catcode"EA=13 \def^^ea{^^^^044a}% cyrillic small letter hard sign
+\catcode"EB=13 \def^^eb{^^^^044b}% cyrillic small letter yeru
+\catcode"EC=13 \def^^ec{^^^^044c}% cyrillic small letter soft sign
+\catcode"ED=13 \def^^ed{^^^^044d}% cyrillic small letter e
+\catcode"EE=13 \def^^ee{^^^^044e}% cyrillic small letter yu
+\catcode"EF=13 \def^^ef{^^^^044f}% cyrillic small letter ya
+\catcode"F0=13 \def^^f0{^^^^0401}% cyrillic capital letter io
+\catcode"F1=13 \def^^f1{^^^^0451}% cyrillic small letter io
+\catcode"F2=13 \def^^f2{^^^^0490}% cyrillic capital letter ghe with upturn
+\catcode"F3=13 \def^^f3{^^^^0491}% cyrillic small letter ghe with upturn
+\catcode"F4=13 \def^^f4{^^^^0404}% cyrillic capital letter ukrainian ie
+\catcode"F5=13 \def^^f5{^^^^0454}% cyrillic small letter ukrainian ie
+\catcode"F6=13 \def^^f6{^^^^0406}% cyrillic capital letter byelorussian-ukrainian i 
+\catcode"F7=13 \def^^f7{^^^^0456}% cyrillic small letter byelorussian-ukrainian i 
+\catcode"F8=13 \def^^f8{^^^^0407}% cyrillic capital letter yi (ukrainian)
+\catcode"F9=13 \def^^f9{^^^^0457}% cyrillic small letter yi (ukrainian)
+\catcode"FA=13 \def^^fa{^^^^040e}% cyrillic capital letter short u
+\catcode"FB=13 \def^^fb{^^^^045e}% cyrillic small letter short u
+
+\endinput

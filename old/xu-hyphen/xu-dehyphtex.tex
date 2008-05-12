@@ -1,0 +1,32 @@
+% xu-dehyphtex.tex
+% Wrapper for XeTeX to read dehyphtex.tex
+% Jonathan Kew, 2006-08-17
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  \catcode"FF=13
+  \def^^ff{^^df}% map EC's es-zet to Unicode value
+
+  \let\BEGINGROUP=\begingroup
+  \def\begingroup{% at the initial \begingroup in dehyphtex...
+    \XeTeXinputencoding "bytes" % read the rest of the file as raw bytes
+    \BEGINGROUP
+  }
+
+  \let\HYPHENATION=\hyphenation
+  \def\hyphenation{% at the \hyphenation command...
+    \endgroup % end group containing dehyphtex.tex's local definitions
+    \BEGINGROUP % and start our own (to match \endgroup in dehyphtex.tex)
+    \HYPHENATION % and then load the real exceptions
+  }
+
+\fi
+
+\input dehyphtex.tex
+
+\endgroup
+\endinput

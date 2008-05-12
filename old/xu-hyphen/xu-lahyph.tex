@@ -1,0 +1,33 @@
+% xu-lahyph.tex
+% Wrapper for XeTeX to read lahyph.tex
+% Jonathan Kew, 2006-08-17
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  \catcode`\"=12
+  \def\n#1{}% ignore the T1-ligature patterns
+  \def\a{\errmessage{Hyphenation pattern file corrupted!}}%
+  \let\o=\a
+  \def\ae{^^^^00e6}% map \ae and \oe to Unicode
+  \def\oe{^^^^0153}%
+  \lccode`\'=`\' % allow apostrophe in patterns
+  \lccode"2019="2019 % also allow curly apostrophe
+
+  \let\PATTERNS=\patterns
+  \def\patterns{% at the \patterns command in lahyph.tex...
+    \endgroup % end group containing lahyph.tex's local definitions
+    \begingroup % and start our own (to match \endgroup in lahyph.tex)
+    \PATTERNS{2^^^^20192}% add a pattern for curly apostrophe
+    \PATTERNS % and then load the real patterns
+  }
+
+\fi
+
+\input lahyph.tex
+
+\endgroup
+\endinput

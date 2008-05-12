@@ -1,0 +1,891 @@
+% ****************************************************************
+%
+% File name: grphyph4.tex
+%
+% Created:       June 1st, 1999
+% First release: Apr. 13, 2000
+% Revised:       Aug. 16, 2004
+% Version:       4.0
+%
+% Hyphenation patterns for multi-accent (polytonic) Modern Greek.
+%
+% Created by Dimitrios Filippou with some ideas borrowed from 
+% Yannis Haralambous, Kostis Dryllerakis and Claudio Beccari.
+% 
+% These hyphenation patterns are explained in "modern.pdf".
+% Some doubtful patterns are marked by three question marks "???". 
+%
+% ****************************************************************
+%
+\message{Hyphenation patterns for multi-accent (polytonic) Modern Greek}
+\begingroup
+\catcode`~=11
+\lccode`<=`< \lccode`>=`> \lccode``=`` 
+\lccode`'=`' \lccode`~=`~ \lccode`"=`"
+\lccode``=`` \lccode`|=`|
+\patterns{%
+%%%% vowels
+a1
+e1
+h1
+i1
+o1
+u1
+w1
+a4|1
+h4|1
+w4|1
+%%%% diphthogs (also known as "double vowels") and exceptions
+a2i
+a2'i
+a2`i
+a2~i
+a2>i
+a2>'i
+a2>`i
+a2>~i
+a2<i
+a2<'i
+a2<`i
+a2<~i
+% 'a3i --- not to be separated: ne-r'aida
+a2u
+a2'u
+a2`u
+a2~u
+a2>u
+a2>'u
+a2>`u
+a2>~u
+a2<u
+a2<'u
+a2<`u
+a2<~u
+'a3u
+e2i
+e2'i
+e2`i
+e2~i
+e2>i
+e2>'i
+e2>`i
+e2>~i
+e2<i
+e2<'i
+e2<`i
+e2<~i
+% 'e3i --- not to be separated: t`o rw-m'ei-ko (one way to pronounce it)
+e2u
+e2'u
+e2`u
+e2~u
+e2>u
+e2>'u
+e2>`u
+e2>~u
+e2<u
+e2<'u
+e2<`u
+e2<~u
+'e3u
+h2u
+h2'u
+h2`u
+h2~u
+h2>u
+h2>'u
+h2>`u
+h2>~u
+h2<u
+h2<'u
+h2<`u
+h2<~u
+o2i
+o2'i
+o2`i
+o2~i
+o2>i
+o2>'i
+o2>`i
+o2>~i
+o2<i
+o2<'i
+o2<`i
+o2<~i
+% 'o3i --- not to be separated: t`o ko-r'oido
+o2u
+o2'u
+o2`u
+o2~u
+o2>u
+o2>'u
+o2>`u
+o2>~u
+o2<u
+o2<'u
+o2<`u
+o2<~u
+'o3u
+u2i
+u2'i
+u2`i
+u2~i
+u2>i
+u2>'i
+u2>`i
+u2>~i
+u2<i
+u2<'i
+u2<`i
+u2<~i
+%%%% other diphthogs: two vowels pronounced together in *one* syllable
+%%%% (in some cases, the rules below will not allow the split up of
+%%%% syllables in words like: >i-'on, ka-ko-poi-'oc, etc., but, better
+%%%% this than mistakes like: qw-ri-'o)
+a2h
+'a3h. % Dan'a-h Bomb'a-h 
+'a3i.  % ts'a-i
+a2"i
+% 'a"i --- not be separated: ne-r'a"ida 
+'a3"i. % ts'a-"i 
+a2"u   % ka"u-moc
+'a3"u
+e2h    % leh-lat~w >e-l'eh-son
+e2"i   % ze"i-mpekikoc
+e2"u   % Ke"u-l'anh
+o2ei   % ap'oei-de
+o2h    % b'oh-ja!
+'o3h.  % ql'o-h
+o2"i
+'o3i   % s'o-i ro-l'o-i
+'o3"i
+w2i    % >wi-m'e!
+%%%%
+i2a
+i2'a
+i2`a
+i2~a
+i2e
+i2'e
+i2`e
+i2o
+i2'o
+i2`o
+o3"i3'o % pro-"i-'on
+o3"i3`o
+i2w
+i2'w
+i2`w
+i2~w
+'i3
+~i3
+>i3
+<i3
+h2a
+h|2a
+h2'a
+h2`a
+h2~a
+h|2'a
+h|2`a
+h|2~a
+h2e
+h|2e
+h2'e
+h2`e
+h|2'e
+h|2`e
+h2o
+h|2o
+h2'o
+h2`o
+h|2'o
+h|2`o
+h2w
+h|2w
+h2'w
+h2`w
+h2~w
+h|2'w
+h|2`w
+h|2~w
+'h3
+~h3
+>h3
+<h3
+u2a
+u2'a
+u2`a
+u2~a
+u2e
+u2'e
+u2`e
+u2o
+u2'o
+u2`o
+u2w
+u2'w
+u2`w
+u2~w
+'u3
+~u3
+<u3
+%%%% consonants at the end of words
+6b.
+6g.
+6gk.
+6d.
+6z.
+6j.
+6k.
+6l.
+6m.
+6mp.
+6n.
+6nt.
+6x.
+6p.
+6r.
+6s.
+6c.
+6t.
+6tz.
+6ts.
+6tc.
+6f.
+6q.
+6y.
+%%%% right apostrophe and consonants with right apostrophe 
+6''
+6b''
+6g''
+6gk''
+6d''
+6z''
+6j''
+6k''
+6l''
+6m''
+6mp''
+6n''
+6nt''
+6x''
+6p''
+6r''
+6s''
+6t''
+6tz''
+6ts''
+6f''
+6q''
+6y''
+%%%% consonants at the beggining of words
+.b6
+.g6
+.d6
+.z6
+.j6
+.k6
+.l6
+.m6
+.n6
+.x6
+.p6
+.r6
+.s6
+.t6
+.f6
+.q6
+.y6
+%%%% separable double consonants
+4b1b
+4g1g
+4d1d
+4z1z
+4j1j
+4k1k
+4l1l
+4m1m
+4n1n
+4p1p
+4r1r
+4>r1<r
+4s1s
+4t1t
+4f1f
+4q1q
+4y1y
+%%%% other breakable consonant combinations
+4b1z
+4b1j
+4b1k
+4b1m
+4b1n
+4b1x
+4b1p
+4b1s
+4b1t
+4b1f
+4b1q
+4b1y
+4g1b
+4g1z
+4g1j
+4g1k
+4g1m
+4r5g2m % >'er-gma = >'ergo (>arq.)
+4g1x
+4g1p
+4g1s
+4g1t
+4g1f
+4g1q
+4g1y
+4d1b
+4d1g
+4d1z
+4d1j
+4d1k
+4d1l 
+% "dm" --- not separable: dm~hsic = >exhm'erwsh (>arq.)
+% "dn" --- not separable: dnofer'oc = zofer'oc, skotein'oc (>arq.)
+%                        Dne'iperoc = potam'oc t~hc Rws'iac
+4d1x
+4d1p
+4d1s
+4d1t
+4d1f
+4d1q
+4d1y
+4z1b % "zb" and "zg" appear in the beggining of Greek words (e.g., in
+4z1g % Andriotes' Lexicon), but they're usually written as "sb" and "sg".
+4z1d
+4z1j
+4z1k
+4z1l
+4z1m
+tz2m % m'ana-tzment (m'ana-tzment)
+4z1n
+4z1x
+4z1p
+4z1r
+4z1s
+4z1t
+4z1f
+4z1q
+4z1y
+4j1b
+4j1g
+4j1d
+4j1z
+4j1k
+4j1m
+4r5j2m % por-jm'oc
+sj2m   % >i-sjm'oc
+4j1x
+4j1p
+4j1s
+4j1t
+4j1f
+4j1q
+4j1y
+4k1b % "kb" may not be separable: kb'anto kbantomhqanik`h
+4k1g
+4k1d
+4k1z
+4k1j
+4l5k2m % >Al-km'hnh
+4r5k2m % dar-km'a = draqm'h (>arq.)
+4k1x
+4k1p
+4k1s
+4k1f
+4g5k2f % Frag-kfo'urth
+4n5k2f % Fran-kfo'urth
+4k1q
+4k1y
+4l1b
+4l1g
+4l1d
+4l1z
+4l1j
+4l1k
+4l1m
+4l1n
+4l1x
+4l1p
+4l1r
+4l1s
+4l1t
+4l1f
+4l1q
+4l1y
+4m1b
+4m1g
+4m1d
+4m1z
+4m1j
+4m1k
+4m1l
+4m1x
+4m1p
+4m1r
+4m1s
+4m1t
+4m1f
+4m1q
+4m1y
+4n1b
+4n1g
+4n1d
+4n1z
+4n1j
+4n1k
+4n1l
+4n1m
+4n1x
+4n1p
+4n1r
+4n1s
+4n1t
+4n1f
+4n1q
+4n1y
+4x1b
+4x1g
+4x1d
+4x1z
+4x1j
+4x1k
+4x1l
+4x1m
+4x1n
+4x1p
+4x1r
+4x1s
+4x1t
+4g5x2t % >el'eg-xte
+4r5x2t % <up'ar-xte
+4x1f
+4x1q
+4x1y
+4p1b
+4p1g
+4p1d
+4p1z
+4p1j
+4p1k
+4p1m
+4p1x
+4p1s
+4p1f
+4p1q
+4p1y
+4r1b
+4r1g
+4r1d
+4r1z
+4r1j
+4r1k
+4r1l
+4r1m
+4r1n
+4r1x
+4r1p
+4r1s
+4r1t
+4r1f
+4r1q
+4r1y
+4s1d % "sd" may not be separable: sde'ugla = ze'ugla (>arq.) 
+4s1z 
+4s1n % "sn" may not be separable: sn'iqi (= sb'erkoc) snompism'oc
+4s1x
+4s1r
+4s1y
+4t1b
+4t1g
+4t1d
+4t1j
+% "tl" --- not separable: tlhmws'unh = ft'wqia (>arq.)
+4t1n
+4t1x
+4t1p
+4t1f
+st2f % fa-stfountadiko Be-stfal'ia (German'ia)
+4t1q
+4t1y
+4f1b
+4f1g
+4f1d
+4f1z
+4f1k % "fk" may not be separable: fki'anw, fkias'idi
+4f1n
+4r5f2n % >or-fn'oc = skotein'oc (>arq.)
+4f1x
+4f1p
+4f1s
+4f1q
+4f1y
+4q1b
+4q1g
+4q1d
+4q1z
+4q1k
+4q1m
+4r5q2m % dar-qm'a = draqm'h (>arq.)
+4q1x
+4q1p
+4q1s
+4q1f
+4q1y
+4y1b
+4y1g
+4y1d
+4y1z
+4y1j
+4y1k
+4y1l
+4y1m
+4y1n
+4y1x
+4y1p
+4y1r
+4y1s
+4y1t
+4m5y2t % l'am-yte
+4y1f
+4y1q
+%%%%
+%%%% non-separable nasal combinations (gk, mp, nt) and some exceptions
+%%%%
+bg2k
+4l5g2k
+4n5g2k
+4r5g2k
+sg2k
+4t5g2k
+.giou5g2ko   % giou-gkosl'aboc
+5g2krant.    % B'olgko-gkrant (Rws'ia)
+>emi5g2kr    % >emi-gkr'ec
+>i5g2kou     % >i-gkou'ana
+>'intri5g2k  % >'intri-gka
+>intri5g2k
+.kara5g2ki   % kara-gki'ozhc
+.ma5g2ki'o   % ma-gki'oroc
+.mpa5g2k     % mpa-gkat'ela mpa-gk'eta
+.mpi5g2k     % mpi-gk'onia
+.nt'a5g2kl   % nt'a-gkla (??? not so sure)
+.nta5g2kl    % nta-gklar'ac (??? not so sure)
+.xe5g2k      % xe-gk'astri (??? not so sure)
+.x'e5g2k
+.saltip'a5g2k % saltip'a-gkoc (??? not so sure)
+.si5g2k      % si-gko'una
+.sp'a5g2k    % sp'a-gkoc spa-gkoramm'enoc
+.spa5g2k
+.fi'o5g2k    % fi'o-gkoc fio-gk'aki
+.fio5g2k
+.qo'uli5g2k  % qo'uli-gkan qouligk'anoc qouli-gkanism'oc
+.qouli5g2k
+%%%%
+4z5m2p
+4l5m2p
+4n5m2p
+4r5m2p
+sm2p
+>ala5m2pou   % >ala-mpourn'ezika
+>'a5m2ak     % >'a-mpakoc
+>a5m2p'ak
+>a5m2pan     % >a-mpan'ozi >a-mpan-ton'arisma 
+>a5m2p'ar    % >a-mp'ara >a-mpar'wnw
+>a5m2p~ar
+>a5m2par
+  >a6m3p'ari   % >am-p'ari
+  >a6m3pari
+>a5m2pr      % >a-mpr'i
+>ara5m2p     % >ara-mp'ac
+>arlo'u5m2p  % >arlo'u-mpa
+>arlo~u5m2p
+>arlou5m2p
+.b'o5m2pir   % b'o-mpirac (??? not so sure)
+.bo5m2pir    % bo-mpiriasm'enoc (??? not so sure)
+.g'a5m2pi    % g'a-mpia
+.ga5m2pi
+.giara5m2p 		% giara-mp'hc
+.ze"i5m2p    % ze"i-mp'ekikoc
+>i5m2pra     % >i-mpra'hm
+.kala5m2pa   % kala-mpal'iki
+.kal'i5m2pr  % kal'i-mpra kali-mpr'arw
+.kali5m2pr  
+.ka5m2p'ad   % ka-mp'adikoc (= qontr'oc)
+.ka5m2par'e  % ka-mpa-r'e ka-mparetzo'u
+.ka5m2par`e
+.ka5m2pare
+.ka5m2p'in   % ka-mp'ina ka-mpin'ec
+.ka5m2p~in
+.ka5m2pin
+.k'a5m2pot   % k'a-mpoto (= >agglik'o <'ufasma) ka-mpot'inoc
+.ka5m2p'ot
+.ka5m2pot
+.kaou5m2p    % kaou-mp'ohc
+.kara5m2p    % kara-mp'ina kara-mpini'eroc
+  .kara6m3p'ol % karam-p'ola
+  .kara6m3pol
+.karna5m2p   % karna-mp'iti (= kounoup'idi)
+.ke5m2p      % ke-mp'ap ke-mpaptz'hc ke-mp'ec (= tro~uloc)
+.koli5m2pr   % koli-mpr'i 
+.kolo'u5m2pr % kolo'u-mpra (??? not so sure)
+.kolo~u5m2pr
+.kolou5m2pr
+.k'o5m2pr    % k'o-mpra
+.ko5m2pr
+  .ko6m3pr'ess % kom-pr'essa
+  .ko6m3press
+.kontra5m2p  % kontra-mp'aso kontra-mp'anto (= lajremp'orio)
+.koulo'u5m2pr % koulo'u-mpra (??? not so sure)
+.koulo~u5m2pr
+.koulou5m2pr
+.kou5m2po'u  % kou-mpo'uri kou-mpo'urac
+.kou5m2po~u
+.kou5m2pou
+.kwlo'u5m2pr % kwlo'u-mpra (??? not so sure)
+.kwlo~u5m2pr
+.kwlou5m2pr
+.li5m2pr     % li-mpr'eto
+.l'o5m2p     % l'o-mpu (i)
+.manit'o5m2p % manit'o-mpa (sit'ari)
+5m2pa5m2p    % mpa-mp'ac mpa-mp'a-kac mpa-mp'eshc qazo-mpa-mp'ac
+5m2p'a5m2p   % mp'a-mpw mp'a-mpouska
+  .mpa6m3p'aki % mpam-p'aki
+  .mpa6m3paki
+.mpaske2t5m2p  % mpasket-mpwl'istac
+.mpasi5m2pouz % mpasi-mpouzo~ukoc
+5m2p'ehc.    % Petr'o-mpehc k.>'a.<'o.
+5m2pehc.
+5m2p'ehs.
+5m2pehs.
+5m2p'eh.
+5m2peh.
+5m2p'ehdec.
+5m2p'ehdes.
+5m2p'ehdwn.
+5m2p'e5m2p   % mp'e-mphc mp'e-mpa mpe-mp'ekoc bouturo-mpe-mp'ec
+5m2pe5m2p
+.mpi5m2p     % mpi-mper'o mpi-mpel'o
+5m2pogi      % nero-mpogi'a lado-mpogi'a
+.mp'o5m2pir  % mp'o-mpirac (??? not so sure)
+.mpo5m2pir   % mpo-mpiriasm'enoc (??? not so sure)
+.mpo5m2p'ot  % mpo-mp'ota
+.mpo5m2pot
+.mpou5m2po'un % mpou-mpoun'izw mpou-mpo'unac
+.mpou5m2po~un 
+.mpou5m2poun 
+.n'o5m2pel   % n'o-mpel no-mpel'istac
+.no5m2pel    
+.nt'o5m2pr   % nt'o-mproc nto-mpros'unh
+.nto5m2pr
+.xe5m2p      % xe-mprosti'azw x'e-mparkoc
+.x'e5m2p
+>'o5m2po     % >'o-mpoe >o-mpo"'istac
+>o5m2po
+.re5m2p      % re-mp'ethc
+.r'e5m2p     % r'e-mpeloc
+.repo'u5m2pl % repo'u-mplika
+.repou5m2pl  % repou-mplik'anoc
+.ro5m2p      % ro-mp'ot, ro-mpotik'h
+r'o5m2pa     % r'o-mpa gkarntar'o-mpa pali'oro-mpa
+r'o5m2pe
+r'o5m2pw
+ro5m2p~w
+ro5m2pa
+ro5m2pe
+ro5m2pw
+  .tro6m3p	 % tro-mp'oni
+  .tr'o6m3p      % tr'om-pa
+.rou5m2p     % rou-mp'ini
+.sa2m5pot    % sa-mpot'az sa-mpot'arw
+.s'e5m2pr    % s'e-mproc
+.ska5m2pab   % ska-mpab'ia
+.sno5m2p     % sno-mpar'ia sno-mpism'oc
+s'o5m2pa     % s'o-mpa xul'o-sompa
+s'o5m2pe
+so5m2p~w
+s'o5m2pw
+so5m2pa
+so5m2pe
+so5m2pw
+.so'u5m2p    % so'u-mpitoc
+.sou5m2p
+.tabla5m2p   % tabla-mp'ac
+.ta5m2p      % ta-mpo'uri ta-mpo'u ta-mpl'ac ta-mp'ela ta-mpaki'era
+  .ta6m3peram  % tam-peram'ento
+  .ta6m3po~url % tam-po~urlo
+  .ta6m3po'url
+.te5m2pes    % te-mpes'iri
+.tz'a5m2p    % tz'a-mpa tza-mpatz'hc
+.tza5m2p
+.tzana5m2p   % tzana-mp'ethc tzana-mpeti'a
+.tzi5m2p     % Tzi-mpout'i (= q'wra >Afrik~hc) Tzi-mpal'i (= p'olh Tourk'iac)
+.tzou5m2p    % tzou-mp'ec (= panwf'ori)
+.t'o5m2pr    % t'o-mproc to-mpros'unh To-mpro'uk (= p'olh >Afrik~hc)
+.to5m2pr
+.tra5m2p'al  % tra-mp'ala tra-mpal'izomai
+.tra5m2pal
+.tra5m2po~uk % tra-mpo~ukoc
+.tra5m2po'uk
+.tra5m2pouk
+.ts'a5m2pa   % ts'a-mpa tsa-mpatz'hc
+.tsa5m2pa
+.tsi5m2po'uk % tsi-mpo'uki
+.tsi5m2pouk
+.tsi5m2po'us % tsi-mpo'usi 
+.tsi5m2pous
+.f'a5m2prik  % f'a-mprika
+.fa5m2prik
+.fra5m2p     % fra-mpal'ac
+.qa5m2p      % qa-mp'ari qa-mp'eri
+.q'o5m2p     % q'o-mpu (i)
+.qontro5m2pa % qontro-mpal'ac
+%%%%
+b5n2t
+z5n2t
+l5n2t
+mn2t
+r5n2t
+sn2t
+>a5n2t'atz   % >a-nt'atzio
+>atra5n2t'e  % >atra-nt'ec
+>atra5n2t`e
+.b'i5n2te    % b'i-nteo bi-nteok'amera
+.bi5n2te
+.giaqou5n2t  % giaqou-nt'hc (= <ebra~ioc)
+.gibe5n2t    % gibe-nt'izw
+.gk'ai5n2t   % gk'ai-nta
+.gk'a"i5n2t
+.gka"i5n2t
+.ka5n2ta"'i  % ka-nta"'ifi
+.ka5n2ta"i
+.ka5n2tr     % ka-ntr'ilia
+.likbi5n2tar % likbi-ntarism'oc (??? not so sure)
+.ma"i5n2t    % ma"i-ntan'oc
+.ma5n2t'am   % ma-nt'am ma-ntam'itsa
+.ma5n2t`am
+.ma5n2tam
+.ma5n2t'em   % ma-nt'emi
+.ma5n2tem
+.me"i5n2t'a  % me"i-nt'ani
+.me"i5n2ta
+.mo5n2t'el   % mo-nt'elo mo-ntelism'oc
+.mo5n2tel
+mo5n2t'ern   % mo-nt'erno metamo-nternism'oc
+mo5n2tern
+.mpal'a5n2t  % mpal'a-nta
+.mpala5n2t
+.mpa5n2tan   % mpa-ntan'ac
+.mpe5n2t     % mpe-nt'eli mpe-nt'eni
+.mpi5n2t     % mpi-nt'ec
+.mpou5n2ta   % mpou-ntal'ac
+.mpou5n2tr   % mpou-ntro'umi
+.nisa5n2t    % nisa-nt'iri
+.nta5n2t     % nta-nt'a
+.ntermpe5n2t % ntermpe-nt'erhc
+5n2t'iban    % mpaoulo-nt'ibano
+.ntou5n2to'uk % ntou-nto'uka
+.ntou5n2to~uk
+.ntou5n2touk
+.xe5n2t      % xe-nt'unw x'e-ntutoc
+.x'e5n2t
+>o5n2t'a     % >o-nt'ac
+>o5n2t`a
+>o5n2t~a
+.reze5n2t    % reze-nt'a
+.re5n2t'i    % re-nt'ikolo
+.re5n2ti 
+.ro~u5n2t    % ro~u-ntoc (= lept'oc) Ro'u-ntolf
+.ro'u5n2t
+.se5n2t'ef   % se-nt'efi
+.se5n2tef
+.se5n2to~u   % se-nto~uki
+.se5n2to'u
+.se5n2tou
+.tsa5n2t'i   % tsa-nt'ila tsa-nt'iri
+.tsa5n2ti
+.fastfou5n2t % fastfou-nt'adiko
+.qa5n2to     % qa-nto'umhc  
+.qa5n2tr     % qa-ntr~wn, q'a-ntra
+.q'a5n2tr
+%%%%
+%%%% some `weird' terminations in words of Greek and non-Greek origin
+%%%%
+6br.   % >or-nt'ebr
+6gl.   % (<od`oc Kar'olou) >'Ogl (B'oloc)
+6kl.   % pi-n'akl
+6kt.   % t'akt
+6kc.   % t'ankc
+6ks.
+6lc.   % <'alc (<a-l'oc)
+6ls.
+6m2pl. % nt'ampl (pod'osfairo)
+6m2pn. % >'Impn (Sa"'int, >arabik'o >'onoma)
+6m2pr. % romp-nte-s'ampr
+6mc.   % Tz'eimc
+6ms.
+6nc.   % <'el-minc (<'el-min-joc) tr'anc
+6ns.
+6rc.   % (>empr`oc) m'arc
+6rs.
+6sk.   % Noboros'isk (p'olh t~hc Rws'iac)
+6st.   % k'arst mp'ost
+6tl.   % Si'atl (p'olh t~wn HPA)
+6tr.   % ma'itr
+6ft.   % kriskr'aft
+6qt.   % B'ermaqt (Germanik`oc Strat'oc)
+%%%%
+%%%% some weird double-consonant combinations that may occur in 
+%%%% words of non-greek origin like "romp-nte-s'ampr" (= robe de
+%%%% chambre)
+%%%%
+6g2k5m2p
+6g2k5n2t
+6g2k1tz
+6g2k1ts
+6m2p5n2t
+6m2p1tz
+6m2p1ts
+6n2t5m2p
+6ts5g2k
+6ts5m2p
+6ts5n2t
+} % end patterns
+%%%%
+%%%% some non-declined words of non-Greek origin with non-separable
+%%%% nasal combinations (gk, mp, nt), and some other exceptions (e.g.,
+%%%% di-'a)
+%%%%
+\hyphenation{%
+>a-l'e-gkro 
+>a-mpa-zo`ur >a-mpa-zo'ur >a-mpa-zo~ur
+>a-nt'i-o
+>a-out-s'ai-nter >a-out-s'a"i-nter
+gi'a-ntec 
+di-`a di-'a
+zim-p'a-mpou-e 
+ka-ska-nt`er ka-ska-nt'er 
+ko-me-nt`i ko-me-nt'i
+la-mpra-nt`or la-mpra-nt'or
+l'i-mpi-nto 
+lou-mp`en lou-mp'en lo~u-mpen 
+ma-ra-mpo`u ma-ra-mpo'u ma-ra-mpo~u 
+me-nta-gi`on me-nta-gi'on 
+m'e-nti-oum m'e-nti-a
+ne-gkli-z`e ne-gkli-z'e 
+nte-mo-nt`e nte-mo-nt'e 
+po-gkr`om po-gkr'om
+ra-nt`ar ra-nt'ar 
+sa-mp`o sa-mp'o 
+sl'o-gkan
+sto'u-nti-o 
+t'i-gka 
+}
+\endgroup
+\endinput

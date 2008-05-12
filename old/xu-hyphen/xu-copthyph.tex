@@ -1,0 +1,19 @@
+% xu-copthyph.tex
+% Wrapper for XeTeX to read copthyph.tex or utf8 version
+% Jonathan Kew, 2006-08-24
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+
+  \input copthyph.tex
+
+\else
+
+  \input utf8-copthyph.tex
+
+\fi
+
+\endgroup
+\endinput

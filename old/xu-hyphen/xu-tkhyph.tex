@@ -1,0 +1,31 @@
+% xu-tkhyph.tex
+% Wrapper for XeTeX to read tkhyph.tex
+% Jonathan Kew, 2006-08-18
+% updated:
+%   2006-09-13  move \def\input to apply only under xetex
+% Public domain
+
+\begingroup
+
+\let\INPUT=\input
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  \def\input #1 {} % disable \input of cathyph.tex by tkhyph.tex
+
+  \catcode"11=\active
+  \def^^11{^^^^0131}% dotlessi incorrectly coded as ^^11 (EC: quotedblright)
+
+  \let\PATTERNS=\patterns
+  \def\patterns{%
+    \INPUT xu-t1.tex
+    \PATTERNS
+  }
+
+\fi
+
+\INPUT tkhyph.tex
+
+\endgroup
+\endinput

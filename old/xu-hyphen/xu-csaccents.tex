@@ -1,0 +1,53 @@
+% xu-csaccents.tex
+% Define accent commands used in {cz|sk}hyphen.tex to map to Unicode characters
+% for use when loading hyphenation Czech & Slovak patterns in XeTeX
+% (NOT intended for other uses than pattern-loading)
+% Jonathan Kew, 2006-08-18
+% Public domain
+
+\def\BAD{\errmessage{Hyphenation file corrupted!}}
+
+\def\^#1{%
+  \ifx o#1^^f4\else
+  \BAD
+  \fi}%
+\def\`#1{%
+  \ifx a#1^^e0\else
+  \BAD
+  \fi}%
+\def\'#1{%
+  \ifx a#1^^e1\else
+  \ifx e#1^^e9\else
+  \ifx\i#1^^ed\else
+  \ifx i#1^^ed\else
+  \ifx o#1^^f3\else
+  \ifx u#1^^fa\else
+  \ifx y#1^^fd\else
+  \ifx r#1^^^^0155\else
+  \ifx l#1^^^^013a\else
+  \BAD
+  \fi\fi\fi\fi\fi\fi\fi\fi\fi}%
+\def\v#1{%
+  \ifx e#1^^^^011b\else
+  \ifx s#1^^^^0161\else
+  \ifx c#1^^^^010d\else
+  \ifx r#1^^^^0159\else
+  \ifx z#1^^^^017e\else
+  \ifx d#1^^^^010f\else
+  \ifx t#1^^^^0165\else
+  \ifx l#1^^^^013e\else
+  \ifx n#1^^^^0148\else
+  \BAD
+  \fi\fi\fi\fi\fi\fi\fi\fi\fi}%
+\def\"#1{%
+  \ifx a#1^^e4\else
+  \ifx o#1^^f6\else
+  \ifx u#1^^fc\else
+  \BAD
+  \fi\fi\fi}%
+\def\r#1{%
+  \ifx u#1^^^^016f\else
+  \BAD
+  \fi}%
+
+\endinput

@@ -1,0 +1,59 @@
+% xu-srhyphc.tex
+% Wrapper for XeTeX to read srhyphc.tex
+% Jonathan Kew, 2006-08-18
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  \catcode"D0=13 \def^^d0{^^^^0430}
+  \catcode"D1=13 \def^^d1{^^^^0431}
+  \catcode"D2=13 \def^^d2{^^^^0432}
+  \catcode"D3=13 \def^^d3{^^^^0433}
+  \catcode"D4=13 \def^^d4{^^^^0434}
+  \catcode"F2=13 \def^^f2{^^^^0452}
+  \catcode"D5=13 \def^^d5{^^^^0435}
+  \catcode"D6=13 \def^^d6{^^^^0436}
+  \catcode"D7=13 \def^^d7{^^^^0437}
+  \catcode"D8=13 \def^^d8{^^^^0438}
+  \catcode"F8=13 \def^^f8{^^^^0458}
+  \catcode"DA=13 \def^^da{^^^^043a}
+  \catcode"DB=13 \def^^db{^^^^043b}
+  \catcode"F9=13 \def^^f9{^^^^0459}
+  \catcode"DC=13 \def^^dc{^^^^043c}
+  \catcode"DD=13 \def^^dd{^^^^043d}
+  \catcode"FA=13 \def^^fa{^^^^045a}
+  \catcode"DE=13 \def^^de{^^^^043e}
+  \catcode"DF=13 \def^^df{^^^^043f}
+  \catcode"E0=13 \def^^e0{^^^^0440}
+  \catcode"E1=13 \def^^e1{^^^^0441}
+  \catcode"E2=13 \def^^e2{^^^^0442}
+  \catcode"FB=13 \def^^fb{^^^^045b}
+  \catcode"E3=13 \def^^e3{^^^^0443}
+  \catcode"E4=13 \def^^e4{^^^^0444}
+  \catcode"E5=13 \def^^e5{^^^^0445}
+  \catcode"E6=13 \def^^e6{^^^^0446}
+  \catcode"E7=13 \def^^e7{^^^^0447}
+  \catcode"FF=13 \def^^ff{^^^^045f}
+  \catcode"E8=13 \def^^e8{^^^^0448}
+
+  \let\BEGINGROUP=\begingroup
+  \def\begingroup{\BEGINGROUP
+    \XeTeXinputencoding "bytes"
+  }
+
+  \let\PATTERNS=\patterns
+  \def\patterns{%
+    \endgroup
+    \BEGINGROUP
+    \PATTERNS
+  }
+
+\fi
+
+\input srhyphc.tex
+
+\endgroup
+\endinput

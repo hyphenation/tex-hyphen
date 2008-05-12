@@ -1,0 +1,31 @@
+% xu-sorhyph.tex
+% Wrapper for XeTeX to read sorhyph.tex
+% Jonathan Kew, 2006-08-17
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  \def\bgroup{% at the initial \bgroup in sorhyph...
+    \XeTeXinputencoding "bytes" % read the rest of the file as raw bytes
+    \begingroup
+  }
+
+  \let\egroup=\endgroup
+
+  \let\PATTERNS=\patterns
+  \def\patterns{% at the \patterns command...
+    \endgroup % end group containing sorhyph.tex's local definitions
+    \begingroup % and start our own (to match \egroup in sorhyph.tex)
+    \input xu-t1.tex % map T1 codes to Unicode characters
+    \PATTERNS % and then load the real patterns
+  }
+
+\fi
+
+\input sorhyph.tex
+
+\endgroup
+\endinput

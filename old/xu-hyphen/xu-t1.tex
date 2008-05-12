@@ -1,0 +1,90 @@
+% xu-t1.tex
+% make T1 letters \active and map them to Unicode character codes
+% (for use when loading hyphenation patterns that use ^^xx notation
+%  to represent characters in T1 font encoding, or literal 8-bit
+%  bytes if read using \XeTeXinputencoding "bytes")
+% Jonathan Kew, 2006-08-15
+% Public domain
+%
+\catcode`\"=12 % ensure " isn't active or otherwise "weird"
+\catcode`\^=7 % ensure ^ is the proper catcode for hex notation
+%
+\catcode"B0=\active \def^^b0{^^^^0159} % rcaron
+\catcode"B1=\active \def^^b1{^^^^015b} % sacute
+\catcode"B2=\active \def^^b2{^^^^0161} % scaron
+\catcode"B3=\active \def^^b3{^^^^015f} % scedilla
+\catcode"B4=\active \def^^b4{^^^^0165} % tcaron
+\catcode"B5=\active \def^^b5{^^^^0163} % tcedilla
+\catcode"B6=\active \def^^b6{^^^^0171} % uhungarianumlaut
+\catcode"B7=\active \def^^b7{^^^^016f} % uring
+\catcode"B8=\active \def^^b8{^^^^00ff} % ydieresis
+\catcode"B9=\active \def^^b9{^^^^017a} % zacute
+\catcode"BA=\active \def^^ba{^^^^017e} % zcaron
+\catcode"BB=\active \def^^bb{^^^^017e} % zdot
+\catcode"BC=\active \def^^bc{^^^^0133} % ij
+\catcode"BD=\active \def^^bd{^^^^00a1} % exclamdown % MUST COME BEFORE ^^A1 REDEFINITION
+\catcode"BE=\active \def^^be{^^^^00bf} % questiondown % (etc)
+\catcode"BF=\active \def^^bf{^^^^00a3} % sterling
+%
+\catcode"80=\active \def^^80{^^^^0102} % Abreve
+\catcode"81=\active \def^^81{^^^^0104} % Aogonek
+\catcode"82=\active \def^^82{^^^^0106} % Cacute
+\catcode"83=\active \def^^83{^^^^010c} % Ccaron
+\catcode"84=\active \def^^84{^^^^010e} % Dcaron
+\catcode"85=\active \def^^85{^^^^011a} % Ecaron
+\catcode"86=\active \def^^86{^^^^0118} % Eogonek
+\catcode"87=\active \def^^87{^^^^011e} % Gbreve
+\catcode"88=\active \def^^88{^^^^0139} % Lacute
+\catcode"89=\active \def^^89{^^^^013d} % Lcaron (Lapostrophe)
+\catcode"8A=\active \def^^8a{^^^^0141} % Lslash
+\catcode"8B=\active \def^^8b{^^^^0143} % Nacute
+\catcode"8C=\active \def^^8c{^^^^0147} % Ncaron
+\catcode"8D=\active \def^^8d{^^^^014a} % Eng
+\catcode"8E=\active \def^^8e{^^^^0150} % Ohungarianumlaut
+\catcode"8F=\active \def^^8f{^^^^0154} % Racute
+%
+\catcode"90=\active \def^^90{^^^^0158} % Rcaron
+\catcode"91=\active \def^^91{^^^^015a} % Sacute
+\catcode"92=\active \def^^92{^^^^0160} % Scaron
+\catcode"93=\active \def^^93{^^^^015e} % Scedilla
+\catcode"94=\active \def^^94{^^^^0164} % Tcaron
+\catcode"95=\active \def^^95{^^^^0162} % Tcedilla
+\catcode"96=\active \def^^96{^^^^0170} % Uhungarianumlaut
+\catcode"97=\active \def^^97{^^^^016e} % Uring
+\catcode"98=\active \def^^98{^^^^0178} % Ydieresis
+\catcode"99=\active \def^^99{^^^^0179} % Zacute
+\catcode"9A=\active \def^^9a{^^^^017d} % Zcaron
+\catcode"9B=\active \def^^9b{^^^^017b} % Zdot
+\catcode"9C=\active \def^^9c{^^^^0132} % IJ
+\catcode"9D=\active \def^^9d{^^^^0130} % Idot
+\catcode"9E=\active \def^^9e{^^^^0111} % dbar
+\catcode"9F=\active \def^^9f{^^^^00a7} % section
+%
+\catcode"A0=\active \def^^a0{^^^^0103} % abreve
+\catcode"A1=\active \def^^a1{^^^^0105} % aogonek
+\catcode"A2=\active \def^^a2{^^^^0107} % cacute
+\catcode"A3=\active \def^^a3{^^^^010d} % ccaron
+\catcode"A4=\active \def^^a4{^^^^010f} % dcaron
+\catcode"A5=\active \def^^a5{^^^^011b} % ecaron
+\catcode"A6=\active \def^^a6{^^^^0119} % eogonek
+\catcode"A7=\active \def^^a7{^^^^011f} % gbreve
+\catcode"A8=\active \def^^a8{^^^^013a} % lacute
+\catcode"A9=\active \def^^a9{^^^^013e} % lcaron (lapostrophe)
+\catcode"AA=\active \def^^aa{^^^^0142} % lslash
+\catcode"AB=\active \def^^ab{^^^^0144} % nacute
+\catcode"AC=\active \def^^ac{^^^^0148} % ncaron
+\catcode"AD=\active \def^^ad{^^^^014b} % eng
+\catcode"AE=\active \def^^ae{^^^^0151} % ohungarianumlaut
+\catcode"AF=\active \def^^af{^^^^0155} % racute
+%
+% "C0.."FF match ISO Latin-1 and Unicode, except for:
+\catcode"FF=\active \def^^ff{^^^^00df} % germandbls
+\catcode"DF=\active \def^^df{SS} % SS
+\catcode"F7=\active \def^^f7{^^^^0153} % oe
+\catcode"D7=\active \def^^d7{^^^^0152} % OE
+%
+% we don't handle the non-letter codes in the control range
+% but we'd better handle dotless-i (for Turkish)
+\catcode"19=\active \def^^19{^^^^0131} % dotlessi
+%
+\endinput

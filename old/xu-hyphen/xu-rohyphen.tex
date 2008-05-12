@@ -1,0 +1,51 @@
+% xu-rohyph.tex
+% Wrapper for XeTeX to read rohyphen.tex
+% Jonathan Kew, 2006-10-07
+% Public domain
+
+\begingroup
+
+\let\INPUT=\input
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  %	"a = \u{a}			[-]  \u{A} [not encoded]
+  %	"A = \^{a}			[-]  \^{A} [not encoded]
+  %	"i = \^{\i}			"I = \^{I}
+  %	"s = \c{s}			"S = \c{S}
+  %	"t = \c{t}			"T = \c{T}
+  \catcode`\"=13
+  \def"#1{\ifx#1a^^^^0103\else
+    \ifx#1A^^^^00e2\else
+    \ifx#1i^^^^00ee\else
+    \ifx#1s^^^^015f\else
+    \ifx#1t^^^^0163\else
+      \errmessage{Hyphenation pattern file corrupted!}%
+    \fi\fi\fi\fi\fi}
+  \catcode`\"=12
+
+  \def\n#1{#1} % accept patterns with accented chars
+
+  \def\INPUT #1 {
+    \begingroup
+      % rohyphen's assignments to \catcode, \lccode etc are not in a group
+      % so we begin one here, and end it at \patterns
+    \input #1
+  }
+
+  \let\PATTERNS=\patterns
+  \def\patterns{%
+    \endgroup % discard legacy " definitions from rohyphen.tex
+    \endgroup % and end the group we started at \INPUT (for catcodes etc)
+    \begingroup
+    \catcode`\"=13 % activate our definitions from above
+    \PATTERNS
+  }
+
+\fi
+
+\INPUT rohyphen.tex
+
+\endgroup
+\endinput

@@ -1,0 +1,38 @@
+% xu-eohyph.tex
+% Wrapper for XeTeX to read eohyph.tex
+% Jonathan Kew, 2006-09-26
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  % expand ^letter to Unicode character
+  \def\E{\errmessage{Esperanto hyphenation pattern file is corrupted}}
+  \catcode`\!=7  % use !!xy instead of ^^xy
+  \catcode`\^=13 % for Esperanto's diacritics
+  \def^#1{\ifx#1c!!!!0109\else \ifx#1g!!!!011d%
+    \else \ifx#1h!!!!0125\else \ifx#1j!!!!0135%
+    \else \ifx#1s!!!!015d\else \ifx#1u!!!!016d%
+    \else \E \fi\fi\fi\fi\fi\fi
+  }
+  
+  % inflection macros copied from eohyph.tex
+  \def\adj#1{#1a. #1aj. #1ajn. #1an. #1e.}
+  \edef\nom#1{\adj{#1} #1o. #1oj. #1ojn. #1on.}
+  \def\ver#1{#1as. #1i. #1is. #1os. #1u. #1us.}
+
+  \let\PATTERNS=\patterns
+  \def\patterns{% at the \patterns command...
+    \endgroup % forget the definitions from eohyph.tex
+    \begingroup % new group to match \endgroup in eohyph.tex
+    \PATTERNS % and then load the real patterns
+  }
+
+\fi
+
+\input eohyph.tex
+
+\endgroup
+\endinput

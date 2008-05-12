@@ -1,0 +1,23 @@
+% xu-skhyph.tex
+% Wrapper for XeTeX to read skhyph[en].tex from CSTeX
+% Jonathan Kew, 2006-08-18
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+
+  \input skhyph.tex
+
+\else
+
+  \let\global=\relax % don't add message to \everyjob
+
+  \input xu-csaccents.tex
+  \input skhyphen.tex
+  \input skhyphen.ex
+
+\fi
+
+\endgroup
+\endinput

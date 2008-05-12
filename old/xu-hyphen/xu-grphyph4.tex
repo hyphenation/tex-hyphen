@@ -1,0 +1,19 @@
+% xu-grphyph4.tex
+% Wrapper to read grphyph4.tex (TeX) or utf8-grphyph4.tex (XeTeX)
+% Jonathan Kew, 2006-08-19
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+
+  \input grphyph4.tex
+
+\else
+
+  \input utf8-grphyph4.tex
+
+\fi
+
+\endgroup
+\endinput

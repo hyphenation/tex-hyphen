@@ -1,0 +1,40 @@
+% xu-dehyphn.tex
+% Wrapper for XeTeX to read dehyphn.tex
+% Jonathan Kew, 2006-08-17
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  \catcode`\?=7
+  % Define the accent macro " in such a way that it
+  % expands to single letters in Unicode
+  \catcode`\"=13
+  \def"#1{\ifx#1a??e4\else \ifx#1o??f6\else \ifx#1u??fc\else
+      \errmessage{Hyphenation pattern file corrupted!}%
+    \fi\fi\fi}
+  %   - patterns with umlauts are ok
+  \def\n#1{#1}
+  %   - define \3 to be character "00DF (\ss in Unicode)
+  \def\3{??df}
+  %   - define \9 to throw an error
+  \def\9{\errmessage{Hyphenation pattern file corrupted!}}
+  %   - duplicated patterns to support font encoding OT1 are not wanted
+  \def\c#1{}
+  %
+  \let\PATTERNS=\patterns
+  \def\patterns{% at the \patterns command in dehyphn.tex...
+    \endgroup % end group containing local definitions from dehyphn
+    \begingroup % and start our own (to match \endgroup in dehyphn)
+    %
+    \PATTERNS % and then load the real patterns
+  }
+
+\fi
+
+\input dehyphn.tex
+
+\endgroup
+\endinput

@@ -1,0 +1,29 @@
+% xu-hrhyph.tex
+% Wrapper for XeTeX to read hrhyph.tex
+% Jonathan Kew, 2006-08-17
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  \let\PATTERNS=\patterns
+  \def\patterns{% at the \patterns command in hrhyph.tex...
+    \endgroup % end group containing hrhyph.tex's local definitions
+    \begingroup % and start our own (to match \endgroup in hrhyph.tex)
+
+    \input xu-t1.tex % remap T1 codes to Unicode characters
+
+    \PATTERNS % and then load the real patterns
+  }
+
+\fi
+
+\input hrhyph.tex
+
+\endgroup
+
+\lefthyphenmin=2 \righthyphenmin=2
+
+\endinput

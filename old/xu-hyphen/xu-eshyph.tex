@@ -1,0 +1,25 @@
+% xu-eshyph.tex
+% Wrapper for XeTeX to read eshyph.tex
+% Jonathan Kew, 2006-09-13
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  % eshyph.tex includes \catcode and \lccode settings for Latin-1
+  % but these are harmless (and are written using ^^xx notation)
+
+  \let\PATTERNS=\patterns
+  \def\patterns{% at the \patterns command...
+    \XeTeXinputencoding "bytes" % read the rest of the file as raw bytes
+    \PATTERNS % and then load the real patterns
+  }
+
+\fi
+
+\input eshyph.tex
+
+\endgroup
+\endinput
