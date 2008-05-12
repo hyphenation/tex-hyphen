@@ -1,0 +1,178 @@
+already converted:
+
+# language	code	supported encoding(s)
+
+slovenian		sl[_SI]		ec
+=slovene
+
+
+these mappings are used in ConTeXt:
+
+dutch		nl		texnansi, ec
+french		fr		texnansi, ec
+german		de		texnansi, ec
+italian		it		texnansi, ec
+portuguese		pt		texnansi, ec
+croatian		hr		ec
+polish		pl		qx (pl0?)
+vietnamese		vn		t5
+russian		ru		t2a?
+
+check!!!
+czech, slovak		cs/sk		ec, il2?
+
+
+TODO (delete all the three entries once patterns are converted):
+
+english		hyphen.tex  % do not change!
+=usenglish
+=USenglish
+=american
+%
+% ushyphmax.tex, on the other hand, includes Gerard Kuiken's additional
+% patterns; it is not frozen.
+usenglishmax	ushyphmax.tex
+ukenglish	ukhyphen.tex
+portuguese	pthyph.tex
+=portuges
+dutch		nehyph96.tex
+basque		xu-bahyph.tex
+spanish		xu-eshyph.tex
+=espanol
+catalan		cahyph.tex
+galician	xu-glhyph.tex
+swedish		svhyph.tex
+russian		xu-ruhyphen.tex
+norsk		xu-nohyphbx.tex
+=norwegian
+nynorsk         nnhyph.tex
+bokmal          nbhyph.tex
+interlingua	iahyphen.tex
+french		xu-frhyph.tex
+=patois
+=francais
+romanian	xu-rohyphen.tex
+indonesian	inhyph.tex
+danish		dkhyph.tex
+serbian		xu-srhyphc.tex
+estonian	xu-ethyph.tex
+welsh		cyhyph.tex
+czech		xu-czhyph.tex
+slovak		xu-skhyph.tex
+finnish		fihyph.tex
+pinyin		xu-pyhyph.tex
+croatian	xu-hrhyph.tex
+german		xu-dehypht.tex
+ngerman		xu-dehyphn.tex
+coptic		xu-copthyph.tex
+ukrainian	xu-ukrhyph.tex
+greek		xu-grphyph4.tex
+=polygreek
+monogreek	xu-grmhyph4.tex
+ancientgreek	xu-grahyph4.tex
+icelandic	icehyph.tex
+latin		xu-lahyph.tex
+uppersorbian	xu-sorhyph.tex
+mongolian2a mnhyphn.tex
+bulgarian	xu-bghyphen.tex
+ibycus ibyhyph.tex
+italian		ithyph.tex
+hungarian	xu-huhyphn.tex
+esperanto	xu-eohyph.tex
+farsi		zerohyph.tex
+=persian
+polish		xu-plhyph.tex
+arabic		zerohyph.tex
+mongolian	xu-mnhyph.tex
+turkish		xu-tkhyph.tex
+
+
+utf8-copthyph.tex
+utf8-grahyph4.tex
+utf8-grmhyph4.tex
+utf8-grphyph4.tex
+xu-bahyph.tex
+xu-bghyphen.tex
+xu-copthyph.tex
+xu-cp866nav.tex
+xu-csaccents.tex
+xu-czhyph.tex
+xu-dehyphn.tex
+xu-dehypht.tex
+xu-dehyphtex.tex
+xu-eohyph.tex
+xu-eshyph.tex
+xu-ethyph.tex
+xu-frhyph.tex
+xu-glhyph.tex
+xu-grahyph4.tex
+xu-grmhyph4.tex
+xu-grphyph4.tex
+xu-hrhyph.tex
+xu-huhyphn.tex
+xu-lahyph.tex
+xu-mnhyph.tex
+xu-nohyphbx.tex
+xu-plhyph.tex
+xu-pyhyph.tex
+xu-rohyphen.tex
+xu-ruhyphen.tex
+xu-skhyph.tex
+xu-sorhyph.tex
+xu-srhyphc.tex
+xu-t1.tex
+xu-tkhyph.tex
+xu-ukrhyph.tex
+
+bahyph.sh
+bahyph.tex
+cahyph.tex
+cathyph.tex
+copthyph.tex
+cyhyph.tex
+czhyph.tex
+czhyphen.ex
+dehyphn.tex
+dehypht.tex
+dehyphtex.tex
+dkcommon.tex
+dkhyph.tex
+dkspecial.tex
+eohyph.tex
+eshyph.tex
+ethyph.tex
+fihyph.tex
+frhyph.tex
+ghyphen.README
+glhyph.tex
+grahyph4.tex
+grmhyph4.tex
+grphyph4.tex
+hrhyph.tex
+huhyphn.tex
+hyphen.tex
+hypht1.tex
+iahyphen.tex
+ibyhyph.tex
+icehyph.tex
+inhyph.tex
+ithyph.tex
+lahyph.tex
+mnhyph.tex
+mnhyphn.tex
+nbhyph.tex
+nehyph96.tex
+nnhyph.tex
+nohyphbx.tex
+plhyph.tex
+pthyph.tex
+pyhyph.tex
+rohyphen.tex
+skhyph.tex
+skhyphen.ex
+sorhyph.tex
+srhyphc.tex
+svhyph.tex
+tkhyph.tex
+ukhyphen.tex
+ushyphmax.tex
