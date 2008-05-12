@@ -1,0 +1,12 @@
+\message{Slovenian Hyphenation Patterns}
+%
+\begingroup
+%
+\catcode`\@=11
+\ifx\@@input\undefined \let\@@input=\input \fi
+\@@input pattern-loader.tex
+%
+\lefthyphenmin=2 \righthyphenmin=2
+\loadhyphpatterns{sl_SI}{ec}%
+%
+\endgroup
