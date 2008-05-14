@@ -13,11 +13,11 @@
 
 \ifNativeUtfEightPatterns
   \def\loadhyphpatterns#1#2{\obeylines
-        \expandafter\read@patterns\@@input hyph-#1 \egroup}
+        \expandafter\read@patterns\@@input hyph-#1.pat \egroup}
 \else
   \def\loadhyphpatterns#1#2{\@@input conv_utf8_#2.tex
         \obeylines
-        \expandafter\read@patterns\@@input hyph-#1 \egroup}
+        \expandafter\read@patterns\@@input hyph-#1.pat \egroup}
 \fi
 
 \def\utf@eight@name{UTF-8}
