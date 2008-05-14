@@ -3,7 +3,7 @@ already converted:
 # language	original_file	code	supported_encoding(s)
 
 croatian	hrhyph.tex	hr[_HR]	ec
-
+========
 čćđšž
 ^^a3 -> č	ccaron
 ^^a2 -> ć	cacute
@@ -13,7 +13,7 @@ croatian	hrhyph.tex	hr[_HR]	ec
 
 
 polish	plhyph.tex	pl[_PL]	qx
-
+======
 ąćęłńóśźż
 /a -> ą	aogonek
 /c -> ć	cacute
@@ -27,18 +27,48 @@ polish	plhyph.tex	pl[_PL]	qx
 
 
 slovenian (slovene)	sihyph.tex	sl[_SI]	ec
-
+=========
 čšž
 "c -> č	ccaron
 "s -> š	scaron
 "z -> ž	zcaron
 
 
+"ukenglish"	ukhyphen.tex	en_UK	ascii/none
+===========
+
+
+
+
+german - not to be included this year
+======
+ec, also texnansi; original "supports" ot1 as well
+äöü are positioned at equal places in both ec & texnansi, while ß is at a different place in ec/texnansi/OT1
+
+          0x19 0xDF 0xFF
+ec         ı    SS   ß
+texnansi   ß    ß    ÿ
+OT1        ß    -    -
+
+äöüß
+"a -> ä
+"o -> ö
+"u -> ü
+/3 -> ß
+
+/9 duplicated entry for ß, only inside \c
+\n - keep pattern
+\c - delete pattern (duplicated)
+
+german - old	dehypht.tex
+german - new (ngerman)	dehyphn.tex
+
+hyphenation exceptions apparently loaded separately
+
 these mappings are used in ConTeXt:
 
 dutch		nl		texnansi, ec
 french		fr		texnansi, ec
-german		de		texnansi, ec
 italian		it		texnansi, ec
 portuguese		pt		texnansi, ec
 vietnamese		vn		t5
@@ -58,7 +88,6 @@ english		hyphen.tex  % do not change!
 % ushyphmax.tex, on the other hand, includes Gerard Kuiken's additional
 % patterns; it is not frozen.
 usenglishmax	ushyphmax.tex
-ukenglish	ukhyphen.tex
 portuguese	pthyph.tex
 =portuges
 dutch		nehyph96.tex
@@ -194,5 +223,4 @@ sorhyph.tex
 srhyphc.tex
 svhyph.tex
 tkhyph.tex
-ukhyphen.tex
 ushyphmax.tex
