@@ -3,17 +3,35 @@ already converted:
 # language	original_file	code	supported_encoding(s)
 
 croatian	hrhyph.tex	hr[_HR]	ec
+
+čćđšž
 ^^a3 -> č	ccaron
 ^^a2 -> ć	cacute
 ^^9e -> đ	dcroat
 ^^b2 -> š	scaron
 ^^ba -> ž	zcaron
 
+
+polish	plhyph.tex	pl[_PL]	qx
+
+ąćęłńóśźż
+/a -> ą	aogonek
+/c -> ć	cacute
+/e -> ę	eogonek
+/l -> ł	lslash
+/n -> ń	nacute
+/o -> ó	oacute
+/s -> ś	sacute
+/x -> ź	zacute
+/z -> ż	zdotaccent
+
+
 slovenian (slovene)	sihyph.tex	sl[_SI]	ec
+
+čšž
 "c -> č	ccaron
 "s -> š	scaron
 "z -> ž	zcaron
-
 
 
 these mappings are used in ConTeXt:
@@ -23,7 +41,6 @@ french		fr		texnansi, ec
 german		de		texnansi, ec
 italian		it		texnansi, ec
 portuguese		pt		texnansi, ec
-polish		pl		qx (pl0?)
 vietnamese		vn		t5
 russian		ru		t2a?
 
@@ -89,7 +106,6 @@ hungarian	xu-huhyphn.tex
 esperanto	xu-eohyph.tex
 farsi		zerohyph.tex
 =persian
-polish		xu-plhyph.tex
 arabic		zerohyph.tex
 mongolian	xu-mnhyph.tex
 turkish		xu-tkhyph.tex
@@ -120,7 +136,6 @@ xu-huhyphn.tex
 xu-lahyph.tex
 xu-mnhyph.tex
 xu-nohyphbx.tex
-xu-plhyph.tex
 xu-pyhyph.tex
 xu-rohyphen.tex
 xu-ruhyphen.tex
@@ -170,7 +185,6 @@ nbhyph.tex
 nehyph96.tex
 nnhyph.tex
 nohyphbx.tex
-plhyph.tex
 pthyph.tex
 pyhyph.tex
 rohyphen.tex
