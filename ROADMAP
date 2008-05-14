@@ -1,9 +1,19 @@
 already converted:
 
-# language	code	supported encoding(s)
+# language	original_file	code	supported_encoding(s)
 
-slovenian		sl[_SI]		ec
-=slovene
+croatian	hrhyph.tex	hr[_HR]	ec
+^^a3 -> č	ccaron
+^^a2 -> ć	cacute
+^^9e -> đ	dcroat
+^^b2 -> š	scaron
+^^ba -> ž	zcaron
+
+slovenian (slovene)	sihyph.tex	sl[_SI]	ec
+"c -> č	ccaron
+"s -> š	scaron
+"z -> ž	zcaron
+
 
 
 these mappings are used in ConTeXt:
@@ -13,7 +23,6 @@ french		fr		texnansi, ec
 german		de		texnansi, ec
 italian		it		texnansi, ec
 portuguese		pt		texnansi, ec
-croatian		hr		ec
 polish		pl		qx (pl0?)
 vietnamese		vn		t5
 russian		ru		t2a?
@@ -61,7 +70,6 @@ czech		xu-czhyph.tex
 slovak		xu-skhyph.tex
 finnish		fihyph.tex
 pinyin		xu-pyhyph.tex
-croatian	xu-hrhyph.tex
 german		xu-dehypht.tex
 ngerman		xu-dehyphn.tex
 coptic		xu-copthyph.tex
@@ -108,7 +116,6 @@ xu-glhyph.tex
 xu-grahyph4.tex
 xu-grmhyph4.tex
 xu-grphyph4.tex
-xu-hrhyph.tex
 xu-huhyphn.tex
 xu-lahyph.tex
 xu-mnhyph.tex
@@ -148,7 +155,6 @@ glhyph.tex
 grahyph4.tex
 grmhyph4.tex
 grphyph4.tex
-hrhyph.tex
 huhyphn.tex
 hyphen.tex
 hypht1.tex
