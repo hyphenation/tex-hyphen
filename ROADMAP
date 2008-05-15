@@ -11,9 +11,20 @@ croatian	hrhyph.tex	hr[_HR]	ec
 ^^b2 -> š	scaron
 ^^ba -> ž	zcaron
 
+finnish	fihyph.tex	fi[_FI]	ec
+=======
+åäö
+^^e4 -> ä adieresis
+^^f6 -> ö odieresis
+
+apparently there is no å in patterns?
+(šž may accur in foreign words)
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
+
 italian	ithyph.tex	it[_IT]	ascii/none
 ========
 only ' is treated as a letter, patterns don't include any other accented character
+how does that interact with mapping=tex-text?
 
 polish	plhyph.tex	pl[_PL]	qx
 ======
@@ -35,6 +46,18 @@ slovenian (slovene)	sihyph.tex	sl[_SI]	ec
 "c -> č	ccaron
 "s -> š	scaron
 "z -> ž	zcaron
+
+
+swedish	svhyph.tex	sv[_SE]	ec
+=======
+åäö
+^^e5 -> å aring
+^^e4 -> ä adieresis
+^^f6 -> ö odieresis
+àé are considered a variant of the same letter
+^^e9 -> é eacute
+
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
 
 
 "ukenglish"	ukhyphen.tex	en_UK	ascii/none
@@ -98,7 +121,6 @@ spanish		xu-eshyph.tex
 =espanol
 catalan		cahyph.tex
 galician	xu-glhyph.tex
-swedish		svhyph.tex
 russian		xu-ruhyphen.tex
 norsk		xu-nohyphbx.tex
 =norwegian
@@ -116,7 +138,6 @@ estonian	xu-ethyph.tex
 welsh		cyhyph.tex
 czech		xu-czhyph.tex
 slovak		xu-skhyph.tex
-finnish		fihyph.tex
 pinyin		xu-pyhyph.tex
 german		xu-dehypht.tex
 ngerman		xu-dehyphn.tex
@@ -134,9 +155,6 @@ bulgarian	xu-bghyphen.tex
 ibycus ibyhyph.tex
 hungarian	xu-huhyphn.tex
 esperanto	xu-eohyph.tex
-farsi		zerohyph.tex
-=persian
-arabic		zerohyph.tex
 mongolian	xu-mnhyph.tex
 turkish		xu-tkhyph.tex
 
@@ -193,7 +211,6 @@ dkspecial.tex
 eohyph.tex
 eshyph.tex
 ethyph.tex
-fihyph.tex
 frhyph.tex
 ghyphen.README
 glhyph.tex
@@ -221,6 +238,5 @@ skhyph.tex
 skhyphen.ex
 sorhyph.tex
 srhyphc.tex
-svhyph.tex
 tkhyph.tex
 ushyphmax.tex
