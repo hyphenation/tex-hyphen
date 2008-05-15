@@ -11,6 +11,9 @@ croatian	hrhyph.tex	hr[_HR]	ec
 ^^b2 -> š	scaron
 ^^ba -> ž	zcaron
 
+italian	ithyph.tex	it[_IT]	ascii/none
+========
+only ' is treated as a letter, patterns don't include any other accented character
 
 polish	plhyph.tex	pl[_PL]	qx
 ======
@@ -69,7 +72,6 @@ these mappings are used in ConTeXt:
 
 dutch		nl		texnansi, ec
 french		fr		texnansi, ec
-italian		it		texnansi, ec
 portuguese		pt		texnansi, ec
 vietnamese		vn		t5
 russian		ru		t2a?
@@ -130,7 +132,6 @@ uppersorbian	xu-sorhyph.tex
 mongolian2a mnhyphn.tex
 bulgarian	xu-bghyphen.tex
 ibycus ibyhyph.tex
-italian		ithyph.tex
 hungarian	xu-huhyphn.tex
 esperanto	xu-eohyph.tex
 farsi		zerohyph.tex
@@ -206,7 +207,6 @@ iahyphen.tex
 ibyhyph.tex
 icehyph.tex
 inhyph.tex
-ithyph.tex
 lahyph.tex
 mnhyph.tex
 mnhyphn.tex
