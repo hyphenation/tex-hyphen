@@ -91,10 +91,51 @@ german - new (ngerman)	dehyphn.tex
 
 hyphenation exceptions apparently loaded separately
 
+
+
+french	frhyph	fr[_FR]	ec - not to be included this year
+======
+=patois
+=francais
+
+also kind-of-supports \oe in ot1, TODO: check for texnansi
+
+æ - ae (*unused*)
+œ - oe
+
+\`a à e0
+\`e è e8
+\`u ù f9 (*unused*)
+
+\'e é e9
+
+\^a â e2
+\^e ê ea
+\^i î ee
+\^o ô f4
+\^u û fb
+
+\"e ë eb (*unused*)
+\"i ï ef
+\"u ü fc (*unused*)
+\"y ÿ b8 (*unused*)
+
+\cc ç e7 ccedilla
+
+\oe œ f7 oe
+
+\n - remove pattern (only duplicated \oe inside)
+remove 0 from \oe0
+
+% For \oe which exists in T1 _and_ OT1 encoded fonts but with
+% different glyph codes, patterns for both glyphs are included.
+% Thus you can use either T1 encoded fonts, or OT1 encoded fonts
+% and MLTeX's character substitution definition.
+
+
 these mappings are used in ConTeXt:
 
 dutch		nl		texnansi, ec
-french		fr		texnansi, ec
 portuguese		pt		texnansi, ec
 vietnamese		vn		t5
 russian		ru		t2a?
@@ -127,9 +168,6 @@ norsk		xu-nohyphbx.tex
 nynorsk         nnhyph.tex
 bokmal          nbhyph.tex
 interlingua	iahyphen.tex
-french		xu-frhyph.tex
-=patois
-=francais
 romanian	xu-rohyphen.tex
 indonesian	inhyph.tex
 danish		dkhyph.tex
@@ -175,7 +213,6 @@ xu-dehyphtex.tex
 xu-eohyph.tex
 xu-eshyph.tex
 xu-ethyph.tex
-xu-frhyph.tex
 xu-glhyph.tex
 xu-grahyph4.tex
 xu-grmhyph4.tex
@@ -211,7 +248,6 @@ dkspecial.tex
 eohyph.tex
 eshyph.tex
 ethyph.tex
-frhyph.tex
 ghyphen.README
 glhyph.tex
 grahyph4.tex
