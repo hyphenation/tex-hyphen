@@ -144,6 +144,9 @@ check!!!
 czech, slovak		cs/sk		ec, il2?
 
 
+special converter needed (and already done):
+coptic		xu-copthyph.tex		utf8-copthyph.tex		copthyph.tex
+
 TODO (delete all the three entries once patterns are converted):
 
 english		hyphen.tex  % do not change!
@@ -179,7 +182,6 @@ slovak		xu-skhyph.tex
 pinyin		xu-pyhyph.tex
 german		xu-dehypht.tex
 ngerman		xu-dehyphn.tex
-coptic		xu-copthyph.tex
 ukrainian	xu-ukrhyph.tex
 greek		xu-grphyph4.tex
 =polygreek
@@ -197,7 +199,7 @@ mongolian	xu-mnhyph.tex
 turkish		xu-tkhyph.tex
 
 
-utf8-copthyph.tex
+
 utf8-grahyph4.tex
 utf8-grmhyph4.tex
 utf8-grphyph4.tex
@@ -235,7 +237,6 @@ bahyph.sh
 bahyph.tex
 cahyph.tex
 cathyph.tex
-copthyph.tex
 cyhyph.tex
 czhyph.tex
 czhyphen.ex
