@@ -1,0 +1,505 @@
+#!/usr/bin/perl -w
+
+# This script generates utf-8 TeX hyphenation patterns for Greek
+
+# Copyright (C) 2006 by Peter Heslin
+
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+use strict;
+my $version = '0.1';
+use utf8;
+binmode STDOUT, ":utf8";
+
+sub usage
+{
+    my $usage = q{
+elhyph-utf8 -a | -m | -p [options]
+
+This script takes as input a set of TeX hyphenation patterns written
+for one of the old 8-bit Greek encodings and turns them into UTF-8
+patterns for use with a Unicode-aware program, such as XeTeX.  The
+patterns can be adjusted to tolerate a variety of styles of Unicode
+usage.  As a prerequisite you will need to install the patterns from
+the elhyphen package by Dimitrios Filippou, available from CTAN
+(tex-archive/language/hyphenation/elhyphen/).
+
+The elhyphen patterns must be installed where kpathsea can find them,
+or else be present in the current directory.  You must give one of the
+options -a, -m, or -p to indicate which set of elhyphen patterns to
+work from:
+
+    -a Use GRAhyph4.tex (patterns for ancient, polytonic Greek)
+
+    -m Use GRMhyph4.tex (patterns for modern, monotonic Greek)
+
+    -p Use GRPhyph4.tex (patterns for modern Greek written with
+                         polytonic accents)
+
+With no other options, the default is to output patterns in every
+permutation of Unicode usage that this program supports.  This should
+be OK, as I do not believe that any of these patterns should interfere
+with each other.  If this generality is not required or to decrease
+the size of the output, you can specify exactly what style of Unicode
+input you will be using via the options below.  The styles of encoding
+supported are:
+
+    -c Use Unicode normalization form C (pre-composed combinations of
+       vowels and diacritics).
+
+    -d Use Unicode normalization form D (vowels followed by combining
+       diacritics).
+
+    -X Where there is a choice of using pre-composed code points from
+       either the basic Greek and Coptic code-page (U+0370) or from
+       the Greek Extended code-page (U+1F00), use the basic
+       Greek. (This choice concerns vowels with an acute accent only
+       or an acute plus diaresis.)
+
+    -x For the choice above, use the equivalent glyph from the Greek
+       Extended code-page.
+
+    -l Use lunate sigmas in both the medial and final positions.
+
+    -L Don't allow lunate sigmas.
+
+    -e In addition to using the plain old "Apostrophe" (U+0027) to
+       indicate elision, support the use of a variety of other
+       apostrophe-like characters for this purpose.  The supported
+       characters are "Right Single Quotation Mark" (U+2019 -- this is
+       the preferred usage), "Modifier Letter Apostrophe" (U+02BC),
+       "Greek Koronis" (U+1FBD), and "Greek Psili" (U+1FBF).
+
+    -E Only use plain apostrophe for elision.
+
+};
+    print $usage;
+    exit;
+}
+
+my (%opt, %seen, %X, %B, @plain_vowels, @other_vowels, @tonos_vowels,
+@extended_vowels, @oxia_vowels, @accent_combos, $vowels_latin,
+%vowel_map, $consonants_latin, $accents_latin, %accent_map,
+@apostrophes);
+
+my $argv = join ' ', @ARGV;
+use Getopt::Std;
+getopts('ampcdXxlLeE?h', \%opt) or usage();
+usage() if $opt{"?"} or $opt{h};
+
+unless (($opt{a} ? 1 : 0)  + ($opt{m} ? 1 : 0) + ($opt{p} ? 1 : 0) == 1)
+{
+    print "You must specify the input patterns via one
+(and only one) of the -a, -m or -p options\n";
+    exit;
+}
+my $label = $opt{a} ? "Ancient Greek" : $opt{m} ? "Modern Greek" :
+$opt{p} ? "Modern, Polytonic Greek" : die;
+
+# Unless a choice is expressed via the options, default to using all
+# input-style permutations.
+unless ($opt{c} or $opt{d})
+{
+    $opt{c} = 1;
+    $opt{d} = 1;
+}
+if ($opt{c} and not $opt{x} and not $opt{X})
+{
+    $opt{x} = 1;
+    $opt{X} = 1;
+}
+if (not $opt{c} and ($opt{x} or $opt{X}))
+{
+    die "Options -x and -X only make sense with option -c\n"
+}
+$opt{l} = 1 unless $opt{L};
+$opt{e} = 1 unless $opt{E};
+
+my $polytonic = ($opt{a} or $opt{p}) ? 1 : 0;
+
+my $file = $opt{a} ? "GRAhyph4.tex" : $opt{m} ? "GRMhyph4.tex" :
+    $opt{p} ? "GRPhyph4.tex" : die "Program Error";
+
+my $path = `kpsewhich $file`;
+chomp $path;
+$path = './' . $file unless $path;
+open IN, $path or die "Could not open file $file at path $path"; 
+
+
+sub preamble
+{
+    my $preamble = qq{
+\\message{UTF-8 hyphenation patterns for $label}
+% This file was mechanically translated from a set of elhyphen patterns
+% via "elhyph-utf8 $argv" (version $version).
+\\begingroup
+};
+    $preamble .= "\\lccode`'=`'";
+    if ($opt{e})
+    {
+        foreach my $a (@apostrophes)
+        {
+            $preamble .= "\\lccode`$a=`$a";
+        }
+    }
+    $preamble .= "\n\\patterns{%\n";
+    
+print $preamble;
+}
+
+initialize();
+
+
+# Skip over preliminary matter in file -- this will break if patterns
+# begin on the same line as the patterns macro itself
+while(<IN>) {last if m/\\patterns{%/}
+preamble();
+
+LINE:
+while (my $line = <IN>)
+{
+    last LINE if $line =~ m/^}/;
+    if ($line =~ m/^\s*%/)
+    {
+        print $line;
+        next LINE;
+    }
+    my @pats = split ' ', $line;
+  PATTERN:
+    while (@pats)
+    {
+        my $p = shift @pats;
+        if ($p =~ m/%/)
+        {
+            print join ' ', ' ', $p, @pats, "\n";
+            next LINE ;
+        }
+
+        # Hyphenation after vowels
+        if ($p =~ m/^($vowels_latin+)1$/)
+        {
+            my $vowel = $1;
+            # Emit full set of pre-combined chars (only once)
+            if ($opt{c} and $vowel eq "a")
+            {
+                print "%-- Vowel patterns (pre-combined)\n";
+                my @vv = (@plain_vowels, @other_vowels);
+                if ($polytonic)
+                {
+                    push @vv, @extended_vowels;
+                    if ($opt{X})
+                    {
+                        push @vv, @tonos_vowels;
+                    }
+                    if ($opt{x})
+                    {
+                        push @vv, @oxia_vowels;
+                    }
+                }
+                else
+                {
+                    push @vv, @tonos_vowels;
+                }
+                foreach my $v (@vv)
+                {
+                     print $v . "1 ";
+                }
+                print "\n";
+            }
+            if ($opt{d})
+            {
+                print "%-- Vowel patterns (combining accents)\n";
+                foreach my $acc (@accent_combos)
+                {
+                    print $vowel_map{$vowel} . "2" . $acc . "1  ";
+                }
+            }
+        }
+        elsif ($p =~ m/^${vowels_latin}2\|1$/)
+        {
+            # We omit the special iota-subscript patterns, since we
+            # deal with these elsewhere
+            next LINE;
+        }
+        elsif ($p eq '>2r1<2r')
+        {
+            # Special case for two rhos with breathings
+            my $r = '';
+            $r .= 'ῤ1ῥ ' if $opt{c};
+            $r .= 'ρ2̓1ρ2̔' if $opt{d};
+            $p = $r;
+        }
+        else
+        {
+            # Convert consonants to utf-8
+            $p =~ s/($consonants_latin)/$B{$1}/g;
+
+            # Convert vowels
+            my $c = ''; my $d = '';
+            # Combining diacritics
+            if ($opt{d})
+            {
+                $d = $p;
+                $d =~ s/($accents_latin*)($vowels_latin)(\|?)/
+                    my $v = $2;
+                    my $a = ($1 || '') . ($3 || '');
+                    $a =~ s#(.)#$accent_map{$1}#g;
+                    $vowel_map{$v} . $a; /gex;
+            }
+            # Pre-composed
+            if ($opt{c})
+            {
+                my $cx = ''; my $cX = '';
+                # Prefer basic codepage
+                if ($opt{X})
+                {
+                    $cX = $p;
+                    $cX =~ s#($accents_latin*$vowels_latin\|?)#
+                        exists $B{$1} ? $B{$1} : $X{$1};
+                        #gex;
+                }
+                # Prefer extended codepage
+                if ($opt{x})
+                {
+                    $cx = $p;
+                    $cx =~ s/($accents_latin*$vowels_latin\|?)/
+                        exists $X{$1} ? $X{$1} : $B{$1}; /gex;
+                }
+                $c = $cX . ' ' . $cx;
+            }
+            $p = $d . ' ' . $c;
+        }
+        # Apostrophe
+        if ($p =~ /''/)
+        {
+            my $e = $p;
+            $e =~ s/''/'/g;
+            my $E = '';
+            if ($opt{e})
+            {
+                foreach my $apos (@apostrophes)
+                {
+                    my $tmp = $p;
+                    $tmp =~ s/''/$apos/g;
+                    $E = $E . $tmp . ' ' ;
+                }
+            }
+            $p = $e . ' ' . $E;
+        }
+        # Lunate sigma
+        if ($opt{l} and $p =~ m/[σς]/)
+        {
+            my $l = $p;
+            $l =~ s/[σς]/$B{lunates}/ge;
+            $p = $p . ' ' . $l;
+        }
+        # Eliminate duplicates
+        foreach my $pat (split ' ', $p)
+        {
+            print $pat . ' ' unless $seen{$pat};
+            $seen{$pat}++;
+        }
+    }
+    print "\n";
+}
+print "}\n\\endgroup\n\\endinput\n";
+
+close IN;
+
+sub initialize
+{
+    @plain_vowels = qw(α ε η ι ο υ ω);
+    # These do not have equivalents in the extended codepage
+    @other_vowels = qw(ϊ ϋ);
+    # These are used when employing the basic codepage, either alone or mixed
+    @tonos_vowels = qw(ά έ ή ί ό ύ ώ ΐ ΰ);
+    # These are the vowels from the extended page, excluding rho and
+    # chars with oxia that have equivalents on the basic page
+    @extended_vowels = qw(ἀ ἁ ἂ ἃ ἄ ἅ ἆ ἇ ἐ ἑ ἒ ἓ ἔ ἕ ἠ ἡ ἢ ἣ ἤ ἥ ἦ ἧ
+    ἰ ἱ ἲ ἳ ἴ ἵ ἶ ἷ ὀ ὁ ὂ ὃ ὄ ὅ ὐ ὑ ὒ ὓ ὔ ὕ ὖ ὗ ὠ ὡ ὢ ὣ ὤ ὥ ὦ ὧ ὰ ὲ
+    ὴ ὶ ὸ ὺ ὼ ᾀ ᾁ ᾂ ᾃ ᾄ ᾅ ᾆ ᾇ ᾐ ᾑ ᾒ ᾓ ᾔ ᾕ ᾖ ᾗ ᾠ ᾡ ᾢ ᾣ ᾤ ᾥ
+    ᾦ ᾧ ᾲ ᾳ ᾴ ᾶ ᾷ ῂ ῃ ῄ ῆ ῇ ῒ ῖ ῗ ῢ ῦ ῧ ῲ ῳ ῴ ῶ ῷ);
+    # The vowels with oxia excluded above
+    @oxia_vowels = qw(ά έ ή ί ό ύ ώ ΐ ΰ);
+    # Accents combined in the correct, canonical order
+    @accent_combos = qw(́ ̀ ͂ ̓ ̓́ ̓̀ ̓͂ ̔ ̔́ ̔̀ ̔͂
+
+                        ͅ ́ͅ ̀ͅ ͂ͅ ̓ͅ ̓́ͅ ̓̀ͅ ̓͂ͅ ̔ͅ ̔́ͅ ̔̀ͅ ̔͂ͅ
+
+                        ̈ ̈́ ̈̀ ̈͂
+                        );
+    $vowels_latin = '[aeiouhwr]';  # vowels plus rho
+    %vowel_map = (
+        a => "α", e => "ε", h => "η", i => "ι", o => "ο", u => "υ", w => "ω", r => "ρ");
+    $consonants_latin = '[bgdzjklmnxpcstfqy]'; # minus rho
+    $accents_latin = q([<>'`~"|]);
+    %accent_map = qw(< ̔ > ̓ ' ́ ` ̀ ~ ͂ " ̈ | ͅ );
+    # Other chars to use for elision
+    @apostrophes = qw(’ ʼ ᾽ ᾿);
+
+    
+    # Basic Greek codepage (U+0370 - 03FF)
+    $B{q{"'i}} = "ΐ"; 
+    $B{q{'a}} = "ά"; 
+    $B{q{'e}} = "έ"; 
+    $B{q{'h}} = "ή"; 
+    $B{q{'i}} = "ί"; 
+    $B{q{"'u}} = "ΰ"; 
+    $B{a} = "α"; 
+    $B{b} = "β"; 
+    $B{g} = "γ"; 
+    $B{d} = "δ"; 
+    $B{e} = "ε"; 
+    $B{z} = "ζ"; 
+    $B{h} = "η"; 
+    $B{j} = "θ"; 
+    $B{i} = "ι"; 
+    $B{k} = "κ"; 
+    $B{l} = "λ"; 
+    $B{m} = "μ"; 
+    $B{n} = "ν"; 
+    $B{x} = "ξ"; 
+    $B{o} = "ο"; 
+    $B{p} = "π"; 
+    $B{r} = "ρ"; 
+    $B{c} = "ς"; 
+    $B{s} = "σ"; 
+    $B{t} = "τ"; 
+    $B{u} = "υ"; 
+    $B{f} = "φ"; 
+    $B{q} = "χ"; 
+    $B{y} = "ψ"; 
+    $B{w} = "ω"; 
+    $B{q{"i}} = "ϊ"; 
+    $B{q{"u}} = "ϋ"; 
+    $B{q{'o}} = "ό"; 
+    $B{q{'u}} = "ύ"; 
+    $B{q{'w}} = "ώ";
+    $B{lunates} = "ϲ"; 
+
+    # Extended Greek codepage (U+1FOO - 1FFFF)
+    $X{q{>a}} = "ἀ";
+    $X{q{<a}} = "ἁ";
+    $X{q{>`a}} = "ἂ";
+    $X{q{<`a}} = "ἃ";
+    $X{q{>'a}} = "ἄ";
+    $X{q{<'a}} = "ἅ";
+    $X{q{>~a}} = "ἆ";
+    $X{q{<~a}} = "ἇ";
+    $X{q{>e}} = "ἐ";
+    $X{q{<e}} = "ἑ";
+    $X{q{>`e}} = "ἒ";
+    $X{q{<`e}} = "ἓ";
+    $X{q{>'e}} = "ἔ";
+    $X{q{<'e}} = "ἕ";
+    $X{q{>h}} = "ἠ";
+    $X{q{<h}} = "ἡ";
+    $X{q{>`h}} = "ἢ";
+    $X{q{<`h}} = "ἣ";
+    $X{q{>'h}} = "ἤ";
+    $X{q{<'h}} = "ἥ";
+    $X{q{>~h}} = "ἦ";
+    $X{q{<~h}} = "ἧ";
+    $X{q{>i}} = "ἰ";
+    $X{q{<i}} = "ἱ";
+    $X{q{>`i}} = "ἲ";
+    $X{q{<`i}} = "ἳ";
+    $X{q{>'i}} = "ἴ";
+    $X{q{<'i}} = "ἵ";
+    $X{q{>~i}} = "ἶ";
+    $X{q{<~i}} = "ἷ";
+    $X{q{>o}} = "ὀ";
+    $X{q{<o}} = "ὁ";
+    $X{q{>`o}} = "ὂ";
+    $X{q{<`o}} = "ὃ";
+    $X{q{>'o}} = "ὄ";
+    $X{q{<'o}} = "ὅ";
+    $X{q{>u}} = "ὐ";
+    $X{q{<u}} = "ὑ";
+    $X{q{>`u}} = "ὒ";
+    $X{q{<`u}} = "ὓ";
+    $X{q{>'u}} = "ὔ";
+    $X{q{<'u}} = "ὕ";
+    $X{q{>~u}} = "ὖ";
+    $X{q{<~u}} = "ὗ";
+    $X{q{>w}} = "ὠ";
+    $X{q{<w}} = "ὡ";
+    $X{q{>`w}} = "ὢ";
+    $X{q{<`w}} = "ὣ";
+    $X{q{>'w}} = "ὤ";
+    $X{q{<'w}} = "ὥ";
+    $X{q{>~w}} = "ὦ";
+    $X{q{<~w}} = "ὧ";
+    $X{q{`a}} = "ὰ";
+    $X{q{'a}} = "ά";
+    $X{q{`e}} = "ὲ";
+    $X{q{'e}} = "έ";
+    $X{q{`h}} = "ὴ";
+    $X{q{'h}} = "ή";
+    $X{q{`i}} = "ὶ";
+    $X{q{'i}} = "ί";
+    $X{q{`o}} = "ὸ";
+    $X{q{'o}} = "ό";
+    $X{q{`u}} = "ὺ";
+    $X{q{'u}} = "ύ";
+    $X{q{`w}} = "ὼ";
+    $X{q{'w}} = "ώ";
+    $X{q{>a|}} = "ᾀ";
+    $X{q{<a|}} = "ᾁ";
+    $X{q{>`a|}} = "ᾂ";
+    $X{q{<`a|}} = "ᾃ";
+    $X{q{>'a|}} = "ᾄ";
+    $X{q{<'a|}} = "ᾅ";
+    $X{q{>~a|}} = "ᾆ";
+    $X{q{<~a|}} = "ᾇ";
+    $X{q{>h|}} = "ᾐ";
+    $X{q{<h|}} = "ᾑ";
+    $X{q{>`h|}} = "ᾒ";
+    $X{q{<`h|}} = "ᾓ";
+    $X{q{>'h|}} = "ᾔ";
+    $X{q{<'h|}} = "ᾕ";
+    $X{q{>~h|}} = "ᾖ";
+    $X{q{<~h|}} = "ᾗ";
+    $X{q{>w|}} = "ᾠ";
+    $X{q{<w|}} = "ᾡ";
+    $X{q{>`w|}} = "ᾢ";
+    $X{q{<`w|}} = "ᾣ";
+    $X{q{>'w|}} = "ᾤ";
+    $X{q{<'w|}} = "ᾥ";
+    $X{q{>~w|}} = "ᾦ";
+    $X{q{<~w|}} = "ᾧ";
+    $X{q{`a|}} = "ᾲ";
+    $X{q{a|}} = "ᾳ";
+    $X{q{'a|}} = "ᾴ";
+    $X{q{~a}} = "ᾶ";
+    $X{q{~a|}} = "ᾷ";
+    $X{q{`h|}} = "ῂ";
+    $X{q{h|}} = "ῃ";
+    $X{q{'h|}} = "ῄ";
+    $X{q{~h}} = "ῆ";
+    $X{q{~h|}} = "ῇ";
+    $X{q{"`i}} = "ῒ";
+    $X{q{"'i}} = "ΐ";
+    $X{q{~i}} = "ῖ";
+    $X{q{"~i}} = "ῗ";
+    $X{q{"`u}} = "ῢ";
+    $X{q{"'u}} = "ΰ";
+    $X{q{>r}} = "ῤ";
+    $X{q{<r}} = "ῥ";
+    $X{q{~u}} = "ῦ";
+    $X{q{"~u}} = "ῧ";
+    $X{q{`w|}} = "ῲ";
+    $X{q{w|}} = "ῳ";
+    $X{q{'w|}} = "ῴ";
+    $X{q{~w}} = "ῶ";
+    $X{q{~w|}} = "ῷ";
+}
+
