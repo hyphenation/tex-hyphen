@@ -1,0 +1,47 @@
+Patterns converted from: frhyph.tex
+Last modified on CTAN: 2006-10-20
+
+--------------------------------------------------------------------------------
+
+% frhyph.tex % French hyphenation patterns
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file is available for free and can used and redistributed
+% asis for free. Modified versions should have another name.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          *BEFORE* using this file *PLEASE* run checksum on it:           %
+%                       checksum -v frhyph.tex                             %
+% to make sure that it hasn't been damaged.                                %
+% Then if you notice anything wrong in french hyphenation please report to %
+% R. Bastian, D. Flipo, B. Gaulle at the email address:                    %
+%                                              cesure-l@gutenberg.eu.org   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      checksum        = "37208 1458 3078 34821"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% The most famous good guys who worked hard to obtain something usable. 
+% Jacques Desarmenien, Universite de Strasbourg :
+%          -  << how to run TeX in a French environment: hyphenation, fonts,
+%             typography. >> in Tugboat, 5 (1984) 91-102. and TeX85 conference
+%          -  << La division par ordinateur des mots francais :
+%             application a TeX >> in TSI vol. 5 No 4, 1986 (C) AFCET-
+%                                                             Gauthier-Villars
+% Norman Buckle, UQAH (nb; many additions)
+% Michael Ferguson, INRS-Telecommunications (mjf) June 1988
+% Justin Bur, Universite de Montreal (jbb; checked against original list)
+%                    all patterns including apostrophe missing from nb list
+% after that, GUTenberg  and specially Daniel Flipo and Bernard Gaulle
+% did their best effort to improve the list of patterns.
+%
+% -----------------------------------------------------------------
+%
+% Adaption of these patterns for
+%  - TeX Version 3.x and MLTeX 3.x (2.x)
+% and
+%  - all fonts in T1/`Cork' and/or CM/OT1 encoding
+% by Bernd Raichle 1996/08/28 (using ideas from `ghyph31.tex'
+% as of 1994-02-13 maintained by Bernd Raichle).
+% (An adaption for the old MLTeX 2.x exists but can not be
+% tested in lack of an executable.)
+%
+% -----------------------------------------------------------------
