@@ -1,0 +1,42 @@
+ar	Arabic
+fa	Farsi
+eu	Basque % ba is Bashkir!
+bg	Bulgarian
+cop	Coptic
+hr	Croatia
+cs	Czech % TeX Live entry has Czechoslovak, but ...
+da	Danish
+nl	Dutch
+eo	Esperanto
+et	Estonian
+fi	Finnish
+fr	French
+de-1901	German, “old” spelling
+de-1996	German, “new” spelling
+el-monotonic	Modern Greek, monotonic spelling
+el-polytonic	Modern Greek, polytonic spelling
+grc	Ancient Greek
+grc-x-ibycus	Ancient Greek in Ibycus encoding
+hu	Hungarian
+is	Icelandic
+id	Indonesian
+ia	Interlingua
+it	Italian
+la	Latin
+mn-cyrl	Mongolian, Cyrillic script
+no	Norwegian % without distinguishing between bokmål and nynorsk
+zh-latn	Chinese Pinyin
+pl	Polish
+pt	Portuguese
+ro	Romanian
+ru	Russian
+sr	Serbian
+sl	Slovene
+es	Spanish
+sv	Swedish
+tr	Turkish
+en-gb	British English
+en-us	American English
+uk	Ukrainian
+hsb	Upper Sorbian
+cy	Welsh
