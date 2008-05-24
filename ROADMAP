@@ -144,19 +144,24 @@ check!!!
 czech, slovak		cs/sk		ec, il2?
 
 
+
 special converter needed (and already done):
+
 coptic		xu-copthyph.tex		utf8-copthyph.tex		copthyph.tex
 
-TODO (delete all the three entries once patterns are converted):
+
 
 english		hyphen.tex  % do not change!
-=usenglish
-=USenglish
-=american
+=usenglish/USenglish/american
 %
 % ushyphmax.tex, on the other hand, includes Gerard Kuiken's additional
 % patterns; it is not frozen.
 usenglishmax	ushyphmax.tex
+
+
+
+TODO (delete all the three entries once patterns are converted):
+
 portuguese	pthyph.tex
 =portuges
 dutch		nehyph96.tex
@@ -249,7 +254,6 @@ dkspecial.tex
 eohyph.tex
 eshyph.tex
 ethyph.tex
-ghyphen.README
 glhyph.tex
 grahyph4.tex
 grmhyph4.tex

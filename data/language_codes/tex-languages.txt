@@ -3,7 +3,7 @@ fa	Farsi
 eu	Basque % ba is Bashkir!
 bg	Bulgarian
 cop	Coptic
-hr	Croatia
+hr	Croatian
 cs	Czech % TeX Live entry has Czechoslovak, but ...
 da	Danish
 nl	Dutch
