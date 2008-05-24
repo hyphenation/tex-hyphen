@@ -1,0 +1,12 @@
+\message{New Mongolian Hyphenation Patterns}
+%
+\begingroup
+%
+\catcode`\@=11
+\ifx\@@input\undefined \let\@@input=\input \fi
+\@@input pattern-loader.tex
+%
+\lefthyphenmin=2 \righthyphenmin=2
+\loadhyphpatterns{mn-x-new}{t2a}%
+%
+\endgroup

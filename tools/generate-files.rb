@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-$encoding_data_dir = "data"
-$encodings = ["ec", "qx", "texnansi"]
+$encoding_data_dir = "data/encodings"
+$encodings = ["ec", "qx", "texnansi", "t2a", "lmc"]
 
 $output_data_dir = "files"
 

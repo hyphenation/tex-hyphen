@@ -13,8 +13,8 @@ fi	Finnish
 fr	French
 de-1901	German, “old” spelling
 de-1996	German, “new” spelling
-el-monotonic	Modern Greek, monotonic spelling
-el-polytonic	Modern Greek, polytonic spelling
+el-monoton	Modern Greek, monotonic spelling
+el-polyton	Modern Greek, polytonic spelling
 grc	Ancient Greek
 grc-x-ibycus	Ancient Greek in Ibycus encoding
 hu	Hungarian
@@ -24,7 +24,10 @@ ia	Interlingua
 it	Italian
 la	Latin
 mn-cyrl	Mongolian, Cyrillic script
+mn-cyrl-x-new	Mongolian, Cyrillic script (new patterns)
 no	Norwegian % without distinguishing between bokmål and nynorsk
+nb	Norwegian Bokmål
+nn	Norwegian Nynorsk
 zh-latn	Chinese Pinyin
 pl	Polish
 pt	Portuguese
