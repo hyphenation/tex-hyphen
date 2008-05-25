@@ -1,19 +1,15 @@
 %% Conversion from UTF-8 to T2A for 8-bit TeX engines
 
-\catcode"C2=\active
+\catcode"C4=\active
 \catcode"D0=\active
 \catcode"D1=\active
 \catcode"D2=\active
 \catcode"D3=\active
-\catcode"E2=\active
 
-\def^^c2#1{%
-	\ifx#1^^a4^^9e\else % textcurrency
-	\ifx#1^^a7^^9f\else % textsection
-	\ifx#1^^ab^^be\else % guillemotleft
-	\ifx#1^^bb^^bf\else % guillemotright
+\def^^c4#1{%
+	\ifx#1^^b1^^19\else % i
 	\errmessage{Hyphenation pattern file corrupted!}
-\fi\fi\fi\fi}
+\fi}
 \def^^d0#1{%
 	\ifx#1^^b0^^e0\else % cyra
 	\ifx#1^^b1^^e1\else % cyrb
@@ -87,16 +83,9 @@
 	\ifx#1^^a9^^b0\else % cyrotld
 	\errmessage{Hyphenation pattern file corrupted!}
 \fi\fi\fi}
-\def^^e2#1{%
-	\ifx#1^^80^^bd\else % quotedblbase
-	\ifx#1^^84^^9d\else % textnumero
-	\errmessage{Hyphenation pattern file corrupted!}
-\fi\fi}
 
 % ensure all the chars above have valid lccode values
-\lccode"9D="9D % textnumero
-\lccode"9E="9E % textcurrency
-\lccode"9F="9F % textsection
+\lccode"19="19 % i
 \lccode"A0="A0 % cyrgup
 \lccode"A1="A1 % cyrghcrs
 \lccode"A2="A2 % cyrdje
@@ -126,9 +115,6 @@
 \lccode"BA="BA % cyrschwa
 \lccode"BB="BB % cyrnje
 \lccode"BC="BC % cyryo
-\lccode"BD="BD % quotedblbase
-\lccode"BE="BE % guillemotleft
-\lccode"BF="BF % guillemotright
 \lccode"E0="E0 % cyra
 \lccode"E1="E1 % cyrb
 \lccode"E2="E2 % cyrv

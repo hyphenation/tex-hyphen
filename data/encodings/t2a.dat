@@ -23,13 +23,13 @@
 0x16	U+2014		textemdash
 # 0x17	U+0x17	Nothing?
 # 0x18	U+0x18	?
-0x19	U+0131		i
+0x19	U+0131	1	i
 0x1A	U+F6BE		
-0x1B	U+FB00		
-0x1C	U+FB01		
-0x1D	U+FB02		
-0x1E	U+FB03		
-0x1F	U+FB04		
+0x1B	U+FB00		# Hand-edited!
+0x1C	U+FB01		#
+0x1D	U+FB02		#
+0x1E	U+FB03		#
+0x1F	U+FB04		#
 0x20	U+0020		
 0x21	U+0021		exclam
 0x22	U+0022		quotedbl
@@ -154,9 +154,9 @@
 0x9A	U+04D8		CYRSCHWA
 0x9B	U+040A		CYRNJE
 0x9C	U+0401		CYRYO
-0x9D	U+2116	1	textnumero
-0x9E	U+00A4	1	textcurrency
-0x9F	U+00A7	1	textsection
+0x9D	U+2116		textnumero
+0x9E	U+00A4		textcurrency
+0x9F	U+00A7		textsection
 0xA0	U+0491	1	cyrgup
 0xA1	U+0493	1	cyrghcrs
 0xA2	U+0452	1	cyrdje
@@ -186,9 +186,9 @@
 0xBA	U+04D9	1	cyrschwa
 0xBB	U+045A	1	cyrnje
 0xBC	U+0451	1	cyryo
-0xBD	U+201E	1	quotedblbase
-0xBE	U+00AB	1	guillemotleft
-0xBF	U+00BB	1	guillemotright
+0xBD	U+201E		quotedblbase
+0xBE	U+00AB		guillemotleft
+0xBF	U+00BB		guillemotright
 0xC0	U+0410		CYRA
 0xC1	U+0411		CYRB
 0xC2	U+0412		CYRV
