@@ -1,4 +1,4 @@
-%% Converted to UTF-8 from mnhyphn.tex v1.2 2008/03/23
+%% Converted from T2A to UTF-8 from mnhyphn.tex v1.2 2008/03/23
 
 %% Copyright 2007-2008 by D. Batmunkh, National University of Mongolia
 %% email bataak@gmail.com
@@ -13,44 +13,7 @@
 %
 % Special thanks to: Jim Hefferon and Robin Fairbairns
 
-\message{Mongolian hyphenation patterns in T2A encoding}
-
-\begingroup
-\catcode'340=11  \uccode'340='300 \lccode'340='340  \uccode'300='300 \lccode'300='340  %a      A
-\catcode'341=11  \uccode'341='301 \lccode'341='341  \uccode'301='301 \lccode'301='341  %b      B
-\catcode'342=11  \uccode'342='302 \lccode'342='342  \uccode'302='302 \lccode'302='342  %v      V
-\catcode'343=11  \uccode'343='303 \lccode'343='343  \uccode'303='303 \lccode'303='343  %g      G
-\catcode'344=11  \uccode'344='304 \lccode'344='344  \uccode'304='304 \lccode'304='344  %d      D
-\catcode'345=11  \uccode'345='305 \lccode'345='345  \uccode'305='305 \lccode'305='345  %e      E
-\catcode'274=11  \uccode'274='234 \lccode'274='274  \uccode'234='234 \lccode'234='274  %yo     YO
-\catcode'346=11  \uccode'346='306 \lccode'346='346  \uccode'306='306 \lccode'306='346  %zh     ZH
-\catcode'347=11  \uccode'347='307 \lccode'347='347  \uccode'307='307 \lccode'307='347  %z      Z
-\catcode'350=11  \uccode'350='310 \lccode'350='350  \uccode'310='310 \lccode'310='350  %i      I
-\catcode'351=11  \uccode'351='311 \lccode'351='351  \uccode'311='311 \lccode'311='351  %ishrt  ISHRT
-\catcode'352=11  \uccode'352='312 \lccode'352='352  \uccode'312='312 \lccode'312='352  %k      K
-\catcode'353=11  \uccode'353='313 \lccode'353='353  \uccode'313='313 \lccode'313='353  %l      L
-\catcode'354=11  \uccode'354='314 \lccode'354='354  \uccode'314='314 \lccode'314='354  %m      M
-\catcode'355=11  \uccode'355='315 \lccode'355='355  \uccode'315='315 \lccode'315='355  %n      N
-\catcode'356=11  \uccode'356='316 \lccode'356='356  \uccode'316='316 \lccode'316='356  %o      O
-\catcode'260=11  \uccode'260='220 \lccode'260='260  \uccode'220='220 \lccode'220='260  %otld   OTLD
-\catcode'357=11  \uccode'357='317 \lccode'357='357  \uccode'317='317 \lccode'317='357  %p      P
-\catcode'360=11  \uccode'360='320 \lccode'360='360  \uccode'320='320 \lccode'320='360  %r      R
-\catcode'361=11  \uccode'361='321 \lccode'361='361  \uccode'321='321 \lccode'321='361  %s      S
-\catcode'362=11  \uccode'362='322 \lccode'362='362  \uccode'322='322 \lccode'322='362  %t      T
-\catcode'363=11  \uccode'363='323 \lccode'363='363  \uccode'323='323 \lccode'323='363  %u      U
-\catcode'263=11  \uccode'263='223 \lccode'263='263  \uccode'223='223 \lccode'223='263  %y      Y
-\catcode'364=11  \uccode'364='324 \lccode'364='364  \uccode'324='324 \lccode'324='364  %f      F
-\catcode'365=11  \uccode'365='325 \lccode'365='365  \uccode'325='325 \lccode'325='365  %h      H
-\catcode'366=11  \uccode'366='326 \lccode'366='366  \uccode'326='326 \lccode'326='366  %c      C
-\catcode'367=11  \uccode'367='327 \lccode'367='367  \uccode'327='327 \lccode'327='367  %ch     CH
-\catcode'370=11  \uccode'370='330 \lccode'370='370  \uccode'330='330 \lccode'330='370  %sh     SH
-\catcode'371=11  \uccode'371='331 \lccode'371='371  \uccode'331='331 \lccode'331='371  %shch   SHCH
-\catcode'372=11  \uccode'372='332 \lccode'372='372  \uccode'332='332 \lccode'332='372  %hrdsn  HRDSN
-\catcode'373=11  \uccode'373='333 \lccode'373='373  \uccode'333='333 \lccode'333='373  %ery    ERY
-\catcode'374=11  \uccode'374='334 \lccode'374='374  \uccode'334='334 \lccode'334='374  %sftsn  SFTSN
-\catcode'375=11  \uccode'375='335 \lccode'375='375  \uccode'335='335 \lccode'335='375  %erev   EREV
-\catcode'376=11  \uccode'376='336 \lccode'376='376  \uccode'336='336 \lccode'336='376  %yu     YU
-\catcode'377=11  \uccode'377='337 \lccode'377='377  \uccode'337='337 \lccode'337='377  %ya     YA
+\message{New Mongolian hyphenation patterns}
 
 \patterns{
 .авто3а4г
@@ -1043,4 +1006,3 @@
 3э4нтро
 3эффе
 }
-\endgroup
