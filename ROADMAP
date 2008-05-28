@@ -11,57 +11,6 @@ croatian	hrhyph.tex	hr[_HR]	ec
 ^^b2 -> š	scaron
 ^^ba -> ž	zcaron
 
-finnish	fihyph.tex	fi[_FI]	ec
-=======
-åäö
-^^e4 -> ä adieresis
-^^f6 -> ö odieresis
-
-apparently there is no å in patterns?
-(šž may accur in foreign words)
-patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
-
-italian	ithyph.tex	it[_IT]	ascii/none
-========
-only ' is treated as a letter, patterns don't include any other accented character
-how does that interact with mapping=tex-text?
-
-polish	plhyph.tex	pl[_PL]	qx
-======
-ąćęłńóśźż
-/a -> ą	aogonek
-/c -> ć	cacute
-/e -> ę	eogonek
-/l -> ł	lslash
-/n -> ń	nacute
-/o -> ó	oacute
-/s -> ś	sacute
-/x -> ź	zacute
-/z -> ż	zdotaccent
-
-
-slovenian (slovene)	sihyph.tex	sl[_SI]	ec
-=========
-čšž
-"c -> č	ccaron
-"s -> š	scaron
-"z -> ž	zcaron
-
-
-swedish	svhyph.tex	sv[_SE]	ec
-=======
-åäö
-^^e5 -> å aring
-^^e4 -> ä adieresis
-^^f6 -> ö odieresis
-àé are considered a variant of the same letter
-^^e9 -> é eacute
-
-patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
-
-
-"ukenglish"	ukhyphen.tex	en_UK	ascii/none
-===========
 
 dutch	nehyph96.tex	nl[_NL]	ec
 =====
@@ -79,6 +28,79 @@ dutch	nehyph96.tex	nl[_NL]	ec
 ^^fb -> û ucircumflex
 
 patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
+
+
+finnish	fihyph.tex	fi[_FI]	ec
+=======
+åäö
+^^e4 -> ä adieresis
+^^f6 -> ö odieresis
+
+apparently there is no å in patterns?
+(šž may accur in foreign words)
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
+
+
+italian	ithyph.tex	it[_IT]	ascii/none
+========
+only ' is treated as a letter, patterns don't include any other accented character
+how does that interact with mapping=tex-text?
+
+
+polish	plhyph.tex	pl[_PL]	qx
+======
+ąćęłńóśźż
+/a -> ą	aogonek
+/c -> ć	cacute
+/e -> ę	eogonek
+/l -> ł	lslash
+/n -> ń	nacute
+/o -> ó	oacute
+/s -> ś	sacute
+/x -> ź	zacute
+/z -> ż	zdotaccent
+
+
+slovenian (slovene)	sihyph.tex	sl[-si]	ec
+=========
+čšž
+"c -> č	ccaron
+"s -> š	scaron
+"z -> ž	zcaron
+
+
+swedish	svhyph.tex	sv[-se]	ec
+=======
+åäö
+^^e5 -> å aring
+^^e4 -> ä adieresis
+^^f6 -> ö odieresis
+àé are considered a variant of the same letter
+^^e9 -> é eacute
+
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
+
+
+"ukenglish"	ukhyphen.tex	en-gb	ascii/none
+===========
+
+spanish	eshyph.tex	es	ec
+=======
+áéíóúüñ
+convert from latin1 to utf-8
+
+^^f1 ntilde
+^^e1 aacute
+^^e9 eacute
+^^ed iacute
+^^f3 oacute
+^^fa uacute
+^^fc udieresis
+
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
+
+
+---------------------
 
 german - not to be included this year
 ======
@@ -106,6 +128,12 @@ german - new (ngerman)	dehyphn.tex
 hyphenation exceptions apparently loaded separately
 
 
+latin
+=====
+\ae -> æ
+\oe -> œ
+
+\n - delete pattern (duplicated)
 
 french	frhyph	fr[_FR]	ec - not to be included this year
 ======
@@ -149,7 +177,6 @@ remove 0 from \oe0
 
 these mappings are used in ConTeXt:
 
-dutch		nl		texnansi, ec
 portuguese		pt		texnansi, ec
 vietnamese		vn		t5
 russian		ru		t2a?
@@ -178,9 +205,7 @@ TODO (delete all the three entries once patterns are converted):
 
 portuguese	pthyph.tex
 =portuges
-dutch		nehyph96.tex
 basque		xu-bahyph.tex
-spanish		xu-eshyph.tex
 =espanol
 catalan		cahyph.tex
 galician	xu-glhyph.tex
@@ -199,15 +224,12 @@ welsh		cyhyph.tex
 czech		xu-czhyph.tex
 slovak		xu-skhyph.tex
 pinyin		xu-pyhyph.tex
-german		xu-dehypht.tex
-ngerman		xu-dehyphn.tex
 ukrainian	xu-ukrhyph.tex
 greek		xu-grphyph4.tex
 =polygreek
 monogreek	xu-grmhyph4.tex
 ancientgreek	xu-grahyph4.tex
 icelandic	icehyph.tex
-latin		xu-lahyph.tex
 uppersorbian	xu-sorhyph.tex
 mongolian2a mnhyphn.tex
 bulgarian	xu-bghyphen.tex
@@ -218,6 +240,11 @@ mongolian	xu-mnhyph.tex
 turkish		xu-tkhyph.tex
 
 
+witing list:
+
+german		xu-dehypht.tex
+ngerman		xu-dehyphn.tex
+latin		xu-lahyph.tex
 
 utf8-grahyph4.tex
 utf8-grmhyph4.tex
@@ -232,14 +259,12 @@ xu-dehyphn.tex
 xu-dehypht.tex
 xu-dehyphtex.tex
 xu-eohyph.tex
-xu-eshyph.tex
 xu-ethyph.tex
 xu-glhyph.tex
 xu-grahyph4.tex
 xu-grmhyph4.tex
 xu-grphyph4.tex
 xu-huhyphn.tex
-xu-lahyph.tex
 xu-mnhyph.tex
 xu-nohyphbx.tex
 xu-pyhyph.tex
@@ -259,14 +284,11 @@ cathyph.tex
 cyhyph.tex
 czhyph.tex
 czhyphen.ex
-dehyphn.tex
-dehypht.tex
 dehyphtex.tex
 dkcommon.tex
 dkhyph.tex
 dkspecial.tex
 eohyph.tex
-eshyph.tex
 ethyph.tex
 glhyph.tex
 grahyph4.tex
@@ -279,11 +301,9 @@ iahyphen.tex
 ibyhyph.tex
 icehyph.tex
 inhyph.tex
-lahyph.tex
 mnhyph.tex
 mnhyphn.tex
 nbhyph.tex
-nehyph96.tex
 nnhyph.tex
 nohyphbx.tex
 pthyph.tex

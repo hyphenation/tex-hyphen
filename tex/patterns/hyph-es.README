@@ -1,0 +1,42 @@
+Patterns converted from: eshyph.tex
+Last modified on CTAN: 2006-01-11
+
+--------------------------------------------------------------------------------
+
+DIVISI'ON DE PALABRAS
+~~~~~~~~~~~~~~~~~~~~~
+eshyph.tex 4.1a
+
+Why 4.x? Well, I know at least other three files with the
+same name, so this one is the fourth. The others should
+vanish as soon as posible.
+
+(c) Javier Bezos 1993 1997.
+(c) Javier Bezos and CervanTeX 2001-2006
+Some parts, (c) by Francesc Carmona
+Licence: LPPL
+
+CervanTeX, the Spanish TeX User Group, has tackled the task of
+writing a more complete set of patterns, but unfortunately the work
+is a lot slower we expected.  The file division.pdf is a draft of an
+article (in Spanish) explaining the rules to be applied and how they
+are being translated into TeX in a unified set of patterns.
+
+There is still a lot of work to be done.  However, even if
+incomplete it should provide in its current form a better option to
+other patterns.  However, if you experience problems, you might want
+to return to one of these pattern files.
+
+For bug reports and comments:
+
+      http://www.texytipografia.com/contact.php
+
+I would like to thanks Francesc Carmona for his permission
+to steal parts of his work without restrictions. 
+
+2006/01/09
+
+_____________________________________________________________
+Javier Bezos                | http://www.cervantex.org/
+.............................................................
+TeX y tipografia            | http://www.texytipografia.com/
