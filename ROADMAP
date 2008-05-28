@@ -63,8 +63,22 @@ patterns can be loaded as ec only, and the same patterns are usable under texnan
 "ukenglish"	ukhyphen.tex	en_UK	ascii/none
 ===========
 
+dutch	nehyph96.tex	nl[_NL]	ec
+=====
+^^e4 -> ä adieresis
+^^e7 -> ç ccedilla
+^^e8 -> è egrave
+^^e9 -> é eacute
+^^ea -> ê ecircumflex
+^^eb -> ë edieresis
+^^ef -> ï idieresis
+^^ee -> î icircumflex
+^^f1 -> ñ ntilde
+^^f6 -> ö odieresis
+^^fc -> ü udieresis
+^^fb -> û ucircumflex
 
-
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
 
 german - not to be included this year
 ======
