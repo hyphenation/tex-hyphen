@@ -6,6 +6,15 @@ $loader_dir="../tex/loadhyph"
 
 languages = [
 		{
+			"code" => "gl",
+			"name" => "galician",
+			"synonyms" => [],
+		#	"hyphenmin" => [],
+			"encoding" => "ec",
+			"exceptions" => false,
+			"message" => "Galician Hyphenation Patterns",
+		},
+		{
 			"code" => "hr",
 			"name" => "croatian",
 			"synonyms" => [],

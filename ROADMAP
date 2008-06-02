@@ -112,7 +112,7 @@ patterns can be loaded as ec only, and the same patterns are usable under texnan
 "ukenglish"	ukhyphen.tex	en-gb	ascii/none
 ===========
 
-spanish	eshyph.tex	es	ec
+spanish (espanol)	eshyph.tex	es	ec
 =======
 áéíóúüñ
 convert from latin1 to utf-8
@@ -128,14 +128,40 @@ convert from latin1 to utf-8
 patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
 
 
+catalan	cahyph.tex	ca	ec
+=======
+
+^^e0 -> à	agrave
+^^e7 -> ç - ccedilla
+^^e8 -> è - egrave
+^^e9 -> é - eacute
+^^ed -> í - iacute
+^^ef -> ï - idieresis
+^^f2 -> ò - ograve
+^^f3 -> ó - oacute
+^^fa -> ú - uacute
+^^fc -> ü - udieresis
+
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
+
+galician	glhyph.tex	gl	ec
+========
+
+áéíóú ñ üï
+
+source in latin1 -> convert to utf-8
+
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
+
 ---------------------
 
-czech - not to be included this year ?
+czech - not to be included this year ? - works fine with ec, but probably includes other tricks as well
 =====
 
 \v e -> ě	ecaron
 \v c -> č	ccaron
 \v d -> ď	dcaron
+\v l -> ľ	lcaron (not used)
 \v n -> ň	ncaron
 \v r -> ř	rcaron
 \v s -> š	scaron
@@ -147,7 +173,39 @@ czech - not to be included this year ?
 \'i -> í	iacute
 \'o -> ó	oacute
 \'u -> ú	uacute
+\'r -> ŕ	racute (not used)
 \'y -> ý	yacute
+\"a -> ä	adieresis (not used)
+\^o -> ô	ocircumflex (not used)
+
+slovak
+======
+
+\v e -> ě	ecaron (not used)
+\v c -> č	ccaron
+\v d -> ď	dcaron
+\v l -> ľ	lcaron
+\v n -> ň	ncaron
+\v r -> ř	rcaron (not used)
+\v s -> š	scaron
+\v t -> ť	tcaron
+\v z -> ž	zcaron
+\r u -> ů	uring (not used)
+\'a -> á	aacute
+\'e -> é	eacute
+\'i -> í	iacute
+\'o -> ó	oacute
+\'u -> ú	uacute
+\'r -> ŕ	racute
+\'y -> ý	yacute
+\"a -> ä	adieresis
+\^o -> ô	ocircumflex
+
+csaccents that Jonathan has written have some more characters available:
+\"o
+\"u
+\'l
+\`a
 
 
 german - not to be included this year
@@ -223,15 +281,6 @@ remove 0 from \oe0
 % and MLTeX's character substitution definition.
 
 
-these mappings are used in ConTeXt:
-
-vietnamese		vn		t5
-russian		ru		t2a?
-
-check!!!
-czech, slovak		cs/sk		ec, il2?
-
-
 
 special converter needed (and already done):
 
@@ -250,10 +299,6 @@ usenglishmax	ushyphmax.tex
 
 TODO (delete all the three entries once patterns are converted):
 
-basque		xu-bahyph.tex
-=espanol
-catalan		cahyph.tex
-galician	xu-glhyph.tex
 russian		xu-ruhyphen.tex
 norsk		xu-nohyphbx.tex
 =norwegian
@@ -266,7 +311,6 @@ danish		dkhyph.tex
 serbian		xu-srhyphc.tex
 estonian	xu-ethyph.tex
 welsh		cyhyph.tex
-slovak		xu-skhyph.tex
 pinyin		xu-pyhyph.tex
 ukrainian	xu-ukrhyph.tex
 greek		xu-grphyph4.tex
@@ -274,36 +318,45 @@ greek		xu-grphyph4.tex
 monogreek	xu-grmhyph4.tex
 ancientgreek	xu-grahyph4.tex
 icelandic	icehyph.tex
+
 uppersorbian	xu-sorhyph.tex
-mongolian2a mnhyphn.tex
 bulgarian	xu-bghyphen.tex
 ibycus ibyhyph.tex
+mongolian	xu-mnhyph.tex
+mongolian2a mnhyphn.tex
+
 hungarian	xu-huhyphn.tex
 esperanto	xu-eohyph.tex
-mongolian	xu-mnhyph.tex
 turkish		xu-tkhyph.tex
 
 
 waiting list:
 
+czech
+slovak
 german		xu-dehypht.tex
 ngerman		xu-dehyphn.tex
 latin		xu-lahyph.tex
 
+consult the authors:
+
+basque		xu-bahyph.tex
+bahyph.sh
+bahyph.tex
+galician	xu-glhyph.tex
+
+
 utf8-grahyph4.tex
 utf8-grmhyph4.tex
 utf8-grphyph4.tex
-xu-bahyph.tex
 xu-bghyphen.tex
 xu-copthyph.tex
 xu-cp866nav.tex
-xu-csaccents.tex
 xu-dehyphn.tex
 xu-dehypht.tex
 xu-dehyphtex.tex
 xu-eohyph.tex
 xu-ethyph.tex
-xu-glhyph.tex
 xu-grahyph4.tex
 xu-grmhyph4.tex
 xu-grphyph4.tex
@@ -313,16 +366,11 @@ xu-nohyphbx.tex
 xu-pyhyph.tex
 xu-rohyphen.tex
 xu-ruhyphen.tex
-xu-skhyph.tex
 xu-sorhyph.tex
 xu-srhyphc.tex
-xu-t1.tex
 xu-tkhyph.tex
 xu-ukrhyph.tex
 
-bahyph.sh
-bahyph.tex
-cahyph.tex
 cathyph.tex
 cyhyph.tex
 dehyphtex.tex
@@ -331,7 +379,6 @@ dkhyph.tex
 dkspecial.tex
 eohyph.tex
 ethyph.tex
-glhyph.tex
 grahyph4.tex
 grmhyph4.tex
 grphyph4.tex
@@ -349,8 +396,6 @@ nnhyph.tex
 nohyphbx.tex
 pyhyph.tex
 rohyphen.tex
-skhyph.tex
-skhyphen.ex
 sorhyph.tex
 srhyphc.tex
 tkhyph.tex
