@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-$encoding_data_dir = "data/encodings"
+$encoding_data_dir = "../data/encodings"
 $encodings = ["ec", "qx", "texnansi", "t2a", "lmc"]
 
-$output_data_dir = "files"
+$output_data_dir = "../tex/conv_utf8"
 
 class UnicodeCharacter
 	def initialize(code_uni, code_enc, name)
@@ -71,8 +71,8 @@ $encodings.each do |encoding|
 			
 			second_byte = uni_character.bytes[1]
 			enc_byte    = uni_character.code_enc
-			enc_byte    = [ uni_character.code_enc ].pack("c").unpack("H2")
-			$file_out.puts "\t\\ifx#1^^#{second_byte}^^#{enc_byte}\\else % #{uni_character.name}"
+			enc_byte    = [ uni_character.code_enc ].pack('c').unpack('H2')
+			$file_out.puts "\t\\ifx#1^^#{second_byte}^^#{enc_byte}\\else % #{[uni_character.code_uni].pack('U')} - #{uni_character.name}"
 			string_fi = string_fi + "\\fi"
 		end
 		$file_out.puts "\t\\errmessage{Hyphenation pattern file corrupted!}"
@@ -83,7 +83,7 @@ $encodings.each do |encoding|
 	$lowercase_characters.sort!{|x,y| x.code_enc <=> y.code_enc }.each do |character|
 		code = [ character.code_enc ].pack("c").unpack("H2").first.upcase
 		# \lccode"FF="FF
-		$file_out.puts "\\lccode\"#{code}=\"#{code} % #{character.name}"
+		$file_out.puts "\\lccode\"#{code}=\"#{code} % #{[character.code_uni].pack('U')} - #{character.name}"
 	end
 	$file_out.puts
 

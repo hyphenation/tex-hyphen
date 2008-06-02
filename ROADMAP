@@ -1,3 +1,7 @@
+remember:
+set lccode for - and '
+
+
 already converted:
 
 # language	original_file	code	supported_encoding(s)
@@ -61,6 +65,30 @@ polish	plhyph.tex	pl[_PL]	qx
 /z -> ż	zdotaccent
 
 
+portuguese	pthyph.tex	pt	ec
+==========
+
+^^e0 -> à - agrave (not used)
+^^e1 -> á - aacute
+^^e2 -> â - acircumflex
+^^e3 -> ã - atilde
+^^e7 -> ç - ccedilla
+^^e8 -> è - egrave (not used)
+^^e9 -> é - eacute 
+^^ea -> ê - ecircumflex
+^^ed -> í - iacute
+^^ee -> î - icircumflex
+^^ef -> ï - idieresis (not used)
+^^f3 -> ó - oacute 
+^^f4 -> ô - ocircumflex
+^^f5 -> õ - otilde
+^^f6 -> ö - odieresis (not used)
+^^fa -> ú - uacute 
+^^fb -> û - ucircumflex (not used)
+
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
+
+
 slovenian (slovene)	sihyph.tex	sl[-si]	ec
 =========
 čšž
@@ -101,6 +129,26 @@ patterns can be loaded as ec only, and the same patterns are usable under texnan
 
 
 ---------------------
+
+czech - not to be included this year ?
+=====
+
+\v e -> ě	ecaron
+\v c -> č	ccaron
+\v d -> ď	dcaron
+\v n -> ň	ncaron
+\v r -> ř	rcaron
+\v s -> š	scaron
+\v t -> ť	tcaron
+\v z -> ž	zcaron
+\r u -> ů	uring
+\'a -> á	aacute
+\'e -> é	eacute
+\'i -> í	iacute
+\'o -> ó	oacute
+\'u -> ú	uacute
+\'y -> ý	yacute
+
 
 german - not to be included this year
 ======
@@ -177,7 +225,6 @@ remove 0 from \oe0
 
 these mappings are used in ConTeXt:
 
-portuguese		pt		texnansi, ec
 vietnamese		vn		t5
 russian		ru		t2a?
 
@@ -203,8 +250,6 @@ usenglishmax	ushyphmax.tex
 
 TODO (delete all the three entries once patterns are converted):
 
-portuguese	pthyph.tex
-=portuges
 basque		xu-bahyph.tex
 =espanol
 catalan		cahyph.tex
@@ -221,7 +266,6 @@ danish		dkhyph.tex
 serbian		xu-srhyphc.tex
 estonian	xu-ethyph.tex
 welsh		cyhyph.tex
-czech		xu-czhyph.tex
 slovak		xu-skhyph.tex
 pinyin		xu-pyhyph.tex
 ukrainian	xu-ukrhyph.tex
@@ -240,7 +284,7 @@ mongolian	xu-mnhyph.tex
 turkish		xu-tkhyph.tex
 
 
-witing list:
+waiting list:
 
 german		xu-dehypht.tex
 ngerman		xu-dehyphn.tex
@@ -254,7 +298,6 @@ xu-bghyphen.tex
 xu-copthyph.tex
 xu-cp866nav.tex
 xu-csaccents.tex
-xu-czhyph.tex
 xu-dehyphn.tex
 xu-dehypht.tex
 xu-dehyphtex.tex
@@ -282,8 +325,6 @@ bahyph.tex
 cahyph.tex
 cathyph.tex
 cyhyph.tex
-czhyph.tex
-czhyphen.ex
 dehyphtex.tex
 dkcommon.tex
 dkhyph.tex
@@ -306,7 +347,6 @@ mnhyphn.tex
 nbhyph.tex
 nnhyph.tex
 nohyphbx.tex
-pthyph.tex
 pyhyph.tex
 rohyphen.tex
 skhyph.tex

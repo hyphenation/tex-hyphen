@@ -41,6 +41,8 @@ languages = [
 		# 	"message" => "Slovenian Hyphenation Patterns",
 		# },
 	]
+	
+	# Loading CZ hyphenation patterns: Pavel Sevecek, v3, 1995
 
 languages.each do |language|
 	File.open("#{$loader_dir}/loadhyph-#{language["code"]}.tex", "w") do |file|
