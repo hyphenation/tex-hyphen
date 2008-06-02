@@ -168,6 +168,17 @@ uppersorbian	sorhyph.tex	hsb	ec
 ^^ba -> ž - zcaron
 ^^b9 -> ź - zacute
 
+pinyin	pyhyph.tex	zh-latn	ec
+======
+^^fc -> ü - udieresis
+
+patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
+
+interlingua	iahyphen.tex	ia	ascii
+===========
+
+pure copy
+
 ---------------------
 
 czech - not to be included this year ? - works fine with ec, but probably includes other tricks as well
@@ -332,12 +343,10 @@ norsk		xu-nohyphbx.tex
 nynorsk         nnhyph.tex
 bokmal          nbhyph.tex
 
-interlingua	iahyphen.tex
 romanian	xu-rohyphen.tex
 indonesian	inhyph.tex
 estonian	xu-ethyph.tex
 welsh		cyhyph.tex
-pinyin		xu-pyhyph.tex
 icelandic	icehyph.tex
 
 greek variants:
@@ -359,6 +368,8 @@ hungarian	xu-huhyphn.tex
 esperanto	xu-eohyph.tex
 turkish		xu-tkhyph.tex
 
+
+TODO:
 
 waiting list:
 
@@ -393,7 +404,6 @@ xu-grphyph4.tex
 xu-huhyphn.tex
 xu-mnhyph.tex
 xu-nohyphbx.tex
-xu-pyhyph.tex
 xu-rohyphen.tex
 xu-ruhyphen.tex
 xu-srhyphc.tex
@@ -419,7 +429,6 @@ mnhyphn.tex
 nbhyph.tex
 nnhyph.tex
 nohyphbx.tex
-pyhyph.tex
 rohyphen.tex
 srhyphc.tex
 tkhyph.tex

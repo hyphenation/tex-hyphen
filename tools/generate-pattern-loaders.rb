@@ -61,7 +61,16 @@ languages = [
 			"exceptions" => false,
 			"message" => "Hyphenation patterns for unaccented pinyin syllables (CJK 4.8.0)",
 		},
-		# {
+		{
+			"code" => "ia",
+			"name" => "interlingua",
+			"synonyms" => [],
+		#	"hyphenmin" => [],
+			"encoding" => "ascii",
+			"exceptions" => false,
+			"message" => "Hyphenation Patterns for Interlingua",
+		},
+	# {
 		# 	"code" => "sl",
 		# 	"name" => "slovenian",
 		# 	"synonyms" => ["slovene"],
