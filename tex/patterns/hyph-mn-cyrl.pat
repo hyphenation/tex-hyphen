@@ -1,48 +1,4 @@
-%% Converted from LMC to UTF-8 from mnhyphen.tex
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%        File: mnhyphen.tex
-%      Author: Oliver Corff and Dorjpalam Dorj
-%        Date: February 26th, 1999		% mls.sty prevails
-%     Version: \VersionRelease			% see mls.sty!
-%   Copyright: Ulaanbaatar, Beijing, Berlin
-%
-% Description: The Mongolian Hyphenation Pattern File
-%	       to be used together with LMC encoding.
-%	       Hyphenation exceptions should be stored
-%              in mnhyphex.tex.
-%
-%              It may well be possible that the hyphenation
-%              patterns given below are incomplete or plainly
-%              wrong. It should also be mentioned that TeX
-%              sometimes ignores correct hyphenation information
-%              and makes up its own mind. Anyway, please con-
-%              sider all hyphenation data strictly experimental
-%              and *not yet stable*.
-%
-%              This file is mostly based on Cäwäl's Mongol
-%              Xälniï Towq Taïlbar Tol' (MXTTT for short;
-%              ``Short Explanatory Dictionary of Mongolian)
-%              but contains a few other sources as well.
-%
-%              Comments, corrections and suggestions are
-%              highly appreciated and should be directed to
-%              the authors at corff@zedat.fu-berlin.de
-%
-%              U/B/B, February 1999
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% -------------------     identification     -------------------
-%
-\message{mnhyphen.tex - Hyphenation Patterns for
-			Xalx Mongolian}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% The following code is closely modelled after russian.sty and
-% its accompanying hyphenation file.
-
-\patterns{%
+UTF-8
 .аа2
 .ин2
 .оё2
@@ -567,4 +523,3 @@
 я1т
 я1х
 я1ш
-}
