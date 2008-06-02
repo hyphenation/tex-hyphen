@@ -1,40 +1,29 @@
 % This is the file pyhyph.tex of the CJK package
 %   for hyphenating Chinese pinyin syllables.
-%
-% We use the latin-1 character code for `umlaut u' (0xfc).  Additionally,
-% the quote character "'" is used in its standard sense (resolving syllabic
-% ambiguities).
-%
+% 
 % created by Werner Lemberg <wl@gnu.org>
-%
+% 
 % Version 4.8.0 (22-May-2008)
-
+% 
 % Copyright (C) 1994-2008  Werner Lemberg <wl@gnu.org>
-%
+% 
 % This program is free software; you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation; either version 2 of the License, or
 % (at your option) any later version.
-%
+% 
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-%
+% 
 % You should have received a copy of the GNU General Public License
 % along with this program in doc/COPYING; if not, write to the Free
 % Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
 % MA 02110-1301 USA
-
-\message{Hyphenation patterns for unaccented pinyin syllables (CJK 4.8.0)}
-
-\begingroup
-
-\catcode"0FC = 11        % umlaut u
-\catcode"027 = 11        % quote (')
-\lccode"0FC  = "0FC
-\lccode"027  = "027
-
+% 
+% \message{Hyphenation patterns for unaccented pinyin syllables (CJK 4.7.0)}
+%
 \patterns{
 a1b
 a1c
@@ -136,7 +125,7 @@ n1r
 n1s
 n1t
 1nu
-1n^^fc
+1nü
 n1w
 n1x
 n1y
@@ -204,33 +193,27 @@ u1w
 u1x
 u1y
 u1z
-^^fc1b
-^^fc1c
-^^fc1d
-^^fc1f
-^^fc1g
-^^fc1h
-^^fc1j
-^^fc1k
-^^fc1l
-^^fc1m
-^^fc1n
-^^fc1p
-^^fc1q
-^^fc1r
-^^fc1s
-^^fc1t
-^^fc1w
-^^fc1x
-^^fc1y
-^^fc1z
+ü1b
+ü1c
+ü1d
+ü1f
+ü1g
+ü1h
+ü1j
+ü1k
+ü1l
+ü1m
+ü1n
+ü1p
+ü1q
+ü1r
+ü1s
+ü1t
+ü1w
+ü1x
+ü1y
+ü1z
 '1a
 '1e
 '1o
 }
-\endgroup
-
-\lefthyphenmin 1
-\righthyphenmin 1
-
-\endinput

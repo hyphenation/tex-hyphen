@@ -153,6 +153,21 @@ source in latin1 -> convert to utf-8
 
 patterns can be loaded as ec only, and the same patterns are usable under texnansi as well (same position of letters)
 
+
+uppersorbian	sorhyph.tex	hsb	ec
+============
+
+^^a3 -> č - ccaron
+^^a2 -> ć - cacute
+^^a5 -> ě - ecaron
+^^aa -> ł - lslash
+^^ab -> ń - nacute
+^^f3 -> ó - oacute
+^^b0 -> ř - rcaron
+^^b2 -> š - scaron
+^^ba -> ž - zcaron
+^^b9 -> ź - zacute
+
 ---------------------
 
 czech - not to be included this year ? - works fine with ec, but probably includes other tricks as well
@@ -280,6 +295,19 @@ remove 0 from \oe0
 % Thus you can use either T1 encoded fonts, or OT1 encoded fonts
 % and MLTeX's character substitution definition.
 
+danish
+======
+
+the same problem
+
+danish		dkhyph.tex
+dkcommon.tex
+dkhyph.tex
+dkspecial.tex
+
+X -> æ
+Y -> ø
+Z -> å
 
 
 special converter needed (and already done):
@@ -299,31 +327,33 @@ usenglishmax	ushyphmax.tex
 
 TODO (delete all the three entries once patterns are converted):
 
-russian		xu-ruhyphen.tex
 norsk		xu-nohyphbx.tex
 =norwegian
 nynorsk         nnhyph.tex
 bokmal          nbhyph.tex
+
 interlingua	iahyphen.tex
 romanian	xu-rohyphen.tex
 indonesian	inhyph.tex
-danish		dkhyph.tex
-serbian		xu-srhyphc.tex
 estonian	xu-ethyph.tex
 welsh		cyhyph.tex
 pinyin		xu-pyhyph.tex
-ukrainian	xu-ukrhyph.tex
-greek		xu-grphyph4.tex
-=polygreek
-monogreek	xu-grmhyph4.tex
-ancientgreek	xu-grahyph4.tex
 icelandic	icehyph.tex
 
-uppersorbian	xu-sorhyph.tex
-bulgarian	xu-bghyphen.tex
-ibycus ibyhyph.tex
-mongolian	xu-mnhyph.tex
-mongolian2a mnhyphn.tex
+greek variants:
+- ibycus ibyhyph.tex
+- greek		xu-grphyph4.tex
+  =polygreek
+- monogreek	xu-grmhyph4.tex
+- ancientgreek	xu-grahyph4.tex
+
+cyrilic variants:
+- bulgarian	xu-bghyphen.tex
+- mongolian	xu-mnhyph.tex
+- mongolian2a mnhyphn.tex
+- serbian		xu-srhyphc.tex
+- russian		xu-ruhyphen.tex
+- ukrainian	xu-ukrhyph.tex
 
 hungarian	xu-huhyphn.tex
 esperanto	xu-eohyph.tex
@@ -366,17 +396,12 @@ xu-nohyphbx.tex
 xu-pyhyph.tex
 xu-rohyphen.tex
 xu-ruhyphen.tex
-xu-sorhyph.tex
 xu-srhyphc.tex
 xu-tkhyph.tex
 xu-ukrhyph.tex
 
-cathyph.tex
 cyhyph.tex
 dehyphtex.tex
-dkcommon.tex
-dkhyph.tex
-dkspecial.tex
 eohyph.tex
 ethyph.tex
 grahyph4.tex
@@ -396,7 +421,6 @@ nnhyph.tex
 nohyphbx.tex
 pyhyph.tex
 rohyphen.tex
-sorhyph.tex
 srhyphc.tex
 tkhyph.tex
 ushyphmax.tex

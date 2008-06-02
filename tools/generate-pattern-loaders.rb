@@ -31,7 +31,8 @@ languages = [
 			"encoding" => "t2a",
 			"exceptions" => false,
 			"message" => "New Mongolian Hyphenation Patterns",
-		},		{
+		},
+		{
 			"code" => "nl",
 			"name" => "dutch",
 			"synonyms" => [],
@@ -39,6 +40,26 @@ languages = [
 			"encoding" => "ec",
 			"exceptions" => true,
 			"message" => "Dutch Hyphenation Patterns",
+		},
+		{
+			"code" => "hsb",
+			"name" => "uppersorbian",
+			"synonyms" => [],
+			"hyphenmin" => [2,2],
+			"encoding" => "ec",
+			"exceptions" => true,
+			"message" => "Hyphenation patterns for Upper Sorbian, E. Werner",
+		#	\message{Hyphenation patterns for Upper Sorbian, E. Werner}
+		#	\message{Completely new revision 1997, March 22}
+		},
+		{
+			"code" => "zh-latn",
+			"name" => "pinyin",
+			"synonyms" => [],
+			"hyphenmin" => [1,1],
+			"encoding" => "ec",
+			"exceptions" => false,
+			"message" => "Hyphenation patterns for unaccented pinyin syllables (CJK 4.8.0)",
 		},
 		# {
 		# 	"code" => "sl",
