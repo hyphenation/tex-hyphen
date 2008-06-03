@@ -1,0 +1,94 @@
+Patterns converted from: tkhyph.tex
+Last modified on CTAN: a version different from CTAN, taken from TeX Live 2007
+
+--------------------------------------------------------------------------------
+
+% A mechanically generated Turkish Hyphenation table for TeX,
+% using the University of Washington diacritical coding
+% developed by P. A. MacKay for the Ottoman Texts Project.
+%
+% see:
+% - http://www.ctan.org/tex-archive/language/turkish/hyphen/turk_hyf.c
+% - http://www.tug.org/TUGboat/Articles/tb09-1/tb20mackay.pdf
+%
+% ---
+% 1996: conversion into Modern Turkish, DC/EC encoding, Yannis Haralambous
+%       tkhyph.tex
+%
+% 2008: notes by Mojca Miklavec
+%
+% Original patterns need special fonts to be able to use them,
+% and use several tricks that only enable same hacks to work properly.
+% 
+% I did not dive into details of conversion, but modern Turkish only uses:
+% - 4 "special" vowels: ıiöü
+% - 3 additional consonants: çğş
+% while the converted patterns also use:
+% - acircumflex: â
+% - ocircumflex: ô
+% - ntilde: ñ
+% One could argue that these are used just because they can,
+% but on the other hand there is no zdotaccent (ż).
+% 
+% The conversion misencoded dotlessi into ^^11 (should be ^^19).
+% 
+% 2008: patterns converted into Unicode.
+% Several characters could be added or removed, but I (Mojca) could not play the judge
+% and did not do any changes, even though I originally intended to fix turk_hyf.c.
+% 
+% -------
+% Original encoding:
+% 
+% a
+% a=  â
+% e
+% i   ı
+% i=  î
+% i:  i
+% o
+% o=  ô
+% o:  ö
+% u
+% u:  ü
+% 
+% -------
+% 
+% character / UTF-8 letter / EC code / Unicode / Unicode name
+% 
+% @      -- arabic hamza
+% #      -- ayn
+% b
+% c
+% c:  ç  E7 U+00E7   LATIN SMALL LETTER C WITH CEDILLA
+% d
+% d!  ḍ  -- U+1E0D   LATIN SMALL LETTER D WITH DOT BELOW
+% d=  ḏ  -- U+1E0F   LATIN SMALL LETTER D WITH LINE BELOW
+% f
+% g
+% g=  ğ  A7 U+011F   LATIN SMALL LETTER G WITH BREVE
+% g:  ġ  -- U+0121   LATIN SMALL LETTER G WITH DOT ABOVE
+% h
+% h!  ḥ  -- U+1E25   LATIN SMALL LETTER H WITH DOT BELOW
+% h=  ẖ  -- U+1E96   LATIN SMALL LETTER H WITH LINE BELOW
+% j
+% k
+% k!  ḳ  -- U+1E33   LATIN SMALL LETTER K WITH DOT BELOW
+% l
+% m
+% n
+% n=  ñ  F1 U+00F1   LATIN SMALL LETTER N WITH TILDE
+% p
+% r
+% s
+% s!  ṣ  -- U+1E63   LATIN SMALL LETTER S WITH DOT BELOW
+% s=     --    s with line below - not even in unicode
+% s:  ş  B3 U+015F   LATIN SMALL LETTER S WITH CEDILLA
+% t
+% t!  ṭ  -- U+1E6D   LATIN SMALL LETTER T WITH DOT BELOW
+% t=  ṯ  -- U+1E6F   LATIN SMALL LETTER T WITH LINE BELOW
+% v
+% y
+% z
+% z!  ẓ  -- U+1E93   LATIN SMALL LETTER Z WITH DOT BELOW
+% z=  ẕ  -- U+1E95   LATIN SMALL LETTER Z WITH LINE BELOW
+% z:  ż  BB U+017C   LATIN SMALL LETTER Z WITH DOT ABOVE
