@@ -1,0 +1,878 @@
+%**start of header
+\catcode`@=11 % borrow the private macros of PLAIN (with care)
+
+\newskip\ttglue
+
+\font\elevenrm=cmr10 scaled \magstephalf % roman text
+\font\eleventt=cmtt10 scaled \magstephalf % typewriter
+\font\elevenit=cmti10 scaled\magstephalf
+\font\ninebf=cmbx9
+\font\ninerm=cmr9
+\font\ninei=cmmi9
+\font\ninesy=cmsy9
+\font\ninett=cmtt9
+\font\ninesl=cmsl9
+\font\nineit=cmti9
+\font\sixi=cmmi6
+\font\sixsy=cmsy6
+\font\sixbf=cmbx6
+\skewchar\ninei='177 
+\skewchar\ninesy='60 
+\hyphenchar\ninett=-1 
+
+\def\ninepoint{\def\rm{\fam0\ninerm}% set in nine point families
+ \textfont0=\ninerm \scriptfont0=\sixrm \scriptscriptfont0=\fiverm
+ \textfont1=\ninei \scriptfont1=\sixi \scriptscriptfont1=\fivei
+ \textfont2=\ninesy \scriptfont2=\sixsy \scriptscriptfont2=\fivesy
+ \textfont3=\tenex \scriptfont3=\tenex \scriptscriptfont3=\tenex
+ \textfont\itfam=\nineit \def\it{\fam\itfam\nineit}% \it is family 4
+ \textfont\slfam=\ninesl \def\sl{\fam\slfam\ninesl}% \sl is family 5
+ \textfont\bffam=\ninebf \scriptfont\bffam=\sixbf
+  \scriptscriptfont\bffam=\fivebf \def\bf{\fam\bffam\ninebf}% \bf is family 6
+ \textfont\ttfam=\ninett \def\tt{\fam\ttfam\ninett}% \tt is family 7
+ \tt \ttglue=.5em plus.25em minus.15em
+ \normalbaselineskip=11pt
+ \setbox\strutbox=\hbox{\vrule height8pt depth3pt width0pt}% strut for 11pt
+ \let\sc=\sevenrm \normalbaselines\rm}
+
+\font\scaps=cmcsc10 % for \LaTeX
+\font\lb=logobf10
+\chardef\bs=`\\ % backslash in a string
+\def\;#1{{\it #1\/}} % The simplest and most useful of all.
+
+\input mftmac
+\parindent=1.5pc % restore after mftmac clobbered it
+
+\font\ninetex=cmtex9 \hyphenchar\ninetex=-1
+\def\finstring"#1"{\ninetex"#1"\egroup}
+
+\def\Beginmft{\par\begingroup\ninepoint
+% \chardef:=`\: \chardef!=`\! % \chardef==`\=
+ \catcode`\:=12 \catcode`\!=12 \catcode`\==12
+ \def\mathsemicolon{\mskip\thickmuskip}
+ \let\;=\mathsemicolon
+ % nine-point type:
+ \def\bf{\fam\bffam\ninebf
+  \def\_{\kern.04em\vbox{\hrule width.3em height .6pt}\kern.08em}%
+  \ninebf}
+ \textfont\bffam=\ninebf \scriptfont\bffam=\sixbf
+  \scriptscriptfont\bffam=\fivebf
+ \baselineskip=11pt
+ \def\MF{{\manual hijk}\-{\manual lmnj}}
+ \let\big=\ninebig
+ \setbox\strutbox=\hbox{\vrule height8pt depth3pt width0pt}
+ \rm
+ \setbox\shorthyf=\hbox{-\kern-.05em}
+ \parindent=0pt
+ }
+\def\Endmft{\par
+     \endgroup} 
+
+\input tkccode
+\font\tentk=tkr10
+% \font\elvntk=tkr11
+\font\tenti=tkti10
+% \font\elvnti=tkti11
+
+\def\BeginTurkish{\par \begingroup
+%   \chardef:=`\: \chardef!=`\! % \chardef==`\=
+   \def\`{\char'43}\def\'{\char'100}%
+   \catcode`\:=12 \catcode`\!=12 \catcode`\==12
+   \sfcode`\:=1000 \sfcode`\!=1000 \sfcode`\==1000 % Frenchspacing after
+%                                                    these
+   }
+\def\EndTurkish{\par %let's be quite certain about this!
+   \endgroup}
+\def\verbatim#1{\begingroup\ninepoint \frenchspacing
+  \def\do##1{\catcode`##1=12 } \dospecials
+  \catcode`\:=12  \catcode`\!=12  \catcode`\==12
+  \parskip 0pt \parindent 0pt
+  \catcode`\ =\active \catcode`\^^M=\active
+  \tt \def\par{\ \endgraf}\overfullrule=0pt \obeylines \obeyspaces
+  \input #1 \endgroup}
+% a blank line will be typeset at the end of the file;
+% if you're unlucky it will appear on a page by itself!
+{\obeyspaces\global\let =\ }
+
+\font\titlefont=cmr17
+\font\namefont=cmcsc10 scaled \magstep1
+\font\twelvebd=cmbx12
+\font\sixrm=cmr6
+
+\vsize=43pc
+\hsize=29pc
+\parindent=16pt
+\nopagenumbers
+\normalbaselines
+\footline={\hss\sixrm\folio\hss}
+\def\makefootline{\baselineskip3pc\line{\the\footline}}
+\def\plainoutput{\shipout\vbox{\makeheadline\pagebody\makefootline}%
+  \advancepageno
+  \vsize=45pc
+  \ifnum\outputpenalty>-\@MM \else\dosupereject\fi}
+\def\makeheadline{\vbox to\z@{\vskip-22.5\p@
+  \line{\vbox to8.5\p@{}\ifnum\count0=1
+         \else\ifodd\count0
+                \hfill\the\doctitle\ignorespaces
+             \else \the\authorname\hfill\fi\fi}\vss}\nointerlineskip}
+
+\newtoks\doctitle  \newtoks\authorname
+
+\doctitle={The Ottoman Texts Project}
+\authorname={Walter Andrews and Pierre MacKay}
+% Added to the general format file
+% an addition needed by mftmac
+\def\ninebig#1{{\hbox{$\textfont0=\tenrm\textfont2=\tensy
+   \left#1\vbox to7.25pt{}\right.\n@space$}}}
+\catcode`@=12 % at signs are no longer letters
+\tenrm
+\begingroup
+\titlefont
+\the\doctitle\hfil
+\vskip 3pc
+\namefont\the\authorname\hfil
+\tenrm
+\vskip 1pc
+{\obeylines
+Department of Near Eastern Languages and Civilization
+University of Washington
+Seattle, Washington 98195
+}
+\vskip 3pc
+\line{\hfill\twelvebd ABSTRACT\hfill}
+\vskip 3pc
+\leftskip 4pc \rightskip 4pc
+The Turkish orthographic reform of 1928, which required the abandonment
+of Arabic script in favor of a Latin letter alphabet, was accompanied
+by a cultural rejection of all literature from the
+Ottoman period of Turkish history.  As a result, only a small part of 
+Ottoman Turkish literature has been made available in scholarly editions
+in the new orthography.  The Ottoman Texts Project is a cooperative
+effort of Turkish and North American scholars to provide new editions
+of these works using popular low-priced personal computer systems and
+standard general purpose software.  This paper describes an approach
+based on the adoption of \TeX\ as the preferred output system for
+publication.
+\par
+\endgroup
+\vskip 3pc
+%**end of header
+\font\eightrm=cmr8
+\def\sc{\eightrm}
+
+\font\huge=cmr17 scaled \magstep2
+\def\dropinitial#1#2{\def\biginitial#1{{\huge#1}}%
+  \def\makeinitial#1{\setbox8\hbox{\strut\vbox to 1.3ex
+    {\hbox{\biginitial#1}\vskip -4pc plus 3.5pc minus 3.5pc}}}%
+  \makeinitial#1%
+  \ifdim\parindent>1.3\wd8\dimen8=\parindent
+     \else\dimen8=1.3\wd8\fi
+  \hangindent=\dimen8\hangafter=-2
+  \noindent
+  \strut\hskip-1\dimen8\box8{\sc#2}}%
+
+\noindent
+The Ottoman Texts editing and typesetting project
+represents an attempt to provide a simple, low-cost
+system for the entry, editing, and typesetting of
+transcribed [romanized] Ottoman Turkish texts.  The
+purpose of developing such a system was to take advantage
+of the increasing availability of microcomputers
+world-wide and to induce the editors of Ottoman texts--
+especially Turkish editors--to employ electronic media
+for their editing tasks.  The benefits to scholars of
+having a large corpus of texts available in
+machine-readable form seem obvious, but overcoming
+``technology cringe'' on the part of scholars whose
+devotion to medieval literature stems in large part from
+a strong conservative-traditionalist ideological bent is
+no small task.  Nonetheless, the rewards of converting a
+significant number of such scholars would be quite high.
+The vast majority of significant Ottoman Turkish texts
+await up-to-date editing and the suggested technological
+change could have a major impact on the speed and
+accuracy of the editing process as well as on the
+development of lexicographical tools and on many areas of
+literary and linguistic study.
+
+        The situation in Ottoman studies that makes a
+switch to electronic media especially attractive at this
+time is rather complex and demands some historical
+introduction.  From its earliest years at about the
+beginning of the 14th century until early in the 20th
+century, the Ottoman dialect of Turkish was written in
+the Arabic script.  The political decline of the Ottoman
+Empire from its pinnacle of world power in the 16th
+century to its status as a moribund, defeated ally of
+Germany following World War I, was arrested in the first
+three decades of this century by a political and
+ideological revolution that saw the establishment of a
+Turkish Republic and an accompanying rejection of the
+literary, cultural, and religious institutions of the
+Ottoman past.  One aspect of the cultural revolution was
+the adoption of a latin letter alphabet for Turkish, a
+change which had among its
+consequences the expansion of literacy beyond a small
+elite circle to the general populace, a conscious effort
+to simplify the written language, and a resultant major
+decline in the ability to read and comprehend the Ottoman
+literary language in any of its forms.  The ethos of the
+early years of the Republic, to which the Ottoman Empire
+appeared as decadent and its culture as derivative, also
+meant that, at a time when the scholarly edition of older
+texts was becoming a growing concern in other parts of
+the world, in Turkey interest in things Ottoman,
+including Ottoman texts, was considered backward,
+anti-nationalist, counter-revolutionary, and
+wrong-headed.  As a result, very few texts were
+adequately edited and the population in general was
+further cut off from its historical past.  Since the
+Second World War, however, there has been an increased
+scholarly interest in Ottoman texts and in the
+transcription and edition of such texts.  This interest
+has grown with the growth of a tolerance for some
+reemergences of older ethical, religious, and cultural
+practices and attitudes.
+
+        It is clear that the particular situation in
+Turkey today lends itself to the adoption of editing
+methodologies that take advantage of computer technology:
+there is a large cadre of well-educated persons with very
+positive attitudes toward technological innovation; the
+Latin alphabet is used [with modifications for Ottoman
+transcription]; most of the basic editing work remains to
+be done; there is already great interest in the types of
+concordancing, indexing, lexicographical analysis, etc.
+that can be most easily done by computers.  Nonetheless,
+Ottoman studies is still an area that attracts persons
+who would be least likely to welcome technological
+innovation and so any change would need to bring
+immediate and obvious benefits.  When the editing project
+was initiated, it was decided that the result should have
+the following characteristics:
+
+\medskip
+\noindent1.\quad It should be easy to use even for the most
+unsophisticated user.
+
+\noindent2.\quad It should be adaptable to many different
+circumstances and should be easily supportable.
+
+\noindent3.\quad It should obviously eliminate the need for
+more than one entry of the basic text.  [This is, of
+course, common to all computer word-processing systems
+but it is such a major departure from the usual round of
+draft typings that its benefits must be emphasized to
+those who have not experienced it.]
+
+\noindent4.\quad  It should be capable of producing typeset
+camera-ready copy for printing. [This is a major
+potential benefit even in Turkey where the costs of more
+labor-intensive typesetting methods are growing rapidly.]
+
+\medskip
+
+        The project developed in several stages and was
+not without its problems and false starts.  The first
+stage involved convincing a noted Turkish scholar and
+respected editor of Ottoman texts to come to the
+University of Washington to attempt to edit the collected
+poems of a 16th century Ottoman poet using the IBM XT
+already employed by the Department of Near Eastern
+Languages and Civilizations for the development of
+Turkish character-sets.  Scholarly processes being what
+they are it turned out to be easier to bring the scholar
+than to have the necessary word-processing capabilities
+ready when he arrived.  As a result, a rather cumbersome
+combination of Microsoft's WORD, Rosesoft's ``smart key''
+program [PROKEY], and a series of BASIC programs
+developed by Robert Blum of the UW administration was
+used to enable the Turkish visitor to input and edit
+about 90\% of the poems in the collection [over 500 poems]
+in about three months.  The editor, who had had no
+previous experience of computers and no particular liking
+or aptitude for them, was an eager and willing convert to
+the process.  Prior to his departure, we were also able
+to employ a simple translation program which converted
+the character-set designed for the XT to \TeX\ notation
+and, subsequently, to produce a typeset sample of the
+edited text on the SUN
+minicomputer.  The reaction of our visitor to the
+results of this process, which was carried out with the
+help of two fellow scholars without the intervention of
+typists or typesetters, was pure delight and amazement.
+
+        In the ensuing months the project has been
+considerably refined and improved.  With the invaluable
+assistance of the UW Humanities and Arts Computing
+Center and its resident character-sets guru, Gerald
+Barnett, we have been able to develop a word-processing
+system that is simple, efficient, flexible, and low-cost.
+The system is based on Quicksoft's PC WRITE program used
+with EGA/VGA and compatable graphics hardware.\footnote{$^*$}{NOTE: At
+present, the system produces a host of irritating ``ghost
+diacritics'' when used with the IBM PS 2 graphics--these
+are a distraction more than a real hinderance but, as
+yet, we have no idea why they occur.}  The advantages of
+PC WRITE for this kind of word-processing are numerous
+but it is worth mentioning a few in some detail.
+
+        Given the goal of making this technology widely
+available among scholars and students [especially among
+foreign students and scholars], the fact that PC WRITE is
+low-cost, share-ware [\$89.00 with full support] makes it an
+attractive alternative.  Moreover, PC WRITE permits
+virtually limitless customization of keyboards, fonts,
+printer controls, etc. in a manner accessible to persons
+without any knowledge of programming or programming
+languages.  Using a simple set of programs--a program
+designed at Duke University for the creation of
+characters for display on an EGA driven monitor and a
+program being developed by Gerald Barnett of the UW for
+the production of downloadable printer fonts--we have
+been able to produce a word processing system that can
+display and edit an extended IBM character-set, which
+will allow the use of modern [roman alphabet] Turkish,
+the romanized transcription of Ottoman Turkish [Arabic
+alphabet], and a full English characters font.  One can
+also switch instantly between a standard IBM
+keyboard, an IBM keyboard adapted to Turkish
+characters, and the standard Turkish keyboard with
+extensions for the Ottoman character-set.  In addition,
+the system supports draft printing on the IBM Pro Printer
+and letter quality printing on the NEC and Toshiba 24 pin
+printers [with the use of a bi-directional tractor].
+
+        The extended IBM character-set uses 8 of the
+special European characters, 32 special Ottoman
+transcription characters [on ASCII codes 192--223], and 9
+special modern Turkish characters [on ASCII codes
+225--233], as well as the full English set.  All of the
+modern Turkish characters appear as characters on the
+modified standard keyboard.  The Ottoman Turkish
+characters [standard English characters with diacritics]
+are called up by two-key sequences.  For example, a ``d''
+with a dot under it is produced by striking ``/'' followed
+by ``d''; all other special Ottoman characters are produced
+by the same sequence [``/''$+$``character''].  Keyboard
+arrangement and the particular character used to call up
+the special characters can be easily modified to suit the
+preferences of the user.
+
+        One fortunate aspect of the print control features of PC
+WRITE for this project
+is that the print control program can be set up to
+support two different fonts for each character.
+Therefore, \TeX\ notation can be provided as an alternative
+for each character and translation from the usual
+word-processor font to \TeX\ notation can be done
+automatically by simply printing in the \TeX\ input character set to
+another file.  Because PC WRITE produces ``clean'' ASCII
+files, the material is immediately ready for typesetting
+in whatever \TeX\ environment is being used.
+
+\medskip
+\centerline{{\elevenrm Accented character sets in \TeX}}
+\smallskip
+
+\noindent
+In the few years since 
+the official release of \TeX, a number of
+attempts have been made to adapt the program to languages other than
+English.  The best known successes have depended on adaptations of the
+program itself, partly because the standard release of \TeX\ can
+support only one system of hyphenation at a time, which makes a truly
+bilingual document quite difficult to produce.  These adaptations may
+be broadly classed as program-based extensions of the language.  The
+extension which is most obviously necessary is the addition of a
+primitive which can control the switch between one predigested
+hyphenation pattern and another.  Michael Ferguson's bilingual CNRS-\TeX,
+which was initially developed for an environment in the province of
+Quebec, where French and English are constantly intermingled, is one
+of the outstanding developments in this class of adaptations, and
+there are others as well.
+
+A second extension is needed to get around the problem of hyphenation
+in languages which make use of diacriticals and accents.  The basic
+form of \TeX\ will reject any word containing an accent from the
+evaluation routine
+which normally looks for acceptable hyphenation breaks.  In effect,
+any word with an accent is treated as if it were an unbreakable
+horizontal box, and is not evaluated for hyphenation at all.  This can
+make line-breaking very difficult, and several users of \TeX\ have
+found it necessary to introduce a loop into the program so that
+accents and diacriticals will be stripped out just before the entry to
+the hyphenation routine, and then returned to their remembered positions
+after the discretionary hyphen nodes have been inserted into the word.
+
+The disadvantage of both these systems is that the adapted program is no
+longer \TeX.  It is often possible to add the extra features in such a way 
+that the resultant program will produce {\tt DVI} files that are
+indistinguishable from those generated by \TeX, but the extra features
+are not generally available on all systems which run \TeX, and the
+user is often excluded, therefore, from some of the most popular small
+system versions of \TeX.
+
+An alternative solution to the problem of accented languages, though
+not of bilingual hyphenation patterns, is a font-based, rather than a
+program-based approach.  Font characters may be generated with the
+accents already applied, and mapped into unused or little-used areas
+of the normal Computer Modern font table.  If these characters are
+then supplied with an appropriate \TeX\ {\tt\bs lccode} value, the
+hyphenation loop will recognize them as part of a sequence capable of
+being hyphenated.  For a monolingual application in a language which
+makes intensive use of accents and diacriticals, this can be an
+attractive approach, especially when there are reasons for wishing to
+preserve the ability to make use of small system versions of \TeX.  
+This is the approach we have taken for Turkish \TeX.
+
+Turkish provides a delightfully vivid set of examples of accentuation
+and hyphenation.  The Latin-letter character set which has been in
+use since the orthographic reform of 1928 is extended, even in Modern
+Turkish, by means of a considerable number of diacriticals and accents.  A
+diligent search through the modern dictionary will produce several
+five- and six-letter words in which every character is accented, and an
+intensive search might come up with words as much as nine letters long
+with every character accented.  In critical editions of Ottoman texts,
+the number of accents more than doubles.  Modern Turkish knows only
+the accented and unaccented pair of letters `{\bf s}' and `{\bf\c s}', but
+Ottoman Turkish has `{\bf s}', `{\bf\c s}', `{\bf\d s}' and `{\bf\b s}', which
+represent four completely distinct characters in the Arabic alphabet.
+The letter `{\bf h}' shows almost as much variety, and so do several
+others.  Our Ottoman Turkish font has twenty-seven accent and letter
+composites, in addition to the basic twenty-six simple Latin letters.
+Moreover, all composites can exist in upper case forms as well as in
+lower case.
+
+When a character set is as heavily accented as this, it is desirable
+to make sure that the accents are positioned over their letters as
+exactly as possible.  The {\tt\bs accent} primitive in \TeX\ does a
+remarkably good job of positioning accents, but it depends on a very
+general algorithm, and tends to place accents exactly centered over
+or under the affected character, no matter what the appearance of
+that character may be.  Donald Knuth recognized this limitation in
+the very earliest stages of the development of \TeX, and has
+consistently recommended that frequently used combinations of
+character and accent be developed as composite single images in the
+font.  The center of a character is not always the best visual
+position for an accent; top accents should often be slipped just a
+bit to the right, and bottom accents just a bit to the left of the
+mechanically defined centerline of the character.  Height and depth
+of accents are similarly subject to aesthetic judgement.  
+The{\tt\bs accent} primitive of \TeX\ works very well indeed for
+sparsely occurring accentuation, but not so well when accents occur
+in every second word.
+
+The problem of hyphenation in Turkish is even more striking.  Turkish
+is known as an ``agglutinating'' language, which means, in effect that
+each discrete logico-syntactic qualification of a basic word is
+expressed in a single syllable tacked onto all the other syllables in
+the word.  At the same time, it is a language in which consonant
+clusters are virtually unknown.  A Turkish word is made up of simple
+open and closed syllables, of the form {\tt cv} or {\tt cvc}, and in
+native words there is not even the distinction between long and short
+vowels.  The result is a language in which word-length tends to be
+greater than it is even in English, and where, as a result,
+hyphenation is often necessary.  The hyphenation rules are inherited
+from the syllabification of Arabic.  A syllable is assumed always to
+consist of an initial consonant (even when that consonant is no longer
+written) and to terminate in a vowel or in the next unvowelled
+consonant.  This pattern is followed so absolutely that it is
+permitted to break up native Turkish suffixes.  The plural suffix \;{
+-ler-} will be hyphenated as \;{-le-rine} in an environment where
+the {\tt -cv-cv-cv} pattern predominates.
+
+A set of hyphenation patterns for Turkish will therefore be quite
+simple to produce, but it will have no effect on most Turkish words
+unless something is done about the problem of accents.  A word such as
+\;{\c cektirilebilecek} ought to provide six discretionary
+hyphenation nodes: \;{\c cek-ti-ri-le-bi-le-cek}, but the {\tt\bs
+accent} primitive applied to the first letter will guarantee that the
+standard version of \TeX\ gives up any attempt to hyphenate it at 
+all.\footnote{$^*$}{The word is a future participle, and describes 
+something as being
+capable of being extracted at some time in the future--like a tooth.
+A morphological division of the word would produce a very different
+hyphenation pattern, \;{\c cek-tir-il-e-bil-ecek}, with only five nodes.}
+If the initial letter `{\bf \c c}' were a single character in a special
+font, and were provided with an {\tt\bs lccode} value, the {\tt\bs
+accent} primitive would no longer appear, and the word could be
+evaluated for hyphenation.
+
+Since the majority of \TeX\ users will never have to deal with {\tt\bs
+lccode}s at all, a word of explanation is in order here.  \TeX\
+is designed to take care of the problems of typesetting in a
+general manner, independent of the language of the text to be
+set.  The program recognizes that while many languages have
+paired upper and lower case character sets, not all do, and the
+order of the basic text character set may not be that of the
+Latin alphabet.  For this reason, specific upper and lower case
+pairings are not built into the program, but are supplied by
+macro definitions in {\tt plain.tex}.  Like all other
+definitions in plain.tex, they may be replaced, and it is quite
+possible to dispense with plain.tex altogether, and substitute
+another basic format file such as {\tt sadece.tex}, {\tt
+franc.tex}, {\tt einfach.tex} or {\tt sketo.tex}.  (Knuth
+insists, for obvious reasons, that the one thing you may not call it is
+``plain.tex.'')  If additional characters such as the accented letters
+of Turkish are made part of the basic input coding table, then they
+are likely to exist in upper and lower case pairs.  Each lower case
+code is given itself as a lower case {\tt\bs lccode}, and the code of
+its upper case equivalent as its {\tt\bs uccode}.  These can be used
+to force conversion from one case to the other, but the {\tt\bs
+lccode} serves an additional purpose.  When \TeX\ enters the program
+loop which searches for discretionary hyphen nodes in each word, it
+first unpicks all ligatures such as {\bf ffi} and then evaluates the
+resultant list from the beginning,
+working on any given word only so long as every character it
+finds has a valid {\tt\bs lccode}.  Any node that is not a simple
+character with a valid {\tt\bs lccode} causes the routine to terminate;
+the sequence so marked is supplied with no discretionary
+hyphen nodes at all, and therefore cannot be broken by the
+line-breaking algorithm.  This is what prevents hyphenation in the
+case of the Turkish word given above.
+
+\medskip
+\centerline{\elevenrm Input Code Interpretation}
+\smallskip
+
+\noindent
+The Turkish text-editing system described above
+is driven from a keyboard mapped to conform as
+closely as possible to the standard Turkish typewriter keyboard.
+This mapping is not used directly in the design of the Ottoman
+Turkish font and, in its present form,
+is isolated from the actual \TeX\ input.  After the
+raw input has been corrected, it is passed through a filter which
+converts the accented characters into character pairs (or, in a very
+few instances, into \TeX\ command sequences).  These pairings are
+based on a proposal made more than ten years ago at the Orientalist
+Congress held in Paris, in 1974.  Owing to the extraordinary richness
+of the Ottoman Turkish character set, it has been necessary to extend
+the old proposal, but it still retains the original principles, which
+are closely associated with the coding scheme used by the Onomasticon
+Arabicum project.  The Onomasticon Arabicum uses a post-positive dot
+and a post-positive hyphen to indicate diacriticals, which is
+acceptable in a data-base of names, but not in continuous prose text.
+To provide the indications for Ottoman Turkish diacriticals, 
+we have taken over the exclamation
+point `{\tt!}', the equals sign `{\tt=}', and the colon `{\tt:}'.
+
+The exclamation point is used for all the ``emphatic'' letters of the
+Arabic alphabet (the alphabet in which Turkish was written until
+1928).  These are the letters \;{\d Dad} (usually pronounced as `{\bf z}' in
+Turkish, and hence paired with a non-Arabic letter known as \;{\.Zad}), 
+\;{\d Sad}, \;{\d Ha'}, \;{\d Ta'} and \;{\d Za'}.  
+The equals sign is used for all the
+consonants which are represented in Latin-letter transcriptions by a
+letter with a bar under, such as {\bf\b d} (\;{dhal}), more 
+commonly written in
+Turkish as `{\bf\b z}', and also for vowels with a macron or, following the
+Turkish convention, a `hat' accent, and similar forms, chosen like the
+cupped `{\bf\u g}', because the equals sign is visually closer than the colon
+is.  (Moreover, the colon is needed for a different variety of the
+letter `{\bf g}'.)  The colon is a catch-all for everything else, but works
+out rather well visually, as it happens.  The three post-positives are
+not accents, but regular characters, which use the \TeX\ convention of
+ligatures to invoke accented characters from the font, just as the
+second `{\bf f$\,$}' in the normal \TeX\ `{\bf ff}' 
+ligature pair does.  If a standard
+Latin-letter character does not have an associated ligature table in
+the font, a following colon will be unaffected.  
+Thus, the letter `{\bf o}',
+when followed by a colon will produce `{\bf\"o}', but the letter `{\bf e}' when
+followed by a colon will produce `{\bf e:}'.  The equals sign is returned to
+its normal function in math mode, and the colon and exclamation point
+can be invoked by the command sequences {\tt\bs:} and {\tt\bs bang}
+when the simple character will not work.
+
+This set of conventions produces an input file which can, if
+necessary, be edited on a ordinary terminal lacking the special
+Turkish character features, and which a Turkish speaker can become
+accustomed to without too much difficulty.  When coupled with a
+well-designed macro file and a rewritten hyphenation table, it
+provides the possibility of naturalizing a \TeX\ environment into
+Turkish without any large investment in special purpose hardware and
+rewritten versions of non-standard (non-)\TeX.
+
+\medskip
+\centerline{\elevenrm The Font}
+\smallskip
+
+\noindent
+Donald Knuth's Computer Modern fonts come with a wide range of accents, which
+cover most of the requirements for Turkish.  The only obvious lack is
+the flat cup which is used under both upper and lower case `{\bf h}' as
+an aesthetic variant for the simple bar under the letter.  All the
+existing accents in Computer Modern are designed for consistency 
+with the stroke-weights and proportions of the underlying alphabetic
+characters, and it is therefore very desirable to
+retain the details of this design in any associated font of accented
+characters.  The vertical and horizontal positions
+may be altered and, for other languages than Turkish, the angle of
+acute and grave accents over upper case letters, but the basic
+proportions of each accent or diacritical remain unchanged.  This is
+achieved by taking over the entire text of the Computer Modern
+character file {\tt accent.mf} and converting the {\tt beginchar
+$\ldots$ endchar} pairs to {\tt def} and {\tt enddef}.  It is
+not quite so easy as that, but the process is essentially mechanical,
+and guarantees the preservation of all the essential design details for
+each accent.  (The flat cup under `{\bf h}' is based on the slavic tie
+accent, turned upside down.)  The resultant file, {\tt accdef.mf}, 
+is now full of ``definitions'' which can be
+invoked as part of the program file for composite characters.  
+Positioning, however, can not be entirely taken care of in the 
+{\tt accdef.mf} file.  The accents in {\tt accent.mf} 
+are, for the most part, designed with a fixed reference
+point at the top of the image, but correct positioning usually
+requires a knowledge of where the bottom edge will be.  It is
+herefore necessary to take some of the calculations from the accent
+definitions, and incorporate them into the description of the
+underlying character.  For example, the superscript dot accent in the
+Computer Modern font is produced as follows.
+\medskip
+\Beginmft
+$\2{iff}\\{ligs}>0\?\2{cmchar}\7"Dot accent";$\par
+$\2{numeric}\\{dot\_diam}\SH ;\ \\{dot\_diam}\SH =\1{max}(\\{dot\_size}\SH ,%
+\\{cap\_curve}\SH );$\par
+$\2{beginchar}(\1{oct}\7"137",5u\SH ,\1{min}(\\{asc\_height}\SH ,\frac10/{7}%
+\\{x\_height}\SH +.5\\{dot\_diam}\SH ),0);$\par
+$\2{define\_whole\_blacker\_pixels}(\\{dot\_diam});$\par
+$\2{italcorr}h\SH \ast \\{slant}+.5\\{dot\_diam}\SH -2u\SH ;$\par
+$\2{adjust\_fit}(0,0);$\par
+$\2{pickup}\\{tiny}.\\{nib};\ \\{pos}_{1}(\\{dot\_diam},0);\ \\{pos}_{2}(\\{dot%
+\_diam},90);$\par
+$x_{1}=x_{2}=.5w;\ \\{top}\,y_{2r}=h+1;$\par
+$\2{if}\\{bot}\,y_{2l}<\\{x\_height}+o+\\{slab}\?y_{2l}:=\1{min}(y_{2r}-%
+\\{eps},\\{x\_height}+o+\\{slab}+.5\\{tiny});\3{fi}$\par
+$y_{1}=.5[y_{2l},y_{2r}];\ \\{dot}(1,2);\ \9 dot\par
+$\2{penlabels}(1,2);\3{endchar};$\par
+\Endmft
+\medskip
+
+\noindent
+The corresponding {\tt accdef.mf} definition is
+
+\medskip
+\Beginmft
+$\2{def}\\{dot\_accent}(\2{suffix}\$,@)(\2{expr}\\{dotY\_shift})=$\par
+$\2{save}@;$\par
+$\2{forsuffixes}\\{\$\$}=@,@_{\_}\?\2{transform}\\{\$\$};\3{endfor}$\par
+$\2{numeric}\\{dh}\SH ;\ \\{dh}\SH :=\1{min}(\\{asc\_height}\SH ,\frac10/{7}%
+\\{x\_height}\SH +.5\\{dot\_diam}\SH );$\par
+$\2{define\_whole\_blacker\_pixels}(\\{dh},\\{dot\_diam});$\par
+$\2{pickup}\\{tiny}.\\{nib};\ \\{pos}_{@\_1}(\\{dot\_diam},0);\ \\{pos}_{@\_2}(%
+\\{dot\_diam},90);$\par
+$x_{@\_1}=x_{@\_2}=x_{\$};\ \\{top}\,y_{@\_2r}=\\{dh}+1;$\par
+$\2{if}\\{bot}\,y_{@\_2l}<\\{x\_height}+o+\\{slab}\?y_{@\_2l}:=\1{min}(y_{@%
+\_2r}-\\{eps},\\{x\_height}+o+\\{slab}+.5\\{tiny});\3{fi}$\par
+$y_{@\_1}=.5[y_{@\_2l},y_{@\_2r}];$\par
+$\2{numeric}\\{dot\_span};\ \\{dot\_span}=\\{dh}-\\{bot}\,y_{@\_2l};$\par
+$@=\\{identity}\2{if}\\{dotY\_shift}<>0\?\6{shifted}(0,\\{dotY\_shift}+\\{dot%
+\_span})\3{fi};$\par
+$\2{for}n=1,2\?\2{forsuffixes}e=l,,r\?$\par
+\quad$z_{@}[n]e=z_{@\_}[n]e\6{transformed}@;\3{endfor}\3{endfor}$\par
+$\\{dot}(@_{1},@_{2});\ \9 dot\par
+$\2{penlabels}(@_{1},@_{2});\3{enddef};$\par
+\Endmft
+\medskip
+
+To get this into position over the letter `{\bf o}', requires the
+following program text,
+
+\medskip
+\Beginmft
+$\2{cmchar}\7"The letter dotted o";$\par
+$\\{dot\_sharp\_values};$\par
+$\2{beginchar}(\1{oct}\7"025",9u\SH ,\\{dot\_top}\SH ,0);$\par
+$\2{italcorr}\frac1/{3}[\\{x\_height}\SH ,\\{asc\_height}\SH ]\ast %
+\\{slant}-.5u\SH \2{if}\\{serifs}\?+.25\\{dot\_diam}\SH \3{fi};$\par
+$\2{adjust\_fit}(\2{if}\\{monospace}\?.5u\SH ,.5u\SH \2{else}\?0,0\3{fi});$\par
+$\\{penpos}_{1}(\\{vair},90);\ \\{penpos}_{3}(\\{vair}',-90);$\par
+$\\{penpos}_{2}(\\{curve},180);\ \\{penpos}_{4}(\\{curve},0);$\par
+$x_{2r}=\1{hround}\1{max}(.5u,1.25u-.5\\{curve});$\par
+$x_{4r}=w-x_{2r};\ x_{1}=x_{3}=.5w;\ y_{1r}=\\{x\_height}+\1{vround}1.5\\{oo};\
+y_{3r}=-\\{oo};$\par
+$y_{2}=y_{4}=.5\\{x\_height}-\\{vair\_corr};\ y_{2l}:=y_{4l}:=.52\\{x%
+\_height};$\par
+$\2{penstroke}\\{pulled\_arc}_{e}(1,2)\AM \\{pulled\_arc}_{e}(2,3)$\par
+\quad${}\AM \\{pulled\_arc}_{e}(3,4)\AM \\{pulled\_arc}_{e}(4,1)\AM \1{cycle};\
+\9 bowl\par
+$\2{numeric}\\{dot\_shift},\\{dot\_top};$\par
+$\2{define\_whole\_blacker\_pixels}(\\{dot\_diam},\\{dot\_top});$\par
+$\\{dot\_shift}=0;\ \9 in this case, the position happens to be correct\par
+$x_{7}=x_{1}-.8\\{dot\_diam};\ x_{8}=x_{7}+1.6\\{dot\_diam};$\par
+$\\{dot\_accent}(7,a,\\{dot\_shift});$\par
+$\\{dot\_accent}(8,b,\\{dot\_shift});$\par
+$\2{penlabels}(1,2,3,4,7,8);\3{endchar};$\par
+\Endmft
+\medskip
+
+\noindent
+in which the line
+
+\medskip
+\Beginmft
+$\\{dot\_sharp\_values};$\par
+\Endmft
+\medskip
+
+\noindent
+expands to a macro
+
+\medskip
+\Beginmft
+$\2{def}\\{dot\_sharp\_values}=$\par
+$\2{numeric}\\{dot\_diam}\SH ;\ \\{dot\_diam}\SH =\1{max}(\\{dot\_size}\SH ,%
+\\{cap\_curve}\SH );$\par
+$\2{numeric}\\{dot\_top}\SH ;\ \\{dot\_top}\SH =\1{min}(\\{asc\_height}\SH ,%
+\frac10/{7}\\{x\_height}\SH +.5\\{dot\_diam}\SH );$\par
+$\!\3{enddef};$\par
+\Endmft
+\medskip
+
+
+\noindent
+which repeats some of the calculations made in the definition of the dot
+accent.
+
+
+The composites that result from this programming effort look, for the
+most part, identical to the results of the application of the {\tt\bs
+accent} primitive to characters in the regular Computer Modern fonts.
+The one major difference comes in the shape of the ``hat'' accent over
+the letter `{\bf i}'.  In this instance, the accent would spread beyond the
+left and right side bearings of the underlying character and mess up the
+letter spacing if it were
+not pinched in, so a special narrow hat accent is provided for `{\bf i}'.  
+The proportions of each stroke remain essentially the same as
+those in the original model, but they form an acute angle over the top
+of the letter.  Except in the case of this character and some of the 
+uniquely Turkish dotted uppercase letters, 
+it will probably be difficult to distinguish the two styles of accent 
+in the final printed version even when they are
+intermingled in the same text.
+
+The creation of the composite characters is only the first stage in
+the development of the font.  Next, the italic correction must be set
+for all the italic and slant fonts.  This is the spacing that may be
+added to the right side of any slanted character to prevent it from
+running into something like a non-slanted closing parenthesis.  There
+does not seem to be any way except visual inspection to discover an
+acceptable italic correction.  One wants a fairly simple, general
+calculation, but one which will do rough justice
+to all slanted versions of the character.  There were more proof
+copies generated to get the italic correction right than for any other
+feature of the font.  (In the absence of any accessible system on which
+proofs could be displayed on the screen, a great many paper proofs had
+to be generated.)
+
+Following this comes the generation of ligature and kerning tables,
+which are necessarily quite large, and need to be carefully worked out
+since there is only a finite region of a {\tt tfm} file that can be
+devoted to them.  The smaller of the two ligature tables, for the
+italic fonts, is shown in appendix A.  It still needs one further refinement;
+the kernings appear in the order of English letter frequency, and it
+might be possible to gain a little efficiency by rearranging some of
+them.  Notice that the `{\bf f$\,$}' ligatures are altogether eliminated.
+In Turkish it is essential to retain the distinction between the
+dotted and the undotted `{\bf i}, which cannot be done if the `{\bf
+fi}' ligature is used.  The problem that arises, in fact is to provide
+adequate separation between the dotted `{\bf i}' and a preceding `{\bf
+f$\,$}'.
+
+In addition to the accented characters, it was necessary to design
+three additional characters for Ottoman Turkish.  The simplest is
+a dot at about the bar height of lower case `{\bf e}'.  This is
+used for a type of Persian suffix known as ``izafet,'' which is
+very common in Ottoman texts.  The remaining two characters are
+representations of the Arabic letters ``Ayn'' and ``Hamza,'' which
+are conventionally represented by opening and closing single
+quotes in most fonts.  The ``lazy man's \;{`ayn}'' (as just
+illustrated) is acceptable for the occasional reference, but not
+for extensive literary texts.  Ayn is not an accent, it is a
+regular consonant of the Arabic alphabet and Hamza, though it can
+be omitted in many positions is also a consonant.  What is needed
+is a pair of characters which are clearly distinguishable from
+single quotes, but sufficiently like them to conform with the
+general appearance of Computer Modern.  The programs shown below,
+draw on the same standard definition as is used to generate the
+single quotes, but alter the position and the proportions.  The
+bulb is uppermost in both instances, and is somewhat smaller than
+the bulb of the close quote.  The tail is brought out further from
+the side of the bulb, and is tucked more tightly under.  The
+versions for slanted and italic fonts use some special
+transformations to insure that the {\tenti \`ayn} (that was the
+character from the Ottoman font) is correctly formed.  In
+effect, the character is built out to the left of the centerline,
+with a reverse slant, and then reflected back into the normal letter space.
+The program for these characters is Appendix B.
+
+A complete passage from our first proposed critical text edition is
+given below, first in \TeX\ input coding, and then as typeset.  The
+text from which this passage was extracted runs to twelve pages, and
+was set without the benefit of a properly rewritten hyphenation table.
+By good luck, most of the English pattern hyphenations turned out to
+correspond with acceptable Turkish hyphenations, but it will certainly
+be necessary to make up a proper Turkish hyphenation table in the near
+future.  When that is done, and an appropriate set of formatting
+macros has been written to isolate Turkish text from non-Turkish text
+and math mode, we will have a Turkish language adaptation of \TeX\
+which can be exported onto any small \TeX\ system, with no alteration
+of the program whatsoever.  The full range of standard Computer Modern
+font styles will be available, and will blend in perfectly with the
+normal unaccented library of Computer Modern fonts.  We will not have
+a truly bilingual version of \TeX, but for a predominantly Turkish
+language environment we will be offering a cheaper and more accessible
+monolingual font-based adaptation.
+
+\bigskip
+{\verbatim {Tktexinput} }
+
+\bigskip
+\BeginTurkish
+\tentk
+\`A=s:ik!lik! zama=ninda \`is:k! va=sit!asi ve s:eyda=lik! \`a=lemi:nde
+s:evk! vesi=lesi:, vus!lat eyya=minda mah!abbet muk!tez:a=si, fi:ra=k!
+gu:nleri:nde h!urk!at i:k!ti:z:a=si, baha=r mev\-si:mi:nde s!oh!bet
+germi:yyeti:, mah!bu=blar mecli:si:nde s:ara=b keyfi:yyeti:, ca=na=neler
+i:bra=mi ve \`a=s:ik!lar i:k!da=mi ve fuz:ala= mus!a=h!abeti: ve \`uk!ala=
+i:lti:fa=ti, ehl..i: di:ller rag:beti: ve t!a=li:bler mi:nneti: i:le di:du:gu:
+ebya=t ve es:\`a=r, ki: her bi:ri:nu:n= lat!i=f ma\`a=ni=si: ca=m..i naz!ma
+s:ara=b..i rengi=n ve s:i=ri=n h=aya=la=ti bezm..i: s!afa=da nuk!l..i:
+s:ekkeri=n olup mu\`a=s:i:ra=n..i mecli:s..i: z=evk! bu meyh=a=nenu:n=
+ba=deci:si: ve h!ari=fa=n..i bezm..i: s:evk! bu ka=s:a=nenu:n= sebu=-kes:i:
+olmis:lardi.  K!alem..i: i:\`ti:z=a=r bu h=a=me..i: i:nki:sa=r i:le bu evra=k!a
+tah!ri=re i:k!da=m ve bu ecza=ya tast!i=re i:hti:ma=m go:sterdi:.  
+\EndTurkish
+\tenrm
+\vfil\eject
+
+\strut\vskip .75in
+\centerline{{\elevenrm Appendix A}}
+\smallskip
+\centerline{{\elevenrm The {\eleventt turkit.mf} driver file}}
+\bigskip
+\Beginmft
+\input turkit.tex
+\Endmft
+
+\vfil\eject
+
+\strut\vskip .75in
+\centerline{{\elevenrm Appendix B}}
+\smallskip
+\centerline{{\elevenrm The {\tt aynhmz.mf} file}}
+\Beginmft
+\input aynhmz.tex
+\vfil
+\Endmft
+
+
+
+
+
+
+
+
+\bye
