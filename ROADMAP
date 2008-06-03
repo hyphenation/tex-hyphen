@@ -179,6 +179,107 @@ interlingua	iahyphen.tex	ia	ascii
 
 pure copy
 
+romanian	rohyphen.tex	ro	ec
+========
+ăâîșț ĂÂÎȘȚ
+
+"a -> ă
+"A -> â
+"i -> î
+"s -> ș
+"t -> ț
+
+"a = \u{a}
+"A = \^{a}
+"i = \^{\i}
+"s = \c{s}
+"t = \c{t}
+
+%				[-]  \u{A} [not encoded]
+%	"A = \^{a}			[-]  \^{A} [not encoded]
+%	"i = \^{\i}			"I = \^{I}
+%	"s = \c{s}			"S = \c{S}
+%	"t = \c{t}			"T = \c{T}
+
+"a -> ^^a0
+"A -> ^^e2
+"i -> ^^ee
+"s -> ^^b3
+"t -> ^^b5
+
+estonian	ethyph.tex	et	ec
+========
+šžäöüõ
+
+^^b2 -> š - scaron
+^^ba -> ž - zcaron
+
+^^e4 -> ä - adieresis
+^^f6 -> ö - odieresis
+^^fc -> ü - udieresis
+
+^^f5 -> õ - otilde
+
+hungarian	huhyphn.tex	hu	ec
+=========
+
+saved in ec encoding (that no editor can read)
+
+^^e1
+^^e9
+^^f3
+^^f6
+^^ae
+^^fc
+^^fa
+^^b6
+^^ed
+^^e4
+
+\lccode"E1="E1 % á - aacute
+\lccode"E9="E9 % é - eacute
+\lccode"ED="ED % í - iacute
+\lccode"F3="F3 % ó - oacute
+\lccode"FA="FA % ú - uacute
+
+\lccode"AE="AE % ő - ohungarumlaut
+\lccode"B6="B6 % ű - uhungarumlaut
+
+\lccode"E4="E4 % ä - adieresis
+\lccode"F6="F6 % ö - odieresis
+\lccode"FC="FC % ü - udieresis
+
+icelandic	icehyph.tex	is	ec
+=========
+
+^^e1 á - aacute
+^^e9 é - eacute
+^^ed í - iacute
+^^f3 ó - oacute
+^^fa ú - uacute
+^^fd ý - yacute
+^^fe þ - thorn
+^^e6 æ - ae
+^^f6 ö - odieresis
+^^f0 ð - eth
+
+turkish	tkhyph.tex	tr	ec
+=======
+
+weird conversion, see additional notes
+
+^^11 -> ı - dotlessi % error
+^^e2 -> â - acircumflex
+^^ee -> î - icircumflex
+^^f4 -> ô - ocircumflex
+^^f6 -> ö - odieresis
+^^fc -> ü - udieresis
+
+^^e7 ->  ç - ccedilla
+^^a7 ->  ğ - gbreve
+^^f1 ->  ñ - ntilde
+^^b3 ->  ş - scedilla
+
 ---------------------
 
 czech - not to be included this year ? - works fine with ec, but probably includes other tricks as well
@@ -343,11 +444,8 @@ norsk		xu-nohyphbx.tex
 nynorsk         nnhyph.tex
 bokmal          nbhyph.tex
 
-romanian	xu-rohyphen.tex
 indonesian	inhyph.tex
-estonian	xu-ethyph.tex
 welsh		cyhyph.tex
-icelandic	icehyph.tex
 
 greek variants:
 - ibycus ibyhyph.tex
@@ -359,14 +457,10 @@ greek variants:
 cyrilic variants:
 - bulgarian	xu-bghyphen.tex
 - mongolian	xu-mnhyph.tex
-- mongolian2a mnhyphn.tex
-- serbian		xu-srhyphc.tex
-- russian		xu-ruhyphen.tex
+- mongolian2a	mnhyphn.tex
+- serbian	xu-srhyphc.tex
+- russian	xu-ruhyphen.tex
 - ukrainian	xu-ukrhyph.tex
-
-hungarian	xu-huhyphn.tex
-esperanto	xu-eohyph.tex
-turkish		xu-tkhyph.tex
 
 
 TODO:
@@ -378,6 +472,7 @@ slovak
 german		xu-dehypht.tex
 ngerman		xu-dehyphn.tex
 latin		xu-lahyph.tex
+esperanto	xu-eohyph.tex
 
 consult the authors:
 
@@ -385,6 +480,7 @@ basque		xu-bahyph.tex
 bahyph.sh
 bahyph.tex
 galician	xu-glhyph.tex
+turkish		xu-tkhyph.tex
 
 
 utf8-grahyph4.tex
@@ -393,43 +489,31 @@ utf8-grphyph4.tex
 xu-bghyphen.tex
 xu-copthyph.tex
 xu-cp866nav.tex
-xu-dehyphn.tex
-xu-dehypht.tex
 xu-dehyphtex.tex
 xu-eohyph.tex
-xu-ethyph.tex
 xu-grahyph4.tex
 xu-grmhyph4.tex
 xu-grphyph4.tex
-xu-huhyphn.tex
 xu-mnhyph.tex
 xu-nohyphbx.tex
-xu-rohyphen.tex
 xu-ruhyphen.tex
 xu-srhyphc.tex
-xu-tkhyph.tex
 xu-ukrhyph.tex
 
 cyhyph.tex
 dehyphtex.tex
 eohyph.tex
-ethyph.tex
 grahyph4.tex
 grmhyph4.tex
 grphyph4.tex
-huhyphn.tex
 hyphen.tex
 hypht1.tex
-iahyphen.tex
 ibyhyph.tex
-icehyph.tex
 inhyph.tex
 mnhyph.tex
 mnhyphn.tex
 nbhyph.tex
 nnhyph.tex
 nohyphbx.tex
-rohyphen.tex
 srhyphc.tex
-tkhyph.tex
 ushyphmax.tex

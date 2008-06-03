@@ -24,6 +24,24 @@ languages = [
 			"message" => "Croatian Hyphenation Patterns",
 		},
 		{
+			"code" => "hu",
+			"name" => "hungarian",
+			"synonyms" => [],
+		#	"hyphenmin" => [],
+			"encoding" => "ec",
+			"exceptions" => false,
+			"message" => "Hungarian Hyphenation Patterns v20031107",
+		},
+		{
+			"code" => "is",
+			"name" => "icelandic",
+			"synonyms" => [],
+		#	"hyphenmin" => [],
+			"encoding" => "ec",
+			"exceptions" => false,
+			"message" => "Icelandic Hyphenation Patterns",
+		},
+		{
 			"code" => "mn-cyrl-x-new",
 			"name" => "mongolian",
 			"synonyms" => [],
@@ -40,6 +58,15 @@ languages = [
 			"encoding" => "ec",
 			"exceptions" => true,
 			"message" => "Dutch Hyphenation Patterns",
+		},
+		{
+			"code" => "ro",
+			"name" => "romanian",
+			"synonyms" => [],
+			"hyphenmin" => [2,2],
+			"encoding" => "ec",
+			"exceptions" => false,
+			"message" => "Romanian Hyphenation Patterns", # : `rohyphen' 1.1 <29.10.1996>
 		},
 		{
 			"code" => "hsb",
