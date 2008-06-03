@@ -1,0 +1,23 @@
+Patterns converted from: ethyph.tex
+Last modified on CTAN: 
+
+--------------------------------------------------------------------------------
+
+%%% ====================================================================
+%%%  @LaTeX-file{
+%%%     author          = "Enn Saar",
+%%%     version         = "1.0",
+%%%     date            = "1992-03-18"
+%%%     time            = ""
+%%%     filename        = "ethyphen.tex",
+%%%     address         = ""
+%%%     telephone       = "",
+%%%     FAX             = "",
+%%%     checksum        = "",
+%%%     email           = "saar@fuug.fi",
+%%%     codetable       = "DC/EC",
+%%%     keywords        = "",
+%%%     supported       = "yes",
+%%%     docstring       = "\lefthyphenmin=?\righthyphenmin=?"
+%%%  }
+%%% ====================================================================
