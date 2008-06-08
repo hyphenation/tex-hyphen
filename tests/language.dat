@@ -1,0 +1,6 @@
+english		hyphen.tex  % do not change!
+newmongolian	loadhyph-mn-cyrl-x-new
+greek		loadhyph-el-polyton
+=polygreek
+monogreek	loadhyph-el-monoton
+ancientgreek	loadhyph-grc

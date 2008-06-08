@@ -1,0 +1,14 @@
+%% This is file `polygreek.ldf', hand-edited.
+%% © A. Reutenauer, June 2008.
+%% This file is distributed under the terms of the WTF Public License
+%% http://sam.zoy.org/wtfpl/
+%%
+\ProvidesLanguage{polygreek}
+  [2008/06/08 v0.0 polygreek dummy support from the babel system]
+\LdfInit{polygreek}
+\ifx\l@polygreek\@undefined
+    \@nopatterns{polygreek}
+    \adddialect\l@polygreek0\fi
+\def\datepolygreek{\def\today{}}
+\ldf@finish{polygreek}
+\endinput

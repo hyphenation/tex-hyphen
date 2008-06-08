@@ -1,0 +1,2 @@
+TEXINPUTS=../tex/hyphmacros:../tex/conv_utf8:../tex/loadhyph:../tex/patterns:
+export TEXINPUTS

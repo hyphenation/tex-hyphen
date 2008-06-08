@@ -1,0 +1,14 @@
+%% This is file `newmongolian.ldf', hand-edited.
+%% © A. Reutenauer, June 2008.
+%% This file is distributed under the terms of the WTF Public License
+%% http://sam.zoy.org/wtfpl/
+%%
+\ProvidesLanguage{newmongolian}
+  [2008/06/03 v0.0 newmongolian experimental support from the babel system]
+\LdfInit{newmongolian}
+\ifx\l@newmongolian\@undefined
+    \@nopatterns{newmongolian}
+    \adddialect\l@newmongolian0\fi
+\def\datenewmongolian{\def\today{}}
+\ldf@finish{newmongolian}
+\endinput

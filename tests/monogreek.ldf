@@ -1,0 +1,14 @@
+%% This is file `monogreek.ldf', hand-edited.
+%% © A. Reutenauer, June 2008.
+%% This file is distributed under the terms of the WTF Public License
+%% http://sam.zoy.org/wtfpl/
+%%
+\ProvidesLanguage{monogreek}
+  [2008/06/08 v0.0 monogreek dummy support from the babel system]
+\LdfInit{monogreek}
+\ifx\l@monogreek\@undefined
+    \@nopatterns{monogreek}
+    \adddialect\l@monogreek0\fi
+\def\datemonogreek{\def\today{}}
+\ldf@finish{monogreek}
+\endinput

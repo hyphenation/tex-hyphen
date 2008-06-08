@@ -1,0 +1,7 @@
+language.dat: customized file for testing “our” languages.
+setuptests: some setups for running the tests (source it in your shell)
+t2aenc.def: modified from TeX Live, for our tests.
+newmongolian.ldf: for the “new” Mongolian patterns.
+stupid-wolf-{utf8,cp1251}.tex: test for Mongolian patterns (UTF-8 and legacy).
+make-formats.sh: Making formats for pdfTeX and XeTeX.
+udhr-{utf8,iso-8859-7}.tex: test for Monotonic Greek (UTF-8 and legacy).

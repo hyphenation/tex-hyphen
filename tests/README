@@ -1,0 +1,4 @@
+source setuptex
+./make-formats
+pdflatex stupid-wolf-cp1251.tex,udhr-iso-8859-7
+xelatex stupid-wolf-utf8.tex,udhr-utf8
