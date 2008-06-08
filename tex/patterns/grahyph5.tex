@@ -1,0 +1,2122 @@
+% ****************************************************************
+%
+% File name: grahyph5.tex
+%
+% Created:       June 1st, 1999
+% First release: Apr. 13, 2000
+% Revised:       May 27, 2008
+% Version:       5.0
+%
+% Hyphenation patterns for Ancient Greek.
+% They work with the de facto LGR encoding of babel.
+%
+% Created by Dimitrios Filippou with some ideas borrowed from 
+% Yannis Haralambous, Kostis Dryllerakis and Claudio Beccari.
+%
+% These hyphenation patterns are explained in "ancient.pdf".
+% Hyphenation examples are given in the file "anc-test.pdf".
+% Some doubtful patterns are marked by three question marks "???". 
+% 
+% Documentation in English can be found in: D. Filippou, 
+% "Hyphenation patterns for Ancient and Modern Greek," in 
+% "TeX, XML, and Digital Typography" (A. Syropoulos et al.,
+% eds.), Lecture Notes in Computer Science 3130, Springer-Verlag
+% Berlin-Heidelberg, 2004. ISBN 3-540-22801-2.
+% 
+% Thanks to Thomas Schmitz (thomas.schmitz@uni-bonn.de) 
+% for pointing out a few mistakes. (Marked by %%%TS%%%)
+%
+% ****************************************************************
+%
+\message{Hyphenation patterns for Ancient Greek}
+\begingroup
+\catcode`~=12
+\lccode`<=`< \lccode`>=`> \lccode``=`` 
+\lccode`'=`' \lccode`~=`~ \lccode`"=`"
+\lccode``=`` \lccode`|=`|
+\patterns{%
+%%%% vowels
+a1
+e1
+h1
+i1
+o1
+u1
+w1
+a2|1
+h2|1
+w2|1
+%%%% diphthogs and exceptions
+a2i
+a2'i
+a2`i
+a2~i
+a2>i
+a2>'i
+a2>`i
+a2>~i
+a2<i
+a2<'i
+a2<`i
+a2<~i
+'a3i
+~a3i
+>a3i
+<a3i
+a2u
+a2'u
+a2`u
+a2~u
+a2>u
+a2>'u
+a2>`u
+a2>~u
+a2<u
+a2<'u
+a2<`u
+a2<~u
+'a3u
+~a3u
+>a3u
+<a3u
+e2i
+e2'i
+e2`i
+e2~i
+e2>i
+e2>'i
+e2>`i
+e2>~i
+e2<i
+e2<'i
+e2<`i
+e2<~i
+'e3i
+>e3i
+<e3i
+e2u
+e2'u
+e2`u
+e2~u
+e2>u
+e2>'u
+e2>`u
+e2>~u
+e2<u
+e2<'u
+e2<`u
+e2<~u
+'e3u
+<e3u
+>e3u
+h2u
+h2'u
+h2`u
+h2~u
+h2>u
+h2>'u
+h2>`u
+h2>~u
+h2<u
+h2<'u
+h2<`u
+h2<~u
+'h3u
+~h3u
+>h3u
+<h3u
+o2i
+o2'i
+o2`i
+o2~i
+o2>i
+o2>'i
+o2>`i
+o2>~i
+o2<i
+o2<'i
+o2<`i
+o2<~i
+'o3i
+>o3i
+<o3i
+o2u
+o2'u
+o2`u
+o2~u
+o2>u
+o2>'u
+o2>`u
+o2>~u
+o2<u
+o2<'u
+o2<`u
+o2<~u
+'o3u
+>o3u
+<o3u
+u2i
+u2'i
+u2`i
+u2~i
+u2>i
+u2>'i
+u2>`i
+u2>~i
+u2<i
+u2<'i
+u2<`i
+u2<~i
+'u3i
+~u3i
+>u3i
+<u3i
+ou3i
+'ou4i
+>ou4i
+<ou4i
+o3u'i
+o3u~i
+%%%% consonants at the end of words
+4b.
+4g.
+4d.
+4z.
+4j.
+4k.
+4l.
+4m.
+4n.
+4x.
+4p.
+4r.
+4s.
+4c.
+4t.
+4f.
+4q.
+4y.
+%%%% consonants with right apostrophe 
+4''
+4b''
+4g''
+4d''
+4z''
+4j''
+4k''
+4l''
+4m''
+4n''
+4x''
+4p''
+4r''
+4s''
+4t''
+4f''
+4q''
+4y''
+%%%% consonants at the beggining of words
+.b4
+.g4
+.d4
+.z4
+.j4
+.k4
+.l4
+.m4
+.n4
+.x4
+.p4
+.r4
+.s4
+.t4
+.f4
+.q4
+.y4
+%%%% double consonants
+2b1b
+2g1g
+2d1d
+2z1z
+2j1j
+2k1k
+2l1l
+2m1m
+2n1n
+2p1p
+2r1r
+2>r1<r %%%TS%%%
+2s1s
+2t1t
+2f1f
+2q1q
+2y1y
+%%%% other divisable consonant combinations
+2b1g
+2b1z
+2b1j
+2b1k
+2b1x
+2b1p
+2b1s
+2b1t
+2b1f
+2b1q
+2b1y
+%
+2g1b
+2g1z
+2g1j
+2g1k
+2g1x
+2g1p
+2g1s
+2g1t
+2g1f
+2g1q
+2g1y
+%
+2d1b
+2d1g
+2d1z
+2d1j
+2d1k
+2d1l
+2d1x
+2d1p
+2d1s
+2d1t
+2d1f
+2d1q
+2d1y
+%
+2z1b % Liddell-Scott lexicon: Zbelgo~urdoc ???
+2z1g
+2z1d
+2z1j
+2z1k
+2z1l
+2z1m
+2z1n
+2z1x
+2z1p
+2z1r
+2z1s
+2z1t
+2z1f
+2z1q
+2z1y
+%
+2j1b
+2j1g
+2j1d
+2j1z
+2j1k
+2j1x
+2j1p
+2j1s
+2j1t
+2j1f
+2j1q
+2j1y
+%
+2k1b
+2k1g
+2k1d
+2k1z
+2k1j
+2k1x
+2k1p
+2k1s
+2k1f
+2k1q
+2k1y
+%
+2l1b
+2l1g
+2l1d
+2l1z
+2l1j
+2l1k
+2l1m
+2l1n
+2l1x
+2l1p
+2l1r
+2l1s
+2l1t
+2l1f
+2l1q
+2l1y
+%
+2m1b
+2m1g
+2m1d
+2m1z
+2m1j
+2m1k
+2m1l
+2m1x
+2m1p
+2m1r
+2m1s
+2m1t
+2m1f
+2m1q
+2m1y
+%
+2n1b
+2n1g
+2n1d
+2n1z
+2n1j
+2n1k
+2n1l
+2n1m
+2n1x
+2n1p
+2n1r
+2n1s
+2nc.
+2n1t
+2n1f
+2n1q
+2n1y
+%
+2x1b
+2x1g
+2x1d
+2x1z
+2x1j
+2x1k
+2x1l
+2x1m
+2x1n
+2x1p
+2x1r
+2x1s
+2x1t
+2x1f
+2x1q
+2x1y
+%
+2p1b
+2p1g
+2p1d
+2p1z
+2p1j
+2p1k
+2p1x
+2p1s
+2p1f
+2p1q
+2p1y
+%
+2r1b
+2r1g
+2r1d
+2r1z
+2r1j
+2r1k
+2r1l
+2r1m
+2r1n
+2r1x
+2r1p
+2r1s
+2r1t
+2r1f
+2r1q
+2r1y
+%
+% 2s1g % Liddell-Scott lexicon: sg'alh = sk'ala
+2s1d   % Liddell-Scott lexicon: sde'ugla = ze'ugla, sd = z ???
+2s1z
+2s1l
+2s1n
+2s1x
+2s1r
+2s1y
+%
+2t1b
+2t1g
+2t1d
+2t1z
+2t1j
+2t1k
+2t1x
+2t1p
+2t1s
+2t1f
+2t1q
+2t1y
+%
+2f1b
+2f1g
+2f1d
+2f1z
+2f1k
+2f1x
+2f1p
+2f1s
+2f1t
+2f1q
+2f1y
+%
+2q1b
+2q1g
+2q1d
+2q1z
+2q1k
+2q1x
+2q1p
+2q1s
+2q1t
+2q1f
+2q1y
+%
+2y1b
+2y1g
+2y1d
+2y1z
+2y1j
+2y1k
+2y1l
+2y1m
+2y1n
+2y1x
+2y1p
+2y1r
+2y1s
+2y1t
+2y1f
+2y1q
+%%%% troublesome double-consonant-apostrophe endings (mostly in poetry)
+4bd''
+4bl''
+4bm''
+4bn''
+4br''
+%
+4gd''
+4gl''
+4gm''
+4gn''
+4gr''
+%
+4dm''
+4dn''
+4dr''
+%
+4zb''
+%
+4jl''
+4lm''
+4jn''
+4jr''
+%
+4kl''
+4km''
+4kn''
+4kr''
+4kt''
+%
+4mn''
+%
+4pl''
+4pm''
+4pn''
+4pr''
+4pt''
+%
+4sb''
+4sg''
+4sd''
+4sj''
+4sk''
+4sm''
+4sp''
+4st''
+4sf''
+4sq''
+%
+4fj''
+4fl''
+4fm''
+4fn''
+4fr''
+%
+4qj''
+4ql''
+4qm''
+4qn''
+4qr''
+%%%% compound words / hyphenated according to DF
+%%%%
+%%%% check for ??? for problematic words!
+%
+>agw2n1'ar  % >agwn-'arqhc
+>agw2n1ar
+>adi'e2x1 		% >adi'ex-odoc
+>adie2x1
+>adu2s1'w 		% >adus-'wphtoc
+>adu2s1w
+<al'o2s1    		% <al'os-anjoc
+<alo2s1
+>ampal'i2n1 		% >ampal'in-orroc
+>ampali2n1
+>amf'i2s1b 		% >amf'is-baina
+>amfi2s1b
+% >hmfe2s1b 		% (>a'or. to~u >amfisbht~w) ???
+% >hmfi2s1b
+>amf'i2s1w 		% >amf'is-wpoc
+>amfi2s1'w
+>a2n1ag'hc. 		% >an-ag'hc
+>a2n1ag`hc.
+>a2n1ag'hs.
+>a2n1ag`hs.
+>a2n1ago
+>a2n1age~i.
+>a2n1ag~h.
+>a2n1ag'ec.
+>a2n1ag`ec.
+>a2n1ag'es.
+>a2n1ag`es.
+>a2n1age~ic.
+>a2n1age~is.
+>a2n1ag~wn.
+>a2n1ag'esi
+>a2n1ag~h 
+>a2n1'agku 		% >an-'agkuloc
+>a2n1agk'u
+>'a2n1agn  		% >'anagnoc
+>a2n1'agn 
+>a2n1agn   		% >an-agne'ia
+	>a3n2agn'a 		% >ana-gn'amptw
+	>a3n2agnw  		% >ana-gnwr'izw
+	>a3n2'agnw 		% >an'a-gnwsic
+	>a3n2agn'w 
+>a2n1agr'i 		% >an-agr'ia
+>a2n1agr~i 		% >an-agr~iai
+>a2n1agri   		% >an-agri~wn
+>a2n1'agwg 		% >an-'agwgoc
+>a2n1ag'wg
+	>a3n2ag'wgi   		% >ana-g'wgioc
+	>a3n2agwg'i
+		>a4n3agwg'ia 		% >an-agwg'ia
+>a2n1'adel 		% >an-'adelfoc
+>a2n1ad'el
+>a2n1'aelp  		% >an-'aelptoc
+>a2n1a'elp
+>'a2n1ajl  		% >'an-ajloc
+>a2n1'ajl
+>a2n1a'id  		% >an-a'ideia
+>a2n1aid   		% >an-aid'hc
+>'a2n1aim  		% >'an-aimoc
+>a2n1a'im
+>a2n1aim   		% >an-aim'ia
+>a2n1a'isj 		% >an-a'isjhtoc
+>a2n1aisj
+>a2n1aisi  		% >an-aisim'ow
+>a2n1ais'i
+>a2n1a'isq  		% >an-a'isquntoc
+>a2n1aisq
+>a2n1a'it 		% >an-a'itioc
+>a2n1ait
+>a2n1'akan 		% >an-'akanjoc
+>a2n1ak'an
+>a2n1ak'olo 		% >an-ak'oloujoc
+>a2n1akolo
+>a2n1alg  		% >an-alg'hc
+>a2n1ald  		% >an-ald'hc
+	>a3n2alda 		% >anal-da'inw 
+	>a3n2ald'hsk 		% >anal-d'hskw
+>a2n1'aleip		% >an-'aleiptoc
+>a2n1ale'ip
+>a2n1aleif 		% >an-aleif'ih
+>a2n1'aleif 		% >an-'aleifoc
+>a2n1ale'if
+>a2n1al'hj 		% >an-al'hjhc
+>a2n1alhj
+>a2n1'alj 		% >an-'aljhtoc
+>a2n1alj
+>a2n1'alip 		% >an-'alipoc
+>a2n1al'ip
+>a2n1'alist 		% >an-'alistoc
+>a2n1al'ist
+>a2n1alk  		% >an-alk'hc
+>'a2n1alk 		% >an-'alkic
+>a2n1'alk
+>a2n1'all     		% >an-'allaktoc
+>a2n1all
+	>a3n2'allo 		% an'al-lomai
+	>a3n2'alle
+>'a2n1alm 		% >'an-almoc
+>a2n1'alm 		% >an-'almuroc
+>a2n1alm
+>'a2n1alo 		% >'an-aloc
+>a2n1'alou
+>a2n1'alw|.
+>'a2n1ale.
+>a2n1'aloi
+>a2n1'alwn.
+>'a2n1alt 		% >'an-altoc
+>a2n1'alt
+>a2n1am'ax 		% >an-am'axeutoc
+>a2n1amax
+>a2n1am'art 		% >an-am'arthtoc
+>a2n1amart
+>a2n1am'elg 		% >an-am'elghtoc
+>a2n1amelg
+>a2n1amp 		% >an-amp'eqonoc
+>a2n1'amp 		% >an-'ampux
+>a2n1amf 		% >an-amf'hristoc
+>anamfi2s1 		% >an-amfis-b'hthtoc
+>a2n1an'agk 		% >an-an'agkastoc
+>a2n1anagk
+>'a2n1and 		% >'an-androc
+>a2n1'and
+>a2n1anj 		% >an-anj'hc
+	>a3n2anj'e 		% >anan-j'ew
+		>a4n3anj'ec. 		% >an-anj'ec
+		>a4n3anj`ec.
+		>a4n3anj'es.
+		>a4n3anj`es.
+		>a4n3anj'esi
+>a2n1'anio 		% >an-'anioc
+>a2n1an'io
+>a2n1an'iw
+>a2n1antag 		% >an-antag'wnistoc
+>a2n1antap 		% >an-antap'odotoc
+>a2n1ant'i 		% >an-ant'ijetoc
+>a2n1anti
+>ana2x1ag  		% >Anax-ag'orac
+>an'a2x1an 		% >An'ax-androc
+>ana2x1'an
+>ana2x1an 		% >Anax-andr'idhc
+>an'a2x1ar	 	% >An'ax-arqoc
+>ana2x1'ar
+>an'a2x1ip  		% >An'ax-ippoc
+>ana2x1'ip
+>a2n1axi'ol   		% >an-axi'ologoc
+>a2n1axiol
+>a2n1axi'op  		% >an-axi'opistoc
+>a2n1axiop
+>a2n1'axio 		% >an-'axioc
+>a2n1ax'io
+>a2n1ax'iw
+>a2n1ax'ia
+>a2n1ax~ia
+>a2n1ap'alla 		% >an-ap'allaktoc
+>a2n1apall'a
+>a2n1ap'art 		% >an-ap'artistoc
+>a2n1apart
+>a2n1apa'ud 		% >an-apa'udhtoc
+>a2n1apaud
+>a2n1ap'ob 		% >an-ap'oblhtoc
+>a2n1apob
+>a2n1ap'og 		% >an-ap'ografoc
+>a2n1apog
+>a2n1apod'h 		% >an-apod'hmhtoc
+>a2n1apodh
+>a2n1ap'odo 		% >an-ap'odotoc
+>a2n1apod'o
+>a2n1ap'odr 		% >an-ap'odrastoc
+>a2n1apodr
+>a2n1ap'olau 		% >an-ap'olaustoc
+>a2n1apola'u
+>a2n1apol'o 		% >an-apol'oghtoc
+>a2n1apolo
+>a2n1ap'olu 		% >an-ap'olutoc
+>a2n1apol'u
+>a2n1ap'on		% >an-ap'oniptoc
+>a2n1apon
+>a2n1ap'op 		% >an-ap'oplutoc
+>a2n1apop 
+>a2n1ap'os 		% >an-ap'ostratoc
+>a2n1apos
+>a2n1ap'ote 		% >an-ap'oteuktoc
+>a2n1apote
+>a2n1ap'otm 		% >an-ap'otmhtoc
+>a2n1apotm
+>a2n1ap'otr 		% >an-ap'otriptoc
+>a2n1apotr
+>a2n1ar'a 		% >an-ar'aomai
+>a2n1ara
+>a2n1'ar    		% >an-'arbuloc
+>a2n1ar
+>'a2n1ar     		% >'an-arktoc
+	>a3n2ar'it		% >ana-r'ithc
+	>a3n2ar~it		% >ana-r~itai
+	>a3n2arit		% >ana-rit~wn
+	>a3n2arp		% >anar-p'azw
+	>a3n2'arr 		% >an'ar-riyic
+	>a3n2arr  		
+		>a4n3arrag 		% >an-arrag'hc
+	>a3n2art		% >anar-t'aw
+	>a3n2ar'ut		% >ana-r'utw
+>a2n1'askh 		% >an-'askhtoc
+>a2n1ask'h
+>'a2n1aspi 		% >'an-aspic
+>a2n1asp'i
+>a2n1'assat 		% >an-'assatoc
+>a2n1ass'at
+>a2n1'astei 		% >an-'asteioc
+>a2n1aste'i
+	>a3n2aste'ib    	% >ana-ste'ibw
+	>a3n2'asteir		% >an'a-steiroc
+	>a3n2aste'ir
+	>a3n2'asteiq		% >an'a-steiqoc
+	>a3n2aste'iq
+>a2n1ate`i. 		% >an-ate'i
+>a2n1ate'i.
+>a2n1at`i. 		% >an-at'i
+>a2n1at'i.
+>'a2n1atoc.		% >'an-atoc
+>'a2n1atos.
+>a2n1'atou.
+>a2n1'atw
+>'a2n1aton.
+>'a2n1ate
+>'a2n1atoi.
+>a2n1'atoic.
+>a2n1'atois.	
+>a2n1'att 		% >an-'attikoc
+>a2n1att
+>a2n1a'ug 		% >an-a'ughtoc
+>a2n1aug
+>a2n1a'ud 		% >an-a'udhtoc
+>a2n1aud
+	>a3n2aud'i 		% >a-naud'ia
+	>a3n2audi
+>'a2n1aud 		% >'an-audoc
+>'a2n1aul 		% >'an-auloc
+>a2n1a'ul
+>a2n1a'ux 		% >an-a'uxhtoc
+>a2n1aux 
+>a2n1a'uq 		% >an-a'uqhn
+>a2n1auq
+>a2n1afa'ir 		% >an-afa'iretoc
+>a2n1afair
+>a2n1af'h		% >an-af'hc
+>a2n1af`h 
+>a2n1afo~u
+>a2n1af~h		
+>a2n1afe~i
+>a2n1afo~i 
+>a2n1ef~wn.
+>a2n1af'e
+>a2n1af`e
+	>a3n2af~hn		% >ana-f~hnai
+>a2n1afr'od 		% >an-afr'oditoc
+>a2n1afrod
+>'a2n1afr    		% >'an-afroc
+>a2n1'afr
+>a2n1aq'ur 		% >an-aq'urwtoc
+>a2n1aqur
+>andr'o2s1a 		% >andr'os-aimon
+>andro2s1a
+>a2n1'egg 		% >an-'eggraptoc
+>a2n1egg
+>a2n1'egert 		% >an-'egertoc
+>a2n1eg'ert
+>a2n1egk 		% >an-egk'efaloc
+>a2n1'egk 		% >an-'egklhtoc
+>a2n1egq  		% >an-egqe'irhtoc
+>a2n1ed'a 		% >an-ed'afistoc
+>a2n1eda
+>a2n1'edes 		% >an-'edestoc
+>a2n1ed'es
+>a2n1'edras 		% >an-'edrastoc
+>a2n1edr'as
+>a2n1e'er 		% >an-e'ergw
+>a2n1eer
+>a2n1ej'el  		% >an-ej'elhtoc
+>a2n1ejel
+>a2n1'eji 		% >an-'ejistoc
+>a2n1ej'i
+>a2n1e'ide 		% >an-e'ideoc
+>a2n1eid'e
+>a2n1e'idw 		% >an-e'idwloc
+>a2n1eid'w
+>a2n1e'ika 		% >an-e'ikastoc
+>a2n1eik'a
+>a2n1eik'o 		% >an-eik'onistoc
+>a2n1eiko
+>a2n1eile'i 		% >an-eile'ijuia
+>a2n1eilei
+>a2n1e'ima 		% >an-e'imartai
+>a2n1e'i2s1ak  		% >an-e'isaktoc
+>a2n1ei2s1'ak
+>a2n1e'i2s1o  		% >an-e'isodoc
+>a2n1ei2s1'o
+>a2n1ei2s1for 		% >an-eisfor'ia
+>a2n1e'i2s1for 		% >an-e'isforoc
+>a2n1ei2s1f'or
+>a2n1'ek   		% >an-'ekbatoc, k.a.<'o.
+>a2n1ek
+	>a3n2'eka 		% >an'e-kajen
+	>a3n2ek'ac. 		% >ane-k'ac
+	>a3n2ek`ac.
+	>a3n2ek'as.
+	>a3n2ek`as.
+	>a3n2ekt 		% >ane-kt'oc
+		>a4n3'e2k1tit		% >an-'ek-titoc
+		>a4n3e2k1t'it
+>ane2k1lip 		% >an-ek-lip'hc
+>ane2k1l'o		% >an-ek-l'ogistoc
+>ane2k1lo
+>a2n1'elai   		% >an-'elaioc
+>a2n1elai
+>a2n1el'at		% >an-el'atwtoc
+>a2n1elat
+>a2n1'elegk		% >an-'elegktoc
+>a2n1el'egk
+>a2n1elegx		% >an-elegx'ia
+>a2n1el'eh   		% >an-el'ehtoc
+>a2n1ele'h
+>a2n1'eleo		% >an-'eleoc
+>a2n1el'eo
+>a2n1el'ew
+>a2n1'elee
+>a2n1elk'h 		% >an-elk'hc
+>a2n1elk`h
+>a2n1elko
+>a2n1elk~h
+>a2n1elk'ec.
+>a2n1elk`ec.
+>a2n1elk'es.
+>a2n1elk`es.
+>a2n1elke
+>a2n1elk~w
+>a2n1elk'es
+>'a2n1elkt   		% >'an-elktoc
+>a2n1'elkt
+>a2n1'elkw		% >an-'elkwtoc
+>a2n1elk'w
+>a2n1'ell    		% >an-'ellhn
+>a2n1'elpi		% >an-'elpistoc
+>a2n1elp'i
+>a2n1'elutr % >an-'elutroc
+>a2n1el'utr
+>a2n1'emb  		% >an-'embatoc
+>a2n1emb
+>a2n1'emet 		% >an-'emetoc
+>a2n1em'et
+>a2n1'emp  		% >an-'emplhktoc
+>a2n1emp
+>a2n1'emf  		% >an-'emfatoc
+>a2n1emf
+>a2n1'en   		% >an-'endotoc
+>a2n1en
+	>a3n2'enei  		% >an'e-neika
+	>a3n2en'h   		% >ane-n'hnwje
+	>a3n2'entec. 		% >an'en-tec
+	>a3n2'entes.
+>a2n1e2x1  		% >an-ex-omol'oghtoc k.a.<'o.
+	>a3n2e3x2'ika 		% >anex'i-kakoc
+	>a3n2e3x2ik'a
+>a2n1'eor		% >an-'eortoc
+>a2n1e'or
+>a2n1ep    		% >an-ep'aggeltoc, k.lp.
+	>a3n2epn  	% >ane-pne'usaton
+	>a3n2ept  	% >ane-pt'amhn
+>a2n1erast  		% >an-erast'ia
+>a2n1'erast 		% >an-'erastoc
+>a2n1er'ast
+>a2n1erg    		% >an-erg'hc
+>'a2n1erg   		% >'an-ergoc
+>a2n1'erg
+>a2n1'ereik 		% >an-'ereiktoc
+>a2n1ere'ik
+>a2n1'ereis 		% >an-'ereistoc
+>a2n1ere'is
+>a2n1ere'unht 		% >an-ere'unhtoc
+>a2n1ereun'ht
+>a2n1er'i   		% >an-er'ijeutoc
+>a2n1eri
+>a2n1erujr'iast   	% >an-erujr'iastoc
+>a2n1erujri'ast
+>a2n1'esti  		% >an-'estioc
+>a2n1est'i
+>a2n1'etai  		% >an-'etairoc
+>a2n1eta'i
+>a2n1'etoi  		% >an-'etoimoc
+>a2n1eto'i
+>a2n1etu    		% >an-etumol'oghtoc
+>a2n1'etu  		% >an-'etumoc
+>a2n1et'u
+>a2n1e'uj   		% >an-e'ujetoc
+>a2n1euj
+>'a2n1euk   		% >'an-euktoc
+>a2n1e'uk
+>a2n1eul    		% >an-eulab'hc
+>a2n1e'uret 		% >an-e'uretoc
+>a2n1eur'et
+>a2n1euf'hmht 		% >an-euf'hmhtoc
+>a2n1eufhm'ht
+ >a2n1e'uq   		% >an-e'uqomai (some tenses may be wrong ???)
+ >a2n1euq
+ >a2n1e'ux  		% >an-e'uxato
+ >a2n1eux
+ >a2n1hux  		% >an-hux'amhn
+ >a2n1h~ug		% >an-h~ugmai
+ >a2n1hug
+ >a2n1eukt		% >an-eukt'oc
+>a2n1'ef    		% >an-'efaptoc k.lp.
+>a2n1ef
+	>a3n2ef'al  	% >ane-f'allomai
+	>a3n2'efel  	% >a-n'efeloc
+	>a3n2ef'el
+>a2n1eq'e   		% >an-eq'egguoc
+>a2n1eqe
+>a2n1'eya   		% >an-'eyanoc
+>a2n1ey'a
+>a2n1hgem   		% >an-hgem'oneutoc
+>a2n1'hd    		% >an-'hdonoc
+>a2n1hd
+>a2n1'hkes    		% >an-'hkestoc
+>a2n1hk'es
+>a2n1'hko		% >an-'hkooc, >an-hkoust'ew, k.lp.
+>a2n1hk'o 
+>a2n1hko
+>a2n1hl'ak    		% >an-hl'akatoc
+>a2n1hlak
+>a2n1'hlatoc. 		% >an-'hlatoc
+>a2n1'hlatos.
+>a2n1hl'atou
+>a2n1hl'atw
+>a2n1'hlaton.
+>a2n1'hlate.
+>a2n1hl'atoi
+>a2n1'hlatoi
+>a2n1'hlata
+>a2n1hleg		% >an-hleg'hc
+>a2n1hle'h    		% >an-hle'hc
+>a2n1hle`h
+>a2n1hleo
+>a2n1hlee
+>a2n1hle~w
+>a2n1hle'e
+>a2n1hle`e
+>a2n1hle~h
+>a2n1hl'eh  	 	% >an-hl'ehtoc
+>a2n1'hleip		% >an-'hleiptoc
+>a2n1hle'ip
+>a2n1hl'h		% >an-hl'hc
+>a2n1hl`h
+>a2n1hlo~u
+>a2n1hle~i
+>a2n1hl~h
+>a2n1hl'e
+>a2n1hl`e
+>a2n1hlo~i
+>a2n1hl~w
+>a2n1'hlik		% >an-'hlikoc
+>a2n1hl'ik
+>a2n1'hlio 		% >an-'hlioc
+>a2n1hl'io
+>a2n1hl'iw
+>a2n1'hlia
+>a2n1'hlip		% >an-'hlipoc
+>a2n1hl'ip
+>a2n1hlif    		% >an-hlif'hc
+>a2n1'hm    		% >an-'hmelktoc
+>a2n1hm
+>a2n1'hnu   		% >an-'hnustoc
+>a2n1hn'u
+>a2n1'hrei  		% >an-'hreiktoc
+>a2n1hre'i
+>a2n1hr'em  		% >an-hr'emhtoc
+>a2n1hrem
+>a2n1href   		% >an-href'hc
+>a2n1'hri   		% >an-'hrijmoc
+>a2n1hr'i
+>a2n1'hrot  		% >an-'hrotoc
+>a2n1hr'ot
+>a2n1'hss   		% >an-'hsshtoc
+>a2n1hss
+>a2n1'htt   		% >an-'htthtoc
+>a2n1htt
+>a2n1'hfa  		% >an-'hfaistoc
+>a2n1hfa
+>a2n1'iat   		% >an-'iatoc
+>a2n1i'at
+>a2n1'idio    		% >an-'idioc
+>a2n1id'io
+>a2n1id'iw
+>a2n1'idia
+>a2n1idit    		% >an-idit'i 
+>'a2n1idroc 		% >'an-idroc
+>'a2n1idros
+>a2n1'idrou
+>a2n1'idrw
+>'a2n1idron
+>'a2n1idre
+>a2n1'idroi
+>'a2n1idroi
+>a2n1'idrut		% >an-'idrutoc
+>a2n1idr'ut
+>a2n1idrwt		% >an-idrwt'i
+>a2n1idr'wt   	 	% >an-idr'wtou (gen. to~u >an-'idrwtoc)
+>a2n1'ier   		% >an-'ieroc
+>a2n1i'er
+>a2n1ier'at 		% >an-ier'atou
+	>a3n2i'erw 		% >ani-'erwsic
+>a2n1'ik    		% >an-'ikanoc
+>a2n1ik
+>'a2n1ik    		% >'an-ikmoc
+	>a3n2'ikh  		% >a-n'ikhtoc
+	>a3n2ik'h
+>a2n1'il    		% >an-'ilastoc
+>a2n1il
+>a2n1'imast 		% >an-'imastoc
+>a2n1im'ast
+>a2n1'iou   		% >an-'iouloc
+>a2n1io'u
+>'a2n1ipp   		% >'an-ippoc
+>a2n1'ipp
+>a2n1is     		% >an-is'azw
+>'a2n1is    		% >'an-isoc
+>a2n1'is
+	>a3n2is~at  		% >a-nis~aton
+	>a3n2is'at
+	>a3n2'ist   		% >a-n'isthmi
+	>a3n2ist
+		>a4n3istorh 		% >an-istorhs'ia
+		>a4n3ist'orh 		% >an-ist'orhtoc
+		>a4n3istor'h
+	>a3n2'isq   		% >an'i-sqw
+		>a4n3'isqu 		% >an-'isquroc
+>'a2n1iq     	   	% >'an-iqjuc
+>a2n1'iq	
+>a2n1iqne'ut 		% >an-iqne'utou
+>a2n1'iy    		% >an-'iyaloc
+>a2n1iy
+>a2n1'ode   		% >an-'odeutoc
+>a2n1od'e
+>'a2n1oz    		% >'an-ozoc
+>a2n1'oz
+>a2n1oike		% >an-oike'iou
+>a2n1oikon  		% >an-oikon'omhtoc
+>'a2n1oik   		% >'an-oikoc
+>a2n1o'ik
+>a2n1oikt'i  		% >an-oikt'irmwn
+>'a2n1oikt  		% >'an-oiktoc
+>a2n1o'ikt
+>a2n1o'imwk 		% >an-o'imwktoc 
+>a2n1oim'wk
+>a2n1oimwk  		% >an-oimwkt'i
+>a2n1oin    		% >an-oin'ia
+>'a2n1oin   		% >'an-oinoc
+>a2n1o'in
+>'a2n1oistr 		% >'an-oistroc
+>a2n1o'istr
+>a2n1'ol    		% >an-'olbioc
+>a2n1ol
+>'a2n1ol    		% >'an-olboc
+	>a3n2olk  		% >anol-k'h
+	>a3n2olo  		% >ano-lol'uzw
+>a2n1ombr'i 		% >an-ombr'ia
+>a2n1ombr~i
+>'a2n1ombro		% >'an-ombroc
+>a2n1'ombro
+>a2n1'ombrw
+>'a2n1ombra
+>a2n1om'hl  		% >an-om'hlikoc
+>a2n1omhl
+>a2n1om'il 		% >an-om'ilhtoc
+>a2n1omil
+>a2n1'omiq 		% >an-'omiqloc
+>a2n1omiq
+>a2n1'omo		% >an-'omoioc
+>a2n1om'o
+>a2n1omo    		% >an-omoz'hlou (gen. to~u >an-om'ozhloc)
+	>a3n2omoj 		% >a-nomo-j'ethtoc
+	>a3n2'omou. 		% >a-n'omou (gen. to~u >'a-nomoc)
+	>a3n2'omw|.
+	>a3n2'omw.
+	>a2n2'omoin.
+	>a3n2'omwn.
+	>a3n2'omoic.
+	>a3n2'omois.
+	>a3n2'omouc.
+	>a3n2'omous.
+>a2n1'on 		% >an-'onhtoc
+>a2n1on
+>'a2n1op  		% >'an-oploc
+>a2n1'op
+>a2n1'or     		% >an-'organoc
+>a2n1or
+>'a2n1or     		% >'an-orgoc
+	>a3n2org'az 		% >anor-g'azw
+	>'a3n2orj   		% >'anor-joc
+	>a3n2'orj
+	>a3n2orm'a  		% >anor-m'aomai
+	>a3n2ort    		% >anor-tal'izw
+	>a3n2or'u   		% >ano-r'ussw
+>a2n1'osi 		% >an-'osioc
+>a2n1os'i
+>a2n1osi  		% >an-osi'othc
+>'a2n1osm 		% >'an-osmoc
+>a2n1'osm
+>a2n1'osfr 		% >an-'osfrantoc
+>a2n1osfr
+>a2n1o'ua  		% >an-o'uatoc
+>a2n1ou'a
+>a2n1o'usi 		% >an-o'usioc
+>a2n1ous'i
+>a2n1o'ut  		% >an-o'utatoc
+>a2n1out
+>a2n1ofj   		% >an-ofjalm'iatoc
+>a2n1'oqeut 		% >an-'oqeutoc
+>a2n1oqe'ut
+>'a2n1oql  		% >'an-oqloc
+>a2n1'oql
+>a2n1oy    		% >an-oy'ia
+>'a2n1oy   		% >'an-oyoc
+>a2n1'oy
+>anta2n1is  		% >antan-is'ow
+>anta2n1'is 		% >antan-'iswsa
+>antei2s1   		% >anteis-'agw
+>ante2k1    		% >antek-t'assw
+>ante2n1    		% >anten-'edra
+>ante2x1    		% >antex-'agw
+>antidu2s1  		% >antidus-qera'inw
+>antipare2k1 		% >antiparek-te'inw
+>antipare2x1 		% >antiparex-'agw
+>antipro2s1 		% >antipros-agore'uw
+	>antipros3k2u 		% >antipro-skun'ew
+>antis'u2n1 		% >antis'un-axic
+>antisu2n1
+>a2n1'u   		% >an-'ubristoc
+>a2n1u
+	>a3n2um 		% >a-numf'hc
+	>a3n2'us 		% >a-n'useie (>an'uw)
+	>a3n2us  		% >a-nust'oc
+>a2n1up'e2r1 		% >an-up'er-batoc
+>a2n1upe2r1
+%>a2n1'wd 		% >an-'wdhc %%% wrong??? comes from >'anw + <od'aw
+%>a2n1~wd
+>'a2n1w|d		% >'an-w|doc
+>a2n1'w|d
+>a2n1'wdu  	% >an-'wdunoc
+>a2n1wd'u %%%TS%%%
+>a2n1'wi    		% >an-'wistoc
+>a2n1w'i
+>a2n1'wl     		% >an-'wlejroc
+>a2n1wl
+>a2n1'wm 		% >an-'wmaloc
+>a2n1wm
+>a2n1'wn 		% >an-'wnumoc
+>a2n1wn
+>a2n1wr  		% >an-wr'ia
+>'a2n1wr 		% >'an-wroc
+>a2n1'wr
+>'a2n1wto 		% >'an-wtoc
+>a2n1'wto
+>a2n1wf'el  		% >an-wf'eleia
+>a2n1wfel   		% >an-wfel'hc
+>a2n1'wqu 		% >an-'wquroc
+>a2n1wq'u
+>apa2n1ai 		% >apan-aisqunta'iw
+>ap'a2n1ou 		% >ap'an-ourgoc
+>apa2n1o'ur
+<apa2x1       		% <apax-'apac
+>ape2k1l 		% >apek-lanj'anomai
+<ape2r1      		% <aper-e'i
+>aposu2n1 		% >aposun-'agwgoc
+>apr'o2s1 		% >apr'os-batoc
+>apro2s1
+	>apr'o3s2ke 		% >apr'o-skeptoc
+	>apro3s2k'e
+	>apr'o3s2ko 		% >apr'o-skopoc != >apr'os-koptoc ???
+	>apro3s2k'o
+	>apro3s2t 		% >apro-stas'iou
+<arpa2x1 		% >arpax-'andra (<h)
+>arre2n1w 		% >arren-wp'oc
+>arqisu2n1 		% >arqisun-agwg'oc
+>aste2r1w    		% >aster-wp'oc
+>as'u2n1     		% >as'un-etoc
+>asu2n1
+>ax'u2n1  		% >ax'un-etoc
+>axu2n1 
+a>ut'e2k1m 		% a>ut'ek-magma
+a>ute2k1m
+a>ute2x1   		% a>utex-o'usioc
+>aw2s1f    		% >aws-f'oroc
+.gera2s1f  		% geras-f'oroc
+.da2s1p    		% das-pl'hc
+.diamfi2s1b 		% diamfis-bht'ew
+.di'e2k1ro 		% di'ek-rooc
+.die2k1r'o
+.di'e2x1   		% di'ex-eimi
+.die2x1    		% diex-ela'unw
+.dika2s1p  		% dikas-p'oloc
+.di'o2s1k  		% Di'os-kouroc dios-k'uamoc
+.dio2s1k
+.di'o2s1p		% di'os-polic
+.dio2s1p
+.d'i2s1a       		% d'is-aboc
+.di2s1'a
+.d'i2s1h   		% d'is-hboc
+.di2s1'h
+.d'i2s1e   		% d'is-eunoc
+.di2s1e
+.di2s1j    		% dis-jan'hc
+.d'u2s1    		% d'us-agnoc, k.lp.
+.du2s1
+%
+	d'u3s2w.  		% d'uw, d'usw k.lp.
+	d'u3s2eic.
+	d'u3s2eis.
+	d'u3s2ei.
+	.d'u3s2et
+	d'u3s2omen.
+	d'u3s2ousin.
+	%
+	d'u3s2oimi.
+	d'u3s2oic.
+	d'u3s2ois.
+	d'u3s2oi.
+	d'u3s2oiton.
+	du3s2o'ithn.
+	d'u3s2oimen.
+	d'u3s2oite.
+	d'u3s2oien.
+	%
+	d'u3s2ein.
+	d'u3s2wn. d'u3s2on du3s2'on  
+	d'u3s2ous du3s2o'us
+	%
+	d'u3s2h|
+	d'u3s2hton.
+	d'u3s2wmen.
+	d'u3s2wsi.
+	%
+	d'u3s2aimi.
+	d'u3s2aic. d'u3s2eiac.
+	d'u3s2ais. d'u3s2eias.
+	d'u3s2ai. d'u3s2eie.
+	d'u3s2aiton.
+	du3s2a'ithn.
+	d'u3s2aimen.
+	d'u3s2aite.
+	d'u3s2aien d'u3s2eian.
+	%
+	d'u3s2on.
+	du3s2'atw.
+	d'u3s2aton.
+	du3s2'atwn.
+	d'u3s2ate.
+	du3s2'antwn.
+	%
+	d'u3s2ac. d'u3s2an. d'u3s2ant du3s2'ant
+	d'u3s2as du3s2'as
+	%
+	d'u3s2omai.
+	.d'u3s2es
+	du3s2'omeja.
+	d'u3s2ontai.
+	%
+	du3s2o'imhn.
+	d'u3s2oio.
+	d'u3s2oito.
+	d'u3s2oisjon.
+	du3s2o'isjhn.
+	du3s2o'imeja.
+	d'u3s2oisje.
+	d'u3s2ointo.
+	%
+	d'u3s2esjai.
+	.du3s2'omen		% dus'omenoc -h -on
+	.du3s2om'en
+	%
+	d'u3s2wmai.
+	d'u3s2htai.
+	du3s2'wmeja
+	d'u3s2hsje.
+	%
+	du3s2a'imhn.
+	d'u3s2aio.
+	d'u3s2aito.
+	d'u3s2aisjon.
+	du3s2a'isjhn.
+	du3s2a'imeja.
+	d'u3s2aisjai.
+	d'u3s2ainto.
+	%
+	du3s2'asjw.
+	d'u3s2asjon.
+	du3s2'asjwn.
+	d'u3s2asje.
+	%
+	d'u3s2asjai.
+	du3s2'amen  		% du-s'amenoc -h -on
+	dus3s2am'en
+	%
+	d'u3s2ato.   		% d'u-sato = >ed'usato
+	d'u3s2eto.  		% d'u-seto = >ed'usato
+	d'u3s2anto.  		% d'u-santo = >ed'usanto
+	d'u3s2eo. 		% d'u-seo = d~usai ??? (prost. m'esou >aor'istou) 
+	%
+	%
+.duse'i2s1b 		% duse'is-boloc
+.dusei2s1b
+.dus'e2k1  		% dus'ek-lutoc
+.duse2k1
+.dus'e2x1  		% dus'ex-aptoc
+.duse2x1
+	.du3s2ij    		% du-sij'alassoc
+	d'u3s2ic.		% d'u-sic
+	d'u3s2is.
+	d'u3s2ew
+	d'u3s2in.
+	d'u3s2i.
+	du3s2'eoin.
+	d'u3s2esi.
+	d'u3s2esin.
+	.d'u3s2ke   		% d'u-ske
+	.du3s2m'h.  		% du-sm'h
+	.du3s2m`h.
+	.du3s2m~hc.
+	.du3s2m~hs.
+	.du3s2m~h|
+	.du3s2m~h.
+	.du3s2m~a    		
+	.du3s2ma   		
+	.du3s2m~w
+.dusx'u2n1  		% dusx'un-etoc
+.dusxu2n1
+	.d'u3s2tan  		% d'u-stanoc
+	.du3s2t'an
+	.du3s2thn  		% d'u-sthnoc
+	.du3s2t'hn
+>edu2s1t 		% >edus-t'uqoun
+e>i2n1'od   		% e>in-'odioc
+e>i2n1od
+e>i2s1  		% e>is-agwg'h, k.lp.
+e>'i2s1
+	e>i3s2'i.   		% e>i-s'i(n) <-- e>im'i
+	e>i3s2`i.
+	e>i3s2i.
+	e>i3s2'in.
+	e>i3s2`in.
+	e>i3s2in.
+	e>'i3s2om   		% e>'i-somai <-- o<~ida 
+	e>'i3s2h|. e>'isei.
+	e>'i3s2etai.
+	e>'i3s2esjon.
+	e>i3s2'om		% e>i-s'omeja
+	e>'i3s2esje.
+	e>'i3s2ontai
+%
+	e>i3s2o'imhn
+	e>'i3s2oio
+	e>'i3s2oito
+	e>'i3s2oisjon
+	e>i3s2o'isjhn
+	e>i3s2o'imeja
+	e>'i3s2oisje
+	e>'i3s2ointo
+%
+	e>'i3s2esjai
+	e>i3s2'omen		% e>is'omenoc -h -on
+	e>i3s2om'en
+%
+	e>'i3s2'amhn.
+	e>'i3s2w
+	e>'i3s2ato
+	e>'i3s2asjon
+	e>i3s2'asjhn
+	e>i3s2'ameja
+	e>'i3s2asje
+	e>'i3s2anto
+%
+	e>'i3s2wmai
+	e>'i3s2hsjon
+	e>i3s2'wmeja
+	e>'i3s2hsje
+	e>'i3s2wntai
+%
+	e>i3s2a'imhn
+	e>'i3s2aio
+	e>'i3s2aito
+	e>'i3s2aisjon
+	e>'i3s2a'isjhn
+	e>i3s2a'imeja
+	e>'i3s2aisje
+	e>'i3s2ainto
+%
+	e>i3s2'asjw
+	e>i3s2'asjwn
+%%	e>'i3s2asje %% duplicate pattern ????
+%
+	e>'i3s2asjai
+	e>i3s2'amen		% e>is'amenoc -h -on
+	e>i3s2am'en
+%	
+>e2k1l 			% >ek-lagq'anw, k.lp.
+	>e3k2l'hjh  		% >e-kl'hjhn <- kal'ew
+	>e3k2l'az   		% >e-kl'azomen <- kl'azw, >'e-klazon (???)
+	>e3k2l'ag  		% >e-kl'azomen <- kl'azw, >'e-klagon
+	>e3k2l'ao		% >e-kl'aomen <- kl'aw, >'e-klaon (???)
+	>e3k2l'as		% >e-kl'asomen <- kl'aw, >'e-klasa
+	>e3k2la'i		% >e-kla'iomen <- kla'iw, >'e-klai(g)on (???)
+	>e3k2la'u   		% >e-kla'usamen <- kla'iw, >'e-klausa
+	>e3k2le'i		% >e-kle'isamen <- kle'iw, >'e-kleisa
+		>e4k3le'ip		% >ek-le'ipomen 
+		>e4k3le'iy		% >ek-le'iyic 
+	>e3k2l'h|		% >e-kl'h|samen <- kle'iw, >'e-klh|sa
+	>e3k2kl'ep		% >e-kl'eptomen <- kl'eptw, >'e-klapon (???)
+	>e3k2kl'ey		% >e-kl'eyamen <- kl'eptw, >'e-kleya
+	>e3k2l'ap   		% >e-kl'aphn <- kl'eptw
+	>e3k2lap		% >e-klap'omeja <- kl'eptw, >ek-l'aphn 
+		>e4k3l'apt  		% >ek-l'aptw
+		>e4k3lapt
+	>e3k2l'ef		% >e-kl'efjhn <- kl'eptw
+	>e3k2lef		% >e-klefj'hthn <- kl'eptw, >e-kl'efjhn
+	>e3k2l'hr		% >e-kl'hroun <- klhr'ow
+	>e3k2lhr 		% >e-klhro~uton <- klhr'ow, >e-kl'hroun
+	>e3k2l'in		% >e-kl'inamen <- kl'inw, >'e-klina
+	>e3k2lin		% >e-klin'aton <- kl'inw, >'e-klina
+	>e3k2l'u		% >e-kl'uomen <- kl'uw, >'e-kluon 
+		>e4k3l'usew		% >ek-lusic
+		>e4k3l'usei
+		>e4k3l'useoi
+		>e4k3l'usesi
+	>e3k2l'om   		% >e-kl'omhn <- k'elomai (>'alla pr'ospwpa???)
+	>e3k2kl'ws		% >e-kl'wsamen <- kl'wjw (???)
+>'e2k1lei       		% >'ek-leiyic
+	>'e3k2leis		% >'ek-leisa <- kle'iw
+>'e2k1lus	       		% >'ek-lusic
+>e2k1m
+>'e2k1m
+>e2k1n
+>'e2k1n
+	>'e3k2nai		% >'e-knaisa <- kna'iw
+	>e3k2na'i		% >e-kna'isamen <- kna'iw
+	>'e3k2nhs		% >'e-knhsa <- kn'aw
+	>e3k2n'hs		% >e-kn'hsamen <- kn'aw
+	>e3k2nu    		% >e-knuz~hto
+>e2k1r
+>'e2k1r
+	>e3k2r'ad		% >ekr'adainon <- krada'inw (???)
+	>e3k2rad
+	>'e3k2raz		% >'e-krazon <- kr'azw (???)
+	>e3k2r'az
+	>'e3k2rag		% >'e-kragon <- kr'azw
+	>e3k2r'ag
+	>e3k2r'at		% >e-kr'atoun <- krat'ew (???)
+	>e3k2rat
+	>e3k2ra'ug		% >e-kra'ugason <- kraug'azw
+	>e3k2raug
+	>'e3k2rai		% >'e-krainon <- kra'inw (???)
+	>e3k2ra'i
+	>'e3k2ran		% >'e-krana, >e-kr'anjhn <- kra'inw
+	>e3k2r'an
+	>e3k2r'hh		% >e-kr'hhna, >e-kr'aanjen - >e-kra'anjhmen (???) <- kra'inw
+	>e3k2r'aa
+	>e3k2ra'a
+	>e3k2r'aj  		% >e-kr'ajhn
+	>e3k2raj
+	>'e3k2rek		% >'e-krekon <- kr'ekw (???)
+	>e3k2r'ek
+	>'e3k2rex 		% >'e-krexa <- kr'ekw (???)
+	>e3k2r'ex 
+	>e3k2r'em		% >e-kr'emw, >e-krem'asjhn <- krem~w
+	>e3k2rem
+	>e3k2r'hm		% >e-kr'hmnizon <- krhmn'izw
+	>e3k2rhm
+	>'e3k2rin		% >'e-krina, >e-kr'ijhn <- kr'inw
+	>e3k2r'in
+	>e3k2r'ij
+	>e3k2r'ot		% >e-kr'othsa <- krot'ew
+	>e3k2rot
+	>'e3k2rou		% >'ekrouon, >'e-krousa <- kro'uw
+	>e3k2ro'u
+	>'e3k2rup  		% >'e-krupton (???), >'e-kruya,
+	>e3k2r'up 		% >e-kr'ubhn (???), >e-kr'ufjhn <- kr'uptw 
+	>'e3k2ruy
+	>e3k2r'uy
+	>e3k2r'ub
+	>e3k2r'uf
+	>e3k2rus  		% >e-krust'allisa <- krustall'izw
+	>'e3k2rwz  		% >'e-krwzon <- kr'wzw
+	>e3k2r'wz
+	>'e3k2rwx  		% >'e-krwxa <- kr'wzw
+	>e3k2r'wx
+>e2k1taj  		% >ek-taje'ic
+>'e2k1tame. 		% >'ek-tame
+>e2k1t'amn  		% >ek-t'amnw
+>e2k1tan    		% >ek-tan'uw
+>e2k1tar   		% >ek-tar'assw
+>e2k1t'as   		% >ek-t'assw
+>e2k1te
+>e2k1t'e
+	>e3k2te'in		% >e-kte'inamen <- kte'inw, >'ekteinon
+>e2k1t'hk   		% >ek-t'hkw
+>e2k1ti
+>'e2k1ti
+>e2k1t'i
+	>'e3k2tiz		% >'e-ktizon, >e-kt'izomen <- kt'izw
+	>e3k2t'iz
+	>'e3k2tisa		% >'e-ktisa, >e-kt'isamen <- kt'izw
+	>e3k2t'isa
+>e2k1t'o
+>e2k1to
+>'e2k1to
+	>e3k2t'oc.		% >e-kt'oc
+	>e3k2t`oc.
+	>e3k2t'os.
+	>e3k2t`os.
+>e2k1tr
+>'e2k1tupo  		% >'ek-tupon (o>us./>epij.) != >e-kt'upoun <- ktup'ew
+>e2k1t'upou.
+>e2k1t'upw|.
+>'e2k1tupe.
+>e2k1t'upw.
+>e2kt'upoi.
+>e2k1t'upwn.
+>e2k1t'upoic.
+>e2k1t'upois.
+>e2k1t'upouc.
+>e2k1t'upous.
+>'e2k1tupa.
+>e2k1tu
+<ell'h2s1p 		% <Ell'hs-pontoc
+<ellh2s1p
+>e2n1
+>'e2n1
+	>e3n2'akic 		% >e-n'akic
+	>e3n2akis  		% >e-nakisq'ilioi
+	>e3n2ak'os 		% >e-nak'osioi
+	>e3n2akos
+	>'e3n2ara.   		% >'e-nara
+	>e3n2'arwn.
+	>e3n2'aroic.
+	>e3n2'arois.
+	>e3n2arhf   		% >e-narhf'oroc
+		>e4n3arar 		% >en-arar'iskw
+	>e3n2'aree  		% >e-n'areec
+	>e3n2ar'ew
+	>e3n2ar'ea  		% >e-nar'eac
+	>e3n2are'a
+	>e3n2'arie  		% >e-n'ariec
+	>e3n2ar'iw
+	>e3n2ar'ia  		% >e-nar'iac
+	>e3n2ari'a
+	>'e3n2ass  		% >'e-nassa <- na'iw
+	>e3n2'ass
+	>e3n2'asj
+	>e3n2asj
+	>'e3n2at   		% >'e-natoc
+	>e3n2'at
+>endu2s1t   		% >endus-tuq'ew
+	>e3n2'egk   		% >e-n'egkai
+	>e3n2egk    		% >e-negke~in
+	>'e3n2eik   		% >'e-neika
+	>e3n2e~ik   		% >e-ne~ikai 
+	>e3n2eik    		% >e-neik'emen
+	>e3n2e'ik   		% >e-ne'ikeon
+	>'e3n2eim   		% >e-neima, >e-ne'imamen
+	>e3n2e'im
+	>e3n2em'ess 		% >e-nem'essa
+	>e3n2em'hj  		% >e-nem'hjhn
+	>e3n2en'h   		% >e-nen'hkonta
+	>e3n2e'o    		% >e-ne'oc -'a -'on
+	>e3n2e`o
+	>e3n2eo
+	>e3n2e~w
+	>e3n2e'a
+	>e3n2e`a
+	>e3n2e~a 
+	>e3n2'epei
+	>'e3n2erje  		% >'e-nerje
+	>'e3n2eus   		% >'e-neusa
+	>e3n2e'us   		% >e-ne'usomai
+	>e3n2'eqj   		% >e-n'eqjhti
+	>e3n2eqj
+	>'e3n2hs		% >'e-nhsa <- na'iw
+	>e3n2'hs
+	>e3n2h'h		% >e-nh'hc, -'ec
+	>e3n2h`h
+	>'e3n2hn.		% >'e-nhn
+	>e3n2he'i  		% >e-nhe'ih
+	>e3n2ho
+	>e3n2h~w
+	>e3nh'e
+	>e3n2'hno   		% >e-n'hnoje
+	>e3n2'i
+	>e3n2i
+	>'e3n2i
+		>e4n3ia'u  		% >en-ia'uw
+			>e5n4ia'us  		% >e-nia'usioc
+			>e5n4iaus 
+		>e4n3idr    		% >en-idr'ow
+		>e4n3'idr		% >en-'idrwsa
+		>e4n3'iz   		% >en-'izw
+		>e4n3'ih   		% >en-'ihmi, >en-'ieton, k.lp.
+		>e4n3i'eton.
+		>e4n3'iemen.
+		>e4n3'iw.
+		>e4n3ipp   		% >en-ippe'uw
+		>e4n3'ipp  		% >en-'ippeusa
+		>e4n3'ipt  		% >en-'iptw, >en-'iyw
+		>e4n3'iy
+		>e4n3'iss  		% >en-'issw
+		>e4n3'ist  		% >en-'isthmi, >en-ist~h|c, k.lp.
+		>e4n3ist
+		>e4n3isq   		% >en-isq'uw
+		>e4n3'isq  		% >en-'isqw
+	>'e3n2oc.		% >'e-noc = >'e-nhc (>'allec pt'wseic???)
+	>'e3n2os.
+	>'e3n2ou.
+	>'e3n2on.
+	>'e3n2w
+	>'e3n2oi.
+	>'e3n2oic.
+	>'e3n2ois.
+	>'e3n2hc.
+	>'e3n2hs.
+	>'e3n2h|.
+ 	>'e3n2h.
+	>'e3n2osi		% >'e-nosic
+	>e3n2'ose
+	>e3n2u'al  		% >e-nu'alioc
+	>e3n2ual
+	>'e3n2ux    		% >'e-nuxa
+	>e3n2ux 		% >e-nux'athn
+	>e3n2'ux		% >e-n'uxamen
+	>e3n2'us    		% >e-n'ustaxa, >e-nust'axamen
+	>e3n2us
+	>e3n2u'w    		% >e-nu'w
+	>e3n2u`w
+	>e3n2u'oo
+	>e3n2uo~uc
+>e2x1
+>'e2x1
+	>e3x2'hr   		% >e-x'hrammai
+	>e3x2hr 		% >e-xhr'anjhn
+	>e3x2u2n1   		% >exun-~hka
+	>e3x2ur     		% >e-xur'amhn
+	>e3x2'ur  		% >e-x'urhmai
+	>'e3x2us  		% >'e-xusmai
+	>'e3x2w.
+<e2x1'hretm		% <ex-'hretmoc
+<e2x1hr'etm
+>epe'i2s1 		% >epe'is-aktoc, k.lp.
+>epei2s1
+	>epe'i3s2aton.	% >'epe'i-saton <- pe'ijw, >'epeisa
+	>epei3s2'athn.
+	>epe'i3s2amen.
+	>epe'i3s2ate
+	>epei3s2'amhn.
+	>epe'i3s2w.
+	>epe'i3s2ato
+	>epe'i3s2asjon.
+	>epei3s2'ameja.
+	>epe'i3s2asje.
+	>epe'i3s2anto.
+	>epe'i3s2j	% >epe'i-sjhn, >epeisj'hthn <- pe'ijw
+	>epei3s2j
+>epe2k1te'i 		% >epek-te'inw
+>ep'e2k1tei
+>epe2k1tr 		% >epek-tr'eqw
+>ep'e2k1tr
+>epe2x1
+>epe2s1b 		% >epes-b'oloc
+>epipr'o2s1j		% >epipr'os-jetoc
+>epipro2s1j
+>episu2n1  		% >episun-agwg'h
+>e2s1
+	>e3s2'aw 		% >e-s'awjen
+	>e3s2hm  		% >e-shm'hnanto
+	>e3s2j 			% >e-sj'ew 
+		>e4s3j'es 		% >es-j'esjai
+	>e3s2ig 		% >e-sig'ajhn
+	>e3s2k
+		>e4s3k'a 		% >es-k'atjeto
+		>e4s3ka  		% >es-kataba'inw
+%
+	>e3s2m`en.  >e3s2m'en.	% e>im'i, >esm'en, >est'i, k.lp.
+	>e3s2t
+	>e3s2'omeja
+	>e3s2o'imhn
+	>e3s2'om		% >e-s'omenoc, -h, -on
+	>e3s2om
+	>e3s2o~u 		% >e-so~umai (dwr./ >'alla pr'oswpa???)
+	>e3s2o'u %%%TS%%%
+    >e3s2ou %%%TS%%% ????
+%
+	>e3s2u  		% >e-s'urhn <- s'uromai
+	>e3s2'u
+	>es'u2n1 		% >es'un-hka
+	>esu2n1
+	>e3s2q
+		>e4s3q'e		% >es-q'ew  		
+	>e3s2'w
+	>e3s2w
+>'e2s1op 		% >'es-optroc
+e>ue2x1  		% >euex-'alepiptoc
+	e>ue3x2'i 		% >eue-x'ia
+	e>ue3x2i
+e>upr'o2s1 		% e>upr'os-dektoc
+e>upro2s1
+e>us'u2n1 		% e>us'un-etoc
+e>usu2n1
+e>ux'u2n1 		% e>ux'un-etoc
+e>uxu2n1
+>ew2s1f   		% >ews-f'oroc
+>'h2n1oy.		% >'hn-oy
+>'h2n1op
+>h2n1'op
+.jemi2s1kr  % jemis-kr'ewn
+.je'o2s1d   % je'os-dotoc
+.jeo2s1d
+.jeoi2s1eqjr		% jeois-eqjr'ia
+.jh2r1agr  		% jhr-agr'ethc
+.juo2s1k     		% juos-k'ew juos-k'ooc
+.kajupe2r1 		% kajuper-akont'izw
+.kalw2s1or 	 	% kalws-or'izw kalws-'orisa
+.kalw2s1'or
+.ka2n1e'ic.		% kan-e'ic
+.ka2n1e`ic.
+.ka2n1e'is.
+.ka2n1e`is.
+.ka2n1en
+.ka2n1'en		
+.katadu2s1wp 		% katadus-wp'ew
+.katedu2s1'wp  		% katedus-'wpesa
+.katei2s1 		% kateis-'agw
+.kate2n1a'i 		% katen-a'iromai
+.kate2n1'h 		% katen-'hraro
+.kate2x1a2n1'i 		% katex-an-'isthmi
+.kate2x1a2n1'es   	% katex-an-'esthn 
+.kera2s1f 		% keras-f'oroc
+.kr'a2s1p 		% kr'as-pedon
+.kra2s1p
+.kun'o2s1a 		% Kun'os-argec
+.kun'o2s1b 		% kun'os-batoc
+.kuno2s1b
+.kun'o2s1o 		% kun'os-oura
+.kuno2s1o
+.kuno2s1f  		% Kunos-fan'h (<h <Ek'ath, je`a t~hc Sel'hnhc)
+.mela2n1'ag			% melan-'agrioc
+.mela2n1ag
+.mela2n1'ae			% melan-'aetoc
+.mela2n1a'e
+.mela2n1aj			% melan-aj'hr
+.mela2n1aig 		% melan-aig'ic
+.mela2n1aug 		% melan-aug'hc
+.mela2n1e'im 		% melan-e'imwn
+.mela2n1e~im 		% melan-e~imon
+.mel'a2n1ipp 		% mel'an-ippoc
+.mela2n1'ipp
+.mela2n1'omm 		% melan-'ommatoc
+.mela2n1omm
+.mel'a2n1oss 		% mel'an-ossoc
+.mela2n1'oss
+.mel'a2n1ost 		% mel'an-ostoc
+.mela2n1'ost
+.mel'a2n1our 		% mel'an-ouroc
+.mela2n1o'ur
+.mela2n1our  		% melan-our'ic
+.mel'a2n1u		% mel'an-udroc
+.mela2n1'u
+.mete2x1a   		% metex-an'istamai
+.mete2x1'e  		% metex-'eteroi
+.mete2x1e
+.mogi2s1    		% mogis-ayed'afa
+.mogo2s1t    		% mogos-t'okoc
+.mu2s1p      		% mus-pol'ew
+.mu2s1ep   		% mus-ep'olesa
+.ne'w2s1oik  		% ne'ws-oikoc
+.new2s1o'ik
+.nou2n1e     		% noun-eq'hc
+.xu2n1ag		% xun-age'irato = sun-age'irato <- sunage'irw
+.xu2n1e
+.xu2n1'e
+.x'u2n1e
+	.xu3n2e'w 		% xu-ne'wn
+	.xu3n2e~w
+.xu2n1~hk 		% xun-~hka <- xun-'ihmi 
+.x'u2n1i  		% x'un-ie <- xun-'ihmi 
+.xu2n1'i  		% xun-'iei <- xun-'ihmi 
+o<io2n1e'i.		% o<ion-e'i
+o<io2n1e`i.
+o<i'o2s1		% o<i'os-per o<i'os-te
+o>i2s1p'wt 		% o>is-p'wth
+o>i2s1pwt
+<olo2n1'en.
+<olo2n1`en.
+<opw2s1			% <'opws-o~un
+<'o2s1ge.               % <'os-ge
+<oso2n1~wn.  		% <oson-~wn 
+<'o2s1per.		% <'os-per
+<'o2s1tic 		% <'os-tic
+ o<~i2s1tisi		% o<~is-tisi(n)
+ o<'u2s1tinac		% o<'us-tinac
+ <~h2s1tinoc 		% <~hs-tinoc
+ a<~i2s1tisi   		% a<~is-tisi(n)
+ <'a2s1tinac 		% <'as-tinac
+ <o2s1ti2s1o~un.	% <os-tis-o~un
+ <hti2s1o~un.  		% <htis-o~un
+ <opoiou2s1tina2s1o~un.	% <opoious-tinas-o~un
+o>uden'o2s1w 		% o>uden'os-wroc
+o>udeno2s1'w 		
+.pali2n1 		% palin-'agretoc
+.pal'i2n1 		% pal'in-orsoc
+.pa2n1
+.p'a2n1
+	.pa3n2'oc. 		% pa-n'oc <- P'an (je'oc)
+	.pa3n2`oc.
+	.pa3n2'os.
+	.pa3n2`os.
+	.pa3n2'i.
+	.pa3n2`i.
+	.p'ana.
+	.pa3n2~wn.
+	.pa3n2ik  		% pa-nik'oc
+	.pa3n2'isd 		% pa-n'isdomai
+	.pa3n2isd  		% pa-nisd'omhn
+	.pa3n2o~u. 		% pa-no~u, k.lp. (pan'oc = fan'oc)
+	.pa3n2~w|.
+	.pa3n2'o.
+	.pa3n2`o.
+	.pa3n2'on.
+	.pa3n2`on.
+	.pa3n2'e.
+	.pa3n2`e.
+	.pa3n2o'i.
+	.pa3n2o`i.
+	.pa3n2o~ic.
+	.pa3n2o~is.
+	.pa3n2o'uc.
+	.pa3n2o`uc.
+	.pa3n2o'us.
+	.pa3n2o`us.
+.para2n1'isq 		% paran-'isqw
+.pare'i2s1 		% pare'is-aktoc
+.parei2s1
+.pare2k1l 		% parek-l'egw
+.pare2k1tr 		% parek-tr'epw
+.pare2n1e~i 		% paren-e~idon
+.pare2n1o 		% paren-oql'ew
+.pare2x1
+.par'e2x1
+	par'e3x2w.		% par'e-xw, par'e-xomai <- par'eqw
+	par'e3x2eic.
+	par'e3x2eis.
+	par'e3x2ei.
+	par'e3x2eton.
+	pare3x2'ethn.
+	par'e3x2omen.
+	par'e3x2ete.
+	par'e3x2ousi.
+	%
+	par'e3x2omai
+	par'e3x2h|
+	par'e3x2etai.
+	par'e3x2esjon.
+	pare3x2'omeja.
+	par'e3x2esje.
+	par'e3x2ontai.
+.pleo2n1'e 		% pleon-'ekthma
+.pleo2n1e
+.proei2s1 		% proeis-'agw
+.proe2k1 		% proek-l'egw
+.proe2n1 		% proen-'arqomai
+.proe2x1 		% proex-agg'elw
+.pro'e2x1 		% pro'ex-eimi
+.pro2s1
+	.pro3s2'ab 		% pro-s'abbatoc
+	.pro3s2ab
+.prosei2s1 		% proseis-pr'assw, k.lp.
+	.pro3s2e'i 		% pro-se'iw, pro-s'eseisa, pro-sese'isjhn
+	.pro3s2'esei
+	.pro3s2ese'i
+.prose2n1 		% prosen-equr'azw
+.prose2x1 		% prosex-air'eomai
+	.pr'o3s2ji 		% pr'o-sjioc
+	.pro3s2j'i
+		.pro4s3jig 		% pro-sjigg'aw
+	.pr'o3s2kop 		% pr'o-skopoc != pros-k'optw 
+	.pro3s2k'op 
+	.pro3s2tas 		% pro-stas'ia
+	.pro3s2t'at 		% pro-st'athc
+	.pro3s2tat 		% pro-state'uw
+	.pro3s2tau 		% pro-staur'ow
+	.pro3s2te'i 		% pro-ste'iqw
+	.pro3s2ten 		% pro-sten'azw
+	.pro3s2t'en 		% pro-st'enw
+	.pro3s2tern 		% pro-stern'idio
+	.pr'o3s2tern 		% pr'o-sternon
+	.pro3s2t'ern
+	.pro3s2t'hs 		% pro-st'hsac
+	.pro3s2t'om 		% pro-st'omion
+	.pro3s2tom
+	.pr'o3s2tw|		% pr'o-stw|on
+	.pro3s2t'w|
+	.pro3s2ug 		% pro-sugg'ignomai
+	.pro3s2um 		% pro-summ'isgw
+	.pro3s2u2n1 		% pro-sun-oik'ew
+	.pr'o3s2fagm 		% pr'o-sfagma
+	.pro3s2f'agm 
+	.pro3s2f'az 		% pro-sf'azw
+	.pro3s2f'att 		% pro-sf'attw
+	.pr'o3s2qhm 		% pr'o-sqhma
+	.pro3s2q'hm
+	.pr'o3s2w.
+	.pr'o3s2wjen.
+	.pro3s2'wt 		% pro-s'wtatoc
+	.pro3s2wt
+.pro"upe2x1 		% pro"upex-orm'aw
+.pu2r1'ag		% pur-'agra
+.pu2r1ag
+.pu2r1a'ij   		% pur-a'ijw 
+.pu2r1aij		% pur-aij'onwn (gen. plhj. to~u pur-a'ijwn)
+.pu2r1~hj 		% pur-~hjon (pur-a'ijw)
+.pu2r1hj 		% pur-hj'ethn??? (pur-a'ijw) 
+.pu2r1'hj 		% pur-'hjomen??? (pur-a'ijw)
+.pu2r1ak   		% pur-akt'ew
+.p'u2r1au		% p'ur-auloc
+.pu2r1a'u
+.pu2r1au 		% pur-aug'hc
+.pu2r1'hnem 		% pur-'hnemoc
+.pu2r1hn'em
+.pu2r1wp 		% pur-wp'oc
+.sela2s1f'o		% selas-f'oroc
+.sela2s1fo
+.sumparei2s1 		% sumpareis-'erqomai
+.su2n1
+.s'u2n1	   		% s'un-auloc, k.>'a.<'o.
+.sundi'e2x1 		% sundi'ex-eimi
+.sundie2x1 		% sundiex-i'enai
+.sundu2s1 		% sundus-tuq'ew
+.sune2x1 		% sunex-'agw
+.tessare2s1k 		% tessares-ka'ideka
+.trei2s1k 		% treic-ka'ideka
+.tri2s1
+	.tri3s2m'o 		% tri-sm'oc
+	.tri3s2mo
+	.tri3s2m~w
+	.tri3s2p 		% tri-sp'ijamoc
+	.tr'i3s2t 		% tr'i-stegoc
+	.tri3s2t
+	.tri3s2'w 		% tri-s'wmatoc
+	.tri3s2w
+<uo2s1k 		% <uos-k'uamoc
+<upe'i2s1
+<upei2s1
+	<upe'i3s2ac 		% <upe'i-sac = <ufe'i-sac <- <uf'ihmi
+	<upe'i3s2as
+	<upe'i3s2an
+	<upei3s2'an
+	<upei3s2'as
+<upe2k1lam  		% <upek-lamb'anw
+<upe2k1l'hy  		% <upek-l'hyomai
+<upe2k1t    		% <upek-tan'uw <upek-t'ijhmi <upek-tr'epw
+<upe2n1
+<upe2x1
+<upe2r1
+<up'e2r1
+	<up'e3r2a.		% <up'e-ra
+	<up'e3r2hc.
+	<up'e3r2hs.
+	<up'e3r2a|.
+	<up'e3r2an.
+	<up'e3r2ai.
+	<upe3r2~wn.
+	<up'e3r2aic.
+	<up'e3r2ais.
+	<up'e3r2ac.
+	<up'e3r2as. 
+	<upe3r2ej		% <upe-rej'izw <upe-r'ejison
+	<upe3r2'ej
+	<upe3r2e'i		% <upe-re'idw <upe-re'ipw
+	<up'e3r2uj		% <up'e-rujroc
+	<upe3r2'uj
+	<upe3r2uj		% <upe-rujr'ew
+<upere2k1te 		% <uperek-te'inw
+<upere2k1t'i 		% <uperek-t'inw
+	<upe3r2'ept 		% <upe-r'eptw, <upe-r'eyw
+	<upe3r2ept
+	<upe3r2'ey
+	<upe3r2ey
+	<upe3r2'ew 		% <upe-r'ew (-~w) <- <upe~ipon
+	<upe3r2~w
+	<upe3r2'ee
+	<upe3r2e~ic.
+	<upe3r2e~is.
+	<upe3r2e~i.
+	<upe3r2'eo
+	<upe3r2o~u
+	<upe3r2e~it
+	<upe3r2'w 		% <upe-r'w|a
+	<upe3r2w 		% <upe-rw'ew
+<'u2s1tr 		% <'us-trix
+<u2s1tr 		% <us-triq'ic
+.fae2s1f 		% faes-f'oroc
+.fw2s1f  		% fws-f'oroc
+.qari2s1andr 		% qar'is-androc
+.qari2s1'andr
+.qei2r1'ag 		% qeir-'agra
+.qei2r1ag  		% qeir-agwg'oc
+.qei2r1ap  		% qeir-apt'azw
+.qei2r1ay		% qeir-ay'ia
+.qei2r1ou  		% qeir-ourg'oc
+.qei2r1~wn 		% qeir-~wnax
+.qei2r1'an
+.qei2r1an
+.qh2n1nal		% qhn-al'wphx
+<w2s1a2n1e'i. 		% <ws-an-e'i
+<w2s1a2n1e`i.
+<w2s1a'utwc.  		% <ws-a'utwc
+<w2s1a'utws.
+<w2s1e'i.  		% <ws-e'i
+<w2s1e`i.
+<'w2s1per.		% <'ws-per
+<w2s1pe2r1e'i. 		% <ws-per-e'i
+<w2s1pe2r1e`i.
+<'w2s1te  		% <'ws-te
+%%%%
+%%%% 
+i2s1q'ilioi.  		% dis-q'ilioi, k.>'a.<'o.
+i2s1qil'iwn.
+i2s1qil'ioic.
+i2s1qil'iois.
+i2s1qil'iouc.
+i2s1qil'ious.
+i2s1q'iliai.
+i2s1qil'iaic.
+i2s1qil'iais.
+i2s1qil'iac.
+i2s1qil'ias.
+i2s1q'ilia.
+%
+i2s1m'urioi. 		% dis-m'urioi, k.>'a.<'o.
+i2s1mur'iwn.
+i2s1mur'ioic.
+i2s1mur'iois.
+i2s1mur'iouc.
+i2s1mur'ious.
+i2s1m'uriai.
+i2s1mur'iaic.
+i2s1mur'iais.
+i2s1mur'iac.
+i2s1mur'ias.
+i2s1m'uria.
+%
+i2s1qiliost  		% dis-qiliost'oc, k.>'a.<'o.
+%
+i2s1muriost 		% dis-muriost'oc, k.>'a.<'o.
+%
+i2s1qili'akic. 		% dis-qili'akic, k.>'a.<'o.
+i2s1qili'akis.
+%
+i2s1muri'akic. 		% dis-muri'akic, k.>'a.<'o.
+i2s1muri'akis.
+} % end patterns
+\endgroup
+\endinput

@@ -1,0 +1,12 @@
+\message{Polytonic Greek Hyphenation Patterns}
+%
+\begingroup
+%
+\catcode`\@=11
+\ifx\@@input\undefined \let\@@input=\input \fi
+\@@input pattern-loader.tex
+%
+% \lefthyphenmin? \righthyphenmin?
+\loadtwohyphpatterns{el-polyton}{grphyph5}%
+%
+\endgroup

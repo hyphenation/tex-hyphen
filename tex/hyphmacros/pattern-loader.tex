@@ -12,12 +12,12 @@
 \endgroup
 
 \ifNativeUtfEightPatterns
-  \def\loadhyphpatterns#1#2{\obeylines
-        \expandafter\read@patterns\@@input hyph-#1.pat \egroup}
+  \def\loadhyphpatterns#1#2{\@@input hyph-#1.tex}
+  \def\loadtwohyphpatterns#1#2{\@@input hyph-#1.tex}
 \else
   \def\loadhyphpatterns#1#2{\@@input conv_utf8_#2.tex
-        \obeylines
-        \expandafter\read@patterns\@@input hyph-#1.pat \egroup}
+        \@@input hyph-#1.tex}
+  \def\loadtwohyphpatterns#1#2{\@@input #2}
 \fi
 
 \def\utf@eight@name{UTF-8}
@@ -28,4 +28,3 @@
       \errmessage{Pattern file must begin with encoding name "UTF-8", found "\encname"}%
     \fi \catcode13=10 \patterns\bgroup}%
 \endgroup
-
