@@ -3,6 +3,7 @@
 \message{Hyphenation patterns for unaccented pinyin syllables (CJK 4.8.0)}
 %
 \begingroup
+\lccode`\'=`\'
 \input pattern-loader.tex
 \ifNativeUtfEightPatterns\else
 	\input conv_utf8_ec.tex
