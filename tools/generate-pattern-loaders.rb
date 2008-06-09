@@ -554,19 +554,99 @@ languages = [
 	"exceptions" => true,
 	"message" => nil,
 },
-
 # serbian		xu-srhyphc.tex
 # mongolian	xu-mnhyph.tex
+# TODO
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "mnhyph.tex",
+	"filename_xu_loader" => "xu-mnhyph.tex",
+	"code" => "mn-latn",
+	"name" => "mongolian",
+	"synonyms" => [],
+#	"hyphenmin" => [],
+	"encoding" => "t2a",
+	"exceptions" => false,
+	"message" => nil,
+},
 # mongolian2a mnhyphn.tex
+# TODO
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "mnhyphn.tex",
+	"filename_xu_loader" => nil,
+	"code" => "mn-cyrl-x-new", # TODO
+	"name" => "newmongolian", # TODO
+	"synonyms" => [],
+#	"hyphenmin" => [],
+	"encoding" => "t2a",
+	"exceptions" => false,
+	"message" => nil,
+},
 # russian		xu-ruhyphen.tex
 # ukrainian	xu-ukrhyph.tex
 
 # greek		xu-grphyph4.tex
 # =polygreek
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"filename_old_patterns" => "grphyph5.tex",
+	"filename_xu_loader" => "xu-grphyph4.tex", # TODO: beware!
+	"code" => "el-polyton",
+	"name" => "greek",
+	"synonyms" => ["polygreek"],
+#	"hyphenmin" => [],
+	"encoding" => nil,
+	"exceptions" => true,
+#	"message" => "Polytonic Greek Hyphenation Patterns",
+	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek"
+},
 # monogreek	xu-grmhyph4.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"filename_old_patterns" => "grmhyph5",
+	"filename_xu_loader" => "xu-grmhyph4.tex", # TODO: beware!
+	"code" => "el-monoton",
+	"name" => "monogreek",
+	"synonyms" => [],
+#	"hyphenmin" => [],
+	"encoding" => nil,
+	"exceptions" => true,
+#	"message" => "Monotonic Greek Hyphenation Patterns",
+	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek"
+},
 # ancientgreek	xu-grahyph4.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"filename_old_patterns" => "grmhyph5",
+	"filename_xu_loader" => "xu-grahyph4.tex", # TODO: beware!
+	"code" => "grc",
+	"name" => "ancientgreek",
+	"synonyms" => [],
+#	"hyphenmin" => [],
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => "Hyphenation patterns for Ancient Greek"
+},
 # ibycus ibyhyph.tex
-
+{
+	"use_new_loader" => false,
+	"use_old_patterns" => true,
+	"filename_old_patterns" => "ibyhyph.tex",
+	"filename_xu_loader" => nil,
+	"code" => nil,
+	"name" => "ibycus",
+	"synonyms" => [],
+	"hyphenmin" => [2,2],
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => nil,
+},
 # bulgarian	xu-bghyphen.tex
 # TODO
 {
@@ -695,17 +775,22 @@ languages.each do |langg|
 			# but probably this needs to reside outside of \begingroup/endgroup
 			
 			file.puts('\begingroup')
-			file.puts('\input pattern-loader.tex')
 			
 			if language.use_old_patterns then
+				file.puts('\input pattern-loader.tex')
+				file.puts('\ifNativeUtfEightPatterns')
 				file.puts("\t\\input hyph-#{language.code}.tex")
 				file.puts('\else')
 				file.puts("\t\\input #{language.filename_old_patterns}")
 				file.puts('\fi')
 			elsif language.encoding == nil or language.encoding == "ascii" then
 				file.puts('% ASCII patterns')
+				if language.code == 'it' then
+					file.puts("\\lccode`\\'=`\\'")
+				end
 				file.puts("\\input hyph-#{language.code}.tex")
 			else
+				file.puts('\input pattern-loader.tex')
 				file.puts('\ifNativeUtfEightPatterns\else')
 				file.puts("\t\\input conv_utf8_#{language.encoding}.tex")
 				file.puts('\fi')
