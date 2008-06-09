@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 $encoding_data_dir = "../data/encodings"
-$encodings = ["ec", "qx", "texnansi", "t2a", "lmc"]
+$encodings = ["ec", "qx", "texnansi", "t2a", "lmc", "il3"]
 
 $output_data_dir = "../tex/conv_utf8"
 
