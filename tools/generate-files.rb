@@ -95,6 +95,9 @@ $encodings.each do |encoding|
 		$file_out.puts "\\catcode`-=11"
 		$file_out.puts
 	end
+	if encoding == 't2a'
+		$file_out.puts "\\lccode`\\'=`\\'"
+	end
 
 	$file_out.close
 end
