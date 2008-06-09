@@ -50,6 +50,7 @@
 	\ifx#1^^92^^a2\else % ђ - cyrdje
 	\ifx#1^^94^^b9\else % є - cyrie
 	\ifx#1^^95^^af\else % ѕ - cyrdze
+	\ifx#1^^96^^69\else % і - cyrii
 	\ifx#1^^97^^a8\else % ї - cyryi
 	\ifx#1^^99^^a7\else % љ - cyrlje
 	\ifx#1^^9a^^bb\else % њ - cyrnje
@@ -57,7 +58,7 @@
 	\ifx#1^^9e^^b2\else % ў - cyrushrt
 	\ifx#1^^9f^^b6\else % џ - cyrdzhe
 	\errmessage{Hyphenation pattern file corrupted!}
-\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
 \def^^d2#1{%
 	\ifx#1^^91^^a0\else % ґ - cyrgup
 	\ifx#1^^93^^a1\else % ғ - cyrghcrs
@@ -86,6 +87,7 @@
 
 % ensure all the chars above have valid lccode values
 \lccode"19="19 % ı - i
+\lccode"69="69 % і - cyrii
 \lccode"A0="A0 % ґ - cyrgup
 \lccode"A1="A1 % ғ - cyrghcrs
 \lccode"A2="A2 % ђ - cyrdje
@@ -148,3 +150,4 @@
 \lccode"FE="FE % ю - cyryu
 \lccode"FF="FF % я - cyrya
 
+\lccode`\'=`\'
