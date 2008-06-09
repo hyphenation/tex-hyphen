@@ -555,6 +555,33 @@ languages = [
 	"message" => nil,
 },
 # serbian		xu-srhyphc.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "shhyphl.tex",
+	"filename_xu_loader" => nil,
+	"code" => "sr-latn",
+	"name" => "serbian",
+	"synonyms" => [],
+#	"hyphenmin" => [],
+	"encoding" => "ec",
+	"exceptions" => true,
+	"message" => "Serbian hyphenation patterns in Latin script",
+},
+# serbianc
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "srhyphc.tex",
+	"filename_xu_loader" => nil, # "xu-srhyphc.tex"
+	"code" => "sr-cyrl",
+	"name" => "serbianc",
+	"synonyms" => [],
+#	"hyphenmin" => [],
+	"encoding" => "t2a",
+	"exceptions" => true,
+	"message" => "Serbian hyphenation patterns in Cyrillic script",
+},
 # mongolian	xu-mnhyph.tex
 # TODO
 {
@@ -758,6 +785,11 @@ $file_language_dat.print(header_of_language_dat)
 languages.each do |langg|
 	# TODO: fix this/make it nicer
 	language = Language.new(langg)
+	if language.name == 'ibycus' then
+		$file_language_dat.puts('% useless, but harmless for UTF-8 engines')
+	elsif language.name == 'serbian' or language.name == 'serbianc' then
+		$file_language_dat.print('%')
+	end
 	$file_language_dat.printf("%-15s ", language.name)
 #	$file_language_dat.print(language.name, "\t")
 	if language.use_new_loader then
