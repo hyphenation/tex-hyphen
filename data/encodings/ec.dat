@@ -180,6 +180,7 @@
 0xB3	U+015F	1	scedilla
 0xB4	U+0165	1	tcaron
 0xB5	U+0163	1	tcedilla
+0xB5	U+021B	1	tcommaaccent
 0xB6	U+0171	1	uhungarumlaut
 0xB7	U+016F	1	uring
 0xB8	U+00FF	1	ydieresis
