@@ -568,26 +568,18 @@ languages = [
 #	"hyphenmin" => [],
 	"encoding" => "t2a",
 	"exceptions" => false,
-	"message" => nil,
+	"message" => "Mongolian hyphenation patterns",
 },
-# mongolian2a mnhyphn.tex
-# TODO
+# mongolian2a
 {
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
-	"filename_old_patterns" => "mnhyphn.tex",
-	"filename_xu_loader" => nil,
-	"code" => "mn-cyrl-x-new", # TODO
-	"name" => "newmongolian", # TODO
+	"code" => "mn-cyrl-x-new",
+	"name" => "mongolian",
 	"synonyms" => [],
-#	"hyphenmin" => [],
+	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
 	"exceptions" => false,
-	"message" => nil,
+	"message" => "New Mongolian Hyphenation Patterns",
 },
-# russian		xu-ruhyphen.tex
-# ukrainian	xu-ukrhyph.tex
-
 # greek		xu-grphyph4.tex
 # =polygreek
 {
@@ -648,7 +640,6 @@ languages = [
 	"message" => nil,
 },
 # bulgarian	xu-bghyphen.tex
-# TODO
 {
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
@@ -662,20 +653,32 @@ languages = [
 	"exceptions" => false,
 	"message" => "Bulgarian Hyphenation Patterns",
 },
+# russian	xu-ruhyphen.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"code" => "ru",
+	"name" => "russian",
+	"synonyms" => [],
+	# "hyphenmin" => [], # TODO
+	"encoding" => "t2a",
+	"exceptions" => false,
+	"message" => "Russian Hyphenation Patterns",
+},
+# ukrainian	xu-ukrhyph.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"code" => "uk",
+	"name" => "ukrainian",
+	"synonyms" => [],
+	# "hyphenmin" => [], # ?
+	"encoding" => "t2a",
+	"exceptions" => false,
+	"message" => "Ukrainian Hyphenation Patterns",
+}
 ]
 
-
-# languages = [
-# 		{
-# 			"code" => "mn-cyrl-x-new",
-# 			"name" => "mongolian",
-# 			"synonyms" => [],
-# 			"hyphenmin" => [2,2],
-# 			"encoding" => "t2a",
-# 			"exceptions" => false,
-# 			"message" => "New Mongolian Hyphenation Patterns",
-# 		},
-# 	]
 
 languages.each do |language|
 	# File.open("#{$loader_dir}/loadhyph-#{language["code"]}.tex", "w") do |file|
