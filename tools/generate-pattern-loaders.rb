@@ -707,6 +707,42 @@ languages = [
 	"encoding" => "t2a",
 	"exceptions" => false,
 	"message" => "Ukrainian Hyphenation Patterns",
+},
+# norsk	xu-nohyphbx.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"code" => "no",
+	"name" => "norsk",
+	"synonyms" => ["norwegian"],
+	# "hyphenmin" => [], # ?
+	"encoding" => "ec",
+	"exceptions" => true,
+	"message" => "Norwegian Common Hyphenation Patterns",
+},
+# bokmal	nbhyph.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"code" => "nb",
+	"name" => "bokmal",
+	"synonyms" => [],
+	# "hyphenmin" => [], # ?
+	"encoding" => "ec",
+	"exceptions" => true,
+	"message" => "Norwegian Bokmal Hyphenation Patterns",
+},
+# nynorsk	nnhyph.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"code" => "nn",
+	"name" => "nynorsk",
+	"synonyms" => [],
+	# "hyphenmin" => [], # ?
+	"encoding" => "ec",
+	"exceptions" => true,
+	"message" => "Norwegian Nynorsk Hyphenation Patterns",
 }
 ]
 

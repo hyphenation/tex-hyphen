@@ -71,7 +71,11 @@ indonesian      loadhyph-id.tex
 icelandic       loadhyph-is.tex
 italian         loadhyph-it.tex
 latin           loadhyph-la.tex
+bokmal		loadhyph-nb.tex
 dutch           loadhyph-nl.tex
+nynorsk		loadhyph-nn.tex
+norsk		loadhyph-no.tex
+=norwegian
 polish          loadhyph-pl.tex
 portuguese      loadhyph-pt.tex
 =portuges
