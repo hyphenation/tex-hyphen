@@ -68,7 +68,6 @@
 	\ifx#1^^9b^^b1\else % ś - sacute
 	\ifx#1^^9f^^b3\else % ş - scedilla
 	\ifx#1^^a1^^b2\else % š - scaron
-	\ifx#1^^a3^^b5\else % ţ - tcedilla
 	\ifx#1^^a5^^b4\else % ť - tcaron
 	\ifx#1^^af^^b7\else % ů - uring
 	\ifx#1^^b1^^b6\else % ű - uhungarumlaut
@@ -76,12 +75,13 @@
 	\ifx#1^^bc^^bb\else % ż - zdotaccent
 	\ifx#1^^be^^ba\else % ž - zcaron
 	\errmessage{Hyphenation pattern file corrupted!}
-\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
 \def^^c8#1{%
+	\ifx#1^^99^^b3\else % ș - scommaaccent
 	\ifx#1^^9b^^b5\else % ț - tcommaaccent
 	\ifx#1^^b7^^1a\else % ȷ - dotlessj
 	\errmessage{Hyphenation pattern file corrupted!}
-\fi\fi}
+\fi\fi\fi}
 
 % ensure all the chars above have valid lccode values
 \lccode"19="19 % ı - dotlessi
@@ -107,8 +107,8 @@
 \lccode"B1="B1 % ś - sacute
 \lccode"B2="B2 % š - scaron
 \lccode"B3="B3 % ş - scedilla
+\lccode"B3="B3 % ș - scommaaccent
 \lccode"B4="B4 % ť - tcaron
-\lccode"B5="B5 % ţ - tcedilla
 \lccode"B5="B5 % ț - tcommaaccent
 \lccode"B6="B6 % ű - uhungarumlaut
 \lccode"B7="B7 % ů - uring
