@@ -3,8 +3,9 @@
 \message{Dutch Hyphenation Patterns}
 %
 \begingroup
-\catcode`\@=11
-\ifx\@@input\undefined \let\@@input=\input \fi
-\@@input pattern-loader.tex
-\loadhyphpatterns{nl}{ec}%
+\input pattern-loader.tex
+\ifNativeUtfEightPatterns\else
+	\input conv_utf8_ec.tex
+\fi
+\input hyph-nl.tex
 \endgroup

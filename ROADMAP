@@ -1,6 +1,10 @@
 remember:
 set lccode for - and '
 
+TODO checklist:
+- no comments were left out during conversion
+- same set of patterns
+- no commands and \'-like sequences left
 
 already converted:
 
@@ -421,6 +425,22 @@ X -> æ
 Y -> ø
 Z -> å
 
+esperanto	latin3
+=========
+
+^c -> ĉ (E6)
+^g -> ĝ (F8)
+^h -> ĥ (B6)
+^j -> ĵ (BC)
+^s -> ŝ (FE)
+^u -> ŭ (FD)
+
+^C -> Ĉ (C6)
+^G -> Ĝ (D8)
+^H -> Ĥ (A6)
+^J -> Ĵ (AC)
+^S -> Ŝ (DE)
+^U -> Ŭ (DD)
 
 special converter needed (and already done):
 

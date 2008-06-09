@@ -3,8 +3,9 @@
 \message{Galician Hyphenation Patterns}
 %
 \begingroup
-\catcode`\@=11
-\ifx\@@input\undefined \let\@@input=\input \fi
-\@@input pattern-loader.tex
-\loadhyphpatterns{gl}{ec}%
+\input pattern-loader.tex
+\ifNativeUtfEightPatterns\else
+	\input conv_utf8_ec.tex
+\fi
+\input hyph-gl.tex
 \endgroup

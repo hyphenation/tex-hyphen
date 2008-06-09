@@ -3,8 +3,9 @@
 \message{Hyphenation patterns for unaccented pinyin syllables (CJK 4.8.0)}
 %
 \begingroup
-\catcode`\@=11
-\ifx\@@input\undefined \let\@@input=\input \fi
-\@@input pattern-loader.tex
-\loadhyphpatterns{zh-latn}{ec}%
+\input pattern-loader.tex
+\ifNativeUtfEightPatterns\else
+	\input conv_utf8_ec.tex
+\fi
+\input hyph-zh-latn.tex
 \endgroup

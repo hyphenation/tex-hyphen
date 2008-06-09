@@ -1,0 +1,10 @@
+CTAN
+	(I don't like the name)
+	the files with patterns as authors should submit it
+source
+	sources of pattern files, like programs to generate them or word lists
+	please contribute!
+tex
+	files that should go to TeX Live or some other TeX distribution
+
+
