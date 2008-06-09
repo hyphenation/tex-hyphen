@@ -78,9 +78,10 @@
 	\errmessage{Hyphenation pattern file corrupted!}
 \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
 \def^^c8#1{%
+	\ifx#1^^9b^^b5\else % ț - tcommaaccent
 	\ifx#1^^b7^^1a\else % ȷ - dotlessj
 	\errmessage{Hyphenation pattern file corrupted!}
-\fi}
+\fi\fi}
 
 % ensure all the chars above have valid lccode values
 \lccode"19="19 % ı - dotlessi
@@ -108,6 +109,7 @@
 \lccode"B3="B3 % ş - scedilla
 \lccode"B4="B4 % ť - tcaron
 \lccode"B5="B5 % ţ - tcedilla
+\lccode"B5="B5 % ț - tcommaaccent
 \lccode"B6="B6 % ű - uhungarumlaut
 \lccode"B7="B7 % ů - uring
 \lccode"B8="B8 % ÿ - ydieresis
