@@ -1,0 +1,38 @@
+Patterns converted from: skhyphen.tex
+Last modified on CTAN: 
+
+--------------------------------------------------------------------------------
+
+% Slovak hyphenation (version 2.0) 24.4.1992
+% Autor: Jana Chlebikova, Department of Informatics Education,
+%         Comenius University, 842 15 Bratislava, Slovakia
+%         <chlebikj@dcs.fmph.uniba.sk>
+%
+% This is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% This file is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+%%% --------------------------------------------------------------------
+\expandafter\ifx\csname JanaChlebikova\endcsname\relax
+\global\everyjob = \expandafter
+        {\the \everyjob
+      \message {Loading SK hyphenation patterns: Jana Chlebikova, 1992}
+        }
+\def\JanaChlebikova{}
+\fi
+
+}
+
+
+ % List of exceptions  created by Karel Horak
+ % (Mathematical Institute of Czechoslovak Acadamy of Science)
+ % Prague, April 1, 1991
