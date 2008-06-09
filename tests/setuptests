@@ -1,2 +1,2 @@
-TEXINPUTS=../tex/hyphmacros:../tex/conv_utf8:../tex/loadhyph:../tex/patterns:
+TEXINPUTS=../tex/hyphmacros:../tex/conv_utf8:../tex/loadhyph:../tex/patterns/legacy:../tex/patterns/utf8:
 export TEXINPUTS
