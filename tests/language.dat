@@ -1,6 +1,98 @@
+% Created long ago by Sebastian Rahtz and others.  Public domain.
+% 
+% language.us is concatenated with the other language.*.dat files
+% desired by the user to create language.dat.  You can use
+% texconfig generate language -local /some/file to make local additions.
+%
+% The premade texmf/tex/generic/config/language.dat (where you might be
+% reading this) in the distribution is a copy of this concatenation with
+% all languages enabled.  It is used when the user asks to run live
+% (install option R).
+%
+% The preferred comment for actual language lines is %!. Do not use %!
+% for textual comments like this. This is to be able to separate
+% textual comments from commented-out language in such a way that
+% automatic parsing by programs is possible, so that 
+% we can present the user with `all possible languages'.
+% 
+% *PLEASE*, keep english as the default (first) here, and let it refer
+% to hyphen.tex (not, e.g., ushyph.tex), and do not change the
+% hyphen.tex file, or name some other file hyphen.tex.  hyphen.tex must
+% remain the original file from Knuth, and it must be language0.  This
+% is one important aspect of ensuring that the original, frozen TeX
+% always produces the same line and page breaks.
+% 
+% The babel system allows you to easily change the active language for
+% LaTeX. For more information, see the documentation in
+% texmf-dist/doc/generic/babel/.  ConTeXt has its own language support too.
+% 
 english		hyphen.tex  % do not change!
-newmongolian	loadhyph-mn-cyrl-x-new
-greek		loadhyph-el-polyton
+=usenglish
+=USenglish
+=american
+%
+% ushyphmax.tex, on the other hand, includes Gerard Kuiken's additional
+% patterns; it is not frozen.
+usenglishmax	ushyphmax.tex
+%
+% FYI, ushyph.tex is Dr. Kuiken's smaller set of patterns; with today's
+% large memories, there is no reason to use it, and we don't list it here.
+% ushyph1.tex is another (historical) name for hyphen.tex.
+% ushyph2.tex is another (historical) name for ushyph.tex.
+% --karl
+% 
+dumylang        dumyhyph.tex  % for testing a new language.
+nohyphenation   zerohyph.tex  % a language with no patterns at all.
+arabic          zerohyph.tex
+basque          loadhyph-eu.tex
+coptic          loadhyph-cop.tex
+welsh           loadhyph-cy.tex
+czech           loadhyph-cs.tex
+slovak          loadhyph-sk.tex
+german          loadhyph-de-1901.tex
+ngerman         loadhyph-de-1996.tex
+danish          loadhyph-da.tex
+esperanto       loadhyph-eo.tex
+spanish         loadhyph-es.tex
+=espanol
+catalan         loadhyph-ca.tex
+galician        loadhyph-gl.tex
+estonian        loadhyph-et.tex
+farsi           zerohyph.tex
+=persian
+finnish         loadhyph-fi.tex
+french          loadhyph-fr.tex
+=patois
+=francais
+croatian        loadhyph-hr.tex
+hungarian       loadhyph-hu.tex
+interlingua     loadhyph-ia.tex
+indonesian      loadhyph-id.tex
+icelandic       loadhyph-is.tex
+italian         loadhyph-it.tex
+latin           loadhyph-la.tex
+dutch           loadhyph-nl.tex
+polish          loadhyph-pl.tex
+portuguese      loadhyph-pt.tex
+=portuges
+pinyin          loadhyph-zh-latn.tex
+romanian        loadhyph-ro.tex
+slovenian       loadhyph-sl.tex
+=slovene
+uppersorbian    loadhyph-hsb.tex
+swedish         loadhyph-sv.tex
+turkish         loadhyph-tr.tex
+ukenglish       ukhyphen.tex
+%serbian         loadhyph-sr-latn.tex
+%serbianc        loadhyph-sr-cyrl.tex
+mongolian       loadhyph-mn-cyrl.tex
+mongolian       loadhyph-mn-cyrl-x-new.tex
+greek           loadhyph-el-polyton.tex
 =polygreek
-monogreek	loadhyph-el-monoton
-ancientgreek	loadhyph-grc
+monogreek       loadhyph-el-monoton.tex
+ancientgreek    loadhyph-grc.tex
+% useless, but harmless for UTF-8 engines
+ibycus          ibyhyph.tex
+bulgarian       loadhyph-bg.tex
+russian         loadhyph-ru.tex
+ukrainian       loadhyph-uk.tex
