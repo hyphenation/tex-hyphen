@@ -695,10 +695,9 @@ languages.each do |langg|
 			# but probably this needs to reside outside of \begingroup/endgroup
 			
 			file.puts('\begingroup')
+			file.puts('\input pattern-loader.tex')
 			
 			if language.use_old_patterns then
-				file.puts('\input pattern-loader.tex')
-				file.puts('\ifNativeUtfEightPatterns')
 				file.puts("\t\\input hyph-#{language.code}.tex")
 				file.puts('\else')
 				file.puts("\t\\input #{language.filename_old_patterns}")
@@ -707,7 +706,6 @@ languages.each do |langg|
 				file.puts('% ASCII patterns')
 				file.puts("\\input hyph-#{language.code}.tex")
 			else
-				file.puts('\input pattern-loader.tex')
 				file.puts('\ifNativeUtfEightPatterns\else')
 				file.puts("\t\\input conv_utf8_#{language.encoding}.tex")
 				file.puts('\fi')
