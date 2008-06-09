@@ -814,6 +814,9 @@ languages.each do |langg|
 			# but probably this needs to reside outside of \begingroup/endgroup
 			
 			file.puts('\begingroup')
+			if language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'la' or language.code == 'zh-latn' then
+				file.puts("\\lccode`\\'=`\\'")
+			end
 			
 			if language.use_old_patterns then
 				file.puts('\input pattern-loader.tex')
@@ -824,9 +827,6 @@ languages.each do |langg|
 				file.puts('\fi')
 			elsif language.encoding == nil or language.encoding == "ascii" then
 				file.puts('% ASCII patterns')
-				if language.code == 'it' then
-					file.puts("\\lccode`\\'=`\\'")
-				end
 				file.puts("\\input hyph-#{language.code}.tex")
 			else
 				file.puts('\input pattern-loader.tex')
