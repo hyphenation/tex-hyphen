@@ -570,17 +570,17 @@ languages = [
 # bulgarian	xu-bghyphen.tex
 # TODO
 {
-	"use_new_loader" => false,
-	"use_old_patterns" => true,
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
 	"filename_old_patterns" => "bghyphen.tex",
 	"filename_xu_loader" => "xu-bghyphen.tex",
 	"code" => "bg",
 	"name" => "bulgarian",
 	"synonyms" => [],
 	"hyphenmin" => [2,2],
-	"encoding" => nil,
+	"encoding" => "t2a",
 	"exceptions" => false,
-	"message" => nil,
+	"message" => "Bulgarian Hyphenation Patterns",
 },
 ]
 
