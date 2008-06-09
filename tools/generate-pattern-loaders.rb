@@ -599,6 +599,10 @@ languages = [
 },
 # mongolian2a
 {
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "mnhyphn.tex",
+	"filename_xu_loader" => nil,
 	"code" => "mn-cyrl-x-new",
 	"name" => "mongolian",
 	"synonyms" => [],
