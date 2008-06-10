@@ -203,6 +203,15 @@ welsh	cyhyph.tex	cy	ec
 ^^ef -> ï - idieresis
 ^^f6 -> ö - odieresis
 
+
+irish	gahyph.tex	ga	ec
+=====
+^^e1 -> á - aacute
+^^e9 -> é - eacute
+^^ed -> í - iacute
+^^f3 -> ó - oacute
+^^fa -> ú - uacute
+
 pinyin	pyhyph.tex	zh-latn	ec
 ======
 ^^fc -> ü - udieresis
