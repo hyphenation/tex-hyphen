@@ -87,17 +87,17 @@ $encodings.each do |encoding|
 	end
 	$file_out.puts
 	
-	if encoding == 'ec'
-		$file_out.puts '% TODO: test if needed and the exact syntax'
-		$file_out.puts '% some patterns use apostrophe and hyphen'
-		# \lccode`\'=`\'
-		$file_out.puts "\\lccode`\\'=`\\'"
-		$file_out.puts "\\catcode`-=11"
-		$file_out.puts
-	end
-	if encoding == 't2a'
-		$file_out.puts "\\lccode`\\'=`\\'"
-	end
+	# if encoding == 'ec'
+	# 	$file_out.puts '% TODO: test if needed and the exact syntax'
+	# 	$file_out.puts '% some patterns use apostrophe and hyphen'
+	# 	# \lccode`\'=`\'
+	# 	$file_out.puts "\\lccode`\\'=`\\'"
+	# 	$file_out.puts "\\catcode`-=11"
+	# 	$file_out.puts
+	# end
+	# if encoding == 't2a'
+	# 	$file_out.puts "\\lccode`\\'=`\\'"
+	# end
 
 	$file_out.close
 end

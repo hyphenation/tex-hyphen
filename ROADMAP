@@ -19,6 +19,27 @@ croatian	hrhyph.tex	hr[_HR]	ec
 ^^b2 -> š	scaron
 ^^ba -> ž	zcaron
 
+serbian	sh
+=======
+
+latin	shhyphl.tex	sr-latn	ec
+-----
+\'c -> ć	cacute
+\v c -> č	ccaron
+\v s -> š	scaron
+\v z -> ž	zcaron
+
+^^a3 -> č	ccaron
+^^a2 -> ć	cacute
+^^9e -> đ	dcroat
+^^b2 -> š	scaron
+^^ba -> ž	zcaron
+
+cyrillic	srhyphc.tex	sr-cyrl	t2a
+--------
+
+convert from iso-8859-5
+
 
 dutch	nehyph96.tex	nl[_NL]	ec
 =====
@@ -171,6 +192,16 @@ uppersorbian	sorhyph.tex	hsb	ec
 ^^b2 -> š - scaron
 ^^ba -> ž - zcaron
 ^^b9 -> ź - zacute
+
+welsh	cyhyph.tex	cy	ec
+=====
+^^e1 -> á - aacute
+^^e2 -> â - acircumflex
+^^ea -> ê - ecircumflex
+^^f4 -> ô - ocircumflex
+^^eb -> ë - edieresis
+^^ef -> ï - idieresis
+^^f6 -> ö - odieresis
 
 pinyin	pyhyph.tex	zh-latn	ec
 ======
