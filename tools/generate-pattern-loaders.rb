@@ -712,21 +712,9 @@ languages = [
 {
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-	"code" => "no",
-	"name" => "norsk",
-	"synonyms" => ["norwegian"],
-	# "hyphenmin" => [], # ?
-	"encoding" => "ec",
-	"exceptions" => true,
-	"message" => "Norwegian Common Hyphenation Patterns",
-},
-# bokmal	nbhyph.tex
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
 	"code" => "nb",
-	"name" => "bokmal",
-	"synonyms" => [],
+	"name" => "norsk",
+	"synonyms" => ["norwegian", "bokmal"],
 	# "hyphenmin" => [], # ?
 	"encoding" => "ec",
 	"exceptions" => true,
