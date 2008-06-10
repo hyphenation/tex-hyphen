@@ -1,0 +1,21 @@
+*NOTES ABOUT NORWEGIAN*
+
+Traditionally, Babel has been supporting Norwegian under the name "norsk", with
+"norwegian" as an alias.  This is not a satisfactory support of the languages
+of Norway, where there are actually two official languages, called bokmal (ISO
+639-1 'nb') and nynorsk (ISO 639-1 'nn').  There is also a ISO 639-1 code for
+"Norwegian", 'no'.  See Wikipedia for details.
+
+  Since a few months, there are two different pattern files available on CTAN
+(but still only one ldf file for Babel).  Since the language currently labelled
+as "norsk" is actually bokmal, this means we can use the bokmal patterns as the
+successor to the "norsk" patterns, and ship the nynorsk patterns in addition to
+this.  We thus can use the following definitions in language.no.dat:
+
+	norsk		loadhyph-nb.tex
+	=norwegian
+	=bokmal
+	dutch           loadhyph-nl.tex
+	nynorsk		loadhyph-nn.tex
+
+		Arthur, 2008-06-10
