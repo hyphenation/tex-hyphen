@@ -855,7 +855,7 @@ languages.each do |langg|
 			else
 				file.puts('\input pattern-loader.tex')
 				file.puts('\ifNativeUtfEightPatterns\else')
-				file.puts("\t\\input conv_utf8_#{language.encoding}.tex")
+				file.puts("\t\\input conv-utf8-#{language.encoding}.tex")
 				file.puts('\fi')
 				file.puts("\\input hyph-#{language.code}.tex")
 #				file.puts("\\loadhyphpatterns{#{language.code}}{#{language.encoding}}%")
