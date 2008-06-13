@@ -1,0 +1,57 @@
+arabic          zerohyph.tex
+basque          loadhyph-eu.tex
+coptic          loadhyph-cop.tex
+welsh           loadhyph-cy.tex
+czech           loadhyph-cs.tex
+slovak          loadhyph-sk.tex
+german          loadhyph-de-1901.tex
+ngerman         loadhyph-de-1996.tex
+danish          loadhyph-da.tex
+esperanto       loadhyph-eo.tex
+spanish         loadhyph-es.tex
+=espanol
+catalan         loadhyph-ca.tex
+galician        loadhyph-gl.tex
+estonian        loadhyph-et.tex
+farsi           zerohyph.tex
+=persian
+finnish         loadhyph-fi.tex
+french          loadhyph-fr.tex
+=patois
+=francais
+croatian        loadhyph-hr.tex
+hungarian       loadhyph-hu.tex
+interlingua     loadhyph-ia.tex
+indonesian      loadhyph-id.tex
+icelandic       loadhyph-is.tex
+italian         loadhyph-it.tex
+latin           loadhyph-la.tex
+dutch           loadhyph-nl.tex
+polish          loadhyph-pl.tex
+portuguese      loadhyph-pt.tex
+=portuges
+pinyin          loadhyph-zh-latn.tex
+romanian        loadhyph-ro.tex
+slovenian       loadhyph-sl.tex
+=slovene
+uppersorbian    loadhyph-hsb.tex
+swedish         loadhyph-sv.tex
+turkish         loadhyph-tr.tex
+ukenglish       ukhyphen.tex
+%serbian         loadhyph-sr-latn.tex
+%serbianc        loadhyph-sr-cyrl.tex
+mongolian       loadhyph-mn-cyrl.tex
+mongolian       loadhyph-mn-cyrl-x-new.tex
+greek           loadhyph-el-polyton.tex
+=polygreek
+monogreek       loadhyph-el-monoton.tex
+ancientgreek    loadhyph-grc.tex
+% useless, but harmless for UTF-8 engines
+ibycus          ibyhyph.tex
+bulgarian       loadhyph-bg.tex
+russian         loadhyph-ru.tex
+ukrainian       loadhyph-uk.tex
+norsk           loadhyph-nb.tex
+=norwegian
+=bokmal
+nynorsk         loadhyph-nn.tex
