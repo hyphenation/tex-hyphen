@@ -543,25 +543,14 @@ galician	xu-glhyph.tex
 turkish		xu-tkhyph.tex
 
 
-utf8-grahyph4.tex
-utf8-grmhyph4.tex
-utf8-grphyph4.tex
-xu-bghyphen.tex
-xu-copthyph.tex
 xu-cp866nav.tex
 xu-dehyphtex.tex
 xu-eohyph.tex
-xu-grahyph4.tex
-xu-grmhyph4.tex
-xu-grphyph4.tex
-xu-mnhyph.tex
 xu-nohyphbx.tex
 xu-ruhyphen.tex
-xu-srhyphc.tex
 xu-ukrhyph.tex
 
 cyhyph.tex
-dehyphtex.tex
 eohyph.tex
 grahyph4.tex
 grmhyph4.tex
@@ -570,10 +559,4 @@ hyphen.tex
 hypht1.tex
 ibyhyph.tex
 inhyph.tex
-mnhyph.tex
-mnhyphn.tex
-nbhyph.tex
-nnhyph.tex
-nohyphbx.tex
-srhyphc.tex
 ushyphmax.tex
