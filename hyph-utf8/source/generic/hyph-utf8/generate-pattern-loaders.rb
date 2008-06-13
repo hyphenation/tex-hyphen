@@ -2,9 +2,11 @@
 
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
+$package_name="hyph-utf8"
+
 # TODO - make this a bit less hard-coded
 $path_tex_generic="../../../tex/generic"
-$path_loadhyph="#{$path_tex_generic}/hyph-utf8/loadhyph"
+$path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
 $path_language_dat="#{$path_tex_generic}/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="tlpsrc"
@@ -764,30 +766,49 @@ languages.each do |langg|
 	# generate language.foo.dat
 	#--------------------------
 	if (language.code != nil and language.code.length == 2) or language.code == 'hsb' or language.code == 'cop' then
-		filename = "#{$path_language_dat}/language.#{language.code}.dat"
-		puts "generating '#{filename}' for #{language.name}"
+		filename_dat    = "#{$path_language_dat}/language.#{language.code}.dat"
+		filename_tlpsrc = "#{$path_tlpsrc}/hyphen-#{language.name}.tlpsrc"
+		puts "generating '#{filename_dat}' for #{language.name}"
+		puts "generating '#{filename_tlpsrc}'"
 		# create language.foo.dat
-		File.open(filename, 'w') do |file|
-			# name of the language
-			file.printf("%-15s ", language.name)
-			if language.use_new_loader then
-				file.puts "loadhyph-#{language.code}.tex"
-			elsif language.filename_xu_loader then
-				file.puts language.filename_xu_loader
-			else
-				file.puts language.filename_old_patterns
-			end
+		File.open(filename_dat, 'w') do |file|
+			File.open(filename_tlpsrc, 'w') do |file_tlpsrc|
+				# name of the language
+				file.printf("%-15s ", language.name)
+				
+				# basic info for tlpsrc
+				file_tlpsrc.puts "name hyphen-#{language.name}"
+				file_tlpsrc.puts "category TLCore"
+				file_tlpsrc.puts "execute BuildLanguageDat #{language.code}"
+				file_tlpsrc.puts "runpattern f texmf/tex/generic/config/language.#{language.code}.dat"
+				
+				if language.use_new_loader then
+					file.puts "loadhyph-#{language.code}.tex"
+					file_tlpsrc.puts "runpattern f texmf/tex/generic/#{$package_name}/patterns/hyph-#{language.code}.tex"
+					file_tlpsrc.puts "runpattern f texmf/tex/generic/#{$package_name}/loadhyph/loadhyph-#{language.code}.tex"
+					file_tlpsrc.puts "runpattern f texmf/tex/generic/#{$package_name}/pattern-loader.tex"
+				elsif language.filename_xu_loader then
+					file.puts language.filename_xu_loader
+					puts ">>> Why are we still using the old xu loader???"
+				else
+					file.puts language.filename_old_patterns
+					# TODO: not necessary right for all languages - at least not for Czech and Slovak
+					# check what exactly is needed & where
+					file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
+				end
 			
-			# put synonyms into file
-			if language.synonyms != nil then
-				language.synonyms.each do |lang|
-					file.puts("=#{lang}")
+				# put synonyms into file
+				if language.synonyms != nil then
+					language.synonyms.each do |lang|
+						file.puts("=#{lang}")
+					end
 				end
 			end
 		end
 	else
 		puts "file for language #{language.name} will not be generated"
 	end
+	
 	
 #	$file_language_dat.print(language.name, "\t")
 	if language.use_new_loader then
