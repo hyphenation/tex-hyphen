@@ -8,8 +8,9 @@ $package_name="hyph-utf8"
 
 # TODO - make this a bit less hard-coded
 $path_tex_generic="../../../tex/generic"
+$path_TL="../../../../TL"
 $path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
-$path_language_dat="#{$path_tex_generic}/config"
+$path_language_dat="#{$path_TL}/texmf/tex/generic/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="tlpsrc"
 
