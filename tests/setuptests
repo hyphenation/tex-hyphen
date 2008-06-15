@@ -1,2 +1,2 @@
-TEXINPUTS=../hyph-utf8/tex/generic//:
+TEXINPUTS=../hyph-utf8/tex/generic//:../TL/texmf/tex/generic/config:
 export TEXINPUTS
