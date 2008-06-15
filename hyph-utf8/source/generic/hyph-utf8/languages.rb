@@ -608,7 +608,7 @@ class Languages
 {
 	"use_new_loader" => true,
 	"use_old_patterns" => true,
-	"filename_old_patterns" => "grmhyph5",
+	"filename_old_patterns" => "grmhyph5.tex",
 	"filename_xu_loader" => "xu-grmhyph4.tex", # TODO: beware!
 	"code" => "el-monoton",
 	"name" => "monogreek",
@@ -623,7 +623,7 @@ class Languages
 {
 	"use_new_loader" => true,
 	"use_old_patterns" => true,
-	"filename_old_patterns" => "grmhyph5",
+	"filename_old_patterns" => "grmhyph5.tex",
 	"filename_xu_loader" => "xu-grahyph4.tex", # TODO: beware!
 	"code" => "grc",
 	"name" => "ancientgreek",

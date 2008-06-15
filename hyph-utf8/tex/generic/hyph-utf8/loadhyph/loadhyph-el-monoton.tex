@@ -12,9 +12,10 @@
 \begingroup
 \input pattern-loader.tex
 \ifNativeUtfEightPatterns
-	\input hyph-el-monoton.tex
+    \lccode`'=`'\lccode`’=`’\lccode`ʼ=`ʼ\lccode`᾽=`᾽\lccode`᾿=`᾿
+    \input hyph-el-monoton.tex
 \else
-\t% we still load old patterns for 8-bit TeX
-	\input grmhyph5
+    % we still load old patterns for 8-bit TeX
+    \input grmhyph5.tex
 \fi
 \endgroup

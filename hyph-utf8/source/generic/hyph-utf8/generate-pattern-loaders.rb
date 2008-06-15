@@ -121,10 +121,13 @@ languages.each do |language|
 			if language.use_old_patterns then
 				file.puts('\input pattern-loader.tex')
 				file.puts('\ifNativeUtfEightPatterns')
-				file.puts("\t\\input hyph-#{language.code}.tex")
+				if language.code == 'grc' or language.code.slice(0,2) == 'el' then
+					file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
+				end
+				file.puts("    \\input hyph-#{language.code}.tex")
 				file.puts('\else')
-				file.puts('\t% we still load old patterns for 8-bit TeX')
-				file.puts("\t\\input #{language.filename_old_patterns}")
+				file.puts('    % we still load old patterns for 8-bit TeX')
+				file.puts("    \\input #{language.filename_old_patterns}")
 				file.puts('\fi')
 			elsif language.encoding == nil or language.encoding == "ascii" then
 				file.puts('% ASCII patterns - no additional support is needed')
@@ -132,7 +135,7 @@ languages.each do |language|
 			else
 				file.puts('\input pattern-loader.tex')
 				file.puts('\ifNativeUtfEightPatterns\else')
-				file.puts("\t\\input conv-utf8-#{language.encoding}.tex")
+				file.puts("    \\input conv-utf8-#{language.encoding}.tex")
 				file.puts('\fi')
 				file.puts("\\input hyph-#{language.code}.tex")
 #				file.puts("\\loadhyphpatterns{#{language.code}}{#{language.encoding}}%")
