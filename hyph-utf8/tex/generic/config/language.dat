@@ -24,6 +24,7 @@ hungarian       loadhyph-hu.tex
 interlingua     loadhyph-ia.tex
 indonesian      loadhyph-id.tex
 icelandic       loadhyph-is.tex
+irish           loadhyph-ga.tex
 italian         loadhyph-it.tex
 latin           loadhyph-la.tex
 dutch           loadhyph-nl.tex

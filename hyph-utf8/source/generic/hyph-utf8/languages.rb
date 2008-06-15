@@ -354,6 +354,20 @@ class Languages
 	"exceptions" => false,
 	"message" => "Icelandic Hyphenation Patterns",
 },
+# irish		gahyph.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "gahyph.tex",
+	"filename_xu_loader" => nil,
+	"code" => "ga",
+	"name" => "irish",
+	"synonyms" => [],
+#	"hyphenmin" => [],
+	"encoding" => "ec",
+	"exceptions" => true,
+	"message" => "Irish Hyphenation Patterns",
+},
 # italian		ithyph.tex
 {
 	"use_new_loader" => true,
