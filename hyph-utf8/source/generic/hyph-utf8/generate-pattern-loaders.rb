@@ -1,94 +1,21 @@
 #!/usr/bin/env ruby
 
-load 'languages.rb'
-
 # this file auto-generates loaders for hyphenation patterns - to be improved
+
+load 'languages.rb'
 
 $package_name="hyph-utf8"
 
+
 # TODO - make this a bit less hard-coded
 $path_tex_generic="../../../tex/generic"
-$path_TL="../../../../TL"
 $path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
-$path_language_dat="#{$path_TL}/texmf/tex/generic/config"
-# hyphen-foo.tlpsrc for TeX Live
-$path_tlpsrc="tlpsrc"
-
-system "mkdir -p #{$path_language_dat}"
-#Dir::mkdir(path_language_dat)
-filename_language_dat = "#{$path_language_dat}/language.dat"
-$file_language_dat = File.open(filename_language_dat, "w")
-
 
 # TODO: should be singleton
 languages = Languages.new.list
 
 languages.each do |language|
-	# TODO: fix this/make it nicer
-	# language = Language.new(langg)
-	
-	#----------------------
-	# generate language.dat
-	#----------------------
-	if language.name == 'ibycus' then
-		$file_language_dat.puts('% useless, but harmless for UTF-8 engines')
-	elsif language.name == 'serbian' or language.name == 'serbianc' then
-		$file_language_dat.print('%')
-	end
-	$file_language_dat.printf("%-15s ", language.name)
-
-	#--------------------------
-	# generate language.foo.dat
-	#--------------------------
-	if (language.code != nil and language.code.length == 2) or language.code == 'hsb' or language.code == 'cop' then
-		filename_dat    = "#{$path_language_dat}/language.#{language.code}.dat"
-		filename_tlpsrc = "#{$path_tlpsrc}/hyphen-#{language.name}.tlpsrc"
-		puts "generating '#{filename_dat}' for #{language.name}"
-		puts "generating '#{filename_tlpsrc}'"
-		# create language.foo.dat
-		File.open(filename_dat, 'w') do |file|
-			File.open(filename_tlpsrc, 'w') do |file_tlpsrc|
-				# name of the language
-				file.printf("%-15s ", language.name)
-				
-				# basic info for tlpsrc
-				file_tlpsrc.puts "name hyphen-#{language.name}"
-				file_tlpsrc.puts "category TLCore"
-				file_tlpsrc.puts "execute BuildLanguageDat #{language.code}"
-				file_tlpsrc.puts "runpattern f texmf/tex/generic/config/language.#{language.code}.dat"
-				
-				if language.use_new_loader then
-					file.puts "loadhyph-#{language.code}.tex"
-					file_tlpsrc.puts "runpattern f texmf/tex/generic/#{$package_name}/patterns/hyph-#{language.code}.tex"
-					file_tlpsrc.puts "runpattern f texmf/tex/generic/#{$package_name}/loadhyph/loadhyph-#{language.code}.tex"
-					file_tlpsrc.puts "runpattern f texmf/tex/generic/#{$package_name}/pattern-loader.tex"
-				elsif language.filename_xu_loader then
-					file.puts language.filename_xu_loader
-					puts ">>> Why are we still using the old xu loader???"
-				else
-					file.puts language.filename_old_patterns
-					# TODO: not necessary right for all languages - at least not for Czech and Slovak
-					# check what exactly is needed & where
-					file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
-				end
-			
-				# put synonyms into file
-				if language.synonyms != nil then
-					language.synonyms.each do |lang|
-						file.puts("=#{lang}")
-					end
-				end
-			end
-		end
-	else
-		puts "file for language #{language.name} will not be generated"
-	end
-	
-	
-#	$file_language_dat.print(language.name, "\t")
 	if language.use_new_loader then
-		$file_language_dat.puts "loadhyph-#{language.code}.tex"
-		
 		filename = "#{$path_loadhyph}/loadhyph-#{language.code}.tex"
 		puts "generating '#{filename}'"
 		File.open(filename, "w") do |file|
@@ -103,7 +30,6 @@ languages.each do |language|
 			file.puts "% You may freely use, modify and/or distribute this file."
 			file.puts "% (But consider adapting the scripts if you need modifications.)"
 			file.puts "%"
-
 
 			# message (where it exists)
 			if language.message != nil
@@ -147,17 +73,7 @@ languages.each do |language|
 			end
 			file.puts('\endgroup')
 		end
-	elsif language.filename_xu_loader then
-		$file_language_dat.puts language.filename_xu_loader
-	else
-		$file_language_dat.puts language.filename_old_patterns
-	end
-	if language.synonyms != nil then
-		language.synonyms.each do |lang|
-			$file_language_dat.puts("=#{lang}")
-		end
 	end
 end
 
-$file_language_dat.close
 
