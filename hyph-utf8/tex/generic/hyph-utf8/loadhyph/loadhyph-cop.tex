@@ -7,12 +7,9 @@
 % You may freely use, modify and/or distribute this file.
 % (But consider adapting the scripts if you need modifications.)
 %
+\message{Coptic Hyphenation Patterns}
+%
 \begingroup
-\input pattern-loader.tex
-\ifNativeUtfEightPatterns
-    \input hyph-cop.tex
-\else
-    % we still load old patterns for 8-bit TeX
-    \input copthyph.tex
-\fi
+% ASCII patterns - no additional support is needed
+\input copthyph.tex
 \endgroup

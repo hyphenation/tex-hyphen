@@ -10,12 +10,6 @@
 \message{Hyphenation patterns for uni-accent (monotonic) Modern Greek}
 %
 \begingroup
-\input pattern-loader.tex
-\ifNativeUtfEightPatterns
-    \lccode`'=`'\lccode`’=`’\lccode`ʼ=`ʼ\lccode`᾽=`᾽\lccode`᾿=`᾿
-    \input hyph-el-monoton.tex
-\else
-    % we still load old patterns for 8-bit TeX
-    \input grmhyph5.tex
-\fi
+% ASCII patterns - no additional support is needed
+\input grmhyph5.tex
 \endgroup
