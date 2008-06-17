@@ -104,7 +104,8 @@
 0x67	U+0067		g
 0x68	U+0068		h
 0x69	U+0456	1	cyrii
-0x6A	U+006A		j
+# Hum ... (fix for Serbian)
+0x6A	U+0458	1	cyrj
 0x6B	U+006B		k
 0x6C	U+006C		l
 0x6D	U+006D		m
