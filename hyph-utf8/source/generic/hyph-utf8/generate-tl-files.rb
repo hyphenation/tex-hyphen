@@ -13,11 +13,6 @@ $path_language_dat="#{$path_TL}/texmf/tex/generic/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
 
-filename_language_data = "#{$path_language_dat}/language.data"
-#$file_language_data = File.open(filename_language_data, "w")
-$file_tlpsrc = File.open("#{$path_language_dat}/language.tlpsrc", 'w')
-
-
 $l = Languages.new
 # TODO: should be singleton
 languages = $l.list.sort{|a,b| a.name <=> b.name}
@@ -66,6 +61,10 @@ end
 # 	puts "#{language.name}: #{lmin} #{rmin}"
 # end
 
+#--------#
+# TLPSRC #
+#--------#
+$file_tlpsrc = File.open("#{$path_language_dat}/language.tlpsrc", 'w')
 language_groups.sort.each do |language_name,language_list|
 	
 	$file_tlpsrc.puts "name hyphen-#{language_name}"
@@ -104,5 +103,27 @@ language_groups.sort.each do |language_name,language_list|
 	end
 	$file_tlpsrc.puts
 end
-
 $file_tlpsrc.close
+
+#--------------#
+# language.dat #
+#--------------#
+$file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
+language_groups.sort.each do |language_name,language_list|
+	language_list.each do |language|
+
+		if language.use_new_loader then
+			$file_language_dat.puts "#{language.name}\tloadhyph-#{language.code}.tex"
+		else
+			$file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
+		end
+
+		# synonyms
+		if language.synonyms != nil then
+			language.synonyms.each do |synonym|
+				$file_language_dat.puts "=#{synonym}"
+			end
+		end
+	end
+end
+$file_language_dat.close
