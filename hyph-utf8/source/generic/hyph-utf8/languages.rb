@@ -3,6 +3,7 @@ class Language
 	def initialize(language_hash)
 		@use_new_loader = language_hash["use_new_loader"]
 		@use_old_patterns = language_hash["use_old_patterns"]
+		@use_old_patterns_comment = language_hash["use_old_patterns_comment"]
 		@filename_old_patterns = language_hash["filename_old_patterns"]
 		@filename_old_patterns_other = language_hash["filename_old_patterns_other"]
 		@filename_xu_loader = language_hash["filename_xu_loader"]
@@ -15,7 +16,7 @@ class Language
 		@message = language_hash["message"]
 	end
 	
-	attr_reader :use_new_loader, :use_old_patterns, :filename_old_patterns, :filename_xu_loader, :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
+	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns, :filename_xu_loader, :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
 end
 
 # "use_new_loader"
@@ -410,6 +411,7 @@ class Languages < Hash
 {
 	"use_new_loader" => true,
 	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
 	"filename_old_patterns" => "lahyph.tex",
 	"filename_xu_loader" => "xu-lahyph.tex",
 	"code" => "la",
@@ -636,11 +638,15 @@ class Languages < Hash
 {
 	"use_new_loader" => true,
 	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grphyph5.tex",
 	"filename_xu_loader" => "xu-grphyph4.tex", # TODO: beware!
 	"code" => "el-polyton",
 	"name" => "greek",
 	"synonyms" => ["polygreek"],
+	# left/right hyphen min for Greek can be as low as one (1),
+	# but for aesthetic reasons keep them at 2/2.
+	# Dimitrios Filippou
 	"hyphenmin" => [1,1], # polyglosia
 	"encoding" => nil,
 	"exceptions" => true,
@@ -651,6 +657,7 @@ class Languages < Hash
 {
 	"use_new_loader" => true,
 	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grmhyph5.tex",
 	"filename_xu_loader" => "xu-grmhyph4.tex", # TODO: beware!
 	"code" => "el-monoton",
@@ -666,6 +673,7 @@ class Languages < Hash
 {
 	"use_new_loader" => true,
 	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grmhyph5.tex",
 	"filename_xu_loader" => "xu-grahyph4.tex", # TODO: beware!
 	"code" => "grc",
