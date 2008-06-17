@@ -624,7 +624,7 @@ class Languages < Hash
 	"filename_old_patterns" => "mnhyphn.tex",
 	"filename_xu_loader" => nil,
 	"code" => "mn-cyrl-x-2a",
-	"name" => "mongolian",
+	"name" => "mongolian2a",
 	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
