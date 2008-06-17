@@ -593,7 +593,7 @@ class Languages
 	"code" => "sr-cyrl",
 	"name" => "serbianc",
 	"synonyms" => [],
-#	"hyphenmin" => [],
+	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
 	"exceptions" => true,
 	"message" => "Serbian hyphenation patterns in Cyrillic script",
