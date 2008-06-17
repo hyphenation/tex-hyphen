@@ -55,16 +55,16 @@ language_grouping.each do |name,group|
 	end
 end
 
-languages.each do |language|
-	if language.hyphenmin == nil then
-		lmin = ''
-		rmin = ''
-	else
-		lmin = language.hyphenmin[0]
-		rmin = language.hyphenmin[1]
-	end
-	puts "#{language.name}: #{lmin} #{rmin}"
-end
+# languages.each do |language|
+# 	if language.hyphenmin == nil then
+# 		lmin = ''
+# 		rmin = ''
+# 	else
+# 		lmin = language.hyphenmin[0]
+# 		rmin = language.hyphenmin[1]
+# 	end
+# 	puts "#{language.name}: #{lmin} #{rmin}"
+# end
 
 language_groups.sort.each do |language_name,language_list|
 	
