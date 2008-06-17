@@ -95,8 +95,8 @@ class Languages < Hash
 # czech		xu-czhyph.tex
 {
 	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Loading new patterns would most probably work, but testing is needed.",
+	"use_old_patterns" => false,
+#	"use_old_patterns_comment" => "Loading new patterns would most probably work, but testing is needed.",
 	"filename_old_patterns" => "czhyph.tex",
 	"filename_old_patterns_other" => ["czhyphen.tex","czhyphen.ex"],
 #	"filename_xu_loader" => "xu-czhyph.tex",
@@ -115,8 +115,8 @@ class Languages < Hash
 # slovak		xu-skhyph.tex
 {
 	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Loading new patterns would most probably work, but testing is needed.",
+	"use_old_patterns" => false,
+#	"use_old_patterns_comment" => "Loading new patterns would most probably work, but testing is needed.",
 	"filename_old_patterns" => "skhyph.tex",
 	"filename_old_patterns_other" => ["skhyphen.tex","skhyphen.ex"],
 #	"filename_xu_loader" => "xu-skhyph.tex",
@@ -205,7 +205,7 @@ class Languages < Hash
 	"name" => "welsh",
 	"synonyms" => [],
 	"hyphenmin" => [2,3],
-	"encoding" => "ascii",
+	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Welsh Hyphenation Patterns",
 },

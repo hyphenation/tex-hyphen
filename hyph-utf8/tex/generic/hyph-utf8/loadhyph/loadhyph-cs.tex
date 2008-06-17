@@ -19,10 +19,9 @@
 % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
 \ifx\secondarg\empty
     \message{UTF-8 Czech Hyphenation Patterns (Pavel Sevecek, v3, 1995)}
-    \input hyph-cs.tex
 \else
-    \message{Czech Hyphenation Patterns (Pavel Sevecek, v3, 1995)}
-    % Loading new patterns would most probably work, but testing is needed.
-    \input czhyph.tex
+    \message{EC Czech Hyphenation Patterns (Pavel Sevecek, v3, 1995)}
+    \input conv-utf8-ec.tex
 \fi
+\input hyph-cs.tex
 \endgroup
