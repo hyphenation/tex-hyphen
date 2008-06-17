@@ -10,6 +10,11 @@
 \message{Coptic Hyphenation Patterns}
 %
 \begingroup
-% ASCII patterns - no additional support is needed
-\input copthyph.tex
+\input pattern-loader.tex
+\ifNativeUtfEightPatterns
+    \input hyph-cop.tex
+\else
+    % we still load old patterns for 8-bit TeX
+    \input copthyph.tex
+\fi
 \endgroup
