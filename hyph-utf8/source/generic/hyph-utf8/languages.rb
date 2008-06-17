@@ -35,7 +35,7 @@ end
 # "exceptions" => false,
 # "message" => nil,
 
-class Languages
+class Languages < Hash
 	@@list = []
 	
 	def initialize
@@ -86,7 +86,7 @@ class Languages
 	"code" => "cop",
 	"name" => "coptic",
 	"synonyms" => [],
-#	"hyphenmin" => [], # TODO: no documentation found
+	"hyphenmin" => [1,1], # polyglosia TODO: no documentation found
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Coptic Hyphenation Patterns",
@@ -326,7 +326,7 @@ class Languages
 	"code" => "hu",
 	"name" => "hungarian",
 	"synonyms" => [],
-	"hyphenmin" => [], # ??? nowhere set explicitely
+	"hyphenmin" => [2,2], # polyglosia
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Hungarian Hyphenation Patterns (v20031107)",
@@ -444,7 +444,7 @@ class Languages
 	"code" => "pl",
 	"name" => "polish",
 	"synonyms" => [],
-#	"hyphenmin" => [],
+	"hyphenmin" => [1,1],
 	"encoding" => "qx",
 	"exceptions" => true,
 	"message" => "Polish Hyphenation Patterns",
@@ -546,7 +546,7 @@ class Languages
 	"code" => "tr",
 	"name" => "turkish",
 	"synonyms" => [],
-	"hyphenmin" => [],
+	"hyphenmin" => [2,2], # polyglosia
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Turkish Hyphenation Patterns",
@@ -599,7 +599,6 @@ class Languages
 	"message" => "Serbian hyphenation patterns in Cyrillic script",
 },
 # mongolian	xu-mnhyph.tex
-# TODO
 {
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
@@ -609,7 +608,7 @@ class Languages
 	"name" => "mongolian",
 	"synonyms" => [],
 	"hyphenmin" => [2,2],
-	"encoding" => "t2a",
+	"encoding" => "lmc",
 	"exceptions" => false,
 	"message" => "Mongolian hyphenation patterns",
 },
@@ -619,13 +618,13 @@ class Languages
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "mnhyphn.tex",
 	"filename_xu_loader" => nil,
-	"code" => "mn-cyrl-x-new",
+	"code" => "mn-cyrl-x-2a",
 	"name" => "mongolian",
 	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
 	"exceptions" => false,
-	"message" => "New Mongolian Hyphenation Patterns",
+	"message" => "(New) Mongolian Hyphenation Patterns",
 },
 # greek		xu-grphyph4.tex
 # =polygreek
@@ -637,7 +636,7 @@ class Languages
 	"code" => "el-polyton",
 	"name" => "greek",
 	"synonyms" => ["polygreek"],
-#	"hyphenmin" => [],
+	"hyphenmin" => [1,1], # polyglosia
 	"encoding" => nil,
 	"exceptions" => true,
 #	"message" => "Polytonic Greek Hyphenation Patterns",
@@ -652,7 +651,7 @@ class Languages
 	"code" => "el-monoton",
 	"name" => "monogreek",
 	"synonyms" => [],
-#	"hyphenmin" => [],
+	"hyphenmin" => [1,1], # polyglosia
 	"encoding" => nil,
 	"exceptions" => true,
 #	"message" => "Monotonic Greek Hyphenation Patterns",
@@ -667,7 +666,7 @@ class Languages
 	"code" => "grc",
 	"name" => "ancientgreek",
 	"synonyms" => [],
-#	"hyphenmin" => [],
+	"hyphenmin" => [1,1], # polyglosia
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Hyphenation patterns for Ancient Greek"
@@ -678,13 +677,13 @@ class Languages
 	"use_old_patterns" => true,
 	"filename_old_patterns" => "ibyhyph.tex",
 	"filename_xu_loader" => nil,
-	"code" => nil,
+	"code" => "grc-x-ibycus",
 	"name" => "ibycus",
 	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => nil,
 	"exceptions" => false,
-	"message" => "Greek hyphenation patterns for Ibycus encoding (v3.0)",
+	"message" => "Ancient Greek Hyphenation Patterns for Ibycus encoding (v3.0)",
 },
 # bulgarian	xu-bghyphen.tex
 {
@@ -729,8 +728,8 @@ class Languages
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"code" => "nb",
-	"name" => "norsk",
-	"synonyms" => ["norwegian", "bokmal"],
+	"name" => "bokmal",
+	"synonyms" => ["norwegian", "norsk"],
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => true,
@@ -750,8 +749,10 @@ class Languages
 },
 		]
 
-		languages.each do |language|
-			@@list.push(Language.new(language))
+		languages.each do |l|
+			language = Language.new(l)
+			@@list.push(language)
+			self[language.code] = language
 		end
 	end
 	
