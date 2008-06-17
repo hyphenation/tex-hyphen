@@ -102,7 +102,11 @@ class Languages < Hash
 	"code" => "cs",
 	"name" => "czech",
 	"synonyms" => [],
-	"hyphenmin" => [2,2],
+	# Both Czech and Slovak: \lefthyphenmin=2, \righthyphenmin=3
+	# Typographical rules allow \righthyphenmin=2 when typesetting in a
+	# narrow column (newspapers etc.).
+	# (used to be 2,2)
+	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Czech Hyphenation Patterns (Pavel Sevecek, v3, 1995)",
@@ -118,7 +122,8 @@ class Languages < Hash
 	"code" => "sk",
 	"name" => "slovak",
 	"synonyms" => [],
-	"hyphenmin" => [2,2],
+	# see czech
+	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Slovak Hyphenation Patterns (Jana Chlebikova, 1992)",
