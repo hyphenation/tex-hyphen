@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-$encoding_data_dir = "../data/encodings"
+$encoding_data_dir = "data/encodings"
 $encodings = ["ec", "qx", "t2a", "lmc", "il3"]
 
-$output_data_dir = "../tex/conv-utf8"
+$output_data_dir = "../../../tex/generic/hyph-utf8/conversions"
 
 class UnicodeCharacter
 	def initialize(code_uni, code_enc, name)
