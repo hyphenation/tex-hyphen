@@ -92,6 +92,72 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Coptic Hyphenation Patterns",
 },
+# danish		dkhyph.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
+	"filename_old_patterns" => "dkhyph.tex",
+	"filename_old_patterns_other" => ["dkcommon.tex", "dkspecial.tex"],
+#	"filename_xu_loader" => nil,
+	"code" => "da",
+	"name" => "danish",
+	"synonyms" => [],
+	"hyphenmin" => [2,2], # babel
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "Danish Hyphenation Patterns",
+},
+# german		xu-dehypht.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"filename_old_patterns" => "dehypht.tex",
+	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
+#	"filename_xu_loader" => "xu-dehypht.tex",
+	"code" => "de-1901",
+	"name" => "german",
+	"synonyms" => [],
+	"hyphenmin" => [2,2], # babel
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "German Hyphenation Patterns (Traditional Orthography)",
+},
+# ngerman		xu-dehyphn.tex
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
+	"filename_old_patterns" => "dehyphn.tex",
+#	"filename_xu_loader" => "xu-dehyphn.tex",
+	"code" => "de-1996",
+	"name" => "ngerman",
+	"synonyms" => [],
+	"hyphenmin" => [2,2], # babel
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "German Hyphenation Patterns (Reformed Orthography)",
+},
+# french		xu-frhyph.tex
+# =patois
+# =francais
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
+	"filename_old_patterns" => "frhyph.tex",
+#	"filename_xu_loader" => "xu-frhyph.tex",
+	"code" => "fr",
+	"name" => "french",
+	"synonyms" => ["patois","francais"],
+#	"hyphenmin" => [],
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "French hyphenation patterns (V2.12, 2002/12/11)",
+},
+# ----------------------------
+# languages using new patterns
+# ----------------------------
 # czech		xu-czhyph.tex
 {
 	"use_new_loader" => true,
@@ -129,72 +195,6 @@ class Languages < Hash
 	"exceptions" => true,
 	"message" => "Slovak Hyphenation Patterns (Jana Chlebikova, 1992)",
 },
-# danish		dkhyph.tex
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
-	"filename_old_patterns" => "dkhyph.tex",
-	"filename_old_patterns_other" => ["dkcommon.tex", "dkspecial.tex"],
-#	"filename_xu_loader" => nil,
-	"code" => "da",
-	"name" => "danish",
-	"synonyms" => [],
-	"hyphenmin" => [2,2], # babel
-	"encoding" => "ec",
-	"exceptions" => false,
-	"message" => "Danish Hyphenation Patterns",
-},
-# german		xu-dehypht.tex
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"filename_old_patterns" => "dehypht.tex",
-	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
-#	"filename_xu_loader" => "xu-dehypht.tex",
-	"code" => "de-1901",
-	"name" => "german",
-	"synonyms" => [],
-	"hyphenmin" => [2,2], # babel
-	"encoding" => "ec",
-	"exceptions" => false,
-	"message" => "Traditional German Hyphenation Patterns", # was: `dehypht-x' 2008/06/01 (WL) for utf-8
-},
-# ngerman		xu-dehyphn.tex
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
-	"filename_old_patterns" => "dehyphn.tex",
-#	"filename_xu_loader" => "xu-dehyphn.tex",
-	"code" => "de-1996",
-	"name" => "ngerman",
-	"synonyms" => [],
-	"hyphenmin" => [2,2], # babel
-	"encoding" => "ec",
-	"exceptions" => false,
-	"message" => "Reformed German Hyphenation Patterns",
-},
-# french		xu-frhyph.tex
-# =patois
-# =francais
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
-	"filename_old_patterns" => "frhyph.tex",
-#	"filename_xu_loader" => "xu-frhyph.tex",
-	"code" => "fr",
-	"name" => "french",
-	"synonyms" => ["patois","francais"],
-#	"hyphenmin" => [],
-	"encoding" => "ec",
-	"exceptions" => false,
-	"message" => "French hyphenation patterns (V2.12, 2002/12/11)",
-},
-# ----------------------------
-# languages using new patterns
-# ----------------------------
 # welsh		cyhyph.tex
 {
 	"use_new_loader" => true,

@@ -1,3 +1,17 @@
+% This file is part of hyph-utf8 package and resulted from
+% semi-manual conversions of hyphenation patterns into UTF-8 in June 2008.
+%
+% See http://tug.org/tex-hyphen and other files in the package
+%
+% However, this file does not comply with rules of other patterns
+% as it still uses TeX macros, and a dedicated converter would be needed
+% to convert patterns into OponOffice-friendly form for example.
+%
+% But it should work OK with both 8-bit engines (TeX, pdfTeX, ...)
+% as well as with native UTF-8 ones (XeTeX, LuaTeX, ...)
+%
+%------------------------------------------------------------------------------
+%
 % \message{Esperanto Hyphenation Patterns `eohyph', 1999-08-10}
 %
 % Copyright (C) 1999 Sergei B. Pokrovsky <pok@iis.nsk.su>
@@ -9,6 +23,7 @@
 %
 % More documentation can be found near the end of this file.
 %
+\begingroup
 % Makrooj por la finaĵoj:
 \def\adj#1{#1a. #1aj. #1ajn. #1an. #1e.}
 \edef\nom#1{\adj{#1} #1o. #1oj. #1ojn. #1on.}
@@ -475,6 +490,7 @@ s1v 4s1z
 z2lot
 4z1m 4z1n 4z1p 4z1r 4z1s 4z1t 4z1v 4z1ĉ 4z1ĝ 4z1ĵ 4z1ŝ
 }         % Pattern end
+\endgroup
 \endinput
 
 % Author:         Sergei B. Pokrovsky (Sergio Pokrovskij)
