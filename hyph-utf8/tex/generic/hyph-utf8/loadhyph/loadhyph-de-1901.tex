@@ -18,11 +18,11 @@
 \testengine Τ!\relax
 % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
 \ifx\secondarg\empty
-    \message{UTF-8 Traditional German Hyphenation Patterns}
+    \message{UTF-8 German Hyphenation Patterns (Traditional Orthography)}
     \input hyph-de-1901.tex
 \else
-    \message{Traditional German Hyphenation Patterns}
-    % Old patterns support both EC & OT1 encodings at the same time.
+    \message{German Hyphenation Patterns (Traditional Orthography)}
+    % Kept for the sake of backward compatibility, but newer and better patterns by WL are available.
     \input dehypht.tex
 \fi
 \endgroup

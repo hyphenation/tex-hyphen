@@ -96,7 +96,12 @@ languages.each do |language|
 				file.puts("    \\message{#{language.encoding.upcase} #{language.message}}")
 				file.puts("    \\input conv-utf8-#{language.encoding}.tex")
 				file.puts('\fi')
-				file.puts("\\input hyph-#{language.code}.tex")
+				if language.code == 'sr-latn' then
+					file.puts("% Load Serbo-Croatian patterns")
+					file.puts("\\input hyph-hbs.tex")
+				else
+					file.puts("\\input hyph-#{language.code}.tex")
+				end
 #				file.puts("\\loadhyphpatterns{#{language.code}}{#{language.encoding}}%")
 			end
 			file.puts('\endgroup')
