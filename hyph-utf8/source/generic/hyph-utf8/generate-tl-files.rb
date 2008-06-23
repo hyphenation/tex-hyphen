@@ -64,8 +64,8 @@ end
 #--------#
 # TLPSRC #
 #--------#
-$file_tlpsrc = File.open("#{$path_language_dat}/language.tlpsrc", 'w')
 language_groups.sort.each do |language_name,language_list|
+	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
 	
 	$file_tlpsrc.puts "name hyphen-#{language_name}"
 	$file_tlpsrc.puts "category TLCore"
@@ -99,11 +99,14 @@ language_groups.sort.each do |language_name,language_list|
 		end
 
 		$file_tlpsrc.puts "execute AddHyphen#{name}#{synonyms}#{hyphenmins}#{file}"
-		
 	end
-	$file_tlpsrc.puts
+	language_list.each do |language|
+		if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" then
+			$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
+		end
+	end
+	$file_tlpsrc.close
 end
-$file_tlpsrc.close
 
 #--------------#
 # language.dat #
