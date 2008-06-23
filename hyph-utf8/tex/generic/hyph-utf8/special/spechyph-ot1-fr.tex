@@ -1,0 +1,28 @@
+\begingroup
+
+\catcode"C3=\active
+\catcode"C5=\active
+%
+\def^^c3#1{%
+	% not present anyway - doesn't matter
+	\ifx#1^^a9^^e9\else % é - U+00E9 - eacute
+	\errmessage{Hyphenation pattern file corrupted or ec encoding not supported!}
+\fi}
+\def^^c5#1{%
+	\ifx#1^^93^^1b\else % œ - U+0153 - oe
+	\errmessage{Hyphenation pattern file corrupted or ec encoding not supported!}
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
+%
+% ensure all the chars above have valid lccode values
+%
+\lccode"E9="E9 % é - U+00E9 - eacute
+\lccode"1B="1B % œ - U+0153 - oe
+
+\patterns{
+1cœ
+.dé2s1œ
+1mœ
+1nœ
+1sœ
+}
+\endgroup
