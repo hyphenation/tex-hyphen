@@ -1,0 +1,14 @@
+Mkpatter v. 1.2, 2008/06/22.
+
+Mkpattern is a general purpose program for the generation of hyphenation 
+patterns, with definition of letter sets and template-like constructions. 
+It also provides an easy way to handle different input and output encodings.  
+A detailed description is provided in the manual: mkpatter.dps. Next is 
+a brief descriptions of the files related to the program, as well as the
+license under which it is distributed:
+
+mkpatter.tex: The program mkpattern;     lppl
+mkpattern-exmpl.tex: An example file;    public domain
+mkpatter.pdf: The manual;                public domain
+mkpatdoc.tex: The source for the manual; public domain
+

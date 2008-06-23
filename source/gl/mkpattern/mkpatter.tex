@@ -1,0 +1,618 @@
+% mkpatter.tex Version 1.2
+%
+% This file is part of the program mkpattern, and all files
+% that belong to that program must be distributed together.
+%
+% For this version 1.2, this file mkpatter.tex is the only file
+% belonging to the program mkpattern.
+%
+% The file mkpatter.dvi (or mkpatter.pdf) is a manual for this program.
+% It is very likely that you may obtain it at the same place
+% where you got this file from.
+%
+% (c) Javier A. M'ugica, 2006, 2007, 2008
+% License: LPPL version 1.3
+% 
+% LPPL maintenance status: maintained
+% Current Maintainer: Javier A. M'ugica
+%
+%	For bug reports and comments:
+%
+%	Javier M'ugica,   javier at digi21.eu
+%
+%
+\ifnum\catcode`\{=1
+\catcode`\$=12 %
+\catcode`\&=12 %
+\catcode`\^^K=12 %
+\catcode`\^^A=12 %
+\let\bye\undefined
+\fi
+
+\chardef\active=13
+\catcode`\{=1
+\catcode`\}=2
+\catcode`\#=6 % hash mark is macro parameter character
+\catcode`\^=7
+\catcode`\^^I=10 % ascii tab is a blank space
+\catcode`\^^M=9	%We need a \relax after some numbers at the end of a line
+\catcode`\^^L=\active \outer\def^^L{\par} % ascii form-feed is "\outer\par"
+\catcode`\&=12
+\catcode`\_=11
+\catcode`\~=11
+\catcode`\@=11\relax
+
+%Latex
+\catcode`\:=11\relax
+\ifx\@@end\undefined\else\let\end\@@end \let\@@end\undefined\fi
+\ifx\tex_end:D\undefined\else \let\end\tex_end:D \let\tex_end:D\undefined\fi
+\catcode`\:=12\relax
+
+\newlinechar=`\^^J
+\message{This is Mkpattern, Version 1.2 JUN 2008^^J}
+\let\bgroup={
+\let\egroup=}
+
+\def\empty{}
+\def\space{ }
+\def\qend{\qend}
+\countdef\m@ne=10 \m@ne=-1 %
+\def\_qlast{?_qlast}
+{\escapechar=\m@ne\relax
+  \xdef\backslash{\string\\}
+  \xdef\percent{\string\%}
+}
+
+\count11=9	%Allocates toks registers: 10, 11, ...
+\count12=14 %Allocates count registers: 15, 16, ...
+\count13=2  %Input streams: 3, ...
+\count14=2  %Output streams: 3, ...
+\def\wlog{\immediate\write\m@ne}
+\countdef\@@count=0
+\toksdef\tokscclv=255\relax
+\toksdef\toks@=0\relax
+\toksdef\toks@ne=1\relax
+\toksdef\toksv=5\relax	%It will no be changed by low level macros
+\toksdef\toksvi=6\relax	%It will no be changed by low level macros
+\outer\def\newtoks#1{\advance\count11 1 \toksdef#1=\count11%
+  \wlog{\string#1=\backslash toks\the\count11}}
+\outer\def\newcount#1{\advance\count12 1 \countdef#1=\count12%
+  \wlog{\string#1=\backslash count\the\count12}}
+%These two are not used but are provided to the users
+\outer\def\newread#1{\advance\count13 1 \chardef#1=\count13%
+  \wlog{\string#1=\backslash read\the\count13}}
+\outer\def\newwrite#1{\advance\count14 1 \chardef#1=\count14%
+  \wlog{\string#1=\backslash write\the\count14}}
+
+%Tracing switches. There isn't actually very much to trace
+\newcount\tracingexceptions \tracingexceptions=0\relax
+
+\edef\outputfilename{\jobname.pat}
+
+\def\filename{\bgroup
+  \catcode`\|=12
+  \count255='176 \@@count=256 \makeothers
+  \count255=0 \@@count='173 \makeothers
+  \_filename
+}
+\def\_filename#1{\gdef\outputfilename{#1}\egroup}
+
+\def\iwrite{\immediate\openout0=\outputfilename
+	\gdef\filename##1{\errmessage{Too late for changing the output file name}}
+	\gdef\iwrite{\immediate\write0 }\iwrite
+}
+
+\let\iffound\iffalse
+
+\let\~~end\end
+\def\~end{\ifnum\tracingexceptions>0\expandafter\reportmissingexceptios\fi\~~end}
+\def\begin#1{\csname#1\endcsname}
+\def\end#1{\def\tempa{#1}\ifx\tempa\empty\expandafter\~end\fi\csname end#1\endcsname}
+
+\newtoks\toksnames \toksnames={}
+\newtoks\tokslista
+\newtoks\linesofar \linesofar={}
+\newtoks\toksencoding \toksencoding={}
+\newtoks\toksletters \toksletters={}
+
+\def\writeline{\iwrite{\the\linesofar}\global\linesofar={}}
+\def\conditwrite{\edef\tempa{\the\linesofar}\ifx\tempa\empty\else\writeline\fi}
+\def\newline{\writeline\lee}
+
+%Change of july 2008
+\def\newwriteline{\edef\tempa{\the\linesofar}\ifx\tempa\empty\global\linesofar=\expandafter{\percent}\fi\~writeline}
+\let\ifoldnewlines\iffalse
+\def\newnewlines{\let\ifoldnewlines\iffalse\let\fi\fi}
+\def\oldnewlines{\let\ifoldnewlines\iftrue\let\fi\fi}
+%
+
+\def\busca#1#2{%	It will usually also work with #1 being lenghtier than one character,
+\def\encuentra##1#1##2\quend{%but if the ending can be overlaped with the beginning it may not.
+  \def\tempa{##2}
+  \ifx\tempa\empty\tokscclv{iffalse}
+  \else\tokscclv{iftrue}
+  \fi
+  \expandafter\let\expandafter\iffound\csname\the\tokscclv\endcsname
+}
+\encuentra#2#1\quend
+}
+
+\def\first#1#2\qend{#1}
+\def\second#1#2\qend{#2}
+
+{
+\catcode`\&=13
+\gdef&#1={
+  \catcode`\&=0\relax
+  \defineamp{#1}
+}
+}
+\def\defineamp#1#2{
+  \expandafter\edef\csname#1\endcsname{#2 }
+  \catcode`\&=13\relax
+  %Add #1 to the list of names *at the right*; they must be executed in order.
+  \toksnames\expandafter{\the\toksnames\\{#1}}
+}
+\def\makelists{
+\def\\##1{\expandafter\makelist\csname##1\endcsname}
+\the\toksnames
+}
+\def\makelist#1{
+\tokslista={}
+\expandafter\appendtolist#1\qend	%#1 contains at least a trailing space
+{\def\\##1{##1 }
+\edef\tempa{\expandafter\empty\the\tokslista}
+\wlog{\string#1 :->\tempa}}
+\edef#1{\the\tokslista}
+}
+\def\appendtolist#1 #2\qend{
+  \def\tempa{#2}
+  \ifx\tempa\empty
+    \def\next{}
+  \else
+    \def\next{\appendtolist#2\qend}
+  \fi
+  \def\tempa{#1}
+  \ifx\tempa\empty  %if #2 is not empty we have gobbled a leading space
+  \else
+    \tokslista\expandafter{\the\tokslista\\{#1}}
+  \fi
+  \next
+}
+
+\def\lee{\gobbles\_lee}
+\def\gobbles#1#2{%	this just gobbles up and then executes #1
+%Test if #2 is a single token
+\def\tempa{#2}
+\ifx\tempa\empty\else
+\edef\tempa{\second#2\qend}
+\fi
+\ifx\tempa\empty\def\next{#1#2}
+\else\def\next{#1{#2}}
+\fi
+\next
+}
+
+\def\_lee#1{
+\edef\tempa{\expandafter\first\string#1a\qend}%	The letter a is just in case #1 is empty
+\ifx\tempa\backslash\expandafter#1%	Each control sequence that may appear inside pseudopatterns must provide its own \lee at the end
+\else\ifx\tempa\percent
+  \catcode13=12
+  \def\next{\comment#1}
+\else
+  \def\tempa{#1}%Test if #1 is a single token
+  \ifx\tempa\empty\else
+  \edef\tempa{\second#1\qend}
+  \fi
+  \ifx\tempa\empty\def\next{\__lee#1}
+  \else\def\next{\__lee{#1}}
+  \fi
+\fi
+\expandafter\next\fi
+}
+
+\def\__lee#1 {%Do not remove this space
+%Backslash and comment handled above
+%\else
+  \ifappliedtemplate
+    \busca{&}{#1}
+    \iffound
+      \edef\tempa{\the\linesofar}\ifx\tempa\empty\else\writeline\fi
+      \advance\c_amp1 %
+      \tokslista={}\procesamacro\tokslista{#1}
+      \def\next{\expandafter\lee\the\tokslista%
+      \advance\c_amp\m@ne \writeline\lee}
+    \else
+      \def\texto{#1}
+      \edef\tempa{\the\toksexceptions}
+      \ifx\tempa\empty\else\substituteifneeded\texto{#1}\fi
+      \toks@\expandafter{\texto}
+      \edef\tempa{\noexpand\linesofar{\the\linesofar\the\toks@\space}}
+      \tempa
+      \def\next{\lee}
+    \fi
+  \else
+    \tokscclv{#1}
+    \edef\texto{\the\pretemplate\the\tokscclv \the\posttemplate}
+    \let\ifappliedtemplate\iftrue\let\fi\fi
+    \def\next{\expandafter\lee\texto\let\ifappliedtemplate\iffalse\let\fi\fi \lee}
+  \fi
+%\fi
+\next
+}
+
+\def\procesamacro#1#2{
+\leemacro#2\qend
+\def\\##1{%
+  \edef\tempa{\the\tokslista\the\premacro##1\the\postmacro}
+  \tokslista\expandafter{\tempa}
+}
+\csname\macro\endcsname
+}
+\def\leemacro#1&#2#3\qend{
+\premacro={#1}
+\def\macro{#2}
+\postmacro={#3 }
+}
+
+\def\template#1{
+  \conditwrite\writeline
+  \bgroup
+  \savetemplate#1\qend
+  \let\ifappliedtemplate\iffalse
+  \lee
+}
+\def\endtemplate{\conditwrite\egroup\lee}
+  
+\catcode`\$=6
+\catcode`\#=12
+\def\savetemplate$1#$2\qend{
+\pretemplate={$1}
+\posttemplate={$2 }
+}
+\catcode`\#=6
+
+\newtoks\premacro
+\newtoks\postmacro
+\newtoks\pretemplate
+\newtoks\posttemplate
+\newtoks\toksexceptions
+\newtoks\substitutions
+
+%Change of july 2008
+\def\oldnewstuff{
+	\let\ifopened\ifoldnewlines
+	\edef\tempa{\the\toksencoding}
+  \ifx\tempa\empty\else
+  	\let\ifopened\iftrue\let\fi\fi
+  \fi
+  \ifopened
+	  \iwrite{\string{\iffalse}\fi}
+	\fi
+  \ifx\tempa\empty\else\writeencodingreplacements \iwrite{}\fi
+  \conditwrite
+  \ifoldnewlines
+	  \iwrite{\string\catcode13=10 }
+	\else
+		\let\~writeline\writeline
+		\let\writeline\newwriteline
+	\fi
+	\def\oldnewlines{\relax\lee}
+	\let\newnewlines\oldnewlines
+}
+%
+\def\pseudopatterns{
+  \makelists\wlog{}
+  \writeletters \iwrite{} %We cannot use newline
+  \oldnewstuff
+  \iwrite{\string\patterns\string{\iffalse}\fi}
+  \bgroup
+  \catcode`\#=12
+  \catcode`\&=12
+  \catcode`\,=12
+  \let\ifappliedtemplate\iftrue
+  \c_amp=0 %finally not used, but kept updated
+  \toksexceptions={}
+  \substitutions={}
+  \catcode`\^^M=10
+  \let\lee\~~lee
+  \halfcomments	%this itself includes lee
+}
+\def\endpseudopatterns{\conditwrite\iwrite{\iffalse{\fi\string}}\egroup
+  \ifoldnewlines\iwrite{\string\catcode13=5}\fi
+  \ifopened\iwrite{\iffalse{\fi\string}}\fi
+  \lee
+}
+
+\def\~put#1{\expandafter\global\expandafter\linesofar\expandafter{\the\linesofar #1}\egroup\lee}
+\gdef\put{\bgroup
+  \catcode`\|=12
+  \count255='176 \@@count=256 \makeothers
+  \count255=0 \@@count='173 \makeothers
+  \~put
+}
+
+\def\nocomments{\catcode`\%=14 \lee}
+\def\keepcomments{\catcode`\%=12 \let\comment\copycomment\lee}
+\def\halfcomments{\catcode`\%=12 \let\comment\swallowcomment\lee}
+{\catcode13=12 %
+ \gdef\copycomment#1
+ {\tokscclv={#1}\conditwrite\iwrite{\the\tokscclv}\catcode13=10 \lee}%
+ \gdef\swallowcomment#1
+ {\catcode13=10 \lee}%
+}
+
+\def\appendtoks_fromdelimiter#1#2#3{
+\toks@=#1
+\tokscclv={#2#3?_qlast#3}
+\expandafter\ifx\csname _appendtoks_fromdelimiter#3\endcsname\relax		%Don, this should be undefined
+  \expandafter\gdef\csname _appendtoks_fromdelimiter#3\endcsname##1#3{
+  \def\tempa{##1}
+  \ifx\tempa\_qlast
+  \else
+    \toks@\expandafter{\the\toks@\\{##1}}
+    \def\next{\expandafter\gobbles\csname _appendtoks_fromdelimiter#3\endcsname}
+    \expandafter\next
+  \fi
+  }
+\fi
+\edef\next{\noexpand\gobbles\expandafter\noexpand\csname _appendtoks_fromdelimiter#3\endcsname\the\tokscclv}
+\next
+#1=\toks@
+}
+
+\def\appendtoks_fromspace#1#2{\appendtoks_fromdelimiter#1{#2}{ }}
+\def\appendtoks_fromcomma#1#2{\appendtoks_fromdelimiter#1{#2}{,}}
+
+\def\exceptions#1{\catcode`\ =12 \_exceptions{#1}}
+\def\_exceptions#1#2{
+  \catcode`\ =10 %
+  \appendtoks_fromspace\toksexceptions{#1}
+  \def\tempa{#2}
+  \ifx\tempa\empty
+    \tokscclv={#1 ?_qlast }
+    \expandafter\gobbles\expandafter\makeemptysubs\the\tokscclv
+  \else
+    \appendtoks_fromcomma\substitutions{#2}
+  \fi
+  \lee
+}
+
+\def\makeemptysubs#1 {
+\def\tempa{#1}
+\ifx\tempa\_qlast
+\else
+  \countchars\@@count{#1}
+  \advance\@@count 1 %
+  \makeempty\tempa\@@count
+  \edef\next{\noexpand\substitutions{\the\substitutions\noexpand\\{\tempa}}}
+  \next
+  \def\next{\gobbles\makeemptysubs}
+  \expandafter\next
+\fi
+}
+
+\def\countchars#1#2{
+\count255=\m@ne
+\_countchars#2a\qend	%Ensure that there is at least one token
+#1=\count255\relax
+}
+\def\_countchars#1#2{
+\ifx#2\qend\else
+\advance\count255 by 1\relax
+\def\next{\_countchars#2}
+\expandafter\next\fi
+}
+
+\def\makeempty#1#2{
+\def#1{}
+\def\next{\ifnum#2=0 \else\edef#1{#1 }\advance#2 \m@ne \expandafter\next\fi}
+\next
+}
+
+\def\substituteifneeded#1#2{
+  \def\tempb{#2}
+  \toks@={} \toks@ne={}
+  \def\\##1{\def\tempa{##1}
+    \ifx\tempa\qend
+      \toksexceptions\toks@
+      \toks@={}
+      \substitutions\toks@ne
+      \toks@ne={}
+    \else\ifx\tempa\tempb
+    	\pop\toksexceptions
+      \edef\tempa{\global\noexpand\toksexceptions{\the\toks@\the\toksexceptions}}
+      \tempa
+      \pushpopmacro#1\substitutions
+      \edef\tempa{\global\noexpand\substitutions{\the\toks@ne\the\substitutions}}
+      \tempa
+      \def\\####1{}	%gobble the remaining \\{...}
+      \ifnum\tracingexceptions>0 %
+    		\wlog{Replacing the pattern {\tempb} with {#1}}
+    	\fi
+    \else
+      \let\tempa\\
+      \pushpop\toks@\toksexceptions
+      \pushpop\toks@ne\substitutions
+      \let\\\tempa
+    \fi\fi
+  }
+  \the\toksexceptions\\{\qend}
+}
+
+\def\pop#1{
+\def\\##1##2//{#1={##2}}
+\the#1//
+}
+\def\pushpop#1#2{
+  \def\\##1##2//{
+    #1=\expandafter{\the#1\\{##1}}
+    #2={##2}
+  }
+  \the#2//
+}
+\def\pushpopmacro#1#2{
+  \def\\##1##2//{
+    \def#1{##1}
+    #2={##2}
+  }
+  \the#2//
+}
+
+\def\reportmissingexceptios{
+\def\\##1{\wlog{The exception {##1} did not arise.}}
+\the\toksexceptions
+}
+
+\def\mixtoks#1#2{
+\tokscclv=#1
+\toks@=#2
+#1={}
+\def\tempa##1{#1=\expandafter{\the#1\\{##1}}\let\\=\tempb \the#2//}
+\def\tempb##1##2//{#1=\expandafter{\the#1{##1}}#2={##2}\let\\=\tempa}
+\let\\=\tempa
+\the\tokscclv
+}
+
+\def\finalreplacement#1#2{#1={#2}}
+\def\charreplacement#1#2{
+#1={#2}	%In case it is not found
+\def\tempa{#2}
+\let\oldslash\\
+\def\\##1##2{\def\tempb{##1}
+  \ifx\tempa\tempb
+    #1={##2}
+    \def\\####1####2{}
+  \fi
+}
+\the\toksencoding
+\let\\=\oldslash
+}
+
+\def\letters#1{\appendtoks_fromspace\toksletters{#1}}
+
+\def\encodingreplacements#1#2{
+\appendtoks_fromspace\toksv{#1}
+\appendtoks_fromspace\toksvi{#2}
+\mixtoks\toksv\toksvi
+\tokscclv=\toksv \toksv={}
+\def\\##1##2{\def\tempa{##1}\def\tempb{##2}\ifx\tempa\tempb\else
+  \toksv\expandafter{\the\toksv\\{##1}{##2}}\fi}
+\the\tokscclv
+\edef\next{\noexpand\toksencoding{\the\toksencoding\the\toksv}}
+\next
+}
+
+\catcode`\/=0
+\catcode`\\=12/relax
+
+/def/writeencodingreplacements{
+%/def/\##1##2{/iwrite{\def\foo{##2} \catcode`\##1=13 \edef##1{\foo}}}
+/def/\##1##2{/iwrite{\catcode`\##1=13 \edef##1{\string ##2}}
+  /wlog{Replacement: ##1->##2}}
+/the/toksencoding
+}
+
+/def/writeletters{
+/def/\##1{/charreplacement/toksv{##1}
+  /iwrite{\catcode`\/the/toksv=11 \lccode`\/the/toksv=`\/the/toksv}
+}
+/the/toksletters
+}
+/catcode`/\=0
+/catcode`//=12
+
+\def\makeletters{
+  \expandafter\catcode\count255=11\relax
+  \advance\count255 1\relax
+  \ifnum\count255<\@@count
+  \expandafter\makeletters
+  \fi
+}
+\def\makeothers{
+  \expandafter\catcode\count255=12\relax
+  \advance\count255 1\relax
+  \ifnum\count255<\@@count
+  \expandafter\makeothers
+  \fi
+}
+
+\def\code{
+\edef\code_percent{\the\catcode`\%}
+\catcode`\%=14
+\catcode`\#=6
+\catcode`\^=7
+\count255='50  \@@count='60
+\makeothers
+\catcode`\_=12
+\catcode`\~=12
+\catcode`\@=12
+\catcode`\!=12
+\catcode`\$=12
+\catcode`\&=12\relax
+}
+\def\endcode{
+\catcode`\#=11
+\catcode`\^=11
+\count255='50  \@@count='60
+\makeletters
+\catcode`\_=11
+\catcode`\~=11
+\catcode`\@=11
+\catcode`\!=11
+\catcode`\$=11
+\catcode`\&=13
+\catcode`\%=\code_percent\relax
+\lee
+}
+
+\let\if@patternscode\iffalse
+\def\patternscode{
+\begin{code}
+\catcode`\$=6
+\catcode`\#=12
+\catcode`\&=12
+\catcode`\,=12
+\let\if@patternscode\iftrue
+}
+\def\endpatternscode{
+\catcode`\,=11
+\catcode`\$=11
+\let\if@patternscode\iffalse
+\endcode
+}
+
+\def\templatedef{\if@patternscode\else\expandafter\patternscode\fi\let\if@patternscode\iffalse\@templatedef}
+\def\@templatedef#1#2{\expandafter\def\csname #1\endcsname{\template{#2}}
+	\expandafter\def\csname end#1\endcsname{\end{template}}
+	\if@patternscode\else\expandafter\endpatternscode\fi}
+
+\def\mkinput#1{\expandafter\lee\input #1 }	%we are lucky this works
+\let\~~endinput\endinput
+% ...y la guinda:
+\def\mkendinput{\expandafter\lee}	%Expand the end of the file before \lee. It works!
+\def\endinput{\expandafter\mkendinput\~~endinput}
+
+%Esto ya es para el fichero que siga
+\toksletters={}
+\toksencoding={}
+\newcount\c_amp
+
+\catcode`\!=11
+\catcode`\$=11
+\catcode`\&=13
+
+\count255='50  \@@count='60
+\makeletters
+
+\catcode`\[=11 \catcode`\]=11
+\catcode`\|=11
+
+\count255=129  \@@count=256
+\makeletters
+
+\catcode`\^^M=10
+\catcode`\^=11
+\let\~~lee\lee
+\let\lee\relax
+\endinput
