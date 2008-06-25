@@ -95,7 +95,7 @@ class Languages < Hash
 # danish		dkhyph.tex
 {
 	"use_new_loader" => true,
-	"use_old_patterns" => true,
+	"use_old_patterns" => false,
 	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
 	"filename_old_patterns" => "dkhyph.tex",
 	"filename_old_patterns_other" => ["dkcommon.tex", "dkspecial.tex"],
@@ -143,7 +143,7 @@ class Languages < Hash
 # =francais
 {
 	"use_new_loader" => true,
-	"use_old_patterns" => true,
+	"use_old_patterns" => false,
 	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
 	"filename_old_patterns" => "frhyph.tex",
 #	"filename_xu_loader" => "xu-frhyph.tex",
@@ -410,10 +410,10 @@ class Languages < Hash
 # latin		xu-lahyph.tex
 {
 	"use_new_loader" => true,
-	"use_old_patterns" => true,
+	"use_old_patterns" => false,
 	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
 	"filename_old_patterns" => "lahyph.tex",
-	"filename_xu_loader" => "xu-lahyph.tex",
+#	"filename_xu_loader" => "xu-lahyph.tex",
 	"code" => "la",
 	"name" => "latin",
 	"synonyms" => [],
@@ -736,6 +736,18 @@ class Languages < Hash
 	"encoding" => "t2a",
 	"exceptions" => false,
 	"message" => "Ukrainian Hyphenation Patterns",
+},
+# sanskrit
+{
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"code" => "sa",
+	"name" => "sanskrit",
+	"synonyms" => [],
+	"hyphenmin" => [1,5], # polyglosia
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => "Sanskrit Hyphenation Patterns (v0.2, 2008/1/3)",
 },
 # norsk	xu-nohyphbx.tex
 {

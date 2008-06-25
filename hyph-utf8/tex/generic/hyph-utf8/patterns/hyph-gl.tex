@@ -1,71 +1,11 @@
-% This file is part of hyph-utf8 package and resulted from
-% semi-manual conversions of hyphenation patterns into UTF-8 in June 2008.
+% This is the file hyph-gl.tex, version 2.3a-utf8
+% Hyphenation patterns for Galician, written in the utf8 encoding.
 %
-% Source: glhyph.tex (yyyy-mm-dd)
-% Author: Javier Múgica <javier at digi21.net>
-%
-% The above mentioned file should become obsolete,
-% and the author of the original file should preferaby modify this file instead.
-%
-% Modificatios were needed in order to support native UTF-8 engines,
-% but functionality (hopefully) didn't change in any way, at least not intentionally.
-% This file is no longer stand-alone; at least for 8-bit engines
-% you probably want to use loadhyph-foo.tex (which will load this file) instead.
-%
-% Modifications were done by Jonathan Kew, Mojca Miklavec & Arthur Reutenauer
-% with help & support from:
-% - Karl Berry, who gave us free hands and all resources
-% - Taco Hoekwater, with useful macros
-% - Hans Hagen, who did the unicodifisation of patterns already long before
-%               and helped with testing, suggestions and bug reports
-% - Norbert Preining, who tested & integrated patterns into TeX Live
-%
-% However, the "copyright/copyleft" owner of patterns remains the original author.
-%
-% The copyright statement of this file is thus:
-%
-%    Do with this file whatever needs to be done in future for the sake of
-%    "a better world" as long as you respect the copyright of original file.
-%    If you're the original author of patterns or taking over a new revolution,
-%    plese remove all of the TUG comments & credits that we added here -
-%    you are the Queen / the King, we are only the servants.
-%
-% If you want to change this file, rather than uploading directly to CTAN,
-% we would be grateful if you could send it to us (http://tug.org/tex-hyphen)
-% or ask for credentials for SVN repository and commit it yourself;
-% we will then upload the whole "package" to CTAN.
-%
-% Before a new "pattern-revolution" starts,
-% please try to follow some guidelines if possible:
-%
-% - \lccode is *forbidden*, and I really mean it
-% - all the patterns should be in UTF-8
-% - the only "allowed" TeX commands in this file are: \patterns, \hyphenation,
-%   and if you really cannot do without, also \input and \message
-% - in particular, please no \catcode or \lccode changes,
-%   they belong to loadhyph-foo.tex,
-%   and no \lefthyphenmin and \righthyphenmin,
-%   they have no influence here and belong elsewhere
-% - \begingroup and/or \endinput is not needed
-% - feel free to do whatever you want inside comments
-%
-% We know that TeX is extremely powerful, but give a stupid parser
-% at least a chance to read your patterns.
-%
-% For more unformation see
-%
-%    http://tug.org/tex-hyphen
-%
-%------------------------------------------------------------------------------
-%
-% This is the file glhyph.tex, version 2.3
-% Hyphenation patterns for Galician.
-%
-% Generated with the mkpattern utility (v. 1.1), on 2007/04/23.
-% The original source file were glpatter.tex
+% Generated with the mkpattern utility (v. 1.1), on 2008/06/22.
+% The original source file were glpatter-utf8.tex
 % This is a generated file
 %
-% (c) Javier A. Múgica; 2006, 2007
+% (c) Javier A. Múgica; 2006, 2007, 2008
 % License: LPPL version 1.3
 %
 % LPPL maintenance status: maintained
@@ -73,8 +13,10 @@
 %
 % For bug reports and comments:
 %
-% Javier Múgica, javier at digi21.net
-% 
+% Javier Múgica, javier at digi21.eu
+%
+% Note that there is no 'j' nor 'y' in Galician
+
 \patterns{
 3ï3a 
 a1a e1e o1o zo2o a1á e1é o1ó 
@@ -244,7 +186,7 @@ piezo1a2 piezo1e2 piezo1i2 piezo1o2 piezo1u2 piezo1á2 piezo1é2 piezo1í2 piezo
 pluri1a2 pluri1e2 pluri1i2 pluri1o2 pluri1u2 pluri1á2 pluri1é2 pluri1í2 pluri1ó2 pluri1ú2 
 poli1a2 poli1e2 poli1i2 poli1o2 poli1u2 poli1á2 poli1é2 poli1í2 poli1ó2 poli1ú2 
 .pos2t1a2 .pos2t1e2 .pos2t1i2 .pos2t1o2 .pos2t1u2 .pos2t1á2 .pos2t1é2 .pos2t1í2 .pos2t1ó2 .pos2t1ú2 
-.pre1a2 .pre1e2 .pre1i2 .pre1o2 .pre1u2         .pre1é2 .pre1í2 .pre1ó2 .pre1ú2 
+.pre1a2 .pre1e2 .pre1i2 .pre1o2 .pre1u2          .pre1é2 .pre1í2 .pre1ó2 .pre1ú2 
 .pro1a2 .pro1e2 .pro1i2 .pro1o2 .pro1u2 .pro1á2 .pro1é2 .pro1í2 .pro1ó2 .pro1ú2 
 proto1a2 proto1e2 proto1i2 proto1o2 proto1u2 proto1á2 proto1é2 proto1í2 proto1ó2 proto1ú2 
 pseudo1a2 pseudo1e2 pseudo1i2 pseudo1o2 pseudo1u2 pseudo1á2 pseudo1é2 pseudo1í2 pseudo1ó2 pseudo1ú2 
@@ -253,7 +195,7 @@ retro1a2 retro1e2 retro1i2 retro1o2 retro1u2 retro1á2 retro1é2 retro1í2 retro
 sobre1a2 sobre1e2 sobre1i2 sobre1o2 sobre1u2 sobre1á2 sobre1é2 sobre1í2 sobre1ó2 sobre1ú2 
 semi1a2 semi1e2 semi1i2 semi1o2 semi1u2 semi1á2 semi1é2 semi1í2 semi1ó2 semi1ú2 
 socio1a2 socio1e2 socio1i2 socio1o2 socio1u2 socio1á2 socio1é2 socio1í2 socio1ó2 socio1ú2 
-.su2b1a2 .su2b1e2          .su2b1o2 .su2b1u2 .su2b1á2 .su2b1é2          .su2b1ó2 .su2b1ú2 
+.su2b1a2 .su2b1e2          .su2b1o2 .su2b1u2 .su2b1á2 .su2b1é2           .su2b1ó2 .su2b1ú2 
 super1a2 super1e2 super1i2 super1o2 super1u2 super1á2 super1é2 super1í2 super1ó2 super1ú2 
 supra1a2 supra1e2 supra1i2 supra1o2 supra1u2 supra1á2 supra1é2 supra1í2 supra1ó2 supra1ú2 
 .tele1a2 .tele1e2 .tele1i2 .tele1o2 .tele1u2 .tele1á2 .tele1é2 .tele1í2 .tele1ó2 .tele1ú2 
@@ -268,8 +210,7 @@ xeno1a2 xeno1e2 xeno1i2 xeno1o2 xeno1u2 xeno1á2 xeno1é2 xeno1í2 xeno1ó2 xeno
 ti2o3qu ti2o3co bi1u2ní o2i3de o2i3dal deca2e3ment 2al. 2a2is. pe3r2e3mia hiper3r 
 famili2a familia3r mini2a3tur para2u3gas paraí3so 
 %
-% Terceiras persoas do pasado perfecto
-%
+%Terceiras persoas do pasado perfecto
 libero2u3 
 atopo2u3 
 enaxeno2u3 
@@ -277,12 +218,10 @@ enaxeno2u3
 2os. 2o3so. 2o3sos. 2o3sa. 2o3sas. 2o3samente. 
 2i3co. 2i3cos. 2i3ca. 2i3cas. 
 %
-% O prefixo co
+%O prefixo co
+.co1a2 .co1e2 .co1i2 .co1o2 .co1u2         .co1é2 .co1í2 .co1ó2 .co1ú2 
 %
-.co1a2 .co1e2 .co1i2 .co1o2 .co1u2        .co1é2 .co1í2 .co1ó2 .co1ú2 
-%
-% Formas do verbo coar con pronomes enclíticos
-%
+%Formas do verbo coar con pronomes enclíticos
 .co2ar 
 .co2á2 
 .co2abá 
@@ -368,8 +307,7 @@ co2u3tos.
 co2u3vini 
 co2u3z 
 %
-% O prefixo des
-%
+%O prefixo des
 .de2s1a2 .de2s1e2 .de2s1i2 .de2s1o2 .de2s1u2 .de2s1á2 .de2s1é2 .de2s1í2 .de2s1ó2 .de2s1ú2 
 3se. 3s2es. 3sa. 3s2as. de3s2outr 3s2emos. 3s2edes. 3s2en. 
 %
@@ -425,7 +363,7 @@ de3s2sulf
 .des2idia 
 .des2ora 
 %
-% Excepcións ó prefixo in
+%Excepcións ó prefixo in
 %
 .in2a3misib. 
 .in2a3mov 
@@ -470,13 +408,12 @@ de3s2sulf
 .in2ú3til 
 in2o4cular 
 %
-% Excepcións ó prefixo inter
-%
+%Excepcións ó prefixo inter
 .inter3r 
 %
 .inte3r2és. .inte3r2e3sa .inte3r2é3sa .inte3r2e3sá .inte3r2e3so .inte3r2é3so .inte3r2e3só .inte3r2ior .inte3r2i3no. .inte3r2i3nos. .inte3r2i3na. .inte3r2i3nas. .inte3r2i3nid 
 %
-% Os prefixos mal e ben
+%Os prefixos mal e ben
 .be2n1a2 .be2ne2 .be2n1i2 .be2n1o2 .be2n1u2 .be2n1á2        .be2n1í2 .be2n1ó2 .be2n1ú2 
 %
 be3n2ign 
@@ -540,7 +477,7 @@ ma4l3ianq
 .mal1ensin 
 .mal1entend 
 %
-% Excepcións ó prefixo poli
+%Excepcións ó prefixo poli
 %
 poli2u3r 
 poli2o3me 
@@ -550,8 +487,7 @@ poli2éste
 poli2andr 
 poli2antea 
 expoli2 
-%
-% Excepcións ó prefixo post
+%Excepcións ó prefixo post
 %
 pos3t2a. 
 pos3t2as. 
@@ -585,10 +521,10 @@ pos3t2u3le
 pos3t2u3ra. 
 pos3t2u3ras. 
 %
-% Excepcións ó prefixo pre
+%Excepcións ó prefixo pre
 %
 .pre2amar 
-% Formas do verbo prear con pronomes enclíticos
+%Formas do verbo prear con pronomes enclíticos
 .pre2ar 
 .pre2á2 
 .pre2abá 
@@ -602,7 +538,7 @@ pre2i3t
 pre2o3cup 
 pre2o3cúp 
 %
-% Excepcións ó prefixo pro
+%Excepcións ó prefixo pro
 %
 pro2e3za 
 pro2í3do 
@@ -611,14 +547,16 @@ pro2ust
 %O prefixo re
 .re2a2 .ree2 .re2i2 .re2o2 .re2u2 .re2á2 .reé2 .re2í2 .re2ó2 .re2ú2 
 %
-% O prefixo sub: l, r e excepcións
+%O prefixo sub: l, r e excepcións
 .su2b3l .su2b3r 
 %
-% Formas do verbo subir con pronomes enclíticos
+%Formas do verbo subir con pronomes enclíticos
 .su2b2i2 
 .su2b2í2 
 .sub2eriz 
 .sub2orna 
+%
+sub3índic sub3indic sub3indiz 
 %
 .sub4lev 
 .sub4lim 
@@ -639,7 +577,7 @@ su3b4liminar
 su3b4repción 
 su3b4reptici 
 %
-% Excepcións ó prefixo tri
+%Excepcións ó prefixo tri
 %
 tri2a3ga. 
 tri2a3gas. 
@@ -651,7 +589,7 @@ tri2estin
 tri2unf 
 tri2unvir 
 %
-% Excepcións a varios prefixos que son terminacións verbais
+%Excepcións a varios prefixos que son terminacións verbais
 %
 2a3do. 2i3do. 
 2a3da. 2i3da. 

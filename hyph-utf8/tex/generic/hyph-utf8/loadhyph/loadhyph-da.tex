@@ -19,10 +19,13 @@
 % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
 \ifx\secondarg\empty
     \message{UTF-8 Danish Hyphenation Patterns}
-    \input hyph-da.tex
 \else
-    \message{Danish Hyphenation Patterns}
-    % Old patterns support both EC & OT1 encodings at the same time.
-    \input dkhyph.tex
+    \message{EC Danish Hyphenation Patterns}
+    % A hack to support both EC and OT1 encoding in 8-bit engines.
+    % Kept for backward compatibility only, though we would prefer to drop it.
+    % OT1 encoding is close-to-useless for proper hyphenation.
+    \input spechyph-ot1-da.tex
+    \input conv-utf8-ec.tex
 \fi
+\input hyph-da.tex
 \endgroup
