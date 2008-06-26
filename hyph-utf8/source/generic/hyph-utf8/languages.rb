@@ -249,7 +249,7 @@ class Languages < Hash
 	"name" => "basque",
 	"synonyms" => [],
 	"hyphenmin" => [2,2], # babel
-	"encoding" => "ascii",
+	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Basque Hyphenation Patterns",
 },
