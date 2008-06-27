@@ -37,8 +37,20 @@ def add_comment(str)
 	$tr.puts "% " + str.gsub(/\n/, "\n% ").gsub(/% \n/, "%\n")
 end
 
+# The patterns (and algorithm for generating them) were first meant
+# for supporting Ottoman Turkish, but adapted for modern Turkish later.
+# Turkish alphabet includes some special vowels (ıiöü) and consonants (çğş),
+# but the patterns also support another three vowels (âîû):
+# - a with circumflex is a necessity, it must be supported
+# - ı and u with circumflex could be there, not as pressing as "a" but still
+# Some letters such as z, k, s or t represent multiple letters in the old
+# alphabet, so some transcriptions from Ottoman to Turkish use some accents on
+# these for phonetic reasons, but there is no need to support them.
+# 
+# Comment posted by: H. Turgut Uyar <uyar at itu.edu.tr>
+
 # define a class of vowels and consonants
-vowels = %w{a e ı i o ö u ü}
+vowels = %w{a â e ı i î o ö u ü û}
 consonants = %w{b c ç d f g ğ h j k l m n p r s ş t v y z}
 
 # start the file
