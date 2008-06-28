@@ -69,8 +69,8 @@ add_comment(
 	"Modifications:\n" +
 	"- adapted for the use on modern UTF-8 TeX engines\n" +
 	"- UTF-8 patterns are used\n" +
-	"- only letters for Modern Turkish\n" +
-	"- support for Ottoman Turkish is now provided separately under 'ota' (not 'tr')\n\n" +
+	"- only letters for Modern Turkish + âîû (the first one often needed, the other two don't hurt)\n" +
+	"- if needed, support for Ottoman Turkish might be provided separately under 'ota' (not 'tr')\n\n" +
 	"Notes:\n" +
 	"- you need to use loadhyph-tr.tex, please do not try to put \\catcode-s & \\lccode-s here\n"
 )
