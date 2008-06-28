@@ -42,6 +42,7 @@ portuguese	loadhyph-pt.tex
 =portuges
 romanian	loadhyph-ro.tex
 russian	loadhyph-ru.tex
+sanskrit	loadhyph-sa.tex
 serbian	loadhyph-sr-latn.tex
 serbianc	loadhyph-sr-cyrl.tex
 slovak	loadhyph-sk.tex
