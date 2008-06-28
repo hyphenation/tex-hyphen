@@ -124,7 +124,7 @@ languages.each do |language|
 				file.puts('\fi')
 				if language.code == 'sr-latn' then
 					file.puts("% Load Serbo-Croatian patterns")
-					file.puts("\\input hyph-hbs.tex")
+					file.puts("\\input hyph-sh-latn.tex")
 				else
 					file.puts("\\input hyph-#{language.code}.tex")
 				end
