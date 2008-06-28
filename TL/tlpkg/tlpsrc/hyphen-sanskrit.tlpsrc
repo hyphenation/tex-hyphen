@@ -1,0 +1,3 @@
+name hyphen-sanskrit
+category TLCore
+execute AddHyphen name=sanskrit lefthyphenmin=1 righthyphenmin=5 file=loadhyph-sa.tex

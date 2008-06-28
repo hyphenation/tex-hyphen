@@ -1,0 +1,3 @@
+name hyphen-turkish
+category TLCore
+execute AddHyphen name=turkish lefthyphenmin=2 righthyphenmin=2 file=loadhyph-tr.tex

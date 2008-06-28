@@ -1,0 +1,3 @@
+name hyphen-spanish
+category TLCore
+execute AddHyphen name=spanish synonyms=espanol lefthyphenmin=2 righthyphenmin=2 file=loadhyph-es.tex

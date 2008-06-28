@@ -1,0 +1,3 @@
+name hyphen-slovenian
+category TLCore
+execute AddHyphen name=slovenian synonyms=slovene lefthyphenmin=2 righthyphenmin=2 file=loadhyph-sl.tex

@@ -1,0 +1,4 @@
+name hyphen-serbian
+category TLCore
+execute AddHyphen name=serbian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-sr-latn.tex
+execute AddHyphen name=serbianc lefthyphenmin=2 righthyphenmin=2 file=loadhyph-sr-cyrl.tex

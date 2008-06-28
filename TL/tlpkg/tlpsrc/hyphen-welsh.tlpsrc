@@ -1,0 +1,3 @@
+name hyphen-welsh
+category TLCore
+execute AddHyphen name=welsh lefthyphenmin=2 righthyphenmin=3 file=loadhyph-cy.tex

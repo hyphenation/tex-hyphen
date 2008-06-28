@@ -1,0 +1,3 @@
+name hyphen-irish
+category TLCore
+execute AddHyphen name=irish lefthyphenmin=2 righthyphenmin=3 file=loadhyph-ga.tex

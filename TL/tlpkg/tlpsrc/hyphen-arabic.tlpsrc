@@ -1,0 +1,3 @@
+name hyphen-arabic
+category TLCore
+execute AddHyphen name=arabic lefthyphenmin= righthyphenmin= file=zerohyph.tex

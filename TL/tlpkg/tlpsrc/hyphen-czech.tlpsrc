@@ -1,0 +1,3 @@
+name hyphen-czech
+category TLCore
+execute AddHyphen name=czech lefthyphenmin=2 righthyphenmin=3 file=loadhyph-cs.tex

@@ -1,0 +1,4 @@
+name hyphen-coptic
+category TLCore
+execute AddHyphen name=coptic lefthyphenmin=1 righthyphenmin=1 file=loadhyph-cop.tex
+runpattern f texmf/tex/generic/hyphen/copthyph.tex

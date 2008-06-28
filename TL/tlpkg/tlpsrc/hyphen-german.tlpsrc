@@ -1,0 +1,6 @@
+name hyphen-german
+category TLCore
+execute AddHyphen name=german lefthyphenmin=2 righthyphenmin=2 file=loadhyph-de-1901.tex
+execute AddHyphen name=ngerman lefthyphenmin=2 righthyphenmin=2 file=loadhyph-de-1996.tex
+runpattern f texmf/tex/generic/hyphen/dehypht.tex
+runpattern f texmf/tex/generic/hyphen/dehyphn.tex

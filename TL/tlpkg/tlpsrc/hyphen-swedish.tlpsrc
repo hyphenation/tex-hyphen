@@ -1,0 +1,3 @@
+name hyphen-swedish
+category TLCore
+execute AddHyphen name=swedish lefthyphenmin=2 righthyphenmin=2 file=loadhyph-sv.tex

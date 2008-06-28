@@ -1,0 +1,3 @@
+name hyphen-indonesian
+category TLCore
+execute AddHyphen name=indonesian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-id.tex

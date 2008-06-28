@@ -1,0 +1,3 @@
+name hyphen-ukrainian
+category TLCore
+execute AddHyphen name=ukrainian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-uk.tex

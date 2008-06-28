@@ -1,0 +1,3 @@
+name hyphen-icelandic
+category TLCore
+execute AddHyphen name=icelandic lefthyphenmin=2 righthyphenmin=2 file=loadhyph-is.tex

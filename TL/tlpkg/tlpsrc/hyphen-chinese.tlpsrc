@@ -1,0 +1,3 @@
+name hyphen-chinese
+category TLCore
+execute AddHyphen name=pinyin lefthyphenmin=1 righthyphenmin=1 file=loadhyph-zh-latn.tex

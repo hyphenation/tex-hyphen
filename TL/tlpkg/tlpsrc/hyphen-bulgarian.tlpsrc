@@ -1,0 +1,3 @@
+name hyphen-bulgarian
+category TLCore
+execute AddHyphen name=bulgarian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-bg.tex

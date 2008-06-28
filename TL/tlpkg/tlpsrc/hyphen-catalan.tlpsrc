@@ -1,0 +1,3 @@
+name hyphen-catalan
+category TLCore
+execute AddHyphen name=catalan lefthyphenmin=2 righthyphenmin=2 file=loadhyph-ca.tex

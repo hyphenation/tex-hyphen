@@ -1,0 +1,3 @@
+name hyphen-farsi
+category TLCore
+execute AddHyphen name=farsi synonyms=persian lefthyphenmin= righthyphenmin= file=zerohyph.tex

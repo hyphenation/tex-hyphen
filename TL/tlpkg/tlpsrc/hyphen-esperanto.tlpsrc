@@ -1,0 +1,3 @@
+name hyphen-esperanto
+category TLCore
+execute AddHyphen name=esperanto lefthyphenmin=2 righthyphenmin=2 file=loadhyph-eo.tex

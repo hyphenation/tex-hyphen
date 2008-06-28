@@ -1,0 +1,3 @@
+name hyphen-uppersorbian
+category TLCore
+execute AddHyphen name=uppersorbian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-hsb.tex

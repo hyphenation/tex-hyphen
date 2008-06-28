@@ -1,0 +1,3 @@
+name hyphen-romanian
+category TLCore
+execute AddHyphen name=romanian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-ro.tex

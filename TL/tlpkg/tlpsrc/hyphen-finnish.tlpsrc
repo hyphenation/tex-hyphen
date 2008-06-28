@@ -1,0 +1,3 @@
+name hyphen-finnish
+category TLCore
+execute AddHyphen name=finnish lefthyphenmin=2 righthyphenmin=2 file=loadhyph-fi.tex
