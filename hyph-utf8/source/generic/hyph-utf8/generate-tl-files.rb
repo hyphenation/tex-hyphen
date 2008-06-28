@@ -70,6 +70,9 @@ language_groups.sort.each do |language_name,language_list|
 	$file_tlpsrc.puts "name hyphen-#{language_name}"
 	$file_tlpsrc.puts "category TLCore"
 	
+	if language_name == "russian" then
+		$file_tlpsrc.puts "depend ruhyphen"
+	end
 	language_list.each do |language|
 		name = " name=#{language.name}"
 
@@ -104,6 +107,14 @@ language_groups.sort.each do |language_name,language_list|
 		if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" then
 			$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
 		end
+	end
+	if language_name == "greek" then
+		$file_tlpsrc.puts "runpattern f texmf/doc/generic/elhyphen/*"
+	elsif language_name == "german" then
+		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/dehyphtex.tex"
+		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/ghyphen.README"
+	elsif language_name == "hungarian" then
+		$file_tlpsrc.puts "docpattern f texmf/doc/generic/huhyphen/*"
 	end
 	$file_tlpsrc.close
 end

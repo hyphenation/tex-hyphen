@@ -675,7 +675,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
-	"filename_old_patterns" => "grmhyph5.tex",
+	"filename_old_patterns" => "grahyph5.tex",
 	"filename_xu_loader" => "xu-grahyph4.tex", # TODO: beware!
 	"code" => "grc",
 	"name" => "ancientgreek",
