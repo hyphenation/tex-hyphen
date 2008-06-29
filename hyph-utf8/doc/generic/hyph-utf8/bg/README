@@ -1,0 +1,47 @@
+BGHYPHEN package, version 1.5, May 2006.
+    Georgi Boshnakov, School of Mathematics, The Universify of Manchester
+    (Google my surname to find out my email address.)
+
+This bundle currently consists of the following files:
+    bghyphen.tex 
+    bghyphsi.tex 
+    catmik.tex 
+    mik2t2.tex
+
+To install for babel:
+   1) Copy the files bghyphen.tex bghyphsi.tex catmik.tex mik2t2.tex
+        to, say, c:\texmf\tex\generic\hyphen\
+
+   2) Create formats for LaTeX, pdfLaTeX, etc. 
+      instructing babel to use bghyphen.tex 
+          (In MikTeX, goto MikTeX Options->Languages, 
+                      edit/add the entry for the Bulgarian language, 
+                      specify  bghyphen.tex   as the hyphenation file,
+                      Regenerate the desired formats, LaTeX, PdfLaTeX, etc.)
+
+   3) Then the Bulgarian hyphenation rules will be used 
+         whenever you select Bulgarian language in your document. 
+
+Copyright 1996-2006 Georgi Boshnakov
+  The mechanism used to include the patterns is taken from the ruhyph package,
+  which is Copyright 1998-1999 Werner Lemberg, Vladimir Volovich,
+  see the ruhyph.tex. 
+
+This package can be redistributed and/or modified under the terms
+of the LaTeX Project Public License distributed from CTAN
+archives in directory macros/latex/base/lppl.txt; either
+version 1 of the License, or (at your option) any later version.
+In previous versions some of the files did not have copyright statement
+and I have clarified the files' status on a per request basis. 
+I believe that this declaration is equaivalent to what I have stated in
+relation to such requests but if you believe that it is not, you may  
+continue to use the files as before.
+
+
+Changes:
+BGHYPHEN package, version 1.0, June 2000.
+
+BGHYPHEN package, version 1.5, May 2006.
+   Copyright information included in all files listed above.
+   Comments and instructions added to some files.
+
