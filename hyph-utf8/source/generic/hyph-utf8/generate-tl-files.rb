@@ -20,11 +20,13 @@ languages = $l.list.sort{|a,b| a.name <=> b.name}
 language_grouping = {
 	'norwegian' => ['nb', 'nn'],
 	'german' => ['de-1901', 'de-1996'],
-	'serbian' => ['sr-latn', 'sr-cyrl'],
 	'mongolian' => ['mn-cyrl', 'mn-cyrl-x-2a'],
 	'greek' => ['el-monoton', 'el-polyton'],
 	'ancientgreek' => ['grc', 'grc-x-ibycus'],
 	'chinese' => ['zh-latn'],
+	# TODO - until someone tells what to do
+	#'serbian' => ['sr-latn', 'sr-cyrl'],
+	'serbian' => ['sr-latn'],
 }
 
 language_used_in_group = Hash.new
@@ -38,7 +40,10 @@ end
 language_groups = Hash.new
 # single languages first
 languages.each do |language|
-	if language_used_in_group[language.code] == nil then
+	# temporary remove cyrilic serbian until someone explains what is needed
+	if language.code == 'sr-cyrl' then
+		languages.delete(language)
+	elsif language_used_in_group[language.code] == nil then
 		language_groups[language.name] = [language]
 	end
 end
@@ -66,12 +71,16 @@ end
 #--------#
 language_groups.sort.each do |language_name,language_list|
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
+	puts "generating #{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc"
 	
 	$file_tlpsrc.puts "name hyphen-#{language_name}"
 	$file_tlpsrc.puts "category TLCore"
 	
+	# external dependencies for Russian and Ukrainian (until we implement the new functionality at least)
 	if language_name == "russian" then
 		$file_tlpsrc.puts "depend ruhyphen"
+	elsif language_name == "ukrainian" then
+		$file_tlpsrc.puts "depend ukrhyph"
 	end
 	language_list.each do |language|
 		name = " name=#{language.name}"
@@ -103,9 +112,11 @@ language_groups.sort.each do |language_name,language_list|
 
 		$file_tlpsrc.puts "execute AddHyphen#{name}#{synonyms}#{hyphenmins}#{file}"
 	end
-	language_list.each do |language|
-		if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" then
-			$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
+	if language_name != "russian" and language_name != "ukrainian" then
+		language_list.each do |language|
+			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" then
+				$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
+			end
 		end
 	end
 	if language_name == "greek" then
@@ -125,7 +136,6 @@ end
 $file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
 language_groups.sort.each do |language_name,language_list|
 	language_list.each do |language|
-
 		if language.use_new_loader then
 			$file_language_dat.puts "#{language.name}\tloadhyph-#{language.code}.tex"
 		else

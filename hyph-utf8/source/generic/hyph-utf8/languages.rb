@@ -6,17 +6,18 @@ class Language
 		@use_old_patterns_comment = language_hash["use_old_patterns_comment"]
 		@filename_old_patterns = language_hash["filename_old_patterns"]
 		@filename_old_patterns_other = language_hash["filename_old_patterns_other"]
-		@filename_xu_loader = language_hash["filename_xu_loader"]
 		@code = language_hash["code"]
 		@name = language_hash["name"]
-		@synonyms = language_hash["synonyms"]
+		@synonyms = language_hash["synonyms"] 
 		@hyphenmin = language_hash["hyphenmin"]
 		@encoding = language_hash["encoding"]
 		@exceptions = language_hash["exceptions"]
 		@message = language_hash["message"]
+		
+		if @synonyms==nil then @synonyms = [] end
 	end
 	
-	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns, :filename_xu_loader, :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
+	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns, :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
 end
 
 # "use_new_loader"
@@ -46,13 +47,11 @@ class Languages < Hash
 # --------------------------------------
 # arabic		zerohyph.tex
 {
+	"code" => "ar",
+	"name" => "arabic",
 	"use_new_loader" => false,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "zerohyph.tex",
-#	"filename_xu_loader" => nil,
-	"code" => "ar",
-	"name" => "arabic",
-	"synonyms" => [],
 #	"hyphenmin" => [], # not needed
 	"encoding" => nil,
 	"exceptions" => false,
@@ -61,63 +60,100 @@ class Languages < Hash
 # farsi		zerohyph.tex
 # =persian
 {
+	"code" => "fa",
+	"name" => "farsi", "synonyms" => ["persian"],
 	"use_new_loader" => false,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "zerohyph.tex",
-#	"filename_xu_loader" => nil,
-	"code" => "fa",
-	"name" => "farsi",
-	"synonyms" => ["persian"],
 #	"hyphenmin" => [], # not needed
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => nil,
 },
-
+# -------------------------------
+# special patterns, not converted
+# -------------------------------
+# ibycus ibyhyph.tex
+{
+	"code" => "grc-x-ibycus",
+	"name" => "ibycus",
+	"use_new_loader" => false,
+	"use_old_patterns" => true,
+	"filename_old_patterns" => "ibyhyph.tex",
+	"hyphenmin" => [2,2],
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => "Ancient Greek Hyphenation Patterns for Ibycus encoding (v3.0)",
+},
 # ----------------------------
 # languages using old patterns
 # ----------------------------
+# greek		xu-grphyph4.tex
+# =polygreek
+{
+	"code" => "el-polyton",
+	"name" => "greek", "synonyms" => ["polygreek"],
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
+	"filename_old_patterns" => "grphyph5.tex",
+	# left/right hyphen min for Greek can be as low as one (1),
+	# but for aesthetic reasons keep them at 2/2.
+	# Dimitrios Filippou
+	"hyphenmin" => [1,1], # polyglosia
+	"encoding" => nil,
+	"exceptions" => true,
+#	"message" => "Polytonic Greek Hyphenation Patterns",
+	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek"
+},
+# monogreek	xu-grmhyph4.tex
+{
+	"code" => "el-monoton",
+	"name" => "monogreek",
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
+	"filename_old_patterns" => "grmhyph5.tex",
+	"hyphenmin" => [1,1], # polyglosia
+	"encoding" => nil,
+	"exceptions" => true,
+#	"message" => "Monotonic Greek Hyphenation Patterns",
+	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek"
+},
+# ancientgreek	xu-grahyph4.tex
+{
+	"code" => "grc",
+	"name" => "ancientgreek",
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
+	"filename_old_patterns" => "grahyph5.tex",
+	"hyphenmin" => [1,1], # polyglosia
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => "Hyphenation patterns for Ancient Greek"
+},
 # coptic		xu-copthyph.tex
 {
+	"code" => "cop",
+	"name" => "coptic",
 	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "TODO: automatic conversion could be done, but was too complicated; leave for later.",
 	"filename_old_patterns" => "copthyph.tex",
-#	"filename_xu_loader" => "xu-copthyph.tex",
-	"code" => "cop",
-	"name" => "coptic",
-	"synonyms" => [],
 	"hyphenmin" => [1,1], # polyglosia TODO: no documentation found
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Coptic Hyphenation Patterns",
 },
-# danish		dkhyph.tex
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
-	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
-	"filename_old_patterns" => "dkhyph.tex",
-	"filename_old_patterns_other" => ["dkcommon.tex", "dkspecial.tex"],
-#	"filename_xu_loader" => nil,
-	"code" => "da",
-	"name" => "danish",
-	"synonyms" => [],
-	"hyphenmin" => [2,2], # babel
-	"encoding" => "ec",
-	"exceptions" => false,
-	"message" => "Danish Hyphenation Patterns",
-},
 # german		xu-dehypht.tex
 {
-	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"filename_old_patterns" => "dehypht.tex",
-	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
-#	"filename_xu_loader" => "xu-dehypht.tex",
 	"code" => "de-1901",
 	"name" => "german",
-	"synonyms" => [],
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
+	"filename_old_patterns" => "dehypht.tex",
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -125,50 +161,66 @@ class Languages < Hash
 },
 # ngerman		xu-dehyphn.tex
 {
+	"code" => "de-1996",
+	"name" => "ngerman",
 	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
 	"filename_old_patterns" => "dehyphn.tex",
-#	"filename_xu_loader" => "xu-dehyphn.tex",
-	"code" => "de-1996",
-	"name" => "ngerman",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "German Hyphenation Patterns (Reformed Orthography)",
 },
-# french		xu-frhyph.tex
-# =patois
-# =francais
+# russian	xu-ruhyphen.tex
 {
+	"code" => "ru",
+	"name" => "russian",
 	"use_new_loader" => true,
-	"use_old_patterns" => false,
-	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
-	"filename_old_patterns" => "frhyph.tex",
-#	"filename_xu_loader" => "xu-frhyph.tex",
-	"code" => "fr",
-	"name" => "french",
-	"synonyms" => ["patois","francais"],
-#	"hyphenmin" => [],
-	"encoding" => "ec",
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
+	"filename_old_patterns" => "ruhyphen.tex",
+	"hyphenmin" => [2,2],
+	"encoding" => "t2a",
 	"exceptions" => false,
-	"message" => "French hyphenation patterns (V2.12, 2002/12/11)",
+	"message" => "Russian Hyphenation Patterns",
+},
+# ukrainian	xu-ukrhyph.tex
+{
+	"code" => "uk",
+	"name" => "ukrainian",
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
+	"filename_old_patterns" => "ukrhyph.tex",
+	"hyphenmin" => [2,2],
+	"encoding" => "t2a",
+	"exceptions" => false,
+	"message" => "Ukrainian Hyphenation Patterns",
 },
 # ----------------------------
 # languages using new patterns
 # ----------------------------
-# czech		xu-czhyph.tex
+# catalan		cahyph.tex
 {
+	"code" => "ca",
+	"name" => "catalan",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-#	"use_old_patterns_comment" => "Loading new patterns would most probably work, but testing is needed.",
-	"filename_old_patterns" => "czhyph.tex",
-	"filename_old_patterns_other" => ["czhyphen.tex","czhyphen.ex"],
-#	"filename_xu_loader" => "xu-czhyph.tex",
+	"filename_old_patterns" => "cahyph.tex",
+	"hyphenmin" => [2,2], # babel
+	"encoding" => "ec",
+	"exceptions" => true,
+	"message" => "Catalan Hyphenation Patterns",
+},
+# czech		xu-czhyph.tex
+{
 	"code" => "cs",
 	"name" => "czech",
-	"synonyms" => [],
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "czhyph.tex",
+	"filename_old_patterns_other" => ["czhyphen.tex","czhyphen.ex"],
 	# Both Czech and Slovak: \lefthyphenmin=2, \righthyphenmin=3
 	# Typographical rules allow \righthyphenmin=2 when typesetting in a
 	# narrow column (newspapers etc.).
@@ -180,15 +232,12 @@ class Languages < Hash
 },
 # slovak		xu-skhyph.tex
 {
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
-#	"use_old_patterns_comment" => "Loading new patterns would most probably work, but testing is needed.",
-	"filename_old_patterns" => "skhyph.tex",
-	"filename_old_patterns_other" => ["skhyphen.tex","skhyphen.ex"],
-#	"filename_xu_loader" => "xu-skhyph.tex",
 	"code" => "sk",
 	"name" => "slovak",
-	"synonyms" => [],
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "skhyph.tex",
+	"filename_old_patterns_other" => ["skhyphen.tex","skhyphen.ex"],
 	# see czech
 	"hyphenmin" => [2,3],
 	"encoding" => "ec",
@@ -197,28 +246,37 @@ class Languages < Hash
 },
 # welsh		cyhyph.tex
 {
+	"code" => "cy",
+	"name" => "welsh",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "cyhyph.tex",
-#	"filename_xu_loader" => nil,
-	"code" => "cy",
-	"name" => "welsh",
-	"synonyms" => [],
 	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Welsh Hyphenation Patterns",
 },
+# danish		dkhyph.tex
+{
+	"code" => "da",
+	"name" => "danish",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "dkhyph.tex",
+	"filename_old_patterns_other" => ["dkcommon.tex", "dkspecial.tex"],
+	"hyphenmin" => [2,2], # babel
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "Danish Hyphenation Patterns",
+},
 # esperanto	xu-eohyph.tex
 # TODO
 {
+	"code" => "eo",
+	"name" => "esperanto",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "eohyph.tex",
-#	"filename_xu_loader" => "xu-eohyph.tex",
-	"code" => "eo",
-	"name" => "esperanto",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "il3", # TODO
 	"exceptions" => false,
@@ -227,13 +285,11 @@ class Languages < Hash
 # spanish		xu-eshyph.tex
 # =espanol
 {
+	"code" => "es",
+	"name" => "spanish", "synonyms" => ["espanol"],
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "eshyph.tex",
-#	"filename_xu_loader" => "xu-eshyph.tex",
-	"code" => "es",
-	"name" => "spanish",
-	"synonyms" => ["espanol"],
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -241,41 +297,37 @@ class Languages < Hash
 },
 # basque		xu-bahyph.tex
 {
+	"code" => "eu",
+	"name" => "basque",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "bahyph.tex",
-#	"filename_xu_loader" => "xu-bahyph.tex",
-	"code" => "eu",
-	"name" => "basque",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Basque Hyphenation Patterns",
 },
-# catalan		cahyph.tex
+# french		xu-frhyph.tex
+# =patois
+# =francais
 {
+	"code" => "fr",
+	"name" => "french", "synonyms" => ["patois","francais"],
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-	"filename_old_patterns" => "cahyph.tex",
-#	"filename_xu_loader" => "xu-cahyph.tex",
-	"code" => "ca",
-	"name" => "catalan",
-	"synonyms" => [],
-	"hyphenmin" => [2,2], # babel
+	"filename_old_patterns" => "frhyph.tex",
+#	"hyphenmin" => [],
 	"encoding" => "ec",
-	"exceptions" => true,
-	"message" => "Catalan Hyphenation Patterns",
+	"exceptions" => false,
+	"message" => "French hyphenation patterns (V2.12, 2002/12/11)",
 },
 # galician	xu-glhyph.tex
 {
+	"code" => "gl",
+	"name" => "galician",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "glhyph.tex",
-#	"filename_xu_loader" => "xu-glhyph.tex",
-	"code" => "gl",
-	"name" => "galician",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -283,13 +335,11 @@ class Languages < Hash
 },
 # estonian	xu-ethyph.tex
 {
+	"code" => "et",
+	"name" => "estonian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "ethyph.tex",
-#	"filename_xu_loader" => "xu-ethyph.tex",
-	"code" => "et",
-	"name" => "estonian",
-	"synonyms" => [],
 	"hyphenmin" => [2,3], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -297,13 +347,11 @@ class Languages < Hash
 },
 # finnish		fihyph.tex
 {
+	"code" => "fi",
+	"name" => "finnish",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "fihyph.tex",
-#	"filename_xu_loader" => nil,
-	"code" => "fi",
-	"name" => "finnish",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -311,13 +359,11 @@ class Languages < Hash
 },
 # croatian	xu-hrhyph.tex
 {
+	"code" => "hr",
+	"name" => "croatian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "hrhyph.tex",
-	"filename_xu_loader" => "xu-hrhyph.tex",
-	"code" => "hr",
-	"name" => "croatian",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -325,13 +371,11 @@ class Languages < Hash
 },
 # hungarian	xu-huhyphn.tex
 {
+	"code" => "hu",
+	"name" => "hungarian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "huhyphn.tex",
-	"filename_xu_loader" => "xu-huhyphn.tex",
-	"code" => "hu",
-	"name" => "hungarian",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # polyglosia
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -339,13 +383,11 @@ class Languages < Hash
 },
 # interlingua	iahyphen.tex
 {
+	"code" => "ia",
+	"name" => "interlingua",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "iahyphen.tex",
-	"filename_xu_loader" => nil,
-	"code" => "ia",
-	"name" => "interlingua",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ascii",
 	"exceptions" => true,
@@ -353,13 +395,11 @@ class Languages < Hash
 },
 # indonesian	inhyph.tex
 {
+	"code" => "id",
+	"name" => "indonesian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "inhyph.tex",
-	"filename_xu_loader" => nil,
-	"code" => "id",
-	"name" => "indonesian",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "ascii",
 	"exceptions" => true,
@@ -367,13 +407,11 @@ class Languages < Hash
 },
 # icelandic	icehyph.tex
 {
+	"code" => "is",
+	"name" => "icelandic",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "icehyph.tex",
-	"filename_xu_loader" => nil,
-	"code" => "is",
-	"name" => "icelandic",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -381,13 +419,11 @@ class Languages < Hash
 },
 # irish		gahyph.tex
 {
+	"code" => "ga",
+	"name" => "irish",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "gahyph.tex",
-	"filename_xu_loader" => nil,
-	"code" => "ga",
-	"name" => "irish",
-	"synonyms" => [],
 	"hyphenmin" => [2,3], # babel
 	"encoding" => "ec",
 	"exceptions" => true,
@@ -395,13 +431,11 @@ class Languages < Hash
 },
 # italian		ithyph.tex
 {
+	"code" => "it",
+	"name" => "italian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "ithyph.tex",
-	"filename_xu_loader" => nil,
-	"code" => "it",
-	"name" => "italian",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ascii",
 	"exceptions" => false,
@@ -409,14 +443,12 @@ class Languages < Hash
 },
 # latin		xu-lahyph.tex
 {
+	"code" => "la",
+	"name" => "latin",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
 	"filename_old_patterns" => "lahyph.tex",
-#	"filename_xu_loader" => "xu-lahyph.tex",
-	"code" => "la",
-	"name" => "latin",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -424,13 +456,11 @@ class Languages < Hash
 },
 # dutch		nehyph96.tex
 {
+	"code" => "nl",
+	"name" => "dutch",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "nehyph96.tex",
-	"filename_xu_loader" => nil,
-	"code" => "nl",
-	"name" => "dutch",
-	"synonyms" => [],
 	# quoting Hans Hagen:
 	# patterns generated with 2,2 (so don't go less) but use prefered values 2,3 (educational publishers want 4,5 -)
 	"hyphenmin" => [2,2],
@@ -444,13 +474,11 @@ class Languages < Hash
 # bokmal          nbhyph.tex
 # polish		xu-plhyph.tex
 {
+	"code" => "pl",
+	"name" => "polish",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "plhyph.tex",
-	"filename_xu_loader" => "xu-plhyph.tex",
-	"code" => "pl",
-	"name" => "polish",
-	"synonyms" => [],
 	#{}"hyphenmin" => [1,1],
 	"hyphenmin" => [2,2],
 	"encoding" => "qx",
@@ -460,13 +488,11 @@ class Languages < Hash
 # portuguese	pthyph.tex
 # =portuges
 {
+	"code" => "pt",
+	"name" => "portuguese", "synonyms" => ["portuges"],
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "pthyph.tex",
-	"filename_xu_loader" => nil,
-	"code" => "pt",
-	"name" => "portuguese",
-	"synonyms" => ["portuges"],
 	"hyphenmin" => [2,3], # babel
 	"encoding" => "ec",
 	"exceptions" => true,
@@ -474,13 +500,11 @@ class Languages < Hash
 },
 # pinyin		xu-pyhyph.tex
 {
+	"code" => "zh-latn",
+	"name" => "pinyin",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "pyhyph.tex",
-	"filename_xu_loader" => "xu-pyhyph.tex",
-	"code" => "zh-latn",
-	"name" => "pinyin",
-	"synonyms" => [],
 	"hyphenmin" => [1,1],
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -488,13 +512,11 @@ class Languages < Hash
 },
 # romanian	xu-rohyphen.tex
 {
+	"code" => "ro",
+	"name" => "romanian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "rohyphen.tex",
-	"filename_xu_loader" => "xu-rohyphen.tex",
-	"code" => "ro",
-	"name" => "romanian",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -503,13 +525,11 @@ class Languages < Hash
 # slovenian	xu-sihyph.tex
 # =slovene
 {
+	"code" => "sl",
+	"name" => "slovenian", "synonyms" => ["slovene"],
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "sihyph.tex",
-	"filename_xu_loader" => "xu-sihyph.tex",
-	"code" => "sl",
-	"name" => "slovenian",
-	"synonyms" => ["slovene"],
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -517,13 +537,11 @@ class Languages < Hash
 },
 # uppersorbian	xu-sorhyph.tex
 {
+	"code" => "hsb",
+	"name" => "uppersorbian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "sorhyph.tex",
-	"filename_xu_loader" => "xu-sorhyph.tex",
-	"code" => "hsb",
-	"name" => "uppersorbian",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => true,
@@ -533,13 +551,11 @@ class Languages < Hash
 },
 # swedish		svhyph.tex
 {
+	"code" => "sv",
+	"name" => "swedish",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "svhyph.tex",
-	"filename_xu_loader" => nil,
-	"code" => "sv",
-	"name" => "swedish",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # patters say it could be 1,2; babel says 2,2 - double check
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -547,13 +563,11 @@ class Languages < Hash
 },
 # turkish		xu-tkhyph.tex
 {
+	"code" => "tr",
+	"name" => "turkish",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "tkhyph.tex",
-	"filename_xu_loader" => "xu-tkhyph.tex",
-	"code" => "tr",
-	"name" => "turkish",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # polyglosia
 	"encoding" => "ec",
 	"exceptions" => false,
@@ -562,27 +576,23 @@ class Languages < Hash
 # ukenglish	ukhyphen.tex
 # TODO - should we rename it or not?
 {
-	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"filename_old_patterns" => "ukhyphen.tex",
-	"filename_xu_loader" => nil,
 	"code" => "en-gb",
-	"name" => "ukenglish",
-	"synonyms" => [],
+	"name" => "ukenglish", "synonyms" => ["british", "UKenglish"],
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "ukhyphen.tex",
 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
 	"encoding" => "ascii",
 	"exceptions" => true,
-	"message" => nil,
+	"message" => "Hyphenation Patterns for British English",
 },
 # serbian		xu-srhyphc.tex
 {
+	"code" => "sr-latn",
+	"name" => "serbian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "shhyphl.tex",
-	"filename_xu_loader" => nil,
-	"code" => "sr-latn",
-	"name" => "serbian",
-	"synonyms" => [],
 	# It is allowed to leave one character at the end of the row.
 	# However, if you think that it is graphicaly not very
 	# pleasent these patterns will work well with \lefthyphenmin=2.
@@ -594,13 +604,11 @@ class Languages < Hash
 },
 # serbianc
 {
+	"code" => "sr-cyrl",
+	"name" => "serbianc",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "srhyphc.tex",
-	"filename_xu_loader" => nil, # "xu-srhyphc.tex"
-	"code" => "sr-cyrl",
-	"name" => "serbianc",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
 	"exceptions" => true,
@@ -608,13 +616,11 @@ class Languages < Hash
 },
 # mongolian	xu-mnhyph.tex
 {
+	"code" => "mn-cyrl",
+	"name" => "mongolian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "mnhyph.tex",
-	"filename_xu_loader" => "xu-mnhyph.tex",
-	"code" => "mn-cyrl",
-	"name" => "mongolian",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "lmc",
 	"exceptions" => false,
@@ -622,140 +628,45 @@ class Languages < Hash
 },
 # mongolian2a
 {
+	"code" => "mn-cyrl-x-2a",
+	"name" => "mongolian2a",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "mnhyphn.tex",
-	"filename_xu_loader" => nil,
-	"code" => "mn-cyrl-x-2a",
-	"name" => "mongolian2a",
-	"synonyms" => [],
 	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
 	"exceptions" => false,
 	"message" => "(New) Mongolian Hyphenation Patterns",
 },
-# greek		xu-grphyph4.tex
-# =polygreek
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
-	"filename_old_patterns" => "grphyph5.tex",
-	"filename_xu_loader" => "xu-grphyph4.tex", # TODO: beware!
-	"code" => "el-polyton",
-	"name" => "greek",
-	"synonyms" => ["polygreek"],
-	# left/right hyphen min for Greek can be as low as one (1),
-	# but for aesthetic reasons keep them at 2/2.
-	# Dimitrios Filippou
-	"hyphenmin" => [1,1], # polyglosia
-	"encoding" => nil,
-	"exceptions" => true,
-#	"message" => "Polytonic Greek Hyphenation Patterns",
-	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek"
-},
-# monogreek	xu-grmhyph4.tex
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
-	"filename_old_patterns" => "grmhyph5.tex",
-	"filename_xu_loader" => "xu-grmhyph4.tex", # TODO: beware!
-	"code" => "el-monoton",
-	"name" => "monogreek",
-	"synonyms" => [],
-	"hyphenmin" => [1,1], # polyglosia
-	"encoding" => nil,
-	"exceptions" => true,
-#	"message" => "Monotonic Greek Hyphenation Patterns",
-	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek"
-},
-# ancientgreek	xu-grahyph4.tex
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
-	"filename_old_patterns" => "grahyph5.tex",
-	"filename_xu_loader" => "xu-grahyph4.tex", # TODO: beware!
-	"code" => "grc",
-	"name" => "ancientgreek",
-	"synonyms" => [],
-	"hyphenmin" => [1,1], # polyglosia
-	"encoding" => nil,
-	"exceptions" => false,
-	"message" => "Hyphenation patterns for Ancient Greek"
-},
-# ibycus ibyhyph.tex
-{
-	"use_new_loader" => false,
-	"use_old_patterns" => true,
-	"filename_old_patterns" => "ibyhyph.tex",
-	"filename_xu_loader" => nil,
-	"code" => "grc-x-ibycus",
-	"name" => "ibycus",
-	"synonyms" => [],
-	"hyphenmin" => [2,2],
-	"encoding" => nil,
-	"exceptions" => false,
-	"message" => "Ancient Greek Hyphenation Patterns for Ibycus encoding (v3.0)",
-},
 # bulgarian	xu-bghyphen.tex
 {
+	"code" => "bg",
+	"name" => "bulgarian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "bghyphen.tex",
-	"filename_xu_loader" => "xu-bghyphen.tex",
-	"code" => "bg",
-	"name" => "bulgarian",
-	"synonyms" => [],
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "t2a",
 	"exceptions" => false,
 	"message" => "Bulgarian Hyphenation Patterns",
 },
-# russian	xu-ruhyphen.tex
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
-	"code" => "ru",
-	"name" => "russian",
-	"synonyms" => [],
-	"hyphenmin" => [2,2],
-	"encoding" => "t2a",
-	"exceptions" => false,
-	"message" => "Russian Hyphenation Patterns",
-},
-# ukrainian	xu-ukrhyph.tex
-{
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
-	"code" => "uk",
-	"name" => "ukrainian",
-	"synonyms" => [],
-	"hyphenmin" => [2,2],
-	"encoding" => "t2a",
-	"exceptions" => false,
-	"message" => "Ukrainian Hyphenation Patterns",
-},
 # sanskrit
 {
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
 	"code" => "sa",
 	"name" => "sanskrit",
-	"synonyms" => [],
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
 	"hyphenmin" => [1,5], # polyglosia
-	"encoding" => nil,
+	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
 	"message" => "Sanskrit Hyphenation Patterns (v0.2, 2008/1/3)",
 },
 # norsk	xu-nohyphbx.tex
 {
+	"code" => "nb",
+	"name" => "bokmal", "synonyms" => ["norwegian", "norsk"],
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-	"code" => "nb",
-	"name" => "bokmal",
-	"synonyms" => ["norwegian", "norsk"],
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => true,
@@ -763,11 +674,10 @@ class Languages < Hash
 },
 # nynorsk	nnhyph.tex
 {
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
 	"code" => "nn",
 	"name" => "nynorsk",
-	"synonyms" => [],
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => true,

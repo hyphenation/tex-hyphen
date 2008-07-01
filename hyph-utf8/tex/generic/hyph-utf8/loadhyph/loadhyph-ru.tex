@@ -19,9 +19,10 @@
 % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
 \ifx\secondarg\empty
     \message{UTF-8 Russian Hyphenation Patterns}
+    \input hyph-ru.tex
 \else
-    \message{T2A Russian Hyphenation Patterns}
-    \input conv-utf8-t2a.tex
+    \message{Russian Hyphenation Patterns}
+    % The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.
+    \input ruhyphen.tex
 \fi
-\input hyph-ru.tex
 \endgroup
