@@ -44,8 +44,6 @@ romanian	loadhyph-ro.tex
 russian	loadhyph-ru.tex
 sanskrit	loadhyph-sa.tex
 serbian	loadhyph-sr-latn.tex
-serbianc	loadhyph-sr-cyrl.tex
-slovak	loadhyph-sk.tex
 slovenian	loadhyph-sl.tex
 =slovene
 spanish	loadhyph-es.tex
@@ -53,6 +51,8 @@ spanish	loadhyph-es.tex
 swedish	loadhyph-sv.tex
 turkish	loadhyph-tr.tex
 ukenglish	loadhyph-en-gb.tex
+=british
+=UKenglish
 ukrainian	loadhyph-uk.tex
 uppersorbian	loadhyph-hsb.tex
 welsh	loadhyph-cy.tex
