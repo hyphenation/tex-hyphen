@@ -2,9 +2,9 @@ This is a list of things that needs to be done to propagate the changes properly
 Write DONE to each issue once resolved.
 
 TeX Distributions:
-- propagate changes into TeX Live
-- coordinate with Christian Schenk <cs@miktex.org> for changes in MikTeX
-- coordinate with Akira Kakuto <kakuto@fsci.fuk.kindai.ac.jp> for changes in W32TeX
+- [DONE] propagate changes into TeX Live
+- [DONE] coordinate with Christian Schenk <cs@miktex.org> for changes in MikTeX
+- [DONE] coordinate with Akira Kakuto <kakuto@fsci.fuk.kindai.ac.jp> for changes in W32TeX
 
 Pattern creators:
 - make a list of pattern authors, notify them about changes,
@@ -13,13 +13,15 @@ Pattern creators:
 
 CTAN:
 - move old patterns to obsolete
-- upload new patterns
+- [DONE] upload new patterns
+- make an easy-to-browse structure
 - ask CTAN people to be careful if someone uploads new patterns
 
 TeX users:
-- write DOC about pattern conversion
+- [on the way] write DOC about pattern conversion
+- create a web page
 - write an article for TUG boat and/or other TeX magazines
-- maybe present the main idea at some TUG conference
+- [on the way] maybe present the main idea at some TUG conference
 - notify mailing lists
 - CTAN people should take care for new patterns to be submitted in the proper form
 
@@ -27,6 +29,6 @@ Software:
 - possibly rewrite patgen to handle UTF-8
 
 Some other changes:
-- unify pattern loading with both plain TeX/LaTeX
+- [half done by Norbert] unify pattern loading with both plain TeX/LaTeX
 - there is now language.dat + xxhyph.tex - one will be redundant
   (get rid of it once all the patterns are converted)
