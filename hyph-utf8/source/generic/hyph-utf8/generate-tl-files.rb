@@ -120,12 +120,12 @@ language_groups.sort.each do |language_name,language_list|
 		end
 	end
 	if language_name == "greek" then
-		$file_tlpsrc.puts "runpattern f texmf/doc/generic/elhyphen/*"
+		$file_tlpsrc.puts "docpattern d texmf/doc/generic/elhyphen"
 	elsif language_name == "german" then
 		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/dehyphtex.tex"
 		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/ghyphen.README"
 	elsif language_name == "hungarian" then
-		$file_tlpsrc.puts "docpattern f texmf/doc/generic/huhyphen/*"
+		$file_tlpsrc.puts "docpattern d texmf/doc/generic/huhyphen"
 	end
 	$file_tlpsrc.close
 end
