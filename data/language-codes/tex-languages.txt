@@ -24,7 +24,7 @@ ia	Interlingua
 it	Italian
 la	Latin
 mn-cyrl	Mongolian, Cyrillic script
-mn-cyrl-x-new	Mongolian, Cyrillic script (new patterns)
+mn-cyrl-x-2a	Mongolian, Cyrillic script (new patterns)
 no	Norwegian % without distinguishing between bokmål and nynorsk
 nb	Norwegian Bokmål
 nn	Norwegian Nynorsk
@@ -33,7 +33,10 @@ pl	Polish
 pt	Portuguese
 ro	Romanian
 ru	Russian
-sr	Serbian
+sr-Latn	Serbian in the Latin script
+sr-Cyrl	Serbian in the Cyrillic script
+sh-Latn	Serbo-Croatian in the Latin script
+sh-Cyrl	Serbo-Croatian in the Cyrillic script
 sl	Slovene
 es	Spanish
 sv	Swedish
