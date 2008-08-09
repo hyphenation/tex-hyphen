@@ -21,6 +21,7 @@
 \ifx\secondarg\empty
     \message{UTF-8 Ukrainian Hyphenation Patterns}
     \input hyph-uk.tex
+    % Additional patterns with hyphen/dash: a hack to prevent breaking after hyphen, but not before.
     \input exhyph-uk.tex
 \else
     \message{Ukrainian Hyphenation Patterns}

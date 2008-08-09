@@ -97,6 +97,11 @@ languages.each do |language|
 					file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
 				end
 				file.puts("    \\input hyph-#{language.code}.tex")
+				# russian and ukrainian exceptions - hacks with dashes
+				if language.code == 'ru' or language.code == 'uk' then
+					file.puts('    % Additional patterns with hyphen/dash: a hack to prevent breaking after hyphen, but not before.')
+					file.puts("    \\input exhyph-#{language.code}.tex")
+				end
 				file.puts('\else')
 				file.puts("    \\message{#{language.message}}")
 				# explain why we are still using the old patterns

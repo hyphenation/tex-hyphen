@@ -20,6 +20,7 @@
 \ifx\secondarg\empty
     \message{UTF-8 Russian Hyphenation Patterns}
     \input hyph-ru.tex
+    % Additional patterns with hyphen/dash: a hack to prevent breaking after hyphen, but not before.
     \input exhyph-ru.tex
 \else
     \message{Russian Hyphenation Patterns}
