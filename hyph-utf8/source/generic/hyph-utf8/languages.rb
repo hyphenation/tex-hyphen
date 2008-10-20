@@ -20,6 +20,28 @@ class Language
 	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns, :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
 end
 
+
+authors = {
+	"peter_heslin" => {
+		"name" => "Peter",
+		"surname" => "Heslin",
+		"tried_to_contact" => false,
+	},
+	"dimitrios_filippou" => {
+		"name"      => "Dimitrios",
+		"surname"   => "Filippou",
+		"email"     => "dfilipp{at}hotmail{dot}com",
+		"contact"   => true,
+		"cooperate" => true,
+	}
+	
+	"claudio_beccari" => {
+		"name" => "Claudio",
+		"email" => "claudio.beccari@polito.it",
+	}
+
+}
+
 # "use_new_loader"
 # => true - create a new file and use that one
 # => false - use "filename_old_patterns" in language.dat
@@ -84,6 +106,8 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Ancient Greek Hyphenation Patterns for Ibycus encoding (v3.0)",
+	
+	"authors" => ["peter_heslin"],
 },
 # ----------------------------
 # languages using old patterns
@@ -104,7 +128,9 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => true,
 #	"message" => "Polytonic Greek Hyphenation Patterns",
-	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek"
+	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
+	
+	"authors" => ["dimitrios_filippou"],
 },
 # monogreek	xu-grmhyph4.tex
 {
@@ -118,7 +144,9 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => true,
 #	"message" => "Monotonic Greek Hyphenation Patterns",
-	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek"
+	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek",
+	
+	"authors" => ["dimitrios_filippou"],
 },
 # ancientgreek	xu-grahyph4.tex
 {
@@ -131,7 +159,9 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # polyglosia
 	"encoding" => nil,
 	"exceptions" => false,
-	"message" => "Hyphenation patterns for Ancient Greek"
+	"message" => "Hyphenation patterns for Ancient Greek",
+	
+	"authors" => ["dimitrios_filippou"],
 },
 # coptic		xu-copthyph.tex
 {
@@ -145,6 +175,8 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Coptic Hyphenation Patterns",
+	
+	"authors" => ["claudio_beccari"],
 },
 # german		xu-dehypht.tex
 {
