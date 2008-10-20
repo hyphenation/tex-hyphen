@@ -1,0 +1,133 @@
+; TECkit mapping for Unicode <-> LATIN7X
+
+; a workaround for the usage of old LATIN7X-encoded fonts in TeX
+
+LHSName	"UNICODE"
+RHSName	"LATIN7X"
+
+pass(Unicode)
+U+0060	<>	U+0000	; grave
+U+00B4	<>	U+0001	; acute
+U+02C6	<>	U+0002	; circumflex
+U+02DC	<>	U+0003	; tilde
+U+00A8	<>	U+0004	; dieresis
+U+02DD	<>	U+0005	; hungarumlaut
+U+02DA	<>	U+0006	; ring
+U+02C7	<>	U+0007	; caron
+U+02D8	<>	U+0008	; breve
+U+00AF	<>	U+0009	; macron
+U+02D9	<>	U+000A	; dotaccent
+U+00B8	<>	U+000B	; cedilla
+U+02DB	<>	U+000C	; ogonek
+U+201A	<>	U+000D	; quotesinglbase
+U+2039	<>	U+000E	; guilsinglleft
+U+203A	<>	U+000F	; guilsinglright
+U+201C	<>	U+0010	; quotedblleft
+U+201D	<>	U+0011	; quotedblright
+U+201E	<>	U+0012	; quotedblbase
+U+00AB	<>	U+0013	; guillemotleft
+U+00BB	<>	U+0014	; guillemotright
+U+2013	<>	U+0015	; endash
+U+2014	<>	U+0016	; emdash
+U+200B	<>	U+0017	; cwm
+; perthousandzero     : no Unicode mapping assigned
+U+0131	<>	U+0019	; dotlessi
+U+0237	<>	U+001A	; dotlessj
+U+FB00	<>	U+001B	; ff
+U+FB01	<>	U+001C	; fi
+U+FB02	<>	U+001D	; fl
+U+FB03	<>	U+001E	; ffi
+U+FB04	<>	U+001F	; ffl
+U+2019	<>	U+0027	; quoteright
+U+2018	<>	U+0060	; quoteleft
+; .notdef             : no Unicode mapping assigned
+U+20AC	<>	U+0080	; Euro
+; .notdef             : no Unicode mapping assigned
+U+201A	<>	U+0082	; quotesinglbase
+U+0192	<>	U+0083	; florin
+U+201E	<>	U+0084	; quotedblbase
+U+2026	<>	U+0085	; ellipsis
+U+2020	<>	U+0086	; dagger
+U+2021	<>	U+0087	; daggerdbl
+; .notdef             : no Unicode mapping assigned
+U+2030	<>	U+0089	; perthousand
+; .notdef             : no Unicode mapping assigned
+U+2039	<>	U+008B	; guilsinglleft
+U+0152	<>	U+008C	; OE
+U+00A8	<>	U+008D	; dieresis
+U+02C7	<>	U+008E	; caron
+U+00B8	<>	U+008F	; cedilla
+; .notdef             : no Unicode mapping assigned
+U+2018	<>	U+0091	; quoteleft
+U+2019	<>	U+0092	; quoteright
+U+201C	<>	U+0093	; quotedblleft
+U+201D	<>	U+0094	; quotedblright
+U+2022	<>	U+0095	; bullet
+U+2013	<>	U+0096	; endash
+U+2014	<>	U+0097	; emdash
+; .notdef             : no Unicode mapping assigned
+U+2122	<>	U+0099	; trademark
+; .notdef             : no Unicode mapping assigned
+U+203A	<>	U+009B	; guilsinglright
+U+0153	<>	U+009C	; oe
+U+00AF	<>	U+009D	; macron
+U+02DB	<>	U+009E	; ogonek
+; .notdef             : no Unicode mapping assigned
+U+0020	<>	U+00A0	; space
+U+201D	<>	U+00A1	; quotedblright
+U+201E	<>	U+00A5	; quotedblbase
+U+00D8	<>	U+00A8	; Oslash
+U+0156	<>	U+00AA	; Rcommaaccent
+U+002D	<>	U+00AD	; hyphen
+U+00C6	<>	U+00AF	; AE
+U+201C	<>	U+00B4	; quotedblleft
+U+00F8	<>	U+00B8	; oslash
+U+0157	<>	U+00BA	; rcommaaccent
+U+00E6	<>	U+00BF	; ae
+U+0104	<>	U+00C0	; Aogonek
+U+012E	<>	U+00C1	; Iogonek
+U+0100	<>	U+00C2	; Amacron
+U+0106	<>	U+00C3	; Cacute
+U+0118	<>	U+00C6	; Eogonek
+U+0112	<>	U+00C7	; Emacron
+U+010C	<>	U+00C8	; Ccaron
+U+0179	<>	U+00CA	; Zacute
+U+0116	<>	U+00CB	; Edotaccent
+U+0122	<>	U+00CC	; Gcommaaccent
+U+0136	<>	U+00CD	; Kcommaaccent
+U+012A	<>	U+00CE	; Imacron
+U+013B	<>	U+00CF	; Lcommaaccent
+U+0160	<>	U+00D0	; Scaron
+U+0143	<>	U+00D1	; Nacute
+U+0145	<>	U+00D2	; Ncommaaccent
+U+014C	<>	U+00D4	; Omacron
+U+0172	<>	U+00D8	; Uogonek
+U+0141	<>	U+00D9	; Lslash
+U+015A	<>	U+00DA	; Sacute
+U+016A	<>	U+00DB	; Umacron
+U+017B	<>	U+00DD	; Zdotaccent
+U+017D	<>	U+00DE	; Zcaron
+U+0105	<>	U+00E0	; aogonek
+U+012F	<>	U+00E1	; iogonek
+U+0101	<>	U+00E2	; amacron
+U+0107	<>	U+00E3	; cacute
+U+0119	<>	U+00E6	; eogonek
+U+0113	<>	U+00E7	; emacron
+U+010D	<>	U+00E8	; ccaron
+U+017A	<>	U+00EA	; zacute
+U+0117	<>	U+00EB	; edotaccent
+U+0123	<>	U+00EC	; gcommaaccent
+U+0137	<>	U+00ED	; kcommaaccent
+U+012B	<>	U+00EE	; imacron
+U+013C	<>	U+00EF	; lcommaaccent
+U+0161	<>	U+00F0	; scaron
+U+0144	<>	U+00F1	; nacute
+U+0146	<>	U+00F2	; ncommaaccent
+U+014D	<>	U+00F4	; omacron
+U+0173	<>	U+00F8	; uogonek
+U+0142	<>	U+00F9	; lslash
+U+015B	<>	U+00FA	; sacute
+U+016B	<>	U+00FB	; umacron
+U+017C	<>	U+00FD	; zdotaccent
+U+017E	<>	U+00FE	; zcaron
+U+2019	<>	U+00FF	; quoteright

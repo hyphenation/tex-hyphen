@@ -3,8 +3,8 @@
 $enc = "ec"
 #$enc = "texnansi"
 $enc = "qx"
-$enc = "t5"
-$enc = "lt"
+#$enc = "t5"
+#$enc = "lt"
 $enc = "latin7x"
 
 $path_data         = "data" + File::Separator
@@ -41,6 +41,7 @@ $lowercase_letter["0133"] = true
 
 $AGL_names["hyphenchar"] = $AGL_names["hyphen"]
 $AGL_names["sfthyphen"] = "00AD"
+$AGL_names["hyphen.alt"] = "00AD"
 
 $AGL_names["dotlessj"] = "0237"
 $AGL_names["tcedilla"] = "0163"
