@@ -1,0 +1,293 @@
+%%BeginResource: encoding latin7x
+/latin7x [
+% 0
+/grave
+/acute
+/circumflex
+/tilde
+/dieresis
+/hungarumlaut
+/ring
+/caron
+% 8
+/breve
+/macron
+/dotaccent
+/cedilla
+/ogonek
+/quotesinglbase
+/guilsinglleft
+/guilsinglright
+% 16
+/quotedblleft
+/quotedblright
+/quotedblbase
+/guillemotleft
+/guillemotright
+/endash
+/emdash
+/compwordmark
+% 24
+/perthousandzero
+/dotlessi
+/dotlessj
+/ff
+/fi
+/fl
+/ffi
+/ffl
+% 32
+/space
+/exclam
+/quotedbl
+/numbersign
+/dollar
+/percent
+/ampersand
+/quoteright
+% 40
+/parenleft
+/parenright
+/asterisk
+/plus
+/comma
+/hyphen
+/period
+/slash
+% 48
+/zero
+/one
+/two
+/three
+/four
+/five
+/six
+/seven
+% 56
+/eight
+/nine
+/colon
+/semicolon
+/less
+/equal
+/greater
+/question
+% 64
+/at
+/A
+/B
+/C
+/D
+/E
+/F
+/G
+% 72
+/H
+/I
+/J
+/K
+/L
+/M
+/N
+/O
+% 80
+/P
+/Q
+/R
+/S
+/T
+/U
+/V
+/W
+% 88
+/X
+/Y
+/Z
+/bracketleft
+/backslash
+/bracketright
+/asciicircum
+/underscore
+% 96
+/quoteleft
+/a
+/b
+/c
+/d
+/e
+/f
+/g
+% 104
+/h
+/i
+/j
+/k
+/l
+/m
+/n
+/o
+% 112
+/p
+/q
+/r
+/s
+/t
+/u
+/v
+/w
+% 120
+/x
+/y
+/z
+/braceleft
+/bar
+/braceright
+/asciitilde
+/.notdef
+% 128
+/Euro
+/.notdef
+/quotesinglbase
+/florin
+/quotedblbase
+/ellipsis
+/dagger
+/daggerdbl
+% 136
+/.notdef
+/perthousand
+/.notdef
+/guilsinglleft
+/OE
+/dieresis
+/caron
+/cedilla
+% 144
+/.notdef
+/quoteleft
+/quoteright
+/quotedblleft
+/quotedblright
+/bullet
+/endash
+/emdash
+% 152
+/.notdef
+/trademark
+/.notdef
+/guilsinglright
+/oe
+/macron
+/ogonek
+/.notdef
+% 160
+/space
+/quotedblright
+/cent
+/sterling
+/currency
+/quotedblbase
+/brokenbar
+/section
+% 168
+/Oslash
+/copyright
+/Rcommaaccent
+/guillemotleft
+/logicalnot
+/hyphen
+/registered
+/AE
+% 176
+/degree
+/plusminus
+/twosuperior
+/threesuperior
+/quotedblleft
+/mu
+/paragraph
+/periodcentered
+% 184
+/oslash
+/onesuperior
+/rcommaaccent
+/guillemotright
+/onequarter
+/onehalf
+/threequarters
+/ae
+% 192
+/Aogonek
+/Iogonek
+/Amacron
+/Cacute
+/Adieresis
+/Aring
+/Eogonek
+/Emacron
+% 200
+/Ccaron
+/Eacute
+/Zacute
+/Edotaccent
+/Gcommaaccent
+/Kcommaaccent
+/Imacron
+/Lcommaaccent
+% 208
+/Scaron
+/Nacute
+/Ncommaaccent
+/Oacute
+/Omacron
+/Otilde
+/Odieresis
+/multiply
+% 216
+/Uogonek
+/Lslash
+/Sacute
+/Umacron
+/Udieresis
+/Zdotaccent
+/Zcaron
+/germandbls
+% 224
+/aogonek
+/iogonek
+/amacron
+/cacute
+/adieresis
+/aring
+/eogonek
+/emacron
+% 232
+/ccaron
+/eacute
+/zacute
+/edotaccent
+/gcommaaccent
+/kcommaaccent
+/imacron
+/lcommaaccent
+% 240
+/scaron
+/nacute
+/ncommaaccent
+/oacute
+/omacron
+/otilde
+/odieresis
+/divide
+% 248
+/uogonek
+/lslash
+/sacute
+/umacron
+/udieresis
+/zdotaccent
+/zcaron
+/quoteright
+] def
+%%EndResource
+
