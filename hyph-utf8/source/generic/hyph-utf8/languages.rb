@@ -33,8 +33,7 @@ authors = {
 		"email"     => "dfilipp{at}hotmail{dot}com",
 		"contact"   => true,
 		"cooperate" => true,
-	}
-	
+	},
 	"claudio_beccari" => {
 		"name" => "Claudio",
 		"email" => "claudio.beccari@polito.it",
@@ -485,6 +484,17 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Latin Hyphenation Patterns",
+},
+# lithuanian
+{
+	"code" => "lt",
+	"name" => "lithuanian",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [2,2],
+	"encoding" => "l7x",
+	"exceptions" => false,
+	"message" => "Lithuanian Hyphenation Patterns",
 },
 # dutch		nehyph96.tex
 {

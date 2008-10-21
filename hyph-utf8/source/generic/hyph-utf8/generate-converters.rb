@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 $encoding_data_dir = "data/encodings"
-$encodings = ["ec", "qx", "t2a", "lmc", "il2", "il3"]
+$encodings = ["ec", "qx", "t2a", "lmc", "il2", "il3", "l7x"]
 
 $output_data_dir = "../../../tex/generic/hyph-utf8/conversions"
 
