@@ -31,6 +31,7 @@ interlingua	loadhyph-ia.tex
 irish	loadhyph-ga.tex
 italian	loadhyph-it.tex
 latin	loadhyph-la.tex
+lithuanian	loadhyph-lt.tex
 mongolian	loadhyph-mn-cyrl.tex
 mongolian2a	loadhyph-mn-cyrl-x-2a.tex
 bokmal	loadhyph-nb.tex

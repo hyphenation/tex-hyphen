@@ -1,0 +1,3 @@
+name hyphen-lithuanian
+category TLCore
+execute AddHyphen name=lithuanian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-lt.tex
