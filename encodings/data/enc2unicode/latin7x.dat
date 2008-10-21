@@ -129,7 +129,7 @@
 0x80	U+20AC		Euro
 0x81	U+....		.notdef
 0x82	U+201A		quotesinglbase
-0x83	U+0192	1	florin
+0x83	U+0192		florin
 0x84	U+201E		quotedblbase
 0x85	U+2026		ellipsis
 0x86	U+2020		dagger

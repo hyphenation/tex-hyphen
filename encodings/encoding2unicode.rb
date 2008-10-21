@@ -28,8 +28,11 @@ File.open($filename_unicode_data).grep /^([0-9A-F]*);[^;]*;Ll;.*$/ do |line|
 		$lowercase_letter[unicode] = true
 	end
 end
+
 # ij
 $lowercase_letter["0133"] = true
+# florin
+$lowercase_letter["0192"] = false
 
 $AGL_names["hyphenchar"] = $AGL_names["hyphen"]
 $AGL_names["sfthyphen"] = "00AD"
