@@ -107,6 +107,7 @@ encodings.each do |enc|
   					$file_map.printf("%d\t<>\tU+%s\t; %s\n", i, unicode_point, w);
   					$file_fixed_enc.printf("/%-15s %% 0x%02X U+#{unicode_point}\n", w, i);
   				else
+  					$file_map.printf("%d\t<>\tU+%s\t; %s\n", i, unicode_point, w);
   					$file_fixed_enc.printf("/%-15s %% 0x%02X\n", w, i);
   				end
   				lowercase = ""
