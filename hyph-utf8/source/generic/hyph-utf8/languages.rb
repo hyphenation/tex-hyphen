@@ -496,6 +496,17 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Lithuanian Hyphenation Patterns",
 },
+# latvian                                                                       
+{                                                                               
+        "code" => "lv",                                                         
+        "name" => "latvian",                                                    
+        "use_new_loader" => true,                                               
+        "use_old_patterns" => false,                                            
+        "hyphenmin" => [2,2],                                                   
+        "encoding" => "l7x",                                                    
+        "exceptions" => false,                                                  
+        "message" => "Latvian Hyphenation Patterns",                            
+},                                                   
 # dutch		nehyph96.tex
 {
 	"code" => "nl",
