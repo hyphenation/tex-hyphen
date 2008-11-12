@@ -1,80 +1,19 @@
-% This file is part of hyph-utf8 package and resulted from
-% semi-manual conversions of hyphenation patterns into UTF-8 in June 2008.
+% Huhyphn - hungarian hyphenation patterns v20081106
 %
-% Source: huhyphn.tex (2007-09-07), http://www.tipogral.hu/download/huhyphn-20070907.tar.gz
-% Author: NAGY Bence <huhyphn at tipogral.hu>
-%
-% The above mentioned file should become obsolete,
-% and the author of the original file should preferaby modify this file instead.
-%
-% Modificatios were needed in order to support native UTF-8 engines,
-% but functionality (hopefully) didn't change in any way, at least not intentionally.
-% This file is no longer stand-alone; at least for 8-bit engines
-% you probably want to use loadhyph-foo.tex (which will load this file) instead.
-%
-% Modifications were done by Jonathan Kew, Mojca Miklavec & Arthur Reutenauer
-% with help & support from:
-% - Karl Berry, who gave us free hands and all resources
-% - Taco Hoekwater, with useful macros
-% - Hans Hagen, who did the unicodifisation of patterns already long before
-%               and helped with testing, suggestions and bug reports
-% - Norbert Preining, who tested & integrated patterns into TeX Live
-%
-% However, the "copyright/copyleft" owner of patterns remains the original author.
-%
-% The copyright statement of this file is thus:
-%
-%    Do with this file whatever needs to be done in future for the sake of
-%    "a better world" as long as you respect the copyright of original file.
-%    If you're the original author of patterns or taking over a new revolution,
-%    plese remove all of the TUG comments & credits that we added here -
-%    you are the Queen / the King, we are only the servants.
-%
-% If you want to change this file, rather than uploading directly to CTAN,
-% we would be grateful if you could send it to us (http://tug.org/tex-hyphen)
-% or ask for credentials for SVN repository and commit it yourself;
-% we will then upload the whole "package" to CTAN.
-%
-% Before a new "pattern-revolution" starts,
-% please try to follow some guidelines if possible:
-%
-% - \lccode is *forbidden*, and I really mean it
-% - all the patterns should be in UTF-8
-% - the only "allowed" TeX commands in this file are: \patterns, \hyphenation,
-%   and if you really cannot do without, also \input and \message
-% - in particular, please no \catcode or \lccode changes,
-%   they belong to loadhyph-foo.tex,
-%   and no \lefthyphenmin and \righthyphenmin,
-%   they have no influence here and belong elsewhere
-% - \begingroup and/or \endinput is not needed
-% - feel free to do whatever you want inside comments
-%
-% We know that TeX is extremely powerful, but give a stupid parser
-% at least a chance to read your patterns.
-%
-% For more unformation see
-%
-%    http://tug.org/tex-hyphen
-%
-%------------------------------------------------------------------------------
-%
-% Huhyphn - hungarian hyphenation patterns v20070907
-%
-% Copyright (C) 2003-2004, NAGY Bence <nagybence@tipogral.hu>
+% Copyright (C) 2003-2008, Bence Nagy <nagybence@tipogral.hu>
 % This file can be distributed under the terms of the
 % GNU General Public License version 2.
 % 
-% Encoding: Cork/T1/EC
+% Encoding: UTF8
 %
-% \message{Huhyphn - hungarian hyphenation patterns v20070907}
-%
+\message{Huhyphn - hungarian hyphenation patterns v20081106}
 \patterns{%
 .a2
 .adatát1a2
 .ada2t1e2
 .adás1s
 .adá2s3z
-.ad1yé
+.ad1yé.
 .ad1yi
 .ag1os
 .ag2ra
@@ -116,6 +55,7 @@
 .al2tin
 .am1ak
 .ango2l1ó2
+.an1th
 .anti1s
 .apa1p2
 .apá2ly1á2z
@@ -709,6 +649,7 @@
 .ki2ság
 .kiű2
 .kla2uz
+.kle2i
 .kló2re
 .ko2rác
 .ko2rí
@@ -872,6 +813,7 @@
 .nya2k1á2ro
 .nya2k1e2
 .nya2k1ö2
+.nyol2c1an
 .o2
 .oda1
 .ok1a2d
@@ -930,6 +872,7 @@
 .őr1é2s
 .őr1ist
 .őr1o
+.őr2s1ág
 .őr1u2
 .őr1üg
 .ős1a2
@@ -1892,7 +1835,6 @@ a2d1űr
 ad1űz
 ad1yéh
 ad1yér
-ad1yét
 ad3zab
 ad3zav
 ad3zár
@@ -2884,6 +2826,7 @@ ak1sp
 ak1sz2t
 ak2t1au
 aktár2s1a2d
+akt1emb
 1akti.
 ak2tim
 1aktívb
@@ -3373,8 +3316,8 @@ am1abb
 am1abl
 2amad
 a2m1a2dat
-ama2dás
-am1adm
+am1a2dás
+a2m1adm
 a2m1a2dó
 a2m1a2du
 2amag
@@ -3383,7 +3326,7 @@ ama2gát
 am1ajt
 ama2kar
 a2m1akt
-am1akv
+a2m1akv
 a2m1a2lak
 am1a2lap
 a2m1a2l1e
@@ -3400,11 +3343,11 @@ ama2tad
 amata2n
 ama2tárá
 ama2tel
-am2ati
 ama2told
 ama2t1osz
 ama2t1ó2
 a2m1a2u
+a2mazo
 a2m1álm
 a2m1á2rai
 a2m1á2rak
@@ -3566,7 +3509,6 @@ an1appo
 an1a2rab
 an1a2rá
 a2narc
-an1arr
 ana2sz1e2
 ana2szén
 ana2szin
@@ -3848,7 +3790,8 @@ anu2szi
 a2n1u2t
 a2n1úg
 an1ü2g
-an1ü2l
+anü2l
+a2n1ülő
 an1ü2z
 an1űr
 an1űz
@@ -4346,6 +4289,7 @@ ará2sze
 a2r1á2szoki
 ará2tal
 ará2t1ö
+aráz4s
 ará2zsál
 arázsi2
 arázs3z
@@ -4683,6 +4627,7 @@ as1okl
 as1okos
 2asoks
 as1okta
+asom1or
 aso2né
 2asor
 a2s1ord
@@ -4704,6 +4649,7 @@ asp2r
 a1s2pu
 as1s2p
 as3szabá
+as3szin
 asszí2ve
 assz1íve.
 assz1ívek
@@ -5451,6 +5397,7 @@ ay1il
 ay1ing
 a1yit
 ayma2
+ay1s2t
 aza2ch
 aza2cik
 azai2ko
@@ -6497,6 +6444,7 @@ az1üz
 1államá
 álla2m1e
 1államot
+1államti
 ál2l1a2pá
 ál2l1a2r
 1állata
@@ -6886,6 +6834,8 @@ az1üz
 án2c3h
 án2c1ill
 án2cim
+ánci2p
+ánc1ipa
 án2c1ir
 án2c1i2s
 án2c1ó2
@@ -8453,6 +8403,7 @@ az1üz
 ázs1ü2v
 á2z3sű
 áz3szá
+ázs3zon
 áz1t2r
 á2z1ud
 á2z1ug
@@ -9276,6 +9227,7 @@ ble2t1érd
 ble2t1étk
 bletigaz1
 ble2t1o
+ble2tó
 ble2t1ö2
 ble2tu
 ble2tüz
@@ -10398,6 +10350,7 @@ cli2s
 clu2b1a
 cmelo1
 cnya2k
+cnyol2c1an
 1co
 co2at
 co2áz
@@ -10674,6 +10627,7 @@ cso2k1á
 2cs1oli
 2csolló
 2csolvas
+cso2mor
 cson2t1a2
 2csopc
 2cs1orc
@@ -11917,6 +11871,7 @@ do2bü
 do2bű
 2d1o2dú
 do2gar
+dogasz1
 do2gár
 dogás1s
 do2g1ol
@@ -13195,6 +13150,7 @@ e2g1ot
 e3gó.
 e3g2ób
 egó2do
+e3g2ój
 eg1ó2ra
 eg1órá
 eg1óv
@@ -13345,7 +13301,8 @@ e2i1g2n
 ei2gy
 ei2ha
 eil2le.
-ei2ma
+ei2ma.
+ei2man
 ei2má
 ei2mit
 e2imk
@@ -14315,6 +14272,7 @@ e2m1ember
 e2m1e2mel
 e2m1emu
 e2mener
+emenes1s
 e2m1e2p
 e2m1e2rény
 e2m1e2rő
@@ -14499,7 +14457,7 @@ en1bl
 en2c1a2
 en2c1ár
 en2c3h
-en2cip
+en2c1ip
 en2cí
 en2c1ol
 en2c1os
@@ -15199,7 +15157,7 @@ e2r1ido
 er1idu
 eri2ga
 e2r1i2gá
-eri2kon
+e2r1i2kon
 e2r1i2mi
 eri2no
 erint2
@@ -15920,6 +15878,7 @@ et3ya
 e1u
 eu2bo
 eu2ga
+eu1k2h
 eu2mal
 eu2m1e
 eu2mim
@@ -17201,6 +17160,7 @@ e2z1ü2z
 éle2tik
 éle2tisz
 éle2t1o
+éle2tó
 életö2
 éle2t1öl
 éle2t1ör
@@ -18667,6 +18627,7 @@ e2z1ü2z
 ész2tors
 észtorz1
 ész1tra
+ész1tri
 és3zul
 ész1ut
 ész1úrn
@@ -19738,7 +19699,6 @@ f2lot
 f2luk
 1fo
 fo2am
-fo2g1a2r
 fo2g1á2c
 fo2gál
 fo2g1árk
@@ -21701,9 +21661,12 @@ gp2rű
 gp2sz
 1graff
 grafo1
-gra2m1a
-grama2r
-grama2z
+gra2mad
+gra2maj
+gra2mal
+gra2m1a2r
+gra2m1as
+gram1a2z
 gra2m1á2
 gra2m1e2
 gra2m1érté
@@ -23084,6 +23047,7 @@ hu1hy
 2hurá
 hur2t1e
 hur2tit
+2hus.
 2husi
 huszon1
 1hú
@@ -24127,6 +24091,8 @@ ima1gl
 im1akk
 imaó2
 ima1p
+2imar.
+i2marit
 1i2mád
 i2mákt
 im1dr
@@ -24407,6 +24373,7 @@ in2t1ész
 1intéző
 2intézőc
 in1t2hos
+in1thu
 in2tid
 in2tigé
 int1illa
@@ -27464,7 +27431,6 @@ ka2n1iv
 ka2nol
 ka2nód
 2kante
-ka2nü
 ka2nű
 2k1a2nya.
 2k1a2nyag
@@ -27656,6 +27622,7 @@ ká2lág
 k1áldo
 ká2l1e2
 ká2lén
+2kállamti
 2k1állap
 2k1állás
 kál2l1e2
@@ -28702,6 +28669,7 @@ ko2k1er
 2k1okl
 2k1okm
 2k1o2kol
+ko2k1o2v
 2k1o2koz
 kok2sze
 2k1okta
@@ -28836,6 +28804,7 @@ ko2szó
 kotókész1
 kotó1st
 ko2ut
+2kovaria
 ko2vié
 ko2xi
 koza2tal
@@ -30160,7 +30129,6 @@ lb2ró
 lb2ru
 lc1ajt
 lc1alk
-lc1an.
 l2c1a2to
 l2c1ág
 l2c1ál
@@ -30798,7 +30766,6 @@ le2t1o2k
 le2t1on
 let1ora
 le2t1ox
-le2t1ó2r
 le2t1ö2v
 letőe3d
 le2t1őri
@@ -31923,7 +31890,7 @@ lo2n1á2z
 lon2ch
 lon2cil
 lon2d1ó2
-lo2n1e
+lo2n1el
 lo2n1ir
 lon1k2
 lo2nol
@@ -31962,6 +31929,7 @@ l2osa
 l2osb
 lo2se
 lo2sü
+lo1t2ha
 2lottl
 lo2xá
 lo2xi
@@ -33014,6 +32982,7 @@ ma2ga2n
 mag1any
 maga2r
 mag1ara
+magas1s
 ma2g1asza
 mag1azo
 ma2gág
@@ -33050,6 +33019,7 @@ ma2kará
 ma2kác
 2m1akc
 mak2k1e2
+2makkr
 2m1akku
 ma1klu
 2m1a2kol.
@@ -33077,7 +33047,7 @@ m1algo
 malo2m1e
 mal1os
 m1alr
-m1alt.
+2m1alt.
 mal1th
 2m1a2lu
 2malv
@@ -33263,6 +33233,7 @@ má2nár
 mánc1c
 mán2ce
 mán2c1ég
+mán2cip
 mán2csé
 má2n1e
 má2n1in
@@ -34396,6 +34367,9 @@ mori2s
 mo2r1isk
 mo2r1iszo
 mor1izg
+2morjaia
+2morjaié
+2m1orjait
 mo2r1ol
 mo2r1ont
 mo2r1ón
@@ -34474,6 +34448,7 @@ möl2cs1o
 möl2cs1ő
 mö2le
 mö2nu
+mö2ro
 mö2r1ő
 m1ötl
 mö2ve
@@ -34937,7 +34912,7 @@ narchi2ab
 2n1arco
 2n1arcu
 2n1arcú
-2narr
+n1arró
 2n1arz
 na2sév
 nas1isk
@@ -35239,7 +35214,6 @@ n2c1ind
 nc1inf
 n2c1ing
 n2c1int
-n2c1i2pa
 n2c1irá
 nc1iro
 n2c1ist
@@ -36922,6 +36896,7 @@ nt1évt
 nt1fl
 nt1fr
 nt1gr
+nt2hon
 ntia2n
 ntia2t
 nt1ido
@@ -38001,6 +37976,7 @@ og1alt
 og1alu
 o2g1a2ny
 o2g1ap
+o2g1a2ran
 og1arc
 o2g1a2sz
 oga2t1a2g
@@ -38332,7 +38308,8 @@ oko2ris
 o2k1ormú
 ok1o2ro
 o2k1osz
-o2k1o2v
+ok1o2varia
+o2k1o2vi
 o2k1öb
 o2k1ö2d
 ok1ö2k
@@ -38443,7 +38420,8 @@ o2l1á2ti
 o2l1átv
 ol2caj
 ol2cal
-ol2c1a2n
+olca2n
+olc1any
 ol2c1e2k
 ol2cel
 ol2ces
@@ -39637,6 +39615,8 @@ o2r1í2n
 o2r1ír
 o2r1í2v
 o2r1í2z
+1orjaia
+1orjaié
 or3já
 or1k2l
 orkö2z1e2p
@@ -40442,6 +40422,7 @@ ozzá1s2
 ód1kr
 ód1kv
 2ódob
+ódo2ga
 2ódok
 2ódol
 2ódom
@@ -43483,7 +43464,6 @@ ozzá1s2
 őr1p2r
 1őr1p2s
 1őrs.
-őr2s1ág
 őr2s1ál
 1őrsí
 1őrsö
@@ -43492,6 +43472,7 @@ ozzá1s2
 őr1srá
 őrs3s
 őr1sz2
+1őrszen
 őr2s3zöm
 1őr1t2r
 1ő2r1un
@@ -44280,7 +44261,6 @@ pere2mért
 per1evé
 2perfa
 pe2rid
-pe2r1iko
 pe2r1il
 pe2r1i2na
 pe2r1i2ná
@@ -44716,6 +44696,7 @@ pokol1l
 2p1okta
 2p1oktá
 polás1s
+pol2can
 polc3c
 pol2c3s
 2p1olda
@@ -45360,9 +45341,12 @@ ral2lál
 ral2lev
 ralo2m1e
 ra2mab
+ram1ada
 2ramai
+ram1akk
 rama2l
-ra3mat
+ram1ala
+ra2m1any
 ram1áll
 ra2m1árá
 ra2m1árb
@@ -46854,6 +46838,7 @@ ri2aú
 ri2aü
 ri2av
 ri2az
+2riásá
 2riász
 r1i2ázós
 2ribé
@@ -47189,6 +47174,7 @@ rk2rém
 r1k2ri
 r1k2rí
 r1k2rom
+rk1sh
 rktus1s
 rk1udv
 r2k1ug
@@ -48168,7 +48154,6 @@ r2s3zam
 rszág1g
 rszáraz1
 rs3zárl
-rszem1e2r
 r2s3zené
 r1sz2f
 rsz2lo
@@ -48347,6 +48332,7 @@ rt1évk
 rt1fl
 rt1fr
 rt1gr
+r1t2ha.
 r1t2hág
 r2t1i2de
 rt1idé
@@ -48397,7 +48383,8 @@ rto2k1ar
 r2t1o2li
 r2t1oml
 rto2n1a2
-rto2n1á2
+rtoná2
+rto2nár
 rt1opá
 rt1ope
 rt1opt
@@ -49154,6 +49141,8 @@ s1á2lomb
 sán2c1é
 sán2c3so
 sán1k2r
+sánt2
+sán1th
 sá2nü
 sá2p1ost
 sá2rad
@@ -49789,6 +49778,7 @@ shelyü2kü
 1s2hij
 1s2hik
 shitköz1
+s2hop
 s2horr
 3s2how
 shú2sár
@@ -50175,7 +50165,7 @@ so2mil
 so2m1ita
 so2mí
 so2m1odo
-so2m1or
+som1ort
 so2m1osz
 som1p
 so2mú
@@ -50201,6 +50191,7 @@ son2tő
 2sonv
 so2nye
 so2nyis
+so2ór
 so2ós
 s1opc
 s1o2pe
@@ -50463,6 +50454,7 @@ ss2kál
 ss2ko
 ss1k2r
 ss2lá
+sso2m1o
 ss2pó
 s1s2rá
 ss3sz
@@ -51030,6 +51022,7 @@ sz1d2r
 3szegfű
 2szegz
 2szeh
+3szekcső.
 sze2keg
 2szekéit
 2szekés
@@ -51090,6 +51083,7 @@ sz1elvi
 2szenc
 2szener
 3szenny
+3szentm
 3szenz
 szeo2
 2szepi
@@ -51619,6 +51613,7 @@ ta1krí
 2t1akro
 ta1k2rón
 2t1akta.
+tak2tem
 2takti.
 2t1aktiv
 2t1aktí
@@ -51719,7 +51714,6 @@ ta2mü
 ta2n1aj
 ta2nal
 ta2nan
-ta2n1ar
 2t1a2nat
 tan1áll
 tan1álo
@@ -51935,7 +51929,9 @@ tá2l1ál
 tá2l1áth
 2t1áldá
 2t1áldo
-tá2l1e2
+tále2
+tá2l1eg
+tá2l1el
 tá2lél
 2t1áll.
 2t1állam
@@ -52946,6 +52942,7 @@ the2i2d1
 1theusz
 t2holi
 thon1n
+tho1ny
 1thosz
 th1sc
 1thy
@@ -53017,6 +53014,7 @@ ti2máb
 ti2máj
 ti2már
 ti2máz
+ti2mes
 2timmu
 2timrei
 2tinakat.
@@ -56213,6 +56211,7 @@ uzü2l
 ületo2
 üle2t1or
 üle2tos
+üle2t1ó2
 üle2t1ö2
 ület1t2
 ül1ette.
@@ -58553,6 +58552,8 @@ ya2mő
 ya2mü
 y1a2nal
 ya2nan
+ya2nar
+yan1arr
 ya2nat
 yan1att
 ya2n3e.
@@ -59614,8 +59615,7 @@ y1ő2rei
 y1őrg
 y1őrl
 y1őrp
-y1őrs
-yőrsze2
+y1őrszi
 y1ő2rül
 y1őrz
 yő2seg
@@ -62325,7 +62325,6 @@ z3szí
 z3sz2k
 zsz2l
 z3szo
-z4s3zon
 z3szó
 z3szö
 zsz2p
@@ -62371,6 +62370,7 @@ zt1a2puk
 z2t1a2ra.
 zt1arán
 z2t1arc
+ztaso2
 zta1sp
 zt1assz
 z2taszt
@@ -62574,7 +62574,7 @@ zt2rádá
 z1t2rág
 z1tréf
 z1t2rén
-z1t2rik
+z1trikó
 z1tril
 z1t2rió
 z1t2rü
