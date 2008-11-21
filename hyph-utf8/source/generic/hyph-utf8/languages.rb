@@ -83,13 +83,13 @@ class Languages < Hash
 {
 	"code" => "fa",
 	"name" => "farsi", "synonyms" => ["persian"],
-	"use_new_loader" => false,
-	"use_old_patterns" => false,
+	"use_new_loader" => true,
+	"use_old_patterns" => true,
 	"filename_old_patterns" => "zerohyph.tex",
 #	"hyphenmin" => [], # not needed
 	"encoding" => nil,
 	"exceptions" => false,
-	"message" => nil,
+	"message" => "Persian hyphenation patterns (v0.001, 2008/19/15)",
 },
 # -------------------------------
 # special patterns, not converted
