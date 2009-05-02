@@ -75,7 +75,8 @@ languages.each do |language|
 				file.puts('    \lccode"200D="200D')
 				file.puts("    \\input hyph-#{language.code}.tex")
 				file.puts('\else')
-				file.puts("    \\message{No #{language.message}}")
+				file.puts("    \\message{No #{language.message} - only available with Unicode engines}")
+				file.puts('    \input zerohyph.tex')
 				file.puts('\fi')
 			# for ASCII encoding, we don't load any special support files, but simply load everything
 			elsif language.encoding == "ascii" then
