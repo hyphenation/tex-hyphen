@@ -203,6 +203,17 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "German Hyphenation Patterns (Reformed Orthography)",
 },
+# swissgerman
+{
+	"code" => "de-ch-1901",
+	"name" => "swissgerman", # TODO: how is it going to be called
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [2,2], # babel
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "Swiss-German Hyphenation Patterns (Traditional Orthography)",
+},
 # russian	xu-ruhyphen.tex
 {
 	"code" => "ru",
