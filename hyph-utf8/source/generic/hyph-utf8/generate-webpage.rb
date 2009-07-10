@@ -5,13 +5,10 @@ load 'languages.rb'
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
 $package_name="hyph-utf8"
+$ctan_url = "http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8"
 
 # TODO - make this a bit less hard-coded
 $path_tex_generic="../../../tex/generic"
-$path_TL="../../../../TL"
-$path_language_dat="#{$path_TL}/texmf/tex/generic/config"
-# hyphen-foo.tlpsrc for TeX Live
-$path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
 
 $l = Languages.new
 # TODO: should be singleton
@@ -19,7 +16,7 @@ languages = $l.list.sort{|a,b| a.name <=> b.name}
 
 language_grouping = {
 	'norwegian' => ['nb', 'nn'],
-	'german' => ['de-1901', 'de-1996', 'de-ch-1901'],
+	'german' => ['de-1901', 'de-1996','de-ch-1901'],
 	'mongolian' => ['mn-cyrl', 'mn-cyrl-x-2a'],
 	'greek' => ['el-monoton', 'el-polyton'],
 	'ancientgreek' => ['grc', 'grc-x-ibycus'],
@@ -55,42 +52,35 @@ language_grouping.each do |name,group|
 	end
 end
 
-# languages.each do |language|
-# 	if language.hyphenmin == nil then
-# 		lmin = ''
-# 		rmin = ''
-# 	else
-# 		lmin = language.hyphenmin[0]
-# 		rmin = language.hyphenmin[1]
-# 	end
-# 	puts "#{language.name}: #{lmin} #{rmin}"
-# end
-
-#--------#
-# TLPSRC #
-#--------#
 language_groups.sort.each do |language_name,language_list|
-	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
-	puts "generating #{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc"
-	
-	$file_tlpsrc.puts "name hyphen-#{language_name}"
-	$file_tlpsrc.puts "category TLCore"
-	
-	# external dependencies for Russian and Ukrainian (until we implement the new functionality at least)
-	if language_name == "russian" then
-		$file_tlpsrc.puts "depend ruhyphen"
-	elsif language_name == "ukrainian" then
-		$file_tlpsrc.puts "depend ukrhyph"
-	end
+	first_line_printed = false
 	language_list.each do |language|
-		name = " name=#{language.name}"
+		if not first_line_printed then
+			puts "<tr>\n\t<td><b>#{language_name.capitalize}</b></td>"
+			first_line_printed = true;
+		else
+			puts "<tr>\n\t<td>&nbsp;</td>"
+		end
 
 		# synonyms
 		if language.synonyms != nil and language.synonyms.length > 0 then
-			synonyms=" synonyms=#{language.synonyms.join(',')}"
+			synonyms=", #{language.synonyms.join(', ')}"
 		else
 			synonyms=""
 		end
+		puts "\t<td>#{language.name}#{synonyms}</td>"
+
+#		if language.use_old_patterns == false then
+		if language.use_new_loader == true then
+			url_patterns = "#{$ctan_url}/patterns/hyph-#{language.code}.tex"
+			code = "<a href=\"#{url_patterns}\">#{language.code}</a>"
+		else
+			url_patterns = ""
+			code = language.code
+		end
+		
+		puts "\t<td>#{code}</td>"
+
 		# lefthyphenmin/righthyphenmin
 		if language.hyphenmin == nil or language.hyphenmin.length == 0 then
 			lmin = ''
@@ -102,32 +92,38 @@ language_groups.sort.each do |language_name,language_list|
 			lmin = language.hyphenmin[0]
 			rmin = language.hyphenmin[1]
 		end
-		hyphenmins = " lefthyphenmin=#{lmin} righthyphenmin=#{rmin}"
+		puts "\t<td>(#{lmin},#{rmin})</td>"
 		# which file to use
 		if language.use_new_loader then
-			file = " file=loadhyph-#{language.code}.tex"
+			file = "loadhyph-#{language.code}.tex"
 		else
-			file = " file=#{language.filename_old_patterns}"
+			file = "#{language.filename_old_patterns}"
 		end
-
-		$file_tlpsrc.puts "execute AddHyphen#{name}#{synonyms}#{hyphenmins}#{file}"
-	end
-	if language_name != "russian" and language_name != "ukrainian" then
-		language_list.each do |language|
-			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" then
-				$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
-			end
+		#puts "\t<td>#{file}</td>"
+		if language.encoding == nil then
+			encoding = ""
+		else
+			encoding = language.encoding.upcase
 		end
+		puts "\t<td>#{encoding}</td>"
+		puts "</tr>\n"
 	end
-	if language_name == "greek" then
-		$file_tlpsrc.puts "docpattern d texmf/doc/generic/elhyphen"
-	elsif language_name == "hungarian" then
-		$file_tlpsrc.puts "docpattern d texmf/doc/generic/huhyphen"
-	elsif language_name == "german" then
-		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/dehyphtex.tex"
-		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/ghyphen.README"
-	end
-	$file_tlpsrc.close
+	# if language_name != "russian" and language_name != "ukrainian" then
+	# 	language_list.each do |language|
+	# 		if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" then
+	# 			$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
+	# 		end
+	# 	end
+	# end
+	# if language_name == "greek" then
+	# 	$file_tlpsrc.puts "docpattern d texmf/doc/generic/elhyphen"
+	# elsif language_name == "hungarian" then
+	# 	$file_tlpsrc.puts "docpattern d texmf/doc/generic/huhyphen"
+	# elsif language_name == "german" then
+	# 	$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/dehyphtex.tex"
+	# 	$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/ghyphen.README"
+	# end
+	# $file_tlpsrc.close
 end
 
 #--------------#
