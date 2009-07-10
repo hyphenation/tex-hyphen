@@ -1,0 +1,3 @@
+name hyphen-swissgerman
+category TLCore
+execute AddHyphen name=swissgerman lefthyphenmin=2 righthyphenmin=2 file=loadhyph-de-ch-1901.tex

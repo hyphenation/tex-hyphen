@@ -1,0 +1,3 @@
+name hyphen-kurmanji
+category TLCore
+execute AddHyphen name=kurmanji lefthyphenmin=2 righthyphenmin=2 file=loadhyph-kmr.tex
