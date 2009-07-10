@@ -483,6 +483,18 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Italian Hyphenation Patterns",
 },
+# kurmanji
+{
+	"code" => "kmr",
+	"name" => "kurmanji",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "kmrhyph.tex",
+	"hyphenmin" => [2,2],
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "Kurmanji Hyphenation Patterns (v. 1.0 2009/06/29 JKn and MSh)",
+},
 # latin		xu-lahyph.tex
 {
 	"code" => "la",
