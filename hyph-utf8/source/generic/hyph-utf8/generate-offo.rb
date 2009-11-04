@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+require 'jcode'
+require 'rubygems'
+require 'unicode'
+
 # this file generates FOP XML Hyphenation Patterns
 
 load 'languages.rb'
@@ -16,13 +20,6 @@ languages = $l.list.sort{|a,b| a.name <=> b.name}
 codes = ['bg', 'ca', 'cs', 'cy', 'da', 'de-1901', 'de-1996', 'de-ch-1901', 'en-gb', 'en-us', 'es', 'et', 'eu', 'fi', 'fr', 'ga', 'gl', 'hr', 'hsb', 'hu', 'ia', 'id', 'is', 'it', 'kmr', 'la', 'lt', 'lv', 'nl', 'no', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sr-cyrl', 'sv', 'tr', 'uk']
 
 # codes = ['sl', 'cs']
-
-# abc = ["abcčd", "dčšž"].join('')
-# a1 = abc.unpack('U*').sort.uniq
-# a2 = a1.pack('U*')
-# 
-# puts a2
-# puts a2.upcase
 
 languages.each do |language|
 	if codes.rindex(language.code) != nil
@@ -50,10 +47,13 @@ languages.each do |language|
 		patterns   = language.get_patterns
 		exceptions = language.get_exceptions
 		characters_indexes = patterns.join('').gsub(/[.0-9]/,'').unpack('U*').sort.uniq
-		characters = characters_indexes.pack('U*')
+		# characters = characters_indexes.pack('U*')
 
 		$file_offo_pattern.puts '<classes>'
-		$file_offo_pattern.puts characters
+		characters_indexes.each do |c|
+			ch = [c].pack('U')
+			$file_offo_pattern.puts ch + Unicode.upcase(ch)
+		end
 		$file_offo_pattern.puts '</classes>'
 		$file_offo_pattern.puts
 		$file_offo_pattern.puts '<exceptions>'
