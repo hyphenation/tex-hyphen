@@ -707,9 +707,22 @@ class Languages < Hash
 	"exceptions" => true,
 	"message" => "Hyphenation Patterns for British English",
 },
+# US english
+{
+	"code" => "en-us",
+	"name" => "english",
+	"use_new_loader" => false,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "ushyphmax.tex",
+	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
+	"encoding" => "ascii",
+	"exceptions" => true,
+	"message" => "Hyphenation Patterns for American English",
+},
+# TODO: FIXME!!!
 # serbian		xu-srhyphc.tex
 {
-	"code" => "sr-latn",
+	"code" => "sh-latn",
 	"name" => "serbian",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
@@ -781,6 +794,17 @@ class Languages < Hash
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
 	"message" => "Sanskrit Hyphenation Patterns (v0.2, 2008/1/3)",
+},
+# norwegian	nohyph.tex
+{
+	"code" => "no",
+	"name" => "norwegian", # TODO: fixme
+	"use_new_loader" => false,
+	"use_old_patterns" => false,
+	"hyphenmin" => [2,2], # babel
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "Norwegian Hyphenation Patterns",
 },
 # norsk	xu-nohyphbx.tex
 {
