@@ -16,7 +16,52 @@ class Language
 		
 		if @synonyms==nil then @synonyms = [] end
 	end
-	
+
+	# TODO: simplify this (reduce duplication)
+
+	def get_exceptions
+		if @exceptions1 == nil
+			filename = "../../../tex/generic/hyph-utf8/patterns/hyph-#{@code}.tex";
+			lines = IO.readlines(filename, '.').join("")
+			exceptions = lines.gsub(/%.*/,'');
+			if (exceptions.index('\hyphenation') != nil)
+				@exceptions1 = exceptions.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').
+					gsub(/\s+/m,"\n").
+					gsub(/^\s*/m,'').
+					gsub(/\s*$/m,'').
+					split("\n")
+			else
+				@exceptions1 = ""
+			end
+		end
+
+		return @exceptions1
+	end
+
+	def get_patterns
+		if @patterns == nil
+			filename = "../../../tex/generic/hyph-utf8/patterns/hyph-#{@code}.tex";
+			lines = IO.readlines(filename, '.').join("")
+			@patterns = lines.gsub(/%.*/,'').
+				gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
+				gsub(/\s+/m,"\n").
+				gsub(/^\s*/m,'').
+				gsub(/\s*$/m,'').
+				split("\n")
+		end
+		return @patterns
+	end
+
+	# def lc_characters
+	# 	if @lc_characters == nil
+	# 		lc_characters = Hash.new
+	# 		p = self.patterns
+	# 		p.each do |pattern|
+	# 		end
+	# 	end
+	# 	return @lc_characters
+	# end
+
 	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns, :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
 end
 
