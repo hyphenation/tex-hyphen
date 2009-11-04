@@ -4,6 +4,8 @@ require 'jcode'
 require 'rubygems'
 require 'unicode'
 
+# use 'gem install unicode' if unicode is missing on your computer
+
 # this file generates FOP XML Hyphenation Patterns
 
 load 'languages.rb'
