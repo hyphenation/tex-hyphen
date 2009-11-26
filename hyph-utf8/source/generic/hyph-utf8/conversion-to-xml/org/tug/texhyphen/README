@@ -1,0 +1,38 @@
+This utility consists of two parts.
+
+Part 1 converts languages.rb to languages.xml. It consists of
+ConvertLanguageData.java, LanguageDataParser.java,
+ConvertLanguageData.xsl, codemapping.xml. Invocation:
+
+java org.tug.texhyphen.util.ConvertLanguageData path/to/languages.rb
+
+output: languages.xml, in the same directory as languages.rb.
+
+The file codemapping contains the mapping from tex-code to
+fop-code. If this file has an entry with non-empty fop-code, it is
+inserted in languages.xml as attribute fop-code. If this file has an
+entry with empty fop-code, that language gets no attribute
+fop-code. Otherwise, that language gets attribute fop-code with the
+same value as tex-code (attribute code).
+
+The current file languages.xml was modified manually after conversion,
+to add the three languages at the bottom of the file.
+
+Part 2 converts tex pattern files to fop pattern files. It consists of
+ConvertTeXPattern.java, TeXPatternParser.java, ConvertTeXPattern.xsl,
+languages.xml. Invocation:
+
+java org.tug.texhyphen.util.ConvertTeXPattern [--uselanguagedata]
+[--texcodes code1,code2,...] infileuri1 [infileuri2 ...] outfile
+
+infileuri must be a file or http URI. With a file URI, it may also be
+a directory; in that case all pattern files in that directory are
+converted. outfile must be a path to an output filename or
+directory. If there are more input files, it must be an output
+directory. Option 'uselanguagedata' converts all input files which
+represent a language in the languages file with a fop-code. Option
+'--texcodes code1,code2,...' converts only those input files which
+represent a language with one of the given tex codes. Without those
+options all input files are converted. In any case, only files are
+converted which represent a language in the languages file with a
+fop-code.

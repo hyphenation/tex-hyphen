@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<code-mappings xmlns="urn:org:tug:texhyphen:languagedata">
+  <code-mapping code="grc-x-ibycus" fop-code="grc_X_ibycus"/>
+  <code-mapping code="zh-latn" fop-code="zh_Latn"/>
+  <code-mapping code="de-1901" fop-code="de_1901"/>
+  <code-mapping code="de-1996" fop-code="de"/>
+  <code-mapping code="de-ch-1901" fop-code="de_CH_1901"/>
+  <code-mapping code="el-monoton" fop-code="el"/>
+  <code-mapping code="el-polyton" fop-code="el_Polyton"/>
+  <code-mapping code="mn-cyrl" fop-code="mn"/>
+  <code-mapping code="mn-cyrl-x-2a" fop-code="mn_Cyrl_x_2a"/>
+  <code-mapping code="sh-cyrl" fop-code="sh_Cyrl"/>
+  <code-mapping code="sh-latn" fop-code="sh_Latn"/>
+  <code-mapping code="sr-cyrl" fop-code="sr"/>
+  <code-mapping code="sr-latn" fop-code="sr_Latn"/>
+  <code-mapping code="en-gb" fop-code="en_GB"/>
+  <code-mapping code="en-us" fop-code="en"/>
+  <code-mapping code="eo" fop-code=""/>
+  <code-mapping code="nn" fop-code=""/>
+  <code-mapping code="nb" fop-code=""/>
+  <!-- hu patterns cause a stack overflow when compiled with FOP -->
+  <code-mapping code="hu" fop-code=""/>
+</code-mappings>
