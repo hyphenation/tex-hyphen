@@ -2,13 +2,13 @@
 %
 % File name: hyph-sa.tex
 %
-% Unicode hyphenation patterns for Sanskrit and Prakrit in Devanagari, 
-% Bengali, Kannada, Malayalam and Telugu scripts.
+% Unicode hyphenation patterns for Sanskrit and Prakrit in transliteration,
+% and in Devanagari, Bengali, Kannada, Malayalam and Telugu scripts.
 %
 % Created:        April 1st, 2005
 % First release:  June 8th, 2006
-% Revised:        April 12th, 2009
-% Version:        0.3
+% Revised:        February 26th, 2010
+% Version:        0.4
 %
 % Created by Yves Codet with Jonathan Kew's help.
 %
@@ -21,6 +21,127 @@
 % (Maybe this should be implemented/supported in engines already.)
 2‍2
 2‌2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TRANSLITERATION
+%%%%%%%%%%%%%%%%%%%%
+% Decomposed characters
+% Break after any vowel, except inside a diphthong.
+a1
+ā1
+i1
+ï1
+ī1
+u1
+ü1
+ū1
+r̥1
+ṛ1 % non standard transliteration of vocalic r
+r̥̄1
+ṝ1 % non standard transliteration of vocalic long r
+l̥1
+ḷ1 % non standard transliteration of vocalic l
+l̥̄1
+ḹ1 % non standard transliteration of vocalic long l
+e1
+o1
+a2i1
+a2u1
+% Break between a and i or u in hiatus.
+a3ï1
+a3ü1
+% Do not break before a final consonant or consonant cluster.
+2k.
+2kh.
+2g.
+2gh.
+2ṅ.
+2c.
+2ch.
+2j.
+2jh.
+2ñ.
+2ṭ.
+2ṭh.
+2ḍ.
+2ḍh.
+2ṇ.
+2t.
+2th.
+2d.
+2dh.
+2n.
+2p.
+2ph.
+2b.
+2bh.
+2m.
+2y.
+2r.
+2l.
+2ḷ.
+2v.
+2ś.
+2ṣ.
+2s.
+2h.
+2rk.
+2rg.
+2rṭ.
+2rḍ.
+2rt.
+2rd.
+2rp.
+2rb.
+% Break after anusvara, anunasika and visarga but not before.
+2ṃ1
+2m̐1
+2ḥ1
+% Do not break before a macron, an accent or a diaeresis; break after an accent.
+2̄
+2́1
+2̀1
+2̈
+%%%%%%%%%%%%%%%%%%%%
+% Precomposed characters
+% Break after any vowel, except inside a diphthong.
+á1
+à1
+ā1
+í1
+ì1
+ï1
+ī1
+ú1
+ù1
+ü1
+ū1
+é1
+è1
+ó1
+ò1
+a2í1
+a2ì1
+a2ú1
+a2ù1
+% Break between a and i or u in hiatus.
+a3ï1
+a3ü1
+% Do not break before a final consonant or consonant cluster.
+2ṅ.
+2ñ.
+2ṭ.
+2ṭh.
+2ḍ.
+2ḍh.
+2ṇ.
+2ḷ.
+2ś.
+2ṣ.
+2rṭ.
+2rḍ.
+% Break after anusvara and visarga but not before.
+2ṃ1
+2ḥ1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DEVANAGARI SCRIPT
 % Break before or after any independent vowel.
@@ -725,4 +846,3 @@
 % Do not break either side of virama (may be within conjunct).
 2్2
 }
-
