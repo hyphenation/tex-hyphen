@@ -11,11 +11,41 @@ Pattern creators:
   explain them that they need to modify UTF-8 file/submit file it as UTF-8 in future
 - write DONE for each language once you receive the answer from the author
 
+Languages:
+- unification of Mongolian
+- do something with EO
+- Russian etc. that are still outsourcing
+- versioning: German etc.
+- Norwegian
+- Indic
+
 CTAN:
 - move old patterns to obsolete
 - [DONE] upload new patterns
 - make an easy-to-browse structure
 - ask CTAN people to be careful if someone uploads new patterns
+- write auto-notificator for changes in CTAN
+
+OpenOffice:
+- write auto-notificator for changes in OOo (more important)
+- contact the authors & join the efforts
+- import indic scripts
+
+Impromevents:
+- prepare a better version of notes
+- auto-conversion into four different files:
+  - licence
+  - list of used letters for each language (lowercase and uppercase equivalent)
+  - list of patterns
+  - list of exceptions
+- that list should be auto-generated from TeX sources and used for [complete a list]:
+  - hyphenator
+  - ...
+- LuaTeX patterns
+
+Collaboration:
+- make a list of people that we would want to collaborate with
+- write done for everyone we have collaborated with
 
 TeX users:
 - [on the way] write DOC about pattern conversion
@@ -26,7 +56,7 @@ TeX users:
 - CTAN people should take care for new patterns to be submitted in the proper form
 
 Software:
-- possibly rewrite patgen to handle UTF-8
+- possibly rewrite patgen to handle UTF-8 (ask the author of javascript)
 
 Some other changes:
 - [half done by Norbert] unify pattern loading with both plain TeX/LaTeX
