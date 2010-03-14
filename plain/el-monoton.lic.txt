@@ -1,0 +1,34 @@
+Hyphenation patterns for uni-accent (monotonic) Modern Greek
+
+(more info about the licence to be added later)
+
+% ****************************************************************
+%
+% File name: grmhyph5-unicode.tex
+%
+% This file was first created by mechanical translation from 
+% GRMhyph5.tex via "elhyph-utf8 -m -c" (version 0.1 by Peter 
+% Heslin -- p.j.heslin@durham.ac.uk). Some additions were 
+% also made by hand.
+%
+% Created:       June 6, 2008
+%
+% Hyphenation patterns for Modern Monotonic Greek.
+%
+% Created by Dimitrios Filippou with some ideas borrowed from 
+% Yannis Haralambous, Kostis Dryllerakis and Claudio Beccari.
+% 
+% These hyphenation patterns are explained in "ancient.pdf".
+% Hyphenation examples are given in the file "anc-test.pdf".
+% Some doubtful patterns are marked by three question marks "???". 
+% 
+% Documentation in English can be found in: D. Filippou, 
+% "Hyphenation patterns for Ancient and Modern Greek," in 
+% "TeX, XML, and Digital Typography" (A. Syropoulos et al.,
+% eds.), Lecture Notes in Computer Science 3130, Springer-Verlag
+% Berlin-Heidelberg, 2004. ISBN 3-540-22801-2.
+% 
+% ****************************************************************
+%
+% \message{UTF-8 hyphenation patterns for Modern, Monotonic Greek}
+%

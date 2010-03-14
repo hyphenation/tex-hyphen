@@ -47,9 +47,34 @@ class Language
 				gsub(/\s+/m,"\n").
 				gsub(/^\s*/m,'').
 				gsub(/\s*$/m,'').
+				gsub(/'/,"’").
 				split("\n")
+
+			if @code == 'eo' then
+				@patterns = lines.gsub(/%.*/,'').
+					gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
+					#
+					gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
+					gsub(/\\nom\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e. \1o. \1oj. \1ojn. \1on.').
+					gsub(/\\ver\{(.*?)\}/m,'\1as. \1i. \1is. \1os. \1u. \1us.').
+					#
+					gsub(/\s+/m,"\n").
+					gsub(/^\s*/m,'').
+					gsub(/\s*$/m,'').
+					split("\n")
+			end
 		end
 		return @patterns
+	end
+
+	def get_comments_and_licence
+		if @comments_and_licence == nil then
+			filename = "../../../tex/generic/hyph-utf8/patterns/hyph-#{@code}.tex";
+			lines = IO.readlines(filename, '.').join("")
+			@comments_and_licence = lines.
+				gsub(/(.*)\\patterns.*/m,'\1')
+		end
+		return @comments_and_licence
 	end
 
 	# def lc_characters
@@ -81,7 +106,7 @@ authors = {
 	},
 	"claudio_beccari" => {
 		"name" => "Claudio",
-		"email" => "claudio.beccari@polito.it",
+		"email" => "claudio{dot}beccari{at}polito{dot}it",
 	}
 
 }

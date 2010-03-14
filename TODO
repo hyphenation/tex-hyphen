@@ -13,6 +13,8 @@ Pattern creators:
 
 Languages:
 - unification of Mongolian
+- unification of Spanish (some new version of patterns submitted)
+- join Serbian patterns & describe differences between sh-cyrl and sr-cyrl
 - do something with EO
 - Russian etc. that are still outsourcing
 - versioning: German etc.
@@ -35,7 +37,7 @@ Impromevents:
 - prepare a better version of notes
 - auto-conversion into four different files:
   - licence
-  - list of used letters for each language (lowercase and uppercase equivalent)
+  - list of used letters for each language (lowercase and uppercase equivalent); difference between letters & others
   - list of patterns
   - list of exceptions
 - that list should be auto-generated from TeX sources and used for [complete a list]:
