@@ -88,6 +88,8 @@ class Language
 	# end
 
 	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns, :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
+	# this hack is needed for Serbian
+	attr_writer :code
 end
 
 
@@ -706,6 +708,18 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Swedish hyphenation patterns (Jan Michael Rynning, 1994-03-03)",
+},
+# turkmen
+{
+	"code" => "tk",
+	"name" => "turkmen",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => nil,
+	"hyphenmin" => [2,2],
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "Turkmen Hyphenation Patterns",
 },
 # turkish		xu-tkhyph.tex
 {

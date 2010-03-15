@@ -1,0 +1,18 @@
+Turkmen Hyphenation Patterns
+
+(more info about the licence to be added later)
+
+% hyph-tk.tex
+%
+% File auto-generated from generate_patterns_tk.rb that is part of hyph-utf8
+%
+% Author: Nazar Annagurban <nazartm at gmail.com>
+%
+% For more information about the new UTF-8 hyphenation patterns and
+% links to this file see
+%     http://www.tug.org/tex-hyphen/
+%
+% Some of the patterns below represent combinations that never
+% happen in Turkmen. Would they happen, they would be hyphenated
+% according to the rules.
+% 

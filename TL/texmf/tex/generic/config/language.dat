@@ -10,7 +10,6 @@ croatian	loadhyph-hr.tex
 czech	loadhyph-cs.tex
 danish	loadhyph-da.tex
 dutch	loadhyph-nl.tex
-esperanto	loadhyph-eo.tex
 estonian	loadhyph-et.tex
 farsi	zerohyph.tex
 =persian
@@ -21,6 +20,7 @@ french	loadhyph-fr.tex
 galician	loadhyph-gl.tex
 german	loadhyph-de-1901.tex
 ngerman	loadhyph-de-1996.tex
+swissgerman	loadhyph-de-ch-1901.tex
 monogreek	loadhyph-el-monoton.tex
 greek	loadhyph-el-polyton.tex
 =polygreek
@@ -30,9 +30,10 @@ indonesian	loadhyph-id.tex
 interlingua	loadhyph-ia.tex
 irish	loadhyph-ga.tex
 italian	loadhyph-it.tex
+kurmanji	loadhyph-kmr.tex
 latin	loadhyph-la.tex
-lithuanian	loadhyph-lt.tex
 latvian	loadhyph-lv.tex
+lithuanian	loadhyph-lt.tex
 mongolian	loadhyph-mn-cyrl.tex
 mongolian2a	loadhyph-mn-cyrl-x-2a.tex
 bokmal	loadhyph-nb.tex
@@ -52,6 +53,7 @@ spanish	loadhyph-es.tex
 =espanol
 swedish	loadhyph-sv.tex
 turkish	loadhyph-tr.tex
+turkmen	loadhyph-tk.tex
 ukenglish	loadhyph-en-gb.tex
 =british
 =UKenglish
