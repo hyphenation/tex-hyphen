@@ -3,8 +3,8 @@ Write DONE to each issue once resolved.
 
 TeX Distributions:
 - [DONE] propagate changes into TeX Live
-- [DONE] coordinate with Christian Schenk <cs@miktex.org> for changes in MikTeX
-- [DONE] coordinate with Akira Kakuto <kakuto@fsci.fuk.kindai.ac.jp> for changes in W32TeX
+- [DONE] coordinate with Christian Schenk <cs at miktex.org> for changes in MikTeX
+- [DONE] coordinate with Akira Kakuto <kakuto at fsci.fuk.kindai.ac.jp> for changes in W32TeX
 
 Pattern creators:
 - make a list of pattern authors, notify them about changes,
@@ -12,14 +12,22 @@ Pattern creators:
 - write DONE for each language once you receive the answer from the author
 
 Languages:
+- complete languages.html
 - unification of Mongolian
+  - encoding
+  - pattern versions
+    - [DONE] a list of differences received from Dorjgotov Batmunkh <bataak at gmail.com>
+    - add that list to repository
+    - waiting for answer from Oliver Corff <corff at zedat.fu-berlin.de>
 - unification of Spanish (some new version of patterns submitted)
 - join Serbian patterns & describe differences between sh-cyrl and sr-cyrl
-- do something with EO
+- [DONE] do something with EO: I did the conversion for "plain" patterns, but left the original version intact
+  we could leave a separate version in "source" and use the "plain version" in pattern repository
 - Russian etc. that are still outsourcing
+  - solve encoding mess
 - versioning: German etc.
 - Norwegian
-- Indic
+- Add Indic scripts & auto-updater
 
 CTAN:
 - move old patterns to obsolete
@@ -38,15 +46,56 @@ Impromevents:
 - auto-conversion into four different files:
   - licence
   - list of used letters for each language (lowercase and uppercase equivalent); difference between letters & others
-  - list of patterns
-  - list of exceptions
+  - [DONE] list of patterns
+  - [DONE] list of exceptions
 - that list should be auto-generated from TeX sources and used for [complete a list]:
   - hyphenator
   - ...
 - LuaTeX patterns
 
+Documentation:
+- how to use patterns in plain TeX
+- how to use patterns in LaTeX with polyglossia (or babel?)
+- how to use patterns in ConTeXt
+- how to add a new language (once we quit the project)
+
+Testing:
+- collect lists of words for the languages where that is possible (no copyright problems)
+- write a luatex tester for a collection of words for each language
+
+Licences:
+- ... complete the list with tasks that need to be done
+- we want two licences: one for content and one for packaging
+- write a simple licence for packaging:
+  - we don't care what others (outside of TeX world) do; just mention the credit to hyph-utf8
+    and complete credit to pattern authors
+  - respect the licence of pattern authors
+  - within TeX world:
+    - keep the functionality; implementation may change, but not the end result (unless improved)
+    - contact the list first when changes are needed
+    - if team disappears, one should be free to continue the work (mention how that should be done)
+    - some general guidelines:
+      - no TeX commands (apart from \hyphenation and \patterns)
+      - everything in Unicode
+      - hyph-xx.tex will keep containing the patterns
+      - loadhyph-xx.tex will keep loading the patterns, but may change considerably (ugly tricks should go there)
+      - ... (complete the list)
+    - language-specific:
+      - author of existing patterns has full right to submit changes
+      - when a new author comes and the old one doesn't respond ... what to do?
+      - when two version of patterns appear, try to convince the authors to combine the patterns
+        ... write some general guidelines
+- collect a few ideas for valid licences (maybe a different licence f)
+- write the authors if they agree with that licence (give them a few options to choose from)
+- write some really nice, easily parsable form and apply to all the patterns
+- modify generating scripts for:
+  - German
+  - gl
+  - eu, tk, tr
+
 Collaboration:
 - make a list of people that we would want to collaborate with
+- some notification system for those using our patterns as source for whenever something in repository changes
 - write done for everyone we have collaborated with
 
 TeX users:
