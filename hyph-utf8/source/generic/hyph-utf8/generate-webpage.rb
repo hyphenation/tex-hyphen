@@ -23,7 +23,7 @@ language_grouping = {
 	'chinese' => ['zh-latn'],
 	# TODO - until someone tells what to do
 	#'serbian' => ['sr-latn', 'sr-cyrl'],
-	'serbian' => ['sr-latn'],
+	'serbian' => ['sh-latn'],
 }
 
 language_used_in_group = Hash.new
@@ -40,6 +40,8 @@ languages.each do |language|
 	# temporary remove cyrilic serbian until someone explains what is needed
 	if language.code == 'sr-cyrl' then
 		languages.delete(language)
+	elsif language.code == 'sh-latn' then
+		language.code = 'sr-latn'
 	elsif language_used_in_group[language.code] == nil then
 		language_groups[language.name] = [language]
 	end
@@ -108,42 +110,5 @@ language_groups.sort.each do |language_name,language_list|
 		puts "\t<td>#{encoding}</td>"
 		puts "</tr>\n"
 	end
-	# if language_name != "russian" and language_name != "ukrainian" then
-	# 	language_list.each do |language|
-	# 		if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" then
-	# 			$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
-	# 		end
-	# 	end
-	# end
-	# if language_name == "greek" then
-	# 	$file_tlpsrc.puts "docpattern d texmf/doc/generic/elhyphen"
-	# elsif language_name == "hungarian" then
-	# 	$file_tlpsrc.puts "docpattern d texmf/doc/generic/huhyphen"
-	# elsif language_name == "german" then
-	# 	$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/dehyphtex.tex"
-	# 	$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/ghyphen.README"
-	# end
-	# $file_tlpsrc.close
 end
 
-#--------------#
-# language.dat #
-#--------------#
-$file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
-language_groups.sort.each do |language_name,language_list|
-	language_list.each do |language|
-		if language.use_new_loader then
-			$file_language_dat.puts "#{language.name}\tloadhyph-#{language.code}.tex"
-		else
-			$file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
-		end
-
-		# synonyms
-		if language.synonyms != nil then
-			language.synonyms.each do |synonym|
-				$file_language_dat.puts "=#{synonym}"
-			end
-		end
-	end
-end
-$file_language_dat.close
