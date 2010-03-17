@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+path = "../../hyph-utf8/tex/generic/hyph-utf8/patterns"
+
+# require 'open-uri'
+# open('http://www.x.org/x.txt'){ |f| print f.read }
+
+# #Reads first argument as file containing urls and prints them
+# #usage:  ruby wget.rb wget.txt
+# require 'open-uri'
+# IO.foreach(ARGV[0]) { |line| open(line){ |f| print f.read } }
+
+# http://git.savannah.gnu.org/cgit/smc.git/tree/hyphenation
+languages = %w(as bn gu hi kn ml mr or pa ta te)
+#languages = %w(as)
+
+languages.each do |language_code|
+	filename = "hyph_#{language_code}_IN.dic"
+	url      = "http://git.savannah.gnu.org/cgit/smc.git/plain/hyphenation/#{filename}"
+	system("wget -N -c #{url}")
+
+	lines = IO.readlines(filename, '.').join("").
+		gsub(/UTF-8/, "% These patterns originate from\n%    http://git.savannah.gnu.org/cgit/smc.git/tree/hyphenation)\n% and have been adapted for hyph-utf8 (for use in TeX).\n%").
+		gsub(/% GENERAL RULE/, "\\patterns{\n% GENERAL RULE") + "}\n"
+
+	filename_out = "#{path}/hyph-#{language_code}.tex"
+	file_out = File.open(filename_out, "w")
+	file_out.puts(lines)
+	file_out.close
+end
