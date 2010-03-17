@@ -2,14 +2,6 @@
 
 path = "../../hyph-utf8/tex/generic/hyph-utf8/patterns"
 
-# require 'open-uri'
-# open('http://www.x.org/x.txt'){ |f| print f.read }
-
-# #Reads first argument as file containing urls and prints them
-# #usage:  ruby wget.rb wget.txt
-# require 'open-uri'
-# IO.foreach(ARGV[0]) { |line| open(line){ |f| print f.read } }
-
 # http://git.savannah.gnu.org/cgit/smc.git/tree/hyphenation
 languages = %w(as bn gu hi kn ml mr or pa ta te)
 #languages = %w(as)

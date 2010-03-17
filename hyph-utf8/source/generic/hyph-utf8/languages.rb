@@ -867,6 +867,139 @@ class Languages < Hash
 	"exceptions" => true,
 	"message" => "Norwegian Nynorsk Hyphenation Patterns",
 },
+#####
+# assamese
+{
+	"code" => "as",
+	"name" => "assamese",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Assameze Hyphenation Patterns",
+},
+# bengali
+{
+	"code" => "bn",
+	"name" => "bengali",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Bengali Hyphenation Patterns",
+},
+# guajrati
+{
+	"code" => "gu",
+	"name" => "guajrati",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Guajrati Hyphenation Patterns",
+},
+# assamese
+{
+	"code" => "as",
+	"name" => "assamese",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Assameze Hyphenation Patterns",
+},
+# hindi
+{
+	"code" => "hi",
+	"name" => "hindi",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Hindi Hyphenation Patterns",
+},
+# kannada
+{
+	"code" => "kn",
+	"name" => "assamese",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Kannada Hyphenation Patterns",
+},
+# malayalam
+{
+	"code" => "ml",
+	"name" => "malayalam",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Malayalam Hyphenation Patterns",
+},
+# marathi
+{
+	"code" => "mr",
+	"name" => "marathi",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Marathi Hyphenation Patterns",
+},
+# oriya
+{
+	"code" => "or",
+	"name" => "oriya",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Oriya Hyphenation Patterns",
+},
+# panjabi
+{
+	"code" => "pa",
+	"name" => "panjabi",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Panjabi Hyphenation Patterns",
+},
+# tamil
+{
+	"code" => "ta",
+	"name" => "tamil",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Tamil Hyphenation Patterns",
+},
+# telugu
+{
+	"code" => "te",
+	"name" => "telugu",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Telugu Hyphenation Patterns",
+},
 		]
 
 		languages.each do |l|

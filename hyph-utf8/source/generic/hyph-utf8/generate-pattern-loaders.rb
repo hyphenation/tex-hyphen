@@ -67,15 +67,28 @@ languages.each do |language|
 			#
 			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
 			# TODO - maybe consider doing something similar for ibycus
-			if language.code == 'sa' then
+			if language.code == 'sa' or
+				 language.code == 'as' or
+				 language.code == 'bn' or
+				 language.code == 'gu' or
+				 language.code == 'hi' or
+				 language.code == 'kn' or
+				 language.code == 'ml' or
+				 language.code == 'mr' or
+				 language.code == 'or' or
+				 language.code == 'pa' or
+				 language.code == 'ta' or
+				 language.code == 'te' then
 				file.puts(text_if_native_utf)
 				file.puts("    \\message{UTF-8 #{language.message}}")
 				file.puts('    % Set \lccode for ZWNJ and ZWJ.')
 				file.puts('    \lccode"200C="200C')
 				file.puts('    \lccode"200D="200D')
-				file.puts('    % Set \lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.')
+				if language.code == 'sa'
+					file.puts('    % Set \lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.')
 				file.puts('    \lccode"0CF1="0CF1')
 				file.puts('    \lccode"0CF2="0CF2')
+			end
 				file.puts("    \\input hyph-#{language.code}.tex")
 				file.puts('\else')
 				file.puts("    \\message{No #{language.message} - only available with Unicode engines}")
