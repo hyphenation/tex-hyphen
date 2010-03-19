@@ -2,17 +2,19 @@ Turkmen Hyphenation Patterns
 
 (more info about the licence to be added later)
 
-% hyph-tk.tex
+% Hyphenation patterns for Turkmen (hyph-tk.tex)
 %
-% File auto-generated from generate_patterns_tk.rb that is part of hyph-utf8
+% Author:  Nazar Annagurban <nazartm at gmail.com>
+% License: Public domain
+% Version: 0.1
+% Date:    16 March 2010
 %
-% Author: Nazar Annagurban <nazartm at gmail.com>
+% ----------------------------------------------------------------------
 %
-% For more information about the new UTF-8 hyphenation patterns and
+% The file has been auto-generated from generate_patterns_tk.rb
+% that is part of hyph-utf8.
+%
+% For more information about UTF-8 hyphenation patterns for TeX and
 % links to this file see
 %     http://www.tug.org/tex-hyphen/
-%
-% Some of the patterns below represent combinations that never
-% happen in Turkmen. Would they happen, they would be hyphenated
-% according to the rules.
 % 
