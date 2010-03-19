@@ -2,6 +2,7 @@
 #
 # This script generates hyphenation patterns for Turkmen
 #
+# This script has been written by Mojca Miklavec <mojca dot miklavec dot lists at gmail dot com>
 
 # open file for writing the patterns
 # $tr = File.new("hyph-tk.tex", "w")
@@ -14,106 +15,116 @@ def add_comment(str)
 end
 
 # define a class of vowels and consonants
-vowels = %w{a â e ı i î o ö u ü û}
-consonants = %w{b c ç d f g ğ h j k l m n p r s ş t v y z}
-
-v1 = %w{ä e i ö ü}
-v2 = %w{a y o u}
-c1 = %w{b ç d f g h j k l m n p r s t w ý z ň ž ş}
+# vowels are split into so that unnecessary permutations are not generated
+front_vowels = %w{ä e i ö ü}
+back_vowels = %w{a y o u}
+consonants = %w{b ç d f g h j k l m n p r s t w ý z ň ž ş}
+# This is to eliminate impossible combinations
+common_suffix_consonants = %w{b ç d g j k l m n p s t ý z ş}
 
 
 # start the file
 add_comment(
-"hyph-tk.tex
+"Hyphenation patterns for Turkmen (hyph-tk.tex)
 
-File auto-generated from generate_patterns_tk.rb that is part of hyph-utf8
+Author:  Nazar Annagurban <nazartm at gmail.com>
+License: Public domain
+Version: 0.1
+Date:    16 March 2010
 
-Author: Nazar Annagurban <nazartm at gmail.com>
+----------------------------------------------------------------------
 
-For more information about the new UTF-8 hyphenation patterns and
+The file has been auto-generated from generate_patterns_tk.rb
+that is part of hyph-utf8.
+
+For more information about UTF-8 hyphenation patterns for TeX and
 links to this file see
     http://www.tug.org/tex-hyphen/
-
-Some of the patterns below represent combinations that never
-happen in Turkmen. Would they happen, they would be hyphenated
-according to the rules.
 ")
 
+# we have the following comment for Basque:
+#
+# Some of the patterns below represent combinations that never
+# happen in Turkmen. Would they happen, they would be hyphenated
+# according to the rules.
+
 $tr.puts '\patterns{'
+add_comment("Some suffixes are added through a hyphen. When hyphenating these words, a hyphen is added before the hyphen so that the line ends with a hyphen and the new line starts with a hyphen.")
 $tr.puts "1-4"
 
-v1.each do |v1_1|
-	c1.each do |c1_1|
-		v1.each do |v1_2|
-			$tr.puts "#{v1_1}1#{c1_1}#{v1_2}"
+add_comment("Allow hyphen after a vowel if and only if there is a single consonant before next the vowel")
+front_vowels.each do |v1|
+	consonants.each do |c|
+		front_vowels.each do |v2|
+			$tr.puts "#{v1}1#{c}#{v2}"
 		end
 	end
 end
 
-v2.each do |v2_1|
-	c1.each do |c1_1|
-		v2.each do |v2_2|
-			$tr.puts "#{v2_1}1#{c1_1}#{v2_2}"
+back_vowels.each do |v1|
+	consonants.each do |c|
+		back_vowels.each do |v2|
+			$tr.puts "#{v1}1#{c}#{v2}"
 		end
 	end
 end
 
-c1.each do |c1_1|
-	$tr.puts "i1#{c1_1}a"
-	$tr.puts "i1#{c1_1}o"
-	$tr.puts "a1#{c1_1}i"
-	$tr.puts "e1#{c1_1}a"
-	$tr.puts "e1#{c1_1}o"
-	$tr.puts "a1#{c1_1}e"
-	$tr.puts "ä1#{c1_1}o"
-	$tr.puts "ä1#{c1_1}a"
-	$tr.puts "y1#{c1_1}i"
-	$tr.puts "y1#{c1_1}e"
-	$tr.puts "ö1#{c1_1}a"
-	$tr.puts "u1#{c1_1}e"
-	$tr.puts "o1#{c1_1}i"
-	$tr.puts "y1#{c1_1}ä"
-	$tr.puts "o1#{c1_1}e"
-	$tr.puts "u1#{c1_1}i"
+add_comment("These combinations occur in words of foreign origin or joined words")
+consonants.each do |c|
+  	$tr.puts "a1#{c}i"
+  	$tr.puts "a1#{c}e"
+	$tr.puts "y1#{c}ä"
+	$tr.puts "y1#{c}i"
+	$tr.puts "y1#{c}e"
+	$tr.puts "o1#{c}i"
+	$tr.puts "o1#{c}e"
+	$tr.puts "u1#{c}i"
+	$tr.puts "u1#{c}e"
+	$tr.puts "i1#{c}a"
+	$tr.puts "i1#{c}o"
+	$tr.puts "e1#{c}a"
+	$tr.puts "e1#{c}o"
+	$tr.puts "ä1#{c}o"
+	$tr.puts "ä1#{c}a"
+	$tr.puts "ö1#{c}a"
 end
 
-c1.each do |c1_1|
-	c1.each do |c1_2|
-		$tr.puts "#{c1_1}1#{c1_2}"
-		$tr.puts ".#{c1_1}2#{c1_2}"
+add_comment("Allow hyphen between two consonants (if there is only two of them), except when they are at the begining of the word")
+consonants.each do |c1|
+	consonants.each do |c2|
+		$tr.puts "#{c1}1#{c2}"
+		$tr.puts ".#{c1}2#{c2}"
 	end
 end
 
-c1.each do |c1_1|
-	$tr.puts "ý2t1#{c1_1}"
-	$tr.puts "ý2n1#{c1_1}"
-	$tr.puts "ý2d1#{c1_1}"
-	$tr.puts "r2t1#{c1_1}"
-	$tr.puts "ý2p1#{c1_1}"
-	$tr.puts "l2p1#{c1_1}"
-	$tr.puts "l2t1#{c1_1}"
-	$tr.puts "g2t1#{c1_1}"
-	$tr.puts "n2t1#{c1_1}"
-	$tr.puts "r2k1#{c1_1}"
-	$tr.puts "r2p1#{c1_1}"
-	$tr.puts "k2t1#{c1_1}"
-	$tr.puts "r2h1#{c1_1}"
-	$tr.puts "s2t1#{c1_1}"
-	$tr.puts "l2k1#{c1_1}"
-	$tr.puts "w2p1#{c1_1}"
-	$tr.puts "n2s1#{c1_1}"
-	$tr.puts "r2s1#{c1_1}"
-	$tr.puts "l2m1#{c1_1}"
+add_comment("Patterns for triple consonants. There may be additions to this category, as this list is not exhaustive.")
+common_suffix_consonants.each do |c|
+	$tr.puts "ý2t1#{c}"
+	$tr.puts "ý2n1#{c}"
+	$tr.puts "ý2d1#{c}"
+	$tr.puts "r2t1#{c}"
+	$tr.puts "ý2p1#{c}"
+	$tr.puts "l2p1#{c}"
+	$tr.puts "l2t1#{c}"
+	$tr.puts "g2t1#{c}"
+	$tr.puts "n2t1#{c}"
+	$tr.puts "r2k1#{c}"
+	$tr.puts "r2p1#{c}"
+	$tr.puts "k2t1#{c}"
+	$tr.puts "r2h1#{c}"
+	$tr.puts "s2t1#{c}"
+	$tr.puts "l2k1#{c}"
+	$tr.puts "w2p1#{c}"
+	$tr.puts "n2s1#{c}"
+	$tr.puts "r2s1#{c}"
+	$tr.puts "l2m1#{c}"
 end
 
-#$tr.puts "r1t2r"
-#$tr.puts "n2s1p"
+add_comment("Exceptions and single word occurence patterns for words of foreign origin i.e. Russian")
 $tr.puts "s2k1d"
-$tr.puts "t2r1d"
-#$tr.puts "k1t2r"
 $tr.puts "l1s2k"
 $tr.puts "l1s2t"
-#$tr.puts "s1t2r"
+$tr.puts "s1t2r"
 $tr.puts "n2g1l"
 $tr.puts "n1g2r"
 $tr.puts "s2k1w"
@@ -121,3 +132,4 @@ $tr.puts "s2k1w"
 # end the file
 $tr.puts '}'
 $tr.close
+
