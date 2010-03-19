@@ -24,6 +24,7 @@ language_grouping = {
 	'greek' => ['el-monoton', 'el-polyton'],
 	'ancientgreek' => ['grc', 'grc-x-ibycus'],
 	'chinese' => ['zh-latn'],
+	'indic' => ['as', 'bn', 'gu', 'hi', 'kn', 'ml', 'mr', 'or', 'pa', 'ta', 'te'],
 	# TODO - until someone tells what to do; but this is wrong anyway
 	#'serbian' => ['sr-latn', 'sr-cyrl'],
 	'serbian' => ['sh-latn'],
@@ -42,13 +43,16 @@ language_groups = Hash.new
 languages.each do |language|
 	# temporary remove cyrilic serbian until someone explains what is needed
 	if language.code == 'sr-cyrl' or language.code == 'en-us' then
-		languages.delete(language)
-	elsif language.code == 'sh-latn' then
-		language.code = 'sr-latn'
+		# ignore the language
 	elsif language_used_in_group[language.code] == nil then
 		language_groups[language.name] = [language]
 	end
+
+	if language.code == 'sh-latn' then
+		language.code = 'sr-latn'
+	end
 end
+
 # then groups of languages
 language_grouping.each do |name,group|
 	language_groups[name] = []
