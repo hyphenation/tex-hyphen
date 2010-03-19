@@ -10,6 +10,7 @@ croatian	loadhyph-hr.tex
 czech	loadhyph-cs.tex
 danish	loadhyph-da.tex
 dutch	loadhyph-nl.tex
+esperanto	loadhyph-eo.tex
 estonian	loadhyph-et.tex
 farsi	zerohyph.tex
 =persian
@@ -26,6 +27,17 @@ greek	loadhyph-el-polyton.tex
 =polygreek
 hungarian	loadhyph-hu.tex
 icelandic	loadhyph-is.tex
+assamese	loadhyph-as.tex
+bengali	loadhyph-bn.tex
+guajrati	loadhyph-gu.tex
+hindi	loadhyph-hi.tex
+assamese	loadhyph-kn.tex
+malayalam	loadhyph-ml.tex
+marathi	loadhyph-mr.tex
+oriya	loadhyph-or.tex
+panjabi	loadhyph-pa.tex
+tamil	loadhyph-ta.tex
+telugu	loadhyph-te.tex
 indonesian	loadhyph-id.tex
 interlingua	loadhyph-ia.tex
 irish	loadhyph-ga.tex
@@ -47,6 +59,7 @@ romanian	loadhyph-ro.tex
 russian	loadhyph-ru.tex
 sanskrit	loadhyph-sa.tex
 serbian	loadhyph-sr-latn.tex
+slovak	loadhyph-sk.tex
 slovenian	loadhyph-sl.tex
 =slovene
 spanish	loadhyph-es.tex
