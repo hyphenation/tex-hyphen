@@ -1,3 +1,2 @@
-name hyphen-croatian
 category TLCore
 execute AddHyphen name=croatian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-hr.tex

@@ -113,3 +113,7 @@ Some other changes:
 - [half done by Norbert] unify pattern loading with both plain TeX/LaTeX
 - there is now language.dat + xxhyph.tex - one will be redundant
   (get rid of it once all the patterns are converted)
+
+OpenOffice:
+- http://extensions.services.openoffice.org/en/project/RomanianDictionaryPackCedillaVersion
+- (kurdish) http://extensions.services.openoffice.org/en/project/kitandin

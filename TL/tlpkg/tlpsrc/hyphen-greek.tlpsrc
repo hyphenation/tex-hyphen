@@ -1,4 +1,3 @@
-name hyphen-greek
 category TLCore
 execute AddHyphen name=monogreek lefthyphenmin=1 righthyphenmin=1 file=loadhyph-el-monoton.tex
 execute AddHyphen name=greek synonyms=polygreek lefthyphenmin=1 righthyphenmin=1 file=loadhyph-el-polyton.tex

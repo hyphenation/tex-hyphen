@@ -1,4 +1,3 @@
-name hyphen-ancientgreek
 category TLCore
 execute AddHyphen name=ancientgreek lefthyphenmin=1 righthyphenmin=1 file=loadhyph-grc.tex
 execute AddHyphen name=ibycus lefthyphenmin=2 righthyphenmin=2 file=ibyhyph.tex

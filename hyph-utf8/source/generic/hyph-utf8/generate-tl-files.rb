@@ -79,7 +79,7 @@ language_groups.sort.each do |language_name,language_list|
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
 	puts "generating #{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc"
 	
-	$file_tlpsrc.puts "name hyphen-#{language_name}"
+	#$file_tlpsrc.puts "name hyphen-#{language_name}"
 	$file_tlpsrc.puts "category TLCore"
 	
 	# external dependencies for Russian and Ukrainian (until we implement the new functionality at least)

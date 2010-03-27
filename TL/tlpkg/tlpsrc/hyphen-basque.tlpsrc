@@ -1,3 +1,2 @@
-name hyphen-basque
 category TLCore
 execute AddHyphen name=basque lefthyphenmin=2 righthyphenmin=2 file=loadhyph-eu.tex

@@ -1,4 +1,3 @@
-name hyphen-mongolian
 category TLCore
 execute AddHyphen name=mongolian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-mn-cyrl.tex
 execute AddHyphen name=mongolian2a lefthyphenmin=2 righthyphenmin=2 file=loadhyph-mn-cyrl-x-2a.tex

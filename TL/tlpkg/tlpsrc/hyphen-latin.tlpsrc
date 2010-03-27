@@ -1,3 +1,2 @@
-name hyphen-latin
 category TLCore
 execute AddHyphen name=latin lefthyphenmin=2 righthyphenmin=2 file=loadhyph-la.tex

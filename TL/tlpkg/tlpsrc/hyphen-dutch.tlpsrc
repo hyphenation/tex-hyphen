@@ -1,3 +1,2 @@
-name hyphen-dutch
 category TLCore
 execute AddHyphen name=dutch lefthyphenmin=2 righthyphenmin=2 file=loadhyph-nl.tex

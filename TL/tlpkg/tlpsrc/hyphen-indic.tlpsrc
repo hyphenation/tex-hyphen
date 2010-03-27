@@ -1,4 +1,3 @@
-name hyphen-indic
 category TLCore
 execute AddHyphen name=assamese lefthyphenmin=1 righthyphenmin=1 file=loadhyph-as.tex
 execute AddHyphen name=bengali lefthyphenmin=1 righthyphenmin=1 file=loadhyph-bn.tex

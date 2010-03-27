@@ -1,3 +1,2 @@
-name hyphen-latvian
 category TLCore
 execute AddHyphen name=latvian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-lv.tex

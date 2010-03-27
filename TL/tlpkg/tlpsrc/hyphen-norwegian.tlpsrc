@@ -1,4 +1,3 @@
-name hyphen-norwegian
 category TLCore
 execute AddHyphen name=bokmal synonyms=norwegian,norsk lefthyphenmin=2 righthyphenmin=2 file=loadhyph-nb.tex
 execute AddHyphen name=nynorsk lefthyphenmin=2 righthyphenmin=2 file=loadhyph-nn.tex

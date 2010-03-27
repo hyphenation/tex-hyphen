@@ -1,3 +1,2 @@
-name hyphen-italian
 category TLCore
 execute AddHyphen name=italian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-it.tex

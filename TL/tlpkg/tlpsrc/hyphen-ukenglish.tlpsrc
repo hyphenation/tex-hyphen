@@ -1,3 +1,2 @@
-name hyphen-ukenglish
 category TLCore
 execute AddHyphen name=ukenglish synonyms=british,UKenglish lefthyphenmin=2 righthyphenmin=3 file=loadhyph-en-gb.tex

@@ -1,4 +1,3 @@
-name hyphen-russian
 category TLCore
 depend ruhyphen
 execute AddHyphen name=russian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-ru.tex
