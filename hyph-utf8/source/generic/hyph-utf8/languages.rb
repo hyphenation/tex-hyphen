@@ -716,7 +716,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
-	"hyphenmin" => [1,2],
+	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Turkmen Hyphenation Patterns",
