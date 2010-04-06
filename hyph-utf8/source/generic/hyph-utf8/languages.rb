@@ -787,22 +787,10 @@ class Languages < Hash
 	"exceptions" => true,
 	"message" => "Serbian hyphenation patterns in Cyrillic script",
 },
-# mongolian	xu-mnhyph.tex
+# mongolian (used to be mongolian2a)
 {
 	"code" => "mn-cyrl",
 	"name" => "mongolian",
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
-	"filename_old_patterns" => "mnhyph.tex",
-	"hyphenmin" => [2,2],
-	"encoding" => "lmc",
-	"exceptions" => false,
-	"message" => "Mongolian hyphenation patterns",
-},
-# mongolian2a
-{
-	"code" => "mn-cyrl-x-2a",
-	"name" => "mongolian2a",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "mnhyphn.tex",
@@ -810,6 +798,18 @@ class Languages < Hash
 	"encoding" => "t2a",
 	"exceptions" => false,
 	"message" => "(New) Mongolian Hyphenation Patterns",
+},
+# mongolianlmc	xu-mnhyph.tex (used to be mongolian)
+{
+	"code" => "mn-cyrl-x-lmc",
+	"name" => "mongolianlmc",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => "mnhyph.tex",
+	"hyphenmin" => [2,2],
+	"encoding" => "lmc",
+	"exceptions" => false,
+	"message" => "Mongolian hyphenation patterns",
 },
 # bulgarian	xu-bghyphen.tex
 {

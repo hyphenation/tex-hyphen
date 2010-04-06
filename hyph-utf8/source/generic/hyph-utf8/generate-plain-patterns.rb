@@ -28,17 +28,17 @@ languages.each do |language|
 end
 # language_codes['de-1901']      = 'de-1901'
 # language_codes['de-1996']      = 'de-1996'
-language_codes['de-ch-1901']   = 'de-CH-1901'
-language_codes['en-gb']        = 'en-GB'
-language_codes['en-us']        = 'en-US'
-language_codes['zh-latn']      = 'zh-Latn'
+language_codes['de-ch-1901']    = 'de-CH-1901'
+language_codes['en-gb']         = 'en-GB'
+language_codes['en-us']         = 'en-US'
+language_codes['zh-latn']       = 'zh-Latn'
 # language_codes['el-monoton']   = 'el-monoton'
 # language_codes['el-polyton']   = 'el-polyton'
-language_codes['mn-cyrl']      = nil
-language_codes['mn-cyrl-x-2a'] = 'mn'
-language_codes['sh-latn']      = 'sr-Latn'
-language_codes['sh-cyrl']      = nil
-language_codes['sr-cyrl']      = 'sr-Cyrl'
+language_codes['mn-cyrl']       = 'mn'
+language_codes['mn-cyrl-x-lmc'] = nil
+language_codes['sh-latn']       = 'sr-Latn'
+language_codes['sh-cyrl']       = nil
+language_codes['sr-cyrl']       = 'sr-Cyrl'
 
 $file_language_dat_lua = File.open("#{$path_language_dat}/language.dat.lua", "w")
 $file_language_dat_lua.puts "{\n"

@@ -18,10 +18,10 @@
 \testengine Τ!\relax
 % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
 \ifx\secondarg\empty
-    \message{UTF-8 Mongolian hyphenation patterns}
+    \message{UTF-8 (New) Mongolian Hyphenation Patterns}
 \else
-    \message{LMC Mongolian hyphenation patterns}
-    \input conv-utf8-lmc.tex
+    \message{T2A (New) Mongolian Hyphenation Patterns}
+    \input conv-utf8-t2a.tex
 \fi
 \input hyph-mn-cyrl.tex
 \endgroup

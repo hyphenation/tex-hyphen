@@ -272,8 +272,8 @@
 		righthyphenmin=1,
 		synonyms={},
 	},
-	["mongolian2a"]={
-		loader="loadhyph-mn-cyrl-x-2a.tex",
+	["mongolian"]={
+		loader="loadhyph-mn-cyrl.tex",
 		code="mn",
 		lefthyphenmin=2,
 		righthyphenmin=2,

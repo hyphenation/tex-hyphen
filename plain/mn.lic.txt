@@ -62,8 +62,8 @@
 %
 %------------------------------------------------------------------------------
 %
-%% mnhyphn.tex v1.2 2008/03/23
-%% Copyright 2007-2008 by D. Batmunkh, National University of Mongolia
+%% mnhyphn.tex v1.2 2008/03/23 (2010/04/03)
+%% Copyright 2007-2010 by Dorjgotov Batmunkh, National University of Mongolia
 %% email bataak@gmail.com
 %
 % This work may be distributed and/or modified under the
@@ -75,4 +75,14 @@
 % version 2005/12/01 or later.
 %
 % Special thanks to: Jim Hefferon and Robin Fairbairns
+%
+% There are few basic rules in mongolian
+%
+% 1. If there is a consonant then it can use hyphen before it.
+%    And if there're two consonants then it can use hyphen before second consonant.
+%    Are there three consonants then it can put hyphen before third consonant,
+%    also are there four consonants then it can use hyphen before fourth consonant.
+% 2. In the case of hardsign or softsign, it's possible to hyphen after these signs.
+%    For instance, байгуулъ-я, үзүүль-е
+% 3. However one vowel can be belong to a syllable, it's not possible to use hyphen.
 %

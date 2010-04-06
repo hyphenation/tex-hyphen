@@ -20,7 +20,7 @@ languages = $l.list.sort{|a,b| a.name <=> b.name}
 language_grouping = {
 	'norwegian' => ['nb', 'nn'],
 	'german' => ['de-1901', 'de-1996', 'de-ch-1901'],
-	'mongolian' => ['mn-cyrl', 'mn-cyrl-x-2a'],
+	'mongolian' => ['mn-cyrl', 'mn-cyrl-x-lmc'],
 	'greek' => ['el-monoton', 'el-polyton'],
 	'ancientgreek' => ['grc', 'grc-x-ibycus'],
 	'chinese' => ['zh-latn'],
