@@ -901,17 +901,6 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Guajrati Hyphenation Patterns",
 },
-# assamese
-{
-	"code" => "as",
-	"name" => "assamese",
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
-	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
-	"exceptions" => false,
-	"message" => "Assameze Hyphenation Patterns",
-},
 # hindi
 {
 	"code" => "hi",
