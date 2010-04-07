@@ -1,2 +1,2 @@
 category TLCore
-execute AddHyphen name=french synonyms=patois,francais lefthyphenmin= righthyphenmin= file=loadhyph-fr.tex
+execute AddHyphen name=french synonyms=patois,francais lefthyphenmin=2 righthyphenmin=3 file=loadhyph-fr.tex

@@ -41,7 +41,7 @@ language_codes['sh-cyrl']       = nil
 language_codes['sr-cyrl']       = 'sr-Cyrl'
 
 $file_language_dat_lua = File.open("#{$path_language_dat}/language.dat.lua", "w")
-$file_language_dat_lua.puts "{\n"
+$file_language_dat_lua.puts "return {\n"
 
 languages.sort{|x,y| x.code <=> y.code }.each do |language|
 	if language.use_new_loader or language.code == 'en-us' then

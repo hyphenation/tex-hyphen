@@ -430,7 +430,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "frhyph.tex",
-#	"hyphenmin" => [],
+	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "French hyphenation patterns (V2.12, 2002/12/11)",

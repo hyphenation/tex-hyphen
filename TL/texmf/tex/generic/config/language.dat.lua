@@ -1,4 +1,4 @@
-{
+return {
 	["assamese"]={
 		loader="loadhyph-as.tex",
 		code="as",
@@ -142,8 +142,8 @@
 	["french"]={
 		loader="loadhyph-fr.tex",
 		code="fr",
-		lefthyphenmin=,
-		righthyphenmin=,
+		lefthyphenmin=2,
+		righthyphenmin=3,
 		synonyms={"patois","francais"},
 	},
 	["irish"]={
