@@ -19,7 +19,6 @@ sS
 tT
 uU
 vV
-wW
 xX
 yY
 zZ
