@@ -988,6 +988,11 @@ class Languages < Hash
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
 	"message" => "Telugu Hyphenation Patterns",
+# dumylang -> dumyhyph.tex
+# nohyphenation -> zerohyph.tex
+# arabic -> zerohyph.tex
+# farsi zerohyph.tex
+# =persian
 },
 		]
 

@@ -10,7 +10,7 @@ require 'unicode'
 load 'languages.rb'
 
 $path_root="../../.."
-$path_plain="#{$path_root}/tex/generic/hyph-utf8/plain"
+$path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns-plain"
 $path_TL="../../../../TL"
 $path_language_dat="#{$path_TL}/texmf/tex/generic/config"
 
