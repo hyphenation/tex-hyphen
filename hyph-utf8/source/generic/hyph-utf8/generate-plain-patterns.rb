@@ -12,7 +12,7 @@ load 'languages.rb'
 $path_root="../../.."
 $path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns-plain"
 $path_TL="../../../../TL"
-$path_language_dat="#{$path_TL}/texmf/tex/generic/config"
+$path_language_dat_lua="#{$path_root}/tex/luatex/hyph-utf8/config"
 
 $l = Languages.new
 # TODO: should be singleton
@@ -41,7 +41,7 @@ language_codes['sh-latn']       = 'sr-Latn'
 language_codes['sh-cyrl']       = nil
 language_codes['sr-cyrl']       = 'sr-Cyrl'
 
-$file_language_dat_lua = File.open("#{$path_language_dat}/language.dat.lua", "w")
+$file_language_dat_lua = File.open("#{$path_language_dat_lua}/language.dat.lua", "w")
 $file_language_dat_lua.puts "return {\n"
 
 languages.sort{|x,y| x.code <=> y.code }.each do |language|
