@@ -63,10 +63,10 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 	if include_language
 		puts "generating #{code}"
 	
-		$file_pat = File.open("#{$path_plain}/#{code}.pat.txt", 'w')
-		$file_hyp = File.open("#{$path_plain}/#{code}.hyp.txt", 'w')
-		$file_let = File.open("#{$path_plain}/#{code}.chr.txt", 'w')
-		$file_inf = File.open("#{$path_plain}/#{code}.lic.txt", 'w')
+		$file_pat = File.open("#{$path_plain}/hyph-#{code}.pat.txt", 'w')
+		$file_hyp = File.open("#{$path_plain}/hyph-#{code}.hyp.txt", 'w')
+		$file_let = File.open("#{$path_plain}/hyph-#{code}.chr.txt", 'w')
+		$file_inf = File.open("#{$path_plain}/hyph-#{code}.lic.txt", 'w')
 
 		patterns   = language.get_patterns
 		exceptions = language.get_exceptions
