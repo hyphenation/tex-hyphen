@@ -1,0 +1,34 @@
+2010-04-27 (#340)
+- fixing glitches in Galician patterns
+- create this file for publishing changes
+
+2010-04-23 (#339)
+- updated Galician patterns (by Javier A. Múgica)
+
+2010-04-06 (#336)
+- rename mongolian->mongolianlmc and mongolian2a->mongolian
+
+2010-03-19 (#320, #323, #326)
+- Some modifications to Turkmen patterns; sent by Nazar Annagurban
+- some fixes for Indic patterns
+
+2010-03-17 (#318, #319)
+- add Indic patterns (TODO: list of patterns) by Santhosh Thottingal (+ script to fetch and convert them)
+
+2010-03-15 (#311)
+- add Turkmen patterns by Nazar Annagurban
+- minor fixes for Serbian
+
+2010-03-04 (#307)
+- a new version of Sanskrit patterns by Yves Codet
+
+2009-08-01 (#286)
+- pattern update for Spanish by Javier Bezos
+
+2009-07-10 (#279, #280)
+- add hyphenation patterns for Kurmanji (Northern Kurdish) by Jörg Knappen and Medeni Shemdê
+
+2009-06-25 (#278)
+- update German language patterns (synchronize with package dehyph-exptl v0.20)
+
+... older history to be completed ...
