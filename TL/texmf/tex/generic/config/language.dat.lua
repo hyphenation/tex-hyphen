@@ -98,7 +98,14 @@ return {
 		synonyms={"british","UKenglish"},
 	},
 	["english"]={
-		loader="loadhyph-en-us.tex",
+		loader="hyphen.tex",
+		code="en-US-x-knuth",
+		lefthyphenmin=2,
+		righthyphenmin=3,
+		synonyms={"usenglish","USenglish","american"},
+	},
+	["usenglishmax"]={
+		loader="ushyphmax.tex",
 		code="en-US",
 		lefthyphenmin=2,
 		righthyphenmin=3,
