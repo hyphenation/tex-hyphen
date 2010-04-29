@@ -1,0 +1,59 @@
+                    The luatex hyphenation package.
+
+This package aims at replacing the standard hyphen.cfg for LuaTeX. The main
+difference is that the patterns are loaded at runtime and not in the format.
+This leads to much shorter format loading time, with no loss as the 
+patterns are not really loaded in the format, just copied and then loaded
+at runtime.
+
+This package is developped on <http://github.com/eroux/luatex-hyphen>.
+
+Installation
+------------
+
+Here are the recommended installation methods (preferred first).
+
+1. If you are using TeX Live 2010 or later, the files are already installed.
+
+2. a. Grab luatex-hyphen.tds.zip on the CTAN.
+   b. Unzip it at the root of one or your TDS trees.
+   c. Update some filename database after, and regenerate the formats for 
+      LuaTeX. See your TeX distribution's manual for details.
+
+3. a. Grab the sources from CTAN or github.
+   b. Run 'make install TEXMFROOT=/path/to/texmf'.
+   c. See 2c.
+
+4. Try to figure it out by looking at the Makefile and comments in the sources.
+
+Manifest
+--------
+
+Source files:
+        luatex-hyphen.dtx            single file source & doc
+
+Derived files:
+        luatex-hyphen.pdf            documentation
+        hyphen.cfg                   pattern loading file
+        luatex-hyphen.lua            lua code used by the package
+
+
+License
+-------
+
+This work is under the CC0 license, with an additional restriction: 
+the article 6 of the LaTeX Project Public License (lppl), that applies to code
+that has been taken from LaTeX files.
+
+You can find the text of the lppl at
+
+The lppl can be found at http://www.latex-project.org/lppl.txt
+
+You can find the CC0 full text at
+
+http://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The file luatex-hyphen.dtx contains code with the lppl restriction as well as the
+derived files
+  hyphen.cfg
+  luatex-hyphen.pdf
