@@ -1,0 +1,90 @@
+\documentclass[twocolums]{article}
+\usepackage[english]{babel}
+
+\makeatletter
+\newcommand\test[2]{%
+  \typeout{#1 #2}
+  \hyphenrules{#1}%
+  #1 (\the\language)
+  \@for\syn:=#2\do{%
+    \expandafter\hyphenrules\expandafter{\syn}%
+    = \syn (\the\language)
+    }
+  \par}
+\makeatother
+
+\begin{document}
+
+% list of languages and synonyms taken from TL's language.dat
+
+\test{english}{usenglish,USenglish,american}
+\test{usenglishmax}{}
+\test{dumylang}{}
+\test{nohyphenation}{}
+\test{german-x-2009-06-19}{german-x-latest}
+\test{ngerman-x-2009-06-19}{ngerman-x-latest}
+\test{ancientgreek}{}
+\test{ibycus}{}
+\test{arabic}{}
+\test{basque}{}
+\test{bulgarian}{}
+\test{catalan}{}
+\test{pinyin}{}
+\test{coptic}{}
+\test{croatian}{}
+\test{czech}{}
+\test{danish}{}
+\test{dutch}{}
+\test{esperanto}{}
+\test{estonian}{}
+\test{farsi}{persian}
+\test{finnish}{}
+\test{french}{patois,francais}
+\test{galician}{}
+\test{german}{}
+\test{ngerman}{}
+\test{monogreek}{}
+\test{greek}{polygreek}
+\test{hungarian}{}
+\test{icelandic}{}
+\test{assamese}{}
+\test{bengali}{}
+\test{guajrati}{}
+\test{hindi}{}
+\test{assamese}{}
+\test{malayalam}{}
+\test{marathi}{}
+\test{oriya}{}
+\test{panjabi}{}
+\test{tamil}{}
+\test{telugu}{}
+\test{indonesian}{}
+\test{interlingua}{}
+\test{irish}{}
+\test{italian}{}
+\test{kurmanji}{}
+\test{latin}{}
+\test{latvian}{}
+\test{lithuanian}{}
+\test{mongolian}{}
+\test{mongolianlmc}{}
+\test{bokmal}{norwegian,norsk}
+\test{nynorsk}{}
+\test{polish}{}
+\test{portuguese}{portuges}
+\test{romanian}{}
+%\test{russian}{}
+\test{sanskrit}{}
+\test{serbian}{}
+\test{slovak}{}
+\test{slovenian}{slovene}
+\test{spanish}{espanol}
+\test{swedish}{}
+\test{turkish}{}
+\test{turkmen}{}
+\test{ukenglish}{british,UKenglish}
+\test{ukrainian}{}
+\test{uppersorbian}{}
+\test{welsh}{}
+
+\end{document}
