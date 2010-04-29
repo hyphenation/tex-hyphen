@@ -230,7 +230,11 @@ local function lookupname(l)
     return nil
 end
 
+local language_loaded = { [0] = true }
+
 function luatexhyphen.loadlanguage(l, id)
+    if language_loaded[id] then return end
+    language_loaded[id] = true
     local lt, orig = lookupname(l)
     if not lt or not lt.code then
         warn("no entry in %s for this language: %s", dbname, l)
@@ -473,20 +477,15 @@ end
 %    \end{macrocode}
 %
 %    With Lua\TeX, load patterns and exceptions at runtime using functions
-%    from the supporting Lua module.
+%    from the supporting Lua module, which remembers which languages have
+%    already been loaded.
 %
-%    Remember which patterns have been loaded to avoid reloading patterns and
-%    exceptions every time the language is activated.  This is done in \TeX\
-%    rather than in Lua so that the information about which patterns are
-%    loaded in the format is correctly remembered at runtime.\footnote{It is
-%    theoretically possible to do so in Lua too, saving things in a bytecode
-%    register and restoring if via \cs{everyjob}, but there is currently no
-%    standard mechanism for this, and the \TeX\ works well anyway.}
+%    Also, since this code will be executed at runtime, be careful while
+%    testing if we're using Lua\TeX.
 %
 %    \begin{macrocode}
   \ifx\directlua\@undefined\else
-    \unless\ifcsname bbl@luatex@#1@loaded\endcsname
-       \expandafter\gdef\csname bbl@luatex@#1@loaded\endcsname{}%
+    \ifx\directlua\relax\else
        \directlua{
          if not luatexhyphen then
            dofile(kpse.find_file("luatex-hyphen.lua"))
@@ -494,7 +493,7 @@ end
          luatexhyphen.loadlanguage("\luatexluaescapestring{#1}",
            \number\csname l@#1\endcsname)
          }%
-    \fi
+     \fi
   \fi
 %    \end{macrocode}
 %
@@ -600,7 +599,7 @@ end
   \ifx\directlua\@undefined
     \global\toks8\expandafter{\the\toks8#1, }%
   \else
-    \unless\ifcsname bbl@luatex@english@loaded\endcsname
+    \ifnum\last@language=\z@
       \global\toks8\expandafter{\the\toks8#1 }%
     \fi
   \fi
@@ -629,7 +628,7 @@ end
     \ifx\directlua\@undefined
       \input #2\relax
     \else
-      \unless\ifcsname bbl@luatex@english@loaded\endcsname
+    \ifnum\last@language=\z@
         \gdef\bbl@luatex@english@loaded{1}%
         \input #2\relax
       \fi

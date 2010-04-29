@@ -46,7 +46,11 @@ local function lookupname(l)
     return nil
 end
 
+local language_loaded = { [0] = true }
+
 function luatexhyphen.loadlanguage(l, id)
+    if language_loaded[id] then return end
+    language_loaded[id] = true
     local lt, orig = lookupname(l)
     if not lt or not lt.code then
         warn("no entry in %s for this language: %s", dbname, l)
