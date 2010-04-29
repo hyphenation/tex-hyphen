@@ -46,53 +46,30 @@ local function lookupname(l)
     return nil
 end
 
-function luatexhyphen.loadpatterns(l, id)
+function luatexhyphen.loadlanguage(l, id)
     local lt, orig = lookupname(l)
     if not lt or not lt.code then
         warn("no entry in %s for this language: %s", dbname, l)
         return
     end
-    local n = 'hyph-'..lt.code..'.pat.txt'
-    local f = kpse.find_file(n)
-    if not f then
-        warn("file not found: %s", n)
-        return
+    warn("loading patterns and exceptions for: %s (\\language%s)", orig, id)
+    for _, ext in ipairs({'pat', 'hyp'}) do
+        local n = 'hyph-'..lt.code..'.'..ext..'.txt'
+        local f = kpse.find_file(n)
+        if not f then
+            warn("file not found: %s", n)
+            return
+        end
+        f = io.open(f, 'r')
+        local data = f:read('*a')
+        f:close()
+        if not data then
+            warn("file not readable: %s", f)
+            return
+        end
+        local lobj = lang.new(id)
+        lang.patterns(lobj, data)
     end
-    f = io.open(f, 'r')
-    local data = f:read('*a')
-    f:close()
-    if not data then
-        warn("file not readable: %s", f)
-        return
-    end
-    local lobj = lang.new(id)
-    warn("loading patterns for: %s", orig)
-    lang.patterns(lobj, data)
 end
-
-function luatexhyphen.loadexceptions(l, id)
-    local lt, orig = lookupname(l)
-    if not lt or not lt.code then
-        warn("no entry in %s for this language: %s", dbname, l)
-        return
-    end
-    local n = 'hyph-'..lt.code..'.hyp.txt'
-    local f = kpse.find_file(n)
-    if not f then
-        warn("file not found: %s", n)
-        return
-    end
-    f = io.open(f, 'r')
-    local data = f:read('*a')
-    f:close()
-    if not data then
-        warn("file not readable: %s", f)
-        return
-    end
-    local lobj = lang.new(id)
-    warn("loading exceptions for: %s", orig)
-    lang.hyphenation(lobj, data)
-end
-
 -- 
 --  End of File `luatex-hyphen.lua'.
