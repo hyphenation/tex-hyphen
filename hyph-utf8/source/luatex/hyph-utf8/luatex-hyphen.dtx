@@ -201,24 +201,25 @@ luatexhyphen = {}
 
 luatexhyphen.version = "1.3beta"
 
+local dbname = "language.dat.lua"
+
 local function warn (msg, ...)
     texio.write_nl('luatex-hypen: '..string.format(msg, ...))
 end
 
-luatexhyphen.languagesdat = {}
-
-local languagesdatfile = kpse.find_file("languages.dat.lua")
-if not languagesdatfile then
-    warn("file not found: languages.dat.lua")
+luatexhyphen.language_dat = {}
+local dbfile = kpse.find_file(dbname)
+if not dbfile then
+    warn("file not found: "..dbname)
 else
-    luatexhyphen.languagesdat = dofile(languagesdatfile)
+    luatexhyphen.language_dat = dofile(dbfile)
 end
 
 local function lookupname(l)
-    if luatexhyphen.languagesdat[l] then
-        return luatexhyphen.languagesdat[l], l
+    if luatexhyphen.language_dat[l] then
+        return luatexhyphen.language_dat[l], l
     else
-        for orig,lt in pairs(luatexhyphen.languagesdat) do
+        for orig,lt in pairs(luatexhyphen.language_dat) do
             for _,syn in ipairs(lt.synonyms) do
                 if syn == l then
                     return lt, orig
@@ -232,12 +233,13 @@ end
 function luatexhyphen.loadpatterns(l, id)
     local lt, orig = lookupname(l)
     if not lt or not lt.code then
-        warn("no entry in languages.dat.lua for this language: %s", l)
+        warn("no entry in %s for this language: %s", dbname, l)
         return
     end
-    local f = kpse.find_file(lt.code .. '.pat.txt')
+    local n = 'hyph-'..lt.code..'.pat.txt'
+    local f = kpse.find_file(n)
     if not f then
-        warn("file not found: %s", lt.code .. '.pat.txt')
+        warn("file not found: %s", n)
         return
     end
     f = io.open(f, 'r')
@@ -255,12 +257,13 @@ end
 function luatexhyphen.loadexceptions(l, id)
     local lt, orig = lookupname(l)
     if not lt or not lt.code then
-        warn("no entry in languages.dat.lua for this language: %s", l)
+        warn("no entry in %s for this language: %s", dbname, l)
         return
     end
-    local f = kpse.find_file(lt.code .. '.hyp.txt')
+    local n = 'hyph-'..lt.code..'.hyp.txt'
+    local f = kpse.find_file(n)
     if not f then
-        warn("file not found: %s", lt.code .. '.pat.txt')
+        warn("file not found: %s", n)
         return
     end
     f = io.open(f, 'r')
