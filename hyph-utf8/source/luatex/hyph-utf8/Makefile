@@ -1,87 +1,35 @@
-# Makefile for luatex-hyphen
+# Makefile for luatex-hyphen in tex-hyphen/hyph-utf8
 
 NAME = luatex-hyphen
-DOC = $(NAME).pdf
 DTX = $(NAME).dtx
 
-# Files grouped by generation mode
-COMPILED = $(DOC)
-UNPACKED = luatex-hyphen.lua hyphen.cfg
-SOURCE = $(DTX) README Makefile
-GENERATED = $(COMPILED) $(UNPACKED)
-
-# Files grouped by installation location
-RUNFILES = $(UNPACKED)
-DOCFILES = $(DOC) README
-SRCFILES = $(DTX) Makefile
-
-# The following definitions should be equivalent
-# ALL_FILES = $(RUNFILES) $(DOCFILES) $(SRCFILES)
-ALL_FILES = $(GENERATED) $(SOURCE)
+# Generated files
+COMPILED = $(NAME).pdf
+UNPACKED = $(NAME).lua hyphen.cfg
 
 # Installation locations
-FORMAT = luatex
-INSTNAME = $(NAME)
-RUNDIR = $(TEXMFROOT)/tex/$(FORMAT)/$(INSTNAME)
-DOCDIR = $(TEXMFROOT)/doc/$(FORMAT)/$(INSTNAME)
-SRCDIR = $(TEXMFROOT)/source/$(FORMAT)/$(INSTNAME)
-TEXMFROOT = ./texmf
+RUNDIR = ../../../tex/luatex/hyph-utf8
+DOCDIR = ../../../doc/luatex/hyph-utf8
 
-CTAN_ZIP = $(NAME).zip
-TDS_ZIP = $(NAME).tds.zip
-ZIPS = $(CTAN_ZIP) $(TDS_ZIP)
+# Final files
+RUNFILES = $(patsubst %, $(RUNDIR)/%, $(UNPACKED))
+DOCFILE = $(DOCDIR)/$(COMPILED)
+
+all: $(RUNFILES) $(DOCFILE)
 
 DO_TEX = tex --interaction=batchmode $< >/dev/null
 DO_PDFLATEX = pdflatex --interaction=batchmode $< >/dev/null
 
-all: $(GENERATED)
-doc: $(COMPILED)
-unpack: $(UNPACKED)
-ctan: $(CTAN_ZIP)
-tds: $(TDS_ZIP)
-world: all ctan
-
-$(COMPILED): $(DTX)
+$(DOCFILE): $(DTX)
 	$(DO_PDFLATEX)
 	$(DO_PDFLATEX)
+	mv $(COMPILED) $(DOCDIR)
 
-$(UNPACKED): $(DTX)
+$(RUNFILES): $(DTX)
 	$(DO_TEX)
-
-$(CTAN_ZIP): $(SOURCE) $(COMPILED) $(TDS_ZIP)
-	@echo "Making $@ for CTAN upload."
-	@$(RM) -- $@
-	@zip -9 $@ $^ >/dev/null
-
-define run-install
-@mkdir -p $(RUNDIR) && cp $(RUNFILES) $(RUNDIR)
-@mkdir -p $(DOCDIR) && cp $(DOCFILES) $(DOCDIR)
-@mkdir -p $(SRCDIR) && cp $(SRCFILES) $(SRCDIR)
-endef
-
-$(TDS_ZIP): TEXMFROOT=./tmp-texmf
-$(TDS_ZIP): $(ALL_FILES)
-	@echo "Making TDS-ready archive $@."
-	@$(RM) -- $@
-	$(run-install)
-	@cd $(TEXMFROOT) && zip -9 ../$@ -r . >/dev/null
-	@$(RM) -r -- $(TEXMFROOT)
-
-.PHONY: install manifest clean mrproper
-
-install: $(ALL_FILES)
-	@echo "Installing in '$(TEXMFROOT)'."
-	$(run-install)
-
-manifest: 
-	@echo "Source files:"
-	@for f in $(SOURCE); do echo $$f; done
-	@echo ""
-	@echo "Derived files:"
-	@for f in $(GENERATED); do echo $$f; done
+	for file in $(UNPACKED); do mv $$file $(RUNDIR); done
 
 clean: 
 	@$(RM) -- *.log *.aux *.toc *.idx *.ind *.ilg
 
-mrproper: clean
-	@$(RM) -- $(GENERATED) $(ZIPS)
+.PHONY: clean
