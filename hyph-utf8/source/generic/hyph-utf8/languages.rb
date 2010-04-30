@@ -915,7 +915,7 @@ class Languages < Hash
 # kannada
 {
 	"code" => "kn",
-	"name" => "assamese",
+	"name" => "kannada",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
