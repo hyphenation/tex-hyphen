@@ -108,6 +108,9 @@ This work is under the CC0 license.
 \ProvidesFile{luatex-hyphen.drv}
   [2010/04/28 v1.3beta Hyphenation file for LuaTeX]
 \documentclass{ltxdoc}
+\usepackage[ascii]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \EnableCrossrefs
 \CodelineIndex
 \begin{document}
@@ -149,7 +152,13 @@ This work is under the CC0 license.
 % This is a modified version of the file \texttt{hyphen.cfg} distributed with
 % the \textsf{babel} package, with a supporting Lua module, aimed at adapting
 % \textsf{babel}'s hyphenation patterns loading mechanism to Lua\TeX's dynamic
-% pattern loading capabilities.
+% pattern loading capabilities. It makes use of a \texttt{language.dat.lua}
+% file (whose format is described below) that should be present in the
+% distribution, in addition to the regular \texttt{language.dat} file.
+%
+% Much of the modified code here is shared with a version of \texttt{etex.src}
+% modified for the same reasons, which also make use of the
+% \texttt{luatex-hyphen.lua} file described here.
 % \end{abstract}
 %
 % \section{Documentation}
@@ -161,28 +170,58 @@ This work is under the CC0 license.
 % patterns as possible in the format, and load on-demand the needed patterns
 % at runtime.
 %
-% For backward compatibility, Knuth's original patterns for US English are
-% still loaded in the format, as \verb+\language0+.
-%
 % This package provides a modified version of hyphen.cfg adapted to Lua\TeX,
 % as well as a supporting Lua module. Since a lot of things, especially the
 % catcodes, are not as predictable at runtime than at format creation time, we
 % don't \verb+\input+ the usual pattern files, but rather load the patterns
 % using the Lua interface, using a special plain text version of the pattern
-% files kindly provided by the texhypen project.
+% files if available.
 %
-% The modifications applied in this files are highlighted in the code
-% documentation below, but here is a summary:
-% \begin{itemize}
-% \item not loading patterns in the format except for english
-% \item loading patterns at runtime, except for english
-% \item modified banner
-% \end{itemize}
+% The existence and file name of such a version cannot be guessed, so we need
+% a specific database: the file \texttt{language.dat.lua}. This file should be
+% loadable by Lua and return a table whose keys are the canonical language
+% names as found in \texttt{language.dat}, and the values are Lua tables
+% consisting of:
+% \begin{enumerate}
+%   \item A fixed part with two fields:
+%     \begin{quote}
+%       \verb+loader = <string> name of the TeX loader+\\
+%       \verb+synonyms = { <string> alternative name+
+%     \end{quote}
+%     The \verb+loader+ field is currently unused.
+%   \item A variable part consisting of either:
+%     \begin{itemize}
+%       \item For most languages:
+%         \begin{quote}
+%           \verb+code = <string> language code+\\
+%           \verb+lefthyphenmin = <number> value for \letfhyphenmin+\\
+%           \verb+righthyphenmin = <number> value for \letfhyphenmin+
+%         \end{quote}
+%         The \verb+code+ field determines where patterns and exceptions will
+%         be searched: in files \texttt{hyph-<code>.pat.txt} and
+%         \texttt{hyph-<code>.hyp.txt} respectively. The values of
+%         \texttt{*hyphenmin} are currently unused.
+%       \item Special case are supported by a field \verb+special+. Currently,
+%         two kinds of value are recognized: \verb+'null'+ for languages with
+%         no hyphenation patterns nor exceptions. \verb+'disabled:<reason>'+
+%         allows to disable specific languages: when the user tries to load
+%         this language, an error will be issued, with the \verb+<reason>+.
+%     \end{itemize}
+% \end{enumerate}
+% Languages that are mentioned in \texttt{language.dat} but not in
+% \texttt{language.dat.lua} will be loaded in the format. So, if the
+% \texttt{language.dat.lua} file is missing or incomplete, languages will just
+% go back to the ``old'' behaviour, resulting in longer startup time, which
+% does seem less bad than complete breakage.
 %
-% This file checks for the engine, and should continue to work with any engine
-% without any modified behaviour. However, it is recommended to install it in
-% such a way that the original \verb+hyphen.cfg+ from \textsf{babel} is found
-% first by any engine other than Lua\TeX.
+% For backward compatibility, Knuth's original patterns for US English are
+% always loaded in the format, as \verb+\language0+.
+%
+% The modified version of \texttt{hyphen.cfg} provided here checks for the
+% engine, and should continue to work with any engine without any modified
+% behaviour. However, it is recommended to install it in such a way that the
+% original \verb+hyphen.cfg+ from \textsf{babel} is found first by any engine
+% other than Lua\TeX.
 %
 % \StopEventually{
 % }
@@ -204,7 +243,7 @@ luatexhyphen.version = "1.3beta"
 local dbname = "language.dat.lua"
 
 local function warn (msg, ...)
-    texio.write_nl('luatex-hypen: '..string.format(msg, ...))
+    texio.write_nl('luatex-hyphen: '..string.format(msg, ...))
 end
 
 luatexhyphen.language_dat = {}
@@ -215,7 +254,7 @@ else
     luatexhyphen.language_dat = dofile(dbfile)
 end
 
-local function lookupname(l)
+function luatexhyphen.lookupname(l)
     if luatexhyphen.language_dat[l] then
         return luatexhyphen.language_dat[l], l
     else
@@ -230,18 +269,26 @@ local function lookupname(l)
     return nil
 end
 
-local language_loaded = { [0] = true }
-
 function luatexhyphen.loadlanguage(l, id)
-    if language_loaded[id] then return end
-    language_loaded[id] = true
-    local lt, orig = lookupname(l)
-    if not lt or not lt.code then
+    local lt, orig = luatexhyphen.lookupname(l)
+    if not lt then
         warn("no entry in %s for this language: %s", dbname, l)
         return
     end
-    warn("loading patterns and exceptions for: %s (\\language%s)", orig, id)
-    for _, ext in ipairs({'pat', 'hyp'}) do
+    local msg = "loading%s patterns and exceptions for: %s (\\language%d)"
+    if lt.special then
+        if lt.special == 'null' then
+            warn(msg, ' (null)', orig, id)
+        elseif lt.special:find('^disabled:') then
+            warn("language disabled by %s: %s (%s)", dbname, orig,
+                lt.special:gsub('^disabled:', ''))
+        else
+            warn("bad entry in %s for language %s")
+        end
+        return
+    end
+    warn(msg, '', orig, id)
+    for ext, fun in pairs({pat = lang.patterns, hyp = lang.hyphenation}) do
         local n = 'hyph-'..lt.code..'.'..ext..'.txt'
         local f = kpse.find_file(n)
         if not f then
@@ -255,8 +302,7 @@ function luatexhyphen.loadlanguage(l, id)
             warn("file not readable: %s", f)
             return
         end
-        local lobj = lang.new(id)
-        lang.patterns(lobj, data)
+        fun(lang.new(id), data)
     end
 end
 %    \end{macrocode}
@@ -474,11 +520,17 @@ end
   \fi
   }
 \def\bbl@patterns#1{%
+  \language=\expandafter\ifx\csname l@#1:\f@encoding\endcsname\relax
+    \csname l@#1\endcsname
+  \else
+    \csname l@#1:\f@encoding\endcsname
+  \fi\relax
 %    \end{macrocode}
 %
-%    With Lua\TeX, load patterns and exceptions at runtime using functions
-%    from the supporting Lua module, which remembers which languages have
-%    already been loaded.
+%    With Lua\TeX, load patterns and exceptions on the fly using functions
+%    from the supporting Lua module, unless of course they are already loaded
+%    for this language (identified by its number to avoid problems with
+%    synonyms).
 %
 %    Also, since this code will be executed at runtime, be careful while
 %    testing if we're using Lua\TeX.
@@ -486,23 +538,20 @@ end
 %    \begin{macrocode}
   \ifx\directlua\@undefined\else
     \ifx\directlua\relax\else
-       \directlua{
-         if not luatexhyphen then
-           dofile(kpse.find_file("luatex-hyphen.lua"))
-         end
-         luatexhyphen.loadlanguage("\luatexluaescapestring{#1}",
-           \number\csname l@#1\endcsname)
-         }%
-     \fi
+      \ifcsname lu@texhyphen@loaded@\the\language\endcsname \else
+        \global\@namedef{lu@texhyphen@loaded@\the\language}{}%
+        \directlua{
+          if not luatexhyphen then
+              dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+          end
+          luatexhyphen.loadlanguage("\luatexluaescapestring{#1}",
+            \the\language)}%
+      \fi
+    \fi
   \fi
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-  \language=\expandafter\ifx\csname l@#1:\f@encoding\endcsname\relax
-    \csname l@#1\endcsname
-  \else
-    \csname l@#1:\f@encoding\endcsname
-  \fi\relax
 }
 \def\hyphenrules#1{%
   \expandafter\ifx\csname l@#1\endcsname\@undefined
@@ -593,14 +642,21 @@ end
   \def\languagename{#1}%
 %    \end{macrocode}
 %
-%    Yet another banner modification. See below why the test makes sense.
+%    In the Lua\TeX case, we have to decide wether to load the language now.
 %
 %    \begin{macrocode}
   \ifx\directlua\@undefined
     \global\toks8\expandafter{\the\toks8#1, }%
   \else
-    \ifnum\last@language=\z@
-      \global\toks8\expandafter{\the\toks8#1 }%
+    \directlua{
+      if not luatexhyphen then
+        dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+      end
+      processnow = (tex.language == 0) or
+        (luatexhyphen.lookupname("\luatexluaescapestring{#1}") == nil)}%
+    \ifnum0=\directlua{tex.sprint(processnow and "0" or "1")}\relax
+      \global\toks8\expandafter{\the\toks8#1, }%
+      \global\@namedef{lu@texhyphen@loaded@\the\language}{}%
     \fi
   \fi
 %    \end{macrocode}
@@ -619,17 +675,14 @@ end
 %    English. This assumption is very reasonnable, since otherwise it would
 %    break compatibility with frozen \TeX by not providing Knuth's orginal
 %    patterns as \verb+\language0+, so we're pretty sure about this point.
-%
 %    We do load this first language, since we want Knuth's patterns to be
-%    active as soon as the format is loaded.  But once it is done, we don't
-%    want to load any other language.
+%    active as soon as the format is loaded.
 %
 %    \begin{macrocode}
     \ifx\directlua\@undefined
       \input #2\relax
     \else
-    \ifnum\last@language=\z@
-        \gdef\bbl@luatex@english@loaded{1}%
+      \ifnum0=\directlua{tex.sprint(processnow and "0" or "1")}\relax
         \input #2\relax
       \fi
     \fi
@@ -670,6 +723,11 @@ end
 %    \begin{macrocode}
       \ifx\directlua\@undefined
         \input #3\relax
+      \else
+        \ifnum0=\directlua{tex.sprint(processnow and "0" or "1")}\relax
+          \input #3\relax
+        \fi
+        \directlua{processnow = nil}%
       \fi
     \fi
   \fi
