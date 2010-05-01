@@ -890,16 +890,16 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Bengali Hyphenation Patterns",
 },
-# guajrati
+# gujarati
 {
 	"code" => "gu",
-	"name" => "guajrati",
+	"name" => "gujarati",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Guajrati Hyphenation Patterns",
+	"message" => "Gujarati Hyphenation Patterns",
 },
 # hindi
 {
@@ -915,7 +915,7 @@ class Languages < Hash
 # kannada
 {
 	"code" => "kn",
-	"name" => "assamese",
+	"name" => "kannada",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
