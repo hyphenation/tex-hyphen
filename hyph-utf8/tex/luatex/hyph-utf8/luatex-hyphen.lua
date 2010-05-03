@@ -19,14 +19,18 @@ luatexhyphen.version = "1.3beta"
 
 local dbname = "language.dat.lua"
 
-local function warn (msg, ...)
-    texio.write_nl('luatex-hyphen: '..string.format(msg, ...))
+local function wlog(msg, ...)
+    texio.write_nl('log', 'luatex-hyphen: '..string.format(msg, ...))
+end
+
+local function err(msg, ...)
+    error('luatex-hyphen: '..string.format(msg, ...))
 end
 
 luatexhyphen.language_dat = {}
 local dbfile = kpse.find_file(dbname)
 if not dbfile then
-    warn("file not found: "..dbname)
+    err("file not found: "..dbname)
 else
     luatexhyphen.language_dat = dofile(dbfile)
 end
@@ -49,34 +53,36 @@ end
 function luatexhyphen.loadlanguage(l, id)
     local lt, orig = luatexhyphen.lookupname(l)
     if not lt then
-        warn("no entry in %s for this language: %s", dbname, l)
+        err("no entry in %s for this language: %s", dbname, l)
         return
     end
     local msg = "loading%s patterns and exceptions for: %s (\\language%d)"
     if lt.special then
         if lt.special == 'null' then
-            warn(msg, ' (null)', orig, id)
+            wlog(msg, ' (null)', orig, id)
         elseif lt.special:find('^disabled:') then
-            warn("language disabled by %s: %s (%s)", dbname, orig,
+            err("language disabled by %s: %s (%s)", dbname, orig,
                 lt.special:gsub('^disabled:', ''))
+        elseif lt.special == 0 then
+            err("\\language0 should be dumped in the format")
         else
-            warn("bad entry in %s for language %s")
+            err("bad entry in %s for language %s")
         end
         return
     end
-    warn(msg, '', orig, id)
+    wlog(msg, '', orig, id)
     for ext, fun in pairs({pat = lang.patterns, hyp = lang.hyphenation}) do
         local n = 'hyph-'..lt.code..'.'..ext..'.txt'
         local f = kpse.find_file(n)
         if not f then
-            warn("file not found: %s", n)
+            err("file not found: %s", n)
             return
         end
         f = io.open(f, 'r')
         local data = f:read('*a')
         f:close()
         if not data then
-            warn("file not readable: %s", f)
+            err("file not readable: %s", f)
             return
         end
         fun(lang.new(id), data)

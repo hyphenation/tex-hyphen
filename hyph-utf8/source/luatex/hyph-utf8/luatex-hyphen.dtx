@@ -186,9 +186,10 @@ This work is under the CC0 license.
 %   \item A fixed part with two fields:
 %     \begin{quote}
 %       \verb+loader = <string> name of the TeX loader+\\
-%       \verb+synonyms = { <string> alternative name+
+%       \verb+synonyms = { <string> alternative name, ...}+
 %     \end{quote}
-%     The \verb+loader+ field is currently unused.
+%     Those field's values must be the same as in \texttt{language.dat}.  The
+%     \verb+loader+ field is currently unused.
 %   \item A variable part consisting of either:
 %     \begin{itemize}
 %       \item For most languages:
@@ -202,17 +203,26 @@ This work is under the CC0 license.
 %         \texttt{hyph-<code>.hyp.txt} respectively. The values of
 %         \texttt{*hyphenmin} are currently unused.
 %       \item Special case are supported by a field \verb+special+. Currently,
-%         two kinds of value are recognized: \verb+'null'+ for languages with
-%         no hyphenation patterns nor exceptions. \verb+'disabled:<reason>'+
-%         allows to disable specific languages: when the user tries to load
-%         this language, an error will be issued, with the \verb+<reason>+.
+%         the following kind of values are recognized:
+%         \begin{description}
+%           \item[\texttt{'null'}] for languages with no hyphenation patterns
+%             nor exceptions.
+%           \item[\texttt{'disabled:<reason>'}] allows to disable specific
+%             languages: when the user tries to load this language, an error
+%             will be issued, with the \verb+<reason>+.
+%           \item[\texttt{0}] only \texttt{english} should use this type of
+%             special, to indicate it is normally dumped in the format (see
+%             below).
+%         \end{description}
+%         Special languages may have \texttt{*hyphenmin} information when it
+%         makes sense (mostly \verb+\language0+).
 %     \end{itemize}
 % \end{enumerate}
 % Languages that are mentioned in \texttt{language.dat} but not in
 % \texttt{language.dat.lua} will be loaded in the format. So, if the
 % \texttt{language.dat.lua} file is missing or incomplete, languages will just
 % go back to the ``old'' behaviour, resulting in longer startup time, which
-% does seem less bad than complete breakage.
+% seems less bad than complete breakage.
 %
 % For backward compatibility, Knuth's original patterns for US English are
 % always loaded in the format, as \verb+\language0+.
@@ -242,14 +252,18 @@ luatexhyphen.version = "1.3beta"
 
 local dbname = "language.dat.lua"
 
-local function warn (msg, ...)
-    texio.write_nl('luatex-hyphen: '..string.format(msg, ...))
+local function wlog(msg, ...)
+    texio.write_nl('log', 'luatex-hyphen: '..string.format(msg, ...))
+end
+
+local function err(msg, ...)
+    error('luatex-hyphen: '..string.format(msg, ...))
 end
 
 luatexhyphen.language_dat = {}
 local dbfile = kpse.find_file(dbname)
 if not dbfile then
-    warn("file not found: "..dbname)
+    err("file not found: "..dbname)
 else
     luatexhyphen.language_dat = dofile(dbfile)
 end
@@ -272,34 +286,36 @@ end
 function luatexhyphen.loadlanguage(l, id)
     local lt, orig = luatexhyphen.lookupname(l)
     if not lt then
-        warn("no entry in %s for this language: %s", dbname, l)
+        err("no entry in %s for this language: %s", dbname, l)
         return
     end
     local msg = "loading%s patterns and exceptions for: %s (\\language%d)"
     if lt.special then
         if lt.special == 'null' then
-            warn(msg, ' (null)', orig, id)
+            wlog(msg, ' (null)', orig, id)
         elseif lt.special:find('^disabled:') then
-            warn("language disabled by %s: %s (%s)", dbname, orig,
+            err("language disabled by %s: %s (%s)", dbname, orig,
                 lt.special:gsub('^disabled:', ''))
+        elseif lt.special == 0 then
+            err("\\language0 should be dumped in the format")
         else
-            warn("bad entry in %s for language %s")
+            err("bad entry in %s for language %s")
         end
         return
     end
-    warn(msg, '', orig, id)
+    wlog(msg, '', orig, id)
     for ext, fun in pairs({pat = lang.patterns, hyp = lang.hyphenation}) do
         local n = 'hyph-'..lt.code..'.'..ext..'.txt'
         local f = kpse.find_file(n)
         if not f then
-            warn("file not found: %s", n)
+            err("file not found: %s", n)
             return
         end
         f = io.open(f, 'r')
         local data = f:read('*a')
         f:close()
         if not data then
-            warn("file not readable: %s", f)
+            err("file not readable: %s", f)
             return
         end
         fun(lang.new(id), data)

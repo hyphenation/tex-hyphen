@@ -1,15 +1,15 @@
-\documentclass[twocolumn]{article}
+\documentclass{article}
 \usepackage[english]{babel}
 
 \makeatletter
 \newcommand\test[2]{%
-  \typeout{#1 #2}
-  \hyphenrules{#1}%
-  #1 (\the\language)
+  \wlog{#1 #2}%
+  % try loading synonyms before the language
+  % just to be sure the code for synonyms works
   \@for\syn:=#2\do{%
     \expandafter\hyphenrules\expandafter{\syn}%
-    = \syn (\the\language)
-    }
+    }%
+  \hyphenrules{#1}%
   \par}
 \makeatother
 
@@ -21,8 +21,8 @@
 \test{usenglishmax}{}
 \test{dumylang}{}
 \test{nohyphenation}{}
-\test{german-x-2009-06-19}{german-x-latest}
-\test{ngerman-x-2009-06-19}{ngerman-x-latest}
+%\test{german-x-2009-06-19}{german-x-latest} % disabled in language.dat.lua
+%\test{ngerman-x-2009-06-19}{ngerman-x-latest}
 \test{ancientgreek}{}
 \test{ibycus}{}
 \test{arabic}{}
