@@ -225,7 +225,8 @@ This work is under the CC0 license.
 % seems less bad than complete breakage.
 %
 % For backward compatibility, Knuth's original patterns for US English are
-% always loaded in the format, as \verb+\language0+.
+% always loaded in the format, as \verb+\language0+.\footnote{It is assumed
+% to be the first entry in \texttt{language.dat}.}
 %
 % The modified version of \texttt{hyphen.cfg} provided here checks for the
 % engine, and should continue to work with any engine without any modified
@@ -240,98 +241,126 @@ This work is under the CC0 license.
 %
 % \subsection{luatex-hyphen.lua}
 %
-% \iffalse
+%    \begin{macrocode}
 %<*lua>
-% \fi
+%    \end{macrocode}
+%
+%    Start a Lua module, importing only the necessary functions as locals.
 %
 %    \begin{macrocode}
-
-luatexhyphen = {}
-
-luatexhyphen.version = "1.3beta"
-
-local dbname = "language.dat.lua"
-
+local error, dofile, pairs, ipairs = error, dofile, pairs, ipairs
+local io, texio, lang, kpse = io, texio, lang, kpse
+module('luatexhyphen')
+%    \end{macrocode}
+%
+%    Two functions for error and information reporting.
+%
+%    \begin{macrocode}
 local function wlog(msg, ...)
-    texio.write_nl('log', 'luatex-hyphen: '..string.format(msg, ...))
+    texio.write_nl('log', 'luatex-hyphen: '..msg:format(...))
 end
-
 local function err(msg, ...)
-    error('luatex-hyphen: '..string.format(msg, ...))
+    error('luatex-hyphen: '..msg:format(...), 2)
 end
-
-luatexhyphen.language_dat = {}
+%    \end{macrocode}
+%
+%    Load the \texttt{language.dat.lua} file with the Lua version of the
+%    language database.
+%
+%    \begin{macrocode}
+local dbname = "language.dat.lua"
+local language_dat
 local dbfile = kpse.find_file(dbname)
 if not dbfile then
     err("file not found: "..dbname)
 else
-    luatexhyphen.language_dat = dofile(dbfile)
+    language_dat = dofile(dbfile)
 end
-
-function luatexhyphen.lookupname(l)
-    if luatexhyphen.language_dat[l] then
-        return luatexhyphen.language_dat[l], l
+%    \end{macrocode}
+%
+%    Look up a language in the database, and return the associated
+%    information, as well as the canonical name of the language.
+%
+%    \begin{macrocode}
+function lookupname(name)
+    if language_dat[name] then
+        return language_dat[name], name
     else
-        for orig,lt in pairs(luatexhyphen.language_dat) do
-            for _,syn in ipairs(lt.synonyms) do
-                if syn == l then
-                    return lt, orig
+        for canon, data in pairs(language_dat) do
+            for _,syn in ipairs(data.synonyms) do
+                if syn == name then
+                    return data, canon
                 end
             end
         end
     end
-    return nil
 end
-
-function luatexhyphen.loadlanguage(l, id)
-    local lt, orig = luatexhyphen.lookupname(l)
-    if not lt then
-        err("no entry in %s for this language: %s", dbname, l)
-        return
-    end
+%    \end{macrocode}
+%
+%    Set hyphenation patterns and exceptions for a language given by its name
+%    (in the database) and number (value of \verb+\language+). Doesn't return
+%    anything, but will call \verb+error()+ if things go wrong.
+%
+%    \begin{macrocode}
+function loadlanguage(lname, id)
     local msg = "loading%s patterns and exceptions for: %s (\\language%d)"
-    if lt.special then
-        if lt.special == 'null' then
-            wlog(msg, ' (null)', orig, id)
-        elseif lt.special:find('^disabled:') then
-            err("language disabled by %s: %s (%s)", dbname, orig,
-                lt.special:gsub('^disabled:', ''))
-        elseif lt.special == 0 then
+%    \end{macrocode}
+%
+%    Lookup the language in the database.
+%
+%    \begin{macrocode}
+    local ldata, cname = lookupname(lname)
+    if not ldata then
+        err("no entry in %s for this language: %s", dbname, lname)
+    end
+%    \end{macrocode}
+%
+%    Handle special languages.
+%
+%    \begin{macrocode}
+    if ldata.special then
+        if ldata.special == 'null' then
+            wlog(msg, ' (null)', cname, id)
+            return
+        elseif ldata.special:find('^disabled:') then
+            err("language disabled by %s: %s (%s)", dbname, cname,
+                ldata.special:gsub('^disabled:', ''))
+        elseif ldata.special == 0 then
             err("\\language0 should be dumped in the format")
         else
             err("bad entry in %s for language %s")
         end
-        return
     end
-    wlog(msg, '', orig, id)
+%    \end{macrocode}
+%
+%    The generic case: load hyphenation patterns and exceptions from files
+%    given by the language code.
+%
+%    \begin{macrocode}
+    wlog(msg, '', cname, id)
     for ext, fun in pairs({pat = lang.patterns, hyp = lang.hyphenation}) do
-        local n = 'hyph-'..lt.code..'.'..ext..'.txt'
-        local f = kpse.find_file(n)
-        if not f then
-            err("file not found: %s", n)
-            return
-        end
-        f = io.open(f, 'r')
-        local data = f:read('*a')
-        f:close()
-        if not data then
-            err("file not readable: %s", f)
-            return
-        end
+        local file = 'hyph-'..ldata.code..'.'..ext..'.txt'
+        local file = kpse.find_file(file) or err("file not found: %s", file)
+        local fh = io.open(file, 'r')
+        local data = fh:read('*a') or err("file not readable: %s", f)
+        fh:close()
         fun(lang.new(id), data)
     end
 end
 %    \end{macrocode}
 %
-% \iffalse
+%    \begin{macrocode}
 %</lua>
-% \fi
+%    \end{macrocode}
 %
 % \subsection{hyphen.cfg}
 %
-% \iffalse
+%    \begin{macrocode}
 %<*hyphen>
-% \fi
+%    \end{macrocode}
+%
+%    Start with unmodified code from \textsf{babel}.
+%
 %    \begin{macrocode}
 \ifx\ProvidesFile\@undefined
   \def\ProvidesFile#1[#2 #3 #4]{%
@@ -659,6 +688,11 @@ end
 %    \end{macrocode}
 %
 %    In the Lua\TeX case, we have to decide wether to load the language now.
+%    Remember our choice, since we'll need it two times more.
+%
+%    If we choose to load the language now, mark it as loaded. This is done
+%    using \TeX\ macros in order to survive the format dumping-loading cycle,
+%    which would not be as straigthforward using Lua objects.
 %
 %    \begin{macrocode}
   \ifx\directlua\@undefined
@@ -687,12 +721,7 @@ end
     \lefthyphenmin\m@ne
 %    \end{macrocode}
 %
-%    Assume the first (that is, zeroth) language in \texttt{language.dat} is
-%    English. This assumption is very reasonnable, since otherwise it would
-%    break compatibility with frozen \TeX by not providing Knuth's orginal
-%    patterns as \verb+\language0+, so we're pretty sure about this point.
-%    We do load this first language, since we want Knuth's patterns to be
-%    active as soon as the format is loaded.
+%    Conditionally input the patterns file.
 %
 %    \begin{macrocode}
     \ifx\directlua\@undefined
@@ -728,13 +757,7 @@ end
     \else
 %    \end{macrocode}
 %
-%    Likewise, don't load hyphenation exceptions now, but rather when we load
-%    the patterns. (Anyway, in practice, the third field of
-%    \texttt{language.dat} is never used since exceptions are defined in the
-%    same file as patterns, so it doesn't really matter.)
-%
-%    There are no hyphenation exceptions for english, and since it is frozen,
-%    we can rely on this, so no need for a special case for english here.
+%    Conditionnaly input the exceptions file.
 %
 %    \begin{macrocode}
       \ifx\directlua\@undefined
@@ -745,6 +768,9 @@ end
         \fi
         \directlua{processnow = nil}%
       \fi
+%    \end{macrocode}
+%
+%    \begin{macrocode}
     \fi
   \fi
   }
@@ -793,8 +819,10 @@ end
     \expandafter\typeout\expandafter{\the\toks8 loaded.}}
 \fi
 %    \end{macrocode}
-% \iffalse
+%
+%    \begin{macrocode}
 %</hyphen>
-% \fi
+%    \end{macrocode}
+%
 % \Finale
 \endinput

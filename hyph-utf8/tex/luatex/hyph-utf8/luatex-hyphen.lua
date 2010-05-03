@@ -12,79 +12,62 @@
 --  
 --  This work is under the CC0 license.
 --  
-
-luatexhyphen = {}
-
-luatexhyphen.version = "1.3beta"
-
-local dbname = "language.dat.lua"
-
+local error, dofile, pairs, ipairs = error, dofile, pairs, ipairs
+local io, texio, lang, kpse = io, texio, lang, kpse
+module('luatexhyphen')
 local function wlog(msg, ...)
-    texio.write_nl('log', 'luatex-hyphen: '..string.format(msg, ...))
+    texio.write_nl('log', 'luatex-hyphen: '..msg:format(...))
 end
-
 local function err(msg, ...)
-    error('luatex-hyphen: '..string.format(msg, ...))
+    error('luatex-hyphen: '..msg:format(...), 2)
 end
-
-luatexhyphen.language_dat = {}
+local dbname = "language.dat.lua"
+local language_dat
 local dbfile = kpse.find_file(dbname)
 if not dbfile then
     err("file not found: "..dbname)
 else
-    luatexhyphen.language_dat = dofile(dbfile)
+    language_dat = dofile(dbfile)
 end
-
-function luatexhyphen.lookupname(l)
-    if luatexhyphen.language_dat[l] then
-        return luatexhyphen.language_dat[l], l
+function lookupname(name)
+    if language_dat[name] then
+        return language_dat[name], name
     else
-        for orig,lt in pairs(luatexhyphen.language_dat) do
-            for _,syn in ipairs(lt.synonyms) do
-                if syn == l then
-                    return lt, orig
+        for canon, data in pairs(language_dat) do
+            for _,syn in ipairs(data.synonyms) do
+                if syn == name then
+                    return data, canon
                 end
             end
         end
     end
-    return nil
 end
-
-function luatexhyphen.loadlanguage(l, id)
-    local lt, orig = luatexhyphen.lookupname(l)
-    if not lt then
-        err("no entry in %s for this language: %s", dbname, l)
-        return
-    end
+function loadlanguage(lname, id)
     local msg = "loading%s patterns and exceptions for: %s (\\language%d)"
-    if lt.special then
-        if lt.special == 'null' then
-            wlog(msg, ' (null)', orig, id)
-        elseif lt.special:find('^disabled:') then
-            err("language disabled by %s: %s (%s)", dbname, orig,
-                lt.special:gsub('^disabled:', ''))
-        elseif lt.special == 0 then
+    local ldata, cname = lookupname(lname)
+    if not ldata then
+        err("no entry in %s for this language: %s", dbname, lname)
+    end
+    if ldata.special then
+        if ldata.special == 'null' then
+            wlog(msg, ' (null)', cname, id)
+            return
+        elseif ldata.special:find('^disabled:') then
+            err("language disabled by %s: %s (%s)", dbname, cname,
+                ldata.special:gsub('^disabled:', ''))
+        elseif ldata.special == 0 then
             err("\\language0 should be dumped in the format")
         else
             err("bad entry in %s for language %s")
         end
-        return
     end
-    wlog(msg, '', orig, id)
+    wlog(msg, '', cname, id)
     for ext, fun in pairs({pat = lang.patterns, hyp = lang.hyphenation}) do
-        local n = 'hyph-'..lt.code..'.'..ext..'.txt'
-        local f = kpse.find_file(n)
-        if not f then
-            err("file not found: %s", n)
-            return
-        end
-        f = io.open(f, 'r')
-        local data = f:read('*a')
-        f:close()
-        if not data then
-            err("file not readable: %s", f)
-            return
-        end
+        local file = 'hyph-'..ldata.code..'.'..ext..'.txt'
+        local file = kpse.find_file(file) or err("file not found: %s", file)
+        local fh = io.open(file, 'r')
+        local data = fh:read('*a') or err("file not readable: %s", f)
+        fh:close()
         fun(lang.new(id), data)
     end
 end
