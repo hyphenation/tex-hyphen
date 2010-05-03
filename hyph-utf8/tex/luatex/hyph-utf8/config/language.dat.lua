@@ -220,7 +220,7 @@ return {
 		righthyphenmin=1,
 		synonyms={},
 	},
-	["guajrati"]={
+	["gujarati"]={
 		loader="loadhyph-gu.tex",
 		code="gu",
 		lefthyphenmin=1,
@@ -290,7 +290,7 @@ return {
 		righthyphenmin=2,
 		synonyms={},
 	},
-	["assamese"]={
+	["kannada"]={
 		loader="loadhyph-kn.tex",
 		code="kn",
 		lefthyphenmin=1,

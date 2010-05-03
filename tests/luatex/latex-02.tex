@@ -1,0 +1,13 @@
+\documentclass[a4paper]{article}
+\usepackage[british, english, frenchb]{babel}
+
+\newcommand\activatelanguage[2]{%
+  \selectlanguage{#1}}
+
+\newcommand\test[2]{%
+  \wlog{#1: #2}%
+  \showhyphens{#1}}
+
+\begin{document}
+\input{common-02}
+\end{document}

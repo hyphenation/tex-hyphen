@@ -1,4 +1,4 @@
-%% e-TeX V2.1;2
+%% e-TeX V2.1;0-luatex
 %% Revision-date:  26-APR-2010 11:05:45
 %% Revision-history: (at-end)
 
@@ -275,18 +275,19 @@
         \language=\csname lang@#1\endcsname
         \lefthyphenmin=\csname lhm@#1\endcsname
         \righthyphenmin=\csname rhm@#1\endcsname
-        % special case of LuaTeX: we load patterns at run-time, V 2.1;2
-        \ifcsname directlua\endcsname
-            % loading patterns if not loaded yet
-            \ifcsname plded@#1\endcsname\else
-                \directlua{if not luatexhyphen then dofile(kpse.find_file("luatex-hyphen.lua")) end}%
-                \directlua{luatexhyphen.loadpatterns([[\luatexluaescapestring{#1}]], \luatexluaescapestring{\expandafter\csname lang@luatex@#1@id\endcsname})}%
-                \ifcsname exp@#1\endcsname
-                    \directlua{luatexhyphen.loadexceptions([[\luatexluaescapestring{#1}]], \luatexluaescapestring{\expandafter\csname lang@luatex@#1@id\endcsname})}%
-                \fi
-                \expandafter \gdef \csname plded@#1\endcsname {1}
-                \wlog{Loading patterns for language #1.}
-            \fi
+        \ifdefined\directlua % V2.1;0-luatex
+          \ifcsname lu@texhyphen@loaded@\the\language\endcsname \else
+            \global\expandafter\def\csname
+              lu@texhyphen@loaded@\the\language\endcsname{}%
+            \directlua{
+              if not status.ini_version then
+                if not luatexhyphen then
+                  dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+                end
+                luatexhyphen.loadlanguage("\luatexluaescapestring{#1}",
+                \the\language)
+              end}%
+          \fi
         \fi
         \ifdefined \uselanguage@hook % V1.0-1
             \uselanguage@hook {#1}%  % V1.0-1
@@ -303,27 +304,28 @@
 
 \def \addlanguage #1#2#3#4#5% language patterns exceptions lhm rhm
     {\expandafter \et@xlang \csname lang@#1\endcsname
-     \ifx\directlua\@undefined\else
-        \expandafter\xdef\csname lang@luatex@#1@id\endcsname{\the\count19}%
-     \fi
      \expandafter \chardef \csname lhm@#1\endcsname=#4 % V1.0-1
      \expandafter \chardef \csname rhm@#1\endcsname=#5 % V1.0-1
-     % special case of LuaTeX: we don't load patterns in the format, % V 2.1;2
-     \ifcsname directlua\endcsname
-         \expandafter \def \csname pat@#1\endcsname {#2}
-         \if *#3*\else
-             \expandafter \def \csname exp@#1\endcsname {#3}
-         \fi
+     \ifdefined\directlua % V2.1;0-luatex
+       \csname fi\endcsname
+       \csname if\directlua{% do we want to skip this language now?
+           if not luatexhyphen then
+             dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+           end
+           if (luatexhyphen.lookupname("\luatexluaescapestring{#1}") == nil)
+               or (\number\csname lang@#1\endcsname == 0) then
+             tex.sprint("false") % no, load it (execute 'else' part)
+           else
+             tex.sprint("true") % yes, skip
+           end}\endcsname
      \else
          \uselanguage {#1}%
          \input #2
          \if *#3*\else \input #3 \fi
+         \edef \fmtversion {\fmtversion/#1}%
      \fi
      \ifdefined \addlanguage@hook % V1.0-4
         \addlanguage@hook {#1}%  % V1.0-4
-     \fi
-     \ifcsname directlua\endcsname\else % V 2.1;1
-        \edef \fmtversion {\fmtversion/#1}%
      \fi
     }
 
@@ -802,18 +804,13 @@
 
 %% Revision-history:
 
-26-APR-2010: 2.1;2  Improving the pattern loading system with the new TeXLive
-                        plain pattern system. Pattern loading is now resistant
-                        to catcode changes.
-                        (Elie Roux    <elie.roux@telecom-bretagne.eu> &
-                         Khaled Hosny <khaledhosny@eglug.org>)
-
-01-MAR-2010: 2.1;1  Don't pre-load hyphenation patterns in the format when
-                        running under LuaTeX, as LuaTeX can dynamically load
-                        hyphenation patterns, and loading hyphenation patterns
-                        in the format is discouraged.
-                        (Elie Roux    <elie.roux@telecom-bretagne.eu> &
-                         Khaled Hosny <khaledhosny@eglug.org>)
+3-MAY-2010: 2.1;0-luatex  With LuaTeX, don't embed hyphenation patterns and
+            exceptions in the format, but on-demand at runtime, for faster
+            format loading. Use the Lua interface for loading hyphenation
+            rules from plain text files according to the new configuration
+            file language.lua.dat. Make use of a supporting lua file,
+            luatex-hyphen.lua. See also luatex-hyphen.pdf.
+            (Manuel Pegourie-Gonnard, Elie Roux and Khaled Hosny)
 
 01-FEB-1999: 2.1;0  Allow file to be used with e-TeX versions 2.0 and 2.1
 
