@@ -156,9 +156,9 @@ This work is under the CC0 license.
 % file (whose format is described below) that should be present in the
 % distribution, in addition to the regular \texttt{language.dat} file.
 %
-% Much of the modified code here is shared with a version of \texttt{etex.src}
-% modified for the same reasons, which also make use of the
-% \texttt{luatex-hyphen.lua} file described here.
+% There is a version of \texttt{etex.src} modified for the same reasons using
+% similar code, which also makes use of the \texttt{luatex-hyphen.lua} and
+% \texttt{language.dat.lua} files described here.
 % \end{abstract}
 %
 % \section{Documentation}
@@ -194,13 +194,15 @@ This work is under the CC0 license.
 %     \begin{itemize}
 %       \item For most languages:
 %         \begin{quote}
-%           \verb+code = <string> language code+\\
+%           \verb+patterns = <string> filename for patterns+\\
+%           \verb+hyphenation = <string> filename for exceptions+\\
 %           \verb+lefthyphenmin = <number> value for \letfhyphenmin+\\
 %           \verb+righthyphenmin = <number> value for \letfhyphenmin+
 %         \end{quote}
-%         The \verb+code+ field determines where patterns and exceptions will
-%         be searched: in files \texttt{hyph-<code>.pat.txt} and
-%         \texttt{hyph-<code>.hyp.txt} respectively. The values of
+%         The files given by \verb+patterns+ (resp. \verb+hypenation+) must be
+%         plain text files encoded in utf8, with only patterns (resp.
+%         exceptions) and not even comments: their content will be used
+%         directly without being parsed by \TeX.  The values of
 %         \texttt{*hyphenmin} are currently unused.
 %       \item Special case are supported by a field \verb+special+. Currently,
 %         the following kind of values are recognized:
@@ -338,13 +340,13 @@ function loadlanguage(lname, id)
 %
 %    \begin{macrocode}
     wlog(msg, '', cname, id)
-    for ext, fun in pairs({pat = lang.patterns, hyp = lang.hyphenation}) do
-        local file = 'hyph-'..ldata.code..'.'..ext..'.txt'
+    for _, item in ipairs{'hyphenation', 'patterns'} do
+        local file = ldata[item]
         local file = kpse.find_file(file) or err("file not found: %s", file)
         local fh = io.open(file, 'r')
         local data = fh:read('*a') or err("file not readable: %s", f)
         fh:close()
-        fun(lang.new(id), data)
+        lang[item](lang.new(id), data)
     end
 end
 %    \end{macrocode}

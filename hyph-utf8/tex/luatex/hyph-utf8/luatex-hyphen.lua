@@ -62,13 +62,13 @@ function loadlanguage(lname, id)
         end
     end
     wlog(msg, '', cname, id)
-    for ext, fun in pairs({pat = lang.patterns, hyp = lang.hyphenation}) do
-        local file = 'hyph-'..ldata.code..'.'..ext..'.txt'
+    for _, item in ipairs{'hyphenation', 'patterns'} do
+        local file = ldata[item]
         local file = kpse.find_file(file) or err("file not found: %s", file)
         local fh = io.open(file, 'r')
         local data = fh:read('*a') or err("file not readable: %s", f)
         fh:close()
-        fun(lang.new(id), data)
+        lang[item](lang.new(id), data)
     end
 end
 -- 
