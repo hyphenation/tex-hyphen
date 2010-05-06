@@ -495,6 +495,19 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Hungarian Hyphenation Patterns (v20031107)",
 },
+# armenian
+# Sahak Petrosyan <sahak at mit dot edu>
+{
+	"code" => "hy",
+	"name" => "armenian",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => nil,
+	"hyphenmin" => [1,2], # taken from Hyphenator.js; check the value
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => "Armenian Hyphenation Patterns",
+},
 # interlingua	iahyphen.tex
 {
 	"code" => "ia",

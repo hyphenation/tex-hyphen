@@ -72,6 +72,7 @@ languages.each do |language|
 				 language.code == 'bn' or
 				 language.code == 'gu' or
 				 language.code == 'hi' or
+				 language.code == 'hy' or
 				 language.code == 'kn' or
 				 language.code == 'ml' or
 				 language.code == 'mr' or
