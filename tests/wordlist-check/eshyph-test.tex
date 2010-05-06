@@ -1,0 +1,124 @@
+%$LuaTeX (encoding:utf-8)
+
+% (c) Javier Bezos 2009
+% License: LPPL.
+
+% Requires luatex >= 0.40
+
+\pdfoutput=1
+
+\nonstopmode
+
+% Go to line 113 to set a filter.
+
+% Cada lista de nodos consiste en un párrafo (incluido \par). No se 
+% ha aplicado kerning, pero si ligaduras.
+
+% El paso por odvips da el error:
+%   DVI file contains unexpected Omega command
+
+\directlua{\unexpanded{
+ local glyph = node.id('glyph')
+ local disc = node.id('disc')
+ local glue = node.id('glue')
+ callback.register('pre_linebreak_filter',
+   function(h, groupcode, glyphes)
+     % texio.write_nl('= ')
+     word = ''
+     unword = ''
+     full = false
+     for t in node.traverse(h) do
+       if full then
+         if node.id(t.id) == glyph and t.subtype == 0 then
+           word = word .. unicode.utf8.char(t.char)
+         elseif node.id(t.id) == disc then
+           word = word .. '-'
+         end
+       else
+         if node.id(t.id) == glyph and t.subtype == 0 then
+           unword = unword .. unicode.utf8.char(t.char)
+         elseif node.id(t.id) == disc then
+           unword = unword .. '-'
+         elseif node.id(t.id) == glue then
+           full = true
+         end
+       end
+%        texio.write_nl('NODE type=' ..  node.type(t.id) .. ' subtype=' .. t.subtype )
+%        if t.id == glyph then
+%          texio.write(' font=' .. t.font .. ' char=' .. unicode.utf8.char(t.char))
+%        end
+       % for k, v in pairs(node.fields(t.id, t.subtype)) do
+       %  if node.has_field(t, v) and t[v] and type(t[v]) ~= "userdata" then
+       %    texio.write_nl('     -- ' .. v .. ': ' .. t[v])
+       % end
+       %end
+     end
+     if unword ~= word then
+       texio.write_nl(word .. ' -- ' .. unword)
+     end
+     return true
+   end)
+}}
+
+\catcode`\á=11 \lccode`\á=`\á
+\catcode`\é=11 \lccode`\é=`\é
+\catcode`\í=11 \lccode`\í=`\í
+\catcode`\ó=11 \lccode`\ó=`\ó
+\catcode`\ú=11 \lccode`\ú=`\ú
+\catcode`\ñ=11 \lccode`\ñ=`\ñ
+
+\newlanguage\base
+\language\base
+
+\patterns{
+1ñ 2ñ.
+1b 2b. 2bb 2bc 2bd 2bf 2bg 2b1h 2bj 2bk b2l 2bl. 2bm 2bn 2bp 2bq b2r 2br. 2bs 2bt 2bv 2bw 2bx 2by 2bz
+1c 2c. 2cb 2cc 2cd 2cf 2cg c4h 2ch. 2cj c2k c2l 2cl. 2cm 2cn 2cp 2cq c2r 2cr. 2cs 2ct 2cv 2cw 2cx 2cy 2cz
+1d 2d. 2db 2dc 2dd 2df 2dg 2d1h 2dj 2dk 2dl 2dm 2dn 2dp 2dq d2r 2dr. 2ds 2dt 2dv 2dw 2dx 2dy 2dz
+1f 2f. 2fb 2fc 2fd 2ff 2fg 2f1h 2fj 2fk f2l 2fl. 2fm 2fn 2fp 2fq f2r 2fr. 2fs 2ft 2fv 2fw 2fx 2fy 2fz
+1g 2g. 2gb 2gc 2gd 2gf 2gg 2g2h 2gj 2gk g2l 2gl. 2gm 2gn 2gp 2gq g2r 2gr. 2gs 2gt 2gv 2gw 2gx 2gy 2gz
+2hb 2hc 2hd 2hf 2hg 2h1h 2hj 2hk 2hl 2hm 2hn 2hp 2hq 2hr 2hs 2ht 2hv 2hw 2hx 2hy 2hz
+1j 2j. 2jb 2jc 2jd 2jf 2jg 2j1h 2jj 2jk 2jl 2jm 2jn 2jp 2jq 2jr 2js 2jt 2jv 2jw 2jx 2jy 2jz
+1k 2k. 2kb 2kc 2kd 2kf 2kg 2k2h 2kj 2kk k2l 2kl. 2km 2kn 2kp 2kq k2r 2kr. 2ks 2kt 2kv 2kw 2kx 2ky 2kz
+1l 2l. 2lb 2lc 2ld 2lf 2lg 2l1h 2lj 2lk l4l 2ll. 2lm 2ln 2lp 2lq 2lr 2ls 2lt 2lv 2lw 2lx 2ly 2lz
+1m 2m. 2mb 2mc 2md 2mf 2mg 2m1h 2mj 2mk 2ml 2mm 2mn 2mp 2mq 2mr 2ms 2mt 2mv 2mw 2mx 2my 2mz
+1n 2n. 2nb 2nc 2nd 2nf 2ng 2n1h 2nj 2nk 2nl 2nm 2nn 2np 2nq 2nr 2ns 2nt 2nv 2nw 2nx 2ny 2nz
+1p 2p. 2pb 2pc 2pd 2pf 2pg 2p1h 2pj 2pk p2l 2pl. 2pm 2pn 2pp 2pq p2r 2pr. 2ps 2pt 2pv 2pw 2px 2py 2pz
+1q 2q. 2qb 2qc 2qd 2qf 2qg 2q1h 2qj 2qk 2ql 2qm 2qn 2qp 2qq 2qr 2qs 2qt 2qv 2qw 2qx 2qy 2qz
+1r 2r. 2rb 2rc 2rd 2rf 2rg 2r1h 2rj 2rk 2rl 2rm 2rn 2rp 2rq r2r 2rr. 2rs 2rt 2rv 2rw 2rx 2ry 2rz
+1s 2s. 2sb 2sc 2sd 2sf 2sg 2s1h 2sj 2sk 2sl 2sm 2sn 2sp 2sq 2sr 2ss 2st 2sv 2sw 2sx 2sy 2sz
+1t 2t. 2tb 2tc 2td 2tf 2tg 2t1h 2tj 2tk 2tm 2tn 2tp 2tq t2r 2tr. 2ts 2tt 2tv 2tw t2x 2ty 2tz
+1v 2v. 2vb 2vc 2vd 2vf 2vg 2v1h 2vj 2vk v2l 2vl. 2vm 2vn 2vp 2vq v2r 2vr. 2vs 2vt 2vv 2vw 2vx 2vy 2vz
+1w 2w. 2wb 2wc 2wd 2wf 2wg 2w1h 2wj 2wk w2l 2wl. 2wm 2wn 2wp 2wq w2r 2wr. 2ws 2wt 2wv 2ww 2wx 2wy 2wz
+1x 2x. 2xb 2xc 2xd 2xf 2xg 2x1h 2xj 2xk 2xl 2xm 2xn 2xp 2xq 2xr 2xs 2xt 2xv 2xw 2xx 2xy 2xz
+1y 2y. 2yb 2yc 2yd 2yf 2yg 2y1h 2yj 2yk 2yl 2ym 2yn 2yp 2yq 2yr 2ys 2yt 2yv 2yw 2yx 2yy 2yz
+1z 2z. 2zb 2zc 2zd 2zf 2zg 2z1h 2zj 2zk 2zl 2zm 2zn 2zp 2zq 2zr 2zs 2zt 2zv 2zw 2zx 2zy 2zz
+2t2l}
+
+\newlanguage\full
+\language\full
+\input eshyph.tex
+
+\lefthyphenmin=1
+\righthyphenmin=1
+
+\font\tm=ptmr8t % Actually, any font with 256 chars
+\tm
+\pdfnoligatures\tm
+
+\hbadness=10000
+\hfuzz=\maxdimen
+
+% The space serves as separator (a glue node)
+\def\p#1{\setbox0\vbox{\hsize0pt\language\base #1 \language\full #1}}
+
+\directlua{\unexpanded{
+  local words = io.open('spanish-words.txt')
+  for w in words:lines() do
+    if w:find('inasis') then
+      tex.print('\\p{' .. w .. '}')
+    end
+   end
+   words:close()}}
+
+\bye
