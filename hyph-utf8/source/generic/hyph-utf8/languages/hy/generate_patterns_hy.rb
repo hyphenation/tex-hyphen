@@ -13,7 +13,7 @@
 # Script written by Mojca Miklavec <mojca.miklavec.lists at gmail.com>
 # (who is not the author of patterns)
 #
-$file = File.new("../../../../../tex/generic/hyph-utf8/patterns/hyph-hy.tex", "w")
+$file = File.new("../../../../../tex/generic/hyph-utf8/patterns/tex/hyph-hy.tex", "w")
 
 # write comments into the file
 def add_comment(str)
@@ -26,9 +26,12 @@ consonants=%w{բ գ դ զ թ ժ լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ 
 add_comment(
 "Hyphenation patterns for Armenian.
 
-(TODO - write some more comments)
-
 Written by Sahak Petrosyan <sahak at mit.edu>
+	for Hyphenator.js (http://code.google.com/p/hyphenator/)
+	and later adapted for TeX
+
+Licence: LGPL
+Version: May 2010
 
 These are just primitive rules that hyphenate combinations like
 <vowel> - <consonant><vowel>.

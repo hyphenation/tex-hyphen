@@ -20,7 +20,7 @@
 # open file for writing the patterns
 # $file = File.new("hyph-eu.tex", "w")
 # in TDS
-$file = File.new("../../../../../tex/generic/hyph-utf8/patterns/hyph-eu.tex", "w")
+$file = File.new("../../../../../tex/generic/hyph-utf8/patterns/tex/hyph-eu.tex", "w")
 
 # write comments into the file
 def add_comment(str)

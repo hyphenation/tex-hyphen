@@ -7,7 +7,7 @@
 # open file for writing the patterns
 # $tr = File.new("hyph-tk.tex", "w")
 # in TDS
-$tr = File.new("../../../../../tex/generic/hyph-utf8/patterns/hyph-tk.tex", "w")
+$tr = File.new("../../../../../tex/generic/hyph-utf8/patterns/tex/hyph-tk.tex", "w")
 
 # write comments into the file
 def add_comment(str)
