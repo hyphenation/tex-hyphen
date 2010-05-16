@@ -21,7 +21,7 @@ class Language
 
 	def get_exceptions
 		if @exceptions1 == nil
-			filename = "../../../tex/generic/hyph-utf8/patterns/hyph-#{@code}.tex";
+			filename = "../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex";
 			lines = IO.readlines(filename, '.').join("")
 			exceptions = lines.gsub(/%.*/,'');
 			if (exceptions.index('\hyphenation') != nil)
@@ -40,7 +40,7 @@ class Language
 
 	def get_patterns
 		if @patterns == nil
-			filename = "../../../tex/generic/hyph-utf8/patterns/hyph-#{@code}.tex";
+			filename = "../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex";
 			lines = IO.readlines(filename, '.').join("")
 			@patterns = lines.gsub(/%.*/,'').
 				gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
@@ -69,7 +69,7 @@ class Language
 
 	def get_comments_and_licence
 		if @comments_and_licence == nil then
-			filename = "../../../tex/generic/hyph-utf8/patterns/hyph-#{@code}.tex";
+			filename = File.expand_path("../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex");
 			lines = IO.readlines(filename, '.').join("")
 			@comments_and_licence = lines.
 				gsub(/(.*)\\patterns.*/m,'\1')

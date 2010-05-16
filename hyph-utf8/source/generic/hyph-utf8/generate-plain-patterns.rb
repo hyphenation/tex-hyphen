@@ -9,9 +9,9 @@ require 'unicode'
 
 load 'languages.rb'
 
-$path_root="../../.."
-$path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns-plain"
-$path_TL="../../../../TL"
+$path_root=File.expand_path("../../..")
+$path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns/txt"
+$path_TL=File.expand_path("../../../../TL")
 $path_language_dat_lua="#{$path_root}/tex/luatex/hyph-utf8/config"
 
 $l = Languages.new
