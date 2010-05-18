@@ -2,7 +2,7 @@
 
 # converts the patterns from upstream git repository to TeX-friendly form
 
-path = "../../hyph-utf8/tex/generic/hyph-utf8/patterns"
+path = File.expand_path("../../hyph-utf8/tex/generic/hyph-utf8/patterns/tex")
 
 # http://git.savannah.gnu.org/cgit/smc.git/tree/hyphenation
 languages = %w(as bn gu hi kn ml mr or pa ta te)
@@ -11,9 +11,9 @@ languages = %w(as bn gu hi kn ml mr or pa ta te)
 languages.each do |language_code|
 	filename = "hyph_#{language_code}_IN.dic"
 	url      = "http://git.savannah.gnu.org/cgit/smc.git/plain/hyphenation/#{filename}"
-	system("wget -N -c #{url}")
+	system("wget -N -c -P original #{url}")
 
-	lines = IO.readlines(filename, '.').join("").
+	lines = IO.readlines("original/#{filename}", '.').join("").
 # a few temporary patches - remove double newline at the end of file, remove trailing spaces, remove double "GENERAL RULE" comment in the file
 		gsub(/\n\n$/, "\n").gsub(/(\s*)\n/, "\n").
 		gsub(/(% GENERAL RULE)\n% GENERAL RULE/, '\1').
