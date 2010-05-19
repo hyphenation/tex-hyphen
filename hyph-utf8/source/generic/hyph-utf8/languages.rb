@@ -1001,12 +1001,23 @@ class Languages < Hash
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
 	"message" => "Telugu Hyphenation Patterns",
+},
+# lao
+{
+	"code" => "lo",
+	"name" => "lao",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Lao Hyphenation Patterns",
+},
 # dumylang -> dumyhyph.tex
 # nohyphenation -> zerohyph.tex
 # arabic -> zerohyph.tex
 # farsi zerohyph.tex
 # =persian
-},
 		]
 
 		languages.each do |l|
