@@ -762,8 +762,8 @@ class Languages < Hash
 # US english
 {
 	"code" => "en-us",
-	"name" => "english",
-	"use_new_loader" => false,
+	"name" => "usenglishmax",
+	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "ushyphmax.tex",
 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
@@ -771,6 +771,18 @@ class Languages < Hash
 	"exceptions" => true,
 	"message" => "Hyphenation Patterns for American English",
 },
+# US english
+# {
+# 	"code" => "en-us-x-knuth",
+# 	"name" => "english",
+# 	"use_new_loader" => false,
+# 	"use_old_patterns" => false,
+# 	"filename_old_patterns" => "hyphen.tex",
+# 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
+# 	"encoding" => "ascii",
+# 	"exceptions" => true,
+# 	"message" => "Hyphenation Patterns for American English",
+# },
 # TODO: FIXME!!!
 # serbian		xu-srhyphc.tex
 {
