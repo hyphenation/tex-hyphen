@@ -7,8 +7,8 @@ load 'languages.rb'
 $package_name="hyph-utf8"
 
 # TODO - make this a bit less hard-coded
-$path_tex_generic="../../../tex/generic"
-$path_TL="../../../../TL"
+$path_tex_generic=File.expand_path("../../../tex/generic")
+$path_TL=File.expand_path("../../../../TL")
 $path_language_dat="#{$path_TL}/texmf/tex/generic/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
@@ -18,6 +18,7 @@ $l = Languages.new
 languages = $l.list.sort{|a,b| a.name <=> b.name}
 
 language_grouping = {
+	'english' => ['en-gb', 'en-us'],
 	'norwegian' => ['nb', 'nn'],
 	'german' => ['de-1901', 'de-1996', 'de-ch-1901'],
 	'mongolian' => ['mn-cyrl', 'mn-cyrl-x-lmc'],

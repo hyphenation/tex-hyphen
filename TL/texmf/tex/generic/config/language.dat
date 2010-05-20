@@ -11,6 +11,10 @@ croatian	loadhyph-hr.tex
 czech	loadhyph-cs.tex
 danish	loadhyph-da.tex
 dutch	loadhyph-nl.tex
+ukenglish	loadhyph-en-gb.tex
+=british
+=UKenglish
+usenglishmax	loadhyph-en-us.tex
 esperanto	loadhyph-eo.tex
 estonian	loadhyph-et.tex
 farsi	zerohyph.tex
@@ -69,9 +73,6 @@ spanish	loadhyph-es.tex
 swedish	loadhyph-sv.tex
 turkish	loadhyph-tr.tex
 turkmen	loadhyph-tk.tex
-ukenglish	loadhyph-en-gb.tex
-=british
-=UKenglish
 ukrainian	loadhyph-uk.tex
 uppersorbian	loadhyph-hsb.tex
 welsh	loadhyph-cy.tex
