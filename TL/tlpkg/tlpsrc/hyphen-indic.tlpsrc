@@ -1,9 +1,9 @@
 category TLCore
 execute AddHyphen name=assamese lefthyphenmin=1 righthyphenmin=1 file=loadhyph-as.tex
 execute AddHyphen name=bengali lefthyphenmin=1 righthyphenmin=1 file=loadhyph-bn.tex
-execute AddHyphen name=guajrati lefthyphenmin=1 righthyphenmin=1 file=loadhyph-gu.tex
+execute AddHyphen name=gujarati lefthyphenmin=1 righthyphenmin=1 file=loadhyph-gu.tex
 execute AddHyphen name=hindi lefthyphenmin=1 righthyphenmin=1 file=loadhyph-hi.tex
-execute AddHyphen name=assamese lefthyphenmin=1 righthyphenmin=1 file=loadhyph-kn.tex
+execute AddHyphen name=kannada lefthyphenmin=1 righthyphenmin=1 file=loadhyph-kn.tex
 execute AddHyphen name=malayalam lefthyphenmin=1 righthyphenmin=1 file=loadhyph-ml.tex
 execute AddHyphen name=marathi lefthyphenmin=1 righthyphenmin=1 file=loadhyph-mr.tex
 execute AddHyphen name=oriya lefthyphenmin=1 righthyphenmin=1 file=loadhyph-or.tex
