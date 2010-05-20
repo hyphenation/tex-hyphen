@@ -55,7 +55,7 @@ function loadlanguage(lname, id)
         elseif ldata.special:find('^disabled:') then
             err("language disabled by %s: %s (%s)", dbname, cname,
                 ldata.special:gsub('^disabled:', ''))
-        elseif ldata.special == 0 then
+        elseif ldata.special == 'language0' then
             err("\\language0 should be dumped in the format")
         else
             err("bad entry in %s for language %s")
@@ -64,11 +64,13 @@ function loadlanguage(lname, id)
     wlog(msg, '', cname, id)
     for _, item in ipairs{'hyphenation', 'patterns'} do
         local file = ldata[item]
-        local file = kpse.find_file(file) or err("file not found: %s", file)
-        local fh = io.open(file, 'r')
-        local data = fh:read('*a') or err("file not readable: %s", f)
-        fh:close()
-        lang[item](lang.new(id), data)
+        if file ~= nil and file ~= '' then
+            local file = kpse.find_file(file) or err("file not found: %s", file)
+            local fh = io.open(file, 'r')
+            local data = fh:read('*a') or err("file not readable: %s", f)
+            fh:close()
+            lang[item](lang.new(id), data)
+        end
     end
 end
 -- 

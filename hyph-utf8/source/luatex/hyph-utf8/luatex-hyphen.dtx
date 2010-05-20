@@ -202,19 +202,23 @@ This work is under the CC0 license.
 %         The files given by \verb+patterns+ (resp. \verb+hypenation+) must be
 %         plain text files encoded in utf8, with only patterns (resp.
 %         exceptions) and not even comments: their content will be used
-%         directly without being parsed by \TeX.  The values of
+%         directly without being parsed by \TeX.  If one of these keys is
+%         missing or is the empty string, it is ignored and no patterns (resp.
+%         exceptions) are loaded for this language.  The values of
 %         \texttt{*hyphenmin} are currently unused.
 %       \item Special case are supported by a field \verb+special+. Currently,
 %         the following kind of values are recognized:
 %         \begin{description}
 %           \item[\texttt{'null'}] for languages with no hyphenation patterns
-%             nor exceptions.
+%             nor exceptions. (Note that this is equivalent to both
+%             \verb+hyphenation+ and \verb+patterns+ being \verb+nil+ or
+%             \verb+''+, but produces a more explicit message in the log.)
 %           \item[\texttt{'disabled:<reason>'}] allows to disable specific
 %             languages: when the user tries to load this language, an error
 %             will be issued, with the \verb+<reason>+.
-%           \item[\texttt{0}] only \texttt{english} should use this type of
-%             special, to indicate it is normally dumped in the format (see
-%             below).
+%           \item[\texttt{'language0'}] only \texttt{english} should use this
+%           type of special, to indicate it is normally dumped in the format
+%           as \verb+\language0+ (see below).
 %         \end{description}
 %         Special languages may have \texttt{*hyphenmin} information when it
 %         makes sense (mostly \verb+\language0+).
@@ -327,7 +331,7 @@ function loadlanguage(lname, id)
         elseif ldata.special:find('^disabled:') then
             err("language disabled by %s: %s (%s)", dbname, cname,
                 ldata.special:gsub('^disabled:', ''))
-        elseif ldata.special == 0 then
+        elseif ldata.special == 'language0' then
             err("\\language0 should be dumped in the format")
         else
             err("bad entry in %s for language %s")
@@ -342,11 +346,13 @@ function loadlanguage(lname, id)
     wlog(msg, '', cname, id)
     for _, item in ipairs{'hyphenation', 'patterns'} do
         local file = ldata[item]
-        local file = kpse.find_file(file) or err("file not found: %s", file)
-        local fh = io.open(file, 'r')
-        local data = fh:read('*a') or err("file not readable: %s", f)
-        fh:close()
-        lang[item](lang.new(id), data)
+        if file ~= nil and file ~= '' then
+            local file = kpse.find_file(file) or err("file not found: %s", file)
+            local fh = io.open(file, 'r')
+            local data = fh:read('*a') or err("file not readable: %s", f)
+            fh:close()
+            lang[item](lang.new(id), data)
+        end
     end
 end
 %    \end{macrocode}

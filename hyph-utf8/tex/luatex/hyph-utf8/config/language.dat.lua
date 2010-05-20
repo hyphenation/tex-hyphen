@@ -4,7 +4,7 @@ return {
 -- BEGIN manual additions
 	["english"]={
 		loader="hyphen.tex",
-		special=0, -- should be dumped in the format
+		special="language0", -- should be dumped in the format
 		lefthyphenmin=2,
 		righthyphenmin=3,
 		synonyms={"usenglish","USenglish","american"},
@@ -16,12 +16,12 @@ return {
 	},
 	["arabic"] = {
 		loader = 'zerohyph.tex',
-		special = 'null',
+		patterns="",
+		hyphenation="",
 		synonyms={},
 	},
 	["farsi"] = {
 		loader = 'zerohyph.tex',
-		special = 'null',
 		synonyms = {'persian'},
 	},
 	-- final decision not made yet
