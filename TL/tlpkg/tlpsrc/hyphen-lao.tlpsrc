@@ -1,0 +1,2 @@
+category TLCore
+execute AddHyphen name=lao lefthyphenmin=1 righthyphenmin=1 file=loadhyph-lo.tex
