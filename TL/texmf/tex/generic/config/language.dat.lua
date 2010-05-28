@@ -47,7 +47,7 @@ return {
 		special = 'disabled:for montex only-will merge soon',
 		comment = 'These are duplicate patterns for Mongolian. They are needed with special LMC encoding in MonTeX, but will hopefully be merged with other Mongolian patterns soon.',
 		synonyms = {},
-	},
+	}, --]]
 -- END manual additions
 	["assamese"]={
 		loader="loadhyph-as.tex",
@@ -131,8 +131,8 @@ return {
 	},
 	["swissgerman"]={
 		loader="loadhyph-de-ch-1901.tex",
-		patterns="hyph-de-CH-1901.pat.txt",
-		hyphenation="hyph-de-CH-1901.hyp.txt",
+		patterns="hyph-de-ch-1901.pat.txt",
+		hyphenation="hyph-de-ch-1901.hyp.txt",
 		lefthyphenmin=2,
 		righthyphenmin=2,
 		synonyms={},
@@ -155,8 +155,8 @@ return {
 	},
 	["ukenglish"]={
 		loader="loadhyph-en-gb.tex",
-		patterns="hyph-en-GB.pat.txt",
-		hyphenation="hyph-en-GB.hyp.txt",
+		patterns="hyph-en-gb.pat.txt",
+		hyphenation="hyph-en-gb.hyp.txt",
 		lefthyphenmin=2,
 		righthyphenmin=3,
 		synonyms={"british","UKenglish"},
@@ -371,8 +371,8 @@ return {
 	},
 	["mongolian"]={
 		loader="loadhyph-mn-cyrl.tex",
-		patterns="hyph-mn.pat.txt",
-		hyphenation="hyph-mn.hyp.txt",
+		patterns="hyph-mn-cyrl.pat.txt",
+		hyphenation="hyph-mn-cyrl.hyp.txt",
 		lefthyphenmin=2,
 		righthyphenmin=2,
 		synonyms={},
@@ -467,8 +467,8 @@ return {
 	},
 	["serbian"]={
 		loader="loadhyph-sh-latn.tex",
-		patterns="hyph-sr-Latn.pat.txt",
-		hyphenation="hyph-sr-Latn.hyp.txt",
+		patterns="hyph-sr-latn.pat.txt",
+		hyphenation="hyph-sr-latn.hyp.txt",
 		lefthyphenmin=2,
 		righthyphenmin=2,
 		synonyms={},
@@ -491,8 +491,8 @@ return {
 	},
 	["serbianc"]={
 		loader="loadhyph-sr-cyrl.tex",
-		patterns="hyph-sr-Cyrl.pat.txt",
-		hyphenation="hyph-sr-Cyrl.hyp.txt",
+		patterns="hyph-sr-cyrl.pat.txt",
+		hyphenation="hyph-sr-cyrl.hyp.txt",
 		lefthyphenmin=2,
 		righthyphenmin=2,
 		synonyms={},
@@ -547,8 +547,8 @@ return {
 	},
 	["pinyin"]={
 		loader="loadhyph-zh-latn.tex",
-		patterns="hyph-zh-Latn.pat.txt",
-		hyphenation="hyph-zh-Latn.hyp.txt",
+		patterns="hyph-zh-latn.pat.txt",
+		hyphenation="hyph-zh-latn.hyp.txt",
 		lefthyphenmin=1,
 		righthyphenmin=1,
 		synonyms={},

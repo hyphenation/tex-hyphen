@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEXINPUTS=".:../../hyph-utf8/tex//:$TEXINPUTS"
+TEXINPUTS=".:../../hyph-utf8/tex//:../TL/texmf/tex/generic/config:$TEXINPUTS"
 export TEXINPUTS
 
 set -e
