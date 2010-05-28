@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=croatian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-hr.tex
+depend hyphen-base
+execute AddHyphen \
+	name=croatian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-hr.tex \
+	file_patterns=hyph-hr.pat.txt \
+	file_exceptions=hyph-hr.hyp.txt
+

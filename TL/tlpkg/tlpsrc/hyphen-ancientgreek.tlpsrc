@@ -1,5 +1,17 @@
 category TLCore
-execute AddHyphen name=ancientgreek lefthyphenmin=1 righthyphenmin=1 file=loadhyph-grc.tex
-execute AddHyphen name=ibycus lefthyphenmin=2 righthyphenmin=2 file=ibyhyph.tex
+depend hyphen-base
+execute AddHyphen \
+	name=ancientgreek \
+	lefthyphenmin=1 \
+	righthyphenmin=1 \
+	file=loadhyph-grc.tex \
+	file_patterns=hyph-grc.pat.txt \
+	file_exceptions=hyph-grc.hyp.txt
+execute AddHyphen \
+	name=ibycus \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=ibyhyph.tex
+
 runpattern f texmf/tex/generic/hyphen/grahyph5.tex
 runpattern f texmf/tex/generic/hyphen/ibyhyph.tex

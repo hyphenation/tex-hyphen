@@ -1,6 +1,21 @@
 category TLCore
-execute AddHyphen name=monogreek lefthyphenmin=1 righthyphenmin=1 file=loadhyph-el-monoton.tex
-execute AddHyphen name=greek synonyms=polygreek lefthyphenmin=1 righthyphenmin=1 file=loadhyph-el-polyton.tex
+depend hyphen-base
+execute AddHyphen \
+	name=monogreek \
+	lefthyphenmin=1 \
+	righthyphenmin=1 \
+	file=loadhyph-el-monoton.tex \
+	file_patterns=hyph-el-monoton.pat.txt \
+	file_exceptions=hyph-el-monoton.hyp.txt
+execute AddHyphen \
+	name=greek synonyms=polygreek \
+	lefthyphenmin=1 \
+	righthyphenmin=1 \
+	file=loadhyph-el-polyton.tex \
+	file_patterns=hyph-el-polyton.pat.txt \
+	file_exceptions=hyph-el-polyton.hyp.txt
+
 runpattern f texmf/tex/generic/hyphen/grmhyph5.tex
 runpattern f texmf/tex/generic/hyphen/grphyph5.tex
+
 docpattern d texmf/doc/generic/elhyphen

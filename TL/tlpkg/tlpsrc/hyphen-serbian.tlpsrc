@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=serbian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-sr-latn.tex
+depend hyphen-base
+execute AddHyphen \
+	name=serbian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-sr-latn.tex \
+	file_patterns=hyph-sr-latn.pat.txt \
+	file_exceptions=
+

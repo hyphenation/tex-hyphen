@@ -1,3 +1,17 @@
 category TLCore
-execute AddHyphen name=bokmal synonyms=norwegian,norsk lefthyphenmin=2 righthyphenmin=2 file=loadhyph-nb.tex
-execute AddHyphen name=nynorsk lefthyphenmin=2 righthyphenmin=2 file=loadhyph-nn.tex
+depend hyphen-base
+execute AddHyphen \
+	name=bokmal synonyms=norwegian,norsk \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-nb.tex \
+	file_patterns=hyph-nb.pat.txt \
+	file_exceptions=
+execute AddHyphen \
+	name=nynorsk \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-nn.tex \
+	file_patterns=hyph-nn.pat.txt \
+	file_exceptions=
+

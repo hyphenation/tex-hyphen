@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=italian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-it.tex
+depend hyphen-base
+execute AddHyphen \
+	name=italian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-it.tex \
+	file_patterns=hyph-it.pat.txt \
+	file_exceptions=hyph-it.hyp.txt
+

@@ -1,3 +1,17 @@
 category TLCore
-execute AddHyphen name=ukenglish synonyms=british,UKenglish lefthyphenmin=2 righthyphenmin=3 file=loadhyph-en-gb.tex
-execute AddHyphen name=usenglishmax lefthyphenmin=2 righthyphenmin=3 file=loadhyph-en-us.tex
+depend hyphen-base
+execute AddHyphen \
+	name=ukenglish synonyms=british,UKenglish \
+	lefthyphenmin=2 \
+	righthyphenmin=3 \
+	file=loadhyph-en-gb.tex \
+	file_patterns=hyph-en-gb.pat.txt \
+	file_exceptions=
+execute AddHyphen \
+	name=usenglishmax \
+	lefthyphenmin=2 \
+	righthyphenmin=3 \
+	file=loadhyph-en-us.tex \
+	file_patterns=hyph-en-us.pat.txt \
+	file_exceptions=
+

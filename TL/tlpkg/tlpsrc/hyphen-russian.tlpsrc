@@ -1,3 +1,10 @@
 category TLCore
+depend hyphen-base
 depend ruhyphen
-execute AddHyphen name=russian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-ru.tex
+execute AddHyphen \
+	name=russian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-ru.tex \
+	file_patterns=hyph-ru.pat.txt \
+	file_exceptions=

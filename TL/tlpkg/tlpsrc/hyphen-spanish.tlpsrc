@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=spanish synonyms=espanol lefthyphenmin=2 righthyphenmin=2 file=loadhyph-es.tex
+depend hyphen-base
+execute AddHyphen \
+	name=spanish synonyms=espanol \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-es.tex \
+	file_patterns=hyph-es.pat.txt \
+	file_exceptions=hyph-es.hyp.txt
+

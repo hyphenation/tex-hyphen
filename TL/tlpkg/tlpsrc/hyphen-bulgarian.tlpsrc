@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=bulgarian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-bg.tex
+depend hyphen-base
+execute AddHyphen \
+	name=bulgarian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-bg.tex \
+	file_patterns=hyph-bg.pat.txt \
+	file_exceptions=hyph-bg.hyp.txt
+

@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=swedish lefthyphenmin=2 righthyphenmin=2 file=loadhyph-sv.tex
+depend hyphen-base
+execute AddHyphen \
+	name=swedish \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-sv.tex \
+	file_patterns=hyph-sv.pat.txt \
+	file_exceptions=hyph-sv.hyp.txt
+

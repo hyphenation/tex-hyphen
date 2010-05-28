@@ -1,3 +1,10 @@
 category TLCore
+depend hyphen-base
 depend ukrhyph
-execute AddHyphen name=ukrainian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-uk.tex
+execute AddHyphen \
+	name=ukrainian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-uk.tex \
+	file_patterns=hyph-uk.pat.txt \
+	file_exceptions=hyph-uk.hyp.txt

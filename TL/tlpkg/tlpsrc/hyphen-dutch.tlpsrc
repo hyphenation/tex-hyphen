@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=dutch lefthyphenmin=2 righthyphenmin=2 file=loadhyph-nl.tex
+depend hyphen-base
+execute AddHyphen \
+	name=dutch \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-nl.tex \
+	file_patterns=hyph-nl.pat.txt \
+	file_exceptions=
+

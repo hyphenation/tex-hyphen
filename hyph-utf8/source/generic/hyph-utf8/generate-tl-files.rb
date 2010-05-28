@@ -13,6 +13,8 @@ $path_language_dat="#{$path_TL}/texmf/tex/generic/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
 
+$path_txt="#{$path_tex_generic}/#{$package_name}/patterns/txt"
+
 $l = Languages.new
 # TODO: should be singleton
 languages = $l.list.sort{|a,b| a.name <=> b.name}
@@ -82,6 +84,7 @@ language_groups.sort.each do |language_name,language_list|
 	
 	#$file_tlpsrc.puts "name hyphen-#{language_name}"
 	$file_tlpsrc.puts "category TLCore"
+	$file_tlpsrc.puts "depend hyphen-base"
 	
 	# external dependencies for Russian and Ukrainian (until we implement the new functionality at least)
 	if language_name == "russian" then
@@ -90,7 +93,7 @@ language_groups.sort.each do |language_name,language_list|
 		$file_tlpsrc.puts "depend ukrhyph"
 	end
 	language_list.each do |language|
-		name = " name=#{language.name}"
+		name = "name=#{language.name}"
 
 		# synonyms
 		if language.synonyms != nil and language.synonyms.length > 0 then
@@ -109,17 +112,49 @@ language_groups.sort.each do |language_name,language_list|
 			lmin = language.hyphenmin[0]
 			rmin = language.hyphenmin[1]
 		end
-		hyphenmins = " lefthyphenmin=#{lmin} righthyphenmin=#{rmin}"
+		hyphenmins = "lefthyphenmin=#{lmin} \\\n\trighthyphenmin=#{rmin}"
 		# which file to use
+		file = ""
+		file_patterns = ""
+		file_exceptions = ""
 		if language.use_new_loader then
-			file = " file=loadhyph-#{language.code}.tex"
+			file = "file=loadhyph-#{language.code}.tex"
+			# we skip the mongolian language
+			if language.code != "mn-cyrl-x-lmc" then
+
+				filename_pat = "hyph-#{language.code}.pat.txt"
+				filename_hyp = "hyph-#{language.code}.hyp.txt"
+
+				# check for existance of patterns and exceptions
+				if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then
+					puts "some problem with #{$path_txt}/#{filename_pat}!!!"
+				end
+				if !File::exists?( "#{$path_txt}/#{filename_hyp}" ) then
+					puts "some problem with #{$path_txt}/#{filename_hyp}!!!"
+				end
+
+				file_patterns   = "file_patterns=#{filename_pat}"
+				if !File::size?( "#{$path_txt}/#{filename_hyp}" ) then
+					file_exceptions = "file_exceptions=#{filename_hyp}"
+				else
+					file_exceptions = "file_exceptions="
+					# puts ">   #{filename_hyp} is empty"
+				end
+			end
 		else
-			file = " file=#{language.filename_old_patterns}"
+			file = "file=#{language.filename_old_patterns}"
 		end
 
-		$file_tlpsrc.puts "execute AddHyphen#{name}#{synonyms}#{hyphenmins}#{file}"
+		$file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"
+		$file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{file}"
+		if file_patterns + file_exceptions != ""
+			$file_tlpsrc.print " \\\n\t#{file_patterns} \\\n\t#{file_exceptions}"
+		end
+		# end-of-line
+		$file_tlpsrc.puts
 	end
 	if language_name != "russian" and language_name != "ukrainian" then
+		$file_tlpsrc.puts
 		language_list.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" then
 				$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
@@ -127,10 +162,13 @@ language_groups.sort.each do |language_name,language_list|
 		end
 	end
 	if language_name == "greek" then
+		$file_tlpsrc.puts
 		$file_tlpsrc.puts "docpattern d texmf/doc/generic/elhyphen"
 	elsif language_name == "hungarian" then
+		$file_tlpsrc.puts
 		$file_tlpsrc.puts "docpattern d texmf/doc/generic/huhyphen"
 	elsif language_name == "german" then
+		$file_tlpsrc.puts
 		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/dehyphtex.tex"
 		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/ghyphen.README"
 	end

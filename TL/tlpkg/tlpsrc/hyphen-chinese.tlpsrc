@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=pinyin lefthyphenmin=1 righthyphenmin=1 file=loadhyph-zh-latn.tex
+depend hyphen-base
+execute AddHyphen \
+	name=pinyin \
+	lefthyphenmin=1 \
+	righthyphenmin=1 \
+	file=loadhyph-zh-latn.tex \
+	file_patterns=hyph-zh-latn.pat.txt \
+	file_exceptions=hyph-zh-latn.hyp.txt
+

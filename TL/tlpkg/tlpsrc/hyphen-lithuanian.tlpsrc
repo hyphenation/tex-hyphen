@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=lithuanian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-lt.tex
+depend hyphen-base
+execute AddHyphen \
+	name=lithuanian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-lt.tex \
+	file_patterns=hyph-lt.pat.txt \
+	file_exceptions=hyph-lt.hyp.txt
+

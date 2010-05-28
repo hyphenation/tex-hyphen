@@ -1,3 +1,15 @@
 category TLCore
-execute AddHyphen name=mongolian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-mn-cyrl.tex
-execute AddHyphen name=mongolianlmc lefthyphenmin=2 righthyphenmin=2 file=loadhyph-mn-cyrl-x-lmc.tex
+depend hyphen-base
+execute AddHyphen \
+	name=mongolian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-mn-cyrl.tex \
+	file_patterns=hyph-mn-cyrl.pat.txt \
+	file_exceptions=hyph-mn-cyrl.hyp.txt
+execute AddHyphen \
+	name=mongolianlmc \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-mn-cyrl-x-lmc.tex
+

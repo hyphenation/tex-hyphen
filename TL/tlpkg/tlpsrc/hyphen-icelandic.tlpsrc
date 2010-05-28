@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=icelandic lefthyphenmin=2 righthyphenmin=2 file=loadhyph-is.tex
+depend hyphen-base
+execute AddHyphen \
+	name=icelandic \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-is.tex \
+	file_patterns=hyph-is.pat.txt \
+	file_exceptions=hyph-is.hyp.txt
+

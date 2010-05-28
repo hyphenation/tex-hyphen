@@ -1,3 +1,12 @@
 category TLCore
-execute AddHyphen name=hungarian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-hu.tex
+depend hyphen-base
+execute AddHyphen \
+	name=hungarian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-hu.tex \
+	file_patterns=hyph-hu.pat.txt \
+	file_exceptions=hyph-hu.hyp.txt
+
+
 docpattern d texmf/doc/generic/huhyphen

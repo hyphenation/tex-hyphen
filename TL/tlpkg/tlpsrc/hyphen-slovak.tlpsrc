@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=slovak lefthyphenmin=2 righthyphenmin=3 file=loadhyph-sk.tex
+depend hyphen-base
+execute AddHyphen \
+	name=slovak \
+	lefthyphenmin=2 \
+	righthyphenmin=3 \
+	file=loadhyph-sk.tex \
+	file_patterns=hyph-sk.pat.txt \
+	file_exceptions=
+

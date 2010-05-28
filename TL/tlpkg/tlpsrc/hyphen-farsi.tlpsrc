@@ -1,2 +1,8 @@
 category TLCore
-execute AddHyphen name=farsi synonyms=persian lefthyphenmin= righthyphenmin= file=zerohyph.tex
+depend hyphen-base
+execute AddHyphen \
+	name=farsi synonyms=persian \
+	lefthyphenmin= \
+	righthyphenmin= \
+	file=zerohyph.tex
+

@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=galician lefthyphenmin=2 righthyphenmin=2 file=loadhyph-gl.tex
+depend hyphen-base
+execute AddHyphen \
+	name=galician \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-gl.tex \
+	file_patterns=hyph-gl.pat.txt \
+	file_exceptions=hyph-gl.hyp.txt
+

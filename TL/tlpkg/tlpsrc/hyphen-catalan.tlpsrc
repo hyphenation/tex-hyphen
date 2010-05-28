@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=catalan lefthyphenmin=2 righthyphenmin=2 file=loadhyph-ca.tex
+depend hyphen-base
+execute AddHyphen \
+	name=catalan \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-ca.tex \
+	file_patterns=hyph-ca.pat.txt \
+	file_exceptions=
+

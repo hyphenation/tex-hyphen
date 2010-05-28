@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=kurmanji lefthyphenmin=2 righthyphenmin=2 file=loadhyph-kmr.tex
+depend hyphen-base
+execute AddHyphen \
+	name=kurmanji \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-kmr.tex \
+	file_patterns=hyph-kmr.pat.txt \
+	file_exceptions=hyph-kmr.hyp.txt
+
