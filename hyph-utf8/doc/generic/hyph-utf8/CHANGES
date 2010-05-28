@@ -1,3 +1,33 @@
+2010-05-24 (#379)
+- updated Italian patterns (by Claudio Beccari)
+
+2010-05-20 (#394)
+- add a loader for en-us
+
+2010-05-20 (#393)
+- TODO: mpg
+
+2010-05-19 (#358)
+- new Lao hyphenation patterns (by Brian Wilson; under development)
+
+2010-05-19 (#379, #380)
+- updated Spanish patterns (by Javier Bezos)
+
+2010-05-06 (#371)
+- new Armenian hyphenation patterns (by Sahak Petrosyan)
+
+2010-05-06 (#368, #369)
+- add source and documentation for Spanish patterns (by Javier Bezos)
+
+2010-05-03 (#360-#363)
+- TODO: mpg
+
+2010-04-30 (#349-#355)
+- TODO: mpg
+
+2010-04-27 (#344)
+- TODO: mpg
+
 2010-04-27 (#340)
 - fixing glitches in Galician patterns
 - create this file for publishing changes
