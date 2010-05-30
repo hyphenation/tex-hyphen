@@ -4,5 +4,6 @@ execute AddHyphen \
 	name=arabic \
 	lefthyphenmin= \
 	righthyphenmin= \
-	file=zerohyph.tex
+	file=zerohyph.tex \
+	file_patterns=
 

@@ -11,7 +11,8 @@ execute AddHyphen \
 	name=ibycus \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
-	file=ibyhyph.tex
+	file=ibyhyph.tex \
+	luaspecial="disabled:8-bit only"
 
 runpattern f texmf/tex/generic/hyphen/grahyph5.tex
 runpattern f texmf/tex/generic/hyphen/ibyhyph.tex
