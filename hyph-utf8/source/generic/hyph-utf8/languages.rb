@@ -40,7 +40,7 @@ class Language
 
 	def get_patterns
 		if @patterns == nil
-			filename = "../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex";
+			filename = "../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex"
 			lines = IO.readlines(filename, '.').join("")
 			@patterns = lines.gsub(/%.*/,'').
 				gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
@@ -49,6 +49,19 @@ class Language
 				gsub(/\s*$/m,'').
 				gsub(/'/,"’").
 				split("\n")
+			# Russian and Ukrainian have some extra patterns with dashes
+			# we may combine these patterns with the main file anyway
+			if @code == 'ru' or @code == 'uk' then
+				filename = "../../../tex/generic/hyph-utf8/patterns/tex-special/exhyph-#{@code}.tex"
+				lines = IO.readlines(filename, '.').join("")
+				@patterns.concat (lines.gsub(/%.*/,'').
+					gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
+					gsub(/\s+/m,"\n").
+					gsub(/^\s*/m,'').
+					gsub(/\s*$/m,'').
+					gsub(/'/,"’").
+					split("\n"))
+			end
 
 			if @code == 'eo' then
 				@patterns = lines.gsub(/%.*/,'').
