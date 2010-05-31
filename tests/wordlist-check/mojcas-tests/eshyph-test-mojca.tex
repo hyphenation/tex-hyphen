@@ -1,0 +1,48 @@
+% Modified code (original by Javier Bezos, http://www.ctan.org/tex-archive/language/spanish/hyphen/base/)
+
+\nonstopmode
+
+\directlua{\unexpanded{
+local glyph = node.id('glyph')
+local disc = node.id('disc')
+local glue = node.id('glue')
+callback.register('pre_linebreak_filter',
+	function(h, groupcode)
+		word = ''
+		for t in node.traverse(h) do
+			if node.id(t.id) == glyph and t.subtype == 0 then
+				word = word .. unicode.utf8.char(t.char)
+			elseif node.id(t.id) == disc then
+				word = word .. '-'
+			elseif node.id(t.id) == glue then
+				word = word .. ' '
+			end
+		end
+		% texio.write_nl('NODE type=' ..  node.type(t.id) .. ' subtype=' .. t.subtype )
+		% if t.id == glyph then
+			% texio.write(' font=' .. t.font .. ' char=' .. unicode.utf8.char(t.char))
+		% end
+		texio.write_nl(' -- ' .. word)
+		return true
+	end)
+}}
+
+\lefthyphenmin=1
+\righthyphenmin=1
+
+% \pdfnoligatures
+
+\hbadness=10000
+\hfuzz=\maxdimen
+
+\def\p#1{#1\setbox0\vbox{\hsize0pt #1}}
+
+\directlua{\unexpanded{
+  local words = io.open('words.txt')
+  for w in words:lines() do
+    tex.print('\\p{' .. w .. '}')
+  end
+  words:close()
+}}
+
+\bye

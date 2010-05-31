@@ -1,0 +1,12 @@
+% \starttext
+\directlua{
+	callback.register('pre_linebreak_filter',
+	function(h, groupcode)
+		return true
+	end)
+}
+abc
+\bye
+
+% \stoptext
+
