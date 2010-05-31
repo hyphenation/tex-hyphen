@@ -49,10 +49,7 @@ function loadlanguage(lname, id)
         err("no entry in %s for this language: %s", dbname, lname)
     end
     if ldata.special then
-        if ldata.special == 'null' then
-            wlog(msg, ' (null)', cname, id)
-            return
-        elseif ldata.special:find('^disabled:') then
+        if ldata.special:find('^disabled:') then
             err("language disabled by %s: %s (%s)", dbname, cname,
                 ldata.special:gsub('^disabled:', ''))
         elseif ldata.special == 'language0' then
@@ -62,7 +59,7 @@ function loadlanguage(lname, id)
         end
     end
     wlog(msg, '', cname, id)
-    for _, item in ipairs{'hyphenation', 'patterns'} do
+    for _, item in ipairs{'patterns', 'hyphenation'} do
         local file = ldata[item]
         if file ~= nil and file ~= '' then
             local file = kpse.find_file(file) or err("file not found: %s", file)
@@ -70,6 +67,9 @@ function loadlanguage(lname, id)
             local data = fh:read('*a') or err("file not readable: %s", f)
             fh:close()
             lang[item](lang.new(id), data)
+        else
+            if item == 'hyphenation' then item = item..' exceptions' end
+            wlog("info: no %s for this language", item)
         end
     end
 end

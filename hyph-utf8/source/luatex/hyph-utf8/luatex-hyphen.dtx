@@ -205,14 +205,10 @@ This work is under the CC0 license.
 %         directly without being parsed by \TeX.  If one of these keys is
 %         missing or is the empty string, it is ignored and no patterns (resp.
 %         exceptions) are loaded for this language.  The values of
-%         \texttt{*hyphenmin} are currently unused.
+%         \texttt{*hyphenmin} values are currently unused.
 %       \item Special case are supported by a field \verb+special+. Currently,
 %         the following kind of values are recognized:
 %         \begin{description}
-%           \item[\texttt{'null'}] for languages with no hyphenation patterns
-%             nor exceptions. (Note that this is equivalent to both
-%             \verb+hyphenation+ and \verb+patterns+ being \verb+nil+ or
-%             \verb+''+, but produces a more explicit message in the log.)
 %           \item[\texttt{'disabled:<reason>'}] allows to disable specific
 %             languages: when the user tries to load this language, an error
 %             will be issued, with the \verb+<reason>+.
@@ -325,10 +321,7 @@ function loadlanguage(lname, id)
 %
 %    \begin{macrocode}
     if ldata.special then
-        if ldata.special == 'null' then
-            wlog(msg, ' (null)', cname, id)
-            return
-        elseif ldata.special:find('^disabled:') then
+        if ldata.special:find('^disabled:') then
             err("language disabled by %s: %s (%s)", dbname, cname,
                 ldata.special:gsub('^disabled:', ''))
         elseif ldata.special == 'language0' then
@@ -344,7 +337,7 @@ function loadlanguage(lname, id)
 %
 %    \begin{macrocode}
     wlog(msg, '', cname, id)
-    for _, item in ipairs{'hyphenation', 'patterns'} do
+    for _, item in ipairs{'patterns', 'hyphenation'} do
         local file = ldata[item]
         if file ~= nil and file ~= '' then
             local file = kpse.find_file(file) or err("file not found: %s", file)
@@ -352,6 +345,9 @@ function loadlanguage(lname, id)
             local data = fh:read('*a') or err("file not readable: %s", f)
             fh:close()
             lang[item](lang.new(id), data)
+        else
+            if item == 'hyphenation' then item = item..' exceptions' end
+            wlog("info: no %s for this language", item)
         end
     end
 end
