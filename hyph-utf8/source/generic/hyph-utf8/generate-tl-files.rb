@@ -120,8 +120,9 @@ language_groups.sort.each do |language_name,language_list|
 		if language.use_new_loader then
 			file = "file=loadhyph-#{language.code}.tex"
 			# we skip the mongolian language
-			if language.code != "mn-cyrl-x-lmc" then
-
+			if language.code == "mn-cyrl-x-lmc" then
+				file = "luaspecial=\"disabled:only for 8bit montex with lmc encoding\""
+			else
 				filename_pat = "hyph-#{language.code}.pat.txt"
 				filename_hyp = "hyph-#{language.code}.hyp.txt"
 
@@ -143,6 +144,12 @@ language_groups.sort.each do |language_name,language_list|
 			end
 		else
 			file = "file=#{language.filename_old_patterns}"
+			if language.code == 'ar' or language.code == 'fa' then
+				file = file + " \\\n\tfile_patterns="
+			elsif language.code == 'grc-x-ibycus' then
+				# TODO: fix this
+				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
+			end
 		end
 
 		$file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"

@@ -11,6 +11,5 @@ execute AddHyphen \
 	name=mongolianlmc \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
-	file=loadhyph-mn-cyrl-x-lmc.tex \
-	luaspecial="disabled:8-bit only"
+	luaspecial="disabled:only for 8bit montex with lmc encoding"
 
