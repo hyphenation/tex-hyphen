@@ -1,3 +1,11 @@
+2010-05-31 (#412-#414)
+- luatex-hyphen: rm special='null' (now useless), bump version number, fill
+  the gaps in this changes file
+
+2010-05-30 (#409-#411)
+- adjust tlpsrc's of special languages for luatex-hyphen, import corresponding
+  language.dat.lua from TeX Live, and adapt test files
+
 == CTAN release 2010.05.28 ==
 
 2010-05-28 (#406)
@@ -10,7 +18,7 @@
 - add a loader for en-us
 
 2010-05-20 (#393)
-- TODO: mpg
+- luatex-hyphen: minor adjustments for special languages
 
 2010-05-19 (#358)
 - new Lao hyphenation patterns (by Brian Wilson; under development)
@@ -25,13 +33,20 @@
 - add source and documentation for Spanish patterns (by Javier Bezos)
 
 2010-05-03 (#360-#363)
-- TODO: mpg
+- more documentation and tests for luatex-hyphen and associated etex.src
+- update etex.src according to latest luatex-hyphen changes
+- split 'code' key in language.dat.lua in 'hyphenation' and 'patterns'
 
 2010-04-30 (#349-#355)
-- TODO: mpg
+- initial import of luatex-hyphen, a modified version of babel's hyphen.cfg
+  for use with LuaTeX (semi-dynamic loading of patterns), sharing code with
+the version of etex.src mentioned below
+- misc changes to luatex-hyphen
+- test file for luatex-hyphen
 
 2010-04-27 (#344)
-- TODO: mpg
+- initial import of a modified etex.src allowing semi-dynamic loading of
+  patterns with LuaTeX
 
 2010-04-27 (#340)
 - fixing glitches in Galician patterns
