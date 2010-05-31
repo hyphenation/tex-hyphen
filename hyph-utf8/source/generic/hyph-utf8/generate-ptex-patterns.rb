@@ -75,7 +75,10 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 			exceptions = encoding.convert_to_escaped_characters(exceptions)
 		end
 
-		file_ptex.puts("% Hyphenation patterns for #{language.name} adapted for use in pTeX")
+		file_ptex.puts("% pTeX-friendly hyphenation patterns")
+		file_ptex.puts("%")
+		file_ptex.puts("% language: #{language.name} (#{language.code})")
+		file_ptex.puts("% encoding: #{language.encoding}")
 		file_ptex.puts("%")
 		file_ptex.puts("% This file has been auto-generated from hyph-#{language.code}.tex")
 		file_ptex.puts("% with a script [texmf]/scripts/generic/hyph-utf8/generate-ptex-patterns.rb")
