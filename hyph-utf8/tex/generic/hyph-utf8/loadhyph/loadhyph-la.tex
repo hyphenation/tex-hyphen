@@ -22,10 +22,6 @@
     \message{UTF-8 Latin Hyphenation Patterns}
 \else
     \message{EC Latin Hyphenation Patterns}
-    % A hack to support both EC and OT1 encoding in 8-bit engines.
-    % Kept for backward compatibility only, though we would prefer to drop it.
-    % OT1 encoding is close-to-useless for proper hyphenation.
-    \input spechyph-ot1-la.tex
     \input conv-utf8-ec.tex
 \fi
 \input hyph-la.tex

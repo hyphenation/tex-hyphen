@@ -140,7 +140,7 @@ languages.each do |language|
 				file.puts('\else')
 				file.puts("    \\message{#{language.encoding.upcase} #{language.message}}")
 				# a hack for OT1 encoding in three languages
-				if language.code == 'da' or language.code == 'fr' or language.code == 'la' then
+				if language.code == 'da' or language.code == 'fr' then
 					file.puts("    % A hack to support both EC and OT1 encoding in 8-bit engines.")
 					file.puts("    % Kept for backward compatibility only, though we would prefer to drop it.")
 					file.puts("    % OT1 encoding is close-to-useless for proper hyphenation.")

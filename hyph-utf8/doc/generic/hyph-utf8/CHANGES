@@ -1,3 +1,6 @@
+2010-05-31 (#421)
+- remove special OT1 support for Latin (with Claudio Beccari's approval)
+
 2010-05-31 (#412-#414)
 - luatex-hyphen: rm special='null' (now useless), bump version number, fill
   the gaps in this changes file
