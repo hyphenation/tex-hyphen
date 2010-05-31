@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=irish lefthyphenmin=2 righthyphenmin=3 file=loadhyph-ga.tex
+depend hyphen-base
+execute AddHyphen \
+	name=irish \
+	lefthyphenmin=2 \
+	righthyphenmin=3 \
+	file=loadhyph-ga.tex \
+	file_patterns=hyph-ga.pat.txt \
+	file_exceptions=
+

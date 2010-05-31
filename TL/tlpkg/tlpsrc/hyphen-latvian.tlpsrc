@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=latvian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-lv.tex
+depend hyphen-base
+execute AddHyphen \
+	name=latvian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-lv.tex \
+	file_patterns=hyph-lv.pat.txt \
+	file_exceptions=hyph-lv.hyp.txt
+

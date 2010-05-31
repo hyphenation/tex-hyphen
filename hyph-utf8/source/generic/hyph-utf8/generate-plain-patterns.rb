@@ -9,9 +9,10 @@ require 'unicode'
 
 load 'languages.rb'
 
-$path_plain="../../../../plain"
-$path_TL="../../../../TL"
-$path_language_dat="#{$path_TL}/texmf/tex/generic/config"
+$path_root=File.expand_path("../../..")
+$path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns/txt"
+$path_TL=File.expand_path("../../../../TL")
+$path_language_dat_lua="#{$path_root}/tex/luatex/hyph-utf8/config"
 
 $l = Languages.new
 # TODO: should be singleton
@@ -28,19 +29,19 @@ languages.each do |language|
 end
 # language_codes['de-1901']      = 'de-1901'
 # language_codes['de-1996']      = 'de-1996'
-language_codes['de-ch-1901']    = 'de-CH-1901'
-language_codes['en-gb']         = 'en-GB'
-language_codes['en-us']         = 'en-US'
-language_codes['zh-latn']       = 'zh-Latn'
+# language_codes['de-ch-1901']    = 'de-CH-1901'
+# language_codes['en-gb']         = 'en-GB'
+# language_codes['en-us']         = 'en-US'
+# language_codes['zh-latn']       = 'zh-Latn'
 # language_codes['el-monoton']   = 'el-monoton'
 # language_codes['el-polyton']   = 'el-polyton'
-language_codes['mn-cyrl']       = 'mn'
+# language_codes['mn-cyrl']       = 'mn'
 language_codes['mn-cyrl-x-lmc'] = nil
-language_codes['sh-latn']       = 'sr-Latn'
+language_codes['sh-latn']       = 'sr-latn'
 language_codes['sh-cyrl']       = nil
-language_codes['sr-cyrl']       = 'sr-Cyrl'
+# language_codes['sr-cyrl']       = 'sr-Cyrl'
 
-$file_language_dat_lua = File.open("#{$path_language_dat}/language.dat.lua", "w")
+$file_language_dat_lua = File.open("#{$path_language_dat_lua}/language.dat.lua", "w")
 $file_language_dat_lua.puts "return {\n"
 
 languages.sort{|x,y| x.code <=> y.code }.each do |language|
@@ -62,10 +63,10 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 	if include_language
 		puts "generating #{code}"
 	
-		$file_pat = File.open("#{$path_plain}/#{code}.pat.txt", 'w')
-		$file_hyp = File.open("#{$path_plain}/#{code}.hyp.txt", 'w')
-		$file_let = File.open("#{$path_plain}/#{code}.chr.txt", 'w')
-		$file_inf = File.open("#{$path_plain}/#{code}.lic.txt", 'w')
+		$file_pat = File.open("#{$path_plain}/hyph-#{code}.pat.txt", 'w')
+		$file_hyp = File.open("#{$path_plain}/hyph-#{code}.hyp.txt", 'w')
+		$file_let = File.open("#{$path_plain}/hyph-#{code}.chr.txt", 'w')
+		$file_inf = File.open("#{$path_plain}/hyph-#{code}.lic.txt", 'w')
 
 		patterns   = language.get_patterns
 		exceptions = language.get_exceptions

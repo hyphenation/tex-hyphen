@@ -54,6 +54,7 @@ Impromevents:
 - LuaTeX patterns
 
 Documentation:
+- authors, history, changes
 - how to use patterns in plain TeX
 - how to use patterns in LaTeX with polyglossia (or babel?)
 - how to use patterns in ConTeXt
@@ -93,6 +94,21 @@ Licences:
   - gl
   - eu, tk, tr
 
+Example of a licence:
+
+This work consists of two parts:
+a) patterns for different languages
+b) support files (tex files, generating scripts, documentation, ...)
+with two different licences for each:
+1) for within the TeX world
+2) and outside the TeX world
+
+A short version of licence:
+b2) We don't care what you do, though it would be nice of you to mention the source of patterns (hyph-utf8 residing at http://tug.org/tex-hyphen) at some visible place.
+b1)
+
+a1)
+
 Collaboration:
 - make a list of people that we would want to collaborate with
 - some notification system for those using our patterns as source for whenever something in repository changes
@@ -100,14 +116,29 @@ Collaboration:
 
 TeX users:
 - [on the way] write DOC about pattern conversion
-- create a web page
-- write an article for TUG boat and/or other TeX magazines
-- [on the way] maybe present the main idea at some TUG conference
+- [DONE] write an article for TUG boat and/or other TeX magazines
+- [DONE] maybe present the main idea at some TUG conference
 - notify mailing lists
 - CTAN people should take care for new patterns to be submitted in the proper form
 
+Web page:
+- split the page into several subpages:
+  - short intro & news
+  - languages - list all available language and add proper links
+  - collaboration and links
+  - description of algorithm (with Mathias' slides)
+- nicer design
+- apply Mathias' Hyphenator.js
+- add a test page to do hyphenation on-the-fly using Mathias' code
+  and creating some really nice output
+  - a dropdown box chooses the language
+  - text input field
+  - button for submission (maybe we don't even need that)
+  - sample output
+
 Software:
-- possibly rewrite patgen to handle UTF-8 (ask the author of javascript)
+- possibly rewrite patgen to handle UTF-8
+  - [DONE] try to convince Mathias Nater to do that; Deadline: BachoTeX 2011 :)
 
 Some other changes:
 - [half done by Norbert] unify pattern loading with both plain TeX/LaTeX
@@ -117,3 +148,86 @@ Some other changes:
 OpenOffice:
 - http://extensions.services.openoffice.org/en/project/RomanianDictionaryPackCedillaVersion
 - (kurdish) http://extensions.services.openoffice.org/en/project/kitandin
+
+- http://www.mail-archive.com/dev@lingucomponent.openoffice.org/msg01104.html
+
+
+
+Hello Mojca,
+
+
+On 16/03/2010 10:21, Mojca Miklavec wrote:
+Hello François,
+
+Not so long ago the author of  Mongolian patterns has asked us for
+"help about how to use his patterns in TeX Live 2008/09". (They are
+called "mongolian2a" in language.dat since there are two version of
+Mongolian patterns in TeX Live - both different patterns and different
+encoding. I'm not sure that I know how to enable those patterns in
+LaTeX in some nice way.)
+
+First question: does polyglossia work ok with 8-bit engines (pdftex)
+as a replacement for babel?
+  
+
+No. It assumes Unicode encoding and is currently for XeLaTeX only.
+Together with Elie Roux I plan to add support for LuaLaTeX in a later version (not very soon however).
+
+Second question: would you be willing to write a short introduction
+(in tex or maybe even better in html forhttp://tug.org/tex-hyphen/)
+
+about how to use some particular patterns in polyglossia (maybe we
+should start promoting polyglossia via our webpage, in particual if
+the answer to my first question was positive).
+  
+
+Sure.
+
+The short answer is:
+
+Since Babel's hyphen.cfg is built in the xelatex format, hyphenation patterns can be used without even loading polyglossia (or Babel for that matter). At the low-level this simply corresponds to defining
+   \language=\l@<langname>
+(where langname is the string identifying a particular hyphenation file in language.dat). The user command for this is
+   \hyphenrules{langname}
+or
+   \begin{hyphenrules}{langname} ... \end{hyphenrules}.
+
+The above works with any flavour of LaTeX, and I think it is also available in Plain TeX with
+   \hyphenrules{langname}
+   ...
+   \endhyphenrules
+
+
+
+In particular, we need to provide examples of usage in {plain TeX,
+LaTeX, XeTeX, XeLaTeX, ConTeXt, Lua(La)TeX} for different encodings. I
+can write something about ConTeXt, but I need help for different
+flavours of LaTeX.
+  
+
+Under "plain" pdftex, xetex, and luatex, one can use the macro \uselanguage{langname} for any language mentioned in language.def. It's that simple!
+
+Under polyglossia this is all done automatically, as in Babel, within the individual language definition files, depending of the options associated with each language. Example:
+
+\usepackage{polyglossia}
+\setmainlanguage{asturian}
+\setotherlanguage[variant=usmax]{english}% American English with extended hyphenation patterns
+\setotherlanguage[spelling=new,latesthyphen=true]{german}% German with experimental patterns "ngerman-x-latest"
+\setotherlanguages{spanish,catalan,french}
+\begin{document}
+Long Asturian text ... (Hyphenation for Asturian is not available, but polyglossia automatically falls back on Catalan for now, which seems to be a reasonable choice.)
+
+\begin{german}
+Deutscher Text ... (with the hyphenation patterns selected above: "ngerman-x-latest")
+\end{german}
+
+\begin[script=fraktur,spelling=old]{german}
+Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
+\end{german}
+
+etc.
+
+Feel free to adapt and use the above to your liking!
+
+Regards,
+François

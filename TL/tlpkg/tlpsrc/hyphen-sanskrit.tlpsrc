@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=sanskrit lefthyphenmin=1 righthyphenmin=5 file=loadhyph-sa.tex
+depend hyphen-base
+execute AddHyphen \
+	name=sanskrit \
+	lefthyphenmin=1 \
+	righthyphenmin=5 \
+	file=loadhyph-sa.tex \
+	file_patterns=hyph-sa.pat.txt \
+	file_exceptions=hyph-sa.hyp.txt
+

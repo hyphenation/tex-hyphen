@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=danish lefthyphenmin=2 righthyphenmin=2 file=loadhyph-da.tex
+depend hyphen-base
+execute AddHyphen \
+	name=danish \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-da.tex \
+	file_patterns=hyph-da.pat.txt \
+	file_exceptions=hyph-da.hyp.txt
+

@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=finnish lefthyphenmin=2 righthyphenmin=2 file=loadhyph-fi.tex
+depend hyphen-base
+execute AddHyphen \
+	name=finnish \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-fi.tex \
+	file_patterns=hyph-fi.pat.txt \
+	file_exceptions=hyph-fi.hyp.txt
+

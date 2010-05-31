@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=slovenian synonyms=slovene lefthyphenmin=2 righthyphenmin=2 file=loadhyph-sl.tex
+depend hyphen-base
+execute AddHyphen \
+	name=slovenian synonyms=slovene \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-sl.tex \
+	file_patterns=hyph-sl.pat.txt \
+	file_exceptions=hyph-sl.hyp.txt
+

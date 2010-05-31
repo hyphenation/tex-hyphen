@@ -1,0 +1,17 @@
+﻿Hyphenator.languages.fi = {
+	leftmin : 2,
+	rightmin : 2,
+	shortestPattern : 2,
+	longestPattern : 7,
+	specialChars : 'äö',
+	patterns : {
+		3 : '1ba1be1bi1bo1bu1by1da1de1di1do1du1dy1dä1dö1fa1fe1fi1fo1fu1fy1ga1ge1gi1go1gu1gy1gä1gö1ha1he1hi1ho1hu1hy1hä1hö1ja1je1ji1jo1ju1jy1jä1jö1ka1ke1ki1ko1ku1ky1kä1kö1la1le1li1lo1lu1ly1lä1lö1ma1me1mi1mo1mu1my1mä1mö1na1ne1ni1no1nu1ny1näq2v1pa1pe1pi1po1pu1py1pä1pö1ra1re1ri1ro1ru1ry1rä1rö1sa1se1si1so1su1sy1sä1sö1ta1te1ti1to1tu1ty1tä1tö1va1ve1vi1vo1vu1vy1vä1vö.ä2ä2yb2lb2ro1yö2yd2rf2lf2rg2lg2rk2lp2lp2ra1äa1öo1äo1öu2sc2lä2äö2öä2öö2ä1nö'
+		4 : 'sc2hu1ö2u1ä2ö1u2ä1u21k2vä3o2ä3a2ö3o2ö3a2y1u2u1y2y1o2y1a2e1aai1aao1aau1aau1eea1uui1uue1uuo1uuää1iää1eää3yi1ääe1ääy1ääi1ööa1eia1oie1aii1auy1eiai1aai1eai1oai1uau1aau1eeu1aie1aie1oie1yl2asr2asiu1aiu1eiu1ooi1aoi1eoi1ooi1uo1uiou1eou1oue1aui1euo1auo1ue1ö2ö1e2ts2hch2r'
+		5 : 'aa1u21f2lauu1a21d2rakeus1uu1e21b2ru1st2r1b2ro1b2riuu1o2io1e2io1a2aa1i21q2viaa1e2aa1o21p2ro1b2louu1i2ee1a21f2raee1i21k2vaee1u21k2ri1k2re1f2reii1e2ii1a2ii1o2ee1y21g2ra1g2lo1k2ra'
+		6 : '2s1apu1sp2lialous1rtaus1bib3liulo2s1perus12s1ase'
+		7 : '2s1a2jo.ydi2n12n1a2jo2n1anto2n1o2sa2s1o2sa2n1otto1a2sioi1a2siat1a2sian2s1ohje2n1aika2n1oton2n1annoali1a2vyli1o2p'
+		8 : '2n1y2lit2n1a2len2s1a2len2n1o2mai2n1a2jan2s1y2hti2n1o2pet2s1y2rit2s1ajatualkei2s12s1a2sia2s1a2loi2n1e2dus'
+		9 : '2s1i2dea.2s1o2pist2n1o2pist2s1i2dean.suu2r1a22s1o2pisk2s1e2sity'
+		11 : '1a2siaka2s1'
+	}
+};

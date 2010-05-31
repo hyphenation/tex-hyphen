@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=indonesian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-id.tex
+depend hyphen-base
+execute AddHyphen \
+	name=indonesian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-id.tex \
+	file_patterns=hyph-id.pat.txt \
+	file_exceptions=
+

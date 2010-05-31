@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=welsh lefthyphenmin=2 righthyphenmin=3 file=loadhyph-cy.tex
+depend hyphen-base
+execute AddHyphen \
+	name=welsh \
+	lefthyphenmin=2 \
+	righthyphenmin=3 \
+	file=loadhyph-cy.tex \
+	file_patterns=hyph-cy.pat.txt \
+	file_exceptions=hyph-cy.hyp.txt
+

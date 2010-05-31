@@ -1,0 +1,10 @@
+category TLCore
+depend hyphen-base
+execute AddHyphen \
+	name=lao \
+	lefthyphenmin=1 \
+	righthyphenmin=1 \
+	file=loadhyph-lo.tex \
+	file_patterns=hyph-lo.pat.txt \
+	file_exceptions=hyph-lo.hyp.txt
+

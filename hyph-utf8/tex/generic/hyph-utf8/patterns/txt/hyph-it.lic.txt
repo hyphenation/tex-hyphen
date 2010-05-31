@@ -1,0 +1,56 @@
+Italian Hyphenation Patterns
+
+(more info about the licence to be added later)
+
+% This file is part of hyph-utf8 package and resulted from
+% semi-manual conversions of hyphenation patterns into UTF-8 in June 2008.
+%
+% Source: ithyph.tex (2008-03-08)
+% Author: Claudio Beccari <claudio.beccari at polito.it>
+%
+% It was further edited by Claudio Beccari(2010/05/24)
+%
+% Modifications were done by Jonathan Kew, Mojca Miklavec & Arthur Reutenauer
+% with help & support from:
+% - Karl Berry, who gave us free hands and all resources
+% - Taco Hoekwater, with useful macros
+% - Hans Hagen, who did the unicodifisation of patterns already long before
+%               and helped with testing, suggestions and bug reports
+% - Norbert Preining, who tested & integrated patterns into TeX Live
+%
+% However, the "copyright/copyleft" owner of patterns remains the original author.
+%
+%
+% We know that TeX is extremely powerful, but give a stupid parser
+% at least a chance to read your patterns.
+%
+% For more unformation see
+%
+%    http://tug.org/tex-hyphen
+%
+%------------------------------------------------------------------------------
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%  file ithyph.tex  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Prepared by Claudio Beccari   e-mail  claudio dot beccari at gmail dot it
+%
+%                                       10090 Villarbasse (TO)
+%                                       Italy
+%
+% Copyright  1998, 2010 Claudio Beccari
+%
+% This program is free software; it can be redistributed and/or modified 
+% under the terms of the GNU Lesser General Public Licence,
+% as published by the Free Software Foundation, either version 2.1 of the
+% Licence or (at your option) any later version.
+%
+% \versionnumber{4.8h}   \versiondate{2010/05/24}
+%
+% These hyphenation patterns for the Italian language are supposed to comply
+% with the Recommendation UNI 6461 on hyphenation issued by the Italian
+% Standards Institution (Ente Nazionale di Unificazione UNI).  No guarantee
+% or declaration of fitness to any particular purpose is given and any
+% liability is disclaimed.
+%
+% See comments at the end of the file after the \endinput line
+%

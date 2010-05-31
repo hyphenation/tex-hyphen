@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=uppersorbian lefthyphenmin=2 righthyphenmin=2 file=loadhyph-hsb.tex
+depend hyphen-base
+execute AddHyphen \
+	name=uppersorbian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-hsb.tex \
+	file_patterns=hyph-hsb.pat.txt \
+	file_exceptions=
+

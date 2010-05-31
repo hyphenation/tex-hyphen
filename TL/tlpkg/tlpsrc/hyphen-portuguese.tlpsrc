@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=portuguese synonyms=portuges lefthyphenmin=2 righthyphenmin=3 file=loadhyph-pt.tex
+depend hyphen-base
+execute AddHyphen \
+	name=portuguese synonyms=portuges \
+	lefthyphenmin=2 \
+	righthyphenmin=3 \
+	file=loadhyph-pt.tex \
+	file_patterns=hyph-pt.pat.txt \
+	file_exceptions=
+

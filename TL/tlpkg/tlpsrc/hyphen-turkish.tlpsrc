@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=turkish lefthyphenmin=2 righthyphenmin=2 file=loadhyph-tr.tex
+depend hyphen-base
+execute AddHyphen \
+	name=turkish \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-tr.tex \
+	file_patterns=hyph-tr.pat.txt \
+	file_exceptions=hyph-tr.hyp.txt
+

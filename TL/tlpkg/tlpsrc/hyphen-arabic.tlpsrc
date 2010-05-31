@@ -1,2 +1,9 @@
 category TLCore
-execute AddHyphen name=arabic lefthyphenmin= righthyphenmin= file=zerohyph.tex
+depend hyphen-base
+execute AddHyphen \
+	name=arabic \
+	lefthyphenmin= \
+	righthyphenmin= \
+	file=zerohyph.tex \
+	file_patterns=
+

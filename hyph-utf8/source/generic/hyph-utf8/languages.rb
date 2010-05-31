@@ -21,7 +21,7 @@ class Language
 
 	def get_exceptions
 		if @exceptions1 == nil
-			filename = "../../../tex/generic/hyph-utf8/patterns/hyph-#{@code}.tex";
+			filename = "../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex";
 			lines = IO.readlines(filename, '.').join("")
 			exceptions = lines.gsub(/%.*/,'');
 			if (exceptions.index('\hyphenation') != nil)
@@ -40,7 +40,7 @@ class Language
 
 	def get_patterns
 		if @patterns == nil
-			filename = "../../../tex/generic/hyph-utf8/patterns/hyph-#{@code}.tex";
+			filename = "../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex";
 			lines = IO.readlines(filename, '.').join("")
 			@patterns = lines.gsub(/%.*/,'').
 				gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
@@ -69,7 +69,7 @@ class Language
 
 	def get_comments_and_licence
 		if @comments_and_licence == nil then
-			filename = "../../../tex/generic/hyph-utf8/patterns/hyph-#{@code}.tex";
+			filename = File.expand_path("../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex");
 			lines = IO.readlines(filename, '.').join("")
 			@comments_and_licence = lines.
 				gsub(/(.*)\\patterns.*/m,'\1')
@@ -495,6 +495,19 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Hungarian Hyphenation Patterns (v20031107)",
 },
+# armenian
+# Sahak Petrosyan <sahak at mit dot edu>
+{
+	"code" => "hy",
+	"name" => "armenian",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => nil,
+	"hyphenmin" => [1,2], # taken from Hyphenator.js; check the value
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => "Armenian Hyphenation Patterns",
+},
 # interlingua	iahyphen.tex
 {
 	"code" => "ia",
@@ -749,8 +762,8 @@ class Languages < Hash
 # US english
 {
 	"code" => "en-us",
-	"name" => "english",
-	"use_new_loader" => false,
+	"name" => "usenglishmax",
+	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "ushyphmax.tex",
 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
@@ -758,6 +771,18 @@ class Languages < Hash
 	"exceptions" => true,
 	"message" => "Hyphenation Patterns for American English",
 },
+# US english
+# {
+# 	"code" => "en-us-x-knuth",
+# 	"name" => "english",
+# 	"use_new_loader" => false,
+# 	"use_old_patterns" => false,
+# 	"filename_old_patterns" => "hyphen.tex",
+# 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
+# 	"encoding" => "ascii",
+# 	"exceptions" => true,
+# 	"message" => "Hyphenation Patterns for American English",
+# },
 # TODO: FIXME!!!
 # serbian		xu-srhyphc.tex
 {
@@ -989,6 +1014,22 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Telugu Hyphenation Patterns",
 },
+# lao
+{
+	"code" => "lo",
+	"name" => "lao",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Lao Hyphenation Patterns",
+},
+# dumylang -> dumyhyph.tex
+# nohyphenation -> zerohyph.tex
+# arabic -> zerohyph.tex
+# farsi zerohyph.tex
+# =persian
 		]
 
 		languages.each do |l|

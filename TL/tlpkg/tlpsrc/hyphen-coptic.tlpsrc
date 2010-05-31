@@ -1,3 +1,11 @@
 category TLCore
-execute AddHyphen name=coptic lefthyphenmin=1 righthyphenmin=1 file=loadhyph-cop.tex
+depend hyphen-base
+execute AddHyphen \
+	name=coptic \
+	lefthyphenmin=1 \
+	righthyphenmin=1 \
+	file=loadhyph-cop.tex \
+	file_patterns=hyph-cop.pat.txt \
+	file_exceptions=hyph-cop.hyp.txt
+
 runpattern f texmf/tex/generic/hyphen/copthyph.tex

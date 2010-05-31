@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=latin lefthyphenmin=2 righthyphenmin=2 file=loadhyph-la.tex
+depend hyphen-base
+execute AddHyphen \
+	name=latin \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-la.tex \
+	file_patterns=hyph-la.pat.txt \
+	file_exceptions=hyph-la.hyp.txt
+

@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=basque lefthyphenmin=2 righthyphenmin=2 file=loadhyph-eu.tex
+depend hyphen-base
+execute AddHyphen \
+	name=basque \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-eu.tex \
+	file_patterns=hyph-eu.pat.txt \
+	file_exceptions=hyph-eu.hyp.txt
+

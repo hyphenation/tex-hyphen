@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=polish lefthyphenmin=2 righthyphenmin=2 file=loadhyph-pl.tex
+depend hyphen-base
+execute AddHyphen \
+	name=polish \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-pl.tex \
+	file_patterns=hyph-pl.pat.txt \
+	file_exceptions=
+

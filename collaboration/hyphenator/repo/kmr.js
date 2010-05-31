@@ -1,0 +1,16 @@
+﻿Hyphenator.languages.kmr = {
+	leftmin : 2,
+	rightmin : 2,
+	shortestPattern : 1,
+	longestPattern : 7,
+	specialChars : 'çêîûş',
+	patterns : {
+		2 : '1va1u11t1ş1s1w1r1q1b1p2o1n1m1l1k1c1j1xî11çi11d1h1g1y1f1zê1e1'
+		3 : '2vs2yw2yv2drea22ytee2eê22ys2yr2yn2yl2yd2ez2dgê2a2yb2ddfl42zbx2w2xt2fs2fş2ft2fx2db2gb2gh2gkg2l2gn2gr2gs2gt2zd2hb2hd2hk2hm2hn2hr2hs2ht2çkii22xn2xl2xçi2s2clî2a2îdx4aî2jîl32zk2wt2cb2wş2jh2jk2jm2jn2jt2bx2kb2kç2kk2kl2km2kn2kr2ks2kt2kv2kw2kx2ky2bs2ws2lb2lc2lç2ldl4e2lf2lg2lh2lk2ll2lm2ln2lp2lq2ls2lt2lv2lw2lx2ly2lz2br2wr2mb2md2mf2wn2mm2wl2mr2ms2mw2my2mz2bln4a2nb2nc2nç2nd2wk2nf2ng2nh2nk2wh2nn2np2ns2nş2nt2nv2nx2ny2wd2bbof2o2ho2so2wb4a2ps2pt2ay2qp2qş2zmr4a2wc2rb2rc2rç2rd2rf3av2rg2rh2rj2rk2rl2rm2rn2rp2rq2rr2rs2rt2rv2rw2rx2ry2rz2zr3sa2sb3se2sg3sî2sk2sp2sr2ss2st2vy2vş3su3sû2sy4an2dt2şb2şd2vr2şg2şh2şk2şm2şnu2ş2vn2şv2şx2zt2vk2tg2vh2tk2tl2tm2tn2vg2tp2vd2vç2vb2tt2tx2ty2zyue2u2iu2k2zz2şp'
+		4 : 'e4dye4frt4rût4ratnî4tge44tav2şt2şê4lel4ast4rd4yo2c2kraî42n2znki4yda42mp2e4trma4îx4trdda44dyûî4plîe4tf4lî4flûil4af4roal4a'
+		5 : 'z3e4zire4hêla4v4mîtênê4rer4fi4sta4v4şa4v2t3s2i4nêr4avay'
+		6 : 'erdes66amît.dbû6na.ka6ra'
+		7 : 'da6vêjiurandi6îsti6ye6lamîtê6ja6va.ar5a6nî'
+		8 : 'er6desta'
+	}
+};

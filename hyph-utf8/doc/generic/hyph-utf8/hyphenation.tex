@@ -1,0 +1,33 @@
+% engine=luatex
+
+\usetypescript[antykwa-poltawskiego]
+\setupbodyfont[antykwa-poltawskiego]
+
+\starttext
+
+\centerline{\tt hyph-utf8}
+
+\blank[big]
+
+\centerline{Mojca Miklavec \& Arthur Reutenauer}
+
+\blank[big]
+
+\centerline{28 May 2010}
+
+\blank[3*big]
+
+\startalignment[center]
+{\bf Abstract}
+
+A non-empty PDF file that describes the {\tt hyph-utf8} package with at least two sentences.
+\stopalignment
+
+\blank[3*big]
+
+The {\tt hyph-utf8} package gathers all the existing hyphenation patterns for
+\TEX, converted to UTF-8.  They can be used directly by UTF-8-aware \TEX{}
+engines such as \LUATEX{} and \XETEX, and there is a mechanism to convert the
+patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
+
+\stoptext

@@ -8,7 +8,7 @@ $package_name="hyph-utf8"
 
 
 # TODO - make this a bit less hard-coded
-$path_tex_generic="../../../tex/generic"
+$path_tex_generic=File.expand_path("../../../tex/generic")
 $path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
 
 # TODO: should be singleton
@@ -72,7 +72,9 @@ languages.each do |language|
 				 language.code == 'bn' or
 				 language.code == 'gu' or
 				 language.code == 'hi' or
+				 language.code == 'hy' or
 				 language.code == 'kn' or
+				 language.code == 'lo' or
 				 language.code == 'ml' or
 				 language.code == 'mr' or
 				 language.code == 'or' or
@@ -81,14 +83,16 @@ languages.each do |language|
 				 language.code == 'te' then
 				file.puts(text_if_native_utf)
 				file.puts("    \\message{UTF-8 #{language.message}}")
-				file.puts('    % Set \lccode for ZWNJ and ZWJ.')
-				file.puts('    \lccode"200C="200C')
-				file.puts('    \lccode"200D="200D')
-				if language.code == 'sa'
-					file.puts('    % Set \lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.')
-				file.puts('    \lccode"0CF1="0CF1')
-				file.puts('    \lccode"0CF2="0CF2')
-			end
+				if language.code != 'lo' then
+					file.puts('    % Set \lccode for ZWNJ and ZWJ.')
+					file.puts('    \lccode"200C="200C')
+					file.puts('    \lccode"200D="200D')
+					if language.code == 'sa' then
+						file.puts('    % Set \lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.')
+						file.puts('    \lccode"0CF1="0CF1')
+						file.puts('    \lccode"0CF2="0CF2')
+					end
+				end
 				file.puts("    \\input hyph-#{language.code}.tex")
 				file.puts('\else')
 				file.puts("    \\message{No #{language.message} - only available with Unicode engines}")

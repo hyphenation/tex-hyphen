@@ -1,2 +1,10 @@
 category TLCore
-execute AddHyphen name=interlingua lefthyphenmin=2 righthyphenmin=2 file=loadhyph-ia.tex
+depend hyphen-base
+execute AddHyphen \
+	name=interlingua \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-ia.tex \
+	file_patterns=hyph-ia.pat.txt \
+	file_exceptions=
+
