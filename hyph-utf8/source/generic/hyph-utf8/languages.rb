@@ -54,7 +54,7 @@ class Language
 			if @code == 'ru' or @code == 'uk' then
 				filename = "../../../tex/generic/hyph-utf8/patterns/tex-special/exhyph-#{@code}.tex"
 				lines = IO.readlines(filename, '.').join("")
-				@patterns.concat (lines.gsub(/%.*/,'').
+				@patterns.concat(lines.gsub(/%.*/,'').
 					gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
 					gsub(/\s+/m,"\n").
 					gsub(/^\s*/m,'').

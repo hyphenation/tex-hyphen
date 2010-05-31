@@ -1,56 +1,17 @@
 #!/usr/bin/env ruby
 
+require 'hyph-utf8'
+
 $encoding_data_dir = "data/encodings"
 $encodings = ["ec", "qx", "t2a", "lmc", "il2", "il3", "l7x"]
 
-$output_data_dir = "../../../tex/generic/hyph-utf8/conversions"
-
-class UnicodeCharacter
-	def initialize(code_uni, code_enc, name)
-		@code_uni = code_uni
-		@code_enc = code_enc
-		# TODO: might be longer or shorter
-		@bytes    = [code_uni].pack('U').unpack('H2H2')
-		@name     = name
-	end
-	
-	attr_reader :code_uni, :code_enc, :bytes, :name
-end
-
-class UnicodeCharacters < Hash
-	def add_new_character(code_uni, code_enc, name)
-		first_byte = [code_uni].pack('U').unpack('H2').first
-		if self[first_byte] == nil then
-			self[first_byte] = Array.new
-		end
-		self[first_byte].push(UnicodeCharacter.new(code_uni, code_enc, name))
-	end
-end
+$path_root=File.expand_path("../../..")
+$output_data_dir = "#{$path_root}/tex/generic/hyph-utf8/conversions"
 
 # 0x19; U+0131;  1; dotlessi
 $encodings.each do |encoding|
-	#$utf_combinations = Hash.new
-	$unicode_characters = UnicodeCharacters.new
+	e = Encoding.new(encoding)
 
-	# those that need lccode to be set
-	$lowercase_characters = Array.new
-
-	File.open($encoding_data_dir + "/" + encoding + ".dat").grep(/^0x(\w+)\tU\+(\w+)\t(\d*)\t([_a-zA-Z\.]*)$/) do |line|
-		# puts line
-		code_enc = $1.hex
-		code_uni = $2.hex
-		if $3.length > 0
-			type = $3.to_i
-		else
-			type = 0
-		end
-		name = $4
-		if type == 1 then
-			$unicode_characters.add_new_character(code_uni, code_enc, name)
-			$lowercase_characters.push(UnicodeCharacter.new(code_uni, code_enc, name))
-		end
-	end
-	
 	$file_out = File.open("#{$output_data_dir}#{File::Separator}conv-utf8-#{encoding}.tex", "w")
 	$file_out.puts "% conv-utf8-#{encoding}.tex"
 	$file_out.puts "%"
@@ -65,7 +26,7 @@ $encodings.each do |encoding|
 	$file_out.puts "% (But consider adapting the scripts if you need modifications.)"
 	$file_out.puts "%"
 
-	$unicode_characters.sort.each do |first_byte|
+	e.unicode_characters_first_byte.sort.each do |first_byte|
 		# sorting all the second characters alphabetically
 		first_byte[1].sort!{|x,y| x.code_uni <=> y.code_uni }
 		# make all the possible first characters active
@@ -73,7 +34,7 @@ $encodings.each do |encoding|
 		$file_out.puts "\\catcode\"#{first_byte[0].upcase}=\\active"
 	end
 	$file_out.puts "%"
-	$unicode_characters.sort.each do |first_byte|
+	e.unicode_characters_first_byte.sort.each do |first_byte|
 		$file_out.puts "\\def^^#{first_byte[0]}#1{%"
 		string_fi = ""
 		for i in 1..(first_byte[1].size)
@@ -92,7 +53,7 @@ $encodings.each do |encoding|
 	$file_out.puts "%"
 	$file_out.puts "% ensure all the chars above have valid \lccode values"
 	$file_out.puts "%"
-	$lowercase_characters.sort!{|x,y| x.code_enc <=> y.code_enc }.each do |character|
+	e.lowercase_characters.sort!{|x,y| x.code_enc <=> y.code_enc }.each do |character|
 		code = [ character.code_enc ].pack("c").unpack("H2").first.upcase
 		# \lccode"FF="FF
 		ux_code = sprintf("U+%04X", character.code_uni)
