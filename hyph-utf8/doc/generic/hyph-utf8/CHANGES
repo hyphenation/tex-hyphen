@@ -1,3 +1,6 @@
+2010-06-01 (#440)
+- remove 2'2 pattern from Latin (on Claudio Beccari's request)
+
 2010-05-31 (#421, #422)
 - remove special OT1 support for Latin (with Claudio Beccari's approval)
 - add the forgotten Russian and Ukrainian patterns with dashes to plain patterns

@@ -30,7 +30,7 @@ language_codes = Hash.new
 languages.each do |language|
 	language_codes[language.code] = language.code
 end
-language_codes['mn-cyrl-x-lmc'] = nil
+# language_codes['mn-cyrl-x-lmc'] = nil
 # language_codes['sh-latn']       = 'sr-latn'
 language_codes['sh-cyrl']       = nil
 

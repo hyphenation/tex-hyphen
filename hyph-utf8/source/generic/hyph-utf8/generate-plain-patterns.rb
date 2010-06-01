@@ -41,8 +41,8 @@ language_codes['sh-latn']       = 'sr-latn'
 language_codes['sh-cyrl']       = nil
 # language_codes['sr-cyrl']       = 'sr-Cyrl'
 
-$file_language_dat_lua = File.open("#{$path_language_dat_lua}/language.dat.lua", "w")
-$file_language_dat_lua.puts "return {\n"
+# $file_language_dat_lua = File.open("#{$path_language_dat_lua}/language.dat.lua", "w")
+# $file_language_dat_lua.puts "return {\n"
 
 languages.sort{|x,y| x.code <=> y.code }.each do |language|
 	if language.use_new_loader or language.code == 'en-us' then
@@ -100,27 +100,27 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 		$file_let.close
 		$file_inf.close
 
-		$file_language_dat_lua.puts "\t[\"#{language.name}\"]={"
-		$file_language_dat_lua.puts "\t\tloader=\"loadhyph-#{language.code}.tex\","
-		$file_language_dat_lua.puts "\t\tcode=\"#{code}\","
-		if language.hyphenmin == nil or language.hyphenmin.length == 0 then
-			lmin = ''
-			rmin = ''
-		else
-			lmin = language.hyphenmin[0]
-			rmin = language.hyphenmin[1]
-		end
-		$file_language_dat_lua.puts "\t\tlefthyphenmin=#{lmin},"
-		$file_language_dat_lua.puts "\t\trighthyphenmin=#{rmin},"
-		if language.synonyms.length > 0
-			$file_language_dat_lua.puts "\t\tsynonyms={\"#{language.synonyms.join('","')}\"},"
-		else
-			$file_language_dat_lua.puts "\t\tsynonyms={},"
-		end
-		$file_language_dat_lua.puts "\t},\n"
+		# $file_language_dat_lua.puts "\t[\"#{language.name}\"]={"
+		# $file_language_dat_lua.puts "\t\tloader=\"loadhyph-#{language.code}.tex\","
+		# $file_language_dat_lua.puts "\t\tcode=\"#{code}\","
+		# if language.hyphenmin == nil or language.hyphenmin.length == 0 then
+		# 	lmin = ''
+		# 	rmin = ''
+		# else
+		# 	lmin = language.hyphenmin[0]
+		# 	rmin = language.hyphenmin[1]
+		# end
+		# $file_language_dat_lua.puts "\t\tlefthyphenmin=#{lmin},"
+		# $file_language_dat_lua.puts "\t\trighthyphenmin=#{rmin},"
+		# if language.synonyms.length > 0
+		# 	$file_language_dat_lua.puts "\t\tsynonyms={\"#{language.synonyms.join('","')}\"},"
+		# else
+		# 	$file_language_dat_lua.puts "\t\tsynonyms={},"
+		# end
+		# $file_language_dat_lua.puts "\t},\n"
 	end
 end
 
-$file_language_dat_lua.puts "}\n"
+# $file_language_dat_lua.puts "}\n"
 
-$file_language_dat_lua.close
+# $file_language_dat_lua.close

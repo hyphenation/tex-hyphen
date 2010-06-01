@@ -56,7 +56,7 @@ languages.each do |language|
 			# but probably this needs to reside outside of \begingroup/endgroup
 			
 			file.puts('\begingroup')
-			if language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'la' or language.code == 'zh-latn' then
+			if language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'zh-latn' then
 				file.puts("\\lccode`\\'=`\\'")
 			end
 			if language.code == 'pt' or language.code == 'tk' then
