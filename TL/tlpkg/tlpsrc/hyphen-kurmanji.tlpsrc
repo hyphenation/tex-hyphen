@@ -1,5 +1,6 @@
 category TLCore
 depend hyphen-base
+depend hyph-utf8
 execute AddHyphen \
 	name=kurmanji \
 	lefthyphenmin=2 \

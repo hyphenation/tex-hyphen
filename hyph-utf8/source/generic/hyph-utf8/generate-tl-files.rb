@@ -85,7 +85,8 @@ language_groups.sort.each do |language_name,language_list|
 	#$file_tlpsrc.puts "name hyphen-#{language_name}"
 	$file_tlpsrc.puts "category TLCore"
 	$file_tlpsrc.puts "depend hyphen-base"
-	
+	$file_tlpsrc.puts "depend hyph-utf8"
+
 	# external dependencies for Russian and Ukrainian (until we implement the new functionality at least)
 	if language_name == "russian" then
 		$file_tlpsrc.puts "depend ruhyphen"
