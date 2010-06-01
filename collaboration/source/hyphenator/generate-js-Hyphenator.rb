@@ -6,23 +6,16 @@
 # Collaboration with:
 #     Mathias Nater, <mathias at mnn.ch>
 
-load '../languages.rb'
+$path_root=File.expand_path(Dir.getwd + "/../../../hyph-utf8")
+$path_sources="#{$path_root}/source/generic/hyph-utf8"
+$path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns/txt"
+$path_repository=File.expand_path(Dir.getwd + "/../../collaboration/hyphenator")
+
+load "#{$path_sources}/languages.rb"
 # TODO: should be singleton
 languages = Languages.new
 
-languages["de-CH-1901"] = languages["de-ch-1901"]
-languages["en-GB"] = languages["en-gb"]
-languages["en-US"] = languages["en-us"]
-languages["en-US-x-knuth"] = languages["en-us"]
-languages["mn"] = languages["mn-cyrl"]
-languages["sr-Cyrl"] = languages["sr-cyrl"]
-languages["sr-Latn"] = languages["sh-latn"]
-languages["zh-Latn"] = languages["zh-latn"]
-
-
-$path_root=File.expand_path(Dir.getwd + "/../../../..")
-$path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns/txt"
-$path_js=File.expand_path("#{$path_root}/../collaboration/hyphenator/repo")
+languages["sr-latn"] = languages["sh-latn"]
 
 # change to current folder and read all the files in it
 Dir.chdir("#{$path_plain}")
