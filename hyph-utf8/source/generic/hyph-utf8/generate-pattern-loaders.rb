@@ -79,7 +79,7 @@ text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
 ###########
 
 lccodes_common = []
-if language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'la' or language.code == 'zh-latn' then
+if language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'zh-latn' then
 	lccodes_common.push("\\lccode`\\'=`\\'")
 end
 if language.code == 'pt' or language.code == 'tk' or language.code == 'ru' or language.code == 'uk' then
