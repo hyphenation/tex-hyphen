@@ -1,0 +1,31 @@
+From Mojca/Arthur:
+
+When a new language is added:
+- modify languages.rb to add a new entry
+- run all the other steps for "when patterns change":
+  - ./generate-pattern-loaders.rb
+  - ./generate-plain-patterns.rb
+  - ./generate-tl-files.rb
+  - (./generate-ptex-patterns.rb - not used yet)
+  - (./generate-webpage.rb - not used at the moment)
+  - run other scripts in "collaboration" folder
+- and then:
+  - add new tlpsrc to TeX Live (tlpsrc file + add that package to collection-langsomething)
+
+When a new encoding is added (or an encoding is modified):
+- run ./generate-converters.rb -> generates conv-utf8-foo.tex
+
+When some language is added or there is some major rewrite or problem with pattern loaders:
+- run ./generate-pattern-loaders.rb
+
+When patterns change (minor changes):
+- ./generate-plain-patterns.rb
+- (./generate-ptex-patterns.rb - not used yet)
+- run other scripts in "collaboration" folder
+
+When needed (user-visible change):
+- add an entry to CHANGES
+
+At any time:
+- try to add some more documentation
+
