@@ -1,5 +1,6 @@
-2010-05-31 (#421)
+2010-05-31 (#421, #422)
 - remove special OT1 support for Latin (with Claudio Beccari's approval)
+- add the forgotten Russian and Ukrainian patterns with dashes to plain patterns
 
 2010-05-31 (#412-#414)
 - luatex-hyphen: rm special='null' (now useless), bump version number, fill
