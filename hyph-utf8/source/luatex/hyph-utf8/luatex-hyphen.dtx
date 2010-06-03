@@ -183,30 +183,25 @@ This work is under the CC0 license.
 % names as found in \texttt{language.dat}, and the values are Lua tables
 % consisting of:
 % \begin{enumerate}
-%   \item A fixed part with two fields:
+%   \item A fixed part with one mandatory field:
 %     \begin{quote}
-%       \verb+loader = <string> name of the TeX loader+\\
 %       \verb+synonyms = { <string> alternative name, ...}+
 %     \end{quote}
-%     Those field's values must be the same as in \texttt{language.dat}.  The
-%     \verb+loader+ field is currently unused.
+%     This field's value must be the same as in \texttt{language.dat}.
 %   \item A variable part consisting of either:
 %     \begin{itemize}
 %       \item For most languages:
 %         \begin{quote}
 %           \verb+patterns = <string> filename for patterns+\\
 %           \verb+hyphenation = <string> filename for exceptions+\\
-%           \verb+lefthyphenmin = <number> value for \letfhyphenmin+\\
-%           \verb+righthyphenmin = <number> value for \letfhyphenmin+
 %         \end{quote}
 %         The files given by \verb+patterns+ (resp. \verb+hypenation+) must be
 %         plain text files encoded in utf8, with only patterns (resp.
 %         exceptions) and not even comments: their content will be used
 %         directly without being parsed by \TeX.  If one of these keys is
 %         missing or is the empty string, it is ignored and no patterns (resp.
-%         exceptions) are loaded for this language.  The values of
-%         \texttt{*hyphenmin} values are currently unused.
-%       \item Special case are supported by a field \verb+special+. Currently,
+%         exceptions) are loaded for this language.
+%       \item Special cases are supported by a field \verb+special+. Currently,
 %         the following kind of values are recognized:
 %         \begin{description}
 %           \item[\texttt{'disabled:<reason>'}] allows to disable specific
@@ -219,6 +214,15 @@ This work is under the CC0 license.
 %         Special languages may have \texttt{*hyphenmin} information when it
 %         makes sense (mostly \verb+\language0+).
 %     \end{itemize}
+%   \item Optional fields may be added. For example:
+%     \begin{quote}
+%       \verb+loader = <string> name of the TeX loader+\\
+%       \verb+lefthyphenmin = <number> value for \letfhyphenmin+\\
+%       \verb+righthyphenmin = <number> value for \letfhyphenmin+
+%     \end{quote}
+%     Those fields are present in \texttt{language.dat.lua} as generated bu
+%     \texttt{tlmgr}, for example, but they \emph{are not} used by the present
+%     code in any way.
 % \end{enumerate}
 % Languages that are mentioned in \texttt{language.dat} but not in
 % \texttt{language.dat.lua} will be loaded in the format. So, if the
