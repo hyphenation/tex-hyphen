@@ -1,7 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
+<!-- Norwegian Nynorsk Hyphenation Patterns -->
+
+<!-- (more info about the licence to be added later) -->
+
+<!-- Adapted to the new pattern-loading scheme. -->
+<!-- Original file name was nnhyph.tex -->
+
+<!-- TeX hyphenation patterns for Norwegian Nynorsk -->
+
+<!-- Version 2007-02-10 -->
+
+<!-- Copyright (C) 2007 Karl Ove Hufthammer. -->
+<!-- Copying and distribution of this file, with or without modification, -->
+<!-- are permitted in any medium without royalty, provided the copyright -->
+<!-- notice and this notice are preserved. -->
+
+<!-- This file contains hyphenation patterns for Norwegian Nynorsk. -->
+<!-- It uses the Norwegian hyphenation patterns from nohyphbx.tex, -->
+<!-- created by Rune Kleveland and Ole Michael Selberg. Please see -->
+<!-- that file for copyright information on those patterns. -->
+
+<!-- The patterns in nohyphbx are based on both Norwegian Bokmal -->
+<!-- and Norwegian Nynorsk, and works about equally well for both -->
+<!-- languages. This file, nnhyph.tex, contains only a few hyphenation -->
+<!-- exceptions, for words that needs to be hyphenated differently for -->
+<!-- the two languages. -->
+
+<!-- Please send bugs or suggestions to karl@huftis.org. -->
+
+
+<!-- \input hyph-no.tex -->
+
+<!-- \hyphenation{ -->
+<!-- att-en-de -->
+<!-- bet-re -->
+<!-- } -->
+
+
 <hyphen-min before="2" after="2"/>
+
+<classes>
+aA
+bB
+cC
+dD
+eE
+fF
+gG
+hH
+iI
+jJ
+kK
+lL
+mM
+nN
+oO
+pP
+qQ
+rR
+sS
+tT
+uU
+vV
+wW
+xX
+yY
+zZ
+åÅ
+æÆ
+èÈ
+éÉ
+êÊ
+òÒ
+óÓ
+ôÔ
+øØ
+</classes>
 
 <exceptions>
 att-en-de
@@ -27158,4 +27234,5 @@ z2z3el
 å1ø8
 åøy4
 </patterns>
+
 </hyphenation-info>

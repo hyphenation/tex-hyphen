@@ -1,7 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
+<!-- Turkish Hyphenation Patterns -->
+
+<!-- (more info about the licence to be added later) -->
+
+<!-- hyph-tr.tex -->
+
+<!-- File auto-generated from generate_patterns_tr.rb that is part of hyph-utf8 -->
+
+<!-- Licence: -->
+<!-- - Free enough for Debian & TeX Live or any other distributor -->
+<!-- - If you are reading this and have some suggestion about what to put here, please advise -->
+<!-- - I (Mojca) would prefer to say 'public domain', but don't know what it means for the original authors -->
+
+<!-- Credits: -->
+<!-- - algorithm developed by P. A. MacKay for the Ottoman Texts Project in 1987 -->
+<!-- - rules adapted for modern Turkish by H. Turgut Uyar <uyar at itu.edu.tr> -->
+<!-- - initiative to improve Turkish patterns by S. Ekin Kocabas <kocabas at stanford.edu> -->
+<!-- - script written by Mojca Miklavec <mojca.miklavec.lists at gmail.com> in June 2008 -->
+
+<!-- Modifications: -->
+<!-- - adapted for the use on modern UTF-8 TeX engines -->
+<!-- - UTF-8 patterns are used -->
+<!-- - only letters for Modern Turkish + âîû (the first one often needed, the other two don't hurt) -->
+<!-- - if needed, support for Ottoman Turkish might be provided separately under 'ota' (not 'tr') -->
+
+<!-- Notes: -->
+<!-- - you need to use loadhyph-tr.tex, please do not try to put \catcode-s & \lccode-s here -->
+ 
+
 <hyphen-min before="2" after="2"/>
+
+<classes>
+aA
+bB
+cC
+dD
+eE
+fF
+gG
+hH
+iI
+jJ
+kK
+lL
+mM
+nN
+oO
+pP
+rR
+sS
+tT
+uU
+vV
+yY
+zZ
+âÂ
+çÇ
+îÎ
+öÖ
+ûÛ
+üÜ
+ğĞ
+ıI
+şŞ
+</classes>
 
 <exceptions>
 </exceptions>
@@ -605,4 +669,5 @@ u3û2
 tu4r4k
 m1t4rak
 </patterns>
+
 </hyphenation-info>

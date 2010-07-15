@@ -1,7 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
+<!-- Hyphenation patterns for Ancient Greek -->
+
+<!-- (more info about the licence to be added later) -->
+
+<!-- **************************************************************** -->
+
+<!-- File name: grahyph5-unicode.tex -->
+
+<!-- This file was first created by mechanical translation from  -->
+<!-- GRAhyph5.tex via "elhyph-utf8 -a -c" (version 0.1 by Peter  -->
+<!-- Heslin ‐‐ p.j.heslin@durham.ac.uk). Some additions were  -->
+<!-- also made by hand. -->
+
+<!-- Created:       June 6, 2008 -->
+
+<!-- Hyphenation patterns for Ancient Greek. -->
+
+<!-- Created by Dimitrios Filippou with some ideas borrowed from  -->
+<!-- Yannis Haralambous, Kostis Dryllerakis and Claudio Beccari. -->
+ 
+<!-- These hyphenation patterns are explained in "ancient.pdf". -->
+<!-- Hyphenation examples are given in the file "anc-test.pdf". -->
+<!-- Some doubtful patterns are marked by three question marks "???".  -->
+ 
+<!-- Documentation in English can be found in: D. Filippou,  -->
+<!-- "Hyphenation patterns for Ancient and Modern Greek," in  -->
+<!-- "TeX, XML, and Digital Typography" (A. Syropoulos et al., -->
+<!-- eds.), Lecture Notes in Computer Science 3130, Springer-Verlag -->
+<!-- Berlin-Heidelberg, 2004. ISBN 3-540-22801-2. -->
+ 
+<!-- Thanks to Thomas Schmitz (thomas.schmitz@uni-bonn.de)  -->
+<!-- for pointing out a few mistakes. (Marked by TS) -->
+
+<!-- **************************************************************** -->
+
+<!-- \message{UTF-8 hyphenation patterns for Ancient Greek} -->
+
+
 <hyphen-min before="1" after="1"/>
+
+<classes>
+ʼʼ
+ΐΐ
+άΆ
+έΈ
+ήΉ
+ίΊ
+ΰΰ
+αΑ
+βΒ
+γΓ
+δΔ
+εΕ
+ζΖ
+ηΗ
+θΘ
+ιΙ
+κΚ
+λΛ
+μΜ
+νΝ
+ξΞ
+οΟ
+πΠ
+ρΡ
+ςΣ
+σΣ
+τΤ
+υΥ
+φΦ
+χΧ
+ψΨ
+ωΩ
+ϊΪ
+ϋΫ
+όΌ
+ύΎ
+ώΏ
+ϲΣ
+ἀἈ
+ἁἉ
+ἂἊ
+ἃἋ
+ἄἌ
+ἅἍ
+ἆἎ
+ἇἏ
+ἐἘ
+ἑἙ
+ἒἚ
+ἓἛ
+ἔἜ
+ἕἝ
+ἠἨ
+ἡἩ
+ἢἪ
+ἣἫ
+ἤἬ
+ἥἭ
+ἦἮ
+ἧἯ
+ἰἸ
+ἱἹ
+ἲἺ
+ἳἻ
+ἴἼ
+ἵἽ
+ἶἾ
+ἷἿ
+ὀὈ
+ὁὉ
+ὂὊ
+ὃὋ
+ὄὌ
+ὅὍ
+ὐὐ
+ὑὙ
+ὒὒ
+ὓὛ
+ὔὔ
+ὕὝ
+ὖὖ
+ὗὟ
+ὠὨ
+ὡὩ
+ὢὪ
+ὣὫ
+ὤὬ
+ὥὭ
+ὦὮ
+ὧὯ
+ὰᾺ
+άΆ
+ὲῈ
+έΈ
+ὴῊ
+ήΉ
+ὶῚ
+ίΊ
+ὸῸ
+όΌ
+ὺῪ
+ύΎ
+ὼῺ
+ώΏ
+ᾀᾈ
+ᾁᾉ
+ᾂᾊ
+ᾃᾋ
+ᾄᾌ
+ᾅᾍ
+ᾆᾎ
+ᾇᾏ
+ᾐᾘ
+ᾑᾙ
+ᾒᾚ
+ᾓᾛ
+ᾔᾜ
+ᾕᾝ
+ᾖᾞ
+ᾗᾟ
+ᾠᾨ
+ᾡᾩ
+ᾢᾪ
+ᾣᾫ
+ᾤᾬ
+ᾥᾭ
+ᾦᾮ
+ᾧᾯ
+ᾲᾲ
+ᾳᾼ
+ᾴᾴ
+ᾶᾶ
+ᾷᾷ
+᾽᾽
+᾿᾿
+ῂῂ
+ῃῌ
+ῄῄ
+ῆῆ
+ῇῇ
+ῒῒ
+ΐΐ
+ῖῖ
+ῗῗ
+ῢῢ
+ΰΰ
+ῤῤ
+ῥῬ
+ῦῦ
+ῧῧ
+ῲῲ
+ῳῼ
+ῴῴ
+ῶῶ
+ῷῷ
+’’
+</classes>
 
 <exceptions>
 </exceptions>
@@ -4304,4 +4501,5 @@
 ι2σ1μυριάκισ.
 ι2σ1μυριάκισ.
 </patterns>
+
 </hyphenation-info>

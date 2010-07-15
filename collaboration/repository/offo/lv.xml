@@ -1,7 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
+<!-- Latvian Hyphenation Patterns -->
+
+<!-- (more info about the licence to be added later) -->
+
+<!-- This file is part if hyph-utf8 package and resulted from semi-manual -->
+<!-- conversions of hyphenation patterns into UTF-8 in November 2008 by Mojca & -->
+<!-- Arthur. -->
+
+<!-- This file is available under the term of the GNU GPL, version 2. -->
+
+<!-- Source:   Latvian Lingucomponents for OpenOffice -->
+<!-- Homepage: http://sourceforge.net/projects/openoffice-lv -->
+<!-- File:     hyph_lv_lv.dic (version 0.3, 2005-09-14) -->
+<!-- Author:   Copyright (C) 2004-2005 Janis Vilims, jvilims@apollo.lv -->
+<!-- License:  Lesser General Public Licence (LGPL) 2.1  -->
+
+
+
 <hyphen-min before="2" after="2"/>
+
+<classes>
+aA
+bB
+cC
+dD
+eE
+fF
+gG
+hH
+iI
+jJ
+kK
+lL
+mM
+nN
+oO
+pP
+rR
+sS
+tT
+uU
+vV
+zZ
+āĀ
+čČ
+ēĒ
+ģĢ
+īĪ
+ķĶ
+ļĻ
+ņŅ
+šŠ
+ūŪ
+žŽ
+</classes>
 
 <exceptions>
 </exceptions>
@@ -11591,4 +11645,5 @@ aug2s2t3
 bal2t3ma
 .vie2n1
 </patterns>
+
 </hyphenation-info>
