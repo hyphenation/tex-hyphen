@@ -1,0 +1,262 @@
+\directlua{
+  function load_patterns(tag, dir)
+    if not tag or type(tag) \string~= "string" then return end
+
+    local new_lang = lang.new()
+    local pattdir
+    if dir
+    then pattdir = dir
+    else pattdir = "/Users/arthur/TeX/hyphen/svn/trunk/hyph-utf8/tex/generic/hyph-utf8/patterns/txt"
+    end
+    local pattfile = io.open(pattdir .. "/hyph-" .. tag .. ".pat.txt", "r")
+    local pattlist = pattfile:read("*all")
+    lang.patterns(new_lang, pattlist)
+    local hyphfile = io.open(pattdir .. "/hyph-" .. tag .. ".hyp.txt", "r")
+    local hyphlist = hyphfile:read("*all")
+    lang.hyphenation(new_lang, hyphlist)
+    tex.print("\string\\language") tex.print(lang.id(new_lang))
+
+    local usv = unicode.utf8.byte
+
+    function make_letter(inputcode)
+      tex.print("\string\\catcode")
+      tex.print(usv(inputcode))
+      tex.print("=11\string\\relax")
+    end
+
+    function set_lccode(inputcode, lccode)
+      tex.print("\string\\lccode")
+      tex.print(usv(inputcode))
+      tex.print("=")
+      tex.print(usv(lccode))
+      tex.print("\string\\relax")
+    end
+
+    local charfile = pattdir .. "/hyph-" .. tag .. ".chr.txt"
+    for line in io.lines(charfile) do
+      local chars, n = { }, 0
+      for char in unicode.utf8.gmatch(line, ".") do
+	table.insert(chars, char)
+      end
+      make_letter(chars[1]) ; make_letter(chars[2])
+      set_lccode(chars[1], chars[1]) ; set_lccode(chars[2], chars[1])
+    end
+  end
+}
+
+\directlua{
+  function dump_node(n)
+    texio.write_nl("term and log", "NODE type " .. node.type(n.id))
+    if node.type(n.id) == "whatsit" then
+      texio.write_nl("term and log", " subtype " .. node.whatsits()[n.subtype])
+      if node.whatsits()[n.subtype] == "local_par" then
+        texio.write_nl("term and log", " box_left_width " .. n.box_left_width .. ", box_right_width " .. n.box_right_width)
+      end
+    elseif node.type(n.id) == "glyph" then
+      texio.write("term and log", " FONT " .. n.font .. " CHAR " .. n.char)
+      texio.write_nl("term and log", "(" .. unicode.utf8.char(n.char) .. ")")
+    end
+  end
+
+  local ni = node.id
+  local hlist_id, glyph_id, disc_id, kern_id = ni("hlist"), ni("glyph"), ni("disc"), ni("kern")
+  local tw, twnl, chr = texio.write, texio.write_nl, unicode.utf8.char
+
+  function dump_node_list(head)
+    local n = head
+    twnl("")
+    while n do
+      tw("NODE type " .. node.type(n.id))
+      if n.id == glyph_id then
+        tw(" CHAR ") ; tw(string.format("U+\string\%04X", n.char))
+	tw(" (") ; tw(chr(n.char)) ; tw(")")
+      end
+      tw("\string\n")
+      n = n.next
+    end
+  end
+
+  hyphen_collector = coroutine.create(function(wd)
+    local list_of_words = { }
+    local w = wd
+    while true do
+      if not w then w = { } end
+      local h = w.hyphenatedword
+      if h == "<reset>" then list_of_words = { } ; h = "" end
+      if h and tostring(h):len() > 1 then table.insert(list_of_words, w) end
+      w = coroutine.yield(list_of_words)
+    end
+  end)
+
+  function insert_explicit_hyphen(head)
+    local n = head
+    local hard_hyphen = node.new(glyph_id)
+    hard_hyphen.char = 45 ; hard_hyphen.font = font.current()
+
+    local prev_is_hyphen = false
+    while n do
+      while n and n.id \string~= glyph_id do
+	n = n.next
+      end
+
+      local t = { }
+      local origword = ""
+      local hyphenatedword = ""
+      while n and (n.id == glyph_id or n.id == disc_id or n.id == kern_id) do
+	if n.id == glyph_id then
+	  if n.char == 45 then
+	    prev_is_hyphen = true
+	  end
+	  % tw(chr(n.char))
+	  origword = origword .. chr(n.char)
+	  hyphenatedword = hyphenatedword .. chr(n.char)
+	elseif n.id == disc_id then
+	  if prev_is_hyphen then
+	    prev_is_hyphen = false
+	  else
+	    % tw("-")
+	    hyphenatedword = hyphenatedword.. "-"
+	    local h = node.copy(hard_hyphen)
+	    node.insert_before(head, n, h)
+	  end
+	  node.remove(head, n)
+	end
+	n = n.next
+      end
+      local t = { origword = origword, hyphenatedword = hyphenatedword }
+      local s, r = coroutine.resume(hyphen_collector, t)
+    end
+
+    return head
+  end
+}
+
+\directlua{
+  dofile("/Users/arthur/TeX/LuaTeX/share/lua/use\string_open\string_or\string_truetype\string_font.lua")
+}
+
+\directlua{
+  --[[ catch_discretionary() ]]
+  % callback.register("pre_linebreak_filter", insert_explicit_hyphen)
+
+  function par()
+    --[[
+    tex.print(unicode.utf8.char(tex.endlinechar))
+    tex.print(unicode.utf8.char(tex.endlinechar))
+    --]]
+    tex.print("\string\\par")
+  end
+
+  % par()
+  % Grr... Assertion failed: (0), function ship_out, file ../../../source/texk/web2c/luatexdir/pdf/pdfshipout.w, line 281.
+  % tex.shipout(255)
+}
+
+\def\loadpatterns#1{\directlua{load_patterns("#1")}}
+
+\directlua{
+  function resethyphens()
+    local t = { hyphenatedword = "<reset>" }
+    coroutine.resume(hyphen_collector, t)
+  end
+}
+
+\def\startcollecthyphens{%
+  \directlua{
+    resethyphens()
+    callback.register("pre_linebreak_filter", insert_explicit_hyphen)}
+  }
+
+\def\stopcollecthyphens{%
+  \par
+  \directlua{callback.register("pre_linebreak_filter", nil)}
+}
+
+\directlua{%
+  function startcollecthyphens() tex.print"\string\\startcollecthyphens" end
+  function stopcollecthyphens() tex.print"\string\\stopcollecthyphens" end
+
+  function collecthyphens()
+    local retvalue, res = coroutine.resume(hyphen_collector)
+    return res
+    % return { [1] = { hyphenatedword = "m-a-tu-la", origword = "ma-tula" } }
+  end
+}
+
+\def\resethyphens{\directlua{resethyphens()}}
+
+\def\collecthyphens#1{%
+  \startcollecthyphens
+  #1
+  \stopcollecthyphens
+  \directlua{
+    local t = collecthyphens()
+    % texio.write_nl("term and log", "(1) collecthyphens() returned a " .. type(t))
+    texio.write_nl("term and log", "")
+    for n = 1, table.maxn(t) do
+      texio.write("term and log", tostring(t[n].hyphenatedword), " (", tostring(t[n].origword), ")")
+      texio.write_nl("term and log", "")
+      % texio.write("term and log", t[n], " ")
+    end
+    % texio.write_nl("")
+  }
+}
+
+\def\dumpnodelist#1{%
+  \directlua{callback.register("pre_linebreak_filter", function(head)
+    dump_node_list(head)
+  end)}
+  #1\par
+  \directlua{callback.register("pre_linebreak_filter", nil)}
+}
+
+\loadpatterns{sl}
+
+\font\gentium=/Users/arthur/Library/Fonts/GenR102.TTF\gentium
+
+\def\callLuafromTeXfromLua#1{tex.print"\string\\directlua{#1}"}
+
+\directlua{
+  function table.nentries(t)
+    local n = 0
+    for _ in pairs(t) do n = n + 1 end
+    return n
+  end
+}
+
+\long\def\comparehyphenation#1{%
+  \def\nonspace{[\string^ \string\t\string\r\string\n]}
+  \directlua{
+    ws = { }
+    hs = { }
+    for w in unicode.utf8.gmatch("#1", "\nonspace*") do
+      if w and w:len() > 0 then
+        table.insert(ws, w)
+
+	nhw = w:gsub("-", "")
+	resethyphens()
+	startcollecthyphens()
+	tex.print(nhw)
+	stopcollecthyphens()
+	\callLuafromTeXfromLua{
+	  local t = collecthyphens()
+	  local h = t[1].hyphenatedword
+	  table.insert(hs, h)
+	}
+      end
+    end
+  }%
+%
+  \directlua{
+    local n = table.maxn(ws)
+    for k = 1, n do
+      texio.write_nl("term and log", tostring(ws[k]) .. " (" .. tostring(hs[k]) .. ")")
+    end
+
+    ws = nil
+    hs = nil
+  }
+  \let\nonspace\undefined
+}
+
+\endinput
