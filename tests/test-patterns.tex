@@ -6,7 +6,7 @@
     local pattdir
     if dir
     then pattdir = dir
-    else pattdir = "/Users/arthur/TeX/hyphen/svn/trunk/hyph-utf8/tex/generic/hyph-utf8/patterns/txt"
+    else pattdir = "../hyph-utf8/tex/generic/hyph-utf8/patterns/txt"
     end
     local pattfile = io.open(pattdir .. "/hyph-" .. tag .. ".pat.txt", "r")
     local pattlist = pattfile:read("*all")
