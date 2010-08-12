@@ -1,22 +1,103 @@
+% engine=luatex
+
 \input test-patterns
 
-\loadpatterns{sl}
+\mainlanguage[sl]
 
 \righthyphenmin=2% Note quite sure what I'm doing (default is 3)
 
-\font\cyr=/Users/arthur/Library/Fonts/CharisSILR.TTF\cyr
+\definefont[charis][CharisSILR]
 
-\comparehyphenation{sestra tekstilen teksta bolan srbski srbščina stanje
-konjski istovrsten polje soljo žanrski samoupraven pooblastilo stadion polobla
-prerdeč član-stvo ustvar-jeno gospodar-ski indu-strijski ne-sreča ne-zgod
-jas-no kas-neje revir-jev pre-iskovali ures-ničeval po-vsem za-slišali liker-ja
-pre-strašil nem-ški repub-likanski mo-stov pred-lagala jav-nosti kak-šen
-ka-znjenec pre-vzeti go-spod vzklik-niti la-stnik raz-red po-vzpeti
-proiz-vodnje so-udeležen pre-usmeriti kveč-jemu pro-store po-slanstvo
-živ-ljenje kakrš-nikoli Gradniš-nik zem-lja plod-nih smr-dljiv naprav-ljene
-na-mreč krš-kemu vero-znanstvo ipav-ski pov-sod steb-lica želez-nica pod-uke
-posest-nica krč-mar praz-nih peš-nemu razum-ljiv zapu-stivši res-nica
-sov-raštvu razum-nim strež-nik vot-ljina Alek-sandra pu-sta mož-gani pogum-no
-pro-storček zarip-li preko-smate neum-nosti}
+\starttext
 
-\bye
+\charis
+
+\comparehyphenation{%
+Alek-sandra
+bolan
+član-stvo
+go-spod
+gospodar-ski
+Gradniš-nik
+indu-strijski
+ipav-ski
+istovrsten
+jas-no
+jav-nosti
+kakrš-nikoli
+kak-šen
+kas-neje
+ka-znjenec
+konjski
+krč-mar
+krš-kemu
+kveč-jemu
+la-stnik
+liker-ja
+mo-stov
+mož-gani
+na-mreč
+naprav-ljene
+nem-ški
+ne-sreča
+neum-nosti
+ne-zgod
+peš-nemu
+plod-nih
+pod-uke
+pogum-no
+polje
+polobla
+pooblastilo
+posest-nica
+po-slanstvo
+po-vsem
+pov-sod
+po-vzpeti
+praz-nih
+pred-lagala
+pre-iskovali
+preko-smate
+prerdeč
+pre-strašil
+pre-usmeriti
+pre-vzeti
+proiz-vodnje
+pro-store
+pro-storček
+pu-sta
+raz-red
+razum-ljiv
+razum-nim
+repub-likanski
+res-nica
+revir-jev
+samoupraven
+sestra
+smr-dljiv
+soljo
+so-udeležen
+sov-raštvu
+srbski
+srbščina
+stadion
+stanje
+steb-lica
+strež-nik
+teksta
+tekstilen
+ures-ničeval
+ustvar-jeno
+vero-znanstvo
+vot-ljina
+vzklik-niti
+zapu-stivši
+zarip-li
+za-slišali
+zem-lja
+žanrski
+želez-nica
+živ-ljenje
+}
+
+\stoptext

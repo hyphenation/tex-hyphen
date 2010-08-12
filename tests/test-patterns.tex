@@ -126,8 +126,6 @@
       local t = { origword = origword, hyphenatedword = hyphenatedword }
       local s, r = coroutine.resume(hyphen_collector, t)
     end
-
-    return head
   end
 }
 
@@ -161,15 +159,19 @@
   end
 }
 
+\directlua{
+  register_callback = callback.original_register_callback or callback.register
+}
+
 \def\startcollecthyphens{%
   \directlua{
     resethyphens()
-    callback.register("pre_linebreak_filter", insert_explicit_hyphen)}
+    register_callback("linebreak_filter", insert_explicit_hyphen)}
   }
 
 \def\stopcollecthyphens{%
   \par
-  \directlua{callback.register("pre_linebreak_filter", nil)}
+  \directlua{register_callback("linebreak_filter", nil)}
 }
 
 \directlua{%
@@ -203,11 +205,11 @@
 }
 
 \def\dumpnodelist#1{%
-  \directlua{callback.register("pre_linebreak_filter", function(head)
+  \directlua{register_callback("pre_linebreak_filter", function(head)
     dump_node_list(head)
   end)}
   #1\par
-  \directlua{callback.register("pre_linebreak_filter", nil)}
+  \directlua{register_callback("pre_linebreak_filter", nil)}
 }
 
 \loadpatterns{sl}
@@ -227,34 +229,34 @@
 \long\def\comparehyphenation#1{%
   \def\nonspace{[\string^ \string\t\string\r\string\n]}
   \directlua{
-    ws = { }
-    hs = { }
-    for w in unicode.utf8.gmatch("#1", "\nonspace*") do
-      if w and w:len() > 0 then
-        table.insert(ws, w)
+    origs = { }
+    hyphens = { }
+    for o in unicode.utf8.gmatch("#1", "\nonspace*") do
+      if o and o:len() > 0 then
+        table.insert(origs, o)
 
-	nhw = w:gsub("-", "")
+	w = o:gsub("-", "")
 	resethyphens()
 	startcollecthyphens()
-	tex.print(nhw)
+	tex.print(w)
 	stopcollecthyphens()
 	\callLuafromTeXfromLua{
 	  local t = collecthyphens()
 	  local h = t[1].hyphenatedword
-	  table.insert(hs, h)
+	  table.insert(hyphens, h)
 	}
       end
     end
   }%
 %
   \directlua{
-    local n = table.maxn(ws)
+    local n = table.maxn(origs)
     for k = 1, n do
-      texio.write_nl("term and log", tostring(ws[k]) .. " (" .. tostring(hs[k]) .. ")")
+      texio.write_nl("term and log", tostring(hyphens[k]) .. " (" .. tostring(origs[k]) .. ")")
     end
 
-    ws = nil
-    hs = nil
+    origs = nil
+    hyphens = nil
   }
   \let\nonspace\undefined
 }

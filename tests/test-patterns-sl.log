@@ -1,95 +1,167 @@
-This is LuaTeX, Version beta-0.62.0-2010081018 (rev 3806)  (format=luatex 2010.7.23)  10 AUG 2010 23:42
-**test-patterns-sl.tex
-(./test-patterns-sl.tex (./test-patterns.tex) [1{/Users/arthur/TeX/LuaTeX/texmf
-/fonts/map/pdftex/updmap/pdftex.map}]
-sestra (se-stra)
-tekstilen (te-ks-ti-len)
-teksta (te-ks-ta)
-bolan (bo-lan)
-srbski (srb-ski)
-srbščina (srb-šči-na)
-stanje (sta-nje)
-konjski (konj-ski)
-istovrsten (is-to-vr-sten)
-polje (po-lje)
-soljo (so-ljo)
-žanrski (ža-nr-ski)
-samoupraven (sa-mo-u-pra-ven)
-pooblastilo (po-o-bla-sti-lo)
-stadion (sta-di-on)
-polobla (pol-o-bla)
-prerdeč (prer-deč)
+(test-patterns-sl.tex
+publications    : loading formatting style from bxml-apa
+(/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/base/bxml-apa.mkiv)
+
+ConTeXt  ver: 2010.06.23 12:45 MKIV  fmt: 2010.8.11  int: english/english
+
+system          : cont-new loaded
+(/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/base/cont-new.tex
+systems         : beware: some patches loaded from cont-new.tex
+(/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/base/cont-new.mkiv))
+system          : cont-fil loaded
+(/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/base/cont-fil.tex
+loading         : ConTeXt File Synonyms
+)
+system          : cont-sys.rme loaded
+(/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/user/cont-sys.rme (/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/base/type-def.mkiv) (/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/base/type-lua.mkiv) (/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/base/type-siz.mkiv) (/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/base/type-otf.mkiv))
+system          : test-patterns-sl.top loaded
+%
+%	begin of optionfile
+%
+%	% runtime options files (command line driven)
+%	\unprotect
+%	% feedback and basic job control
+%	% handy for special styles
+%	\startluacode
+%	document = document or { }
+%	document.arguments={
+%	}
+%	document.files={
+%	 "test-patterns-sl.tex",
+%	}
+%	\stopluacode
+%	% process info
+%	\setupsystem[inputfile=test-patterns-sl.tex]
+%	\setupsystem[\c!n=1,\c!m=1]
+%	% modes
+%	% options (not that important)
+%	\startsetups *runtime:options
+%	\setupoutput[pdftex]
+%	\stopsetups
+%	% styles and modules
+%	\startsetups *runtime:modules
+%	\stopsetups
+%	% done
+%	\protect \endinput
+%
+%	end of optionfile
+%
+(test-patterns-sl.top)
+fonts           : preloading latin modern fonts
+{/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf/fonts/map/dvips/lm/lm-math.map}{/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf/fonts/map/dvips/lm/lm-rm.map}{/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/fonts/map/pdftex/context/mkiv-base.map}
+bodyfont        : 12pt rm is loaded
+language        : language en is active
+(test-patterns.tex)
+systems         : begin file test-patterns-sl.tex at line 11
+pages           > flushing realpage 1, userpage 1, subpage 1
+Ale-ksan-dra (Alek-sandra)
+bo-lan (bolan)
 član-stvo (član-stvo)
-ustvar-jeno (ustvar-je-no)
-gospodar-ski (go-spo-dar-ski)
-indu-strijski (in-du-strij-ski)
-ne-sreča (ne-sre-ča)
-ne-zgod (ne-zgod)
-jas-no (ja-sno)
-kas-neje (ka-sne-je)
-revir-jev (re-vir-jev)
-pre-iskovali (pre-i-sko-va-li)
-ures-ničeval (ure-sni-če-val)
-po-vsem (pov-sem)
-za-slišali (za-sli-ša-li)
-liker-ja (li-ker-ja)
-pre-strašil (pre-stra-šil)
-nem-ški (nem-ški)
-repub-likanski (re-pu-bli-kan-ski)
-mo-stov (mo-stov)
-pred-lagala (pre-dla-ga-la)
-jav-nosti (jav-no-sti)
-kak-šen (ka-kšen)
-ka-znjenec (ka-znje-nec)
-pre-vzeti (pre-vze-ti)
 go-spod (go-spod)
-vzklik-niti (vzkli-kni-ti)
+go-spo-dar-ski (gospodar-ski)
+Gra-dni-šnik (Gradniš-nik)
+in-du-strij-ski (indu-strijski)
+ipa-vski (ipav-ski)
+is-to-vr-sten (istovrsten)
+ja-sno (jas-no)
+jav-no-sti (jav-nosti)
+ka-kr-šni-ko-li (kakrš-nikoli)
+ka-kšen (kak-šen)
+ka-sne-je (kas-neje)
+ka-znje-nec (ka-znjenec)
+konj-ski (konjski)
+kr-čmar (krč-mar)
+kr-ške-mu (krš-kemu)
+kve-čje-mu (kveč-jemu)
 la-stnik (la-stnik)
-raz-red (ra-zred)
-po-vzpeti (pov-zpe-ti)
-proiz-vodnje (pro-i-zvo-dnje)
-so-udeležen (so-u-de-le-žen)
-pre-usmeriti (pre-u-sme-ri-ti)
-kveč-jemu (kve-čje-mu)
-pro-store (pro-sto-re)
-po-slanstvo (po-slan-stvo)
-živ-ljenje (ži-vlje-nje)
-kakrš-nikoli (ka-kr-šni-ko-li)
-Gradniš-nik (Gra-dni-šnik)
-zem-lja (ze-mlja)
-plod-nih (plo-dnih)
-smr-dljiv (smr-dljiv)
-naprav-ljene (na-pra-vlje-ne)
+li-ker-ja (liker-ja)
+mo-stov (mo-stov)
+mo-žga-ni (mož-gani)
 na-mreč (na-mreč)
-krš-kemu (kr-ške-mu)
-vero-znanstvo (ve-ro-znan-stvo)
-ipav-ski (ipa-vski)
+na-pra-vlje-ne (naprav-ljene)
+nem-ški (nem-ški)
+ne-sre-ča (ne-sreča)
+ne-u-mno-sti (neum-nosti)
+ne-zgod (ne-zgod)
+pe-šne-mu (peš-nemu)
+plo-dnih (plod-nih)
+po-du-ke (pod-uke)
+po-gu-mno (pogum-no)
+po-lje (polje)
+pol-o-bla (polobla)
+po-o-bla-sti-lo (pooblastilo)
+po-se-stni-ca (posest-nica)
+po-slan-stvo (po-slanstvo)
+pov-sem (po-vsem)
 pov-sod (pov-sod)
-steb-lica (ste-bli-ca)
-želez-nica (že-le-zni-ca)
-pod-uke (po-du-ke)
-posest-nica (po-se-stni-ca)
-krč-mar (kr-čmar)
-praz-nih (pra-znih)
-peš-nemu (pe-šne-mu)
-razum-ljiv (ra-zu-mljiv)
-zapu-stivši (za-pu-sti-vši)
-res-nica (re-sni-ca)
-sov-raštvu (so-vra-štvu)
-razum-nim (ra-zu-mnim)
-strež-nik (stre-žnik)
-vot-ljina (vo-tlji-na)
-Alek-sandra (Ale-ksan-dra)
+pov-zpe-ti (po-vzpeti)
+pra-znih (praz-nih)
+pre-dla-ga-la (pred-lagala)
+pre-i-sko-va-li (pre-iskovali)
+pre-ko-sma-te (preko-smate)
+prer-deč (prerdeč)
+pre-stra-šil (pre-strašil)
+pre-u-sme-ri-ti (pre-usmeriti)
+pre-vze-ti (pre-vzeti)
+pro-i-zvo-dnje (proiz-vodnje)
+pro-sto-re (pro-store)
+pro-stor-ček (pro-storček)
 pu-sta (pu-sta)
-mož-gani (mo-žga-ni)
-pogum-no (po-gu-mno)
-pro-storček (pro-stor-ček)
-zarip-li (za-ri-pli)
-preko-smate (pre-ko-sma-te)
-neum-nosti (ne-u-mno-sti) [2] )</Users/arthur/Library/Fonts/CharisSILR.TTF></Us
-ers/arthur/TeX/LuaTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on test-patterns-sl.pdf (2 pages, 39190 bytes).
-PDF statistics: 19 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ra-zred (raz-red)
+ra-zu-mljiv (razum-ljiv)
+ra-zu-mnim (razum-nim)
+re-pu-bli-kan-ski (repub-likanski)
+re-sni-ca (res-nica)
+re-vir-jev (revir-jev)
+sa-mo-u-pra-ven (samoupraven)
+se-stra (sestra)
+smr-dljiv (smr-dljiv)
+so-ljo (soljo)
+so-u-de-le-žen (so-udeležen)
+so-vra-štvu (sov-raštvu)
+srb-ski (srbski)
+srb-šči-na (srbščina)
+sta-di-on (stadion)
+sta-nje (stanje)
+ste-bli-ca (steb-lica)
+stre-žnik (strež-nik)
+te-ks-ta (teksta)
+te-ks-ti-len (tekstilen)
+ure-sni-če-val (ures-ničeval)
+ustvar-je-no (ustvar-jeno)
+ve-ro-znan-stvo (vero-znanstvo)
+vo-tlji-na (vot-ljina)
+vzkli-kni-ti (vzklik-niti)
+za-pu-sti-vši (zapu-stivši)
+za-ri-pli (zarip-li)
+za-sli-ša-li (za-slišali)
+ze-mlja (zem-lja)
+ža-nr-ski (žanrski)
+že-le-zni-ca (želez-nica)
+ži-vlje-nje (živ-ljenje)
+pages           > flushing realpage 2, userpage 2
+systems         : end file test-patterns-sl.tex at line 103
+system          : cont-err loaded
+(/Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-context/tex/context/base/cont-err.tex
+systems         : no file 'cont-sys.tex', using 'cont-sys.rme' instead
+) )</Users/arthur/Library/Fonts/CharisSILR.TTF></Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf/fonts/opentype/public/lm/lmroman12-regular.otf>
+mkiv lua stats : used config file          - /Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf/web2c/texmfcnf.lua
+mkiv lua stats : used cache path           - /Users/arthur/TeX/ConTeXt/min-unstable/tex/texmf-cache/luatex-cache/context/f2a280508f0a2f69362ccbd15ff0fedb
+mkiv lua stats : input load time           - 0.287 seconds
+mkiv lua stats : stored bytecode data      - 223 modules, 53 tables, 276 chunks
+mkiv lua stats : node list callback tasks  - 6 unique task lists, 5 instances (re)created, 801 calls
+mkiv lua stats : cleaned up reserved nodes - 36 nodes, 9 lists of 410
+mkiv lua stats : node memory usage         - 171 disc, 263 glyph, 27 attribute, 20 glue_spec, 9 attribute_list
+mkiv lua stats : used backend              - pdf (backend for directly generating pdf output)
+mkiv lua stats : loaded patterns           - en:us:pat:exc:2 sl:sl:pat:exc:4
+mkiv lua stats : language load time        - 0.370 seconds , n=3
+mkiv lua stats : callbacks                 - direct: 1089, indirect: 4756, total: 5845
+mkiv lua stats : lxml preparation time     - 0.000 seconds, 0 nodes, 15 lpath calls, 0 cached calls
+mkiv lua stats : result saved in file      - test-patterns-sl.pdf
+mkiv lua stats : loaded fonts              - 35 files: charissilr.ttf genr102.ttf stmary10.afm lmmono12-regular.otf lmmono8-regular.otf lmmono9-regular.otf lmroman12-bold.otf lmroman12-regular.otf lmroman7-bold.otf lmroman7-regular.otf lmroman9-bold.otf lmroman9-regular.otf lmsans12-regular.otf lmsans8-regular.otf lmsans9-regular.otf eufb10.tfm eufb7.tfm eufm10.tfm eufm7.tfm msam10.tfm msam7.tfm msbm10.tfm msbm7.tfm lmex10.tfm lmmi12.tfm lmmi7.tfm lmmi9.tfm lmmib10.tfm lmmib7.tfm lmsy10.tfm lmsy7.tfm lmsy9.tfm rm-lmr12.tfm rm-lmr7.tfm rm-lmr9.tfm
+mkiv lua stats : fonts load time           - 3.945 seconds 
+mkiv lua stats : luatex banner             - this is luatex, version beta-0.60.2-2010070117
+mkiv lua stats : control sequences         - 30673 of 165536
+mkiv lua stats : current memory usage      - 36 MB (ctx: 37 MB)
+mkiv lua stats : runtime                   - 11.545 seconds, 1 processed pages, 2 shipped pages, 0.173 pages/second
 
