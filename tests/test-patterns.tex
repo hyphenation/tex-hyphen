@@ -150,7 +150,7 @@
   % tex.shipout(255)
 }
 
-\def\loadpatterns#1{\directlua{load_patterns("#1")}}
+\def\loadpatterns#1{\directlua{load_patterns("#1") ; languages.tag = "#1"}}
 
 \directlua{
   function resethyphens()
@@ -255,8 +255,10 @@
       texio.write_nl("term and log", tostring(hyphens[k]) .. " (" .. tostring(origs[k]) .. ")")
     end
 
+    --[[
     origs = nil
     hyphens = nil
+    --]]
   }
   \let\nonspace\undefined
 }

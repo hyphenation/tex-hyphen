@@ -2,17 +2,45 @@
 
 \input test-patterns
 
-\mainlanguage[sl]
+% \mainlanguage[sl]
 
-\righthyphenmin=2% Note quite sure what I'm doing (default is 3)
+% \righthyphenmin=2% Note quite sure what I'm doing (default is 3)
+\righthyphenmin=1% Even better :-)
 
 \definefont[charis][CharisSILR]
+
+\ctxlua{hyphenations = hyphenations or { }}
+
+\ctxlua{nbwords = 0}
+
+\def\collecthyphenatedwords{%
+  \startluacode
+  local tag = languages.tag
+
+  for _, h in pairs(hyphens) do
+    local w = h:gsub("-", "")
+    if w == "zglob" then
+      texio.write_nl("term and log", "Found zglob")
+    end
+    texio.write_nl("term and log", "w: " .. tostring(w) .. ", h: " .. tostring(h))
+    if hyphenations[w] then
+      hyphenations[w][tag] = h
+    else
+      nbwords = nbwords + 1
+      texio.write_nl("term and log", "Adding word n° " .. nbwords .. ": " .. w .. " (tag = " .. tag .. ")")
+      hyphenations[w] = { [tag] = h }
+    end
+  end
+  \stopluacode
+}
 
 \starttext
 
 \charis
 
-\comparehyphenation{%
+\lefthyphenmin=1
+
+\define\samplewords{%
 Alek-sandra
 bolan
 član-stvo
@@ -98,6 +126,60 @@ zem-lja
 žanrski
 želez-nica
 živ-ljenje
+mrtav mrtev superior
+zglob
+% Added 2010-08-23, manually
+brezplačen
+potrt
 }
+
+\loadpatterns{sl}
+\comparehyphenation\samplewords
+
+\collecthyphenatedwords
+
+\loadpatterns{hr}
+\comparehyphenation\samplewords
+\collecthyphenatedwords
+
+\loadpatterns{sr-latn}
+\comparehyphenation\samplewords
+\collecthyphenatedwords
+
+\startluacode
+  texio.write_nl("term and log", "hyphenations has " .. table.nentries(hyphenations) .. " elements")
+  texio.write_nl("term and log", table.serialize(hyphenations, "hyphenations"))
+\stopluacode
+
+\setupTABLE[split=yes]
+\bTABLE
+\bTR \bTD sl \eTD \bTD hr \eTD \bTD sr-latn \eTD \eTR
+\startluacode
+  -- for word, hyphs in pairs(hyphenations) do
+  for _, word in ipairs(table.sortedkeys(hyphenations)) do
+    local hyphs = hyphenations[word]
+    tex.print"\\bTR "
+    tex.print"\\bTD " ; tex.print(tostring(hyphs.sl)) ; tex.print"\\eTD "
+    tex.print"\\bTD " ; tex.print(tostring(hyphs.hr)) ; tex.print"\\eTD "
+    tex.print"\\bTD " ; tex.print(tostring(hyphs["sr-latn"])) ; tex.print"\\eTD "
+    tex.print"\\eTR "
+  end
+\stopluacode
+\eTABLE
+
+\loadpatterns{sl}
+
+\collecthyphens{\input krst.tex}
+
+\loadpatterns{cs}
+
+% ne-smy-sl
+% ubrouskem!  Even with lhm = rhm = 1
+\collecthyphens{\input RUR.tex}
+
+\collecthyphens{ubrouskem ubrousek ubrousky ubrúskem obrúsok obrúskem}
+
+\loadpatterns{sk}
+\collecthyphens{ubrouskem ubrousek ubrousky ubrúskem obrúsok obrúskem}
 
 \stoptext
