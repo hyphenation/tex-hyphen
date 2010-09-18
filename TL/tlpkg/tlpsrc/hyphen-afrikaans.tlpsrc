@@ -1,0 +1,11 @@
+category TLCore
+depend hyphen-base
+depend hyph-utf8
+execute AddHyphen \
+	name=afrikaans \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-af.tex \
+	file_patterns=hyph-af.pat.txt \
+	file_exceptions=hyph-af.hyp.txt
+
