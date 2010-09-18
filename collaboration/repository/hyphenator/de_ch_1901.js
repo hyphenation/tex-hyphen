@@ -1,4 +1,4 @@
-﻿Hyphenator.languages.de_CH_1901 = {
+﻿Hyphenator.languages.de_ch_1901 = {
 	leftmin : 2,
 	rightmin : 2,
 	shortestPattern : 2,

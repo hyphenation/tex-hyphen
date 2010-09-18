@@ -1,4 +1,4 @@
-﻿Hyphenator.languages.sr_Cyrl = {
+﻿Hyphenator.languages.sr_cyrl = {
 	leftmin : 2,
 	rightmin : 2,
 	shortestPattern : 1,

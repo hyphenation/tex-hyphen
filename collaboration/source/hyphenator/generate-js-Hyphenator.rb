@@ -10,6 +10,7 @@ $path_root=File.expand_path(Dir.getwd + "/../../../hyph-utf8")
 $path_sources="#{$path_root}/source/generic/hyph-utf8"
 $path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns/txt"
 $path_repository=File.expand_path(Dir.getwd + "/../../collaboration/hyphenator")
+$path_js=File.expand_path(Dir.getwd + "/../../repository/hyphenator")
 
 load "#{$path_sources}/languages.rb"
 # TODO: should be singleton

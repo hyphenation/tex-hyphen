@@ -1,4 +1,4 @@
-﻿Hyphenator.languages.zh_Latn = {
+﻿Hyphenator.languages.zh_latn = {
 	leftmin : 1,
 	rightmin : 1,
 	shortestPattern : 2,

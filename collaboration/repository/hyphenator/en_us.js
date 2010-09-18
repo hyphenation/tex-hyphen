@@ -1,4 +1,4 @@
-﻿Hyphenator.languages.en_US = {
+﻿Hyphenator.languages.en_us = {
 	leftmin : 2,
 	rightmin : 3,
 	shortestPattern : 2,
