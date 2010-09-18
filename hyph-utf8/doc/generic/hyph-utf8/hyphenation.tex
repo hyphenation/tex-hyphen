@@ -1,7 +1,12 @@
-% engine=luatex
+\setuplayout
+	[backspace=2cm,width=middle]
 
 \usetypescript[antykwa-poltawskiego]
-\setupbodyfont[antykwa-poltawskiego]
+\setupbodyfont[antykwa-poltawskiego,10pt]
+
+\setuphead
+	[subject]
+	[style=\bfa]
 
 \starttext
 
@@ -13,21 +18,359 @@
 
 \blank[big]
 
-\centerline{28 May 2010}
+\centerline{\date}
 
 \blank[3*big]
 
 \startalignment[center]
 {\bf Abstract}
 
-A non-empty PDF file that describes the {\tt hyph-utf8} package with at least two sentences.
-\stopalignment
-
-\blank[3*big]
-
 The {\tt hyph-utf8} package gathers all the existing hyphenation patterns for
 \TEX, converted to UTF-8.  They can be used directly by UTF-8-aware \TEX{}
 engines such as \LUATEX{} and \XETEX, and there is a mechanism to convert the
 patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
+
+\stopalignment
+
+\subject{List of supported languages}
+
+% \startluacode
+% languages={
+% 	['Afrikaans'] = {
+% 		{ code = 'af', name = 'afrikaans', synonyms = {  } },
+% 	},
+% 	['Ancientgreek'] = {
+% 		{ code = 'grc', name = 'ancientgreek', synonyms = {  } },
+% 		{ code = 'grc-x-ibycus', name = 'ibycus', synonyms = {  } },
+% 	},
+% 	['Arabic'] = {
+% 		{ code = 'ar', name = 'arabic', synonyms = {  } },
+% 	},
+% 	['Armenian'] = {
+% 		{ code = 'hy', name = 'armenian', synonyms = {  } },
+% 	},
+% 	['Assamese'] = {
+% 		{ code = 'as', name = 'assamese', synonyms = {  } },
+% 	},
+% 	['Basque'] = {
+% 		{ code = 'eu', name = 'basque', synonyms = {  } },
+% 	},
+% 	['Bengali'] = {
+% 		{ code = 'bn', name = 'bengali', synonyms = {  } },
+% 	},
+% 	['Bulgarian'] = {
+% 		{ code = 'bg', name = 'bulgarian', synonyms = {  } },
+% 	},
+% 	['Catalan'] = {
+% 		{ code = 'ca', name = 'catalan', synonyms = {  } },
+% 	},
+% 	['Chinese'] = {
+% 		{ code = 'zh-latn', name = 'pinyin', synonyms = {  } },
+% 	},
+% 	['Coptic'] = {
+% 		{ code = 'cop', name = 'coptic', synonyms = {  } },
+% 	},
+% 	['Croatian'] = {
+% 		{ code = 'hr', name = 'croatian', synonyms = {  } },
+% 	},
+% 	['Czech'] = {
+% 		{ code = 'cs', name = 'czech', synonyms = {  } },
+% 	},
+% 	['Danish'] = {
+% 		{ code = 'da', name = 'danish', synonyms = {  } },
+% 	},
+% 	['Dutch'] = {
+% 		{ code = 'nl', name = 'dutch', synonyms = {  } },
+% 	},
+% 	['Esperanto'] = {
+% 		{ code = 'eo', name = 'esperanto', synonyms = {  } },
+% 	},
+% 	['Estonian'] = {
+% 		{ code = 'et', name = 'estonian', synonyms = {  } },
+% 	},
+% 	['Farsi'] = {
+% 		{ code = 'fa', name = 'farsi', synonyms = { 'persian' } },
+% 	},
+% 	['Finnish'] = {
+% 		{ code = 'fi', name = 'finnish', synonyms = {  } },
+% 	},
+% 	['French'] = {
+% 		{ code = 'fr', name = 'french', synonyms = { 'patois', 'francais' } },
+% 	},
+% 	['Galician'] = {
+% 		{ code = 'gl', name = 'galician', synonyms = {  } },
+% 	},
+% 	['German'] = {
+% 		{ code = 'de-1901', name = 'german', synonyms = {  } },
+% 		{ code = 'de-1996', name = 'ngerman', synonyms = {  } },
+% 		{ code = 'de-ch-1901', name = 'swissgerman', synonyms = {  } },
+% 	},
+% 	['Greek'] = {
+% 		{ code = 'el-monoton', name = 'monogreek', synonyms = {  } },
+% 		{ code = 'el-polyton', name = 'greek', synonyms = { 'polygreek' } },
+% 	},
+% 	['Gujarati'] = {
+% 		{ code = 'gu', name = 'gujarati', synonyms = {  } },
+% 	},
+% 	['Hindi'] = {
+% 		{ code = 'hi', name = 'hindi', synonyms = {  } },
+% 	},
+% 	['Hungarian'] = {
+% 		{ code = 'hu', name = 'hungarian', synonyms = {  } },
+% 	},
+% 	['Icelandic'] = {
+% 		{ code = 'is', name = 'icelandic', synonyms = {  } },
+% 	},
+% 	['Indonesian'] = {
+% 		{ code = 'id', name = 'indonesian', synonyms = {  } },
+% 	},
+% 	['Interlingua'] = {
+% 		{ code = 'ia', name = 'interlingua', synonyms = {  } },
+% 	},
+% 	['Irish'] = {
+% 		{ code = 'ga', name = 'irish', synonyms = {  } },
+% 	},
+% 	['Italian'] = {
+% 		{ code = 'it', name = 'italian', synonyms = {  } },
+% 	},
+% 	['Kannada'] = {
+% 		{ code = 'kn', name = 'kannada', synonyms = {  } },
+% 	},
+% 	['Kurmanji'] = {
+% 		{ code = 'kmr', name = 'kurmanji', synonyms = {  } },
+% 	},
+% 	['Lao'] = {
+% 		{ code = 'lo', name = 'lao', synonyms = {  } },
+% 	},
+% 	['Latin'] = {
+% 		{ code = 'la', name = 'latin', synonyms = {  } },
+% 	},
+% 	['Latvian'] = {
+% 		{ code = 'lv', name = 'latvian', synonyms = {  } },
+% 	},
+% 	['Lithuanian'] = {
+% 		{ code = 'lt', name = 'lithuanian', synonyms = {  } },
+% 	},
+% 	['Malayalam'] = {
+% 		{ code = 'ml', name = 'malayalam', synonyms = {  } },
+% 	},
+% 	['Marathi'] = {
+% 		{ code = 'mr', name = 'marathi', synonyms = {  } },
+% 	},
+% 	['Mongolian'] = {
+% 		{ code = 'mn-cyrl', name = 'mongolian', synonyms = {  } },
+% 	},
+% 	['Mongolianlmc'] = {
+% 		{ code = 'mn-cyrl-x-lmc', name = 'mongolianlmc', synonyms = {  } },
+% 	},
+% 	['Norwegian'] = {
+% 		{ code = 'nb', name = 'bokmal', synonyms = { 'norwegian', 'norsk' } },
+% 		{ code = 'nn', name = 'nynorsk', synonyms = {  } },
+% 	},
+% 	['Oriya'] = {
+% 		{ code = 'or', name = 'oriya', synonyms = {  } },
+% 	},
+% 	['Panjabi'] = {
+% 		{ code = 'pa', name = 'panjabi', synonyms = {  } },
+% 	},
+% 	['Polish'] = {
+% 		{ code = 'pl', name = 'polish', synonyms = {  } },
+% 	},
+% 	['Portuguese'] = {
+% 		{ code = 'pt', name = 'portuguese', synonyms = { 'portuges' } },
+% 	},
+% 	['Romanian'] = {
+% 		{ code = 'ro', name = 'romanian', synonyms = {  } },
+% 	},
+% 	['Russian'] = {
+% 		{ code = 'ru', name = 'russian', synonyms = {  } },
+% 	},
+% 	['Sanskrit'] = {
+% 		{ code = 'sa', name = 'sanskrit', synonyms = {  } },
+% 	},
+% 	['Serbian'] = {
+% 		{ code = 'sr-latn', name = 'serbian', synonyms = {  } },
+% 	},
+% 	['Slovenian'] = {
+% 		{ code = 'sl', name = 'slovenian', synonyms = { 'slovene' } },
+% 	},
+% 	['Spanish'] = {
+% 		{ code = 'es', name = 'spanish', synonyms = { 'espanol' } },
+% 	},
+% 	['Swedish'] = {
+% 		{ code = 'sv', name = 'swedish', synonyms = {  } },
+% 	},
+% 	['Tamil'] = {
+% 		{ code = 'ta', name = 'tamil', synonyms = {  } },
+% 	},
+% 	['Telugu'] = {
+% 		{ code = 'te', name = 'telugu', synonyms = {  } },
+% 	},
+% 	['Turkish'] = {
+% 		{ code = 'tr', name = 'turkish', synonyms = {  } },
+% 	},
+% 	['Turkmen'] = {
+% 		{ code = 'tk', name = 'turkmen', synonyms = {  } },
+% 	},
+% 	['Ukenglish'] = {
+% 		{ code = 'en-gb', name = 'ukenglish', synonyms = { 'british', 'UKenglish' } },
+% 	},
+% 	['Ukrainian'] = {
+% 		{ code = 'uk', name = 'ukrainian', synonyms = {  } },
+% 	},
+% 	['Uppersorbian'] = {
+% 		{ code = 'hsb', name = 'uppersorbian', synonyms = {  } },
+% 	},
+% 	['Usenglishmax'] = {
+% 		{ code = 'en-us', name = 'usenglishmax', synonyms = {  } },
+% 	},
+% 	['Welsh'] = {
+% 		{ code = 'cy', name = 'welsh', synonyms = {  } },
+% 	}
+% 	}
+% \stopluacode
+
+\def\lanname#1{\hbox to \textwidth{\bf#1\hss}}
+\def\landata#1#2#3{\hbox to \textwidth{\hbox to 3mm{}\hbox to 6.5em{#1\hss}\hbox to 7em{#2}\hbox{#3}\hss} }
+% \def\landata#1#2#3{}
+
+\startcolumns[n=2]
+
+\lanname{Afrikaans}
+\landata{af}{afrikaans}{}
+\lanname{Ancientgreek}
+\landata{grc}{ancientgreek}{}
+\landata{grc-x-ibycus}{ibycus}{}
+\lanname{Arabic}
+\landata{ar}{arabic}{}
+\lanname{Armenian}
+\landata{hy}{armenian}{}
+\lanname{Assamese}
+\landata{as}{assamese}{}
+\lanname{Basque}
+\landata{eu}{basque}{}
+\lanname{Bengali}
+\landata{bn}{bengali}{}
+\lanname{Bulgarian}
+\landata{bg}{bulgarian}{}
+\lanname{Catalan}
+\landata{ca}{catalan}{}
+\lanname{Chinese}
+\landata{zh-latn}{pinyin}{}
+\lanname{Coptic}
+\landata{cop}{coptic}{}
+\lanname{Croatian}
+\landata{hr}{croatian}{}
+\lanname{Czech}
+\landata{cs}{czech}{}
+\lanname{Danish}
+\landata{da}{danish}{}
+\lanname{Dutch}
+\landata{nl}{dutch}{}
+\crlf\crlf
+\lanname{English}
+\landata{-}{\bf english}{usenglish, USenglish, american}
+\landata{en-us}{usenglishmax}{}
+\landata{en-gb}{ukenglish}{british, UKenglish}
+\lanname{Esperanto}
+\landata{eo}{esperanto}{}
+\lanname{Estonian}
+\landata{et}{estonian}{}
+\lanname{Farsi}
+\landata{fa}{farsi}{persian}
+\lanname{Finnish}
+\landata{fi}{finnish}{}
+\lanname{French}
+\landata{fr}{french}{patois, francais}
+\lanname{Galician}
+\landata{gl}{galician}{}
+\lanname{German}
+\landata{de-1901}{german}{}
+\landata{de-1996}{ngerman}{}
+\landata{de-ch-1901}{swissgerman}{}
+\lanname{Greek}
+\landata{el-monoton}{monogreek}{}
+\landata{el-polyton}{greek}{polygreek}
+\lanname{Gujarati}
+\landata{gu}{gujarati}{}
+\lanname{Hindi}
+\landata{hi}{hindi}{}
+\lanname{Hungarian}
+\landata{hu}{hungarian}{}
+\lanname{Icelandic}
+\landata{is}{icelandic}{}
+\lanname{Indonesian}
+\landata{id}{indonesian}{}
+\lanname{Interlingua}
+\landata{ia}{interlingua}{}
+\lanname{Irish}
+\landata{ga}{irish}{}
+\lanname{Italian}
+\landata{it}{italian}{}
+\lanname{Kannada}
+\landata{kn}{kannada}{}
+\lanname{Kurmanji}
+\landata{kmr}{kurmanji}{}
+\lanname{Lao}
+\landata{lo}{lao}{}
+\lanname{Latin}
+\landata{la}{latin}{}
+\lanname{Latvian}
+\landata{lv}{latvian}{}
+\lanname{Lithuanian}
+\landata{lt}{lithuanian}{}
+\lanname{Malayalam}
+\landata{ml}{malayalam}{}
+\lanname{Marathi}
+\landata{mr}{marathi}{}
+\lanname{Mongolian}
+\landata{mn-cyrl}{mongolian}{}
+\lanname{Mongolianlmc}
+\landata{mn-cyrl-x-lmc}{mongolianlmc}{}
+\lanname{Norwegian}
+\landata{nb}{bokmal}{norwegian, norsk}
+\landata{nn}{nynorsk}{}
+\lanname{Oriya}
+\landata{or}{oriya}{}
+\lanname{Panjabi}
+\landata{pa}{panjabi}{}
+\lanname{Polish}
+\landata{pl}{polish}{}
+\lanname{Portuguese}
+\landata{pt}{portuguese}{portuges}
+\lanname{Romanian}
+\landata{ro}{romanian}{}
+\lanname{Russian}
+\landata{ru}{russian}{}
+\lanname{Sanskrit}
+\landata{sa}{sanskrit}{}
+\lanname{Serbian}
+\landata{sr-latn}{serbian}{}
+\lanname{Slovenian}
+\landata{sl}{slovenian}{slovene}
+\lanname{Spanish}
+\landata{es}{spanish}{espanol}
+\lanname{Swedish}
+\landata{sv}{swedish}{}
+\lanname{Tamil}
+\landata{ta}{tamil}{}
+\lanname{Telugu}
+\landata{te}{telugu}{}
+\lanname{Turkish}
+\landata{tr}{turkish}{}
+\lanname{Turkmen}
+\landata{tk}{turkmen}{}
+\lanname{Ukenglish}
+\landata{en-gb}{ukenglish}{british, UKenglish}
+\lanname{Ukrainian}
+\landata{uk}{ukrainian}{}
+\lanname{Uppersorbian}
+\landata{hsb}{uppersorbian}{}
+\lanname{Usenglishmax}
+\landata{en-us}{usenglishmax}{}
+\lanname{Welsh}
+\landata{cy}{welsh}{}
+
+\stopcolumns
 
 \stoptext
