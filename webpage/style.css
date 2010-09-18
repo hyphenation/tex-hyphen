@@ -1,0 +1,160 @@
+html {
+	background-color: #ccccff;
+	border-left: 3px dashed #ffffff;
+	border-right: 3px dashed #ffffff;
+}
+
+body {
+	font-family: 'Yanone Kaffeesatz', Arial, sans;
+	font-size: 100%;
+	padding-left: 2em;
+	padding-right: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 40em;
+	text-align: left;
+}
+
+p {
+	margin-bottom: 0.25em;
+}
+
+a {
+	text-decoration: none;
+}
+
+p a, li a {
+	color: #000000;
+	border-bottom: 1px dotted #ffffff;
+}
+
+a:hover {
+	border-bottom: 1px dotted #ff0000;
+}
+
+b, strong, th {
+	font-weight: bold;
+}
+
+li {
+	list-style: inherit;
+	margin-left: 1em;
+}
+
+ul li {
+	list-style-position: outside;
+	list-style-type: disc;
+}
+
+h1, h2, h3, h4, h5 {
+	color: #111133;
+	font-weight: bold;
+	margin-top: 0.5em;
+	margin-bottom: 0.25em;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a {
+	color: #111133;
+}
+
+h2 {
+	font-size: 200%;
+	margin-top: 0;
+}
+
+h3 {
+	font-size: 150%;
+}
+
+h4 {
+	font-size: 120%;
+}
+
+h5,td {
+	font-size: 100%;
+}
+
+table {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+table, tr, th, td {
+	text-align: left;
+	vertical-align: top;
+	border: 1px dashed #ffffff;
+}
+
+th, td {
+	padding: 0.25em;
+}
+
+.small {
+	font-size: 80%;
+}
+
+.right {
+	float: right;
+	text-align: right;
+}
+
+sub.tex {
+	position: relative;
+	font-size: 100%;
+	top: 0.2em;
+}
+
+#hd, #bd, #ft {
+	width: 100%;
+	position: fixed;
+	max-width: 40em;
+}
+
+#hd {
+	top: 0;
+	height: 5em;
+	border-bottom: 1px dashed #ffffff;
+}
+
+#bd {
+	top: 6em;
+	bottom: 2em;
+}
+
+#ft {
+	bottom: 0;
+	height: 1.5em;
+	border-top: 1px dashed #ffffff;
+}
+
+#hd img {
+	max-height: 2em;
+}
+
+#content {
+	position: relative;
+	height: 100%;
+	overflow: auto;
+}
+
+#navigation {
+	text-align: left;
+	position: relative;
+	bottom: -0.5em;
+}
+
+#navigation a {
+	float: left;
+	color: #000000;
+	border-right: 1px dashed #ffffff;
+	padding: 0 0.25em 0.25em 0.25em;
+}
+
+#navigation a:first-child {
+	border-left: 1px dashed #ffffff;
+}
+
+#navigation a:hover {
+	border-bottom: none;
+	background-color: #eeeeff;
+}
