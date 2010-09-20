@@ -57,58 +57,60 @@ end
 language_groups.sort.each do |language_name,language_list|
 	first_line_printed = false
 	language_list.each do |language|
-		if not first_line_printed then
-			puts "<tr>\n\t<td><b>#{language_name.capitalize}</b></td>"
-			first_line_printed = true;
-		else
-			puts "<tr>\n\t<td>&nbsp;</td>"
+		if language != nil then
+			if not first_line_printed then
+				puts "<tr>\n\t<td><b>#{language_name.capitalize}</b></td>"
+				first_line_printed = true;
+			else
+				puts "<tr>\n\t<td>&nbsp;</td>"
+			end
+	
+			# synonyms
+			if language.synonyms != nil and language.synonyms.length > 0 then
+				synonyms=", #{language.synonyms.join(', ')}"
+			else
+				synonyms=""
+			end
+			puts "\t<td>#{language.name}#{synonyms}</td>"
+	
+	#		if language.use_old_patterns == false then
+			if language.use_new_loader == true then
+				url_patterns = "#{$ctan_url}/patterns/hyph-#{language.code}.tex"
+				code = "<a href=\"#{url_patterns}\">#{language.code}</a>"
+			else
+				url_patterns = ""
+				code = language.code
+			end
+			
+			puts "\t<td>#{code}</td>"
+	
+			# lefthyphenmin/righthyphenmin
+			if language.hyphenmin == nil or language.hyphenmin.length == 0 then
+				lmin = ''
+				rmin = ''
+			elsif language.filename_old_patterns == "zerohyph.tex" then
+				lmin = ''
+				rmin = ''
+			else
+				lmin = language.hyphenmin[0]
+				rmin = language.hyphenmin[1]
+			end
+			puts "\t<td>(#{lmin},#{rmin})</td>"
+			# which file to use
+			if language.use_new_loader then
+				file = "loadhyph-#{language.code}.tex"
+			else
+				file = "#{language.filename_old_patterns}"
+			end
+			#puts "\t<td>#{file}</td>"
+			if language.encoding == nil then
+				encoding = ""
+			else
+				encoding = language.encoding.upcase
+			end
+			puts "\t<td>#{encoding}</td>"
+			puts "</tr>\n"
 		end
-
-		# synonyms
-		if language.synonyms != nil and language.synonyms.length > 0 then
-			synonyms=", #{language.synonyms.join(', ')}"
-		else
-			synonyms=""
-		end
-		puts "\t<td>#{language.name}#{synonyms}</td>"
-
-#		if language.use_old_patterns == false then
-		if language.use_new_loader == true then
-			url_patterns = "#{$ctan_url}/patterns/hyph-#{language.code}.tex"
-			code = "<a href=\"#{url_patterns}\">#{language.code}</a>"
-		else
-			url_patterns = ""
-			code = language.code
-		end
-		
-		puts "\t<td>#{code}</td>"
-
-		# lefthyphenmin/righthyphenmin
-		if language.hyphenmin == nil or language.hyphenmin.length == 0 then
-			lmin = ''
-			rmin = ''
-		elsif language.filename_old_patterns == "zerohyph.tex" then
-			lmin = ''
-			rmin = ''
-		else
-			lmin = language.hyphenmin[0]
-			rmin = language.hyphenmin[1]
-		end
-		puts "\t<td>(#{lmin},#{rmin})</td>"
-		# which file to use
-		if language.use_new_loader then
-			file = "loadhyph-#{language.code}.tex"
-		else
-			file = "#{language.filename_old_patterns}"
-		end
-		#puts "\t<td>#{file}</td>"
-		if language.encoding == nil then
-			encoding = ""
-		else
-			encoding = language.encoding.upcase
-		end
-		puts "\t<td>#{encoding}</td>"
-		puts "</tr>\n"
 	end
 end
 
