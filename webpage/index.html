@@ -19,7 +19,7 @@
 <body>
 
 <div id="hd">
-	<h2>T<sub class="tex">E</sub>X hyphenation patterns <img class="right" src="http://tug.org/images/logonavyongrey.jpg" /></h2>
+	<h2>T<sub class="tex">E</sub>X hyphenation patterns <img class="right" src="tug.png" /></h2>
 	<div id="navigation"></div>
 </div>
 <div id="bd">
@@ -35,13 +35,13 @@
 </ul>
 <h4>For pattern authors</h4>
 <p>If you are a pattern author and wish to update your patterns, please contact the hyph-utf8
-package authors through the <a target="_blank" href="/mailman/listinfo/tex-hyphen">tex-hyphen mailing list</a>.</p>
+package maintainers through the <a target="_blank" href="/mailman/listinfo/tex-hyphen">tex-hyphen mailing list</a>.</p>
 </div>
 <div class="section" id="algorithm">
 <h3>Documentation</h3>
 <h4>Algorithm</h4>
 <ul>
-	<li><a href="/docs/liang/">Frank Liang's thesis</a></li>
+	<li><a target="_blank" href="/docs/liang/">Frank Liang's thesis</a></li>
 	<li><a target="_blank" href="http://en.wikipedia.org/wiki/Hyphenation_algorithm">Hyphenation algorithm (article on Wikipedia)</a></li>
 	<li><a target="_blank" href="http://www.ushuaia.pl/hyphen/?ln=en">Test TeX/OpenOffice hyphenation algorithm online</a> (based on hunspell)</li>
 </ul>
@@ -49,7 +49,11 @@ package authors through the <a target="_blank" href="/mailman/listinfo/tex-hyphe
 <ul>
 	<li><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/doc/generic/hyph-utf8/hyphenation.pdf">Documentation</a> (needs improvement)</li>
 	<li><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/doc/luatex/hyph-utf8/luatex-hyphen.pdf">Documentation for Lua(La)TeX part of package</a></li>
-	<li><a href="tb93miklavec.pdf">TUG 2008 paper</a></li>
+	<li><a href="pdf/tb93miklavec.pdf">TUG 2008 paper</a></li>
+</ul>
+<h4>Slides</h4>
+<ul>
+	<li><a href="pdf/hyphenator.pdf">The TeX hyphenation applied to HTML</a> (Mathias Nater, BachoTeX 2010)</li>
 </ul>
 </div>
 <div class="section" id="links">
@@ -108,13 +112,20 @@ package authors through the <a target="_blank" href="/mailman/listinfo/tex-hyphe
                 </ul>
 				</div>
 				<div class="section" id="languages">
-                <h3>Supported languages</h3>
+                <h3>Supported Languages</h3>
                 <p>The package contains
                 patterns for the following languages:</p>
 				<p>(if patterns
                 for any other language exist and are missing below
                 please let us know)</p>
 			<table border="1">
+				<tr>
+					<td>&nbsp;</td>
+					<th>name, synonyms</th>
+					<td align="center">code<br>(link to file)</td>
+					<td align="center">(left,right)-<br>hyphenmin</td>
+					<td align="center">8-bit<br>encoding</td>
+				</tr>
 				<tr>
 					<td><b>Afrikaans</b></td>
 					<td>afrikaans</td>
@@ -608,7 +619,7 @@ package authors through the <a target="_blank" href="/mailman/listinfo/tex-hyphe
                 </table>
 				</div>
 				<div class="section" id="demo">
-					<h3>Live Demo</h3>
+					<h3>Demo</h3>
 					<p>Live demo using <a target="_blank" href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> coming soon...</p>
 				</div>
             </div>
