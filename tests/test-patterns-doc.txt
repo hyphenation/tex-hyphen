@@ -1,0 +1,44 @@
+*Concise guide to test-patterns.tex*
+
+test-patterns.tex is an attempt to provide routines to test visually
+hyphenation patterns.  It uses LuaTeX callbacks to do the main job, and
+Lua functions to test the output, so it will only work with the LuaTeX
+TeX engine.
+
+In order for patterns to be used correctly, it is necessary to use a
+font that supports all the characters used by the languages at hand
+(which is the same limitation as the original TeX engine).  Otherwise
+some characters might be lost, and the results would be meaningless.
+
+The pattern testing functions honor \lefthyphenmin and \righthyphenmin
+(they will just use whatever value they happen to have at the time a
+word is set).
+
+The main functions are to be called from either TeX or Lua, while there
+are usually equivalents in both languages:
+
+\loadpatterns{<language tag>} loads the patterns for said language.
+
+\comparehyphenation{<text>} takes a list of hyphenated words and breaks
+them into words; then it computes the hyphenation points in each word
+using the patterns that are active at the time and prints them to the
+log file with a word on each line.
+
+The invocation \comparehyphenation{thefirstword-inmytext
+the-sec-ond-word-in-my-text} will thus output something like
+
+the-first-word-in-my-text (thefirstword-inmytext)
+the-se-cond-word-in-my-text (the-sec-ond-word-in-my-text)
+
+I wrote this to compare the way our patterns hyphenated words with the
+hyphenation points that are found in typeset documents.
+
+test-patterns-sl.tex gives an example of using the internal Lua commands
+to retrieve the list of hyphenated words in a Lua table.
+
+The implementation, and in particular the names of the functions, is a
+confusing mess in all respects and should be changed, but at the moment
+I have to focus on other projects and wouldn't like to spend too much
+time on it.
+
+Arthur, Paris-Berlin, 2010-09-19.
