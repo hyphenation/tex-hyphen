@@ -28,6 +28,17 @@ Languages:
 - versioning: German etc.
 - Norwegian
 - Add Indic scripts & auto-updater
+- Belarussian:
+  - Contact the authors of hyphenation patterns on OOo:
+    http://extensions.services.openoffice.org/en/project/dict-be-classic
+    http://extensions.services.openoffice.org/en/project/dict-be-official
+  - Contact the author of support files for LaTeX (Aleksey Novodvorsky):
+    http://alt.linux.kiev.ua/srpm/tetex/patches/8
+    http://tldp.org/HOWTO/pdf/Belarusian-HOWTO.pdf
+  - Convert patterns into UTF-8
+  - Babel and Polyglossia support
+  - Which version has to be used? Classic or official?
+  - Do something about encoding in 8-bit engines (possibly together with Vladimir Volovich)
 
 CTAN:
 - move old patterns to obsolete
@@ -38,8 +49,9 @@ CTAN:
 
 OpenOffice:
 - write auto-notificator for changes in OOo (more important)
+- check every single language on http://extensions.services.openoffice.org/en/dictionaries
 - contact the authors & join the efforts
-- import indic scripts
+- [DONE] import indic scripts
 
 Impromevents:
 - prepare a better version of notes
