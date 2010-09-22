@@ -75,7 +75,7 @@ language_groups.sort.each do |language_name,language_list|
 	
 	#		if language.use_old_patterns == false then
 			if language.use_new_loader == true then
-				url_patterns = "#{$ctan_url}/patterns/hyph-#{language.code}.tex"
+				url_patterns = "#{$ctan_url}/patterns/tex/hyph-#{language.code}.tex"
 				code = "<a href=\"#{url_patterns}\">#{language.code}</a>"
 			else
 				url_patterns = ""
