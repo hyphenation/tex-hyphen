@@ -12,7 +12,6 @@ Pattern creators:
 - write DONE for each language once you receive the answer from the author
 
 Languages:
-- change script 4TL to generate shortdesc for hyph-xxx.tlpsrc
 - complete languages.html
 - unification of Mongolian
   - encoding
@@ -47,6 +46,20 @@ CTAN:
 - make an easy-to-browse structure
 - ask CTAN people to be careful if someone uploads new patterns
 - write auto-notificator for changes in CTAN
+- try to update the information in TeX Catalogue
+  - http://www.tex.ac.uk/tex-archive/help/Catalogue/hier.html
+  - some entries say that patterns are obsolete, but still claim that the package is included in TL/MikTeX
+    (http://www.tex.ac.uk/tex-archive/help/Catalogue/entries/hrhyph.html)
+  - change script 4TL to generate shortdesc for hyph-xxx.tlpsrc
+  - once the shortdesc is written, also make sure to put longdesc or more extensive discription for TeX catalogue
+  - should we release a CTAN-only "browsable" version of hyphenation patterns:
+    - one folder per language
+    - symbolic links to all the files for that language
+    - a nice README for every language
+      - lists the author, copyright, ...
+      - says that the package is part of hyph-utf8 and properly redirect
+    - catalogue could have a reference to that folder and contain all the data
+    - discuss the idea with CTAN before doing extensive changes
 
 OpenOffice:
 - write auto-notificator for changes in OOo (more important)
