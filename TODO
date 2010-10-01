@@ -12,6 +12,7 @@ Pattern creators:
 - write DONE for each language once you receive the answer from the author
 
 Languages:
+- change script 4TL to generate shortdesc for hyph-xxx.tlpsrc
 - complete languages.html
 - unification of Mongolian
   - encoding
