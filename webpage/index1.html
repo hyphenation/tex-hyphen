@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><!-- $Id: index.html 462 2010-09-22 13:50:00Z mojca $ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>TeX hyphenation patterns · TeX Users Group</title>
+	<link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold"
+	 rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" media="all" href="http://yui.yahooapis.com/2.8.1/build/reset-fonts-grids/reset-fonts-grids.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen,projection" href="style.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="/tugstyle.css" />
+	<link rel="shortcut icon" href="http://tug.org/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="http://tug.org/favicon.ico" type="image/icon" />
+		<script type="text/javascript" src="site.js"></script>
+</head>
+<body>
+
+<div id="hd">
+	<h2>T<sub class="tex">E</sub>X hyphenation patterns <img class="right" src="tug.png" alt="TUG logo" /></h2>
+	<div id="navigation"></div>
+</div>
+<div id="bd">
+	<div id="content">
+		<a name="start"></a>
+		<div class="section" id="introduction">
+		<h3>Introduction</h3>
+		<p>This is the central place for hyphenation patterns in TeX. They are all bundled in a single package called hyph-utf8.</p>
+<ul>
+	<li><a href="/mailman/listinfo/tex-hyphen">tex-hyphen mailing list</a></li>
+	<li><a href="/svn/texhyphen">texhyphen source repository</a></li>
+	<li><a href= "http://mirror.ctan.org/language">language directory on CTAN</a></li>
+</ul>
+<h4>For pattern authors</h4>
+<p>If you are a pattern author and wish to update your patterns, please contact the hyph-utf8
+package maintainers through the <a target="_blank" href="/mailman/listinfo/tex-hyphen">tex-hyphen mailing list</a>.</p>
+</div>
+<div class="section" id="algorithm">
+<h3>Documentation</h3>
+<h4>Algorithm</h4>
+<ul>
+	<li><a target="_blank" href="/docs/liang/">Frank Liang's thesis</a></li>
+	<li><a target="_blank" href="http://en.wikipedia.org/wiki/Hyphenation_algorithm">Hyphenation algorithm (article on Wikipedia)</a></li>
+	<li><a target="_blank" href="http://www.ushuaia.pl/hyphen/?ln=en">Test TeX/OpenOffice hyphenation algorithm online</a> (based on hunspell)</li>
+</ul>
+<h4>Papers</h4>
+<ul>
+	<li><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/doc/generic/hyph-utf8/hyphenation.pdf">Documentation</a> (needs improvement)</li>
+	<li><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/doc/luatex/hyph-utf8/luatex-hyphen.pdf">Documentation for Lua(La)TeX part of package</a></li>
+	<li><a href="pdf/tb93miklavec.pdf">TUG 2008 paper</a></li>
+</ul>
+<h4>Slides</h4>
+<ul>
+	<li><a href="pdf/hyphenator.pdf">The TeX hyphenation applied to HTML</a> (Mathias Nater, BachoTeX 2010)</li>
+</ul>
+<h4>Related Packages</h4>
+<ul>
+	<li><a href="http://www.ctan.org/tex-archive/macros/latex/required/babel/babel.pdf">Babel</a> (pdf; 1659 kb) &ndash; for pdfTeX and other 8-bit TeX engines</li>
+	<li><a href="http://www.ctan.org/tex-archive/macros/xetex/latex/polyglossia/polyglossia.pdf">Polyglossia</a> (pdf; 169 kb) &ndash; for XeTeX</li>
+</ul>
+</div>
+<div class="section" id="links">
+<h3>Links</h3>
+	<h4>Collaboration</h4>
+	<ul>
+		<li><a target="_blank" href="http://offo.sourceforge.net/hyphenation/index.html">FOP XML Hyphenation Patterns</a> (Simon Pepping)</li>
+		<li><a target="_blank" href="http://cpan.uwinnipeg.ca/dist/TeX-Hyphen-Pattern">TeX-Hyphen-Pattern</a> (Perl implementation on <a target="_blank" href="http://search.cpan.org/~ipenburg/TeX-Hyphen-Pattern-0.03/lib/TeX/Hyphen/Pattern.pm">CPAN</a>) (Roland van Ipenburg)</li>
+		<li><a target="_blank" href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> (Client-side implementation of hyphenation in HTML documents) (Mathias Nater)</li>
+	</ul>
+	<h4>OpenOffice.org</h4>
+	<p><a target="_blank" href="http://wiki.services.openoffice.org/wiki/Documentation/SL/Using_TeX_hyphenation_patterns_in_OpenOffice.org">Using TeX hyphenation patterns in OpenOffice.org</a> (explains how to properly convert TeX patterns into OpenOffice-friendly form)</p>
+	<h4>Other external links</h4>
+<ul>
+                    <li><a target="_blank" href=
+                    "http://hunspell.sourceforge.net/">Hunspell</a>
+                    (library)</li>
+                    <li><a target="_blank" href=
+                    "http://extensions.services.openoffice.org/dictionary">
+                    Open Office language extensions</a></li>
+                    <li><a target="_blank" href=
+                    "http://rubyforge.org/frs/?group_id=294">text-hyphen</a>
+                    (rubyforge)</li>
+                    <li><a target="_blank" href=
+                    "http://sourceforge.net/projects/texhyphj/">TeX
+                    Hyphenator in Java</a></li>
+                    <li>
+                        Indic languages: 
+                        <ul>
+                            <li><a target="_blank" href=    "http://git.savannah.gnu.org/cgit/smc.git/tree/hyphenation">
+                            git repository</a></li>
+                            <li>
+                                Santhosh Thottingal's blogs: 
+                                <ul>
+                                    <li><a target="_blank" href=            "http://thottingal.in/blog/2008/12/13/hyphenation-of-indian-languages-and-openoffice/">
+                                    Hyphenation of Indian Languages
+                                    and Openoffice</a></li>
+                                    <li><a target="_blank" href=            "http://thottingal.in/blog/2008/12/16/hyphenation-of-indian-languages-in-webpages/">
+                                    Hyphenation of Indian Languages
+                                    in Webpages</a></li>
+                                    <li><a target="_blank" href=            "http://thottingal.in/blog/2009/08/15/ooo_hyphenation_extensions/">
+                                    New Hyphenation Pattern
+                                    Extensions for
+                                    OpenOffice.org</a></li>
+                                    <li><a target="_blank" href=            "http://thottingal.in/blog/2009/10/03/inkscape-hyphenation-extension/">
+                                    Inkscape hyphenation
+                                    extension</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>An article about <a target="_blank" href=
+                    "http://www.cs.tut.fi/~jkorpela/shy.html">soft
+                    hyphen</a></li>
+                    <!--<li><a target="_blank" href=""></a></li>-->
+                </ul>
+				</div>
+				<div class="section" id="languages">
+                <h3>Supported Languages</h3>
+                <p>The package contains
+                patterns for the following languages:</p>
+				<p>(if patterns
+                for any other language exist and are missing below
+                please let us know)</p>
+			<table border="1">
+				<tr>
+					<td>&nbsp;</td>
+					<th>name, synonyms</th>
+					<td align="center">code<br />(link to file)</td>
+					<td align="center">(left,right)-<br />hyphenmin</td>
+					<td align="center">8-bit<br />encoding</td>
+				</tr>
+				<tr>
+					<td><b>Afrikaans</b></td>
+					<td>afrikaans</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-af.tex">af</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Ancientgreek</b></td>
+					<td>ancientgreek</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-grc.tex">grc</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>ibycus</td>
+					<td>grc-x-ibycus</td>
+					<td>(2,2)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Arabic</b></td>
+					<td>arabic</td>
+					<td>ar</td>
+					<td>(,)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Armenian</b></td>
+					<td>armenian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-hy.tex">hy</a></td>
+					<td>(1,2)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Assamese</b></td>
+					<td>assamese</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-as.tex">as</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Basque</b></td>
+					<td>basque</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-eu.tex">eu</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Bengali</b></td>
+					<td>bengali</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-bn.tex">bn</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Bulgarian</b></td>
+					<td>bulgarian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-bg.tex">bg</a></td>
+					<td>(2,2)</td>
+					<td>T2A</td>
+				</tr>
+				<tr>
+					<td><b>Catalan</b></td>
+					<td>catalan</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-ca.tex">ca</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Chinese</b></td>
+					<td>pinyin</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-zh-latn.tex">zh-latn</a></td>
+					<td>(1,1)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Coptic</b></td>
+					<td>coptic</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-cop.tex">cop</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Croatian</b></td>
+					<td>croatian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-hr.tex">hr</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Czech</b></td>
+					<td>czech</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-cs.tex">cs</a></td>
+					<td>(2,3)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Danish</b></td>
+					<td>danish</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-da.tex">da</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Dutch</b></td>
+					<td>dutch</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-nl.tex">nl</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>English</b></td>
+					<td>english, usenglish, USenglish, american</td>
+					<td>(default)</td>
+					<td>(2,3)</td>
+					<td>ASCII</td>
+				</tr>
+				<tr>
+					<td><b>&nbsp;</b></td>
+					<td>ukenglish, british, UKenglish</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-en-gb.tex">en-gb</a></td>
+					<td>(2,3)</td>
+					<td>ASCII</td>
+				</tr>
+				<tr>
+					<td><b>&nbsp;</b></td>
+					<td>usenglishmax</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-en-us.tex">en-us</a></td>
+					<td>(2,3)</td>
+					<td>ASCII</td>
+				</tr>
+				<tr>
+					<td><b>Esperanto</b></td>
+					<td>esperanto</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-eo.tex">eo</a></td>
+					<td>(2,2)</td>
+					<td>IL3</td>
+				</tr>
+				<tr>
+					<td><b>Estonian</b></td>
+					<td>estonian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-et.tex">et</a></td>
+					<td>(2,3)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Farsi</b></td>
+					<td>farsi, persian</td>
+					<td>fa</td>
+					<td>(,)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Finnish</b></td>
+					<td>finnish</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-fi.tex">fi</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>French</b></td>
+					<td>french, patois, francais</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-fr.tex">fr</a></td>
+					<td>(2,3)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Galician</b></td>
+					<td>galician</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-gl.tex">gl</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>German</b></td>
+					<td>german</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-de-1901.tex">de-1901</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>ngerman</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-de-1996.tex">de-1996</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>swissgerman</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-de-ch-1901.tex">de-ch-1901</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Greek</b></td>
+					<td>monogreek</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-el-monoton.tex">el-monoton</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>greek, polygreek</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-el-polyton.tex">el-polyton</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Gujarati</b></td>
+					<td>gujarati</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-gu.tex">gu</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Hindi</b></td>
+					<td>hindi</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-hi.tex">hi</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Hungarian</b></td>
+					<td>hungarian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-hu.tex">hu</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Icelandic</b></td>
+					<td>icelandic</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-is.tex">is</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Indonesian</b></td>
+					<td>indonesian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-id.tex">id</a></td>
+					<td>(2,2)</td>
+					<td>ASCII</td>
+				</tr>
+				<tr>
+					<td><b>Interlingua</b></td>
+					<td>interlingua</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-ia.tex">ia</a></td>
+					<td>(2,2)</td>
+					<td>ASCII</td>
+				</tr>
+				<tr>
+					<td><b>Irish</b></td>
+					<td>irish</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-ga.tex">ga</a></td>
+					<td>(2,3)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Italian</b></td>
+					<td>italian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-it.tex">it</a></td>
+					<td>(2,2)</td>
+					<td>ASCII</td>
+				</tr>
+				<tr>
+					<td><b>Kannada</b></td>
+					<td>kannada</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-kn.tex">kn</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Kurmanji</b></td>
+					<td>kurmanji</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-kmr.tex">kmr</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Lao</b></td>
+					<td>lao</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-lo.tex">lo</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Latin</b></td>
+					<td>latin</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-la.tex">la</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Latvian</b></td>
+					<td>latvian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-lv.tex">lv</a></td>
+					<td>(2,2)</td>
+					<td>L7X</td>
+				</tr>
+				<tr>
+					<td><b>Lithuanian</b></td>
+					<td>lithuanian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-lt.tex">lt</a></td>
+					<td>(2,2)</td>
+					<td>L7X</td>
+				</tr>
+				<tr>
+					<td><b>Malayalam</b></td>
+					<td>malayalam</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-ml.tex">ml</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Marathi</b></td>
+					<td>marathi</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-mr.tex">mr</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Mongolian</b></td>
+					<td>mongolian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-mn-cyrl.tex">mn-cyrl</a></td>
+					<td>(2,2)</td>
+					<td>T2A</td>
+				</tr>
+				<tr>
+					<td><b>&nbsp;</b></td>
+					<td>mongolianlmc</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-mn-cyrl-x-lmc.tex">mn-cyrl-x-lmc</a></td>
+					<td>(2,2)</td>
+					<td>LMC</td>
+				</tr>
+				<tr>
+					<td><b>Norwegian</b></td>
+					<td>bokmal, norwegian, norsk</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-nb.tex">nb</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>nynorsk</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-nn.tex">nn</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Oriya</b></td>
+					<td>oriya</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-or.tex">or</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Panjabi</b></td>
+					<td>panjabi</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-pa.tex">pa</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Polish</b></td>
+					<td>polish</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-pl.tex">pl</a></td>
+					<td>(2,2)</td>
+					<td>QX</td>
+				</tr>
+				<tr>
+					<td><b>Portuguese</b></td>
+					<td>portuguese, portuges</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-pt.tex">pt</a></td>
+					<td>(2,3)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Romanian</b></td>
+					<td>romanian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-ro.tex">ro</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Russian</b></td>
+					<td>russian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-ru.tex">ru</a></td>
+					<td>(2,2)</td>
+					<td>T2A</td>
+				</tr>
+				<tr>
+					<td><b>Sanskrit</b></td>
+					<td>sanskrit</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-sa.tex">sa</a></td>
+					<td>(1,5)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Serbian</b></td>
+					<td>serbian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-sh-latn.tex">sr-latn</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Slovenian</b></td>
+					<td>slovenian, slovene</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-sl.tex">sl</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Spanish</b></td>
+					<td>spanish, espanol</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-es.tex">es</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Swedish</b></td>
+					<td>swedish</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-sv.tex">sv</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Tamil</b></td>
+					<td>tamil</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-ta.tex">ta</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Telugu</b></td>
+					<td>telugu</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-te.tex">te</a></td>
+					<td>(1,1)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><b>Turkish</b></td>
+					<td>turkish</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-tr.tex">tr</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Turkmen</b></td>
+					<td>turkmen</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-tk.tex">tk</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Ukrainian</b></td>
+					<td>ukrainian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-uk.tex">uk</a></td>
+					<td>(2,2)</td>
+					<td>T2A</td>
+				</tr>
+				<tr>
+					<td><b>Uppersorbian</b></td>
+					<td>uppersorbian</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-hsb.tex">hsb</a></td>
+					<td>(2,2)</td>
+					<td>EC</td>
+				</tr>
+				<tr>
+					<td><b>Welsh</b></td>
+					<td>welsh</td>
+					<td><a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-cy.tex">cy</a></td>
+					<td>(2,3)</td>
+					<td>EC</td>
+				</tr>
+                </table>
+				</div>
+				<div class="section" id="demo">
+					<h3>Demo</h3>
+					<p>Live demo using <a target="_blank" href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> coming soon...</p>
+				</div>
+            </div>
+        </div>
+        <div id="ft">
+            <p class="small"><a href="/index.html">TUG home
+            page</a> | <a href="/htdig/">search</a> |<a href=
+            "mailto:webmaster@tug.org">contact webmaster</a> |
+			design by <a href="http://www.fiee.net">fiëé visuëlle</a>
+			<span class="right">$Date: 2010-09-22 15:50:00 +0200 (Wed, 22 Sep 2010) $</span></p>
+        </div>
+    </body>
+</html>

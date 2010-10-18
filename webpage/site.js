@@ -1,19 +1,11 @@
-	$(document).ready(function(){
+    $(document).ready(function(){
 		$('div.section').hide();
-		$('a,p,li,h3').each(function(index){
-			html = $(this).html();
-			text = $(this).text();
-			if (html==text) {
-				/* we don't want to replace TeX in link addresses! */
-				$(this).html(html.replace(/TeX/g, 'T<sub class="tex">E</sub>X'));
-			}
-		});
 		if (window.location.href.indexOf('#')==-1) {
 			window.location.href += '#introduction';
 		}
 		nav = $('#navigation');
 		links = '';
-		$('h3').each(function(index){
+        $('h3').each(function(index){
 			section = $(this).parents('div.section');
 			text = $(this).text();
 			name = section[0].id;
@@ -26,7 +18,15 @@
 			}
 		});
 		nav.html(links);
-	}); 
+		
+		Hyphenator.config({
+			displaytogglebox: true,
+		});
+		Hyphenator.addExceptions('de', 'Groß-va-ter');
+		Hyphenator.run();
+		
+		$('#HyphenatorToggleBox').css('right:100px;');
+    }); 
     
 	function goHome() {
 		$('#navigation a').show();
@@ -34,8 +34,21 @@
 
 	function handleClick(node, name) {
 		$('#navigation a').show();
-		/*$(node).hide();*/
+		/* $(node).hide(); */
 		$('div.section').hide();
 		$('div.section#'+name).show();
 	}
-
+	
+	function LoadSample(selector) {
+		if (selector.value.match(/(cs|de|en|fr|fi|pl)/i)) {
+			$.get('sample-'+selector.value+'.html', {}, function(data){
+				data = Hyphenator.hyphenate(data, selector.value);
+				$('#demo_example').html(data);
+			});
+		} else if (selector.value=='--') {
+			alert('Please select a language!');
+		} else {
+			alert('No fiddling with the code!');
+		}
+	}
+	

@@ -4,9 +4,23 @@ html {
 	border-right: 3px dashed #ffffff;
 }
 
+/* language dependent quotes work only with <q></q>, but neither Firefox nor Safari displays them */
+
+html[lang|="de"] {
+    quotes: "\201E" "\201C" "\201A" "\2018";
+}
+
+html[lang|="en"] {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+html[lang|="fr"] {
+    quotes: "\00AB" "\00BB" "\2039" "\203A";
+}
+
 body {
-	font-family: 'Yanone Kaffeesatz', Arial, sans;
-	font-size: 100%;
+	font-family: 'Droid Serif', Georgia, Times, serif, roman;
+	font-size: 110%;
 	padding-left: 2em;
 	padding-right: 2em;
 	margin-left: auto;
@@ -16,6 +30,7 @@ body {
 }
 
 p {
+	text-align: justify;
 	margin-bottom: 0.25em;
 }
 
@@ -46,7 +61,12 @@ ul li {
 	list-style-type: disc;
 }
 
+select {
+	font-size: 80%;
+}
+
 h1, h2, h3, h4, h5 {
+  font-family: 'Yanone Kaffeesatz', Arial, sans;
 	color: #111133;
 	font-weight: bold;
 	margin-top: 0.5em;
@@ -98,6 +118,11 @@ th, td {
 	text-align: right;
 }
 
+.hyphen {
+	color: #ff0000;
+	font-weight: bold;
+}
+
 sub.tex {
 	position: relative;
 	font-size: 100%;
@@ -135,6 +160,7 @@ sub.tex {
 	position: relative;
 	height: 100%;
 	overflow: auto;
+	padding-right: 0.5em;
 }
 
 #navigation {
@@ -158,3 +184,11 @@ sub.tex {
 	border-bottom: none;
 	background-color: #eeeeff;
 }
+
+#demo_example {
+	width: 50%;
+	margin-right: 1em;
+	float: left;
+	font-family: Times, serif;
+}
+
