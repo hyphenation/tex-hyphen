@@ -78,6 +78,10 @@ Impromevents:
   - hyphenator
   - ...
 - LuaTeX patterns
+- Describe and try to solve the apostrophe problem (users should be able
+  to input both U+0027 and U+2019)
+  See http://tug.org/pipermail/xetex/2010-October/018914.html ff. for
+  one use case.
 
 Documentation:
 - authors, history, changes
