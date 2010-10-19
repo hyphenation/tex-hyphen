@@ -7,12 +7,12 @@ execute AddHyphen \
 	righthyphenmin=2 \
 	file=loadhyph-nb.tex \
 	file_patterns=hyph-nb.pat.txt \
-	file_exceptions=
+	file_exceptions=hyph-nb.hyp.txt
 execute AddHyphen \
 	name=nynorsk \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-nn.tex \
 	file_patterns=hyph-nn.pat.txt \
-	file_exceptions=
+	file_exceptions=hyph-nn.hyp.txt
 

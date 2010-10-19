@@ -136,7 +136,7 @@ language_groups.sort.each do |language_name,language_list|
 				end
 
 				file_patterns   = "file_patterns=#{filename_pat}"
-				if !File::size?( "#{$path_txt}/#{filename_hyp}" ) then
+				if File::size?( "#{$path_txt}/#{filename_hyp}" ) != nil then
 					file_exceptions = "file_exceptions=#{filename_hyp}"
 				else
 					file_exceptions = "file_exceptions="

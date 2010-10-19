@@ -7,7 +7,7 @@ execute AddHyphen \
 	righthyphenmin=1 \
 	file=loadhyph-grc.tex \
 	file_patterns=hyph-grc.pat.txt \
-	file_exceptions=hyph-grc.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=ibycus \
 	lefthyphenmin=2 \

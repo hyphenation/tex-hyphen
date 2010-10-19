@@ -7,75 +7,75 @@ execute AddHyphen \
 	righthyphenmin=1 \
 	file=loadhyph-as.tex \
 	file_patterns=hyph-as.pat.txt \
-	file_exceptions=hyph-as.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=bengali \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-bn.tex \
 	file_patterns=hyph-bn.pat.txt \
-	file_exceptions=hyph-bn.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=gujarati \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-gu.tex \
 	file_patterns=hyph-gu.pat.txt \
-	file_exceptions=hyph-gu.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=hindi \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-hi.tex \
 	file_patterns=hyph-hi.pat.txt \
-	file_exceptions=hyph-hi.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=kannada \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-kn.tex \
 	file_patterns=hyph-kn.pat.txt \
-	file_exceptions=hyph-kn.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=malayalam \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-ml.tex \
 	file_patterns=hyph-ml.pat.txt \
-	file_exceptions=hyph-ml.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=marathi \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-mr.tex \
 	file_patterns=hyph-mr.pat.txt \
-	file_exceptions=hyph-mr.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=oriya \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-or.tex \
 	file_patterns=hyph-or.pat.txt \
-	file_exceptions=hyph-or.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=panjabi \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-pa.tex \
 	file_patterns=hyph-pa.pat.txt \
-	file_exceptions=hyph-pa.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=tamil \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-ta.tex \
 	file_patterns=hyph-ta.pat.txt \
-	file_exceptions=hyph-ta.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=telugu \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-te.tex \
 	file_patterns=hyph-te.pat.txt \
-	file_exceptions=hyph-te.hyp.txt
+	file_exceptions=
 

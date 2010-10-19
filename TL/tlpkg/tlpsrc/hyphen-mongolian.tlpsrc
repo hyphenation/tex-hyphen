@@ -7,7 +7,7 @@ execute AddHyphen \
 	righthyphenmin=2 \
 	file=loadhyph-mn-cyrl.tex \
 	file_patterns=hyph-mn-cyrl.pat.txt \
-	file_exceptions=hyph-mn-cyrl.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=mongolianlmc \
 	lefthyphenmin=2 \

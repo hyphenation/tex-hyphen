@@ -7,14 +7,14 @@ execute AddHyphen \
 	righthyphenmin=1 \
 	file=loadhyph-el-monoton.tex \
 	file_patterns=hyph-el-monoton.pat.txt \
-	file_exceptions=hyph-el-monoton.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=greek synonyms=polygreek \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-el-polyton.tex \
 	file_patterns=hyph-el-polyton.pat.txt \
-	file_exceptions=hyph-el-polyton.hyp.txt
+	file_exceptions=
 
 runpattern f texmf/tex/generic/hyphen/grmhyph5.tex
 runpattern f texmf/tex/generic/hyphen/grphyph5.tex

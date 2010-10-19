@@ -7,21 +7,21 @@ execute AddHyphen \
 	righthyphenmin=2 \
 	file=loadhyph-de-1901.tex \
 	file_patterns=hyph-de-1901.pat.txt \
-	file_exceptions=hyph-de-1901.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=ngerman \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-de-1996.tex \
 	file_patterns=hyph-de-1996.pat.txt \
-	file_exceptions=hyph-de-1996.hyp.txt
+	file_exceptions=
 execute AddHyphen \
 	name=swissgerman \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-de-ch-1901.tex \
 	file_patterns=hyph-de-ch-1901.pat.txt \
-	file_exceptions=hyph-de-ch-1901.hyp.txt
+	file_exceptions=
 
 runpattern f texmf/tex/generic/hyphen/dehypht.tex
 runpattern f texmf/tex/generic/hyphen/dehyphn.tex

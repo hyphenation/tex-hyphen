@@ -8,4 +8,4 @@ execute AddHyphen \
 	righthyphenmin=2 \
 	file=loadhyph-ru.tex \
 	file_patterns=hyph-ru.pat.txt \
-	file_exceptions=
+	file_exceptions=hyph-ru.hyp.txt

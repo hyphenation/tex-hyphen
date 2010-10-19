@@ -7,5 +7,5 @@ execute AddHyphen \
 	righthyphenmin=2 \
 	file=loadhyph-ca.tex \
 	file_patterns=hyph-ca.pat.txt \
-	file_exceptions=
+	file_exceptions=hyph-ca.hyp.txt
 
