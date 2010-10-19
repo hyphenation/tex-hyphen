@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rm *.log *.fmt *.aux
+rm -f *.log *.fmt *.aux
