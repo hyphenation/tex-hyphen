@@ -16,30 +16,34 @@
 
 \testA{Without lccode}
 
+\bgroup
 \lccode"27="27
-
 \testA{With lccode 27->27; OK}
+\egroup
 
-\par\strut\par\strut\par
+\vskip2\baselineskip
+
 \fontB
 
 \testA{Without lccode (with tex-text)}
 
+\bgroup
 \lccode"2019="0027
-
 \testA{With lccode 2019->27 (with tex-text); OK}
+\egroup
 
+\bgroup
 \lccode"2019="2019
-
 \testA{With lccode 2019->2019 (with tex-text)}
+\egroup
 }
 
-\uselanguage{apostrophe}
+\uselanguage{apostropheS}
 \testpage
 
 \eject
 
-\uselanguage{apostropheS}
+\uselanguage{apostrophe}
 \testpage
 
 \bye
