@@ -6,7 +6,7 @@
 
 \def\test#1#2{{\tt#1}\endgraf\hsize=3pt\noindent #2\endgraf\hsize=\savehsize}
 
-\def\testA#1{\test{#1}{a l'an}}
+\def\testA#1{\test{#1}{a l'ana}}
 
 \long\def\testpage{
 
@@ -18,6 +18,7 @@
 
 \bgroup
 \lccode"27="27
+\lccode"006E="0027
 \testA{With lccode 27->27; OK}
 \egroup
 
