@@ -335,7 +335,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
-	"hyphenmin" => [2,2], # babel
+	"hyphenmin" => [1,2], # in babel: 2,2
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Afrikaans Hyphenation Patterns",

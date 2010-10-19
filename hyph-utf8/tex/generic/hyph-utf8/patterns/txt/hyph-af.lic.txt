@@ -2,110 +2,25 @@ Afrikaans Hyphenation Patterns
 
 (more info about the licence to be added later)
 
-% Hyphenation patterns taken from
-%     <http://extensions.services.openoffice.org/en/project/dict_af>
-% Author:
-%     Friedel Wolff <friedel at translate dot org dot za>
+% Hyphenation patterns for Afrikaans
 %
-% The patterns have been added on 2010-09-18 on user request
-% from South Africa, but the patterns seems to be hand-edited badly.
-% We have removed conflicting patterns manually,
-% however this is only a temporary solution.
-% Having some patterns is better than having no patterns at all,
-% but somebody should improve, test and possibly replace patterns
-% with a properly tested version.
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+% -----------------------------------------------------------------
+% VERSION: 0.9 (October 2010)
 %
-% The hyph-utf8 team.
+% AUTHORS:  Tilla Fick and Chris Swanepoel
+%           hyphen at rekenaar dot net
+% -----------------------------------------------------------------
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Hyphenation file for Afrikaans
-% Copyright (C) 2005  Friedel Wolff
+% Define lefthyphenmin to one and righthyphenmin to two
+% (although righthyphenmin could technically be made one,
+%  in allmost all cases a value of two gives better results): 
+% \lefthyphenmin=1 \righthyphenmin=2
 %
-% This library is free software; you can redistribute it and/or
-% modify it under the terms of the GNU Lesser General Public
-% License as published by the Free Software Foundation; either
-% version 2.1 of the License, or (at your option) any later version.
-%
-% This library is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-% Lesser General Public License for more details.
-%
-% You should have received a copy of the GNU Lesser General Public
-% License along with this library; if not, write to the Free Software
-% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Woordafkapping in Afrikaans
-%
-% Kopiereg Friedel Wolff (2005), lisensie: LGPL
-%
-% Geen waarborg van enige aard nie.
-%
-% Weergawe vir altlinuxHyph
-% Gebasseer op die WAT, HAT, en reëls van die AWS en
-%         "40 000 woorde" deur GC Bresler
-%
-%
-%
-%
-% Uitleg
-% ======
-% 0.  Notas
-% 1.  Algemene voorvoegsels
-% 1.  Algemene agtervoegsels
-% 2.  Verkleiningsvorme
-% 3.  Alle herhalings van konsonante langs mekaar (gg, kk, ens.)
-% 4.  Deeltekens
-% 5.  Kapies
-% 6.  Konsonantkombinasies met b-z (vokale uitgesluit, hoofsaaklik geslote
-%     lettergrepe)
-% 7.  Vokaalkombinasies, diftonge, ens.
-% 8.  Oop lettergrepe
-% 9.  Geslote lettergrepe
-% 10. Vaste vorme
-% 11. Uitsonderings
-% 11. Kombinasies met "ig"
-% 12. Kombinasies met "ing"
-% 13. Trappe van vergelyking verbuigings
-% 14. Grootskaalse konsonantopeenhoping
-% 15. Waaghalsige pogings tot samestellings en verbindingsklanke
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 0.  Notas
-% =========
-% Dit is belangrik dat daar nie te min karakters van 'n woord alleen op 'n reël
-% toegelaat word nie. Die verstekwaardes van 3 is waarskynlik goed genoeg dat
-% daar nie foute sal wees nie. Kleiner waardes is riskant, en is moontlik ook
-% sleg uit 'n oogpunt van leesbaarheid. Twee karakters behoort egter nie veel
-% probleme te gee nie. Op enkele plekke is daar selfs reëls vir die afkap na
-% die eerste letter van 'n woord. In Afrikaans sal dít waarskynlik nie lekker
-% lees nie.
-%
-% Hier is moontlik heelwat foute. Die volgende gee veral probleme:
-%  * samestellings, en veral samestellings met verbindings-s. Hierdie is 'n
-%    groot probleem aangesien woordgrense juis die ideale plek is om af te kap.
-%    Die afkap rondom woordgrense by samestellings kan lees bemoeilik.
-%  * leenwoorde
-%  * vreemde name en plekke
-%  * klanke wat soms een klank is en soms nie, soos sj, gh, tj
-%  * verkleiningsvorme, wat in elkgeval maar "bie-tjie" vreemd is
-%  * deeltekens maak dinge maklik, maar as ons breek voor hulle, moet die
-%    deelteken verval - nie moontlik nie. Die nuwe AWS maak wel voorsiening vir
-%    die behoud van die deelteken, maar ideaalgesproke moet ons dit kan
-%    verwyder, veral in gevalle waar die deelteken slegs vir leesbaarheid
-%    gebruik is.
-%  * oop lettergrepe, veral aangesien woorde wat op geslote lettergrepe eindig
-%    saamgevoeg kan word met woorde wat op vokale begin
-%  * sekere breuke, alhowel hulle korrek is, bemoeilik lees.
-%    Kyk bv. na "vere-".
-%  * die interaksie van reëls op mekaar is moeilik om mee tret te hou.
-%
-% Plekke waar daar iets staan soos "200 gevalle" is 'n rowwe aanduiding van die
-% aantal gevalle in die woordelys waar 'n sekere reël voorkom. Neem dit met 'n
-% knippie sout, aangesien die interaksie van verskillende reëls meestal nie in
-% ag geneem is nie (maar soms wel). Die woordelys is ook 'n bewegende teiken.
-%
-%
-%
+% -----------------------------------------------------------------

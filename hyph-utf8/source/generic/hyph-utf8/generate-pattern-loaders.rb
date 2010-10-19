@@ -59,7 +59,7 @@ languages.each do |language|
 			if language.code == 'af' or language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'zh-latn' then
 				file.puts("\\lccode`\\'=`\\'")
 			end
-			if language.code == 'pt' or language.code == 'tk' then
+			if language.code == 'af' or language.code == 'pt' or language.code == 'tk' then
 				file.puts("\\lccode`\\-=`\\-")
 			end
 			
