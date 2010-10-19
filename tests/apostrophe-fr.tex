@@ -1,0 +1,25 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+
+\usepackage[margin=2.5cm, includeheadfoot]{geometry}
+\geometry{a4paper, centering}
+\setlength\textwidth{1cm}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont{Helvetica}
+\lccode"2019="0027
+\lccode"0027="0027
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{\medskipamount}
+
+\begin{document}
+
+% this keeps breaking after "l'-"
+dei l'information
+
+xd'xxx
+
+\end{document}
