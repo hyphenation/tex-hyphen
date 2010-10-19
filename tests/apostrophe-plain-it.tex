@@ -1,28 +1,37 @@
-% TODO Really select the language!
+\font\fontA="[Iwona-Regular.otf]"
+\font\fontB="[Iwona-Regular.otf]:mapping=tex-text"
 
-\font\1="[Iwona-Regular.otf]/ICU:script=latn;language=DFLT;mapping=tex-text;"
+% \font\fontA="[texgyrepagella-regular.otf]"
+% \font\fontB="[texgyrepagella-regular.otf]:mapping=tex-text"
+
+\uselanguage{italian}
 
 \newdimen\savehsize
 \savehsize\hsize
 
-\1
+\def\test#1#2{{\tt#1}\endgraf\hsize=3pt\noindent #2\endgraf\hsize=\savehsize}
 
-{\tt Without lccode}
+\def\testA#1{\test{#1}{a dell'amicizia}}
+\def\testB#1{\test{#1}{dell'amicizia}}
 
-\hsize=3pt
+\fontA
 
-\noindent a dell'amicizia
+\testA{Without lccode}
 
-\hsize=\savehsize
+\lccode"27="27
+
+\testA{With lccode 27->27}
+
+\testA{Without lccode (with tex-text)}
+
+\lccode"2019="0027
+
+\testA{With lccode 2019->27 (with tex-text)}
 
 \lccode"2019="2019
 
-{\tt With lccode}
+\testA{With lccode 2019->2019 (with tex-text)}
 
-\hsize=3pt
-
-\noindent a dell'amicizia
-
-\hsize=\savehsize
+\testB{the same ...}
 
 \bye
