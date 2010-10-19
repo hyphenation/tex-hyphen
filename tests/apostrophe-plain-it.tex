@@ -1,0 +1,26 @@
+\font\1="[Iwona-Regular.otf]/ICU:script=latn;language=DFLT;mapping=tex-text;"
+
+\newdimen\savehsize
+\savehsize\hsize
+
+\1
+
+{\tt Without lccode}
+
+\hsize=3pt
+
+\noindent a dell'amicizia
+
+\hsize=\savehsize
+
+\lccode"2019="2019
+
+{\tt With lccode}
+
+\hsize=3pt
+
+\noindent a dell'amicizia
+
+\hsize=\savehsize
+
+\bye
