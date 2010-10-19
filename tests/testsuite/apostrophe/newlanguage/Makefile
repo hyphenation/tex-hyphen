@@ -7,4 +7,4 @@ xetex.fmt:
 	export TEXINPUTS=./texmf//: ; xetex -ini \*xetex.ini
 
 clean:
-	$(RM) xetex.fmt xetex.log
+	$(RM) xetex.fmt xetex.log test-apostrophe.log
