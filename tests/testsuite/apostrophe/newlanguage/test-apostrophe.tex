@@ -1,14 +1,14 @@
 \font\fontA="[lmroman10-regular.otf]"
 \font\fontB="[lmroman10-regular.otf]:mapping=tex-text"
 
-% \uselanguage{apostrophe}
-
 \newdimen\savehsize \savehsize\hsize
 \parskip=2ex
 
 \def\test#1#2{{\tt#1}\endgraf\hsize=3pt\noindent #2\endgraf\hsize=\savehsize}
 
 \def\testA#1{\test{#1}{a l'an}}
+
+\long\def\testpage{
 
 \fontA
 
@@ -32,5 +32,14 @@
 \lccode"2019="2019
 
 \testA{With lccode 2019->2019 (with tex-text)}
+}
+
+\uselanguage{apostrophe}
+\testpage
+
+\eject
+
+\uselanguage{apostropheS}
+\testpage
 
 \bye
