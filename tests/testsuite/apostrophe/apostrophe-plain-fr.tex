@@ -1,0 +1,41 @@
+\font\fontA="[Iwona-Regular.otf]"
+\font\fontB="[Iwona-Regular.otf]:mapping=tex-text"
+
+\uselanguage{french}
+
+\newdimen\savehsize
+\savehsize\hsize
+
+\def\test#1#2{{\tt#1}\endgraf\hsize=3pt\noindent #2\endgraf\hsize=\savehsize}
+
+\def\testA#1{\test{#1}{a l'information}}
+\def\testB#1{\test{#1}{l'information}}
+
+\fontA
+
+\testA{Without lccode}
+
+\bgroup
+\lccode"27="27
+\testA{With lccode 27->27}
+\egroup
+
+
+\fontB
+
+\testA{Without lccode (with tex-text)}
+
+\bgroup
+\lccode"2019="0027
+\testA{With lccode 2019->27 (with tex-text)}
+\egroup
+
+\bgroup
+\lccode"2019="2019
+\testA{With lccode 2019->2019 (with tex-text)}
+
+\testB{the same (why is there no break?) ...}
+\egroup
+
+
+\bye
