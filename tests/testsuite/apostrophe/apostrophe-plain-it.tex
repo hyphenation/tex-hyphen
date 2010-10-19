@@ -1,9 +1,6 @@
 \font\fontA="[Iwona-Regular.otf]"
 \font\fontB="[Iwona-Regular.otf]:mapping=tex-text"
 
-% \font\fontA="[texgyrepagella-regular.otf]"
-% \font\fontB="[texgyrepagella-regular.otf]:mapping=tex-text"
-
 \uselanguage{italian}
 
 \newdimen\savehsize
@@ -18,20 +15,26 @@
 
 \testA{Without lccode}
 
+\bgroup
 \lccode"27="27
-
 \testA{With lccode 27->27}
+\egroup
+
+
+\fontB
 
 \testA{Without lccode (with tex-text)}
 
+\bgroup
 \lccode"2019="0027
-
 \testA{With lccode 2019->27 (with tex-text)}
+\egroup
 
+\bgroup
 \lccode"2019="2019
-
 \testA{With lccode 2019->2019 (with tex-text)}
 
-\testB{the same ...}
+\testB{the same (why is there no break?) ...}
+\egroup
 
 \bye
