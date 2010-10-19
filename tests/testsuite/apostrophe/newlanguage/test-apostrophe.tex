@@ -1,0 +1,36 @@
+\font\fontA="[lmroman10-regular.otf]"
+\font\fontB="[lmroman10-regular.otf]:mapping=tex-text"
+
+% \uselanguage{apostrophe}
+
+\newdimen\savehsize \savehsize\hsize
+\parskip=2ex
+
+\def\test#1#2{{\tt#1}\endgraf\hsize=3pt\noindent #2\endgraf\hsize=\savehsize}
+
+\def\testA#1{\test{#1}{a l'an}}
+
+\fontA
+
+\noindent With proper lccode, result should be {\tt l'-an}, with wrong lccode, no hyphenation\par\strut
+
+\testA{Without lccode}
+
+\lccode"27="27
+
+\testA{With lccode 27->27; OK}
+
+\par\strut\par\strut\par
+\fontB
+
+\testA{Without lccode (with tex-text)}
+
+\lccode"2019="0027
+
+\testA{With lccode 2019->27 (with tex-text); OK}
+
+\lccode"2019="2019
+
+\testA{With lccode 2019->2019 (with tex-text)}
+
+\bye

@@ -1,0 +1,7 @@
+%% e-TeX V2.0
+% \addlanguage {USenglish}{hyphen}{}{2}{3}
+
+\addlanguage{apostrophe}{hyph-apostrophe.tex}{}{1}{1}
+\uselanguage{apostrophe}
+
+% \uselanguage {USenglish}
