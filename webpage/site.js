@@ -20,12 +20,12 @@
 		nav.html(links);
 		
 		Hyphenator.config({
-			displaytogglebox: true,
+			displaytogglebox: false,
 		});
 		Hyphenator.addExceptions('de', 'Groß-va-ter');
 		Hyphenator.run();
 		
-		$('#HyphenatorToggleBox').css('right:100px;');
+		//$('#HyphenatorToggleBox').css('right:100px;');
     }); 
     
 	function goHome() {
