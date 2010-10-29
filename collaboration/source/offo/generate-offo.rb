@@ -47,7 +47,8 @@ language_codes['de-ch-1901']   = 'de_CH'
 language_codes['el-monoton']   = 'el'
 language_codes['el-polyton']   = 'el_Polyton'
 language_codes['en-gb']        = 'en_GB'
-language_codes['en-us']        = 'en_US'
+# FOP requires a pattern file for en; use the US patterns
+language_codes['en-us']        = 'en'
 # hu patterns cause a stack overflow when compiled with FOP
 language_codes['hu']           = nil
 language_codes['mn-cyrl']      = 'mn'
@@ -58,23 +59,40 @@ language_codes['sr-cyrl']      = 'sr_Cyrl'
 language_codes['sr-latn']      = 'sr_Latn'
 language_codes['zh-latn']      = 'zh_Latn'
 
+# How can I sort on language_codes?
+# language_codes[a.code] <=> language_codes[b.code] fails.
+# It would be nice to apply here the filter
+# code != nil && include_language = true.
+languages = $l.list.sort{|a,b| a.code <=> b.code}
+
+$languages_info = File.open("#{$rel_path_offo}/info/languages-info.xml", 'w')
+$languages_info.puts '<?xml version="1.0" encoding="utf-8"?>'
+$languages_info.puts '<?xml-stylesheet type="text/xsl" href="languages-info.xsl"?>'
+$languages_info.puts '<!DOCTYPE languages-info PUBLIC "-//OFFO//DTD LANGUAGES INFO 1.0//EN" "languages-info.dtd">'
+$languages_info.puts '<languages-info>'
+
 languages.each do |language|
 	include_language = language.use_new_loader
 	code = language_codes[language.code]
 	if code == nil
 		include_language = false
 	end
-	if code == 'en_US'
-		include_language = true
-	end
 
 	if include_language
 		puts "generating #{code}"
+        $languages_info.puts '<language>'
+        $languages_info.puts "<name>#{language.name}</name>"
+        $languages_info.puts "<tex-code>#{language.code}</tex-code>"
+        $languages_info.puts "<code>#{code}</code>"
+        $languages_info.puts "<message>#{language.message}</message>"
+        $languages_info.puts '</language>'
 	
 		$file_offo_pattern = File.open("#{$rel_path_offo}/#{code}.xml", 'w')
 
         comments_and_licence = language.get_comments_and_licence
-        classes    = language.get_classes
+        # do not use classes (SP 2010/10/26)
+        # classes    = language.get_classes
+        classes = nil
 		exceptions = language.get_exceptions
 		patterns   = language.get_patterns
 
@@ -133,3 +151,6 @@ languages.each do |language|
 		$file_offo_pattern.close
 	end
 end
+
+$languages_info.puts '</languages-info>'
+$languages_info.close
