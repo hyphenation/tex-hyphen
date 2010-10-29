@@ -333,6 +333,18 @@ class Languages < Hash
 # ----------------------------
 # languages using new patterns
 # ----------------------------
+# afrikaans
+{
+	"code" => "af",
+	"name" => "afrikaans",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => nil,
+	"hyphenmin" => [1,2], # in babel: 2,2
+	"encoding" => "ec",
+	"exceptions" => true,
+	"message" => "Afrikaans Hyphenation Patterns",
+},
 # catalan		cahyph.tex
 {
 	"code" => "ca",
