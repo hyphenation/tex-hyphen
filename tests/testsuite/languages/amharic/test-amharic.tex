@@ -1,0 +1,27 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\setmainlanguage{english}
+\setotherlanguage{amharic}
+
+\newfontfamily\amharicfont[Script = Ethiopic, Scale = 1.3]{[Abyssinica_SIL.ttf]}
+
+\begin{document}
+
+\title{Sample in Gǝ`ǝz}
+\maketitle
+
+\newdimen\savehsize
+\savehsize\hsize
+
+\def\test#1{\endgraf\hsize=1pt\noindent #1\endgraf\hsize=\savehsize}
+
+\begin{amharic}
+እስመ~፡ አግዚአብሔር~፡ አምላክ~፡ ማእምር~፡ ውእቱ~። እግዚአብሔር~፡ አስተደወ~፡ መንብሮ~። ወአድከመ~፡ ቅሥተ~፡ ኀያላን~። ወአቅነቶሙ~፡ ኀይለ~፡ ለድኩማን~። ጽጉማን~፡ እክል~፡ ርኅቡ~። ወርኁባን~፡ ጸግቡ~። እስመ~፡ መካን~፡ ወለደት~፡ ሰብዐተ~፡ ወወለድሰ~፡ ስእነት~፡ ወሊደ~፡ እግዚአብሔር~፡ ይቀትል~፡ ወየሐዩ~። ያወርድኒ~፡ ውስተ~፡ ሲእል~፡ ወየዐርግ~። እግዚአብሔር~፡ ያነዲ~፡ ወያብዕል~። ያኀስርሂ~፡ ወያከብር~፡ ዘያነሥኦ~፡ እምድር~፡ ለነዳይ~። ከመ~፡ ያንብሮ~፡ ምስለ~፡ ዓበይ[ተ]~።
+
+\test{እስመ~፡ አግዚአብሔር~፡ አምላክ~፡ ማእምር~፡ ውእቱ~። እግዚአብሔር~፡ አስተደወ~፡ መንብሮ~። ወአድከመ~፡ ቅሥተ~፡ ኀያላን~። ወአቅነቶሙ~፡ ኀይለ~፡ ለድኩማን~። ጽጉማን~፡ እክል~፡ ርኅቡ~። ወርኁባን~፡ ጸግቡ~። እስመ~፡ መካን~፡ ወለደት~፡ ሰብዐተ~፡ ወወለድሰ~፡ ስእነት~፡ ወሊደ~፡ እግዚአብሔር~፡ ይቀትል~፡ ወየሐዩ~። ያወርድኒ~፡ ውስተ~፡ ሲእል~፡ ወየዐርግ~። እግዚአብሔር~፡ ያነዲ~፡ ወያብዕል~። ያኀስርሂ~፡ ወያከብር~፡ ዘያነሥኦ~፡ እምድር~፡ ለነዳይ~። ከመ~፡ ያንብሮ~፡ ምስለ~፡ ዓበይ[ተ]~።}
+\end{amharic}
+
+\end{document}
