@@ -1,0 +1,40 @@
+\font\ethi=Abyssinica_SIL.ttf
+
+\starttext
+\startluacode
+--loadfile ("ethiopic_Syllables.lua")()
+
+local f_pat = assert(io.open("hyph-am.tex", "w"))
+f_pat:write("\\patterns {\n")
+
+--print(table.serialize(syllables))
+
+--[[
+for _,consonant in pairs(syllables) do
+	for _,syllable in pairs(consonant) do
+		print(string.format("0x%04X", syllable))
+		character = unicode.utf8.char(syllable)
+		print(string.format("%s", character))
+		f_pat:write(string.format(" %s2", character))
+		-- TODO: remove the "ethiopic syllable" from description
+		tex.print(string.format("{\\ethi \\char\"%04X} (\\word{%s})\\crlf", syllable, characters.data[syllable].description))
+	end
+	f_pat:write("\n")
+	tex.print("\\crlf")
+end
+--]]
+for char_code=0x1200,0x135A do
+	unic_char = characters.data[char_code]
+	if unic_char.description ~= nil then
+		char_utf8 = unicode.utf8.char(char_code)
+		f_pat:write(string.format("%s1\n", char_utf8))
+		-- TODO: remove the "ethiopic syllable" from description
+		tex.print(string.format("{\\ethi %s} (\\word{%s})\\crlf", char_utf8, unic_char.description))
+	end
+end
+
+f_pat:write("}\n")
+assert(f_pat:close())
+
+\stopluacode
+\stoptext
