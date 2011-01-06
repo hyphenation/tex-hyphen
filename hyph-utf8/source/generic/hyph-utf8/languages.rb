@@ -1050,6 +1050,17 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Lao Hyphenation Patterns",
 },
+# lao
+{
+	"code" => "am",
+	"name" => "amharic",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,1], # TODO
+	"encoding" => nil, # no patterns for 8-bit TeX
+	"exceptions" => false,
+	"message" => "Amharic Hyphenation Patterns",
+},
 # dumylang -> dumyhyph.tex
 # nohyphenation -> zerohyph.tex
 # arabic -> zerohyph.tex
