@@ -65,10 +65,10 @@ text_engine_ptex    = ["    #{comment_engine_ptex}",
                        "    \\message{#{string_enc}#{language.message}}"]
 text_engine_8bit_no = ["    #{comment_engine_8bit}",
                        "    \\message{No #{language.message} - only for Unicode engines}",
-                       "    \\input zerohyph.tex"]
+                       "    %\\input zerohyph.tex"]
 text_engine_ptex_no = ["    #{comment_engine_ptex}",
                        "    \\message{No #{language.message} - only for Unicode engines}",
-                       "    \\input zerohyph.tex"]
+                       "    %\\input zerohyph.tex"]
 text_patterns       =  "    \\input hyph-#{language.code}.tex"
 text_patterns_ptex  =  "    \\input phyph-#{language.code}.tex"
 text_patterns_old   =  "    \\input #{language.filename_old_patterns}"
@@ -79,10 +79,10 @@ text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
 ###########
 
 lccodes_common = []
-if language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'zh-latn' then
+if language.code == 'af' or language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'zh-latn' then
 	lccodes_common.push("\\lccode`\\'=`\\'")
 end
-if language.code == 'pt' or language.code == 'tk' or language.code == 'ru' or language.code == 'uk' then
+if language.code == 'af' or language.code == 'pt' or language.code == 'tk' or language.code == 'ru' or language.code == 'uk' then
 	lccodes_common.push("\\lccode`\\-=`\\-")
 end
 
