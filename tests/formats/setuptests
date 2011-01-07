@@ -1,2 +1,2 @@
-TEXINPUTS=../../hyph-utf8/tex/generic//:../../TL/texmf/tex/generic/config:../../legacy/tex/generic/hyphen:
+TEXINPUTS=../../hyph-utf8/tex/generic//:../../TL/texmf/tex/generic/config:../../TL/texmf/tex/ptexgeneric/config:../../legacy/tex/generic/hyphen:
 export TEXINPUTS
