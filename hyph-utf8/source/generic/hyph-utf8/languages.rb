@@ -1050,16 +1050,16 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Lao Hyphenation Patterns",
 },
-# lao
+# pan-Ethiopic
 {
-	"code" => "am",
-	"name" => "amharic",
+	"code" => "mul-ethi",
+	"name" => "ethiopic",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-	"hyphenmin" => [1,1], # TODO
+	"hyphenmin" => [1,1],
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Amharic Hyphenation Patterns",
+	"message" => "Pan-Ethiopic Hyphenation Patterns",
 },
 # dumylang -> dumyhyph.tex
 # nohyphenation -> zerohyph.tex

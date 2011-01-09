@@ -34,7 +34,7 @@ text_header =
 %     source/generic/hyph-utf8/generate-pattern-loaders.rb
 % See also http://tug.org/tex-hyphen
 %
-% Copyright 2008-2010 TeX Users Group.
+% Copyright 2008-2011 TeX Users Group.
 % You may freely use, modify and/or distribute this file.
 % (But consider adapting the scripts if you need modifications.)
 %
@@ -109,11 +109,11 @@ end
 			#
 			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
 			# TODO - maybe consider doing something similar for ibycus
-			if ['sa','as','bn','gu','hi','hy','kn','lo','ml','mr','or','pa','ta','te'].include?(language.code) then
+			if ['sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te'].include?(language.code) then
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				# lccodes
-				if language.code != 'lo' then
+				if language.code != 'lo' and language.code != 'mul-ethi' then
 					file.puts('    % Set \lccode for ZWNJ and ZWJ.')
 					file.puts('    \lccode"200C="200C')
 					file.puts('    \lccode"200D="200D')
@@ -122,6 +122,9 @@ end
 						file.puts('    \lccode"0CF1="0CF1')
 						file.puts('    \lccode"0CF2="0CF2')
 					end
+				elsif language.code == 'mul-ethi' then
+					file.puts('    % Set \lccode for Ethiopian word space.')
+					file.puts('    \lccode"1361="1361')
 				end
 				file.puts(text_patterns)
 				file.puts('\else')
