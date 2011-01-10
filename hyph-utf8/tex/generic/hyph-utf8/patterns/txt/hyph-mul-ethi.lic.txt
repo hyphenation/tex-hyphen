@@ -1,5 +1,4 @@
 Pan-Ethiopic Hyphenation Patterns
 
-(more info about the licence to be added later)
-
-
+Copyright (c) TeX Users Group, 2011.
+You may freely use, modify and / or redistribute this file.
