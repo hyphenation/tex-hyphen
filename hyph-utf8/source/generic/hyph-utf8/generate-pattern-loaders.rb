@@ -113,7 +113,10 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				# lccodes
-				if language.code != 'lo' and language.code != 'mul-ethi' then
+				if language.code == 'mul-ethi' then
+					file.puts('    % Set \lccode for Ethiopian word space.')
+					file.puts('    \lccode"1361="1361')
+				elsif language.code != 'lo' then
 					file.puts('    % Set \lccode for ZWNJ and ZWJ.')
 					file.puts('    \lccode"200C="200C')
 					file.puts('    \lccode"200D="200D')
@@ -122,9 +125,6 @@ end
 						file.puts('    \lccode"0CF1="0CF1')
 						file.puts('    \lccode"0CF2="0CF2')
 					end
-				elsif language.code == 'mul-ethi' then
-					file.puts('    % Set \lccode for Ethiopian word space.')
-					file.puts('    \lccode"1361="1361')
 				end
 				file.puts(text_patterns)
 				file.puts('\else')

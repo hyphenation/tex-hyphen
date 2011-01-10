@@ -1053,7 +1053,7 @@ class Languages < Hash
 # pan-Ethiopic
 {
 	"code" => "mul-ethi",
-	"name" => "ethiopic",
+	"name" => "ethiopic", "synonyms" => ["amharic", "geez"],
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1],

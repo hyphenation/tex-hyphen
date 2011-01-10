@@ -18,6 +18,9 @@ ukenglish	loadhyph-en-gb.tex
 usenglishmax	loadhyph-en-us.tex
 esperanto	loadhyph-eo.tex
 estonian	loadhyph-et.tex
+ethiopic	loadhyph-mul-ethi.tex
+=amharic
+=geez
 farsi	zerohyph.tex
 =persian
 finnish	loadhyph-fi.tex
