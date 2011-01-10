@@ -116,6 +116,7 @@ end
 				if language.code == 'mul-ethi' then
 					file.puts('    % Set \lccode for Ethiopian word space.')
 					file.puts('    \lccode"1361="1361')
+					file.puts('    \lccode"1362="1362')
 				elsif language.code != 'lo' then
 					file.puts('    % Set \lccode for ZWNJ and ZWJ.')
 					file.puts('    \lccode"200C="200C')
