@@ -1,0 +1,11 @@
+category TLCore
+depend hyphen-base
+depend hyph-utf8
+execute AddHyphen \
+	name=ethiopic synonyms=amharic,geez \
+	lefthyphenmin=1 \
+	righthyphenmin=1 \
+	file=loadhyph-mul-ethi.tex \
+	file_patterns=hyph-mul-ethi.pat.txt \
+	file_exceptions=
+
