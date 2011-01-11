@@ -185,13 +185,6 @@ end
 				file.puts(text_patterns)
 				file.puts('\else')
 				file.puts(text_engine_8bit)
-				# a hack for OT1 encoding in three languages
-				if language.code == 'da' or language.code == 'fr' then
-					file.puts("    % A hack to support both EC and OT1 encoding in 8-bit engines.")
-					file.puts("    % Kept for backward compatibility only, though we would prefer to drop it.")
-					file.puts("    % OT1 encoding is close-to-useless for proper hyphenation.")
-					file.puts("    \\input spechyph-ot1-#{language.code}.tex")
-				end
 				file.puts(text_patterns_conv)
 				file.puts(text_patterns)
 				file.puts('\fi\else')

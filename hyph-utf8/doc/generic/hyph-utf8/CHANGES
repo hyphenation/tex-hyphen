@@ -1,3 +1,21 @@
+2011-01-11 (#512)
+- remove the hack for OT1 encoding support for French and Danish patterns
+
+2011-01-10 (#510, #511)
+- add Ethiopic full stop
+
+2011-01-10 (#508)
+- add plain version of Ethiopic patterns
+
+2011-01-09 (#505, #506)
+- add preliminary pan-Ethiopic patterns
+
+2011-01-07 (#503)
+- fix pattern loaders and comment out loading of zerohyph
+
+2011-01-06 (#501)
+- add support for pTeX
+
 2010-10-20 (#489)
 - replace Afrikaans patterns (by Tilla Fick and Chris Swanepoel)
 
