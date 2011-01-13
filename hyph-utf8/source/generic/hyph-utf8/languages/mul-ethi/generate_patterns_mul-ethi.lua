@@ -1,3 +1,5 @@
+#!/usr/bin/env texlua
+
 -- Extract Ethiopic syllables from the Unicode Character Database.
 -- Arthur Reutenauer, London, 2011-01-09 & 10, for the hyph-utf8 project
 -- http://tug.org/tex-hyphen
