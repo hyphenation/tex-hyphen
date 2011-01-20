@@ -1,3 +1,13 @@
+2011-01-19 (#515)
+- merge exhyph-ru.tex and exhyph-uk.tex with dash-related patterns into main file
+  (we might split them again if we decide to support all different encodings)
+
+2011-01-19 (#514)
+- add ASCII Greek and Coptic patterns for 8-bit engines into repository
+
+2011-01-11 (#512)
+- remove the hack for OT1 encoding support for French and Danish patterns
+
 2011-01-11 (#512)
 - remove the hack for OT1 encoding support for French and Danish patterns
 

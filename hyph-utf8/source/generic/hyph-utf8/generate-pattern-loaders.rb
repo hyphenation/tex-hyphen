@@ -152,11 +152,6 @@ end
 					file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
 				end
 				file.puts(text_patterns)
-				# russian and ukrainian exceptions - hacks with dashes
-				if language.code == 'ru' or language.code == 'uk' then
-					file.puts('    % Additional patterns with hyphen/dash: a hack to prevent breaking after hyphen, but not before.')
-					file.puts("    \\input exhyph-#{language.code}.tex")
-				end
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				# explain why we are still using the old patterns
