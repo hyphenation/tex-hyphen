@@ -67,7 +67,7 @@ pattfile:write[[
 % 
 % This is a generated file.  If you wish to edit it, consider adapting the
 % generating programme
-% (svn://tug.org/texhyphen/trunk/hyph-utf8/source/generic/hyph-utf8/languages/ethiopic/make-patterns.lua.
+% (svn://tug.org/texhyphen/trunk/hyph-utf8/source/generic/hyph-utf8/languages/mul-ethi/generate_patterns_mul-ethi.lua).
 
 ]]
 
