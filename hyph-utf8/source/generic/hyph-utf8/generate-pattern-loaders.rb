@@ -73,6 +73,8 @@ text_patterns       =  "    \\input hyph-#{language.code}.tex"
 text_patterns_ptex  =  "    \\input phyph-#{language.code}.tex"
 text_patterns_old   =  "    \\input #{language.filename_old_patterns}"
 text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
+text_patterns_utf8  =  text_patterns
+
 
 ###########
 # lccodes #
@@ -87,11 +89,11 @@ if language.code == 'af' or language.code == 'pt' or language.code == 'tk' or la
 end
 
 if language.code == 'sh-latn' or language.code == 'sr-cyrl' then
-	text_patterns    = ["    \\input hyph-sh-latn.tex",
-	                    "    \\input hyph-sr-cyrl.tex"]
-	text_engine_utf8 = ["    #{comment_engine_utf8}",
-	                    "    \\message{UTF-8 Serbian hyphenation patterns}",
-	                    "    % We load both scripts at the same time to simplify usage"]
+	text_patterns_utf8 = ["    \\input hyph-sh-latn.tex",
+	                      "    \\input hyph-sr-cyrl.tex"]
+	text_engine_utf8   = ["    #{comment_engine_utf8}",
+	                      "    \\message{UTF-8 Serbian hyphenation patterns}",
+	                      "    % We load both scripts at the same time to simplify usage"]
 end
 
 	if language.use_new_loader then
@@ -185,7 +187,7 @@ end
 			else
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
-				file.puts(text_patterns)
+				file.puts(text_patterns_utf8)
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				file.puts(text_patterns_conv)
