@@ -28,9 +28,7 @@ language_grouping = {
 	'ancientgreek' => ['grc', 'grc-x-ibycus'],
 	'chinese' => ['zh-latn'],
 	'indic' => ['as', 'bn', 'gu', 'hi', 'kn', 'ml', 'mr', 'or', 'pa', 'ta', 'te'],
-	# TODO - until someone tells what to do; but this is wrong anyway
-	#'serbian' => ['sr-latn', 'sr-cyrl'],
-	'serbian' => ['sh-latn'],
+	'serbian' => ['sh-latn', 'sr-cyrl'],
 }
 
 language_used_in_group = Hash.new
