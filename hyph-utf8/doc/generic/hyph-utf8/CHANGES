@@ -1,3 +1,6 @@
+2011-06-01 (#523)
+- load patterns for Latin and Cyrillic scripts for Serbian simultaneously
+
 2011-01-19 (#515)
 - merge exhyph-ru.tex and exhyph-uk.tex with dash-related patterns into main file
   (we might split them again if we decide to support all different encodings)
