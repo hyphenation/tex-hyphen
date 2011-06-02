@@ -2,15 +2,15 @@ Swiss-German Hyphenation Patterns (Traditional Orthography)
 
 (more info about the licence to be added later)
 
-% dehyphts-x-2009-06-19.pat
+% dehyphts-x-2011-06-01.pat
 
-\message{Swiss-German Hyphenation Patterns (Traditional Orthography) `dehyphts-x' 2009-06-19 (WL)}
+\message{Swiss-German Hyphenation Patterns (Traditional Orthography) `dehyphts-x' 2011-06-01 (WL)}
 
 % TeX-Trennmuster für die traditionelle deutsch-schweizerische
 % Rechtschreibung
 %
 %
-% Copyright (C) 2008 Werner Lemberg <wl@gnu.org>
+% Copyright (C) 2009, 2011 Werner Lemberg <wl@gnu.org>
 %
 % This program can be redistributed and/or modified under the terms
 % of the LaTeX Project Public License Distributed from CTAN
@@ -20,7 +20,7 @@ Swiss-German Hyphenation Patterns (Traditional Orthography)
 %
 % The word list is available from
 %
-%   http://repo.or.cz/w/wortliste.git?a=commit;h=e4826ce7db99bceb6043be48983ff2b67d56669f
+%   http://repo.or.cz/w/wortliste.git?a=commit;h=2d246449f5c4f570f4d735d3ad091f6ad70f6972
 %
 % The used patgen parameters are
 %

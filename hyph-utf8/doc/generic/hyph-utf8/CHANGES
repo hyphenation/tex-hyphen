@@ -1,3 +1,6 @@
+2011-06-02 (#525)
+- new version of German hyphenation patterns
+
 2011-06-01 (#523, #524)
 - load patterns for Latin and Cyrillic scripts for Serbian simultaneously
 
@@ -7,6 +10,8 @@
 
 2011-01-19 (#514)
 - add ASCII Greek and Coptic patterns for 8-bit engines into repository
+
+== CTAN release 2011.01.13 ==
 
 2011-01-11 (#512)
 - remove the hack for OT1 encoding support for French and Danish patterns
@@ -32,8 +37,12 @@
 2010-10-20 (#489)
 - replace Afrikaans patterns (by Tilla Fick and Chris Swanepoel)
 
+== CTAN release ==
+
 2010-09-18 (#450)
 - add Afrikaans patterns (by Friedel Wolff); major revision needed
+
+== CTAN release ==
 
 2010-06-01 (#440)
 - remove 2'2 pattern from Latin (on Claudio Beccari's request)
