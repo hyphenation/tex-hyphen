@@ -1,6 +1,11 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Hyphenation Patterns for Esperanto
+longdesc Hyphenation patterns for Esperanto language in UTF-8 and ISO Latin 3 (IL3) encoding.
+longdesc Note that TeX distributions usually don't ship any suitable fonts in that encoding,
+longdesc so unless you create your own font support or want to use MlTeX,
+longdesc using native UTF-8 engines is highly recommended.
 execute AddHyphen \
 	name=esperanto \
 	lefthyphenmin=2 \

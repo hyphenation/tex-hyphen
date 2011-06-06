@@ -1,5 +1,23 @@
 
+class Author
+	def intialize(name,surname,email,contacted1,contacted2)
+		@name       = name
+		@surname    = surname
+		@email      = email
+		# this mostly means if email has been recently checked
+		@contacted1 = contacted1
+		# this means if we made more cooperation with author,
+		# exchanging patches etc.
+		@contacted2 = contacted2
+	end
+
+	attr_reader :name, :surname, :email
+end
+
 class Language
+	def x
+		a = Author.new(1,2,3,4,5)
+	end
 	def initialize(language_hash)
 		@use_new_loader = language_hash["use_new_loader"]
 		@use_old_patterns = language_hash["use_old_patterns"]
@@ -13,6 +31,9 @@ class Language
 		@encoding = language_hash["encoding"]
 		@exceptions = language_hash["exceptions"]
 		@message = language_hash["message"]
+
+		@description_s = language_hash["description_s"]
+		@description_l = language_hash["description_l"]
 		
 		if @synonyms==nil then @synonyms = [] end
 	end
@@ -87,31 +108,33 @@ class Language
 	# 	return @lc_characters
 	# end
 
-	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns, :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
+	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns
+	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
+	attr_reader :description_s, :description_l
 	# this hack is needed for Serbian
 	attr_writer :code
 end
 
 
 authors = {
-	"peter_heslin" => {
-		"name" => "Peter",
-		"surname" => "Heslin",
-		"tried_to_contact" => false,
-	},
-	"dimitrios_filippou" => {
-		"name"      => "Dimitrios",
-		"surname"   => "Filippou",
-		"email"     => "dfilipp{at}hotmail{dot}com",
-		"contact"   => true,
-		"cooperate" => true,
-	},
-	"claudio_beccari" => {
-		"name" => "Claudio",
-		"email" => "claudio{dot}beccari{at}polito{dot}it",
-	}
-
+	"peter_heslin"        => ["Peter", "Heslin", "", false, false],
+	"dimitrios_filippou"  => ["Dimitrios", "Filippou", "dfilipp{at}hotmail{dot}com", true, true],
+	"claudio_beccari"     => ["Claudio", "Beccari","claudio{dot}beccari{at}polito{dot}it", true, true],
+	"juan_aguirregabiria" => ["Juan M.", "Aguirregabiria", "juanmari{dot}aguirregabiria{at}ehu.es", true, true],
+	"igor_marinovic"      => ["Igor", "Marinović", "marinowski{at}gmail.com", true, true],
+	"tilla_fick"          => ["Tilla", "Fick", "fick{dot}tilla{at}gmail{dot}com", true, true],
+	"chris_swanepoel"     => ["Chris", "Swanepoel", "cj{at}swanepoel{dot}net", true, true],
+	"matjaz_vrecko"       => ["Matjaž", "Vrečko", "matjaz{at}mg-soft{dot}si", true, true],
+	"goncal_badenes"      => ["Gonçal", "Badenes", "g{dot}badenes{at}ieee.org", false, false],
+	"pavel_sevecek"       => ["Pavel", "Ševeček", "pavel{at}lingea{dot}cz", false, false],
+	"jana_chlebikova"     => ["Jana", "Chlebíková", "chlebikj{at}dcs{dot}fmph{dot}uniba{dot}sk", false, false],
+	"yannis_haralambous"  => ["Yannis", "Haralambous", "yannis{dot}haralambous{at}telecom-bretagne{dot}eu", true, false],
+	"frank_jensen"        => ["Frank", "Jensen", "frank{dot}jensen{at}hugin{dot}com", true, true],
+	"sergei_pokrovsky"    => ["Sergei B.", "Pokrovsky", "pok{at}iis{dot}nsk{dot}su", false, false], # not sure where B. belongs
+	"javier_bezos"        => ["Javier", "Bezos", "jbezos{at}tex-tipografia{dot}com", true, true],
+	"een_saar"            => ["Enn", "Saar", "saar{at}aai{dot}ee", false, false],
 }
+
 
 # "use_new_loader"
 # => true - create a new file and use that one
@@ -178,7 +201,7 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Ancient Greek Hyphenation Patterns for Ibycus encoding (v3.0)",
 	
-	"authors" => ["peter_heslin"],
+	# "authors" => ["peter_heslin"],
 },
 # ----------------------------
 # languages using old patterns
@@ -201,7 +224,7 @@ class Languages < Hash
 #	"message" => "Polytonic Greek Hyphenation Patterns",
 	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
 	
-	"authors" => ["dimitrios_filippou"],
+	# "authors" => ["dimitrios_filippou"],
 },
 # monogreek	xu-grmhyph4.tex
 {
@@ -217,9 +240,9 @@ class Languages < Hash
 #	"message" => "Monotonic Greek Hyphenation Patterns",
 	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek",
 	
-	"authors" => ["dimitrios_filippou"],
+	# "authors" => ["dimitrios_filippou"],
 },
-# ancientgreek	xu-grahyph4.tex
+# ancientgreek
 {
 	"code" => "grc",
 	"name" => "ancientgreek",
@@ -231,10 +254,20 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Hyphenation patterns for Ancient Greek",
-	
-	"authors" => ["dimitrios_filippou"],
+
+	"version"       => "5.0",
+	"last_modified" => "2008-05-27",
+	"type"          => "rules",
+	"authors"       => ["dimitrios_filippou"],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Ancient Greek",
+	# TODO: please help me rewrite this
+	"description_l" => [
+		"Hyphenation patterns for Ancient Greek language in UTF-8 encoding",
+		"as well as in ASCII-based LGR encoding of babel for 8-bit engines.",
+	],
 },
-# coptic		xu-copthyph.tex
+# coptic
 {
 	"code" => "cop",
 	"name" => "coptic",
@@ -246,8 +279,19 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Coptic Hyphenation Patterns",
-	
-	"authors" => ["claudio_beccari"],
+
+	"version"       => nil,
+	"last_modified" => "2004-10-03",
+	"type"          => "rules",
+	"authors"       => [ "claudio_beccari" ],
+	"licence"       => "LPPL", # TODO: check; catalogue says so
+	"description_s" => "Hyphenation Patterns for Coptic",
+	"description_l" => [
+		"Hyphenation patterns for Coptic language in UTF-8 encoding",
+		"as well as in ASCII-based encoding for 8-bit engines.",
+		"The latter can only be used with special Coptic fonts (like CBcoptic).",
+		"The patterns are considered experimental.",
+	],
 },
 # german		xu-dehypht.tex
 {
@@ -326,8 +370,22 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Afrikaans Hyphenation Patterns",
+
+	"version"       => "0.9",
+	"last_modified" => "2010-10-18",
+	"type"          => "dictionary",
+	"authors"       => [ "tilla_fick", "chris_swanepoel" ],
+	"email"         => [ "hyphen{at}rekenaar{dot}net" ],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Afrikaans",
+	"description_l" => [
+		"Hyphenation patterns for Afrikaans language in T1/EC and UTF-8 encoding.",
+		"(OpenOffice includes older patterns created by a different author,",
+		"but patterns packaged with TeX are considered superior in quality.)",
+		"Word list used to generate patterns with opatgen might be released in future.",
+	],
 },
-# catalan		cahyph.tex
+# catalan
 {
 	"code" => "ca",
 	"name" => "catalan",
@@ -338,8 +396,18 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Catalan Hyphenation Patterns",
+
+	"version"       => "1.11",
+	"last_modified" => "2003-07-15",
+	"type"          => "rules", # not only rules, also patgen, but it is a good approximation
+	"authors"       => [ "goncal_badenes" ],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Catalan",
+	"description_l" => [
+		"Hyphenation patterns for Catalan language in T1/EC and UTF-8 encoding.",
+	],
 },
-# czech		xu-czhyph.tex
+# czech
 {
 	"code" => "cs",
 	"name" => "czech",
@@ -355,8 +423,25 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Czech Hyphenation Patterns (Pavel Sevecek, v3, 1995)",
+
+	"version"       => "3",
+	# guessing based on CTAN/macros/cstex/base/csplain.tar.gz:
+	# 1998-12-17 (patterns)
+	# 1995-08-23 (exceptions)
+	# but patterns claim 1995
+	"last_modified" => "1995", # todo: no date
+	"type"          => "dictionary",
+	"authors"       => [ "pavel_sevecek" ],
+	"licence"       => "GPL",
+	"description_s" => "Hyphenation Patterns for Czech",
+	"description_l" => [
+		"Hyphenation patterns for Czech language in T1/EC and UTF-8 encoding.",
+		"Original patterns 'czhyphen' are still distributed in 'csplain' package",
+		"and loaded with ISO Latin 2 encoding (IL2).",
+		# however hyph-utf8 could also be used for that
+	],
 },
-# slovak		xu-skhyph.tex
+# slovak
 {
 	"code" => "sk",
 	"name" => "slovak",
@@ -369,8 +454,21 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Slovak Hyphenation Patterns (Jana Chlebikova, 1992)",
+
+	"version"       => "2",
+	"last_modified" => "1992-04-24",
+	"type"          => "dictionary",
+	"authors"       => [ "jana_chlebikova" ],
+	"licence"       => "GPL",
+	"description_s" => "Hyphenation Patterns for Slovak",
+	"description_l" => [
+		"Hyphenation patterns for Slovak language in T1/EC and UTF-8 encoding.",
+		"Original patterns 'skhyphen' are still distributed in 'csplain' package",
+		"and loaded with ISO Latin 2 encoding (IL2).",
+		# however hyph-utf8 could also be used for that
+	],
 },
-# welsh		cyhyph.tex
+# welsh
 {
 	"code" => "cy",
 	"name" => "welsh",
@@ -381,8 +479,18 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Welsh Hyphenation Patterns",
+
+	"version"       => nil,
+	"last_modified" => "1996",
+	"type"          => "dictionary",
+	"authors"       => [ "yannis_haralambous" ],
+	"licence"       => nil,
+	"description_s" => "Hyphenation Patterns for Welsh",
+	"description_l" => [
+		"Hyphenation patterns for Welsh language in T1/EC and UTF-8 encoding.",
+	],
 },
-# danish		dkhyph.tex
+# danish
 {
 	"code" => "da",
 	"name" => "danish",
@@ -394,9 +502,18 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Danish Hyphenation Patterns",
+	
+	"version"       => nil,
+	"last_modified" => "2011-01-11",
+	"type"          => "dictionary",
+	"authors"       => [ "frank_jensen" ],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Danish",
+	"description_l" => [
+		"Hyphenation patterns for Danish language in T1/EC and UTF-8 encoding.",
+	],
 },
-# esperanto	xu-eohyph.tex
-# TODO
+# esperanto
 {
 	"code" => "eo",
 	"name" => "esperanto",
@@ -407,8 +524,21 @@ class Languages < Hash
 	"encoding" => "il3", # TODO
 	"exceptions" => false,
 	"message" => "Esperanto Hyphenation Patterns",
+
+	"version"       => nil,
+	"last_modified" => "1999-08-10",
+	"type"          => "rules",
+	"authors"       => [ "sergei_pokrovsky" ],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Esperanto",
+	"description_l" => [
+		"Hyphenation patterns for Esperanto language in UTF-8 and ISO Latin 3 (IL3) encoding.",
+		"Note that TeX distributions usually don't ship any suitable fonts in that encoding,",
+		"so unless you create your own font support or want to use MlTeX,",
+		"using native UTF-8 engines is highly recommended.",
+	],
 },
-# spanish		xu-eshyph.tex
+# spanish
 # =espanol
 {
 	"code" => "es",
@@ -420,8 +550,18 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Spanish Hyphenation Patterns",
+
+	"version"       => "4.6",
+	"last_modified" => "2010-05-18",
+	"type"          => "dictionary",
+	"authors"       => [ "javier_bezos" ],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Spanish",
+	"description_l" => [
+		"Hyphenation patterns for Spanish language in T1/EC and UTF-8 encoding.",
+	],
 },
-# basque		xu-bahyph.tex
+# basque
 {
 	"code" => "eu",
 	"name" => "basque",
@@ -432,6 +572,17 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Basque Hyphenation Patterns",
+
+	"version"       => nil,
+	"last_modified" => "2008-06-26",
+	"type"          => "rules",
+	"authors"       => [ "juan_aguirregabiria" ],
+	"licence"       => "other-free", # "public-check",
+	"description_s" => "Hyphenation Patterns for Basque",
+	"description_l" => [
+		"Hyphenation patterns for Basque language in T1/EC and UTF-8 encoding.",
+		"Generating scripts for these rule-based patterns is included in hyph-utf8."
+	],
 },
 # french		xu-frhyph.tex
 # =patois
@@ -459,7 +610,7 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Galician Hyphenation Patterns",
 },
-# estonian	xu-ethyph.tex
+# estonian
 {
 	"code" => "et",
 	"name" => "estonian",
@@ -470,6 +621,16 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Estonian Hyphenation Patterns",
+
+	"version"       => nil,
+	"last_modified" => "2004-04-13",
+	"type"          => "dictionary",
+	"authors"       => [ "een_saar" ],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Estonian",
+	"description_l" => [
+		"Hyphenation patterns for Estonian language in T1/EC and UTF-8 encoding.",
+	],
 },
 # finnish		fihyph.tex
 {
@@ -483,7 +644,7 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Finnish Hyphenation Patterns",
 },
-# croatian	xu-hrhyph.tex
+# croatian
 {
 	"code" => "hr",
 	"name" => "croatian",
@@ -494,6 +655,16 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Croatian Hyphenation Patterns",
+
+	"version"       => nil,
+	"last_modified" => "1996-03-19",
+	"type"          => "dictionary",
+	"authors"       => [ "igor_marinovic" ],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Croatian",
+	"description_l" => [
+		"Hyphenation patterns for Croatian language in T1/EC and UTF-8 encoding.",
+	],
 },
 # hungarian	xu-huhyphn.tex
 {
@@ -592,7 +763,7 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Kurmanji Hyphenation Patterns (v. 1.0 2009/06/29 JKn and MSh)",
 },
-# latin		xu-lahyph.tex
+# latin
 {
 	"code" => "la",
 	"name" => "latin",
@@ -604,6 +775,21 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Latin Hyphenation Patterns",
+
+	"version"       => "3.2",
+	"last_modified" => "2010-06-01",
+	"type"          => "dictionary",
+	"authors"       => [ "claudio_beccari" ],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Latin",
+	"description_l" => [
+		"Hyphenation patterns for Latin language in T1/EC and UTF-8 encoding,",
+		"mainly in modern spelling (u when u is needed and v when v is needed),",
+		"medieval spelling with the ligatures \\ae and \\oe and the (uncial)",
+		"lowercase 'v' written as a 'u' is also supported. Apparently",
+		"there is no conflict between the patterns of modern Latin and",
+		"those of medieval Latin.",
+	],
 },
 # lithuanian
 {
@@ -695,7 +881,7 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Romanian Hyphenation Patterns", # : `rohyphen' 1.1 <29.10.1996>
 },
-# slovenian	xu-sihyph.tex
+# slovenian
 # =slovene
 {
 	"code" => "sl",
@@ -707,6 +893,16 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Slovenian Hyphenation Patterns",
+
+	"version"       => "2.3",
+	"last_modified" => "1997-15-04",
+	"type"          => "dictionary",
+	"authors"       => [ "matjaz_vrecko" ],
+	"licence"       => "LPPL",
+	"description_s" => "Hyphenation Patterns for Slovenian",
+	"description_l" => [
+		"Hyphenation patterns for Slovenian language in T1/EC and UTF-8 encoding.",
+	],
 },
 # uppersorbian	xu-sorhyph.tex
 {

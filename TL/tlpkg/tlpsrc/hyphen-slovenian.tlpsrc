@@ -1,6 +1,8 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Hyphenation Patterns for Slovenian
+longdesc Hyphenation patterns for Slovenian language in T1/EC and UTF-8 encoding.
 execute AddHyphen \
 	name=slovenian synonyms=slovene \
 	lefthyphenmin=2 \

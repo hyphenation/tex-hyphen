@@ -1,6 +1,8 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Hyphenation Patterns for Welsh
+longdesc Hyphenation patterns for Welsh language in T1/EC and UTF-8 encoding.
 execute AddHyphen \
 	name=welsh \
 	lefthyphenmin=2 \

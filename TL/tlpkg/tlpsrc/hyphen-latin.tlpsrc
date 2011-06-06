@@ -1,6 +1,13 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Hyphenation Patterns for Latin
+longdesc Hyphenation patterns for Latin language in T1/EC and UTF-8 encoding,
+longdesc mainly in modern spelling (u when u is needed and v when v is needed),
+longdesc medieval spelling with the ligatures \ae and \oe and the (uncial)
+longdesc lowercase 'v' written as a 'u' is also supported. Apparently
+longdesc there is no conflict between the patterns of modern Latin and
+longdesc those of medieval Latin.
 execute AddHyphen \
 	name=latin \
 	lefthyphenmin=2 \
