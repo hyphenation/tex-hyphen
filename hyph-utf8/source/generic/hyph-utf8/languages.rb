@@ -15,9 +15,6 @@ class Author
 end
 
 class Language
-	def x
-		a = Author.new(1,2,3,4,5)
-	end
 	def initialize(language_hash)
 		@use_new_loader = language_hash["use_new_loader"]
 		@use_old_patterns = language_hash["use_old_patterns"]
