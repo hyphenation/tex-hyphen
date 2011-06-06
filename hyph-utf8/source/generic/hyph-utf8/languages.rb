@@ -258,7 +258,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["dimitrios_filippou"],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Ancient Greek",
+	"description_s" => "Ancient Greek Hyphenation Patterns",
 	# TODO: please help me rewrite this
 	"description_l" => [
 		"Hyphenation patterns for Ancient Greek language in UTF-8 encoding",
@@ -283,7 +283,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "LPPL", # TODO: check; catalogue says so
-	"description_s" => "Hyphenation Patterns for Coptic",
+	"description_s" => "Coptic Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Coptic language in UTF-8 encoding",
 		"as well as in ASCII-based encoding for 8-bit engines.",
@@ -375,11 +375,11 @@ class Languages < Hash
 	"authors"       => [ "tilla_fick", "chris_swanepoel" ],
 	"email"         => [ "hyphen{at}rekenaar{dot}net" ],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Afrikaans",
+	"description_s" => "Afrikaans Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Afrikaans language in T1/EC and UTF-8 encoding.",
 		"(OpenOffice includes older patterns created by a different author,",
-		"but patterns packaged with TeX are considered superior in quality.)",
+		"but the patterns packaged with TeX are considered superior in quality.)",
 		"Word list used to generate patterns with opatgen might be released in future.",
 	],
 },
@@ -400,7 +400,7 @@ class Languages < Hash
 	"type"          => "rules", # not only rules, also patgen, but it is a good approximation
 	"authors"       => [ "goncal_badenes" ],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Catalan",
+	"description_s" => "Catalan Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Catalan language in T1/EC and UTF-8 encoding.",
 	],
@@ -431,7 +431,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "pavel_sevecek" ],
 	"licence"       => "GPL",
-	"description_s" => "Hyphenation Patterns for Czech",
+	"description_s" => "Czech Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Czech language in T1/EC and UTF-8 encoding.",
 		"Original patterns 'czhyphen' are still distributed in 'csplain' package",
@@ -458,7 +458,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "jana_chlebikova" ],
 	"licence"       => "GPL",
-	"description_s" => "Hyphenation Patterns for Slovak",
+	"description_s" => "Slovak Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Slovak language in T1/EC and UTF-8 encoding.",
 		"Original patterns 'skhyphen' are still distributed in 'csplain' package",
@@ -483,7 +483,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "yannis_haralambous" ],
 	"licence"       => nil,
-	"description_s" => "Hyphenation Patterns for Welsh",
+	"description_s" => "Welsh Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Welsh language in T1/EC and UTF-8 encoding.",
 	],
@@ -506,7 +506,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "frank_jensen" ],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Danish",
+	"description_s" => "Danish Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Danish language in T1/EC and UTF-8 encoding.",
 	],
@@ -528,7 +528,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "sergei_pokrovsky" ],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Esperanto",
+	"description_s" => "Esperanto Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Esperanto language in UTF-8 and ISO Latin 3 (IL3) encoding.",
 		"Note that TeX distributions usually don't ship any suitable fonts in that encoding,",
@@ -554,7 +554,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "javier_bezos" ],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Spanish",
+	"description_s" => "Spanish Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Spanish language in T1/EC and UTF-8 encoding.",
 	],
@@ -576,7 +576,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "juan_aguirregabiria" ],
 	"licence"       => "other-free", # "public-check",
-	"description_s" => "Hyphenation Patterns for Basque",
+	"description_s" => "Basque Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Basque language in T1/EC and UTF-8 encoding.",
 		"Generating scripts for these rule-based patterns is included in hyph-utf8."
@@ -625,7 +625,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "een_saar" ],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Estonian",
+	"description_s" => "Estonian Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Estonian language in T1/EC and UTF-8 encoding.",
 	],
@@ -659,7 +659,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "igor_marinovic" ],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Croatian",
+	"description_s" => "Croatian Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Croatian language in T1/EC and UTF-8 encoding.",
 	],
@@ -779,7 +779,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Latin",
+	"description_s" => "Latin Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Latin language in T1/EC and UTF-8 encoding,",
 		"mainly in modern spelling (u when u is needed and v when v is needed),",
@@ -897,7 +897,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "matjaz_vrecko" ],
 	"licence"       => "LPPL",
-	"description_s" => "Hyphenation Patterns for Slovenian",
+	"description_s" => "Slovenian Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Slovenian language in T1/EC and UTF-8 encoding.",
 	],
@@ -1013,7 +1013,7 @@ class Languages < Hash
 	"authors"       => [ "dejan_muhamedagic" ],
 	"licence"       => "LPPL",
 	# for both scripts
-	"description_s" => "Hyphenation Patterns for Serbian",
+	"description_s" => "Serbian Hyphenation Patterns",
 	"description_l" => [
 		"Hyphenation patterns for Serbian language in UTF-8 and 8-bit variant.",
 		"For 8-bit TeX the patterns are available separately as 'serbian' in",
