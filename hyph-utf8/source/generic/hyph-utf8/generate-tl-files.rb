@@ -125,9 +125,16 @@ language_groups.sort.each do |language_name,language_list|
 			# we skip the mongolian language
 			if language.code == "mn-cyrl-x-lmc" then
 				file = "luaspecial=\"disabled:only for 8bit montex with lmc encoding\""
+			elsif language.code == "sr-cyrl" then
+				file = "luaspecial=\"disabled:serbian includes both scripts\""
 			else
-				filename_pat = "hyph-#{language.code}.pat.txt"
-				filename_hyp = "hyph-#{language.code}.hyp.txt"
+				if language.code == "sr-latn" then
+					filename_pat = "hyph-sr.pat.txt"
+					filename_hyp = "hyph-sr.hyp.txt"
+				else
+					filename_pat = "hyph-#{language.code}.pat.txt"
+					filename_hyp = "hyph-#{language.code}.hyp.txt"
+				end
 
 				# check for existance of patterns and exceptions
 				if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then

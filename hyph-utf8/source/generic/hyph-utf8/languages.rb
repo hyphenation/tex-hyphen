@@ -130,6 +130,7 @@ authors = {
 	"sergei_pokrovsky"    => ["Sergei B.", "Pokrovsky", "pok{at}iis{dot}nsk{dot}su", false, false], # not sure where B. belongs
 	"javier_bezos"        => ["Javier", "Bezos", "jbezos{at}tex-tipografia{dot}com", true, true],
 	"een_saar"            => ["Enn", "Saar", "saar{at}aai{dot}ee", false, false],
+	"dejan_muhamedagic"   => ["Dejan", "Muhamedagić", "dejan{at}hello-penguin{dot}com", true, true],
 }
 
 
@@ -989,7 +990,7 @@ class Languages < Hash
 # 	"message" => "Hyphenation Patterns for American English",
 # },
 # TODO: FIXME!!!
-# serbian		xu-srhyphc.tex
+# serbian
 {
 	"code" => "sh-latn",
 	"name" => "serbian",
@@ -1004,6 +1005,22 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Serbian hyphenation patterns in Latin script",
+
+	# only for serbian
+	"version"       => "2.02",
+	"last_modified" => "2008-06-22",
+	"type"          => "dictionary",
+	"authors"       => [ "dejan_muhamedagic" ],
+	"licence"       => "LPPL",
+	# for both scripts
+	"description_s" => "Hyphenation Patterns for Serbian",
+	"description_l" => [
+		"Hyphenation patterns for Serbian language in UTF-8 and 8-bit variant.",
+		"For 8-bit TeX the patterns are available separately as 'serbian' in",
+		"T1/EC encoding for Latin script and 'serbianc' in T2A encoding for",
+		"Cyrillic script. UTF-8 engines should only use 'serbian'",
+		"which has patterns in both scripts combined.",
+	],
 },
 # serbianc
 {
