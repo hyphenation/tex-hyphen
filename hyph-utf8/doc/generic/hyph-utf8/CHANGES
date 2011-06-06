@@ -1,3 +1,6 @@
+2011-06-06 (#528)
+- rename 8bit patterns: phyph-<lang>.tex -> hyph-<lang>.<enc>.tex
+
 2011-06-06 (#527)
 - add LPPL licence to Croatian patterns (and update author's email address)
 
