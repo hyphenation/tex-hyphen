@@ -61,7 +61,7 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 
 	if include_language
 		puts ">> generating #{code} (#{language.name})"
-		file_ptex = File.open("#{$path_ptex}/phyph-#{code}.tex", "w")
+		file_ptex = File.open("#{$path_ptex}/hyph-#{code}.#{language.encoding}.tex", "w")
 
 		patterns   = language.get_patterns
 		exceptions = language.get_exceptions
