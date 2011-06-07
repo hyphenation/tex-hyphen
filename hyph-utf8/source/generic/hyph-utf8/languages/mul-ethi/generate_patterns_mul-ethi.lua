@@ -1,10 +1,10 @@
 #!/usr/bin/env texlua
 
 -- Extract Ethiopic syllables from the Unicode Character Database.
--- Arthur Reutenauer, London, 2011-01-09 & 10, for the hyph-utf8 project
+-- Arthur Reutenauer, London, 2011, for the hyph-utf8 project
 -- http://tug.org/tex-hyphen
 -- Copyright (c) TeX Users Group, 2011.
--- You may freely use, modify and / or redistribute this file.
+-- You may freely use, copy, modify and / or redistribute this file.
 
 -- Use with TeXLua.
 
@@ -53,9 +53,13 @@ local pattfile = assert(io.open("hyph-mul-ethi.tex", "w"))
 
 pattfile:write[[
 % Experimental pattern file for languages written using the Ethiopic script.
-% Arthur Reutenauer, London, 2011-01-09 & 10, for the hyph-utf8 project.
+% Arthur Reutenauer, London, 2011, for the hyph-utf8 project.
 % Copyright (c) TeX Users Group, 2011.
-% You may freely use, modify and / or redistribute this file.
+% You may freely use, copy, modify and / or redistribute this file.
+%
+% This is a generated file.  If you wish to edit it, consider adapting the
+% generating programme
+% (svn://tug.org/texhyphen/trunk/hyph-utf8/source/generic/hyph-utf8/languages/mul-ethi/generate_patterns_mul-ethi.lua).
 %
 % The BCP 47 language tag for that file is "mul-ethi" to reflect the fact that
 % it can be used by multiple languages (and a single script, Ethiopic).  It is,
@@ -64,10 +68,6 @@ pattfile:write[[
 % do for the moment is to simply allow break on either sides of Ethiopic
 % syllables, and to forbid it before some punctuation marks particular to
 % the Ethiopic script (which we thus make letters for this purpose).
-% 
-% This is a generated file.  If you wish to edit it, consider adapting the
-% generating programme
-% (svn://tug.org/texhyphen/trunk/hyph-utf8/source/generic/hyph-utf8/languages/mul-ethi/generate_patterns_mul-ethi.lua).
 
 ]]
 
