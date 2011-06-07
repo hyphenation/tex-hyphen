@@ -1,3 +1,6 @@
+2011-06-07 (#538)
+- add LPPL licence to Welsh patterns
+
 2011-06-06 (#528, #529)
 - rename 8bit patterns: phyph-<lang>.tex -> hyph-<lang>.<enc>.tex
 
