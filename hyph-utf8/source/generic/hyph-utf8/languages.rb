@@ -65,7 +65,6 @@ class Language
 				gsub(/\s+/m,"\n").
 				gsub(/^\s*/m,'').
 				gsub(/\s*$/m,'').
-				gsub(/'/,"’").
 				split("\n")
 
 			if @code == 'eo' then

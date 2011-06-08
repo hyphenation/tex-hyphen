@@ -72,7 +72,12 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 
 		# patterns
 		patterns.each do |pattern|
-			$file_pat.puts pattern.gsub(/'/,"’")
+			$file_pat.puts pattern
+			if pattern =~ /'/ then
+				if code != "grc" and code != "el-monoton" and code != "el-polyton" then
+					$file_pat.puts pattern.gsub(/'/,"’")
+				end
+			end
 		end
 		# exceptions
 		if exceptions != ""
@@ -82,6 +87,9 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 		characters_indexes.each do |c|
 			ch = [c].pack('U')
 			$file_let.puts ch + Unicode.upcase(ch)
+			if ch == "'" and code != "grc" and code != "el-monoton" and code != "el-polyton" then
+				$file_let.puts "’’"
+			end
 		end
 		# licence and readme
 		$file_inf.puts "#{language.message}\n\n(more info about the licence to be added later)\n\n"

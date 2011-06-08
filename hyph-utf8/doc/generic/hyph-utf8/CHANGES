@@ -1,3 +1,7 @@
+2011-06-08 (#547)
+- duplicate patterns with apostrophes in plan text files
+- fix a bug in conversion of greek patterns into plain text files (no apostrophe replacement)
+
 2011-06-08 (#545, #546)
 - restore two version of plain text patterns for Serbian
   and load 'sh' patterns by default also for Cyrillic script

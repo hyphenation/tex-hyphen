@@ -16,7 +16,9 @@
 .af7oes.
 .a4f5oo
 .a4f5ra
+.af6ro'
 .af6ro’
+.a7fro's
 .a7fro’s
 .af6ro-
 .a7fro-h
@@ -348,6 +350,7 @@
 .k4we
 .k4wo
 .ky7otop
+.l'7etji
 .l’7etji
 .la6eti
 .la6kwa
@@ -376,6 +379,7 @@
 .lui5sl
 .l6üder
 .m2
+.m'7etji
 .m’7etji
 .ma6cdo
 .ma6nal
@@ -520,6 +524,7 @@
 .pyp5r
 .py7thon
 .r2
+.r'7etji
 .r’7etji
 .r6aard
 .ra7dart
@@ -8099,6 +8104,7 @@ ry4ta
 ry5tra
 s2
 2s.
+s'9ie.
 s’9ie.
 1sa
 3sa.
@@ -10179,6 +10185,7 @@ wys3k
 wys3p
 wys5ta
 wyt7raak
+x'9ie.
 x’9ie.
 x1a
 xe1
