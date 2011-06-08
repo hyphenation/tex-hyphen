@@ -1,3 +1,16 @@
+2011-06-08 (#545, #546)
+- restore two version of plain text patterns for Serbian
+  and load 'sh' patterns by default also for Cyrillic script
+
+2011-06-08 (#544)
+- a section in documentation about using hyphenation patterns in TeX
+
+2011-06-08 (#543)
+- temporary remove Greek patterns for 8-bit engines (will be added later)
+
+2011-06-07 (#542)
+- add LPPL licence to Uppersorbian patterns
+
 2011-06-07 (#538)
 - add LPPL licence to Welsh patterns
 

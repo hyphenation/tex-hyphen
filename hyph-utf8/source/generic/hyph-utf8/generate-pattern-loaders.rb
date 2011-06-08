@@ -88,9 +88,9 @@ if language.code == 'af' or language.code == 'pt' or language.code == 'tk' or la
 	lccodes_common.push("\\lccode`\\-=`\\-")
 end
 
-if language.code == 'sh-latn' or language.code == 'sr-cyrl' then
+if language.code == 'sh-latn' or language.code == 'sh-cyrl' then
 	text_patterns_utf8 = ["    \\input hyph-sh-latn.tex",
-	                      "    \\input hyph-sr-cyrl.tex"]
+	                      "    \\input hyph-sh-cyrl.tex"]
 	text_engine_utf8   = ["    #{comment_engine_utf8}",
 	                      "    \\message{UTF-8 Serbian hyphenation patterns}",
 	                      "    % We load both scripts at the same time to simplify usage"]
@@ -99,6 +99,8 @@ end
 	if language.use_new_loader then
 		if language.code == 'sh-latn' then
 			filename = "#{$path_loadhyph}/loadhyph-sr-latn.tex"
+		elsif language.code == 'sh-cyrl' then
+			filename = "#{$path_loadhyph}/loadhyph-sr-cyrl.tex"
 		else
 			filename = "#{$path_loadhyph}/loadhyph-#{language.code}.tex"
 		end

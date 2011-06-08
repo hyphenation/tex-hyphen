@@ -1024,11 +1024,11 @@ class Languages < Hash
 },
 # serbianc
 {
-	"code" => "sr-cyrl",
+	"code" => "sh-cyrl",
 	"name" => "serbianc",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-	"filename_old_patterns" => "srhyphc.tex",
+	# "filename_old_patterns" => "srhyphc.tex",
 	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
 	"exceptions" => true,

@@ -17,7 +17,6 @@ $path_language_dat_lua="#{$path_root}/tex/luatex/hyph-utf8/config"
 $l = Languages.new
 # TODO: should be singleton
 languages = $l.list.sort{|a,b| a.name <=> b.name}
-languages_sr = [$l['sh-latn'], $l['sr-cyrl']]
 
 # TODO: we should rewrite this
 # not using: eo, el
@@ -28,19 +27,11 @@ language_codes = Hash.new
 languages.each do |language|
 	language_codes[language.code] = language.code
 end
-# language_codes['de-1901']      = 'de-1901'
-# language_codes['de-1996']      = 'de-1996'
-# language_codes['de-ch-1901']    = 'de-CH-1901'
-# language_codes['en-gb']         = 'en-GB'
-# language_codes['en-us']         = 'en-US'
-# language_codes['zh-latn']       = 'zh-Latn'
-# language_codes['el-monoton']   = 'el-monoton'
-# language_codes['el-polyton']   = 'el-polyton'
-# language_codes['mn-cyrl']       = 'mn'
+
 language_codes['mn-cyrl-x-lmc'] = nil
-language_codes['sh-latn']       = nil
-language_codes['sh-cyrl']       = nil
-language_codes['sr-cyrl']       = nil
+# language_codes['sh-latn']       = nil
+# language_codes['sh-cyrl']       = nil
+# language_codes['sr-cyrl']       = nil
 
 # $file_language_dat_lua = File.open("#{$path_language_dat_lua}/language.dat.lua", "w")
 # $file_language_dat_lua.puts "return {\n"
@@ -121,46 +112,6 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 		# $file_language_dat_lua.puts "\t},\n"
 	end
 end
-
-begin
-	code = "sr"
-	puts "generating #{code}"
-	
-	$file_pat = File.open("#{$path_plain}/hyph-#{code}.pat.txt", 'w')
-	$file_hyp = File.open("#{$path_plain}/hyph-#{code}.hyp.txt", 'w')
-	$file_let = File.open("#{$path_plain}/hyph-#{code}.chr.txt", 'w')
-	$file_inf = File.open("#{$path_plain}/hyph-#{code}.lic.txt", 'w')
-
-	patterns   = languages_sr[0].get_patterns   + languages_sr[1].get_patterns
-	exceptions = languages_sr[0].get_exceptions + languages_sr[1].get_exceptions
-
-	characters_indexes = patterns.join('').gsub(/[.0-9]/,'').unpack('U*').sort.uniq
-
-	# patterns
-	patterns.each do |pattern|
-		$file_pat.puts pattern.gsub(/'/,"’")
-	end
-	# exceptions
-	if exceptions != ""
-		$file_hyp.puts exceptions
-	end
-	# letters
-	characters_indexes.each do |c|
-		ch = [c].pack('U')
-		$file_let.puts ch + Unicode.upcase(ch)
-	end
-	# licence and readme
-	$file_inf.puts "Serbian Hyphenation Patterns\n\n(more info about the licence to be added later)\n\n"
-	$file_inf.puts languages_sr[0].get_comments_and_licence
-	$file_inf.puts
-	$file_inf.puts languages_sr[1].get_comments_and_licence
-
-	$file_pat.close
-	$file_hyp.close
-	$file_let.close
-	$file_inf.close
-end
-
 
 # $file_language_dat_lua.puts "}\n"
 
