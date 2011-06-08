@@ -6,11 +6,23 @@
 
 \setuphead
 	[subject]
-	[style=\bfa]
+	[style=\bfc]
+\setuphead
+	[subsubject]
+	[style=\bfb]
+\setuppagenumbering
+	[location={footer}]
+\setuplayout
+	[header=0pt,headerdistance=0pt,height=24cm]
+
+\def\eTeX{ε-\TeX}
+% TODO
+\def\XeLaTeX{Xe\LaTeX}
+\def\LuaLaTeX{Lua\LaTeX}
 
 \starttext
 
-\centerline{\tt hyph-utf8}
+\centerline{\tt\bfc hyph-utf8}
 
 \blank[big]
 
@@ -34,208 +46,16 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 
 \subject{List of supported languages}
 
-% \startluacode
-% languages={
-% 	['Afrikaans'] = {
-% 		{ code = 'af', name = 'afrikaans', synonyms = {  } },
-% 	},
-% 	['Ancientgreek'] = {
-% 		{ code = 'grc', name = 'ancientgreek', synonyms = {  } },
-% 		{ code = 'grc-x-ibycus', name = 'ibycus', synonyms = {  } },
-% 	},
-% 	['Arabic'] = {
-% 		{ code = 'ar', name = 'arabic', synonyms = {  } },
-% 	},
-% 	['Armenian'] = {
-% 		{ code = 'hy', name = 'armenian', synonyms = {  } },
-% 	},
-% 	['Assamese'] = {
-% 		{ code = 'as', name = 'assamese', synonyms = {  } },
-% 	},
-% 	['Basque'] = {
-% 		{ code = 'eu', name = 'basque', synonyms = {  } },
-% 	},
-% 	['Bengali'] = {
-% 		{ code = 'bn', name = 'bengali', synonyms = {  } },
-% 	},
-% 	['Bulgarian'] = {
-% 		{ code = 'bg', name = 'bulgarian', synonyms = {  } },
-% 	},
-% 	['Catalan'] = {
-% 		{ code = 'ca', name = 'catalan', synonyms = {  } },
-% 	},
-% 	['Chinese'] = {
-% 		{ code = 'zh-latn', name = 'pinyin', synonyms = {  } },
-% 	},
-% 	['Coptic'] = {
-% 		{ code = 'cop', name = 'coptic', synonyms = {  } },
-% 	},
-% 	['Croatian'] = {
-% 		{ code = 'hr', name = 'croatian', synonyms = {  } },
-% 	},
-% 	['Czech'] = {
-% 		{ code = 'cs', name = 'czech', synonyms = {  } },
-% 	},
-% 	['Danish'] = {
-% 		{ code = 'da', name = 'danish', synonyms = {  } },
-% 	},
-% 	['Dutch'] = {
-% 		{ code = 'nl', name = 'dutch', synonyms = {  } },
-% 	},
-% 	['Esperanto'] = {
-% 		{ code = 'eo', name = 'esperanto', synonyms = {  } },
-% 	},
-% 	['Estonian'] = {
-% 		{ code = 'et', name = 'estonian', synonyms = {  } },
-% 	},
-% 	['Farsi'] = {
-% 		{ code = 'fa', name = 'farsi', synonyms = { 'persian' } },
-% 	},
-% 	['Finnish'] = {
-% 		{ code = 'fi', name = 'finnish', synonyms = {  } },
-% 	},
-% 	['French'] = {
-% 		{ code = 'fr', name = 'french', synonyms = { 'patois', 'francais' } },
-% 	},
-% 	['Galician'] = {
-% 		{ code = 'gl', name = 'galician', synonyms = {  } },
-% 	},
-% 	['German'] = {
-% 		{ code = 'de-1901', name = 'german', synonyms = {  } },
-% 		{ code = 'de-1996', name = 'ngerman', synonyms = {  } },
-% 		{ code = 'de-ch-1901', name = 'swissgerman', synonyms = {  } },
-% 	},
-% 	['Greek'] = {
-% 		{ code = 'el-monoton', name = 'monogreek', synonyms = {  } },
-% 		{ code = 'el-polyton', name = 'greek', synonyms = { 'polygreek' } },
-% 	},
-% 	['Gujarati'] = {
-% 		{ code = 'gu', name = 'gujarati', synonyms = {  } },
-% 	},
-% 	['Hindi'] = {
-% 		{ code = 'hi', name = 'hindi', synonyms = {  } },
-% 	},
-% 	['Hungarian'] = {
-% 		{ code = 'hu', name = 'hungarian', synonyms = {  } },
-% 	},
-% 	['Icelandic'] = {
-% 		{ code = 'is', name = 'icelandic', synonyms = {  } },
-% 	},
-% 	['Indonesian'] = {
-% 		{ code = 'id', name = 'indonesian', synonyms = {  } },
-% 	},
-% 	['Interlingua'] = {
-% 		{ code = 'ia', name = 'interlingua', synonyms = {  } },
-% 	},
-% 	['Irish'] = {
-% 		{ code = 'ga', name = 'irish', synonyms = {  } },
-% 	},
-% 	['Italian'] = {
-% 		{ code = 'it', name = 'italian', synonyms = {  } },
-% 	},
-% 	['Kannada'] = {
-% 		{ code = 'kn', name = 'kannada', synonyms = {  } },
-% 	},
-% 	['Kurmanji'] = {
-% 		{ code = 'kmr', name = 'kurmanji', synonyms = {  } },
-% 	},
-% 	['Lao'] = {
-% 		{ code = 'lo', name = 'lao', synonyms = {  } },
-% 	},
-% 	['Latin'] = {
-% 		{ code = 'la', name = 'latin', synonyms = {  } },
-% 	},
-% 	['Latvian'] = {
-% 		{ code = 'lv', name = 'latvian', synonyms = {  } },
-% 	},
-% 	['Lithuanian'] = {
-% 		{ code = 'lt', name = 'lithuanian', synonyms = {  } },
-% 	},
-% 	['Malayalam'] = {
-% 		{ code = 'ml', name = 'malayalam', synonyms = {  } },
-% 	},
-% 	['Marathi'] = {
-% 		{ code = 'mr', name = 'marathi', synonyms = {  } },
-% 	},
-% 	['Mongolian'] = {
-% 		{ code = 'mn-cyrl', name = 'mongolian', synonyms = {  } },
-% 	},
-% 	['Mongolianlmc'] = {
-% 		{ code = 'mn-cyrl-x-lmc', name = 'mongolianlmc', synonyms = {  } },
-% 	},
-% 	['Norwegian'] = {
-% 		{ code = 'nb', name = 'bokmal', synonyms = { 'norwegian', 'norsk' } },
-% 		{ code = 'nn', name = 'nynorsk', synonyms = {  } },
-% 	},
-% 	['Oriya'] = {
-% 		{ code = 'or', name = 'oriya', synonyms = {  } },
-% 	},
-% 	['Panjabi'] = {
-% 		{ code = 'pa', name = 'panjabi', synonyms = {  } },
-% 	},
-% 	['Polish'] = {
-% 		{ code = 'pl', name = 'polish', synonyms = {  } },
-% 	},
-% 	['Portuguese'] = {
-% 		{ code = 'pt', name = 'portuguese', synonyms = { 'portuges' } },
-% 	},
-% 	['Romanian'] = {
-% 		{ code = 'ro', name = 'romanian', synonyms = {  } },
-% 	},
-% 	['Russian'] = {
-% 		{ code = 'ru', name = 'russian', synonyms = {  } },
-% 	},
-% 	['Sanskrit'] = {
-% 		{ code = 'sa', name = 'sanskrit', synonyms = {  } },
-% 	},
-% 	['Serbian'] = {
-% 		{ code = 'sr-latn', name = 'serbian', synonyms = {  } },
-% 	},
-% 	['Slovenian'] = {
-% 		{ code = 'sl', name = 'slovenian', synonyms = { 'slovene' } },
-% 	},
-% 	['Spanish'] = {
-% 		{ code = 'es', name = 'spanish', synonyms = { 'espanol' } },
-% 	},
-% 	['Swedish'] = {
-% 		{ code = 'sv', name = 'swedish', synonyms = {  } },
-% 	},
-% 	['Tamil'] = {
-% 		{ code = 'ta', name = 'tamil', synonyms = {  } },
-% 	},
-% 	['Telugu'] = {
-% 		{ code = 'te', name = 'telugu', synonyms = {  } },
-% 	},
-% 	['Turkish'] = {
-% 		{ code = 'tr', name = 'turkish', synonyms = {  } },
-% 	},
-% 	['Turkmen'] = {
-% 		{ code = 'tk', name = 'turkmen', synonyms = {  } },
-% 	},
-% 	['Ukenglish'] = {
-% 		{ code = 'en-gb', name = 'ukenglish', synonyms = { 'british', 'UKenglish' } },
-% 	},
-% 	['Ukrainian'] = {
-% 		{ code = 'uk', name = 'ukrainian', synonyms = {  } },
-% 	},
-% 	['Uppersorbian'] = {
-% 		{ code = 'hsb', name = 'uppersorbian', synonyms = {  } },
-% 	},
-% 	['Usenglishmax'] = {
-% 		{ code = 'en-us', name = 'usenglishmax', synonyms = {  } },
-% 	},
-% 	['Welsh'] = {
-% 		{ code = 'cy', name = 'welsh', synonyms = {  } },
-% 	}
-% 	}
-% \stopluacode
-
 \def\lanname#1{\hbox to \textwidth{\bf#1\hss}}
 \def\landata#1#2#3{\hbox to \textwidth{\hbox to 3mm{}\hbox to 6.5em{#1\hss}\hbox to 7em{#2}\hbox{#3}\hss} }
 % \def\landata#1#2#3{}
 
 \startcolumns[n=2]
 
+\lanname{English}
+\landata{-}{\bf english}{usenglish, USenglish, american}
+\landata{en-us}{usenglishmax}{}
+\landata{en-gb}{ukenglish}{british, UKenglish}
 \lanname{Afrikaans}
 \landata{af}{afrikaans}{}
 \lanname{Ancientgreek}
@@ -267,15 +87,14 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 \landata{da}{danish}{}
 \lanname{Dutch}
 \landata{nl}{dutch}{}
-\crlf\crlf
-\lanname{English}
-\landata{-}{\bf english}{usenglish, USenglish, american}
-\landata{en-us}{usenglishmax}{}
-\landata{en-gb}{ukenglish}{british, UKenglish}
+% \column
+\crlf\crlf\crlf\crlf
 \lanname{Esperanto}
 \landata{eo}{esperanto}{}
 \lanname{Estonian}
 \landata{et}{estonian}{}
+\lanname{Ethiopic}
+\landata{mul-ethi}{ethiopic}{amharic, geez}
 \lanname{Farsi}
 \landata{fa}{farsi}{persian}
 \lanname{Finnish}
@@ -325,7 +144,6 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 \landata{mr}{marathi}{}
 \lanname{Mongolian}
 \landata{mn-cyrl}{mongolian}{}
-\lanname{Mongolianlmc}
 \landata{mn-cyrl-x-lmc}{mongolianlmc}{}
 \lanname{Norwegian}
 \landata{nb}{bokmal}{norwegian, norsk}
@@ -346,6 +164,9 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 \landata{sa}{sanskrit}{}
 \lanname{Serbian}
 \landata{sr-latn}{serbian}{}
+\landata{sr-cyrl}{serbianc}{}
+\lanname{Slovak}
+\landata{sk}{slovak}{}
 \lanname{Slovenian}
 \landata{sl}{slovenian}{slovene}
 \lanname{Spanish}
@@ -360,17 +181,118 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 \landata{tr}{turkish}{}
 \lanname{Turkmen}
 \landata{tk}{turkmen}{}
-\lanname{Ukenglish}
-\landata{en-gb}{ukenglish}{british, UKenglish}
+% \lanname{Ukenglish}
+% \landata{en-gb}{ukenglish}{british, UKenglish}
 \lanname{Ukrainian}
 \landata{uk}{ukrainian}{}
 \lanname{Uppersorbian}
 \landata{hsb}{uppersorbian}{}
-\lanname{Usenglishmax}
-\landata{en-us}{usenglishmax}{}
+% \lanname{Usenglishmax}
+% \landata{en-us}{usenglishmax}{}
 \lanname{Welsh}
 \landata{cy}{welsh}{}
 
 \stopcolumns
+
+\page
+
+\subject{Using hyphenation patterns}
+
+\subsubject{Plain \TeX}
+
+In engines that support \eTeX\ you can select the desired hyphenation patterns with:
+\startTEX
+\uselanguage{langname}
+\stopTEX
+where \type{langname} is the string identifying a particular hyphenation file in \type{language.dat} and can be taken from table on the first two pages.
+% TODO: create a proper table and reference it
+
+\subsubject{\LaTeX}
+
+Since Babel's \type{hyphen.cfg} is built in the \XeLaTeX format, hyphenation patterns can be used without even loading Babel or Polyglossia. At the low-level this simply corresponds to defining
+\startTEX
+   \language=\l@<langname>
+\stopTEX
+The user command is supposed to be
+\startTEX
+    \hyphenrules{langname}
+\stopTEX
+or
+\startTEX
+   \begin{hyphenrules}{langname} ... \end{hyphenrules}.
+\stopTEX
+and should work with any flavour of \LaTeX, however we couldn't make it work.
+
+\subsubsubject{\LaTeX\ with Babel}
+
+You can use Babel with any \TeX\ engine, however it is currently unmaintained and has never been adapted to work well with Unicode engines. If you are using \XeTeX\ please use Polyglossia instead.
+
+\startTEX
+\usepackage[languagename]{babel}
+\stopTEX
+
+\subsubsubject{\LaTeX\ with Polyglossia}
+
+Polyglossia should be the preferred choice when using \XeLaTeX. It doesn't support \LuaLaTeX\ yet, but it is planned to extend it in future.
+
+\startTEX
+\usepackage{polyglossia}
+\setmainlanguage[optional settings]{langname}
+\setotherlanguages{otherlangname}
+
+\begin[optional settings]{otherlangname} ... \end{otherlangname}
+\stopTEX
+
+See Polyglossia manual for extensive list of options.
+
+\subsubject{\ConTeXt}
+
+ConTeXt doesn't load patterns for all the language that hyph-utf8 provides. If you miss any language, please contact the mailing list. The general syntax for supported languages is the following:
+
+\startTEX
+% language of the main document
+\mainlanguage[language]
+
+{\language[otherlanguage] language of some short fragment}
+\stopTEX
+
+You can use full language name or language code. When using \ConTeXt\ MKII you might need to select the appropriate font encoding for Cyrillic scripts, Polish and some other languages:
+
+\startTEX
+\usetypescript[iwona][qx]
+\setupbodyfont[iwona]
+\mainlanguage[polish]
+\stopTEX
+
+\ConTeXt\ loads hyphenation patterns in several encodings, so that you can for example use Czech patterns with either \type{ec} or \type{il2} font encodings. The right hyphenation patterns will be chosen based on current font encoding.
+
+\subsubject{More examples}
+
+\subsubsubject{Example for Polyglossia}
+
+\startTEX
+\usepackage{polyglossia}
+% the language used for main document
+\setmainlanguage{asturian}
+% American English with extended hyphenation patterns
+\setotherlanguage[variant=usmax]{english}
+% German with experimental patterns "ngerman-x-latest"
+\setotherlanguage[spelling=new,latesthyphen=true]{german}
+\setotherlanguages{spanish,catalan,french}
+
+\begin{document}
+
+Long Asturian text ... (Hyphenation for Asturian is not available, but polyglossia automatically falls back on Catalan for now, which seems to be a reasonable choice.)
+
+\begin{german}
+Deutscher Text ... (with the hyphenation patterns selected above: "ngerman-x-latest")
+\end{german}
+
+\begin[script=fraktur,spelling=old]{german}
+Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
+\end{german}
+
+\end{document}
+\stopTEX
 
 \stoptext
