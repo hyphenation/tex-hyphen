@@ -4,7 +4,7 @@ depend hyph-utf8
 shortdesc Afrikaans Hyphenation Patterns
 longdesc Hyphenation patterns for Afrikaans language in T1/EC and UTF-8 encoding.
 longdesc (OpenOffice includes older patterns created by a different author,
-longdesc but patterns packaged with TeX are considered superior in quality.)
+longdesc but the patterns packaged with TeX are considered superior in quality.)
 longdesc Word list used to generate patterns with opatgen might be released in future.
 execute AddHyphen \
 	name=afrikaans \

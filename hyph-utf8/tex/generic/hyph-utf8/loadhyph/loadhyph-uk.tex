@@ -24,6 +24,8 @@
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
     \message{UTF-8 Ukrainian Hyphenation Patterns}
     \input hyph-uk.tex
+    \lccode`\’=`\’
+    \input hyph-quote-uk.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
     \message{T2A Ukrainian Hyphenation Patterns}

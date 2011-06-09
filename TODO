@@ -2,17 +2,14 @@ This is a list of things that needs to be done to propagate the changes properly
 Write DONE to each issue once resolved.
 
 TeX Live 2011:
-- Integrate Serbian Cyrillic patterns
-- Improve documentation, in particular examples for usage
-  - A web page with simple examples how to enable hyphenation
-- Documentation with Hans' examples for comparisons
-- Discuss inclusion of Greek patterns
-- Discuss renaming ptex patterns
-- Discuss switching to "ptex" patterns for all 8-bit engines
-- Add apostrophe to patterns for LuaTeX; solve the issue for XeTeX
-  (could be done simultaneous with divergence of utf-8/8bit patterns)
-- Change script 4TL to generate shortdesc for hyph-xxx.tlpsrc
+- Document conventions/licence in manual
+- Finish generating shortdesc for hyph-xxx.tlpsrc
 
+Short-term TODO list:
+- A web page with simple examples how to enable hyphenation
+- Hans' examples for comparisons & documentation
+- discuss switching to special patterns for pdfTeX
+- better solutions for apostrophe
 
 TeX Distributions:
 - [DONE] propagate changes into TeX Live

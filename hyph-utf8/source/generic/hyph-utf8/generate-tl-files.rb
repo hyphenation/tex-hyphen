@@ -28,7 +28,7 @@ language_grouping = {
 	'ancientgreek' => ['grc', 'grc-x-ibycus'],
 	'chinese' => ['zh-latn'],
 	'indic' => ['as', 'bn', 'gu', 'hi', 'kn', 'ml', 'mr', 'or', 'pa', 'ta', 'te'],
-	'serbian' => ['sh-latn', 'sr-cyrl'],
+	'serbian' => ['sh-latn', 'sh-cyrl'],
 }
 
 language_used_in_group = Hash.new
@@ -51,6 +51,8 @@ languages.each do |language|
 
 	if language.code == 'sh-latn' then
 		language.code = 'sr-latn'
+	elsif language.code == 'sh-cyrl' then
+		language.code = 'sr-cyrl'
 	end
 end
 
@@ -125,27 +127,28 @@ language_groups.sort.each do |language_name,language_list|
 			# we skip the mongolian language
 			if language.code == "mn-cyrl-x-lmc" then
 				file = "luaspecial=\"disabled:only for 8bit montex with lmc encoding\""
-			elsif language.code == "sr-cyrl" then
-				file = "luaspecial=\"disabled:serbian includes both scripts\""
 			else
-				if language.code == "sr-latn" then
-					filename_pat = "hyph-sr.pat.txt"
-					filename_hyp = "hyph-sr.hyp.txt"
+				if language.code == "sr-latn" or language.code == "sr-cyrl" then
+					filename_pat = "hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt"
+					filename_hyp = "hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt"
 				else
 					filename_pat = "hyph-#{language.code}.pat.txt"
 					filename_hyp = "hyph-#{language.code}.hyp.txt"
-				end
 
-				# check for existance of patterns and exceptions
-				if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then
-					puts "some problem with #{$path_txt}/#{filename_pat}!!!"
-				end
-				if !File::exists?( "#{$path_txt}/#{filename_hyp}" ) then
-					puts "some problem with #{$path_txt}/#{filename_hyp}!!!"
+					# check for existance of patterns and exceptions
+					if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then
+						puts "some problem with #{$path_txt}/#{filename_pat}!!!"
+					end
+					if !File::exists?( "#{$path_txt}/#{filename_hyp}" ) then
+						puts "some problem with #{$path_txt}/#{filename_hyp}!!!"
+					end
 				end
 
 				file_patterns   = "file_patterns=#{filename_pat}"
 				if File::size?( "#{$path_txt}/#{filename_hyp}" ) != nil then
+					file_exceptions = "file_exceptions=#{filename_hyp}"
+				# TODO: nasty workaround
+				elsif language.code == "sr-latn" or language.code == "sr-cyrl" then
 					file_exceptions = "file_exceptions=#{filename_hyp}"
 				else
 					file_exceptions = "file_exceptions="

@@ -75,6 +75,8 @@ text_patterns_old   =  "    \\input #{language.filename_old_patterns}"
 text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
 text_patterns_utf8  =  text_patterns
 
+text_patterns_quote = ["    \\lccode`\\’=`\\’",
+                       "    \\input hyph-quote-#{language.code}.tex"]
 
 ###########
 # lccodes #
@@ -152,6 +154,11 @@ end
 			# for ASCII encoding, we don't load any special support files, but simply load everything
 			elsif language.encoding == "ascii" then
 				file.puts(text_engine_ascii)
+				if language.code == "it" then
+					file.puts(text_if_native_utf)
+					file.puts(text_patterns_quote)
+					file.puts('\fi\fi')
+				end
 ####################################
 # GROUP nr. 3 - different patterns #
 ####################################
@@ -164,6 +171,9 @@ end
 					file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
 				end
 				file.puts(text_patterns)
+				if language.code == 'uk' then
+					file.puts(text_patterns_quote)
+				end
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				# explain why we are still using the old patterns
@@ -190,6 +200,9 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				file.puts(text_patterns_utf8)
+				if language.code == 'af' or language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'zh-latn' then
+					file.puts(text_patterns_quote)
+				end
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				file.puts(text_patterns_conv)

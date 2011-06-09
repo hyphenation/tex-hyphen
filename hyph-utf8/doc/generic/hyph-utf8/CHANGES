@@ -1,3 +1,10 @@
+2011-06-09 (#553)
+- add duplicated patterns with apostrophes for XeTeX
+- fix tlpsrc generator for serbian
+
+2011-06-09 (#549)
+- support multiple hyphenation/patterns files.
+
 2011-06-08 (#547)
 - duplicate patterns with apostrophes in plan text files
 - fix a bug in conversion of greek patterns into plain text files (no apostrophe replacement)

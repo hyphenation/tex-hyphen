@@ -12,13 +12,13 @@ execute AddHyphen \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-sr-latn.tex \
-	file_patterns=hyph-sr-latn.pat.txt,hyph-sr-cyrl.pat.txt \
-	file_exceptions=hyph-sr-latn.hyp.txt,hyph-sr-cyrl.hyp.txt
+	file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt \
+	file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt
 execute AddHyphen \
 	name=serbianc \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-sr-cyrl.tex \
-	file_patterns=hyph-sr-latn.pat.txt,hyph-sr-cyrl.pat.txt \
-	file_exceptions=hyph-sr-latn.hyp.txt,hyph-sr-cyrl.hyp.txt
+	file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt \
+	file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt
 

@@ -11,6 +11,7 @@ load 'languages.rb'
 
 $path_root=File.expand_path("../../..")
 $path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns/txt"
+$path_quote="#{$path_root}/tex/generic/hyph-utf8/patterns/quote"
 $path_TL=File.expand_path("../../../../TL")
 $path_language_dat_lua="#{$path_root}/tex/luatex/hyph-utf8/config"
 
@@ -62,6 +63,7 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 
 		patterns   = language.get_patterns
 		exceptions = language.get_exceptions
+		patterns_quote = Array.new
 
 		if code == 'nn' or code == 'nb'
 			patterns = ""
@@ -75,7 +77,9 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 			$file_pat.puts pattern
 			if pattern =~ /'/ then
 				if code != "grc" and code != "el-monoton" and code != "el-polyton" then
-					$file_pat.puts pattern.gsub(/'/,"’")
+					pattern_with_quote = pattern.gsub(/'/,"’")
+					$file_pat.puts pattern_with_quote
+					patterns_quote.push(pattern_with_quote)
 				end
 			end
 		end
@@ -99,6 +103,12 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 		$file_hyp.close
 		$file_let.close
 		$file_inf.close
+
+		if patterns_quote.length > 0
+			f = File.open("#{$path_quote}/hyph-quote-#{code}.tex", 'w')
+			f.puts "\\patterns{\n#{patterns_quote.join("\n")}\n}"
+			f.close
+		end
 
 		# $file_language_dat_lua.puts "\t[\"#{language.name}\"]={"
 		# $file_language_dat_lua.puts "\t\tloader=\"loadhyph-#{language.code}.tex\","
