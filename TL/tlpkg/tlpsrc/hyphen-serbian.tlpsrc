@@ -18,5 +18,6 @@ execute AddHyphen \
 	name=serbianc \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
+	file=loadhyph-sr-cyrl.tex \
 	luaspecial="disabled:serbian includes both scripts"
 
