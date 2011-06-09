@@ -27,6 +27,7 @@ local dbfile = kpse.find_file(dbname)
 if not dbfile then
     err("file not found: "..dbname)
 else
+    wlog('using data file: %s', dbfile)
     language_dat = dofile(dbfile)
 end
 function lookupname(name)
@@ -60,13 +61,15 @@ function loadlanguage(lname, id)
     end
     wlog(msg, '', cname, id)
     for _, item in ipairs{'patterns', 'hyphenation'} do
-        local file = ldata[item]
-        if file ~= nil and file ~= '' then
+        local filelist = ldata[item]
+        if filelist ~= nil and filelist ~= '' then
+          for _, file in ipairs(filelist:explode(',')) do
             local file = kpse.find_file(file) or err("file not found: %s", file)
             local fh = io.open(file, 'r')
             local data = fh:read('*a') or err("file not readable: %s", f)
             fh:close()
             lang[item](lang.new(id), data)
+          end
         else
             if item == 'hyphenation' then item = item..' exceptions' end
             wlog("info: no %s for this language", item)
