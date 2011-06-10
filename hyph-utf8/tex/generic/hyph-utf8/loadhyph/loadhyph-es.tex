@@ -20,16 +20,16 @@
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
-    \message{UTF-8 Spanish Hyphenation Patterns}
+    \message{UTF-8 Spanish hyphenation patterns}
     \input hyph-es.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{EC Spanish Hyphenation Patterns}
+    \message{EC Spanish hyphenation patterns}
     \input conv-utf8-ec.tex
     \input hyph-es.tex
 \fi\else
     % pTeX
-    \message{EC Spanish Hyphenation Patterns}
+    \message{EC Spanish hyphenation patterns}
     \input hyph-es.ec.tex
 \fi
 \endgroup

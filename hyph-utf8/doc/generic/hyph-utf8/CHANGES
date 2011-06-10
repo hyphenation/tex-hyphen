@@ -1,3 +1,6 @@
+2011-06-11 (#555)
+- downcase "Hyphenation Patterns"
+
 2011-06-09 (#553)
 - add duplicated patterns with apostrophes for XeTeX
 - fix tlpsrc generator for serbian

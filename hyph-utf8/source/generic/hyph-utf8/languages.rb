@@ -217,7 +217,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => nil,
 	"exceptions" => false,
-	"message" => "Ancient Greek Hyphenation Patterns for Ibycus encoding (v3.0)",
+	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding (v3.0)",
 	
 	# "authors" => ["peter_heslin"],
 },
@@ -239,7 +239,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # polyglosia
 	"encoding" => nil,
 	"exceptions" => true,
-#	"message" => "Polytonic Greek Hyphenation Patterns",
+#	"message" => "Polytonic Greek hyphenation patterns",
 	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
 	
 	# "authors" => ["dimitrios_filippou"],
@@ -255,7 +255,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # polyglosia
 	"encoding" => nil,
 	"exceptions" => true,
-#	"message" => "Monotonic Greek Hyphenation Patterns",
+#	"message" => "Monotonic Greek hyphenation patterns",
 	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek",
 	
 	# "authors" => ["dimitrios_filippou"],
@@ -296,7 +296,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # polyglosia TODO: no documentation found
 	"encoding" => nil,
 	"exceptions" => false,
-	"message" => "Coptic Hyphenation Patterns",
+	"message" => "Coptic hyphenation patterns",
 
 	"version"       => nil,
 	"last_modified" => "2004-10-03",
@@ -322,7 +322,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "German Hyphenation Patterns (Traditional Orthography)",
+	"message" => "German hyphenation patterns (traditional orthography)",
 },
 # ngerman		xu-dehyphn.tex
 {
@@ -335,7 +335,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "German Hyphenation Patterns (Reformed Orthography)",
+	"message" => "German hyphenation patterns (reformed orthography)",
 },
 # swissgerman
 {
@@ -346,7 +346,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Swiss-German Hyphenation Patterns (Traditional Orthography)",
+	"message" => "Swiss-German hyphenation patterns (traditional orthography)",
 },
 # russian	xu-ruhyphen.tex
 {
@@ -359,7 +359,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
 	"exceptions" => false,
-	"message" => "Russian Hyphenation Patterns",
+	"message" => "Russian hyphenation patterns",
 },
 # ukrainian	xu-ukrhyph.tex
 {
@@ -372,7 +372,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
 	"exceptions" => false,
-	"message" => "Ukrainian Hyphenation Patterns",
+	"message" => "Ukrainian hyphenation patterns",
 },
 # ----------------------------
 # languages using new patterns
@@ -387,7 +387,7 @@ class Languages < Hash
 	"hyphenmin" => [1,2], # in babel: 2,2
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Afrikaans Hyphenation Patterns",
+	"message" => "Afrikaans hyphenation patterns",
 
 	"version"       => "0.9",
 	"last_modified" => "2010-10-18",
@@ -413,7 +413,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Catalan Hyphenation Patterns",
+	"message" => "Catalan hyphenation patterns",
 
 	"version"       => "1.11",
 	"last_modified" => "2003-07-15",
@@ -440,7 +440,7 @@ class Languages < Hash
 	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Czech Hyphenation Patterns (Pavel Sevecek, v3, 1995)",
+	"message" => "Czech hyphenation patterns (Pavel Sevecek, v3, 1995)",
 
 	"version"       => "3",
 	# guessing based on CTAN/macros/cstex/base/csplain.tar.gz:
@@ -471,7 +471,7 @@ class Languages < Hash
 	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Slovak Hyphenation Patterns (Jana Chlebikova, 1992)",
+	"message" => "Slovak hyphenation patterns (Jana Chlebikova, 1992)",
 
 	"version"       => "2",
 	"last_modified" => "1992-04-24",
@@ -496,7 +496,7 @@ class Languages < Hash
 	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Welsh Hyphenation Patterns",
+	"message" => "Welsh hyphenation patterns",
 
 	"version"       => nil,
 	"last_modified" => "1996",
@@ -519,7 +519,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Danish Hyphenation Patterns",
+	"message" => "Danish hyphenation patterns",
 	
 	"version"       => nil,
 	"last_modified" => "2011-01-11",
@@ -541,7 +541,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "il3", # TODO
 	"exceptions" => false,
-	"message" => "Esperanto Hyphenation Patterns",
+	"message" => "Esperanto hyphenation patterns",
 
 	"version"       => nil,
 	"last_modified" => "1999-08-10",
@@ -567,7 +567,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Spanish Hyphenation Patterns",
+	"message" => "Spanish hyphenation patterns",
 
 	"version"       => "4.6",
 	"last_modified" => "2010-05-18",
@@ -589,7 +589,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Basque Hyphenation Patterns",
+	"message" => "Basque hyphenation patterns",
 
 	"version"       => nil,
 	"last_modified" => "2008-06-26",
@@ -626,7 +626,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Galician Hyphenation Patterns",
+	"message" => "Galician hyphenation patterns",
 },
 # estonian
 {
@@ -638,7 +638,7 @@ class Languages < Hash
 	"hyphenmin" => [2,3], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Estonian Hyphenation Patterns",
+	"message" => "Estonian hyphenation patterns",
 
 	"version"       => nil,
 	"last_modified" => "2004-04-13",
@@ -660,7 +660,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Finnish Hyphenation Patterns",
+	"message" => "Finnish hyphenation patterns",
 },
 # croatian
 {
@@ -672,7 +672,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Croatian Hyphenation Patterns",
+	"message" => "Croatian hyphenation patterns",
 
 	"version"       => nil,
 	"last_modified" => "1996-03-19",
@@ -694,7 +694,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # polyglosia
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Hungarian Hyphenation Patterns (v20031107)",
+	"message" => "Hungarian hyphenation patterns (v20031107)",
 },
 # armenian
 # Sahak Petrosyan <sahak at mit dot edu>
@@ -707,7 +707,7 @@ class Languages < Hash
 	"hyphenmin" => [1,2], # taken from Hyphenator.js; check the value
 	"encoding" => nil,
 	"exceptions" => false,
-	"message" => "Armenian Hyphenation Patterns",
+	"message" => "Armenian hyphenation patterns",
 },
 # interlingua	iahyphen.tex
 {
@@ -719,7 +719,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ascii",
 	"exceptions" => true,
-	"message" => "Hyphenation Patterns for Interlingua",
+	"message" => "Hyphenation patterns for Interlingua",
 },
 # indonesian	inhyph.tex
 {
@@ -731,7 +731,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ascii",
 	"exceptions" => true,
-	"message" => "Indonesian Hyphenation Patterns",
+	"message" => "Indonesian hyphenation patterns",
 },
 # icelandic	icehyph.tex
 {
@@ -743,7 +743,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Icelandic Hyphenation Patterns",
+	"message" => "Icelandic hyphenation patterns",
 },
 # irish		gahyph.tex
 {
@@ -755,7 +755,7 @@ class Languages < Hash
 	"hyphenmin" => [2,3], # babel
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Irish Hyphenation Patterns",
+	"message" => "Irish hyphenation patterns",
 },
 # italian		ithyph.tex
 {
@@ -767,7 +767,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ascii",
 	"exceptions" => false,
-	"message" => "Italian Hyphenation Patterns",
+	"message" => "Italian hyphenation patterns",
 },
 # kurmanji
 {
@@ -779,7 +779,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Kurmanji Hyphenation Patterns (v. 1.0 2009/06/29 JKn and MSh)",
+	"message" => "Kurmanji hyphenation patterns (v. 1.0 2009/06/29 JKn and MSh)",
 },
 # latin
 {
@@ -792,7 +792,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Latin Hyphenation Patterns",
+	"message" => "Latin hyphenation patterns",
 
 	"version"       => "3.2",
 	"last_modified" => "2010-06-01",
@@ -818,7 +818,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "l7x",
 	"exceptions" => false,
-	"message" => "Lithuanian Hyphenation Patterns",
+	"message" => "Lithuanian hyphenation patterns",
 },
 # latvian
 {
@@ -829,7 +829,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "l7x",
 	"exceptions" => false,
-	"message" => "Latvian Hyphenation Patterns",
+	"message" => "Latvian hyphenation patterns",
 },
 # dutch		nehyph96.tex
 {
@@ -843,7 +843,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Dutch Hyphenation Patterns",
+	"message" => "Dutch hyphenation patterns",
 },
 # polish		xu-plhyph.tex
 {
@@ -856,7 +856,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "qx",
 	"exceptions" => true,
-	"message" => "Polish Hyphenation Patterns",
+	"message" => "Polish hyphenation patterns",
 },
 # portuguese	pthyph.tex
 # =portuges
@@ -869,7 +869,7 @@ class Languages < Hash
 	"hyphenmin" => [2,3], # babel
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Portuguese Hyphenation Patterns",
+	"message" => "Portuguese hyphenation patterns",
 },
 # pinyin		xu-pyhyph.tex
 {
@@ -893,7 +893,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Romanian Hyphenation Patterns", # : `rohyphen' 1.1 <29.10.1996>
+	"message" => "Romanian hyphenation patterns", # : `rohyphen' 1.1 <29.10.1996>
 },
 # slovenian
 # =slovene
@@ -906,7 +906,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Slovenian Hyphenation Patterns",
+	"message" => "Slovenian hyphenation patterns",
 
 	"version"       => "2.3",
 	"last_modified" => "1997-15-04",
@@ -928,7 +928,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Upper Sorbian Hyphenation Patterns (E. Werner)",
+	"message" => "Upper Sorbian hyphenation patterns (E. Werner)",
 #	\message{Hyphenation patterns for Upper Sorbian, E. Werner}
 #	\message{Completely new revision 1997, March 22}
 },
@@ -954,7 +954,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Turkmen Hyphenation Patterns",
+	"message" => "Turkmen hyphenation patterns",
 
 	"version"       => "0.1",
 	"last_modified" => "2010-03-16",
@@ -976,7 +976,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # polyglosia
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Turkish Hyphenation Patterns",
+	"message" => "Turkish hyphenation patterns",
 },
 # ukenglish	ukhyphen.tex
 {
@@ -988,7 +988,7 @@ class Languages < Hash
 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
 	"encoding" => "ascii",
 	"exceptions" => true,
-	"message" => "Hyphenation Patterns for British English",
+	"message" => "Hyphenation patterns for British English",
 },
 # US english
 {
@@ -1000,7 +1000,7 @@ class Languages < Hash
 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
 	"encoding" => "ascii",
 	"exceptions" => true,
-	"message" => "Hyphenation Patterns for American English",
+	"message" => "Hyphenation patterns for American English",
 },
 # US english
 # {
@@ -1012,7 +1012,7 @@ class Languages < Hash
 # 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
 # 	"encoding" => "ascii",
 # 	"exceptions" => true,
-# 	"message" => "Hyphenation Patterns for American English",
+# 	"message" => "Hyphenation patterns for American English",
 # },
 # TODO: FIXME!!!
 # serbian
@@ -1069,7 +1069,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
 	"exceptions" => false,
-	"message" => "(New) Mongolian Hyphenation Patterns",
+	"message" => "(New) Mongolian hyphenation patterns",
 
 	# only for this one
 	"version"       => "1.2",
@@ -1107,7 +1107,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "t2a",
 	"exceptions" => false,
-	"message" => "Bulgarian Hyphenation Patterns",
+	"message" => "Bulgarian hyphenation patterns",
 
 	"version"       => "1.7",
 	"last_modified" => "2008-06",
@@ -1128,7 +1128,7 @@ class Languages < Hash
 	"hyphenmin" => [1,5], # polyglosia
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Sanskrit Hyphenation Patterns (v0.4, 2010/02/26)",
+	"message" => "Sanskrit hyphenation patterns (v0.4, 2010/02/26)",
 
 	"version"       => "0.4",
 	"last_modified" => "2010-02-26",
@@ -1151,7 +1151,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Norwegian Hyphenation Patterns",
+	"message" => "Norwegian hyphenation patterns",
 },
 # norsk
 {
@@ -1162,7 +1162,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Norwegian Bokmal Hyphenation Patterns",
+	"message" => "Norwegian Bokmal hyphenation patterns",
 
 	"version"       => nil,
 	"last_modified" => "2007-02-07",
@@ -1183,7 +1183,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Norwegian Nynorsk Hyphenation Patterns",
+	"message" => "Norwegian Nynorsk hyphenation patterns",
 },
 #####
 # assamese
@@ -1195,7 +1195,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Assameze Hyphenation Patterns",
+	"message" => "Assameze hyphenation patterns",
 
 	# this is true for all Indic patterns
 	"version"       => "0.5.3",
@@ -1219,7 +1219,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Bengali Hyphenation Patterns",
+	"message" => "Bengali hyphenation patterns",
 },
 # gujarati
 {
@@ -1230,7 +1230,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Gujarati Hyphenation Patterns",
+	"message" => "Gujarati hyphenation patterns",
 },
 # hindi
 {
@@ -1241,7 +1241,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Hindi Hyphenation Patterns",
+	"message" => "Hindi hyphenation patterns",
 },
 # kannada
 {
@@ -1252,7 +1252,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Kannada Hyphenation Patterns",
+	"message" => "Kannada hyphenation patterns",
 },
 # malayalam
 {
@@ -1263,7 +1263,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Malayalam Hyphenation Patterns",
+	"message" => "Malayalam hyphenation patterns",
 },
 # marathi
 {
@@ -1274,7 +1274,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Marathi Hyphenation Patterns",
+	"message" => "Marathi hyphenation patterns",
 },
 # oriya
 {
@@ -1285,7 +1285,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Oriya Hyphenation Patterns",
+	"message" => "Oriya hyphenation patterns",
 },
 # panjabi
 {
@@ -1296,7 +1296,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Panjabi Hyphenation Patterns",
+	"message" => "Panjabi hyphenation patterns",
 },
 # tamil
 {
@@ -1307,7 +1307,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Tamil Hyphenation Patterns",
+	"message" => "Tamil hyphenation patterns",
 },
 # telugu
 {
@@ -1318,7 +1318,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Telugu Hyphenation Patterns",
+	"message" => "Telugu hyphenation patterns",
 },
 # lao
 {
@@ -1329,7 +1329,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Lao Hyphenation Patterns",
+	"message" => "Lao hyphenation patterns",
 
 	"version"       => nil,
 	"last_modified" => "2010-05-19",
@@ -1352,7 +1352,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1],
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Pan-Ethiopic Hyphenation Patterns",
+	"message" => "Pan-Ethiopic hyphenation patterns",
 },
 # dumylang -> dumyhyph.tex
 # nohyphenation -> zerohyph.tex

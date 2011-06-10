@@ -20,16 +20,16 @@
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
-    \message{UTF-8 Romanian Hyphenation Patterns}
+    \message{UTF-8 Romanian hyphenation patterns}
     \input hyph-ro.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{EC Romanian Hyphenation Patterns}
+    \message{EC Romanian hyphenation patterns}
     \input conv-utf8-ec.tex
     \input hyph-ro.tex
 \fi\else
     % pTeX
-    \message{EC Romanian Hyphenation Patterns}
+    \message{EC Romanian hyphenation patterns}
     \input hyph-ro.ec.tex
 \fi
 \endgroup

@@ -20,16 +20,16 @@
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
-    \message{UTF-8 Slovak Hyphenation Patterns (Jana Chlebikova, 1992)}
+    \message{UTF-8 Slovak hyphenation patterns (Jana Chlebikova, 1992)}
     \input hyph-sk.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{EC Slovak Hyphenation Patterns (Jana Chlebikova, 1992)}
+    \message{EC Slovak hyphenation patterns (Jana Chlebikova, 1992)}
     \input conv-utf8-ec.tex
     \input hyph-sk.tex
 \fi\else
     % pTeX
-    \message{EC Slovak Hyphenation Patterns (Jana Chlebikova, 1992)}
+    \message{EC Slovak hyphenation patterns (Jana Chlebikova, 1992)}
     \input hyph-sk.ec.tex
 \fi
 \endgroup

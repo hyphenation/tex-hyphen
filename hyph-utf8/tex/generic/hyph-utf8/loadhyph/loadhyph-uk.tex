@@ -22,17 +22,17 @@
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
-    \message{UTF-8 Ukrainian Hyphenation Patterns}
+    \message{UTF-8 Ukrainian hyphenation patterns}
     \input hyph-uk.tex
     \input hyph-quote-uk.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{T2A Ukrainian Hyphenation Patterns}
+    \message{T2A Ukrainian hyphenation patterns}
     % The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.
     \input ukrhyph.tex
 \fi\else
     % pTeX
-    \message{T2A Ukrainian Hyphenation Patterns}
+    \message{T2A Ukrainian hyphenation patterns}
     \input hyph-uk.t2a.tex
 \fi
 \endgroup

@@ -20,16 +20,16 @@
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
-    \message{UTF-8 Kurmanji Hyphenation Patterns (v. 1.0 2009/06/29 JKn and MSh)}
+    \message{UTF-8 Kurmanji hyphenation patterns (v. 1.0 2009/06/29 JKn and MSh)}
     \input hyph-kmr.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{EC Kurmanji Hyphenation Patterns (v. 1.0 2009/06/29 JKn and MSh)}
+    \message{EC Kurmanji hyphenation patterns (v. 1.0 2009/06/29 JKn and MSh)}
     \input conv-utf8-ec.tex
     \input hyph-kmr.tex
 \fi\else
     % pTeX
-    \message{EC Kurmanji Hyphenation Patterns (v. 1.0 2009/06/29 JKn and MSh)}
+    \message{EC Kurmanji hyphenation patterns (v. 1.0 2009/06/29 JKn and MSh)}
     \input hyph-kmr.ec.tex
 \fi
 \endgroup

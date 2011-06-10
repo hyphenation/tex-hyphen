@@ -20,16 +20,16 @@
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
-    \message{UTF-8 Finnish Hyphenation Patterns}
+    \message{UTF-8 Finnish hyphenation patterns}
     \input hyph-fi.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{EC Finnish Hyphenation Patterns}
+    \message{EC Finnish hyphenation patterns}
     \input conv-utf8-ec.tex
     \input hyph-fi.tex
 \fi\else
     % pTeX
-    \message{EC Finnish Hyphenation Patterns}
+    \message{EC Finnish hyphenation patterns}
     \input hyph-fi.ec.tex
 \fi
 \endgroup
