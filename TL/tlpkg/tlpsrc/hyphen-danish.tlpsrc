@@ -1,7 +1,7 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-shortdesc Danish Hyphenation Patterns
+shortdesc Danish hyphenation patterns
 longdesc Hyphenation patterns for Danish language in T1/EC and UTF-8 encoding.
 execute AddHyphen \
 	name=danish \

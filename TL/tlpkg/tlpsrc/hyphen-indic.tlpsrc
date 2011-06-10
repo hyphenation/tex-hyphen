@@ -1,6 +1,10 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Indic hyphenation patterns
+longdesc Hyphenation patterns for Assameze, Bengali, Gujarati, Hindi,
+longdesc Kannada, Malayalam, Marathi, Oriya, Panjabi, Tamil and Telugu
+longdesc for Unicode engines.
 execute AddHyphen \
 	name=assamese \
 	lefthyphenmin=1 \

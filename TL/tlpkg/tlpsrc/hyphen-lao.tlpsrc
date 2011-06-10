@@ -1,6 +1,10 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Lao hyphenation patterns
+longdesc Hyphenation patterns for Lao language for Unicode engines.
+longdesc Current version is experimental and gives bad results.
+longdesc Please wait for a new version.
 execute AddHyphen \
 	name=lao \
 	lefthyphenmin=1 \

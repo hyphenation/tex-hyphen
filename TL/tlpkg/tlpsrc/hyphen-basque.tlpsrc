@@ -1,7 +1,7 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-shortdesc Basque Hyphenation Patterns
+shortdesc Basque hyphenation patterns
 longdesc Hyphenation patterns for Basque language in T1/EC and UTF-8 encoding.
 longdesc Generating scripts for these rule-based patterns is included in hyph-utf8.
 execute AddHyphen \

@@ -14,16 +14,23 @@
 %
 \begingroup
 \lccode`\'=`\'
-% ASCII patterns - no additional support is needed
-\message{ASCII Italian Hyphenation Patterns}
-\input hyph-it.tex
 % Test for pTeX
 \ifx\kanjiskip\undefined
 % Test for native UTF-8 (which gets only a single argument)
 % That's Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
-    \lccode`\’=`\’
+    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
+    \message{UTF-8 Italian Hyphenation Patterns}
+    \input hyph-it.tex
     \input hyph-quote-it.tex
-\fi\fi
+\else
+    % 8-bit engine (such as TeX or pdfTeX)
+    \message{ASCII Italian Hyphenation Patterns}
+    \input hyph-it.tex
+\fi\else
+    % pTeX
+    \message{ASCII Italian Hyphenation Patterns}
+    \input hyph-it.tex
+\fi
 \endgroup

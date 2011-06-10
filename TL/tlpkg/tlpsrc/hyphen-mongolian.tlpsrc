@@ -1,6 +1,10 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Mongolian hyphenation patterns in Cyrillic script
+longdesc Hyphenation patterns for Mongolian language in T2A, LMC and UTF-8 encoding.
+longdesc LMC encoding is used in MonTeX. The package includes two sets of patterns
+longdesc that will hopefully be merged in future.
 execute AddHyphen \
 	name=mongolian \
 	lefthyphenmin=2 \

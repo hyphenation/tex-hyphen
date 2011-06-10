@@ -106,7 +106,7 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 
 		if patterns_quote.length > 0
 			f = File.open("#{$path_quote}/hyph-quote-#{code}.tex", 'w')
-			f.puts "\\patterns{\n#{patterns_quote.join("\n")}\n}"
+			f.puts "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n#{patterns_quote.join("\n")}\n}\n\\egroup\n"
 			f.close
 		end
 

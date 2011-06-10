@@ -75,8 +75,7 @@ text_patterns_old   =  "    \\input #{language.filename_old_patterns}"
 text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
 text_patterns_utf8  =  text_patterns
 
-text_patterns_quote = ["    \\lccode`\\’=`\\’",
-                       "    \\input hyph-quote-#{language.code}.tex"]
+text_patterns_quote =  "    \\input hyph-quote-#{language.code}.tex"
 
 ###########
 # lccodes #
@@ -151,14 +150,21 @@ end
 #######################
 # GROUP nr. 2 - ASCII #
 #######################
+			elsif language.code == "it" then
+				file.puts(text_if_native_utf)
+				file.puts(text_engine_utf8)
+				file.puts(text_patterns)
+				file.puts(text_patterns_quote)
+				file.puts('\else')
+				file.puts(text_engine_8bit)
+				file.puts(text_patterns)
+				file.puts('\fi\else')
+				file.puts(text_engine_ptex)
+				file.puts(text_patterns)
+				file.puts('\fi')
 			# for ASCII encoding, we don't load any special support files, but simply load everything
 			elsif language.encoding == "ascii" then
 				file.puts(text_engine_ascii)
-				if language.code == "it" then
-					file.puts(text_if_native_utf)
-					file.puts(text_patterns_quote)
-					file.puts('\fi\fi')
-				end
 ####################################
 # GROUP nr. 3 - different patterns #
 ####################################

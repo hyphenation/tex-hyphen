@@ -130,6 +130,15 @@ authors = {
 	"javier_bezos"        => ["Javier", "Bezos", "jbezos{at}tex-tipografia{dot}com", true, true],
 	"een_saar"            => ["Enn", "Saar", "saar{at}aai{dot}ee", false, false],
 	"dejan_muhamedagic"   => ["Dejan", "Muhamedagić", "dejan{at}hello-penguin{dot}com", true, true],
+	"brian_wilson"        => ["Brian", "Wilson", "bountonw{at}gmail{dot}com", true, true],
+	"arthur_reutenauer"   => ["Arthur", "Reutenauer", "arthur{dot}reutenauer{at}normalesup{dot}org", true, true],
+	"mojca_miklavec"      => ["Mojca", "Miklavec", "mojca{dot}miklavec{dot}lists{at}gmail{dot}com", true, true],
+	"santhosh_thottingal" => ["Santhosh", "Thottingal", "santhosh{dot}thottingal{at}gmail{dot}com>", true, true],
+	"yves_codet"          => ["Yves", "Codet", "ycodet{at}club-internet{dot}fr", true, true],
+	"rune_kleveland"      => ["Rune", "Kleveland", nil, false, false],
+	"ole_michael_selberg" => ["Ole Michael", "Selberg", nil, false, false],
+	"dorjgotov_batmunkh"  => ["Dorjgotov", "Batmunkh", "bataak{at}gmail{dot}com", true, true],
+	"nazar_annagurban"    => ["Nazar", "Annagurban", "nazartm{at}gmail{dot}com", false, false],
 }
 
 
@@ -158,7 +167,7 @@ class Languages < Hash
 # --------------------------------------
 # languages with no hyphenation patterns
 # --------------------------------------
-# arabic		zerohyph.tex
+# arabic
 {
 	"code" => "ar",
 	"name" => "arabic",
@@ -169,8 +178,14 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => nil,
+
+	# TODO
+	"description_s" => "(No) Arabic hyphenation patterns",
+	"description_l" => [
+		"Prevent hyphenation in Arabic.",
+	],
 },
-# farsi		zerohyph.tex
+# farsi
 # =persian
 {
 	"code" => "fa",
@@ -182,6 +197,12 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => nil,
+
+	# TODO
+	"description_s" => "(No) Persian hyphenation patterns",
+	"description_l" => [
+		"Prevent hyphenation in Persian.",
+	],
 },
 # -------------------------------
 # special patterns, not converted
@@ -257,7 +278,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["dimitrios_filippou"],
 	"licence"       => "LPPL",
-	"description_s" => "Ancient Greek Hyphenation Patterns",
+	"description_s" => "Ancient Greek hyphenation patterns",
 	# TODO: please help me rewrite this
 	"description_l" => [
 		"Hyphenation patterns for Ancient Greek language in UTF-8 encoding",
@@ -282,7 +303,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "LPPL", # TODO: check; catalogue says so
-	"description_s" => "Coptic Hyphenation Patterns",
+	"description_s" => "Coptic hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Coptic language in UTF-8 encoding",
 		"as well as in ASCII-based encoding for 8-bit engines.",
@@ -374,7 +395,7 @@ class Languages < Hash
 	"authors"       => [ "tilla_fick", "chris_swanepoel" ],
 	"email"         => [ "hyphen{at}rekenaar{dot}net" ],
 	"licence"       => "LPPL",
-	"description_s" => "Afrikaans Hyphenation Patterns",
+	"description_s" => "Afrikaans hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Afrikaans language in T1/EC and UTF-8 encoding.",
 		"(OpenOffice includes older patterns created by a different author,",
@@ -399,7 +420,7 @@ class Languages < Hash
 	"type"          => "rules", # not only rules, also patgen, but it is a good approximation
 	"authors"       => [ "goncal_badenes" ],
 	"licence"       => "LPPL",
-	"description_s" => "Catalan Hyphenation Patterns",
+	"description_s" => "Catalan hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Catalan language in T1/EC and UTF-8 encoding.",
 	],
@@ -430,7 +451,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "pavel_sevecek" ],
 	"licence"       => "GPL",
-	"description_s" => "Czech Hyphenation Patterns",
+	"description_s" => "Czech hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Czech language in T1/EC and UTF-8 encoding.",
 		"Original patterns 'czhyphen' are still distributed in 'csplain' package",
@@ -457,7 +478,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "jana_chlebikova" ],
 	"licence"       => "GPL",
-	"description_s" => "Slovak Hyphenation Patterns",
+	"description_s" => "Slovak hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Slovak language in T1/EC and UTF-8 encoding.",
 		"Original patterns 'skhyphen' are still distributed in 'csplain' package",
@@ -481,8 +502,8 @@ class Languages < Hash
 	"last_modified" => "1996",
 	"type"          => "dictionary",
 	"authors"       => [ "yannis_haralambous" ],
-	"licence"       => nil,
-	"description_s" => "Welsh Hyphenation Patterns",
+	"licence"       => "LPPL",
+	"description_s" => "Welsh hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Welsh language in T1/EC and UTF-8 encoding.",
 	],
@@ -505,7 +526,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "frank_jensen" ],
 	"licence"       => "LPPL",
-	"description_s" => "Danish Hyphenation Patterns",
+	"description_s" => "Danish hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Danish language in T1/EC and UTF-8 encoding.",
 	],
@@ -527,7 +548,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "sergei_pokrovsky" ],
 	"licence"       => "LPPL",
-	"description_s" => "Esperanto Hyphenation Patterns",
+	"description_s" => "Esperanto hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Esperanto language in UTF-8 and ISO Latin 3 (IL3) encoding.",
 		"Note that TeX distributions usually don't ship any suitable fonts in that encoding,",
@@ -553,7 +574,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "javier_bezos" ],
 	"licence"       => "LPPL",
-	"description_s" => "Spanish Hyphenation Patterns",
+	"description_s" => "Spanish hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Spanish language in T1/EC and UTF-8 encoding.",
 	],
@@ -575,7 +596,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "juan_aguirregabiria" ],
 	"licence"       => "other-free", # "public-check",
-	"description_s" => "Basque Hyphenation Patterns",
+	"description_s" => "Basque hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Basque language in T1/EC and UTF-8 encoding.",
 		"Generating scripts for these rule-based patterns is included in hyph-utf8."
@@ -624,7 +645,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "een_saar" ],
 	"licence"       => "LPPL",
-	"description_s" => "Estonian Hyphenation Patterns",
+	"description_s" => "Estonian hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Estonian language in T1/EC and UTF-8 encoding.",
 	],
@@ -658,7 +679,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "igor_marinovic" ],
 	"licence"       => "LPPL",
-	"description_s" => "Croatian Hyphenation Patterns",
+	"description_s" => "Croatian hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Croatian language in T1/EC and UTF-8 encoding.",
 	],
@@ -778,7 +799,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "LPPL",
-	"description_s" => "Latin Hyphenation Patterns",
+	"description_s" => "Latin hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Latin language in T1/EC and UTF-8 encoding,",
 		"mainly in modern spelling (u when u is needed and v when v is needed),",
@@ -824,10 +845,6 @@ class Languages < Hash
 	"exceptions" => true,
 	"message" => "Dutch Hyphenation Patterns",
 },
-# norsk		xu-nohyphbx.tex
-# =norwegian
-# nynorsk         nnhyph.tex
-# bokmal          nbhyph.tex
 # polish		xu-plhyph.tex
 {
 	"code" => "pl",
@@ -896,7 +913,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "matjaz_vrecko" ],
 	"licence"       => "LPPL",
-	"description_s" => "Slovenian Hyphenation Patterns",
+	"description_s" => "Slovenian hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Slovenian language in T1/EC and UTF-8 encoding.",
 	],
@@ -938,8 +955,18 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Turkmen Hyphenation Patterns",
+
+	"version"       => "0.1",
+	"last_modified" => "2010-03-16",
+	"type"          => "rules",
+	"authors"       => [ "nazar_annagurban" ],
+	"licence"       => "public",
+	"description_s" => "Turkmen hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Turkmen language in T1/EC and UTF-8 encoding.",
+	],
 },
-# turkish		xu-tkhyph.tex
+# turkish
 {
 	"code" => "tr",
 	"name" => "turkish",
@@ -952,7 +979,6 @@ class Languages < Hash
 	"message" => "Turkish Hyphenation Patterns",
 },
 # ukenglish	ukhyphen.tex
-# TODO - should we rename it or not?
 {
 	"code" => "en-gb",
 	"name" => "ukenglish", "synonyms" => ["british", "UKenglish"],
@@ -1012,7 +1038,7 @@ class Languages < Hash
 	"authors"       => [ "dejan_muhamedagic" ],
 	"licence"       => "LPPL",
 	# for both scripts
-	"description_s" => "Serbian Hyphenation Patterns",
+	"description_s" => "Serbian hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Serbian language in UTF-8 and 8-bit variant.",
 		"For 8-bit TeX the patterns are available separately as 'serbian' in",
@@ -1044,6 +1070,20 @@ class Languages < Hash
 	"encoding" => "t2a",
 	"exceptions" => false,
 	"message" => "(New) Mongolian Hyphenation Patterns",
+
+	# only for this one
+	"version"       => "1.2",
+	"last_modified" => "2010-04-03",
+	"type"          => "dictionary",	
+	"authors"       => [ "dorjgotov_batmunkh" ],
+	"licence"       => "LPPL",
+	# for both
+	"description_s" => "Mongolian hyphenation patterns in Cyrillic script",
+	"description_l" => [
+		"Hyphenation patterns for Mongolian language in T2A, LMC and UTF-8 encoding.",
+		"LMC encoding is used in MonTeX. The package includes two sets of patterns",
+		"that will hopefully be merged in future.",
+	],
 },
 # mongolianlmc	xu-mnhyph.tex (used to be mongolian)
 {
@@ -1068,6 +1108,16 @@ class Languages < Hash
 	"encoding" => "t2a",
 	"exceptions" => false,
 	"message" => "Bulgarian Hyphenation Patterns",
+
+	"version"       => "1.7",
+	"last_modified" => "2008-06",
+	"type"          => "pattern",
+	"authors"       => [ "" ],
+	"licence"       => "LPPL",
+	"description_s" => "Bulgarian hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Bulgarian language in T2A and UTF-8 encoding.",
+	],
 },
 # sanskrit
 {
@@ -1078,9 +1128,21 @@ class Languages < Hash
 	"hyphenmin" => [1,5], # polyglosia
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Sanskrit Hyphenation Patterns (v0.2, 2008/1/3)",
+	"message" => "Sanskrit Hyphenation Patterns (v0.4, 2010/02/26)",
+
+	"version"       => "0.4",
+	"last_modified" => "2010-02-26",
+	"type"          => "rules",
+	"authors"       => ["yves_codet"],
+	"licence"       => nil,
+	"description_s" => "Sanskrit hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Sanskrit and Prakrit in transliteration,",
+		"and in Devanagari, Bengali, Kannada, Malayalam and Telugu scripts",
+		"for Unicode engines.",
+	],
 },
-# norwegian	nohyph.tex
+# norwegian
 {
 	"code" => "no",
 	"name" => "norwegian", # TODO: fixme
@@ -1091,7 +1153,7 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Norwegian Hyphenation Patterns",
 },
-# norsk	xu-nohyphbx.tex
+# norsk
 {
 	"code" => "nb",
 	"name" => "bokmal", "synonyms" => ["norwegian", "norsk"],
@@ -1101,8 +1163,18 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Norwegian Bokmal Hyphenation Patterns",
+
+	"version"       => nil,
+	"last_modified" => "2007-02-07",
+	"type"          => "dictionary",
+	"authors"       => [ "rune_kleveland", "ole_michael_selberg" ],
+	"licence"       => "free", # TODO
+	"description_s" => "Norwegian Bokmal and Nynorsk hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Norwegian Bokmal and Nynorsk in T1/EC and UTF-8 encoding.",
+	],
 },
-# nynorsk	nnhyph.tex
+# nynorsk
 {
 	"code" => "nn",
 	"name" => "nynorsk",
@@ -1124,6 +1196,19 @@ class Languages < Hash
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
 	"message" => "Assameze Hyphenation Patterns",
+
+	# this is true for all Indic patterns
+	"version"       => "0.5.3",
+	"last_modified" => "2010-05-01",
+	"type"          => "rules",
+	"authors"       => ["santhosh_thottingal"],
+	"licence"       => "LGPL",
+	"description_s" => "Indic hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Assameze, Bengali, Gujarati, Hindi,",
+		"Kannada, Malayalam, Marathi, Oriya, Panjabi, Tamil and Telugu",
+		"for Unicode engines.",
+	],
 },
 # bengali
 {
@@ -1245,6 +1330,18 @@ class Languages < Hash
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
 	"message" => "Lao Hyphenation Patterns",
+
+	"version"       => nil,
+	"last_modified" => "2010-05-19",
+	"type"          => "rules",
+	"authors"       => [ "brian_wilson", "arthur_reutenauer", "mojca_miklavec" ],
+	"licence"       => nil, # TODO
+	"description_s" => "Lao hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Lao language for Unicode engines.",
+		"Current version is experimental and gives bad results.",
+		"Please wait for a new version.",
+	],
 },
 # pan-Ethiopic
 {
