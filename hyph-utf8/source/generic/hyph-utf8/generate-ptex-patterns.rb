@@ -32,7 +32,7 @@ languages.each do |language|
 end
 # language_codes['mn-cyrl-x-lmc'] = nil
 # language_codes['sh-latn']       = 'sr-latn'
-language_codes['sh-cyrl']       = nil
+# language_codes['sh-cyrl']       = nil
 
 # e = Encoding.new("ec")
 # puts e.convert_string_to_escaped_characters("moja čaša")
