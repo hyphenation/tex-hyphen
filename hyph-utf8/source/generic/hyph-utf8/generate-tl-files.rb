@@ -176,7 +176,7 @@ language_groups.sort.each do |language_name,language_list|
 	if language_name != "russian" and language_name != "ukrainian" then
 		$file_tlpsrc.puts
 		language_list.each do |language|
-			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" then
+			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.filename_old_patterns != "copthyph.tex" then
 				$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
 			end
 		end

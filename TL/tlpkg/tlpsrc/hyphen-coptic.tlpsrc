@@ -14,4 +14,3 @@ execute AddHyphen \
 	file_patterns=hyph-cop.pat.txt \
 	file_exceptions=
 
-runpattern f texmf/tex/generic/hyphen/copthyph.tex
