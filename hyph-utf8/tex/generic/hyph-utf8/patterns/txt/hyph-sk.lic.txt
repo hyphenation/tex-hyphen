@@ -1,4 +1,4 @@
-Slovak Hyphenation Patterns (Jana Chlebikova, 1992)
+Slovak hyphenation patterns (Jana Chlebikova, 1992)
 
 (more info about the licence to be added later)
 

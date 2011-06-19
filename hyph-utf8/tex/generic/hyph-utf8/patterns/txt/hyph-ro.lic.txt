@@ -1,4 +1,4 @@
-Romanian Hyphenation Patterns
+Romanian hyphenation patterns
 
 (more info about the licence to be added later)
 
@@ -6,7 +6,7 @@ Romanian Hyphenation Patterns
 % semi-manual conversions of hyphenation patterns into UTF-8 in June 2008.
 %
 % Source: rohyphen.tex (1996-11-11)
-% Author: drian Rezus <adriaan at {sci,cs}.kun.nl>
+% Author: Adrian Rezus <adriaan at {sci,cs}.kun.nl>
 %
 % The above mentioned file should become obsolete,
 % and the author of the original file should preferaby modify this file instead.

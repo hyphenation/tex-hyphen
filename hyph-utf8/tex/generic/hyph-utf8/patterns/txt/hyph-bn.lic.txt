@@ -1,4 +1,4 @@
-Bengali Hyphenation Patterns
+Bengali hyphenation patterns
 
 (more info about the licence to be added later)
 

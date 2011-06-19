@@ -1,4 +1,4 @@
-Catalan Hyphenation Patterns
+Catalan hyphenation patterns
 
 (more info about the licence to be added later)
 

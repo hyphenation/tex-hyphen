@@ -113,7 +113,7 @@ end
 
 
 authors = {
-	"peter_heslin"        => ["Peter", "Heslin", "", false, false],
+	"peter_heslin"        => ["Peter", "Heslin", nil, false, false],
 	"dimitrios_filippou"  => ["Dimitrios", "Filippou", "dfilipp{at}hotmail{dot}com", true, true],
 	"claudio_beccari"     => ["Claudio", "Beccari","claudio{dot}beccari{at}polito{dot}it", true, true],
 	"juan_aguirregabiria" => ["Juan M.", "Aguirregabiria", "juanmari{dot}aguirregabiria{at}ehu.es", true, true],
@@ -139,6 +139,44 @@ authors = {
 	"ole_michael_selberg" => ["Ole Michael", "Selberg", nil, false, false],
 	"dorjgotov_batmunkh"  => ["Dorjgotov", "Batmunkh", "bataak{at}gmail{dot}com", true, true],
 	"nazar_annagurban"    => ["Nazar", "Annagurban", "nazartm{at}gmail{dot}com", false, false],
+	"jan_michael_rynning" => ["Jan Michael", "Rynning", nil, false, false],
+	"eduard_werner" => ["Eduard", "Werner", "edi{dot}werner{at}gmx{dot}de", false, false],
+	"werner_lemberg" => ["Werner", "Lemberg", "wl{at}gnu{dot}org", true, true],
+	"pedro_j_de_rezende" => ["Pedro J.", "de Rezende", "rezende{at}ddc{dot}unicamp{dot}br", false, false],
+	"j_joao_dias_almeida" => ["J. Joao", "Dias Almeida", "jj{at}di{dot}uminho{dot}pt"],
+	"piet_tutelaers" => ["Piet", "Tutelaers", "P{dot}T{dot}H{dot}Tutelaers{at}tue{dot}nl", false, false],
+	"vytas_statulevicius" => ["Vytas", "Statulevičius", "vytas{at}vtex{dot}nl", false, false],
+	"sigitas_tolusis" => ["Sigitas", "Tolusis", "sigitas{at}vtex{dot}lt", false, false],
+	"janis_vilims" => ["Janis", "Vilims", "jvilims{at}apollo{dot}lv", false, false],
+	"joerg_knappen" => ["Jörg", "Knappen", "knappen{at}vkpmzd{dot}kph{dot}uni-mainz{dot}de", false, false], # TODO From id patterns; obviously there must be some more recent address for him
+	"medeni_semde" => ["Medeni", "Shemdê", nil, false, false],
+	"terry_mart" => ["Terry", "Mart", "mart{at}kph{dot}uni-mainz{dot}de", false, false],
+	"jorgen_pind" => ["Jorgen", "Pind", "jorgen{at}lexis{dot}hi{dot}is", false, false],
+	"marteinn_sverrisson" => ["Marteinn", "Sverrisson", nil, false, false],
+	"kristinn_gylfason" => ["Kristinn", "Gylfason", "kristgy{at}ieee{dot}org"],
+	"kevin_p_scannell" => ["Kevin P.", "Scannell", "scanell{at}slu{dot}edu", false, false],
+	"peter_kleiweg" => ["Peter", "Kleiweg", "p{dot}c{dot}c{dot}kleiweg{at}rug{dot}nl", false, false],
+	"hanna_kolodziejska" => ["Hanna", "Kołodziejska", nil, false, false],
+	"boguslaw_jackowski" => ["Bogusław", "Jackowski", nil, true, true],
+	"marek_rycko" => ["Marek", "Ryćko", nil, false, false],
+	"vladimir_volovich" => ["Vladimir", "Volovich", nil, true, true], # TODO add e-mail address
+	"alexander_i_lebedev" => ["Alexander I.", "Lebedev", "swan{at}scon155{dot}phys{dot}msu{dot}su", false, false], # Not sure were 'I' belongs
+	"maksym_polyakov" => ["Maksym", "Polyakov", "polyama{at}auburn{dot}edu", false, false], # Second e-mail address in ukrhypmp.tex: mpoliak@i.com.ua
+	"adrian_rezus" => ["Adrian", "Rezus", "adriaan{at}\{sci,cs\}{dot}kun{dot}nl", false, false],
+	"sahak_petrosyan" => ["Sahak", "Petrosyan", "sahak{at}mit{dot}edu", true, true], # I think "true, true" is right.  Arthur
+	"dominik_wujastyk" => ["Dominik", "Wujastyk", nil, false, false], # TODO Dominik is quite active on the XeTeX list, make contact with him
+	"graham_toal" => ["Graham", "Toal", nil, false, false],
+	"donald_e_knuth" => ["Donald E.", "Knuth", nil, false, false], # Don doesn't use e-mail ;-)
+  "gerard_d_c_kuiken" => ["Gerard D.C.", "Kuiken", nil, false, false],
+	"pierre_mackay" => ["P. A.", "MacKay", nil, true, true],
+	"h_turgut_uyar" => ["H. Turgut", "Uyar", "uyar{at}itu{dot}edu{tr}", true, true],
+	"s_ekin_kocabas" => ["S. Ekin", "Kocabas", "kocabas{at}stanford{dot}edu", true, true],
+	"bence_nagy" => ["Bence", "Nagy", "nagybence{at}tipogral{dot}hu", true, true],
+	"kauko_saarinen" => ["Kauko", "Saarinen", nil, false, false],
+	"fred_karlsson" => ["Fred", "Karlsson", nil, false, false],
+	"rene_bastian" => ["René", "Bastian", nil, false, false], # TODO make contact
+	"daniel_flipo" => ["Daniel", "Flipo", nil, false, false], # TODO make contact
+	"bernard_gaulle" => ["Bernard", "Gaulle", nil, false, false], # Deceased...
 }
 
 
@@ -220,6 +258,7 @@ class Languages < Hash
 	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding (v3.0)",
 	
 	# "authors" => ["peter_heslin"],
+	"version" => 3.0,
 },
 # ----------------------------
 # languages using old patterns
@@ -236,13 +275,19 @@ class Languages < Hash
 	# left/right hyphen min for Greek can be as low as one (1),
 	# but for aesthetic reasons keep them at 2/2.
 	# Dimitrios Filippou
-	"hyphenmin" => [1,1], # polyglosia
+	"hyphenmin" => [1,1], # polyglossia
 	"encoding" => nil,
 	"exceptions" => true,
-#	"message" => "Polytonic Greek hyphenation patterns",
 	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
 	
-	# "authors" => ["dimitrios_filippou"],
+	"authors" => ["dimitrios_filippou"],
+	"description_s" => "Polytonic Modern Greek hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Modern Greek in polytonic spelling.",
+		"The pattern file used for 8-bit TeX engines is grphyph5.tex that is not part of hyph-utf8.",
+		"Patterns in UTF-8 use two code positions for each of the vowels with acute accent",
+		"(a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.",
+	],
 },
 # monogreek	xu-grmhyph4.tex
 {
@@ -252,13 +297,20 @@ class Languages < Hash
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grmhyph5.tex",
-	"hyphenmin" => [1,1], # polyglosia
+	"hyphenmin" => [1,1], # polyglossia
 	"encoding" => nil,
 	"exceptions" => true,
-#	"message" => "Monotonic Greek hyphenation patterns",
 	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek",
 	
-	# "authors" => ["dimitrios_filippou"],
+	"authors" => ["dimitrios_filippou"],
+	"description_s" => "Monotonic Modern Greek hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Modern Greek in monotonic spelling.",
+		"The pattern file used for 8-bit TeX engines is grmhyph5.tex, in Babel's LGR encoding,",
+		"that is not part of hyph-utf8.",
+		"Patterns in UTF-8 use two code positions for each of the vowels with acute accent",
+		"(a.k.a tonos, oxia), e.g., U+03AD, U+1F73 for epsilon.",
+	],
 },
 # ancientgreek
 {
@@ -268,7 +320,7 @@ class Languages < Hash
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grahyph5.tex",
-	"hyphenmin" => [1,1], # polyglosia
+	"hyphenmin" => [1,1], # polyglossia
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Hyphenation patterns for Ancient Greek",
@@ -279,10 +331,12 @@ class Languages < Hash
 	"authors"       => ["dimitrios_filippou"],
 	"licence"       => "LPPL",
 	"description_s" => "Ancient Greek hyphenation patterns",
-	# TODO: please help me rewrite this
 	"description_l" => [
-		"Hyphenation patterns for Ancient Greek language in UTF-8 encoding",
-		"as well as in ASCII-based LGR encoding of babel for 8-bit engines.",
+		"Hyphenation patterns for Ancient Greek.",
+		"The pattern file used for 8-bit TeX engines is grahyph5.tex, in Babel's LGR encoding,",
+		"that is not part of hyph-utf8.",
+		"Patterns in UTF-8 use two code positions for each of the vowels with acute accent",
+		"(a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.",
 	],
 },
 # coptic
@@ -293,7 +347,7 @@ class Languages < Hash
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "TODO: automatic conversion could be done, but was too complicated; leave for later.",
 	"filename_old_patterns" => "copthyph.tex",
-	"hyphenmin" => [1,1], # polyglosia TODO: no documentation found
+	"hyphenmin" => [1,1], # polyglossia TODO: no documentation found
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Coptic hyphenation patterns",
@@ -302,7 +356,7 @@ class Languages < Hash
 	"last_modified" => "2004-10-03",
 	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
-	"licence"       => "LPPL", # TODO: check; catalogue says so
+	"licence"       => "LPPL",
 	"description_s" => "Coptic hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Coptic language in UTF-8 encoding",
@@ -323,6 +377,15 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "German hyphenation patterns (traditional orthography)",
+	"last_modified" => "2011-06-01", # For the active project
+	"version" => nil,
+	"authors" => ["werner_lemberg"],
+	"licence" => "LPPL",
+	"description_s" => "German hyphenation patterns in traditional spelling",
+	"description_l" => [
+		"Hyphenation patterns for German in traditional spelling, in T1/EC and UTF-8 encoding.",
+		"Patterns encoded in UTF-8 are provided by a separate package.",
+	],
 },
 # ngerman		xu-dehyphn.tex
 {
@@ -336,6 +399,15 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "German hyphenation patterns (reformed orthography)",
+	"last_modified" => "2011-06-01",
+	"version" => nil,
+	"authors" => ["werner_lemberg"],
+	"licence" => "LPPL",
+	"description_s" => "German hyphenation patterns in reformed spelling",
+	"description_l" => [
+		"Hyphenation patterns for German in reformed spelling, in T1/EC and UTF-8 encoding.",
+		"Patterns encoded in UTF-8 are provided by a separate package.",
+	],
 },
 # swissgerman
 {
@@ -347,6 +419,17 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Swiss-German hyphenation patterns (traditional orthography)",
+	"last_modified" => "2011-06-01",
+	"version" => nil,
+	"authors" => ["werner_lemberg"],
+	"licence" => "LPPL",
+	"description_l" => "German hyphenation patterns, traditional spelling in Switzerland.",
+	"description_s" => [
+		"Hyphenation patterns for German in traditional spelling as used in Switzerland, in T1/EC and UTF-8.",
+		"These patterns are suitable for Standard German (Hochdeutsch), not the Alemannic dialects",
+		"spoken in Switzerland (Schwyzerdütsch).  There are no patterns for written Schwyzerdütsch",
+		"we know of.",
+	],
 },
 # russian	xu-ruhyphen.tex
 {
@@ -360,6 +443,18 @@ class Languages < Hash
 	"encoding" => "t2a",
 	"exceptions" => false,
 	"message" => "Russian hyphenation patterns",
+	"last_modified" => "2003-03-10", # Date of the patterns proper, not the support files
+	"version" => nil,
+	"authors" => ["alexander_i_lebedev", "werner_lemberg", "vladimir_volovich"],
+	"licence" => "LPPL",
+	"description_s" => "Russian hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Russian in T2A and UTF-8.",
+		"For 8-bit TeX engines, the ruhyphen package provides a number of different pattern sets,",
+		"as well as different (8-bit) encodings, that can be chosen at format-generation time.",
+		"The UTF-8 version only provides the default pattern set.  A mechanism similar",
+		"to the one used for 8-bit patterns may be implemented in the future.",
+	],
 },
 # ukrainian	xu-ukrhyph.tex
 {
@@ -373,6 +468,18 @@ class Languages < Hash
 	"encoding" => "t2a",
 	"exceptions" => false,
 	"message" => "Ukrainian hyphenation patterns",
+	"last_modified" => "2001-05-10", # Date of the patterns proper
+	"version" => nil,
+	"authors" => ["maksym_polyakov", "werner_lemberg", "vladimir_volovich"],
+	"licence" => "LPPL",
+	"description_s" => "Ukrainian hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Ukrainian in T2A and UTF-8.",
+		"For 8-bit TeX engines, the ukrhyph package provides a number of different pattern sets,",
+		"as well as different (8-bit) encodings, that can be chosen at format-generation time.",
+		"The UTF-8 version only provides the default pattern set.  A mechanism similar",
+		"to the one used for 8-bit patterns may be implemented in the future.",
+	],
 },
 # ----------------------------
 # languages using new patterns
@@ -615,6 +722,16 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "French hyphenation patterns (V2.12, 2002/12/11)",
+	"last_modified" => "2002-12-11",
+	"version" => "2.12",
+	"authors" => ["rene_bastian", "daniel_flipo", "bernard_gaulle"],
+	# TODO for Arthur: recreate mailing-list
+	# "email"         => ["cesure-l{at}gutenberg{dot}eu{dot}org"],
+	"licence" => "other-free", # Knuthian type
+	"description_s" => "French hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for French.",
+	]
 },
 # galician	xu-glhyph.tex
 {
@@ -627,6 +744,15 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Galician hyphenation patterns",
+	"last_modified" => "2010-04-23",
+	"version" => "2.4",
+	"authors" => ["javier_mugica"],
+	"licence" => "LPPL", # Status maintained
+	"description_s" => "Galician hyphenation patterns.",
+	"description_l" => [
+		"Hyphenation patterns for Galician in T1/EC and UTF-8.",
+		"Generated automatically from the mkpattern utility.",
+	]
 },
 # estonian
 {
@@ -661,6 +787,14 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Finnish hyphenation patterns",
+	"last_modified" => "1989-03-08",
+	"version" => "2.2",
+	"authors" => ["kauko_saarinen", "fred_karlsson"],
+	"licence" => "other-free",
+	"description_s" => "Finnish hyphenation patterns.",
+	"description_l" => [
+		"Hyphenation patterns for Finnish in T1/EC and UTF-8.",
+	],
 },
 # croatian
 {
@@ -691,10 +825,20 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "huhyphn.tex",
-	"hyphenmin" => [2,2], # polyglosia
+	"hyphenmin" => [2,2], # polyglossia
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Hungarian hyphenation patterns (v20031107)",
+	"last_modified" => "2008-11-06",
+	"version" => nil,
+	"authors" => ["bence_nagy"],
+	"licence" => "GPL",
+	"description_s" => "Hungarian hyphenation patterns.",
+	"description_l" => [
+		"Hyphenation patterns for Hungarian in T1/EC and UTF-8 encoding.",
+		"The patterns for TeX are extracted from the ones for OpenOffice,",
+		"that support some additional features that TeX cannot handle.",
+	],
 },
 # armenian
 # Sahak Petrosyan <sahak at mit dot edu>
@@ -708,6 +852,16 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Armenian hyphenation patterns",
+	"last_modified" => "2010-05",
+	"version" => nil,
+	"authors" => ["sahak_petrosyan"],
+	"licence" => "LPGL",
+	"description_s" => "Armenian hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Armenian.",
+		"Auto-generated from a script included in hyph-utf8.",
+		"See source/generic/hyph-utf8/languages/hy/."
+	],
 },
 # interlingua	iahyphen.tex
 {
@@ -720,6 +874,14 @@ class Languages < Hash
 	"encoding" => "ascii",
 	"exceptions" => true,
 	"message" => "Hyphenation patterns for Interlingua",
+	"last_modified" => "2005-06-28",
+	"version" => "0.2c",
+	"authors" => ["peter_kleiweg"],
+	"licence" => "LPPL", # TODO Status maintained
+	"description_l" => "Interlingua",
+	"description_s" => [
+		"Hyphenation patterns for Interlingua in ASCII.",
+	],
 },
 # indonesian	inhyph.tex
 {
@@ -732,6 +894,13 @@ class Languages < Hash
 	"encoding" => "ascii",
 	"exceptions" => true,
 	"message" => "Indonesian hyphenation patterns",
+	"last_modified" => "1997-09-19",
+	"authors" => ["joerg_knappen", "terry_mart"],
+	"licence" => "GPL",
+	"description_l" => "Indonesian hyphenation patterns.",
+	"description_s" => [
+		"Hyphenation patterns for Indonesian (bahasa indonesia) in ASCII.  They are probably also usable for bahasa melayu.",
+	],
 },
 # icelandic	icehyph.tex
 {
@@ -744,6 +913,13 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Icelandic hyphenation patterns",
+	"last_modified" => "2004-03-02",
+	"authors" => ["jorgen_pind", "marteinn_sverrisson", "kristinn_gylfason"],
+	"licence" => "LPPL",
+	"description_s" => "Icelandic hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Icelandic in T1/EC and UTF-8 encoding.",
+	],
 },
 # irish		gahyph.tex
 {
@@ -756,6 +932,16 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Irish hyphenation patterns",
+	"type" => "dictionary",
+	"last_modified" => "2004-01-22",
+	"version" => "1.0",
+	"authors" => ["kevin_p_scannell"],
+	"licence" => "GPL",
+	"description_s" => "Irish hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Irish (Gaeilge).",
+		"Visit http://borel.slu.edu/fleiscin/index.html for more information.",
+	],
 },
 # italian		ithyph.tex
 {
@@ -768,6 +954,15 @@ class Languages < Hash
 	"encoding" => "ascii",
 	"exceptions" => false,
 	"message" => "Italian hyphenation patterns",
+	"version" => "4.8h",
+	"last_modified" => "2010-05-24",
+	"authors" => ["claudio_beccari"],
+	"licence" => "LGPL",
+	"description_s" => "Italian hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Italian in ASCII.",
+		"Implements Recommendation UNI 6461 of the Italian Standards Institution (Ente Nazionale di Unificazione UNI).",
+	],
 },
 # kurmanji
 {
@@ -780,6 +975,16 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Kurmanji hyphenation patterns (v. 1.0 2009/06/29 JKn and MSh)",
+	"version" => "1.0",
+	"last_modified" => "2009-06-29",
+	"type" => "dictionary",
+	"authors" => ["joerg_knappen", "medeni_shemde"],
+	"licence" => "LPPL", # Status: maintained!
+	"description_s" => "Kurmanji hyphenation patterns.",
+	"description_l" => [
+		"Hyphenation patterns for Kurmanji (Northern Kurdish) in T1/EC and UTF-8 encoding",
+		"(as spoken in Turkey and by the Kurdish diaspora in Europe)."
+	],
 },
 # latin
 {
@@ -819,6 +1024,14 @@ class Languages < Hash
 	"encoding" => "l7x",
 	"exceptions" => false,
 	"message" => "Lithuanian hyphenation patterns",
+	"authors" => ["vytas_statulevicius", "yannis_haralambous", "sigitas_tolusis"],
+	# "licence" => "LPPL",
+	"last_modified" => "2002-11-20", # 1992-03-04, for the content?
+	"description_s" => "Lithuanian hyphenation patterns.",
+	"description_l" => [
+		"Hyphenation patterns for Lithuanian in L7X and UTF-8.",
+		"Designed for \\lefthyphenmin and \\righthyphenmin set to 2.",
+	],
 },
 # latvian
 {
@@ -830,6 +1043,12 @@ class Languages < Hash
 	"encoding" => "l7x",
 	"exceptions" => false,
 	"message" => "Latvian hyphenation patterns",
+	"authors" => ["janis_vilims"],
+	"licence" => "LGPL",
+	"description_s" => "Latvian hyphenation patterns.",
+	"description_l" => [
+		"Hyphenation patterns for Latvian in L7X and UTF-8.",
+	],
 },
 # dutch		nehyph96.tex
 {
@@ -844,6 +1063,16 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Dutch hyphenation patterns",
+	"authors" => ["piet_tutelaers"],
+	"licence" => "LPPL",
+	"last_modified" => "1996-11",
+	"description_s" => "Dutch hyphenation patterns.",
+	"description_l" => [
+		"Hyphenation patterns for Dutch in T1/EC and UTF-8 encoding.",
+		"\\lefthyphenmin and \\righthyphenmin must both be > 1.",
+		"These patterns don't handle cases like menuutje > menu-tje, and don't hyphenate words",
+		"that have different hyphenations according to their meaning."
+	],
 },
 # polish		xu-plhyph.tex
 {
@@ -857,6 +1086,15 @@ class Languages < Hash
 	"encoding" => "qx",
 	"exceptions" => true,
 	"message" => "Polish hyphenation patterns",
+	"last_modified" => "1995-06-17",
+	"version" => "3.0a",
+	"authors" => ["hanna_kolodziejska", "boguslaw_jackowski", "marek_rycko"],
+	"licence" => "public", # TODO Knuthian type
+	"description_s" => "Polish hyphenation patterns.",
+	"description_l" => [
+		"Hyphenation patterns for Polish in QX and UTF-8.",
+		"These patterns are used by the standard formats as well as MeX and LaMeX.",
+	],
 },
 # portuguese	pthyph.tex
 # =portuges
@@ -870,6 +1108,13 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => true,
 	"message" => "Portuguese hyphenation patterns",
+	"authors" => ["pedro_j_de_rezende", "j_joao_dias_almeida"],
+	"licence" => "LPPL",
+	"last_modified" => "1996-07-21",
+	"description_s" => "Portuguese hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Portuguese in T1/EC and UTF-8 encoding.",
+	],
 },
 # pinyin		xu-pyhyph.tex
 {
@@ -882,6 +1127,13 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Hyphenation patterns for unaccented pinyin syllables (CJK 4.8.0)",
+	"authors" => ["werner_lemberg"],
+	"last_modified" => "2008-05-22",
+	"licence" => "GPL",
+	"description_s" => "Chinese pinyin hyphenation patterns, unaccented.",
+	"description_l" => [
+		"Hyphenation patterns for transliterated Mandarin Chinese (pinyin) in T1/EC and UTF-8 encoding, unaccented.",
+	],
 },
 # romanian	xu-rohyphen.tex
 {
@@ -894,6 +1146,18 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Romanian hyphenation patterns", # : `rohyphen' 1.1 <29.10.1996>
+	"type" => "dictionary",
+	"last_modified" => "1996-11-07",
+	"version" => "1.1R",
+	"authors" => ["adrian_rezus"],
+	"description_s" => "Romanian hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Romanian in T1/EC and UTF-8 encoding.",
+		"The UTF-8 patterns use U+0219 and U+021B for the characters s with comma accent",
+		"and t with comma accent respectively, but we may consider using U+015F and U+0163",
+		"as well in the future.",
+		"Generated by PatGen2-output hyphen-level 9.",
+	],
 },
 # slovenian
 # =slovene
@@ -931,6 +1195,13 @@ class Languages < Hash
 	"message" => "Upper Sorbian hyphenation patterns (E. Werner)",
 #	\message{Hyphenation patterns for Upper Sorbian, E. Werner}
 #	\message{Completely new revision 1997, March 22}
+	"authors" => ["eduard_werner"],
+	"last_modified" => "1997-03-22",
+	"licence" => "LPPL",
+	"description_s" => "Upper Sorbian hyphenation patterns.",
+	"description_l" => [
+		"Hyphenation patterns for Upper Sorbian in T1/EC and UTF-8.",
+	],
 },
 # swedish		svhyph.tex
 {
@@ -943,6 +1214,13 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Swedish hyphenation patterns (Jan Michael Rynning, 1994-03-03)",
+	"authors" => ["jan_michael_rynning"],
+	"last_modified" => "1994-03-03",
+	"licence" => "LPPL",
+	"description_s" => "Swedish hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Swedish in T1/EC and UTF-8 encoding.",
+	],
 },
 # turkmen
 {
@@ -973,10 +1251,23 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "tkhyph.tex",
-	"hyphenmin" => [2,2], # polyglosia
+	"hyphenmin" => [2,2], # polyglossia
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Turkish hyphenation patterns",
+	"last_modified" => "2008-06-28",
+	"version" => nil,
+	"authors" => ["pierre_mackay", "h_turgut_uyar", "s_ekin_kocabas", "mojca_miklavec"],
+	"licence" => "public-ask", # TODO
+	"description_s" => "Turkish hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Turkish in T1/EC and UTF-8 encoding.",
+		"Auto-generated from a script included in the distribution.",
+		"The patterns for Turkish were first produced by Pierre MacKay for the Ottoman Texts Project in 1987",
+		"and were suitable for both Modern Turkish and (obviously) Ottoman Turkish in Latin script.",
+		"These patterns are only meant to be used for Modern Turkish.  Patterns for Ottoman Turkish",
+		"may be provided separately in the future, if there is interest.",
+	]
 },
 # ukenglish	ukhyphen.tex
 {
@@ -989,6 +1280,15 @@ class Languages < Hash
 	"encoding" => "ascii",
 	"exceptions" => true,
 	"message" => "Hyphenation patterns for British English",
+	"type" => "rules",
+	"last_modified" => "2005-10-18",
+	"version" => "1.0a", # FIXME a much older comment says 2.0?
+	"authors" => ["dominik_wujastyk", "graham_toal"],
+	"licence" => "other-free", # TODO Knuth-like
+	"description_s" => "British English hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for British English in ASCII encoding.",
+	],
 },
 # US english
 {
@@ -1001,6 +1301,14 @@ class Languages < Hash
 	"encoding" => "ascii",
 	"exceptions" => true,
 	"message" => "Hyphenation patterns for American English",
+	"last_modified" => "1990-03-01", # 8-bit file also has version 2005-05-30.
+	"version" => nil,
+	"authors" => ["donald_e_knuth", "gerard_d_c_kuiken"],
+	"licence" => "other-free",
+	"description_s" => "American English hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for American English in ASCII encoding.",
+	],
 },
 # US english
 # {
@@ -1024,7 +1332,7 @@ class Languages < Hash
 	"filename_old_patterns" => "shhyphl.tex",
 	# It is allowed to leave one character at the end of the row.
 	# However, if you think that it is graphicaly not very
-	# pleasent these patterns will work well with \lefthyphenmin=2.
+	# pleasant these patterns will work well with \lefthyphenmin=2.
 	# \lefthyphenmin=1 \righthyphenmin=2
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
@@ -1125,7 +1433,7 @@ class Languages < Hash
 	"name" => "sanskrit",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-	"hyphenmin" => [1,5], # polyglosia
+	"hyphenmin" => [1,5], # polyglossia
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
 	"message" => "Sanskrit hyphenation patterns (v0.4, 2010/02/26)",
@@ -1195,7 +1503,7 @@ class Languages < Hash
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Assameze hyphenation patterns",
+	"message" => "Assamese hyphenation patterns",
 
 	# this is true for all Indic patterns
 	"version"       => "0.5.3",
@@ -1347,12 +1655,23 @@ class Languages < Hash
 {
 	"code" => "mul-ethi",
 	"name" => "ethiopic", "synonyms" => ["amharic", "geez"],
+	"version" => nil,
+	"last_modified" => "2011-01-10",
+	"authors" => ["arthur_reutenauer", "mojca_miklavec"],
+	"licence" => "public-ask", # TODO
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1],
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
 	"message" => "Pan-Ethiopic hyphenation patterns",
+	"description_s" => "Ethiopic-script hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for languages written using the Ethiopic script, in UTF-8.",
+		"They are not supposed to be linguistically relevant in all cases",
+		"and should, for proper typography, be replaced by files tailored",
+		"to individual languages.",
+	],
 },
 # dumylang -> dumyhyph.tex
 # nohyphenation -> zerohyph.tex

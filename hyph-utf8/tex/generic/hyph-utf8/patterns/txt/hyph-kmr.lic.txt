@@ -1,4 +1,4 @@
-Kurmanji Hyphenation Patterns (v. 1.0 2009/06/29 JKn and MSh)
+Kurmanji hyphenation patterns (v. 1.0 2009/06/29 JKn and MSh)
 
 (more info about the licence to be added later)
 

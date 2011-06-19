@@ -1,4 +1,4 @@
-Pan-Ethiopic Hyphenation Patterns
+Pan-Ethiopic hyphenation patterns
 
 (more info about the licence to be added later)
 
