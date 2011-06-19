@@ -1029,7 +1029,7 @@ class Languages < Hash
 	"last_modified" => "2002-11-20", # 1992-03-04, for the content?
 	"description_s" => "Lithuanian hyphenation patterns.",
 	"description_l" => [
-		"Hyphenation patterns for Lithuanian in L7X and UTF-8.",
+		"Hyphenation patterns for Lithuanian in L7X and UTF-8 encoding.",
 		"Designed for \\lefthyphenmin and \\righthyphenmin set to 2.",
 	],
 },
@@ -1047,7 +1047,7 @@ class Languages < Hash
 	"licence" => "LGPL",
 	"description_s" => "Latvian hyphenation patterns.",
 	"description_l" => [
-		"Hyphenation patterns for Latvian in L7X and UTF-8.",
+		"Hyphenation patterns for Latvian in L7X and UTF-8 encoding.",
 	],
 },
 # dutch		nehyph96.tex
@@ -1090,9 +1090,9 @@ class Languages < Hash
 	"version" => "3.0a",
 	"authors" => ["hanna_kolodziejska", "boguslaw_jackowski", "marek_rycko"],
 	"licence" => "public", # TODO Knuthian type
-	"description_s" => "Polish hyphenation patterns.",
+	"description_s" => "Polish hyphenation patterns",
 	"description_l" => [
-		"Hyphenation patterns for Polish in QX and UTF-8.",
+		"Hyphenation patterns for Polish in QX and UTF-8 encoding.",
 		"These patterns are used by the standard formats as well as MeX and LaMeX.",
 	],
 },
@@ -1200,7 +1200,7 @@ class Languages < Hash
 	"licence" => "LPPL",
 	"description_s" => "Upper Sorbian hyphenation patterns.",
 	"description_l" => [
-		"Hyphenation patterns for Upper Sorbian in T1/EC and UTF-8.",
+		"Hyphenation patterns for Upper Sorbian in T1/EC and UTF-8 encoding.",
 	],
 },
 # swedish		svhyph.tex
