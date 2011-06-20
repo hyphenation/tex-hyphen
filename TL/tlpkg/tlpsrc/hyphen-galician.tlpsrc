@@ -1,6 +1,9 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Galician hyphenation patterns.
+longdesc Hyphenation patterns for Galician in T1/EC and UTF-8 encoding.
+longdesc Generated automatically from the mkpattern utility.
 execute AddHyphen \
 	name=galician \
 	lefthyphenmin=2 \

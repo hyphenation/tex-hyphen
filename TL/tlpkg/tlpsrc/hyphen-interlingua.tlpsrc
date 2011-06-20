@@ -1,6 +1,8 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Interlingua
+longdesc Hyphenation patterns for Interlingua in ASCII encoding.
 execute AddHyphen \
 	name=interlingua \
 	lefthyphenmin=2 \

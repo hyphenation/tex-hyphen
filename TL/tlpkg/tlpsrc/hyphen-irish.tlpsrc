@@ -1,6 +1,9 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Irish hyphenation patterns
+longdesc Hyphenation patterns for Irish (Gaeilge).
+longdesc Visit http://borel.slu.edu/fleiscin/index.html for more information.
 execute AddHyphen \
 	name=irish \
 	lefthyphenmin=2 \

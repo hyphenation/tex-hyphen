@@ -1,3 +1,7 @@
+2011-06-20 (#566)
+- fetch the latest version of Hungarian patterns from
+  https://github.com/nagybence/huhyphn/
+
 2011-06-11 (#555)
 - downcase "Hyphenation Patterns"
 

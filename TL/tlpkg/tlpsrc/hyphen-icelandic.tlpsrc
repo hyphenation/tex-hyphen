@@ -1,6 +1,8 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Icelandic hyphenation patterns
+longdesc Hyphenation patterns for Icelandic in T1/EC and UTF-8 encoding.
 execute AddHyphen \
 	name=icelandic \
 	lefthyphenmin=2 \

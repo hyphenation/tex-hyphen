@@ -1,6 +1,11 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc English hyphenation patterns
+longdesc Additional hyphenation patterns for American and British English in ASCII encoding.
+longdesc American English patterns (usenglishmax) extend standard Knuth's patterns,
+longdesc trying to properly hyphenate a larger set of words by sacrifying full backward compatibility.
+longdesc British English patterns are based on dictionary provided by Oxford University Press.
 execute AddHyphen \
 	name=ukenglish synonyms=british,UKenglish \
 	lefthyphenmin=2 \
