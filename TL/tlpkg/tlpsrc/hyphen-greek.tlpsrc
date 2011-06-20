@@ -1,7 +1,7 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-shortdesc Monotonic Modern Greek hyphenation patterns
+shortdesc Monotonic Modern Greek hyphenation patterns.
 longdesc Hyphenation patterns for Modern Greek in monotonic spelling.
 longdesc The pattern file used for 8-bit TeX engines is grmhyph5.tex, in Babel's LGR encoding,
 longdesc that is not part of hyph-utf8.
@@ -14,7 +14,7 @@ execute AddHyphen \
 	file=loadhyph-el-monoton.tex \
 	file_patterns=hyph-el-monoton.pat.txt \
 	file_exceptions=
-shortdesc Polytonic Modern Greek hyphenation patterns
+shortdesc Polytonic Modern Greek hyphenation patterns.
 longdesc Hyphenation patterns for Modern Greek in polytonic spelling.
 longdesc The pattern file used for 8-bit TeX engines is grphyph5.tex that is not part of hyph-utf8.
 longdesc Patterns in UTF-8 use two code positions for each of the vowels with acute accent

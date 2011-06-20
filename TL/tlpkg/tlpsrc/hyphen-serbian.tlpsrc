@@ -1,7 +1,7 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-shortdesc Serbian hyphenation patterns
+shortdesc Serbian hyphenation patterns.
 longdesc Hyphenation patterns for Serbian language in UTF-8 and 8-bit variant.
 longdesc For 8-bit TeX the patterns are available separately as 'serbian' in
 longdesc T1/EC encoding for Latin script and 'serbianc' in T2A encoding for

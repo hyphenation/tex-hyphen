@@ -95,7 +95,7 @@ language_groups.sort.each do |language_name,language_list|
 	end
 	language_list.each do |language|
 		if language.description_s != nil then
-			$file_tlpsrc.puts "shortdesc #{language.description_s}"
+			$file_tlpsrc.puts "shortdesc #{language.description_s}."
 			$file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
 		end
 		name = "name=#{language.name}"

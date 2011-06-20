@@ -1,7 +1,7 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-shortdesc German hyphenation patterns
+shortdesc German hyphenation patterns.
 longdesc Hyphenation patterns for German in T1/EC and UTF-8 encoding,
 longdesc for traditional and reformed spelling, including Swiss German.
 longdesc The package includes the latest patterns from dehyph-exptl

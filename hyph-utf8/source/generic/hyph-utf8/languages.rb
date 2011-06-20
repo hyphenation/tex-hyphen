@@ -763,7 +763,7 @@ class Languages < Hash
 	"licence"       => "other-free", # Knuthian type
 	"description_s" => "French hyphenation patterns",
 	"description_l" => [
-		"Hyphenation patterns for French.",
+		"Hyphenation patterns for French in T1/EC and UTF-8 encoding.",
 	]
 },
 # galician
@@ -783,7 +783,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["javier_mugica"],
 	"licence"       => "LPPL", # Status maintained
-	"description_s" => "Galician hyphenation patterns.",
+	"description_s" => "Galician hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Galician in T1/EC and UTF-8 encoding.",
 		"Generated automatically from the mkpattern utility.",
@@ -828,7 +828,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["kauko_saarinen", "fred_karlsson"],
 	"licence"       => "other-free",
-	"description_s" => "Finnish hyphenation patterns.",
+	"description_s" => "Finnish hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Finnish in T1/EC and UTF-8.",
 	],
@@ -873,7 +873,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["bence_nagy"],
 	"licence"       => "GPL",
-	"description_s" => "Hungarian hyphenation patterns.",
+	"description_s" => "Hungarian hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Hungarian in T1/EC and UTF-8 encoding.",
 		# TODO: same comment as for Irish: I'm slightly reluctant to put URL addresses here.
@@ -900,8 +900,8 @@ class Languages < Hash
 	"licence"       => "LPGL",
 	"description_s" => "Armenian hyphenation patterns",
 	"description_l" => [
-		"Hyphenation patterns for Armenian.",
-		"Auto-generated from a script included in hyph-utf8.",
+		"Hyphenation patterns for Armenian for Unicode engines.",
+		# "Auto-generated from a script included in hyph-utf8.",
 	],
 },
 # interlingua
@@ -921,7 +921,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["peter_kleiweg"],
 	"licence"       => "LPPL", # TODO Status maintained
-	"description_s" => "Interlingua",
+	"description_s" => "Interlingua hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Interlingua in ASCII encoding.",
 	],
@@ -943,7 +943,7 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["joerg_knappen", "terry_mart"],
 	"licence"       => "GPL",
-	"description_s" => "Indonesian hyphenation patterns.",
+	"description_s" => "Indonesian hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Indonesian (bahasa indonesia) in ASCII encoding.",
 		"They are probably also usable for bahasa melayu.",
@@ -1036,7 +1036,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["joerg_knappen", "medeni_shemde"],
 	"licence"       => "LPPL", # Status: maintained!
-	"description_s" => "Kurmanji hyphenation patterns.",
+	"description_s" => "Kurmanji hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Kurmanji (Northern Kurdish) in T1/EC and UTF-8 encoding",
 		"(as spoken in Turkey and by the Kurdish diaspora in Europe)."
@@ -1085,7 +1085,7 @@ class Languages < Hash
 	"last_modified" => "2002-11-20", # 1992-03-04, for the content?
 	"authors"       => ["vytas_statulevicius", "yannis_haralambous", "sigitas_tolusis"],
 	# "licence"       => "LPPL",
-	"description_s" => "Lithuanian hyphenation patterns.",
+	"description_s" => "Lithuanian hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Lithuanian in L7X and UTF-8 encoding.",
 		"Designed for \\lefthyphenmin and \\righthyphenmin set to 2.",
@@ -1108,7 +1108,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["janis_vilims"],
 	"licence"       => "LGPL",
-	"description_s" => "Latvian hyphenation patterns.",
+	"description_s" => "Latvian hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Latvian in L7X and UTF-8 encoding.",
 	],
@@ -1132,7 +1132,7 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["piet_tutelaers"],
 	"licence"       => "LPPL",
-	"description_s" => "Dutch hyphenation patterns.",
+	"description_s" => "Dutch hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Dutch in T1/EC and UTF-8 encoding.",
 		"\\lefthyphenmin and \\righthyphenmin must both be > 1.",
@@ -1204,7 +1204,7 @@ class Languages < Hash
 	"type"          => "rules", # TODO: we could create a generating script
 	"authors"       => ["werner_lemberg"],
 	"licence"       => "GPL",
-	"description_s" => "Chinese pinyin hyphenation patterns, unaccented.",
+	"description_s" => "Chinese pinyin hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for transliterated Mandarin Chinese (pinyin) in T1/EC and UTF-8 encoding, unaccented.",
 	],
@@ -1276,7 +1276,7 @@ class Languages < Hash
 	"authors"       => ["eduard_werner"],
 	"type"          => "dictionary",
 	"licence"       => "LPPL",
-	"description_s" => "Upper Sorbian hyphenation patterns.",
+	"description_s" => "Upper Sorbian hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Upper Sorbian in T1/EC and UTF-8 encoding.",
 	],
@@ -1769,7 +1769,7 @@ class Languages < Hash
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
 	"message" => "Pan-Ethiopic hyphenation patterns",
-	"description_s" => "Ethiopic-script hyphenation patterns",
+	"description_s" => "Hyphenation patterns for Ethiopic scripts",
 	"description_l" => [
 		"Hyphenation patterns for languages written using the Ethiopic script, in UTF-8.",
 		"They are not supposed to be linguistically relevant in all cases",

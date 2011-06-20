@@ -1,9 +1,8 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-shortdesc Armenian hyphenation patterns
-longdesc Hyphenation patterns for Armenian.
-longdesc Auto-generated from a script included in hyph-utf8.
+shortdesc Armenian hyphenation patterns.
+longdesc Hyphenation patterns for Armenian for Unicode engines.
 execute AddHyphen \
 	name=armenian \
 	lefthyphenmin=1 \
