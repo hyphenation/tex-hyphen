@@ -1189,7 +1189,7 @@ class Languages < Hash
 },
 # pinyin
 {
-	"code" => "zh-latn",
+	"code" => "zh-latn-pinyin",
 	"name" => "pinyin",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,

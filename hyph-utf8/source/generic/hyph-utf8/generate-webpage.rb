@@ -20,7 +20,7 @@ language_grouping = {
 	'mongolian' => ['mn-cyrl', 'mn-cyrl-x-2a'],
 	'greek' => ['el-monoton', 'el-polyton'],
 	'ancientgreek' => ['grc', 'grc-x-ibycus'],
-	'chinese' => ['zh-latn'],
+	'chinese' => ['zh-latn-pinyin'],
 	# TODO - until someone tells what to do
 	#'serbian' => ['sr-latn', 'sr-cyrl'],
 	'serbian' => ['sh-latn'],

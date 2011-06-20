@@ -26,7 +26,7 @@ language_grouping = {
 	'mongolian' => ['mn-cyrl', 'mn-cyrl-x-lmc'],
 	'greek' => ['el-monoton', 'el-polyton'],
 	'ancientgreek' => ['grc', 'grc-x-ibycus'],
-	'chinese' => ['zh-latn'],
+	'chinese' => ['zh-latn-pinyin'],
 	'indic' => ['as', 'bn', 'gu', 'hi', 'kn', 'ml', 'mr', 'or', 'pa', 'ta', 'te'],
 	'serbian' => ['sh-latn', 'sh-cyrl'],
 }
