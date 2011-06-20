@@ -1,13 +1,15 @@
-Hungarian hyphenation patterns (v20031107)
+Hungarian hyphenation patterns (v20090612)
 
 (more info about the licence to be added later)
 
-% Huhyphn - hungarian hyphenation patterns v20081106
+% from https://github.com/nagybence/huhyphn/
+% ------------------------------------------
+% Huhyphn - hungarian hyphenation patterns v20090612
 %
 % Copyright (C) 2003-2008, Bence Nagy <nagybence@tipogral.hu>
 % This file can be distributed under the terms of the
 % GNU General Public License version 2.
-% 
+%
 % Encoding: UTF8
 %
-\message{Huhyphn - hungarian hyphenation patterns v20081106}
+\message{Huhyphn - hungarian hyphenation patterns v20090612}

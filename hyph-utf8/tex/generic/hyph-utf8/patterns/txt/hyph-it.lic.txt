@@ -39,7 +39,7 @@ Italian hyphenation patterns
 %
 % Copyright  1998, 2010 Claudio Beccari
 %
-% This program is free software; it can be redistributed and/or modified 
+% This program is free software; it can be redistributed and/or modified
 % under the terms of the GNU Lesser General Public Licence,
 % as published by the Free Software Foundation, either version 2.1 of the
 % Licence or (at your option) any later version.

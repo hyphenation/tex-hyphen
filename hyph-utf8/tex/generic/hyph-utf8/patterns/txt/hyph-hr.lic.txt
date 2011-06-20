@@ -13,7 +13,7 @@ Croatian hyphenation patterns
 % version 1 of the License, or any later version.
 %
 % Changes:
-% - The first version was realised in late 1994. 
+% - The first version was realised in late 1994.
 % - Second, much more improved version was realised in the beginning of 1996.
 %   (Date of the last change: 19.03.1996).
 % - In summer 2008 the patterns have been incorporated into hyph-utf8

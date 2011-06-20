@@ -40,15 +40,15 @@ Serbian hyphenation patterns in Cyrillic script
 %
 % Osnovni skup paterna dobijen je na osnovu fonolo\v skih osobina
 % srpskohrvatskog jezika.  Pravila i preporuke sam preuzeo iz:
-% 
+%
 % M. Pe\v sikan, J. Jerkovi\'c, M. Pi\v zurica:
 % Pravopis srpskoga jezika
 % Matica srpska, Novi Sad, 1995.
-% 
+%
 % U drugom delu se nalaze izuzeci od fonolo\v skih pravila bazirani
 % na boljem psiholo\v skom prelomu re\v ci. Izradjen je kori\v s\'cenjem
 % slede\'cih re\v cnika:
-% 
+%
 % Re\v cnik srpskohrvatskoga knji\v zevnog jezika
 % Matica srpska, Matica hrvatska, Novi Sad, Zagreb, 1967-1976.
 %
