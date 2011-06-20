@@ -2,7 +2,8 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc French hyphenation patterns.
-longdesc Hyphenation patterns for French in T1/EC and UTF-8 encoding.
+longdesc Hyphenation patterns for French in T1/EC and UTF-8 encodings.
+catalogue-version 2.12
 execute AddHyphen \
 	name=french synonyms=patois,francais \
 	lefthyphenmin=2 \

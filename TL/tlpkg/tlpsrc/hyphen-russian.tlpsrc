@@ -3,11 +3,12 @@ depend hyphen-base
 depend hyph-utf8
 depend ruhyphen
 shortdesc Russian hyphenation patterns.
-longdesc Hyphenation patterns for Russian in T2A and UTF-8 encoding.
-longdesc For 8-bit TeX engines, the ruhyphen package provides a number of different pattern sets,
-longdesc as well as different (8-bit) encodings, that can be chosen at format-generation time.
-longdesc The UTF-8 version only provides the default pattern set.  A mechanism similar
-longdesc to the one used for 8-bit patterns may be implemented in the future.
+longdesc Hyphenation patterns for Russian in T2A and UTF-8 encodings.
+longdesc For 8-bit TeX engines, the ruhyphen package provides a number of
+longdesc different pattern sets, as well as different (8-bit) encodings, that
+longdesc can be chosen at format-generation time. The UTF-8 version only
+longdesc provides the default pattern set. A mechanism similar to the one used
+longdesc for 8-bit patterns may be implemented in the future.
 execute AddHyphen \
 	name=russian \
 	lefthyphenmin=2 \

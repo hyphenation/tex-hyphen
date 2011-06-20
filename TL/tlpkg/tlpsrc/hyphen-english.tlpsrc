@@ -6,6 +6,7 @@ longdesc Additional hyphenation patterns for American and British English in ASC
 longdesc American English patterns (usenglishmax) extend standard Knuth's patterns,
 longdesc trying to properly hyphenate a larger set of words by sacrificing full backward compatibility.
 longdesc British English patterns are based on dictionary provided by Oxford University Press.
+catalogue-version 1.0a
 execute AddHyphen \
 	name=ukenglish synonyms=british,UKenglish \
 	lefthyphenmin=2 \

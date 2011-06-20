@@ -2,7 +2,8 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Turkmen hyphenation patterns.
-longdesc Hyphenation patterns for Turkmen language in T1/EC and UTF-8 encoding.
+longdesc Hyphenation patterns for Turkmen in T1/EC and UTF-8 encodings.
+catalogue-version 0.1
 execute AddHyphen \
 	name=turkmen \
 	lefthyphenmin=2 \

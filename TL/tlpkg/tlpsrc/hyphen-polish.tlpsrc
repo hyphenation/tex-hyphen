@@ -2,8 +2,9 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Polish hyphenation patterns.
-longdesc Hyphenation patterns for Polish in QX and UTF-8 encoding.
-longdesc These patterns are used by the standard formats as well as MeX and LaMeX.
+longdesc Hyphenation patterns for Polish in QX and UTF-8 encodings.
+longdesc These patterns are also used by Polish TeX formats MeX and LaMeX.
+catalogue-version 3.0a
 execute AddHyphen \
 	name=polish \
 	lefthyphenmin=2 \

@@ -1,12 +1,13 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-shortdesc Monotonic Modern Greek hyphenation patterns.
-longdesc Hyphenation patterns for Modern Greek in monotonic spelling.
-longdesc The pattern file used for 8-bit TeX engines is grmhyph5.tex, in Babel's LGR encoding,
-longdesc that is not part of hyph-utf8.
-longdesc Patterns in UTF-8 use two code positions for each of the vowels with acute accent
-longdesc (a.k.a tonos, oxia), e.g., U+03AD, U+1F73 for epsilon.
+shortdesc Modern Greek hyphenation patterns.
+longdesc Hyphenation patterns for Modern Greek in monotonic and polytonic
+longdesc spelling in LGR and UTF-8 encodings. 8-bit versions of patterns are not
+longdesc officially part of hyph-utf8. Patterns in UTF-8 use two code positions
+longdesc for each of the vowels with acute accent (a.k.a tonos, oxia), e.g.,
+longdesc U+03AC, U+1F71 for alpha.
+catalogue-version 5.0
 execute AddHyphen \
 	name=monogreek \
 	lefthyphenmin=1 \
@@ -14,11 +15,6 @@ execute AddHyphen \
 	file=loadhyph-el-monoton.tex \
 	file_patterns=hyph-el-monoton.pat.txt \
 	file_exceptions=
-shortdesc Polytonic Modern Greek hyphenation patterns.
-longdesc Hyphenation patterns for Modern Greek in polytonic spelling.
-longdesc The pattern file used for 8-bit TeX engines is grphyph5.tex that is not part of hyph-utf8.
-longdesc Patterns in UTF-8 use two code positions for each of the vowels with acute accent
-longdesc (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 execute AddHyphen \
 	name=greek synonyms=polygreek \
 	lefthyphenmin=1 \

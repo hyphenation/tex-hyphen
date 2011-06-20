@@ -2,7 +2,7 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Coptic hyphenation patterns.
-longdesc Hyphenation patterns for Coptic language in UTF-8 encoding
+longdesc Hyphenation patterns for Coptic in UTF-8 encoding
 longdesc as well as in ASCII-based encoding for 8-bit engines.
 longdesc The latter can only be used with special Coptic fonts (like CBcoptic).
 longdesc The patterns are considered experimental.

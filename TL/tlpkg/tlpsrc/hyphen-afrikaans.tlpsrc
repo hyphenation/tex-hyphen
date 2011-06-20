@@ -2,10 +2,10 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Afrikaans hyphenation patterns.
-longdesc Hyphenation patterns for Afrikaans language in T1/EC and UTF-8 encoding.
+longdesc Hyphenation patterns for Afrikaans in T1/EC and UTF-8 encodings.
 longdesc (OpenOffice includes older patterns created by a different author,
 longdesc but the patterns packaged with TeX are considered superior in quality.)
-longdesc Word list used to generate patterns with opatgen might be released in future.
+catalogue-version 0.9
 execute AddHyphen \
 	name=afrikaans \
 	lefthyphenmin=1 \

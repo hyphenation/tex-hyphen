@@ -2,7 +2,8 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Latvian hyphenation patterns.
-longdesc Hyphenation patterns for Latvian in L7X and UTF-8 encoding.
+longdesc Hyphenation patterns for Latvian in L7X and UTF-8 encodings.
+catalogue-version 0.3
 execute AddHyphen \
 	name=latvian \
 	lefthyphenmin=2 \
