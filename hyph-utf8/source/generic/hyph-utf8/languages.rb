@@ -737,7 +737,7 @@ class Languages < Hash
 	"description_s" => "Basque hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Basque language in T1/EC and UTF-8 encoding.",
-		"Generating scripts for these rule-based patterns is included in hyph-utf8."
+		# "Generating scripts for these rule-based patterns is included in hyph-utf8."
 	],
 },
 # french
@@ -945,8 +945,8 @@ class Languages < Hash
 	"licence"       => "GPL",
 	"description_s" => "Indonesian hyphenation patterns",
 	"description_l" => [
-		"Hyphenation patterns for Indonesian (bahasa indonesia) in ASCII encoding.",
-		"They are probably also usable for bahasa melayu.",
+		"Hyphenation patterns for Indonesian (Bahasa Indonesia) in ASCII encoding.",
+		"They are probably also usable for Malay (Bahasa Melayu).",
 	],
 },
 # icelandic
@@ -1385,7 +1385,7 @@ class Languages < Hash
 		"Additional hyphenation patterns for American and British English in ASCII encoding.",
 		"American English patterns (usenglishmax) extend standard Knuth's patterns,",
 		# TODO: this is not really backward compatibility, but reproducibility of documents
-		"trying to properly hyphenate a larger set of words by sacrifying full backward compatibility.",
+		"trying to properly hyphenate a larger set of words by sacrificing full backward compatibility.",
 		# TODO: maybe it is not the most polite to do advertising
 		"British English patterns are based on dictionary provided by Oxford University Press.",
 	],
@@ -1452,10 +1452,10 @@ class Languages < Hash
 	# for both scripts
 	"description_s" => "Serbian hyphenation patterns",
 	"description_l" => [
-		"Hyphenation patterns for Serbian language in UTF-8 and 8-bit variant.",
+		"Hyphenation patterns for Serbian language in T1/EC, T2A and UTF-8 encoding.",
 		"For 8-bit TeX the patterns are available separately as 'serbian' in",
 		"T1/EC encoding for Latin script and 'serbianc' in T2A encoding for",
-		"Cyrillic script. UTF-8 engines should only use 'serbian'",
+		"Cyrillic script. Unicode engines should only use 'serbian'",
 		"which has patterns in both scripts combined.",
 	],
 },
@@ -1617,7 +1617,7 @@ class Languages < Hash
 	"licence"       => "LGPL",
 	"description_s" => "Indic hyphenation patterns",
 	"description_l" => [
-		"Hyphenation patterns for Assameze, Bengali, Gujarati, Hindi,",
+		"Hyphenation patterns for Assamese, Bengali, Gujarati, Hindi,",
 		"Kannada, Malayalam, Marathi, Oriya, Panjabi, Tamil and Telugu",
 		"for Unicode engines.",
 	],
