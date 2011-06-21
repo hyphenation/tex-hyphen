@@ -2,9 +2,11 @@ Lao hyphenation patterns
 
 (more info about the licence to be added later)
 
-% Lao hyphenation patterns (2009-05-19)
+% Lao hyphenation patterns (2010-05-19)
 %
 % Written by Arthur Reutenauer based on rules provided by Brian Wilson
+% Copyright (c) TeX Users Group, 2010.
+% You may freely use, copy, modify and / or distribute this file.
 %
 % These patterns are highly experimental and also give suboptimal results.
 % Please consider them experimental. New highly improved patterns are being worked on.

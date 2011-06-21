@@ -431,9 +431,10 @@ class Languages < Hash
 		"(known to TeX under names 'german', 'ngerman' and 'swissgerman'),",
 		"however 8-bit engines still load old versions of patterns",
 		"for 'german' and 'ngerman' for backward-compatibility reasons.",
-		"Swiss German patterns are suitable for Swiss Standard German, not the",
-		"Alemannic dialects spoken in Switzerland.", # (Schwyzerdütsch)
-		# "There are no patterns for written Schwyzerdütsch.",
+		"Swiss German patterns are suitable for Swiss Standard German",
+		"(Hochdeutsch) not the Alemannic dialects spoken in Switzerland",
+		"(Schwyzerduetsch).",
+		"There are no known patterns for written Schwyzerduetsch.",
 	]
 },
 # ngerman
@@ -1835,7 +1836,7 @@ class Languages < Hash
 	"last_modified" => "2010-05-19",
 	"type"          => "rules",
 	"authors"       => [ "brian_wilson", "arthur_reutenauer", "mojca_miklavec" ],
-	"licence"       => nil, # TODO
+	"licence"       => "other-free",
 	"description_s" => "Lao hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
