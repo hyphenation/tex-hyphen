@@ -3,9 +3,9 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Dutch hyphenation patterns.
 longdesc Hyphenation patterns for Dutch in T1/EC and UTF-8 encodings.
-longdesc \lefthyphenmin and \righthyphenmin must both be > 1. These patterns
-longdesc don't handle cases like menuutje > menu-tje, and don't hyphenate words
-longdesc that have different hyphenations according to their meaning.
+longdesc These patterns don't handle cases like 'menuutje' > 'menu-tje',
+longdesc and don't hyphenate words that have different hyphenations according
+longdesc to their meaning.
 catalogue-version 1.1
 execute AddHyphen \
 	name=dutch \

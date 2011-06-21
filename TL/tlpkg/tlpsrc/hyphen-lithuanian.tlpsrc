@@ -3,7 +3,9 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Lithuanian hyphenation patterns.
 longdesc Hyphenation patterns for Lithuanian in L7X and UTF-8 encodings.
-longdesc Designed for \lefthyphenmin and \righthyphenmin set to 2.
+longdesc \lefthyphenmin and \righthyphenmin have to be at least 2.
+longdesc Changing them to 1 according to grammatical rules from 1997
+longdesc would require to review and maybe rebuild the patterns.
 execute AddHyphen \
 	name=lithuanian \
 	lefthyphenmin=2 \

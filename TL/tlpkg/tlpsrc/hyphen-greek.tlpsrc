@@ -3,10 +3,9 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Modern Greek hyphenation patterns.
 longdesc Hyphenation patterns for Modern Greek in monotonic and polytonic
-longdesc spelling in LGR and UTF-8 encodings. 8-bit versions of patterns are not
-longdesc officially part of hyph-utf8. Patterns in UTF-8 use two code positions
-longdesc for each of the vowels with acute accent (a.k.a tonos, oxia), e.g.,
-longdesc U+03AC, U+1F71 for alpha.
+longdesc spelling in LGR and UTF-8 encodings.  Patterns in UTF-8 use two code
+longdesc positions for each of the vowels with acute accent (a.k.a tonos,
+longdesc oxia), e.g., U+03AC, U+1F71 for alpha.
 catalogue-version 5.0
 execute AddHyphen \
 	name=monogreek \

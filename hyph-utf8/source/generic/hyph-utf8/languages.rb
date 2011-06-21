@@ -293,7 +293,7 @@ class Languages < Hash
 	# "description_l" => [
 	# 	#......................................................................#
 	# 	"Hyphenation patterns for Modern Greek in polytonic spelling.",
-	# 	"The pattern file used for 8-bit TeX engines is grphyph5.tex that is",
+	# 	"The pattern file used for 8-bit engines is grphyph5.tex that is",
 	# 	"not part of hyph-utf8. Patterns in UTF-8 use two code positions for",
 	# 	"each of the vowels with acute accent (a.k.a tonos, oxia), e.g.,",
 	# 	"U+03AC, U+1F71 for alpha.",
@@ -321,7 +321,7 @@ class Languages < Hash
 	# "description_l" => [
 	# 	#......................................................................#
 	# 	"Hyphenation patterns for Modern Greek in monotonic spelling.",
-	# 	"The pattern file used for 8-bit TeX engines is grmhyph5.tex, in Babel's LGR encoding,",
+	# 	"The pattern file used for 8-bit engines is grmhyph5.tex, in Babel's LGR encoding,",
 	# 	"that is not part of hyph-utf8.",
 	# 	"Patterns in UTF-8 use two code positions for each of the vowels with acute accent",
 	# 	"(a.k.a tonos, oxia), e.g., U+03AD, U+1F73 for epsilon.",
@@ -330,10 +330,9 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Modern Greek in monotonic and polytonic",
-		"spelling in LGR and UTF-8 encodings. 8-bit versions of patterns are not",
-		"officially part of hyph-utf8. Patterns in UTF-8 use two code positions",
-		"for each of the vowels with acute accent (a.k.a tonos, oxia), e.g.,",
-		"U+03AC, U+1F71 for alpha.",
+		"spelling in LGR and UTF-8 encodings.  Patterns in UTF-8 use two code",
+		"positions for each of the vowels with acute accent (a.k.a tonos,",
+		"oxia), e.g., U+03AC, U+1F71 for alpha.",
 	],
 },
 # ancientgreek
@@ -358,7 +357,7 @@ class Languages < Hash
 	# "description_l" => [
 	# 	#......................................................................#
 	# 	"Hyphenation patterns for Ancient Greek.",
-	# 	"The pattern file used for 8-bit TeX engines is grahyph5.tex, in Babel's LGR encoding,",
+	# 	"The pattern file used for 8-bit engines is grahyph5.tex, in Babel's LGR encoding,",
 	# 	"that is not part of hyph-utf8.",
 	# 	"Patterns in UTF-8 use two code positions for each of the vowels with acute accent",
 	# 	"(a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.",
@@ -368,7 +367,6 @@ class Languages < Hash
 		#......................................................................#
 		"Hyphenation patterns for Ancient Greek in LGR and UTF-8 encodings,",
 		"including support for (obsolete) Ibycus font encoding.",
-		"8-bit versions of patterns are not officially part of hyph-utf8.",
 		"Patterns in UTF-8 use two code positions for each of the vowels with",
 		"acute accent (a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.",
 	],
@@ -433,9 +431,9 @@ class Languages < Hash
 		"(known to TeX under names 'german', 'ngerman' and 'swissgerman'),",
 		"however 8-bit engines still load old versions of patterns",
 		"for 'german' and 'ngerman' for backward-compatibility reasons.",
-		"Swiss German patterns are suitable for Standard German (Hochdeutsch),",
-		"not the Alemannic dialects spoken in Switzerland (Schwyzerdütsch).",
-		"There are no patterns for written Schwyzerdütsch.",
+		"Swiss German patterns are suitable for Swiss Standard German, not the",
+		"Alemannic dialects spoken in Switzerland.", # (Schwyzerdütsch)
+		# "There are no patterns for written Schwyzerdütsch.",
 	]
 },
 # ngerman
@@ -508,10 +506,10 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Russian in T2A and UTF-8 encodings.",
-		"For 8-bit TeX engines, the ruhyphen package provides a number of",
+		"For 8-bit engines, the 'ruhyphen' package provides a number of",
 		"different pattern sets, as well as different (8-bit) encodings, that",
-		"can be chosen at format-generation time. The UTF-8 version only",
-		"provides the default pattern set. A mechanism similar to the one used",
+		"can be chosen at format-generation time.  The UTF-8 version only",
+		"provides the default pattern set.  A mechanism similar to the one used",
 		"for 8-bit patterns may be implemented in the future.",
 	],
 },
@@ -537,10 +535,10 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Ukrainian in T2A and UTF-8 encodings.",
-		"For 8-bit TeX engines, the ukrhyph package provides a number of",
+		"For 8-bit engines, the 'ukrhyph' package provides a number of",
 		"different pattern sets, as well as different (8-bit) encodings, that",
-		"can be chosen at format-generation time. The UTF-8 version only",
-		"provides the default pattern set. A mechanism similar to the one used",
+		"can be chosen at format-generation time.  The UTF-8 version only",
+		"provides the default pattern set.  A mechanism similar to the one used",
 		"for 8-bit patterns may be implemented in the future.",
 	],
 },
@@ -569,8 +567,8 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Afrikaans in T1/EC and UTF-8 encodings.",
-		"(OpenOffice includes older patterns created by a different author,",
-		"but the patterns packaged with TeX are considered superior in quality.)",
+		"OpenOffice includes older patterns created by a different author,",
+		"but the patterns packaged with TeX are considered superior in quality.",
 		# "Word list used to generate patterns with opatgen might be released in future.",
 	],
 },
@@ -627,8 +625,8 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Czech in T1/EC and UTF-8 encodings.",
-		"Original patterns 'czhyphen' are still distributed in 'csplain' package",
-		"and loaded with ISO Latin 2 encoding (IL2).",
+		"Original patterns 'czhyphen' are still distributed in the 'csplain'",
+		"package and loaded with ISO Latin 2 encoding (IL2).",
 		# however hyph-utf8 could also be used for that
 	],
 },
@@ -655,8 +653,8 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Slovak in T1/EC and UTF-8 encodings.",
-		"Original patterns 'skhyphen' are still distributed in 'csplain' package",
-		"and loaded with ISO Latin 2 encoding (IL2).",
+		"Original patterns 'skhyphen' are still distributed in the 'csplain'",
+		"package and loaded with ISO Latin 2 encoding (IL2).",
 		# however hyph-utf8 could also be used for that
 	],
 },
@@ -728,9 +726,13 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Esperanto ISO Latin 3 and UTF-8 encodings.",
-		"Note that TeX distributions usually don't ship any suitable fonts in",
-		"that encoding, so unless you create your own font support or want to",
-		"use MlTeX, using native UTF-8 engines is highly recommended.",
+		"Note that TeX Live doesn't ship any suitable fonts in ISO Latin 3",
+		"encoding, so unless you create your own font support or want to use",
+		"MlTeX, using native Unicode engines is highly recommended.",
+		# "Hyphenation patterns for Esperanto ISO Latin 3 and UTF-8 encodings.",
+		# "Note that TeX distributions usually don't ship any suitable fonts in",
+		# "Latin 3 encoding, so unless you create your own font support or want",
+		# "to use MlTeX, using native UTF-8 engines is highly recommended.",
 	],
 },
 # spanish
@@ -829,7 +831,7 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Galician in T1/EC and UTF-8 encodings.",
-		"Generated automatically from the mkpattern utility.",
+		# "Generated automatically from the mkpattern utility.",
 	]
 },
 # estonian
@@ -996,7 +998,7 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Indonesian (Bahasa Indonesia) in ASCII",
-		"encoding. They are probably also usable for Malay (Bahasa Melayu).",
+		"encoding.  They are probably also usable for Malay (Bahasa Melayu).",
 	],
 },
 # icelandic
@@ -1126,7 +1128,7 @@ class Languages < Hash
 		"Hyphenation patterns for Latin in T1/EC and UTF-8 encodings,",
 		"mainly in modern spelling (u when u is needed and v when v is needed),",
 		"medieval spelling with the ligatures \\ae and \\oe and the (uncial)",
-		"lowercase 'v' written as a 'u' is also supported. Apparently",
+		"lowercase 'v' written as a 'u' is also supported.  Apparently",
 		"there is no conflict between the patterns of modern Latin and",
 		"those of medieval Latin.",
 	],
@@ -1150,8 +1152,10 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Lithuanian in L7X and UTF-8 encodings.",
-		"Designed for \\lefthyphenmin and \\righthyphenmin set to 2.",
-		# patterns were built before grammatical rules have changed in 1997 when it was forbidden to leave one character at boundary
+		# "Designed for \\lefthyphenmin and \\righthyphenmin set to 2.",
+		"\\lefthyphenmin and \\righthyphenmin have to be at least 2.",
+		"Changing them to 1 according to grammatical rules from 1997",
+		"would require to review and maybe rebuild the patterns."
 	],
 },
 # latvian
@@ -1199,9 +1203,10 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Dutch in T1/EC and UTF-8 encodings.",
-		"\\lefthyphenmin and \\righthyphenmin must both be > 1. These patterns",
-		"don't handle cases like menuutje > menu-tje, and don't hyphenate words",
-		"that have different hyphenations according to their meaning."
+		# "\\lefthyphenmin and \\righthyphenmin must both be > 1.",
+		"These patterns don't handle cases like 'menuutje' > 'menu-tje',",
+		"and don't hyphenate words that have different hyphenations according",
+		"to their meaning."
 	],
 },
 # polish
@@ -1420,7 +1425,7 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Turkish in T1/EC and UTF-8 encodings.",
-		"Auto-generated from a script included in the distribution.",
+		# "Auto-generated from a script included in the distribution.",
 		"The patterns for Turkish were first produced for the Ottoman Texts",
 		"Project in 1987 and were suitable for both Modern Turkish and Ottoman",
 		"Turkish in Latin script, however the required character set didn't fit",
@@ -1458,12 +1463,12 @@ class Languages < Hash
 	"description_s" => "English hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
-		"Additional hyphenation patterns for American and British English in ASCII encoding.",
-		"American English patterns (usenglishmax) extend standard Knuth's patterns,",
-		# TODO: this is not really backward compatibility, but reproducibility of documents
-		"trying to properly hyphenate a larger set of words by sacrificing full backward compatibility.",
-		# TODO: maybe it is not the most polite to do advertising
-		"British English patterns are based on dictionary provided by Oxford University Press.",
+		"Additional hyphenation patterns for American and British",
+		"English in ASCII encoding.  The American English patterns",
+		"(usenglishmax) greatly extend the standard patterns from Knuth",
+		"to find many additional hyphenation points.  British English",
+		"hyphenation is completely different from US English, so has its",
+		"own set of patterns.",
 	],
 },
 # (US english)
@@ -1530,8 +1535,8 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Serbian in T1/EC, T2A and UTF-8 encodings.",
-		"For 8-bit TeX the patterns are available separately as 'serbian' in",
-		"T1/EC encoding for Latin script and 'serbianc' in T2A encoding for",
+		"For 8-bit engines the patterns are available separately as 'serbian'",
+		"in T1/EC encoding for Latin script and 'serbianc' in T2A encoding for",
 		"Cyrillic script. Unicode engines should only use 'serbian'",
 		"which has patterns in both scripts combined.",
 	],
@@ -1617,7 +1622,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,5], # polyglossia
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Sanskrit hyphenation patterns (v0.4, 2010/02/26)",
 
@@ -1687,7 +1692,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Assamese hyphenation patterns",
 
@@ -1712,7 +1717,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Bengali hyphenation patterns",
 },
@@ -1723,7 +1728,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Gujarati hyphenation patterns",
 },
@@ -1734,7 +1739,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Hindi hyphenation patterns",
 },
@@ -1745,7 +1750,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Kannada hyphenation patterns",
 },
@@ -1756,7 +1761,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Malayalam hyphenation patterns",
 },
@@ -1767,7 +1772,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Marathi hyphenation patterns",
 },
@@ -1778,7 +1783,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Oriya hyphenation patterns",
 },
@@ -1789,7 +1794,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Panjabi hyphenation patterns",
 },
@@ -1800,7 +1805,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Tamil hyphenation patterns",
 },
@@ -1811,7 +1816,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Telugu hyphenation patterns",
 },
@@ -1822,7 +1827,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Lao hyphenation patterns",
 
@@ -1836,7 +1841,6 @@ class Languages < Hash
 		#......................................................................#
 		"Hyphenation patterns for Lao language for Unicode engines.",
 		"Current version is experimental and gives bad results.",
-		"Please wait for a new version.",
 	],
 },
 # pan-Ethiopic
@@ -1850,7 +1854,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1],
-	"encoding" => nil, # no patterns for 8-bit TeX
+	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Pan-Ethiopic hyphenation patterns",
 	"description_s" => "Hyphenation patterns for Ethiopic scripts",

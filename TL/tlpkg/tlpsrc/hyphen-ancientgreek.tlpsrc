@@ -4,7 +4,6 @@ depend hyph-utf8
 shortdesc Ancient Greek hyphenation patterns.
 longdesc Hyphenation patterns for Ancient Greek in LGR and UTF-8 encodings,
 longdesc including support for (obsolete) Ibycus font encoding.
-longdesc 8-bit versions of patterns are not officially part of hyph-utf8.
 longdesc Patterns in UTF-8 use two code positions for each of the vowels with
 longdesc acute accent (a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.
 catalogue-version 5.0

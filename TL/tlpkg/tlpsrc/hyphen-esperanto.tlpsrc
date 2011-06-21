@@ -3,9 +3,9 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Esperanto hyphenation patterns.
 longdesc Hyphenation patterns for Esperanto ISO Latin 3 and UTF-8 encodings.
-longdesc Note that TeX distributions usually don't ship any suitable fonts in
-longdesc that encoding, so unless you create your own font support or want to
-longdesc use MlTeX, using native UTF-8 engines is highly recommended.
+longdesc Note that TeX Live doesn't ship any suitable fonts in ISO Latin 3
+longdesc encoding, so unless you create your own font support or want to use
+longdesc MlTeX, using native Unicode engines is highly recommended.
 execute AddHyphen \
 	name=esperanto \
 	lefthyphenmin=2 \
