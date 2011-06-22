@@ -8,8 +8,10 @@ longdesc The package includes the latest patterns from dehyph-exptl
 longdesc (known to TeX under names 'german', 'ngerman' and 'swissgerman'),
 longdesc however 8-bit engines still load old versions of patterns
 longdesc for 'german' and 'ngerman' for backward-compatibility reasons.
-longdesc Swiss German patterns are suitable for Swiss Standard German, not the
-longdesc Alemannic dialects spoken in Switzerland.
+longdesc Swiss German patterns are suitable for Swiss Standard German
+longdesc (Hochdeutsch) not the Alemannic dialects spoken in Switzerland
+longdesc (Schwyzerduetsch).
+longdesc There are no known patterns for written Schwyzerduetsch.
 execute AddHyphen \
 	name=german \
 	lefthyphenmin=2 \

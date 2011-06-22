@@ -727,7 +727,7 @@ class Languages < Hash
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Esperanto ISO Latin 3 and UTF-8 encodings.",
-		"Note that TeX Live doesn't ship any suitable fonts in ISO Latin 3",
+		"Note that TeX distributions don't ship any suitable fonts in Latin 3",
 		"encoding, so unless you create your own font support or want to use",
 		"MlTeX, using native Unicode engines is highly recommended.",
 		# "Hyphenation patterns for Esperanto ISO Latin 3 and UTF-8 encodings.",
@@ -1155,8 +1155,8 @@ class Languages < Hash
 		"Hyphenation patterns for Lithuanian in L7X and UTF-8 encodings.",
 		# "Designed for \\lefthyphenmin and \\righthyphenmin set to 2.",
 		"\\lefthyphenmin and \\righthyphenmin have to be at least 2.",
-		"Changing them to 1 according to grammatical rules from 1997",
-		"would require to review and maybe rebuild the patterns."
+		# "Changing them to 1 according to grammatical rules from 1997",
+		# "would require to review and maybe rebuild the patterns."
 	],
 },
 # latvian
