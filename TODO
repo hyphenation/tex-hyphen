@@ -1,15 +1,20 @@
 This is a list of things that needs to be done to propagate the changes properly.
 Write DONE to each issue once resolved.
 
-TeX Live 2011:
-- Document conventions/licence in manual
-- Finish generating shortdesc for hyph-xxx.tlpsrc
+Wishlist:
+- separate language.dat files on per-engine level (a different language.dat for XeTeX than for pdfTeX)
+- different syntax for loading multiple patterns? (Serbian)
 
 Short-term TODO list:
 - A web page with simple examples how to enable hyphenation
+- Documentation about hyphenation setup in TeX Live 2011, MikTeX & W32TeX
+- Documentation about conventions (naming guidelines, no-sequences-in-patterns, stable vs. non-stable filenames, ...) of hyph-utf8
+- Put licence in the manual (and explain licences of others)
 - Hans' examples for comparisons & documentation
 - discuss switching to special patterns for pdfTeX
 - better solutions for apostrophe
+
+
 
 TeX Distributions:
 - [DONE] propagate changes into TeX Live
@@ -30,7 +35,7 @@ Languages:
     - add that list to repository
     - waiting for answer from Oliver Corff <corff at zedat.fu-berlin.de>
 - unification of Spanish (some new version of patterns submitted)
-- join Serbian patterns & describe differences between sh-cyrl and sr-cyrl
+- describe differences between sh-cyrl and sr-cyrl
 - [DONE] do something with EO: I did the conversion for "plain" patterns, but left the original version intact
   we could leave a separate version in "source" and use the "plain version" in pattern repository
 - Russian etc. that are still outsourcing
@@ -59,7 +64,7 @@ CTAN:
   - http://www.tex.ac.uk/tex-archive/help/Catalogue/hier.html
   - some entries say that patterns are obsolete, but still claim that the package is included in TL/MikTeX
     (http://www.tex.ac.uk/tex-archive/help/Catalogue/entries/hrhyph.html)
-  - change script 4TL to generate shortdesc for hyph-xxx.tlpsrc
+  - [DONE] change script 4TL to generate shortdesc for hyph-xxx.tlpsrc
   - once the shortdesc is written, also make sure to put longdesc or more extensive discription for TeX catalogue
   - should we release a CTAN-only "browsable" version of hyphenation patterns:
     - one folder per language
@@ -87,7 +92,7 @@ Impromevents:
   - hyphenator
   - ...
 - LuaTeX patterns
-- Describe and try to solve the apostrophe problem (users should be able
+- [almost DONE] Describe and try to solve the apostrophe problem (users should be able
   to input both U+0027 and U+2019)
   See http://tug.org/pipermail/xetex/2010-October/018914.html ff. for
   one use case.
@@ -178,11 +183,7 @@ Web page:
 Software:
 - possibly rewrite patgen to handle UTF-8
   - [DONE] try to convince Mathias Nater to do that; Deadline: BachoTeX 2011 :)
-
-Some other changes:
-- [half done by Norbert] unify pattern loading with both plain TeX/LaTeX
-- there is now language.dat + xxhyph.tex - one will be redundant
-  (get rid of it once all the patterns are converted)
+  - try to convince him to finish the project
 
 OpenOffice:
 - http://extensions.services.openoffice.org/en/project/RomanianDictionaryPackCedillaVersion
