@@ -16,15 +16,17 @@
 	[location={footer}]
 \setuplayout
 	[header=0pt,headerdistance=0pt,height=24cm]
+\setupwhitespace
+	[medium]
 
 \def\TeXLive{\TeX\ Live}
-\def\MiKTeX{Mik\TeX}
+\def\MiKTeX{MiK\TeX}
 \def\W32TeX{W32\TeX}
 \def\pTeX{p\TeX}
 
 \starttext
 
-\section{\TeX distributions}
+\section{\TeX\ distributions}
 
 \subsection{\TeXLive}
 
@@ -80,7 +82,7 @@ nynorsk loadhyph-nn.tex
 \stoptyping
 }
 
-\placefigure[force]{\type{language.dat.lua} (the keyword \type{loader} is not really needed)}{
+\placefigure[force]{\type{language.dat.lua} (the keyword \type{loader} is not used anywhere at the moment)}{
 \starttyping
 -- from hyphen-norwegian:
 	['bokmal'] = {
