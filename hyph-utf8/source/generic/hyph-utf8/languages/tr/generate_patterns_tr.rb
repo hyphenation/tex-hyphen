@@ -56,23 +56,30 @@ consonants = %w{b c ç d f g ğ h j k l m n p r s ş t v y z}
 # start the file
 add_comment(
 	"hyph-tr.tex\n\n" +
-	"File auto-generated from generate_patterns_tr.rb that is part of hyph-utf8\n\n" +
-	"Licence:\n" +
-	"- Free enough for Debian & TeX Live or any other distributor\n" +
-	"- If you are reading this and have some suggestion about what to put here, please advise\n" +
-	"- I (Mojca) would prefer to say 'public domain', but don't know what it means for the original authors\n\n" +
+	"Turkish hyphenation patterns\n\n" +
+	"This file is auto-generated from source/generic/hyph-utf8/languages/tr/generate_patterns_tr.rb that is part of hyph-utf8.\n" +
+	"Please don't modify this file; modify the generating script instead.\n\n" +
+	"Copyright (C) 1987 Pierre A. MacKay\n" +
+	"              2008, 2011 TUG\n\n" +
+	"This program can redistributed and/or modified under the terms\n" +
+	"of the LaTeX Project Public License Distributed from CTAN\n" +
+	"archives in directory macros/latex/base/lppl.txt; either\n" +
+	"version 1 of the License, or (at your option) any later version.\n\n" +
 	"Credits:\n" +
 	"- algorithm developed by P. A. MacKay for the Ottoman Texts Project in 1987\n" +
 	"- rules adapted for modern Turkish by H. Turgut Uyar <uyar at itu.edu.tr>\n" +
 	"- initiative to improve Turkish patterns by S. Ekin Kocabas <kocabas at stanford.edu>\n" +
 	"- script written by Mojca Miklavec <mojca.miklavec.lists at gmail.com> in June 2008\n\n" +
-	"Modifications:\n" +
-	"- adapted for the use on modern UTF-8 TeX engines\n" +
-	"- UTF-8 patterns are used\n" +
+	"See also:\n" +
+	"- http://www.ctan.org/tex-archive/language/turkish/hyphen/turk_hyf.c\n" +
+	"- http://www.tug.org/TUGboat/Articles/tb09-1/tb20mackay.pdf\n\n" +
+	"Differences with Ottoman patterns:\n" +
+	"- adapted for the use on modern TeX engines, using UTF-8 charactes\n" +
 	"- only letters for Modern Turkish + âîû (the first one often needed, the other two don't hurt)\n" +
-	"- if needed, support for Ottoman Turkish might be provided separately under 'ota' (not 'tr')\n\n" +
-	"Notes:\n" +
-	"- you need to use loadhyph-tr.tex, please do not try to put \\catcode-s & \\lccode-s here\n"
+	"- (if needed, support for Ottoman Turkish might be provided separately under language code 'ota')\n\n" +
+	"Changes:\n" +
+	"- 2008-06-25/27/28 - create this file by adapting Ottoman rules for modern Turkish\n" +
+	"- 2011-08-10 - add LPPL licence with permission of Pierre A. MacKay\n"
 )
 $tr.puts '\patterns{'
 

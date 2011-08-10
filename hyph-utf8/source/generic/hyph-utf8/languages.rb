@@ -1421,7 +1421,7 @@ class Languages < Hash
 	"last_modified" => "2008-06-28",
 	"type"          => "rules",
 	"authors"       => ["pierre_mackay", "h_turgut_uyar", "s_ekin_kocabas", "mojca_miklavec"],
-	"licence"       => "public-ask", # TODO
+	"licence"       => "LPPL",
 	"description_s" => "Turkish hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
