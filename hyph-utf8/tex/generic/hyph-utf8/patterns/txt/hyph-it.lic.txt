@@ -2,7 +2,7 @@ Italian hyphenation patterns
 
 (more info about the licence to be added later)
 
-% hyph-tr.tex
+% hyph-it.tex
 %
 % Italian hyphenation patterns
 %
@@ -39,8 +39,8 @@ Italian hyphenation patterns
 % liability is disclaimed.
 %
 % ChangeLog:
-% - 2011-08-16 - Change the licence from GNU LGPL into LPPL
-% - 2010-05-24 - fix for Italian patterns for proper hyphenation of -ich and Ljubljana
-% - 2008-06-09 - import of original ithyph.tex into hyph-utf8 package
+% - 2011-08-16 - Change the licence from GNU LGPL into LPPL v1.3.
+% - 2010-05-24 - Fix for Italian patterns for proper hyphenation of -ich and Ljubljana.
+% - 2008-06-09 - Import of original ithyph.tex into hyph-utf8 package.
 % - 2008-03-08 - (last change in ithyph.tex)
 %
