@@ -917,11 +917,11 @@ class Languages < Hash
 	"message" => "Hungarian hyphenation patterns (v20090612)",
 
 	# https://github.com/nagybence/huhyphn/
-	"version"       => nil,
-	"last_modified" => "2009-06-12",
+	"version"       => "v20110815",
+	"last_modified" => "2011-08-15", # actually, it is "2009-06-12" or older for contents; we probably want to check/fix this
 	"type"          => "dictionary",
 	"authors"       => ["bence_nagy"],
-	"licence"       => "GPL",
+	"licence"       => "MPL 1.1/GPL 2.0/LGPL 2.1", # TODO
 	"description_s" => "Hungarian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
