@@ -1063,11 +1063,11 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Italian hyphenation patterns",
 
-	"version"       => "4.8h",
+	"version"       => "4.8i",
 	"last_modified" => "2010-05-24",
 	"type"          => "rules", # TODO: we might want to check that, but it seems unlikely that patgen was used
 	"authors"       => ["claudio_beccari"],
-	"licence"       => "LGPL",
+	"licence"       => "LPPL", # Status: maintained!
 	"description_s" => "Italian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
