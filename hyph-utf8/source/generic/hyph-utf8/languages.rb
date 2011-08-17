@@ -914,7 +914,7 @@ class Languages < Hash
 	"hyphenmin" => [2,2], # polyglossia
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Hungarian hyphenation patterns (v20090612)",
+	"message" => "Hungarian hyphenation patterns (v20110815)",
 
 	# https://github.com/nagybence/huhyphn/
 	"version"       => "v20110815",
