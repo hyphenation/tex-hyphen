@@ -1625,13 +1625,13 @@ class Languages < Hash
 	"hyphenmin" => [1,5], # polyglossia
 	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
-	"message" => "Sanskrit hyphenation patterns (v0.4, 2010/02/26)",
+	"message" => "Sanskrit hyphenation patterns (v0.6, 2011/09/14)",
 
-	"version"       => "0.4",
-	"last_modified" => "2010-02-26",
+	"version"       => "0.6",
+	"last_modified" => "2011-09-14",
 	"type"          => "rules",
 	"authors"       => ["yves_codet"],
-	"licence"       => nil,
+	"licence"       => "free", # You may freely use, copy, modify and/or distribute this file.
 	"description_s" => "Sanskrit hyphenation patterns",
 	"description_l" => [
 		#......................................................................#

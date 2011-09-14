@@ -1,4 +1,4 @@
-Hungarian hyphenation patterns (v20090612)
+Hungarian hyphenation patterns (v20110815)
 
 (more info about the licence to be added later)
 

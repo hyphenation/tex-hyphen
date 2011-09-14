@@ -20,7 +20,7 @@
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
-    \message{UTF-8 Sanskrit hyphenation patterns (v0.4, 2010/02/26)}
+    \message{UTF-8 Sanskrit hyphenation patterns (v0.6, 2011/09/14)}
     % Set \lccode for ZWNJ and ZWJ.
     \lccode"200C="200C
     \lccode"200D="200D
@@ -30,11 +30,11 @@
     \input hyph-sa.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{No Sanskrit hyphenation patterns (v0.4, 2010/02/26) - only for Unicode engines}
+    \message{No Sanskrit hyphenation patterns (v0.6, 2011/09/14) - only for Unicode engines}
     %\input zerohyph.tex
 \fi\else
     % pTeX
-    \message{No Sanskrit hyphenation patterns (v0.4, 2010/02/26) - only for Unicode engines}
+    \message{No Sanskrit hyphenation patterns (v0.6, 2011/09/14) - only for Unicode engines}
     %\input zerohyph.tex
 \fi
 \endgroup

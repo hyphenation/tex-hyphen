@@ -7,11 +7,12 @@
 %
 % Created:        April 1st, 2005
 % First release:  June 8th, 2006
-% Revised:        February 26th, 2010
-% Version:        0.4
+% Revised:        September 14th, 2011
+% Version:        0.6
 %
-% Created by Yves Codet with Jonathan Kew's help.
+% Created by Yves Codet. Special thanks to Jonathan Kew and Benjamin Varghese who provided very useful informations.
 %
+% You may freely use, copy, modify and/or distribute this file.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \patterns{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -35,13 +36,13 @@ u1
 ü1
 ū1
 r̥1
-ṛ1 % non standard transliteration of vocalic r
+ṛ1
 r̥̄1
-ṝ1 % non standard transliteration of vocalic long r
+ṝ1
 l̥1
-ḷ1 % non standard transliteration of vocalic l
+ḷ1
 l̥̄1
-ḹ1 % non standard transliteration of vocalic long l
+ḹ1
 e1
 o1
 a2i1
@@ -92,12 +93,21 @@ a3ü1
 2rd.
 2rp.
 2rb.
-% Break after anusvara, anunasika and visarga but not before.
+% Break after anusvara, anunasika, visarga, jihvamuliya and
+% upadhmaniya, but not before.
 2ṃ1
+2ṁ1
 2m̐1
 2ḥ1
-% Do not break before a macron, an accent or a diaeresis; break after an accent.
+2ẖ1
+2ḫ1
+% Do not break before a breve below, a candrabindu, a macron,
+% a macron below, an acute, a grave or a diaeresis; break after
+% a macron below, an acute or a grave.
+2̮
+2̐
 2̄
+2̱1
 2́1
 2̀1
 2̈
@@ -139,9 +149,13 @@ a3ü1
 2ṣ.
 2rṭ.
 2rḍ.
-% Break after anusvara and visarga but not before.
+% Break after anusvara, visarga, jihvamuliya and upadhmaniya,
+% but not before.
 2ṃ1
+2ṁ1
 2ḥ1
+2ẖ1
+2ḫ1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DEVANAGARI SCRIPT
 % Break before or after any independent vowel.
@@ -721,6 +735,22 @@ a3ü1
 2ര്ട.
 2ര്ത.
 2ര്പ.
+% Do not break before a chillu.
+%% Representation in Unicode 5.1:
+2ൺ1
+2ൻ1
+2ർ1
+2ൽ1
+2ൾ1
+2ൿ1
+%% Representation in Unicode 5.0 and prior versions (i.e. NNA, NA, RA, LA, TA, LLA or KA + VIRAMA + ZWJ):
+2ണ്‍1
+2ന്‍1
+2ര്‍1
+2ല്‍1
+2ത്‍1
+2ള്‍1
+2ക്‍1
 % Do not break before anusvara, visarga and length mark.
 2ം
 2ഃ

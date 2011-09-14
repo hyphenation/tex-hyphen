@@ -1,3 +1,8 @@
+== CTAN release 2011.09.14 (#593) ==
+
+2011-09-14 (#593)
+- update Sanskrit patterns (missing rules for Malayalam script)
+
 2011-09-13 (#592)
 - update headers for Greek patterns (to be more explicit about LPPL)
 
