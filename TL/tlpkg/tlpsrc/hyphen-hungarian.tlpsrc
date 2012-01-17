@@ -4,6 +4,7 @@ depend hyph-utf8
 shortdesc Hungarian hyphenation patterns.
 longdesc Hyphenation patterns for Hungarian in T1/EC and UTF-8 encodings.
 longdesc From https://github.com/nagybence/huhyphn/.
+catalogue-version v20110815
 execute AddHyphen \
 	name=hungarian \
 	lefthyphenmin=2 \
