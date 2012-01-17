@@ -1080,6 +1080,31 @@ class Languages < Hash
 		# "(Ente Nazionale di Unificazione UNI).",
 	],
 },
+# romansh
+{
+	"code" => "rm",
+	"name" => "romansh",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => nil,
+	"hyphenmin" => [2,2], # todo
+	"encoding" => "ascii",
+	"exceptions" => false,
+	"message" => "Romansh hyphenation patterns",
+
+	"version"       => "1.0",
+	"last_modified" => "2011-12-27",
+	"type"          => "rules",
+	"authors"       => ["claudio_beccari"],
+	"licence"       => "LPPL", # Status: maintained!
+	"description_s" => "Romansh hyphenation patterns",
+	"description_l" => [
+		#......................................................................#
+		"Hyphenation patterns for Romansh in ASCII encoding.",
+		"They are supposed to comply with the rules indicated by the Lia",
+		"Rumantscha (Romansh language society).",
+	],
+},
 # kurmanji
 {
 	"code" => "kmr",

@@ -66,6 +66,7 @@ polish	loadhyph-pl.tex
 portuguese	loadhyph-pt.tex
 =portuges
 romanian	loadhyph-ro.tex
+romansh	loadhyph-rm.tex
 russian	loadhyph-ru.tex
 sanskrit	loadhyph-sa.tex
 serbian	loadhyph-sr-latn.tex
