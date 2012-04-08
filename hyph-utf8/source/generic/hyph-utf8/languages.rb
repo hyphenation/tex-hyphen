@@ -1105,6 +1105,32 @@ class Languages < Hash
 		"Rumantscha (Romansh language society).",
 	],
 },
+# friulan
+{
+	"code" => "fur",
+	"name" => "friulan",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => nil,
+	"hyphenmin" => [2,2],
+	"encoding" => "ascii",
+	"exceptions" => false,
+	"message" => "Friulan hyphenation patterns",
+
+	"version"       => "1.0",
+	"last_modified" => "2012-03-28",
+	"type"          => "rules",
+	"authors"       => ["claudio_beccari"],
+	"licence"       => "LPPL", # Status: maintained!
+	"description_s" => "Friulan hyphenation patterns",
+	"description_l" => [
+		#......................................................................#
+		"Hyphenation patterns for Friulan in ASCII encoding.",
+		"They are supposed to comply with the common spelling of the",
+		"Friulan (Furlan) language as fixed by the Regional Law N.15/96",
+		"dated November 6, 1996 and its following amendments.",
+	],
+},
 # kurmanji
 {
 	"code" => "kmr",

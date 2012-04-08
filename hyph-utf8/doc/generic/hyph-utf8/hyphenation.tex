@@ -1,6 +1,3 @@
-\setuplayout
-	[backspace=2cm,width=middle]
-
 \usetypescript[antykwa-poltawskiego]
 \setupbodyfont[antykwa-poltawskiego,10pt]
 
@@ -13,7 +10,8 @@
 \setuppagenumbering
 	[location={footer}]
 \setuplayout
-	[header=0pt,headerdistance=0pt,height=24cm]
+	[backspace=2cm,width=middle,
+	 header=0pt,headerdistance=0pt,height=24.5cm]
 
 \def\eTeX{ε-\TeX}
 % TODO
@@ -26,7 +24,8 @@
 
 \blank[big]
 
-\centerline{Mojca Miklavec \& Arthur Reutenauer}
+\centerline{Mojca Miklavec (current maintainer)}
+\centerline{Arthur Reutenauer (no longer active on hyph-utf8)}
 
 \blank[big]
 
@@ -101,6 +100,8 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 \landata{fi}{finnish}{}
 \lanname{French}
 \landata{fr}{french}{patois, francais}
+\lanname{Friulan}
+\landata{fur}{friulan}{}
 \lanname{Galician}
 \landata{gl}{galician}{}
 \lanname{German}
