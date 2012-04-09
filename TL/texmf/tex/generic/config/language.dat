@@ -28,6 +28,7 @@ french	loadhyph-fr.tex
 =patois
 =francais
 friulan	loadhyph-fur.tex
+=furlan
 galician	loadhyph-gl.tex
 german	loadhyph-de-1901.tex
 ngerman	loadhyph-de-1996.tex

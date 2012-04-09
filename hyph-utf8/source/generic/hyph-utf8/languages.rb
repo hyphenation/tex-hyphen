@@ -1108,7 +1108,7 @@ class Languages < Hash
 # friulan
 {
 	"code" => "fur",
-	"name" => "friulan",
+	"name" => "friulan", "synonyms" => ["furlan"],
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
