@@ -30,7 +30,7 @@ Romansh hyphenation patterns
 %
 % This work consists of the single file hyph-rm.tex.
 %
-% \versionnumber{1.0}   \versiondate{2011/12/27}
+% \versionnumber{1.1}   \versiondate{2011/04/10}
 %
 % These hyphenation patterns for the Romansh language are supposed to comply
 % with the rules indicated by the Lia Rumantscha (Romansh language society).
@@ -44,6 +44,8 @@ Romansh hyphenation patterns
 %
 % ChangeLog:
 % - 2012-01-14 - First release 1.0
+% - 2012-02-10 - Version 1.1. Fix inconsistencies.
+%
 % First part is identical to what is contained in hyph-quote-rm.tex
 % It must be repeated because that file is read only when creating format files
 % for UTF-8 aware engines (XeXeX, LuaTeX)

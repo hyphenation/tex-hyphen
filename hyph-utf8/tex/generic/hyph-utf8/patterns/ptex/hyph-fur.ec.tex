@@ -1,47 +1,13 @@
-% hyph-fur.tex
+% pTeX-friendly hyphenation patterns
 %
-% Friulan hyphenation patterns
+% language: friulan (fur)
+% encoding: ec
 %
-% This file is part of the hyph-utf8 package.
-% For more information see
+% This file has been auto-generated from hyph-fur.tex
+% with a script [texmf]/scripts/generic/hyph-utf8/generate-ptex-patterns.rb
+% See the original file for details about author, licence etc.
 %
-%    http://tug.org/tex-hyphen
-%
-%------------------------------------------------------------------------------
-%
-%% Copyright 2012 Claudio Beccari
-%
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License, either
-% version 1.3 of this license or (at your option) any later
-% version. The latest version of this license is in
-%        http://www.latex-project.org/lppl.txt
-% and version 1.3 or later is part of all distributions
-% of LaTeX version 2003/12/01 or later.
-%
-% This work has the LPPL maintenance status "maintained".
-%
-% The Current Maintainer of this work is Claudio Beccari
-% e-mail:  claudio dot beccari at gmail dot com
-%
-% This work consists of the single file hyph-fur.tex.
-%
-% \versionnumber{1.1}   \versiondate{2012/04/10}
-%
-% These hyphenation patterns for the Friulan language are supposed to comply
-% with the common spelling of the Friulan (Furlan) language as fixed by the
-% Regional Law N.15/96 dated November 6, 1996 and its following amendments.
-% They were initially obtained by merging the consonantic endings to the Italian
-% patterns and adding the necessary patterns for the special Friulan digraphs
-% used in this language and for the \c{c} consonant. The common Latin roots
-% of both languages helped a lot in this adaptation.
-% Digraphs: cj, gj, gl, gn, sj, ss.
-%
-% ChangeLog:
-% - 2012-01-14 - First release 1.0
-% - 2012-02-10 - Version 1.1. Fix inconsistencies.
-%%
-\patterns{% some revision might be necessary to handle more vocalic elisions
+\patterns{
 .'2s2
 .'sj2
 2'2
@@ -50,7 +16,7 @@
 2c'
 2cj'
 2cj'.
-2ç'
+2^^e7'
 2d'
 2f'
 2g'
@@ -76,7 +42,6 @@
 2x'
 2z'.
 2z''
-%%%%%%%%%%%%%%%%%%%%
 .a3p2n
 .anti1
 .anti3m2n
@@ -167,9 +132,9 @@ c2l
 c2r
 2c.
 .c2
-1ç
-2ç.
-2çs.
+1^^e7
+2^^e7.
+2^^e7s.
 1d
 2db
 2dd
@@ -318,8 +283,8 @@ p2r
 1r
 2rb
 2rc
-2rç
-2rç.
+2r^^e7
+2r^^e7.
 2rd
 2rf
 r2h
@@ -343,8 +308,8 @@ r2t2s3
 1s
 2sc
 .s2c
-2s1ç
-.s2ç
+2s1^^e7
+.s2^^e7
 2s1cj
 .s2cj
 2sch2
@@ -370,7 +335,7 @@ s2j
 .s2q
 2sr
 .s2r
-s2s % 
+s2s
 2s4s3m
 2st
 2s2t.
@@ -388,14 +353,14 @@ s2s %
 2sv
 .s2v
 2sz
-2s2ç.
+2s2^^e7.
 2scj.
 2s.
 1t
 2tb
 2tc
-2tç
-t2ç.
+2t^^e7
+t2^^e7.
 2tcj
 t2cj.
 2td
@@ -455,5 +420,4 @@ y1i
 2zz
 2z.
 .z2
-}                          % Pattern end
-
+}

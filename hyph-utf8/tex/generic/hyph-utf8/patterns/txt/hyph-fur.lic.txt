@@ -30,7 +30,7 @@ Friulan hyphenation patterns
 %
 % This work consists of the single file hyph-fur.tex.
 %
-% \versionnumber{1.0}   \versiondate{2012/03/28}
+% \versionnumber{1.1}   \versiondate{2012/04/10}
 %
 % These hyphenation patterns for the Friulan language are supposed to comply
 % with the common spelling of the Friulan (Furlan) language as fixed by the
@@ -43,4 +43,5 @@ Friulan hyphenation patterns
 %
 % ChangeLog:
 % - 2012-01-14 - First release 1.0
+% - 2012-02-10 - Version 1.1. Fix inconsistencies.
 %%

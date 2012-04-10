@@ -6,7 +6,7 @@ longdesc Hyphenation patterns for Friulan in ASCII encoding.
 longdesc They are supposed to comply with the common spelling of the
 longdesc Friulan (Furlan) language as fixed by the Regional Law N.15/96
 longdesc dated November 6, 1996 and its following amendments.
-catalogue-version 1.0
+catalogue-version 1.1
 execute AddHyphen \
 	name=friulan synonyms=furlan \
 	lefthyphenmin=2 \

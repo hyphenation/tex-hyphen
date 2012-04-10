@@ -1092,8 +1092,8 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Romansh hyphenation patterns",
 
-	"version"       => "1.0",
-	"last_modified" => "2011-12-27",
+	"version"       => "1.1",
+	"last_modified" => "2012-04-10",
 	"type"          => "rules",
 	"authors"       => ["claudio_beccari"],
 	"licence"       => "LPPL", # Status: maintained!
@@ -1113,12 +1113,12 @@ class Languages < Hash
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
 	"hyphenmin" => [2,2],
-	"encoding" => "ascii",
+	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Friulan hyphenation patterns",
 
-	"version"       => "1.0",
-	"last_modified" => "2012-03-28",
+	"version"       => "1.1",
+	"last_modified" => "2012-04-10",
 	"type"          => "rules",
 	"authors"       => ["claudio_beccari"],
 	"licence"       => "LPPL", # Status: maintained!

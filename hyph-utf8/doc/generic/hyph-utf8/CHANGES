@@ -1,4 +1,8 @@
-== CTAN release 2012.04.09 (#598) ==
+== CTAN release 2012.04.10 (#599) ==
+
+2012-04-10 (#599)
+- encoding of Friulan changed from ASCII to EC (bugfix)
+- fix some inconsistencies, update version of 'rm' and 'fur' patterns to 1.1
 
 2012-04-09 (#598)
 - add a synonym for 'friulan': 'furlan'

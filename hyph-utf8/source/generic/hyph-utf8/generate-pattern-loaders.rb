@@ -150,7 +150,7 @@ end
 #######################
 # GROUP nr. 2 - ASCII #
 #######################
-			elsif language.code == "it" or language.code == "rm" or language.code == "fur" then
+			elsif language.code == 'it' or language.code == 'rm' then
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				file.puts(text_patterns)
@@ -163,7 +163,7 @@ end
 				file.puts(text_patterns)
 				file.puts('\fi')
 			# for ASCII encoding, we don't load any special support files, but simply load everything
-			elsif language.encoding == "ascii" then
+			elsif language.encoding == 'ascii' then
 				file.puts(text_engine_ascii)
 ####################################
 # GROUP nr. 3 - different patterns #
@@ -206,7 +206,7 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				file.puts(text_patterns_utf8)
-				if language.code == 'af' or language.code == 'it' or language.code == 'fr' or language.code == 'uk' or language.code == 'zh-latn-pinyin' then
+				if language.code == 'af' or language.code == 'fr' or language.code == 'fur' or language.code == 'uk' or language.code == 'zh-latn-pinyin' then
 					file.puts(text_patterns_quote)
 				end
 				file.puts('\else')

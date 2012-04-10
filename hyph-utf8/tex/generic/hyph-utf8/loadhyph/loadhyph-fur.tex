@@ -26,11 +26,12 @@
     \input hyph-quote-fur.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{ASCII Friulan hyphenation patterns}
+    \message{EC Friulan hyphenation patterns}
+    \input conv-utf8-ec.tex
     \input hyph-fur.tex
 \fi\else
     % pTeX
-    \message{ASCII Friulan hyphenation patterns}
-    \input hyph-fur.tex
+    \message{EC Friulan hyphenation patterns}
+    \input hyph-fur.ec.tex
 \fi
 \endgroup
