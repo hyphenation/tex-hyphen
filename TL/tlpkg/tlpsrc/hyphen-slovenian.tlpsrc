@@ -3,7 +3,6 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Slovenian hyphenation patterns.
 longdesc Hyphenation patterns for Slovenian in T1/EC and UTF-8 encodings.
-catalogue-version 2.3
 execute AddHyphen \
 	name=slovenian synonyms=slovene \
 	lefthyphenmin=2 \

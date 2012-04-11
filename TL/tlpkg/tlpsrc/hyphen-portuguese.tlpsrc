@@ -3,7 +3,6 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Portuguese hyphenation patterns.
 longdesc Hyphenation patterns for Portuguese in T1/EC and UTF-8 encodings.
-catalogue-version 1.0
 execute AddHyphen \
 	name=portuguese synonyms=portuges \
 	lefthyphenmin=2 \

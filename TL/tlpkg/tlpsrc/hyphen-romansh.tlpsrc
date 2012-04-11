@@ -5,7 +5,6 @@ shortdesc Romansh hyphenation patterns.
 longdesc Hyphenation patterns for Romansh in ASCII encoding.
 longdesc They are supposed to comply with the rules indicated by the Lia
 longdesc Rumantscha (Romansh language society).
-catalogue-version 1.1
 execute AddHyphen \
 	name=romansh \
 	lefthyphenmin=2 \

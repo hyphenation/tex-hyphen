@@ -3,7 +3,6 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Galician hyphenation patterns.
 longdesc Hyphenation patterns for Galician in T1/EC and UTF-8 encodings.
-catalogue-version 2.4
 execute AddHyphen \
 	name=galician \
 	lefthyphenmin=2 \

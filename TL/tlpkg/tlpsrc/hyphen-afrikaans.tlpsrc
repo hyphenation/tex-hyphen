@@ -5,7 +5,6 @@ shortdesc Afrikaans hyphenation patterns.
 longdesc Hyphenation patterns for Afrikaans in T1/EC and UTF-8 encodings.
 longdesc OpenOffice includes older patterns created by a different author,
 longdesc but the patterns packaged with TeX are considered superior in quality.
-catalogue-version 0.9
 execute AddHyphen \
 	name=afrikaans \
 	lefthyphenmin=1 \

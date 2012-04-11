@@ -8,7 +8,6 @@ longdesc (usenglishmax) greatly extend the standard patterns from Knuth
 longdesc to find many additional hyphenation points.  British English
 longdesc hyphenation is completely different from US English, so has its
 longdesc own set of patterns.
-catalogue-version 1.0a
 execute AddHyphen \
 	name=ukenglish synonyms=british,UKenglish \
 	lefthyphenmin=2 \

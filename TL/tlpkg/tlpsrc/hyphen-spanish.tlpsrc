@@ -3,7 +3,6 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Spanish hyphenation patterns.
 longdesc Hyphenation patterns for Spanish in T1/EC and UTF-8 encodings.
-catalogue-version 4.6
 execute AddHyphen \
 	name=spanish synonyms=espanol \
 	lefthyphenmin=2 \

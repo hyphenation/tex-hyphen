@@ -6,7 +6,6 @@ longdesc Hyphenation patterns for Romanian in T1/EC and UTF-8 encodings.
 longdesc The UTF-8 patterns use U+0219 for the character 's with comma accent'
 longdesc and U+021B for 't with comma accent', but we may consider using U+015F
 longdesc and U+0163 as well in the future.
-catalogue-version 1.1R
 execute AddHyphen \
 	name=romanian \
 	lefthyphenmin=2 \

@@ -4,7 +4,6 @@ depend hyph-utf8
 shortdesc Indonesian hyphenation patterns.
 longdesc Hyphenation patterns for Indonesian (Bahasa Indonesia) in ASCII
 longdesc encoding.  They are probably also usable for Malay (Bahasa Melayu).
-catalogue-version 1.3
 execute AddHyphen \
 	name=indonesian \
 	lefthyphenmin=2 \

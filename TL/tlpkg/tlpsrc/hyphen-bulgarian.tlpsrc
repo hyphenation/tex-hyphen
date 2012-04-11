@@ -3,7 +3,6 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Bulgarian hyphenation patterns.
 longdesc Hyphenation patterns for Bulgarian in T2A and UTF-8 encodings.
-catalogue-version 1.7
 execute AddHyphen \
 	name=bulgarian \
 	lefthyphenmin=2 \

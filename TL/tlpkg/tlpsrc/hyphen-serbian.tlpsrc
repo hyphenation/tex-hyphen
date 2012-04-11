@@ -7,7 +7,6 @@ longdesc For 8-bit engines the patterns are available separately as 'serbian'
 longdesc in T1/EC encoding for Latin script and 'serbianc' in T2A encoding for
 longdesc Cyrillic script. Unicode engines should only use 'serbian'
 longdesc which has patterns in both scripts combined.
-catalogue-version 2.02
 execute AddHyphen \
 	name=serbian \
 	lefthyphenmin=2 \

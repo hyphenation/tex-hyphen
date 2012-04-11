@@ -5,7 +5,6 @@ shortdesc Indic hyphenation patterns.
 longdesc Hyphenation patterns for Assamese, Bengali, Gujarati, Hindi, Kannada,
 longdesc Malayalam, Marathi, Oriya, Panjabi, Tamil and Telugu for Unicode
 longdesc engines.
-catalogue-version 0.5.3
 execute AddHyphen \
 	name=assamese \
 	lefthyphenmin=1 \

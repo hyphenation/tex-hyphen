@@ -5,7 +5,6 @@ shortdesc Sanskrit hyphenation patterns.
 longdesc Hyphenation patterns for Sanskrit and Prakrit in transliteration,
 longdesc and in Devanagari, Bengali, Kannada, Malayalam and Telugu scripts
 longdesc for Unicode engines.
-catalogue-version 0.6
 execute AddHyphen \
 	name=sanskrit \
 	lefthyphenmin=1 \

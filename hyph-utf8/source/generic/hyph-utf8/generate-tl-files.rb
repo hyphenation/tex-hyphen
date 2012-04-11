@@ -97,9 +97,9 @@ language_groups.sort.each do |language_name,language_list|
 		if language.description_s != nil then
 			$file_tlpsrc.puts "shortdesc #{language.description_s}."
 			$file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
-			if language.version != nil then
-				$file_tlpsrc.puts "catalogue-version #{language.version}"
-			end
+			# if language.version != nil then
+			# 	$file_tlpsrc.puts "catalogue-version #{language.version}"
+			# end
 		end
 		name = "name=#{language.name}"
 

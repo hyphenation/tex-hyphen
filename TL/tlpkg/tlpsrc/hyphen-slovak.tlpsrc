@@ -5,7 +5,6 @@ shortdesc Slovak hyphenation patterns.
 longdesc Hyphenation patterns for Slovak in T1/EC and UTF-8 encodings.
 longdesc Original patterns 'skhyphen' are still distributed in the 'csplain'
 longdesc package and loaded with ISO Latin 2 encoding (IL2).
-catalogue-version 2
 execute AddHyphen \
 	name=slovak \
 	lefthyphenmin=2 \

@@ -5,7 +5,6 @@ shortdesc Mongolian hyphenation patterns in Cyrillic script.
 longdesc Hyphenation patterns for Mongolian in T2A, LMC and UTF-8 encodings.
 longdesc LMC encoding is used in MonTeX. The package includes two sets of
 longdesc patterns that will hopefully be merged in future.
-catalogue-version 1.2
 execute AddHyphen \
 	name=mongolian \
 	lefthyphenmin=2 \
