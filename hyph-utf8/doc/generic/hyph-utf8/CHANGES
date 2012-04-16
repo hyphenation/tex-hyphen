@@ -1,4 +1,7 @@
-== CTAN release 2012.04.16 (#602) ==
+== CTAN release 2012.04.16 (#603) ==
+
+2012-04-16 (#603)
+- get upstream changes for hyphen.cfg from Babel 2008/07/08 v3.8m
 
 2012-04-16 (#602)
 - patch \adddialect in hyphen.cfg to also register language synonyms at lua end;

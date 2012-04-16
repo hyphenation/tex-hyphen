@@ -448,7 +448,7 @@ end
 %    \begin{macrocode}
 \ProvidesFile{hyphen.cfg}
                 [2012/04/16 v3.8l-luatex-1.5 %
-      Language switching mechanism for LuaTeX, adapted from babel v3.8l]
+      Language switching mechanism for LuaTeX, adapted from babel v3.8m]
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -824,6 +824,8 @@ end
   \message{I couldn't find the file language.dat,\space
            I will try the file hyphen.tex}
   \input hyphen.tex\relax
+  \def\l@english{0}%
+  \def\languagename{english}%
 \else
   \last@language\m@ne
   \loop
@@ -834,11 +836,16 @@ end
     \else
       \edef\bbl@line{\bbl@line\space/}%
       \expandafter\process@line\bbl@line
+      \ifx\bbl@defaultlanguage\@undefined
+        \let\bbl@defaultlanguage\languagename
+      \fi
     \fi
     \iftrue \csname fi\endcsname
     \csname if\ifeof1 false\else true\fi\endcsname
   \repeat
   \language=0
+  \let\languagename\bbl@defaultlanguage
+  \let\bbl@defaultlanguage\@undefined
 \fi
 \closein1
 \let\process@language\@undefined
