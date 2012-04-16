@@ -4,8 +4,8 @@
 % intended for use with LuaTeX, but compatible with other engines.
 % The present file IS NOT part of the babel system.
 %
-% The modifications are Copyright 2010 Khaled Hosny, Elie Roux, and Manuel
-% Pegourie-Gonnard, under LPPL version 1.3 or later.
+% The modifications are Copyright 2012 Khaled Hosny, Élie Roux, and Manuel
+% Pégourié-Gonnard, under LPPL version 1.3 or later.
 %
 % Here is the licence statement of the original hyphen.cfg file:
 %  |
@@ -47,8 +47,8 @@ This is a modified version of the hyphen.cfg file from the babel system,
 intended for use with LuaTeX, but compatible with other engines.
 The present file IS NOT part of the babel system.
 
-The modifications are Copyright 2010 Khaled Hosny, Elie Roux, and Manuel
-Pegourie-Gonnard, under LPPL version 1.3 or later.
+The modifications are Copyright 2012 Khaled Hosny, Élie Roux, and Manuel
+Pégourié-Gonnard, under LPPL version 1.3 or later.
 
 Here is the licence statement of the original hyphen.cfg file:
  |
@@ -88,7 +88,7 @@ Here is the licence statement of the original hyphen.cfg file:
 
 This is a generated file (source: luatex-hyphen.dtx).
 
-Copyright (C) 2010 by The LuaLaTeX development team.
+Copyright (C) 2012 by The LuaLaTeX development team.
 
 This work is under the CC0 license.
 
@@ -106,9 +106,9 @@ This work is under the CC0 license.
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{luatex-hyphen.drv}
-  [2010/04/28 v1.4 Hyphenation file for LuaTeX]
+  [2012/04/16 v1.5 Hyphenation file for LuaTeX]
 \documentclass{ltxdoc}
-\usepackage[ascii]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \EnableCrossrefs
@@ -140,8 +140,8 @@ This work is under the CC0 license.
 % \GetFileInfo{luatex-hyphen.drv}
 %
 % \title{The \texttt{hyphen.cfg} file for Lua\TeX }
-% \date{2010/04/28 v1.4}
-% \author{Khaled Hosny, \'Elie Roux, and Manuel P\'egouri\'e-Gonnard\\
+% \date{2012/04/16 v1.5}
+% \author{Khaled Hosny, Élie Roux, and Manuel Pégourié-Gonnard\\
 % \texttt{khaledhosny@eglug.org} \\
 % \texttt{elie.roux@telecom-bretagne.eu} \\
 % \texttt{mpg@elzevir.fr}}
@@ -198,7 +198,7 @@ This work is under the CC0 license.
 %         Each string contains a coma-separated list of file names (whitespace
 %         before or after the coma is not accepted).
 %         The files given by \verb+patterns+ (resp. \verb+hypenation+) must be
-%         plain text files encoded in utf8, with only patterns (resp.
+%         plain text files encoded in UTF-8, with only patterns (resp.
 %         exceptions) and not even comments: their content will be used
 %         directly without being parsed by \TeX.  If one of these keys is
 %         missing or is the empty string, it is ignored and no patterns (resp.
@@ -312,6 +312,9 @@ end
 %
 %    \begin{macrocode}
 function loadlanguage(lname, id)
+    if id == 0 then
+        return
+    end
     local msg = "loading%s patterns and exceptions for: %s (\\language%d)"
 %    \end{macrocode}
 %
@@ -357,6 +360,16 @@ function loadlanguage(lname, id)
         else
             if item == 'hyphenation' then item = item..' exceptions' end
             wlog("info: no %s for this language", item)
+        end
+    end
+end
+function adddialect(dialect, language)
+    if dialect ~= '0' then
+        dialect = dialect:gsub('l@', '')
+        language = language:gsub('l@', '')
+        data = language_dat[language]
+        if data then
+            data.synonyms[#data.synonyms+1] = dialect
         end
     end
 end
@@ -434,7 +447,7 @@ end
 %
 %    \begin{macrocode}
 \ProvidesFile{hyphen.cfg}
-                [2010/04/26 v3.8l-luatex-1.4 %
+                [2012/04/16 v3.8l-luatex-1.5 %
       Language switching mechanism for LuaTeX, adapted from babel v3.8l]
 %    \end{macrocode}
 %
@@ -464,6 +477,16 @@ end
 \fi
 \def\adddialect#1#2{%
     \global\chardef#1#2\relax
+    \ifx\directlua\@undefined\else
+      \ifx\directlua\relax\else
+        \directlua{
+          if not luatexhyphen then
+              dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+          end
+          luatexhyphen.adddialect("\string#1", "\string#2")
+        }%
+      \fi
+    \fi
     \wlog{\string#1 = a dialect from \string\language#2}}
 \def\iflanguage#1{%
   \expandafter\ifx\csname l@#1\endcsname\relax

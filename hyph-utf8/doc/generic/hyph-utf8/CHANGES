@@ -1,3 +1,9 @@
+== CTAN release 2012.04.16 (#602) ==
+
+2012-04-16 (#602)
+- patch \adddialect in hyphen.cfg to also register language synonyms at lua end;
+  fixes a problem in LuaTeX with missing synonyms defined by Babel
+
 == CTAN release 2012.04.10 (#599) ==
 
 2012-04-10 (#599)

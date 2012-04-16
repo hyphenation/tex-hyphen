@@ -197,6 +197,17 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 
 \stopcolumns
 
+\blank[3*big]
+
+Babel defines a few more synonyms (which consequently only work in \LaTeX):
+
+\def\lansyn#1#2{\hbox to \textwidth{\hbox to 3mm{}\hbox to 6.5em{\bf#1\hss}\hbox{#2}\hss}}
+\lansyn{english}{canadian}
+\lansyn{british}{australian, newzealand}
+\lansyn{german}{austrian}
+\lansyn{ngerman}{naustrian}
+\lansyn{portuguese}{brazilian, brazil}
+
 \page
 
 \subject{Using hyphenation patterns}

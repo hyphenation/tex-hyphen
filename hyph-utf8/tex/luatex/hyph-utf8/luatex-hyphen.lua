@@ -8,7 +8,7 @@
 --  
 --  This is a generated file (source: luatex-hyphen.dtx).
 --  
---  Copyright (C) 2010 by The LuaLaTeX development team.
+--  Copyright (C) 2012 by The LuaLaTeX development team.
 --  
 --  This work is under the CC0 license.
 --  
@@ -44,6 +44,9 @@ function lookupname(name)
     end
 end
 function loadlanguage(lname, id)
+    if id == 0 then
+        return
+    end
     local msg = "loading%s patterns and exceptions for: %s (\\language%d)"
     local ldata, cname = lookupname(lname)
     if not ldata then
@@ -73,6 +76,16 @@ function loadlanguage(lname, id)
         else
             if item == 'hyphenation' then item = item..' exceptions' end
             wlog("info: no %s for this language", item)
+        end
+    end
+end
+function adddialect(dialect, language)
+    if dialect ~= '0' then
+        dialect = dialect:gsub('l@', '')
+        language = language:gsub('l@', '')
+        data = language_dat[language]
+        if data then
+            data.synonyms[#data.synonyms+1] = dialect
         end
     end
 end
