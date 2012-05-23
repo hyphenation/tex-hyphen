@@ -28,7 +28,6 @@ french	loadhyph-fr.tex
 =patois
 =francais
 friulan	loadhyph-fur.tex
-=furlan
 galician	loadhyph-gl.tex
 german	loadhyph-de-1901.tex
 ngerman	loadhyph-de-1996.tex
@@ -54,7 +53,6 @@ interlingua	loadhyph-ia.tex
 irish	loadhyph-ga.tex
 italian	loadhyph-it.tex
 kurmanji	loadhyph-kmr.tex
-lao	loadhyph-lo.tex
 latin	loadhyph-la.tex
 latvian	loadhyph-lv.tex
 lithuanian	loadhyph-lt.tex

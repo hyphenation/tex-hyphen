@@ -137,7 +137,7 @@ authors = {
 	"santhosh_thottingal" => ["Santhosh", "Thottingal", "santhosh{dot}thottingal{at}gmail{dot}com>", true, true],
 	"yves_codet"          => ["Yves", "Codet", "ycodet{at}club-internet{dot}fr", true, true],
 	"rune_kleveland"      => ["Rune", "Kleveland", nil, false, false],
-	"ole_michael_selberg" => ["Ole Michael", "Selberg", nil, false, false],
+	"ole_michael_selberg" => ["Ole Michael", "Selberg", "o{dot}m{dot}selberg{at}c2i{dot}net", true, true],
 	"dorjgotov_batmunkh"  => ["Dorjgotov", "Batmunkh", "bataak{at}gmail{dot}com", true, true],
 	"nazar_annagurban"    => ["Nazar", "Annagurban", "nazartm{at}gmail{dot}com", false, false],
 	"jan_michael_rynning" => ["Jan Michael", "Rynning", nil, false, false],
@@ -1108,7 +1108,7 @@ class Languages < Hash
 # friulan
 {
 	"code" => "fur",
-	"name" => "friulan", "synonyms" => ["furlan"],
+	"name" => "friulan", "synonyms" => [],
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
@@ -1714,7 +1714,7 @@ class Languages < Hash
 	"message" => "Norwegian Bokmal hyphenation patterns",
 
 	"version"       => nil,
-	"last_modified" => "2007-02-07",
+	"last_modified" => "2012-05-18",
 	"type"          => "dictionary",
 	"authors"       => [ "rune_kleveland", "ole_michael_selberg" ],
 	"licence"       => "free", # TODO
@@ -1873,28 +1873,28 @@ class Languages < Hash
 	"message" => "Telugu hyphenation patterns",
 },
 # lao
-{
-	"code" => "lo",
-	"name" => "lao",
-	"use_new_loader" => true,
-	"use_old_patterns" => false,
-	"hyphenmin" => [1,1], # TODO
-	"encoding" => nil, # no patterns for 8-bit engines
-	"exceptions" => false,
-	"message" => "Lao hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2010-05-19",
-	"type"          => "rules",
-	"authors"       => [ "brian_wilson", "arthur_reutenauer", "mojca_miklavec" ],
-	"licence"       => "other-free",
-	"description_s" => "Lao hyphenation patterns",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Lao language for Unicode engines.",
-		"Current version is experimental and gives bad results.",
-	],
-},
+#{
+#	"code" => "lo",
+#	"name" => "lao",
+#	"use_new_loader" => true,
+#	"use_old_patterns" => false,
+#	"hyphenmin" => [1,1], # TODO
+#	"encoding" => nil, # no patterns for 8-bit engines
+#	"exceptions" => false,
+#	"message" => "Lao hyphenation patterns",
+#
+#	"version"       => nil,
+#	"last_modified" => "2010-05-19",
+#	"type"          => "rules",
+#	"authors"       => [ "brian_wilson", "arthur_reutenauer", "mojca_miklavec" ],
+#	"licence"       => "other-free",
+#	"description_s" => "Lao hyphenation patterns",
+#	"description_l" => [
+#		#......................................................................#
+#		"Hyphenation patterns for Lao language for Unicode engines.",
+#		"Current version is experimental and gives bad results.",
+#	],
+#},
 # pan-Ethiopic
 {
 	"code" => "mul-ethi",

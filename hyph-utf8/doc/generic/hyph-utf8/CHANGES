@@ -1,6 +1,13 @@
-== CTAN release 2012.04.16 (#603) ==
+== CTAN release 2012.05.23 (#606) ==
 
-2012-04-16 (#603)
+2012-05-23 (#606)
+- update Norwegian patterns (by Ole Michael Selberg)
+- remove Lao patterns (until they are improved)
+- remove 'furlan' as a synonym for 'friulan'
+
+== CTAN release 2012.04.16 (#604) ==
+
+2012-04-16 (#604)
 - get upstream changes for hyphen.cfg from Babel 2008/07/08 v3.8m
 
 2012-04-16 (#602)
