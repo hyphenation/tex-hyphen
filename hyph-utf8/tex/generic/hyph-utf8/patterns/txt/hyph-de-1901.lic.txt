@@ -2,9 +2,9 @@ German hyphenation patterns (traditional orthography)
 
 (more info about the licence to be added later)
 
-% dehypht-x-2011-06-01.pat
+% dehypht-x-2012-05-28.pat
 
-\message{German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2011-06-01 (WL)}
+\message{German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2012-05-28 (WL)}
 
 % TeX-Trennmuster für die traditionelle deutsche Rechtschreibung
 %
@@ -19,7 +19,7 @@ German hyphenation patterns (traditional orthography)
 %
 % The word list is available from
 %
-%   http://repo.or.cz/w/wortliste.git?a=commit;h=2d246449f5c4f570f4d735d3ad091f6ad70f6972
+%   http://repo.or.cz/w/wortliste.git?a=commit;h=9665199879dcc21e6e8c058d280c052ca4e7e146
 %
 % The used patgen parameters are
 %
