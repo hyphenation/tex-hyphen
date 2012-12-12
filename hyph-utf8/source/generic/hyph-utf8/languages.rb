@@ -1673,7 +1673,7 @@ class Languages < Hash
 	"name" => "sanskrit",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-	"hyphenmin" => [1,5], # polyglossia
+	"hyphenmin" => [1,3], # polyglossia
 	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Sanskrit hyphenation patterns (v0.6, 2011/09/14)",

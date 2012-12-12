@@ -884,10 +884,10 @@ class Languages < Hash
 	"name" => "sanskrit",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-	"hyphenmin" => [1,5], # polyglosia
+	"hyphenmin" => [1,3], # polyglosia
 	"encoding" => nil, # no patterns for 8-bit TeX
 	"exceptions" => false,
-	"message" => "Sanskrit Hyphenation Patterns (v0.2, 2008/1/3)",
+	"message" => "Sanskrit Hyphenation Patterns (v0.6, 2011/09/14)",
 },
 # norwegian	nohyph.tex
 {
