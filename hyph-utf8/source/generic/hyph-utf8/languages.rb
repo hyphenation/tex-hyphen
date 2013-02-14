@@ -1131,6 +1131,30 @@ class Languages < Hash
 		"dated November 6, 1996 and its following amendments.",
 	],
 },
+# piedmontese
+{
+	"code" => "pms",
+	"name" => "piedmontese",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => nil,
+	"hyphenmin" => [2,2],
+	"encoding" => "ascii",
+	"exceptions" => false,
+	"message" => "Piedmontese hyphenation patterns",
+
+	"version"       => "1.0",
+	"last_modified" => "2013-02-14",
+	"type"          => "rules",
+	"authors"       => ["claudio_beccari"],
+	"licence"       => "LPPL", # Status: maintained!
+	"description_s" => "Piedmontese hyphenation patterns",
+	"description_l" => [
+		#......................................................................#
+		"Hyphenation patterns for Piedmontese in ASCII encoding.",
+		"Compliant with 'Gramatica dla lengua piemonteisa' by Camillo Brero.",
+	],
+},
 # kurmanji
 {
 	"code" => "kmr",

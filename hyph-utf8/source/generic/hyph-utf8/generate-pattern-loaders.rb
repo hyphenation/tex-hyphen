@@ -82,7 +82,7 @@ text_patterns_quote =  "    \\input hyph-quote-#{language.code}.tex"
 ###########
 
 lccodes_common = []
-if language.code == 'af' or language.code == 'it' or language.code == 'rm' or language.code == 'fur' or language.code == 'fr' or language.code == 'uk' or language.code == 'zh-latn-pinyin' then
+if language.code == 'af' or language.code == 'it' or language.code == 'rm' or language.code == 'fur' or language.code == 'pms' or language.code == 'fr' or language.code == 'uk' or language.code == 'zh-latn-pinyin' then
 	lccodes_common.push("\\lccode`\\'=`\\'")
 end
 if language.code == 'af' or language.code == 'pt' or language.code == 'tk' or language.code == 'ru' or language.code == 'uk' then
@@ -150,7 +150,7 @@ end
 #######################
 # GROUP nr. 2 - ASCII #
 #######################
-			elsif language.code == 'it' or language.code == 'rm' then
+			elsif language.code == 'it' or language.code == 'rm' or language.code == 'pms' then
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				file.puts(text_patterns)
