@@ -67,62 +67,61 @@ $AGL_names["f_k"] = "?"
 
 encodings.each do |enc|
 
-  $filename_encoding         = $path_data + "enc/#{enc}.enc"
-  $filename_xetex_mapping    = $path_data + "map/#{enc}.map"
-  $filename_encoding2unicode = $path_data + "enc2unicode/#{enc}.dat"
+	$filename_encoding         = $path_data + "enc/#{enc}.enc"
+	$filename_xetex_mapping    = $path_data + "map/#{enc}.map"
+	$filename_encoding2unicode = $path_data + "enc2unicode/#{enc}.dat"
 
+	$file_map = File.open($filename_xetex_mapping, "w")
+	# FIXME
+	$file_fixed_enc = File.open("data/enc/#{enc}-new.enc", "w")
+	$file_encoding2unicode = File.open($filename_encoding2unicode, "w")
 
-  $file_map = File.open($filename_xetex_mapping, "w")
-  # FIXME
-  $file_fixed_enc = File.open("data/enc/#{enc}-new.enc", "w")
-  $file_encoding2unicode = File.open($filename_encoding2unicode, "w")
+	$file_map.print("EncodingName \"TeX-#{enc}\"\n\n")
+	$file_map.print("pass(Byte_Unicode)\n\n")
 
-  $file_map.print("EncodingName \"TeX-#{enc}\"\n\n")
-  $file_map.print("pass(Byte_Unicode)\n\n")
+	i = 0
+	#$file_out = File.open("#{enc}.txt", "w")
+	# read from adobe glyph list
+	File.open($filename_encoding).grep(/\/[_a-zA-Z0-9\.]+/) do |line|
+		# ignore comments
+		line.gsub!(/%.*/,'')
+		# encoding name should not be considered
+		line.gsub!(/.*\[/,'')
+		# nor the ending definition
+		line.gsub!(/\].*/,'')
 
-  i = 0
-  #$file_out = File.open("#{enc}.txt", "w")
-  # read from adobe glyph list
-  File.open($filename_encoding).grep(/\/[_a-zA-Z0-9\.]+/) do |line|
-  	# ignore comments
-  	line.gsub!(/%.*/,'')
-  	# encoding name should not be considered
-  	line.gsub!(/.*\[/,'')
-  	# nor the ending definition
-  	line.gsub!(/\].*/,'')
-
-  	line.scan(/[_a-zA-Z0-9\.]+/) do |w|
-  		if $AGL_names[w] == nil
-  			puts ">> error: " + w + " unknown"
-  		else
-  			#$file_out.printf("%3s %-20s %s\n", i.to_s, w, $AGL_names[w])
-  			#puts w + " " + $AGL_names[w]
-  			if $AGL_names[w] == "?"
-  				$file_map.printf("; %-20s: no Unicode mapping assigned\n", w);
-  				$file_fixed_enc.printf("/%-15s %% 0x%02X\n", w, i);
-  				$file_encoding2unicode.printf("0x%02X\tU+....\t\t%s\n", i, w);
-  			else
-  				unicode_point = $AGL_names[w]
-  				if i != $AGL_names[w].hex
-  					$file_map.printf("%d\t<>\tU+%s\t; %s\n", i, unicode_point, w);
-  					$file_fixed_enc.printf("/%-15s %% 0x%02X U+#{unicode_point}\n", w, i);
-  				else
-  					$file_map.printf("%d\t<>\tU+%s\t; %s\n", i, unicode_point, w);
-  					$file_fixed_enc.printf("/%-15s %% 0x%02X\n", w, i);
-  				end
-  				lowercase = ""
-  				if $lowercase_letter[unicode_point] == true and unicode_point.hex > 127
-  					lowercase = "1"
-  				end
-  				$file_encoding2unicode.printf("0x%02X\tU+#{unicode_point}\t#{lowercase}\t%s\n", i, w, $AGL_names[w]);
-  			end
-  		end
-  		i = i.next
-  	end
-  end
-  #$file_out.close
-  $file_map.close
-  $file_encoding2unicode.close
+		line.scan(/[_a-zA-Z0-9\.]+/) do |w|
+			if $AGL_names[w] == nil
+				puts ">> error: " + w + " unknown"
+			else
+				#$file_out.printf("%3s %-20s %s\n", i.to_s, w, $AGL_names[w])
+				#puts w + " " + $AGL_names[w]
+				if $AGL_names[w] == "?"
+					$file_map.printf("; %-20s: no Unicode mapping assigned\n", w);
+					$file_fixed_enc.printf("/%-15s %% 0x%02X\n", w, i);
+					$file_encoding2unicode.printf("0x%02X\tU+....\t\t%s\n", i, w);
+				else
+					unicode_point = $AGL_names[w]
+					if i != $AGL_names[w].hex
+						$file_map.printf("%d\t<>\tU+%s\t; %s\n", i, unicode_point, w);
+						$file_fixed_enc.printf("/%-15s %% 0x%02X U+#{unicode_point}\n", w, i);
+					else
+						$file_map.printf("%d\t<>\tU+%s\t; %s\n", i, unicode_point, w);
+						$file_fixed_enc.printf("/%-15s %% 0x%02X\n", w, i);
+					end
+					lowercase = ""
+					if $lowercase_letter[unicode_point] == true and unicode_point.hex > 127
+						lowercase = "1"
+					end
+					$file_encoding2unicode.printf("0x%02X\tU+#{unicode_point}\t#{lowercase}\t%s\n", i, w, $AGL_names[w]);
+				end
+			end
+			i = i.next
+		end
+	end
+	#$file_out.close
+	$file_map.close
+	$file_encoding2unicode.close
 end
 
 
