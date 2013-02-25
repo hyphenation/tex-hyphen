@@ -178,6 +178,8 @@ authors = {
 	"rene_bastian"        => ["René", "Bastian", nil, false, false], # TODO make contact
 	"daniel_flipo"        => ["Daniel", "Flipo", nil, false, false], # TODO make contact
 	"bernard_gaulle"      => ["Bernard", "Gaulle", nil, false, false], # Deceased...
+	"theppitak_karoonboonyanan" => ["Theppitak", "Karoonboonyanan" "thep{at}linux{dot}thai{dot}net", true, true],
+	"levan_shoshiashvili" => ["Levan", "Shoshiashvili", "shoshia{at}hotmail{dot}com", true, true],
 }
 
 
@@ -1896,6 +1898,28 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Telugu hyphenation patterns",
 },
+# thai
+{
+	"code" => "th",
+	"name" => "thai",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [2,3],
+	"encoding" => "lth",
+	"exceptions" => false,
+	"message" => "Thai hyphenation patterns",
+
+	"version"       => nil,
+	"last_modified" => "2013-01-28",
+	"type"          => "dictionary",
+	"authors"       => [ "theppitak_karoonboonyanan" ],
+	"licence"       => "LPPL",
+	"description_s" => "Thai hyphenation patterns",
+	"description_l" => [
+		#......................................................................#
+		"Hyphenation patterns for Thai in LTH and UTF-8 encodings.",
+	],
+},
 # lao
 #{
 #	"code" => "lo",
@@ -1940,6 +1964,28 @@ class Languages < Hash
 		"for Unicode engines. They are not supposed to be linguistically",
 		"relevant in all cases and should, for proper typography, be replaced",
 		"by files tailored to individual languages.",
+	],
+},
+# georgian
+{
+	"code" => "ka",
+	"name" => "georgian",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [2,3], # TODO
+	"encoding" => "t8m",
+	"exceptions" => false,
+	"message" => "Georgian hyphenation patterns",
+
+	"version"       => nil,
+	"last_modified" => "2013-02-25", # TODO
+	"type"          => "dictionary",
+	"authors"       => [ "levan_shoshiashvili" ],
+	"licence"       => "other-free",
+	"description_s" => "Georgian hyphenation patterns",
+	"description_l" => [
+		#......................................................................#
+		"Hyphenation patterns for Georgian in T8M, T8K and UTF-8 encodings.",
 	],
 },
 # dumylang -> dumyhyph.tex
