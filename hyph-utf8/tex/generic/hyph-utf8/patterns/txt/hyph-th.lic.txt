@@ -1,0 +1,8 @@
+Thai hyphenation patterns
+
+(more info about the licence to be added later)
+
+% Thai hyphenation patterns
+% Theppitak Karoonboonyanan <thep at linux dot thai dot net>
+% http://linux.thai.net/projects/thailatex
+% http://linux.thai.net/svn/software/thailatex/trunk

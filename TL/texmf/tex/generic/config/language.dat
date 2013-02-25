@@ -29,6 +29,7 @@ french	loadhyph-fr.tex
 =francais
 friulan	loadhyph-fur.tex
 galician	loadhyph-gl.tex
+georgian	loadhyph-ka.tex
 german	loadhyph-de-1901.tex
 ngerman	loadhyph-de-1996.tex
 swissgerman	loadhyph-de-ch-1901.tex
@@ -78,6 +79,7 @@ slovenian	loadhyph-sl.tex
 spanish	loadhyph-es.tex
 =espanol
 swedish	loadhyph-sv.tex
+thai	loadhyph-th.tex
 turkish	loadhyph-tr.tex
 turkmen	loadhyph-tk.tex
 ukrainian	loadhyph-uk.tex

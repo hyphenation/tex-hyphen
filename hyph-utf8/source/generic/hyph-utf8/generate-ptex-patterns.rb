@@ -15,7 +15,7 @@ $path_root=File.expand_path("../../..")
 $path_ptex="#{$path_root}/tex/generic/hyph-utf8/patterns/ptex"
 
 # load encodings
-encodings_list = ["ascii", "ec", "qx", "t2a", "lmc", "il2", "il3", "l7x"]
+encodings_list = ["ascii", "ec", "qx", "t2a", "lmc", "il2", "il3", "l7x", "t8m", "lth"]
 encodings = Hash.new
 encodings_list.each do |encoding_name|
 	encodings[encoding_name] = Encoding.new(encoding_name)

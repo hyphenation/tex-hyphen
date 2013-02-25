@@ -199,6 +199,25 @@ end
 					file.puts(text_patterns_ptex)
 				end
 				file.puts('\fi')
+####################################
+# GROUP nr. 4a - regular with pTeX #
+####################################
+			# just temporary for Georgian and Thai
+			elsif language.code == "ka" or language.code == "th" then
+				file.puts(text_if_native_utf)
+				file.puts(text_engine_utf8)
+				file.puts(text_patterns_utf8)
+				file.puts('\else')
+				file.puts(text_engine_8bit)
+				if language.code == "ka" then
+					file.puts(text_patterns_ptex)
+				end
+				file.puts('\fi\else')
+				file.puts(text_engine_ptex)
+				if language.code == "ka" then
+					file.puts(text_patterns_ptex)
+				end
+				file.puts('\fi')
 #########################
 # GROUP nr. 4 - regular #
 #########################

@@ -67,7 +67,7 @@ class Encoding
 				elsif c == 8217 # ’
 					new_string[i] = "'"
 				else
-					puts "There must be an error: character #{c} in string #{str} is not ASCII."
+					puts sprintf("There must be an error: character U+%04X in string '%s' is not ASCII or %s.", c, str, @encoding_name.upcase)
 				end
 			# an unicode character
 			else
@@ -84,7 +84,7 @@ private
 		filename = "#{encoding_data_dir}/#{@encoding_name}.dat"
 
 		if File.exists?(filename) then
-			File.open(filename).grep(/^0x(\w+)\tU\+(\w+)\t(\d*)\t([_a-zA-Z\.]*)$/) do |line|
+			File.open(filename).grep(/^0x(\w+)\tU\+(\w+)\t(\d*)\t([_a-zA-Z0-9\.]*)$/) do |line|
 				# puts line
 				code_enc = $1.hex
 				code_uni = $2.hex
