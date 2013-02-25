@@ -144,6 +144,7 @@ pass(Byte_Unicode)
 139	<>	U+0143	; Nacute
 140	<>	U+007E	; asciitilde
 141	<>	U+005E	; asciicircum
+142	<>	U+2113	; ell
 143	<>	U+2020	; dagger
 144	<>	U+2021	; daggerdbl
 145	<>	U+015A	; Sacute

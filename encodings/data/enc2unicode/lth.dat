@@ -1,0 +1,256 @@
+0x00	U+....		.notdef
+0x01	U+....		.notdef
+0x02	U+....		.notdef
+0x03	U+....		.notdef
+0x04	U+2020		dagger
+0x05	U+2021		daggerdbl
+0x06	U+00A7		section
+0x07	U+00B6		paragraph
+0x08	U+00A9		copyright
+0x09	U+00AE		registered
+0x0A	U+2122		trademark
+0x0B	U+00DF		germandbls
+0x0C	U+00E6		ae
+0x0D	U+00C6		AE
+0x0E	U+0153		oe
+0x0F	U+0152		OE
+0x10	U+00A1		exclamdown
+0x11	U+00BF		questiondown
+0x12	U+201E		quotedblbase
+0x13	U+00AB		guillemotleft
+0x14	U+00BB		guillemotright
+0x15	U+0E38		uni0E38
+0x16	U+0E39		uni0E39
+0x17	U+0E3A		uni0E3A
+0x18	U+2030		perthousand
+0x19	U+0131		dotlessi
+0x1A	U+0237		dotlessj
+0x1B	U+FB00		ff
+0x1C	U+FB01		fi
+0x1D	U+FB02		fl
+0x1E	U+FB03		ffi
+0x1F	U+FB04		ffl
+0x20	U+0020		space
+0x21	U+0021		exclam
+0x22	U+0022		quotedbl
+0x23	U+0023		numbersign
+0x24	U+0024		dollar
+0x25	U+0025		percent
+0x26	U+0026		ampersand
+0x27	U+2019		quoteright
+0x28	U+0028		parenleft
+0x29	U+0029		parenright
+0x2A	U+002A		asterisk
+0x2B	U+002B		plus
+0x2C	U+002C		comma
+0x2D	U+002D		hyphen
+0x2E	U+002E		period
+0x2F	U+002F		slash
+0x30	U+0030		zero
+0x31	U+0031		one
+0x32	U+0032		two
+0x33	U+0033		three
+0x34	U+0034		four
+0x35	U+0035		five
+0x36	U+0036		six
+0x37	U+0037		seven
+0x38	U+0038		eight
+0x39	U+0039		nine
+0x3A	U+003A		colon
+0x3B	U+003B		semicolon
+0x3C	U+003C		less
+0x3D	U+003D		equal
+0x3E	U+003E		greater
+0x3F	U+003F		question
+0x40	U+0040		at
+0x41	U+0041		A
+0x42	U+0042		B
+0x43	U+0043		C
+0x44	U+0044		D
+0x45	U+0045		E
+0x46	U+0046		F
+0x47	U+0047		G
+0x48	U+0048		H
+0x49	U+0049		I
+0x4A	U+004A		J
+0x4B	U+004B		K
+0x4C	U+004C		L
+0x4D	U+004D		M
+0x4E	U+004E		N
+0x4F	U+004F		O
+0x50	U+0050		P
+0x51	U+0051		Q
+0x52	U+0052		R
+0x53	U+0053		S
+0x54	U+0054		T
+0x55	U+0055		U
+0x56	U+0056		V
+0x57	U+0057		W
+0x58	U+0058		X
+0x59	U+0059		Y
+0x5A	U+005A		Z
+0x5B	U+005B		bracketleft
+0x5C	U+005C		backslash
+0x5D	U+005D		bracketright
+0x5E	U+005E		asciicircum
+0x5F	U+005F		underscore
+0x60	U+2018		quoteleft
+0x61	U+0061		a
+0x62	U+0062		b
+0x63	U+0063		c
+0x64	U+0064		d
+0x65	U+0065		e
+0x66	U+0066		f
+0x67	U+0067		g
+0x68	U+0068		h
+0x69	U+0069		i
+0x6A	U+006A		j
+0x6B	U+006B		k
+0x6C	U+006C		l
+0x6D	U+006D		m
+0x6E	U+006E		n
+0x6F	U+006F		o
+0x70	U+0070		p
+0x71	U+0071		q
+0x72	U+0072		r
+0x73	U+0073		s
+0x74	U+0074		t
+0x75	U+0075		u
+0x76	U+0076		v
+0x77	U+0077		w
+0x78	U+0078		x
+0x79	U+0079		y
+0x7A	U+007A		z
+0x7B	U+007B		braceleft
+0x7C	U+007C		bar
+0x7D	U+007D		braceright
+0x7E	U+007E		asciitilde
+0x7F	U+....		.notdef
+0x80	U+....		uni0E10.descless
+0x81	U+....		uni0E34.left
+0x82	U+....		uni0E35.left
+0x83	U+....		uni0E36.left
+0x84	U+....		uni0E37.left
+0x85	U+2026		ellipsis
+0x86	U+....		uni0E48.low_left
+0x87	U+....		uni0E49.low_left
+0x88	U+....		uni0E4A.low_left
+0x89	U+....		uni0E4B.low_left
+0x8A	U+....		uni0E4C.low_left
+0x8B	U+0E48		uni0E48
+0x8C	U+0E49		uni0E49
+0x8D	U+0E4A		uni0E4A
+0x8E	U+0E4B		uni0E4B
+0x8F	U+0E4C		uni0E4C
+0x90	U+....		uni0E0D.descless
+0x91	U+2018		quoteleft
+0x92	U+2019		quoteright
+0x93	U+201C		quotedblleft
+0x94	U+201D		quotedblright
+0x95	U+2022		bullet
+0x96	U+2013		endash
+0x97	U+2014		emdash
+0x98	U+....		uni0E31.left
+0x99	U+....		uni0E4D.left
+0x9A	U+....		uni0E47.left
+0x9B	U+....		uni0E48.left
+0x9C	U+....		uni0E49.left
+0x9D	U+....		uni0E4A.left
+0x9E	U+....		uni0E4B.left
+0x9F	U+....		uni0E4C.left
+0xA0	U+00A0		nonbreakingspace
+0xA1	U+0E01	1	uni0E01
+0xA2	U+0E02	1	uni0E02
+0xA3	U+0E03	1	uni0E03
+0xA4	U+0E04	1	uni0E04
+0xA5	U+0E05	1	uni0E05
+0xA6	U+0E06	1	uni0E06
+0xA7	U+0E07	1	uni0E07
+0xA8	U+0E08	1	uni0E08
+0xA9	U+0E09	1	uni0E09
+0xAA	U+0E0A	1	uni0E0A
+0xAB	U+0E0B	1	uni0E0B
+0xAC	U+0E0C	1	uni0E0C
+0xAD	U+0E0D	1	uni0E0D
+0xAE	U+0E0E	1	uni0E0E
+0xAF	U+0E0F	1	uni0E0F
+0xB0	U+0E10	1	uni0E10
+0xB1	U+0E11	1	uni0E11
+0xB2	U+0E12	1	uni0E12
+0xB3	U+0E13	1	uni0E13
+0xB4	U+0E14	1	uni0E14
+0xB5	U+0E15	1	uni0E15
+0xB6	U+0E16	1	uni0E16
+0xB7	U+0E17	1	uni0E17
+0xB8	U+0E18	1	uni0E18
+0xB9	U+0E19	1	uni0E19
+0xBA	U+0E1A	1	uni0E1A
+0xBB	U+0E1B	1	uni0E1B
+0xBC	U+0E1C	1	uni0E1C
+0xBD	U+0E1D	1	uni0E1D
+0xBE	U+0E1E	1	uni0E1E
+0xBF	U+0E1F	1	uni0E1F
+0xC0	U+0E20	1	uni0E20
+0xC1	U+0E21	1	uni0E21
+0xC2	U+0E22	1	uni0E22
+0xC3	U+0E23	1	uni0E23
+0xC4	U+0E24	1	uni0E24
+0xC5	U+0E25	1	uni0E25
+0xC6	U+0E26	1	uni0E26
+0xC7	U+0E27	1	uni0E27
+0xC8	U+0E28	1	uni0E28
+0xC9	U+0E29	1	uni0E29
+0xCA	U+0E2A	1	uni0E2A
+0xCB	U+0E2B	1	uni0E2B
+0xCC	U+0E2C	1	uni0E2C
+0xCD	U+0E2D	1	uni0E2D
+0xCE	U+0E2E	1	uni0E2E
+0xCF	U+0E2F	1	uni0E2F
+0xD0	U+0E30	1	uni0E30
+0xD1	U+0E31	1	uni0E31
+0xD2	U+0E32	1	uni0E32
+0xD3	U+0E33	1	uni0E33
+0xD4	U+0E34	1	uni0E34
+0xD5	U+0E35	1	uni0E35
+0xD6	U+0E36	1	uni0E36
+0xD7	U+0E37	1	uni0E37
+0xD8	U+0E38	1	uni0E38
+0xD9	U+0E39	1	uni0E39
+0xDA	U+0E3A	1	uni0E3A
+0xDB	U+....		uni0E4D.high
+0xDC	U+200B		zerowidthspace
+0xDD	U+25CC		dottedcircle
+0xDE	U+....		uni0E47.high
+0xDF	U+0E3F		uni0E3F
+0xE0	U+0E40	1	uni0E40
+0xE1	U+0E41	1	uni0E41
+0xE2	U+0E42	1	uni0E42
+0xE3	U+0E43	1	uni0E43
+0xE4	U+0E44	1	uni0E44
+0xE5	U+0E45	1	uni0E45
+0xE6	U+0E46		uni0E46
+0xE7	U+0E47	1	uni0E47
+0xE8	U+....		uni0E48.low
+0xE9	U+....		uni0E49.low
+0xEA	U+....		uni0E4A.low
+0xEB	U+....		uni0E4B.low
+0xEC	U+....		uni0E4C.low
+0xED	U+0E4D	1	uni0E4D
+0xEE	U+0E4E	1	uni0E4E
+0xEF	U+0E4F		uni0E4F
+0xF0	U+0E50		uni0E50
+0xF1	U+0E51		uni0E51
+0xF2	U+0E52		uni0E52
+0xF3	U+0E53		uni0E53
+0xF4	U+0E54		uni0E54
+0xF5	U+0E55		uni0E55
+0xF6	U+0E56		uni0E56
+0xF7	U+0E57		uni0E57
+0xF8	U+0E58		uni0E58
+0xF9	U+0E59		uni0E59
+0xFA	U+0E5A		uni0E5A
+0xFB	U+0E5B		uni0E5B
+0xFC	U+....		uni0E38.low
+0xFD	U+....		uni0E39.low
+0xFE	U+....		uni0E3A.low
+0xFF	U+....		.notdef

@@ -140,6 +140,7 @@
 0x8B	U+0143		Nacute
 0x8C	U+007E		asciitilde
 0x8D	U+005E		asciicircum
+0x8E	U+2113		ell
 0x8F	U+2020		dagger
 0x90	U+2021		daggerdbl
 0x91	U+015A		Sacute

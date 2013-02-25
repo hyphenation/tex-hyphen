@@ -1,0 +1,260 @@
+EncodingName "TeX-t8m"
+
+pass(Byte_Unicode)
+
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+9	<>	U+00A9	; copyright
+10	<>	U+00AB	; guillemotleft
+11	<>	U+00BB	; guillemotright
+12	<>	U+00AE	; registered
+13	<>	U+00A3	; sterling
+14	<>	U+2020	; dagger
+15	<>	U+2116	; uni2116
+16	<>	U+201E	; quotedblbase
+17	<>	U+201C	; quotedblleft
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+32	<>	U+0020	; space
+33	<>	U+0021	; exclam
+34	<>	U+0022	; quotedbl
+35	<>	U+0023	; numbersign
+36	<>	U+0024	; dollar
+37	<>	U+0025	; percent
+38	<>	U+0026	; ampersand
+39	<>	U+0027	; quotesingle
+40	<>	U+0028	; parenleft
+41	<>	U+0029	; parenright
+42	<>	U+002A	; asterisk
+43	<>	U+002B	; plus
+44	<>	U+002C	; comma
+45	<>	U+002D	; hyphen
+46	<>	U+002E	; period
+47	<>	U+002F	; slash
+48	<>	U+0030	; zero
+49	<>	U+0031	; one
+50	<>	U+0032	; two
+51	<>	U+0033	; three
+52	<>	U+0034	; four
+53	<>	U+0035	; five
+54	<>	U+0036	; six
+55	<>	U+0037	; seven
+56	<>	U+0038	; eight
+57	<>	U+0039	; nine
+58	<>	U+003A	; colon
+59	<>	U+003B	; semicolon
+60	<>	U+003C	; less
+61	<>	U+003D	; equal
+62	<>	U+003E	; greater
+63	<>	U+003F	; question
+64	<>	U+0040	; at
+65	<>	U+0041	; A
+66	<>	U+0042	; B
+67	<>	U+0043	; C
+68	<>	U+0044	; D
+69	<>	U+0045	; E
+70	<>	U+0046	; F
+71	<>	U+0047	; G
+72	<>	U+0048	; H
+73	<>	U+0049	; I
+74	<>	U+004A	; J
+75	<>	U+004B	; K
+76	<>	U+004C	; L
+77	<>	U+004D	; M
+78	<>	U+004E	; N
+79	<>	U+004F	; O
+80	<>	U+0050	; P
+81	<>	U+0051	; Q
+82	<>	U+0052	; R
+83	<>	U+0053	; S
+84	<>	U+0054	; T
+85	<>	U+0055	; U
+86	<>	U+0056	; V
+87	<>	U+0057	; W
+88	<>	U+0058	; X
+89	<>	U+0059	; Y
+90	<>	U+005A	; Z
+91	<>	U+005B	; bracketleft
+92	<>	U+005C	; backslash
+93	<>	U+005D	; bracketright
+94	<>	U+005E	; asciicircum
+95	<>	U+005F	; underscore
+96	<>	U+0060	; grave
+97	<>	U+0061	; a
+98	<>	U+0062	; b
+99	<>	U+0063	; c
+100	<>	U+0064	; d
+101	<>	U+0065	; e
+102	<>	U+0066	; f
+103	<>	U+0067	; g
+104	<>	U+0068	; h
+105	<>	U+0069	; i
+106	<>	U+006A	; j
+107	<>	U+006B	; k
+108	<>	U+006C	; l
+109	<>	U+006D	; m
+110	<>	U+006E	; n
+111	<>	U+006F	; o
+112	<>	U+0070	; p
+113	<>	U+0071	; q
+114	<>	U+0072	; r
+115	<>	U+0073	; s
+116	<>	U+0074	; t
+117	<>	U+0075	; u
+118	<>	U+0076	; v
+119	<>	U+0077	; w
+120	<>	U+0078	; x
+121	<>	U+0079	; y
+122	<>	U+007A	; z
+123	<>	U+007B	; braceleft
+124	<>	U+007C	; bar
+125	<>	U+007D	; braceright
+126	<>	U+007E	; asciitilde
+; .notdef             : no Unicode mapping assigned
+128	<>	U+10FB	; uni10FB
+129	<>	U+10A0	; uni10A0
+130	<>	U+10A1	; uni10A1
+131	<>	U+10A2	; uni10A2
+132	<>	U+10A3	; uni10A3
+133	<>	U+10A4	; uni10A4
+134	<>	U+10A5	; uni10A5
+135	<>	U+10A6	; uni10A6
+136	<>	U+10A7	; uni10A7
+137	<>	U+10A8	; uni10A8
+138	<>	U+10A9	; uni10A9
+139	<>	U+10AA	; uni10AA
+140	<>	U+10AB	; uni10AB
+141	<>	U+10AC	; uni10AC
+142	<>	U+10AD	; uni10AD
+143	<>	U+10AE	; uni10AE
+144	<>	U+10AF	; uni10AF
+145	<>	U+10B0	; uni10B0
+146	<>	U+10B1	; uni10B1
+147	<>	U+10B2	; uni10B2
+148	<>	U+10B3	; uni10B3
+149	<>	U+10B4	; uni10B4
+150	<>	U+10B5	; uni10B5
+151	<>	U+10B6	; uni10B6
+152	<>	U+10B7	; uni10B7
+153	<>	U+10B8	; uni10B8
+154	<>	U+10B9	; uni10B9
+155	<>	U+10BA	; uni10BA
+156	<>	U+10BB	; uni10BB
+157	<>	U+2013	; endash
+158	<>	U+2014	; emdash
+159	<>	U+00A7	; section
+160	<>	U+00A0	; nonbreakingspace
+161	<>	U+10D0	; uni10D0
+162	<>	U+10D1	; uni10D1
+163	<>	U+10D2	; uni10D2
+164	<>	U+10D3	; uni10D3
+165	<>	U+10D4	; uni10D4
+166	<>	U+10D5	; uni10D5
+167	<>	U+10D6	; uni10D6
+168	<>	U+10D7	; uni10D7
+169	<>	U+10D8	; uni10D8
+170	<>	U+10D9	; uni10D9
+171	<>	U+10DA	; uni10DA
+172	<>	U+10DB	; uni10DB
+173	<>	U+10DC	; uni10DC
+174	<>	U+10DD	; uni10DD
+175	<>	U+10DE	; uni10DE
+176	<>	U+10DF	; uni10DF
+177	<>	U+10E0	; uni10E0
+178	<>	U+10E1	; uni10E1
+179	<>	U+10E2	; uni10E2
+180	<>	U+10E3	; uni10E3
+181	<>	U+10E4	; uni10E4
+182	<>	U+10E5	; uni10E5
+183	<>	U+10E6	; uni10E6
+184	<>	U+10E7	; uni10E7
+185	<>	U+10E8	; uni10E8
+186	<>	U+10E9	; uni10E9
+187	<>	U+10EA	; uni10EA
+188	<>	U+10EB	; uni10EB
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+192	<>	U+10BC	; uni10BC
+193	<>	U+10BD	; uni10BD
+194	<>	U+10BE	; uni10BE
+195	<>	U+10BF	; uni10BF
+196	<>	U+10C0	; uni10C0
+197	<>	U+10C1	; uni10C1
+198	<>	U+10C2	; uni10C2
+199	<>	U+10C3	; uni10C3
+200	<>	U+10C4	; uni10C4
+201	<>	U+10C5	; uni10C5
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+224	<>	U+10EC	; uni10EC
+225	<>	U+10ED	; uni10ED
+226	<>	U+10EE	; uni10EE
+227	<>	U+10EF	; uni10EF
+228	<>	U+10F0	; uni10F0
+229	<>	U+10F1	; uni10F1
+230	<>	U+10F2	; uni10F2
+231	<>	U+10F3	; uni10F3
+232	<>	U+10F4	; uni10F4
+233	<>	U+10F5	; uni10F5
+234	<>	U+10F6	; uni10F6
+235	<>	U+10F7	; uni10F7
+236	<>	U+10F8	; uni10F8
+237	<>	U+10F9	; uni10F9
+238	<>	U+10FA	; uni10FA
+239	<>	U+10FC	; uni10FC
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
+; .notdef             : no Unicode mapping assigned
