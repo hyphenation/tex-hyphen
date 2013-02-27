@@ -30,14 +30,6 @@ language_codes = Hash.new
 languages.each do |language|
 	language_codes[language.code] = language.code
 end
-# language_codes['mn-cyrl-x-lmc'] = nil
-# language_codes['sh-latn']       = 'sr-latn'
-# language_codes['sh-cyrl']       = nil
-
-# e = Encoding.new("ec")
-# puts e.convert_string_to_escaped_characters("moja čaša")
-# 
-# return
 
 languages.sort{|x,y| x.code <=> y.code }.each do |language|
 	encoding = nil
@@ -70,6 +62,8 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 			patterns = $l['no'].get_patterns
 		end
 
+		characters = patterns.join('').gsub(/[.0-9]/,'').unpack('U*').sort.uniq
+
 		if language.encoding != 'ascii' then
 			patterns   = encoding.convert_to_escaped_characters(patterns)
 			exceptions = encoding.convert_to_escaped_characters(exceptions)
@@ -85,24 +79,24 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 		file_ptex.puts("% See the original file for details about author, licence etc.")
 		file_ptex.puts("%")
 
+		file_ptex.puts("\\bgroup")
+		# setting lccodes for letters
+		characters.each do |c|
+			if c >= 128 then
+				code = encoding.unicode_characters[c].code_enc
+				file_ptex.puts sprintf("\\lccode\"%02X=\"%02X", code, code)
+			end
+		end
+		# patterns
 		if patterns.length > 0 then
-			# file_ptex.puts("\\patterns{\n#{encoding.convert_to_escaped_characters(patterns.join("\n"))}\n}")
 			file_ptex.puts("\\patterns{\n#{patterns.join("\n")}\n}")
 		end
+		# exceptions
 		if exceptions.length > 0 then
-			# file_ptex.puts("\\hyphenation{\n#{encoding.convert_to_escaped_characters(exceptions.join("\n"))}\n}")
 			file_ptex.puts("\\hyphenation{\n#{exceptions.join("\n")}\n}")
 		end
+		file_ptex.puts("\\egroup")
 
-
-	# 	# patterns
-	# 	patterns.each do |pattern|
-	# 		$file_pat.puts pattern.gsub(/'/,"’")
-	# 	end
-	# 	# exceptions
-	# 	if exceptions != ""
-	# 		$file_hyp.puts exceptions
-	# 	end
 		file_ptex.close
 	end
 end

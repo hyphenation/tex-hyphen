@@ -1,3 +1,17 @@
+2013-02-27 (#621)
+- set all \lccode-s in pTeX patterns
+
+2013-02-25 (#619)
+- add the wordlist used for generating Georgian hyphenation patterns
+
+2013-02-25 (#617, #618)
+- add Georgian hyphenation patterns (by Levan Shoshiashvili)
+- add Thai hyphenation patterns (by Theppitak Karoonboonyanan)
+
+2013-02-25 (#616)
+- add support for Georgian and Thai font encodings: T8M and LTH
+- fix a line in QX font encoding
+
 == CTAN release 2012.02.21 (#614) ==
 
 2013-02-14 (#613)
