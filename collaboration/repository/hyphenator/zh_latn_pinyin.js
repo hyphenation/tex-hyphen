@@ -1,0 +1,10 @@
+﻿Hyphenator.languages.zh_latn_pinyin = {
+	leftmin : 1,
+	rightmin : 1,
+	shortestPattern : 2,
+	longestPattern : 2,
+	specialChars : ''ü’',
+	patterns : {
+		3 : 'a1ba1ca1da1fa1ga1ha1ja1ka1la1ma1pa1qa1ra1sa1ta1wa1xa1ya1ze1be1ce1de1fe1ge1he1je1ke1le1me1pe1qe1se1te1we1xe1ye1z1gag1bg1cg1d1geg1fg1gg1hg1jg1kg1lg1mg1n1gog1pg1qg1rg1sg1t1gug1wg1xg1yg1zi1bi1ci1di1fi1gi1hi1ji1ki1li1mi1pi1qi1ri1si1ti1wi1xi1yi1z1nan1bn1cn1d1nen1fn1h1nin1jn1kn1ln1mn1n1non1pn1qn1rn1sn1t1nu1nün1wn1xn1yn1zo1bo1co1do1fo1go1ho1jo1ko1lo1mo1po1qo1ro1so1to1wo1xo1yo1z1rar1br1cr1d1rer1fr1gr1h1rir1jr1kr1lr1mr1n1ror1pr1qr1rr1sr1t1rur1wr1xr1yr1zu1bu1cu1du1fu1gu1hu1ju1ku1lu1mu1pu1qu1ru1su1tu1wu1xu1yu1zü1bü1cü1dü1fü1gü1hü1jü1kü1lü1mü1nü1pü1qü1rü1sü1tü1wü1xü1yü1z'1a’1a'1e’1e'1o’1o'
+	}
+};

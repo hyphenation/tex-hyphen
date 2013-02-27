@@ -17,6 +17,7 @@ load "#{$path_sources}/languages.rb"
 languages = Languages.new
 
 languages["sr-latn"] = languages["sh-latn"]
+languages["sr-cyrl"] = languages["sh-cyrl"]
 
 # change to current folder and read all the files in it
 Dir.chdir("#{$path_plain}")
