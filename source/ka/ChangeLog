@@ -1,0 +1,7 @@
+March 1 2013
+1. Bigger wordlist file(words-ka-utf8.txt). Some words in wordlist are fixed.
+2. Hyphenation patterns are regenerated from new wordlist (150K words total)
+3. Added code mapings for old georgian letters in utf8t8m.txt file
+
+Feb 25 2013
+First release

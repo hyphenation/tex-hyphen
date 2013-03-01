@@ -2,20 +2,28 @@ Author:
 	Levan Shoshiashvili <shoshia at hotmail dot com>
 	February 2013
 
-* dictionary-ka.txt
+Hyphenation patterns for Georgian language.
+Generated using patgen2.
+lefthyphenmin/righthyphenmin = 2/2
+
+For questions or corrections please contact <shoshia at hotmail.com> or visit http://tex.tsu.ge.
+
+FILES:
+
+* words-ka-utf8.txt
 	hyphenated word list for Georgian
 
 * hyph-ka.pa
 	generated hyphenation patterns (in UTF-8)
 
-* mapping_UTF8_T8M.txt
+* utf8t8m.txt
 	maping from UTF-8 to LaTeX T8M font encoding (lowercase letters only)
 
 	Format:
-		0xe1 0x83 0x90 161 % ა 10d0
+		0xe1 0x83 0x90 a1 % ა 10d0
 
 	- first three codes are UTF-8 code sequence for Georgian (0xe1 0x83 0x90)
-	- next is code in T8M 8-bit encoding (161)
+	- next is code in T8M 8-bit encoding (a1)
 	- coment sign (%)
 	- georgian letter in UTF-8 (ა)
 	- corresponding UTF-32 code (10d0)
