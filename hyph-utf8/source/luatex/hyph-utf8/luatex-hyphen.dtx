@@ -253,15 +253,7 @@ This work is under the CC0 license.
 %<*lua>
 %    \end{macrocode}
 %
-%    Start a Lua module, importing only the necessary functions as locals.
-%
-%    \begin{macrocode}
-local error, dofile, pairs, ipairs = error, dofile, pairs, ipairs
-local io, texio, lang, kpse = io, texio, lang, kpse
-module('luatexhyphen')
-%    \end{macrocode}
-%
-%    Two functions for error and information reporting.
+%    Start a Lua module, two functions for error and information reporting.
 %
 %    \begin{macrocode}
 local function wlog(msg, ...)
@@ -291,7 +283,7 @@ end
 %    information, as well as the canonical name of the language.
 %
 %    \begin{macrocode}
-function lookupname(name)
+local function lookupname(name)
     if language_dat[name] then
         return language_dat[name], name
     else
@@ -311,7 +303,7 @@ end
 %    anything, but will call \verb+error()+ if things go wrong.
 %
 %    \begin{macrocode}
-function loadlanguage(lname, id)
+local function loadlanguage(lname, id)
     if id == 0 then
         return
     end
@@ -363,7 +355,12 @@ function loadlanguage(lname, id)
         end
     end
 end
-function adddialect(dialect, language)
+%    \end{macrocode}
+%
+%    Add Babe's ``dialects'' as synonyms.
+%
+%    \begin{macrocode}
+local function adddialect(dialect, language)
     if dialect ~= '0' then
         dialect = dialect:gsub('l@', '')
         language = language:gsub('l@', '')
@@ -373,6 +370,16 @@ function adddialect(dialect, language)
         end
     end
 end
+%    \end{macrocode}
+%
+%    Return module functions to the loader.
+%
+%    \begin{macrocode}
+return {
+    lookupname = lookupname,
+    loadlanguage = loadlanguage,
+    adddialect = adddialect,
+}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -481,7 +488,7 @@ end
       \ifx\directlua\relax\else
         \directlua{
           if not luatexhyphen then
-              dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+              luatexhyphen = require("luatex-hyphen")
           end
           luatexhyphen.adddialect("\string#1", "\string#2")
         }%
@@ -623,7 +630,7 @@ end
         \global\@namedef{lu@texhyphen@loaded@\the\language}{}%
         \directlua{
           if not luatexhyphen then
-              dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+              luatexhyphen = require("luatex-hyphen")
           end
           luatexhyphen.loadlanguage("\luatexluaescapestring{#1}",
             \the\language)}%
@@ -736,7 +743,7 @@ end
   \else
     \directlua{
       if not luatexhyphen then
-        dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+          luatexhyphen = require("luatex-hyphen")
       end
       processnow = (tex.language == 0) or
         (luatexhyphen.lookupname("\luatexluaescapestring{#1}") == nil)}%

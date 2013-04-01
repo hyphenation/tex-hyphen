@@ -12,9 +12,6 @@
 --  
 --  This work is under the CC0 license.
 --  
-local error, dofile, pairs, ipairs = error, dofile, pairs, ipairs
-local io, texio, lang, kpse = io, texio, lang, kpse
-module('luatexhyphen')
 local function wlog(msg, ...)
     texio.write_nl('log', 'luatex-hyphen: '..msg:format(...))
 end
@@ -30,7 +27,7 @@ else
     wlog('using data file: %s', dbfile)
     language_dat = dofile(dbfile)
 end
-function lookupname(name)
+local function lookupname(name)
     if language_dat[name] then
         return language_dat[name], name
     else
@@ -43,7 +40,7 @@ function lookupname(name)
         end
     end
 end
-function loadlanguage(lname, id)
+local function loadlanguage(lname, id)
     if id == 0 then
         return
     end
@@ -79,7 +76,7 @@ function loadlanguage(lname, id)
         end
     end
 end
-function adddialect(dialect, language)
+local function adddialect(dialect, language)
     if dialect ~= '0' then
         dialect = dialect:gsub('l@', '')
         language = language:gsub('l@', '')
@@ -89,5 +86,10 @@ function adddialect(dialect, language)
         end
     end
 end
+return {
+    lookupname = lookupname,
+    loadlanguage = loadlanguage,
+    adddialect = adddialect,
+}
 -- 
 --  End of File `luatex-hyphen.lua'.

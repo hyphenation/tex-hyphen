@@ -282,7 +282,7 @@
             \directlua{
               if not status.ini_version then
                 if not luatexhyphen then
-                  dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+                  luatexhyphen = require("luatex-hyphen")
                 end
                 luatexhyphen.loadlanguage("\luatexluaescapestring{#1}",
                 \the\language)
@@ -310,7 +310,7 @@
        \csname fi\endcsname
        \csname if\directlua{% do we want to skip this language now?
            if not luatexhyphen then
-             dofile(assert(kpse.find_file("luatex-hyphen.lua")))
+             luatexhyphen = require("luatex-hyphen")
            end
            if (luatexhyphen.lookupname("\luatexluaescapestring{#1}") == nil)
                or (\number\csname lang@#1\endcsname == 0) then
