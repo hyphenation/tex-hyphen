@@ -80,7 +80,7 @@ local function adddialect(dialect, language)
     if dialect ~= '0' then
         dialect = dialect:gsub('l@', '')
         language = language:gsub('l@', '')
-        data = language_dat[language]
+        data = lookupname(language)
         if data then
             data.synonyms[#data.synonyms+1] = dialect
         end
