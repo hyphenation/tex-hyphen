@@ -98,6 +98,7 @@ private
 					@unicode_characters.add_new_character(code_uni, code_enc, name)
 					@lowercase_characters.push(UnicodeCharacter.new(code_uni, code_enc, name))
 				end
+				@lowercase_characters.sort!{|x,y| x.code_enc <=> y.code_enc}
 			end
 		else
 			# TODO: throw an error
