@@ -1,3 +1,10 @@
+2013-05-02 (#630)
+- add proper converters for T8M and LTH encodings
+
+2013-04-01 (#625, #626)
+- cleanup luatex-hyphen module
+- fix adding a dialect of a synonym in LuaTeX
+
 2013-03-01 (#622, #624)
 - update Georgian wordlist and patterns
 
