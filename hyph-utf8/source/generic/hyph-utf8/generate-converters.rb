@@ -3,7 +3,7 @@
 require 'hyph-utf8'
 
 $encoding_data_dir = "data/encodings"
-$encodings = ["ec", "qx", "t2a", "lmc", "il2", "il3", "l7x"]
+$encodings = ["ec", "qx", "t2a", "lmc", "il2", "il3", "l7x", "t8m"]
 
 $path_root=File.expand_path("../../..")
 $output_data_dir = "#{$path_root}/tex/generic/hyph-utf8/conversions"
@@ -35,17 +35,41 @@ $encodings.each do |encoding|
 	end
 	$file_out.puts "%"
 	e.unicode_characters_first_byte.sort.each do |first_byte|
-		$file_out.puts "\\def^^#{first_byte[0]}#1{%"
+		# at least three bytes
 		string_fi = ""
-		for i in 1..(first_byte[1].size)
-			uni_character = first_byte[1][i-1]
+		first_byte_code = first_byte[0].hex
+		# two-byte character
+		if first_byte_code >= 0b11000000 and first_byte_code < 0b11100000 then
+			$file_out.puts "\\def^^#{first_byte[0]}#1{%"
+			for i in 1..(first_byte[1].size)
+				uni_character = first_byte[1][i-1]
 			
-			second_byte = uni_character.bytes[1]
-			enc_byte    = uni_character.code_enc
-			enc_byte    = [ uni_character.code_enc ].pack('c').unpack('H2')
-			ux_code     = sprintf("U+%04X", uni_character.code_uni)
-			$file_out.puts "\t\\ifx#1^^#{second_byte}^^#{enc_byte}\\else % #{[uni_character.code_uni].pack('U')} - #{ux_code} - #{uni_character.name}"
-			string_fi = string_fi + "\\fi"
+				second_byte = sprintf("%02x", uni_character.bytes[1])
+				enc_byte    = uni_character.code_enc
+				enc_byte    = [ uni_character.code_enc ].pack('c').unpack('H2')
+				ux_code     = sprintf("U+%04X", uni_character.code_uni)
+				$file_out.puts "\t\\ifx#1^^#{second_byte}^^#{enc_byte}\\else % #{[uni_character.code_uni].pack('U')} - #{ux_code} - #{uni_character.name}"
+				string_fi = string_fi + "\\fi"
+			end
+		elsif first_byte_code >= 0b11100000 and first_byte_code < 0b11110000 then
+			$file_out.puts "\\def^^#{first_byte[0]}#1#2{%"
+			for i in 1..(first_byte[1].size)
+				uni_character = first_byte[1][i-1]
+				uni_character.bytes.each do |b|
+					print "(#{b})"
+				end
+				print sprintf("(%0x2)", uni_character.code_enc)
+				puts sprintf("%% %s - U+%04X - %s", [uni_character.code_uni].pack('U'), uni_character.code_uni, uni_character.name)
+				$file_out.puts sprintf("\t\\ifx#2^^%02x\\detokenize{^^%02x}\\else%% %s - U+%04X - %s", uni_character.bytes[2], uni_character.code_enc, [uni_character.code_uni].pack('U'), uni_character.code_uni, uni_character.name)
+				#$file_out.puts sprintf("\t\\ifx#2^^%02x^^%02x\\else%% %s - U+%04X - %s", uni_character.bytes[2], uni_character.code_enc, [uni_character.code_uni].pack('U'), uni_character.code_uni, uni_character.name)
+				#$file_out.puts sprintf("\t\\ifx#2^^%02x%02x\\else%% %s - U+%04X - %s", uni_character.bytes[2], uni_character.code_enc, [uni_character.code_uni].pack('U'), uni_character.code_uni, uni_character.name)
+				
+				# "\t\\ifx#1^^#{second_byte}^^#{enc_byte}\\else % #{[uni_character.code_uni].pack('U')} - #{ux_code} - #{uni_character.name}"
+				string_fi = string_fi + "\\fi"
+			end
+			puts 
+		else
+			# TODO
 		end
 		$file_out.puts "\t\\errmessage{Hyphenation pattern file corrupted or #{encoding} encoding not supported!}"
 		$file_out.puts string_fi+"}"

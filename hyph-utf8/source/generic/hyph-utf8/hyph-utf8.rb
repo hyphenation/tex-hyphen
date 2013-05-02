@@ -6,8 +6,7 @@ class UnicodeCharacter
 	def initialize(code_uni, code_enc, name)
 		@code_uni = code_uni
 		@code_enc = code_enc
-		# TODO: might be longer or shorter
-		@bytes    = [code_uni].pack('U').unpack('H2H2')
+		@bytes    = [code_uni].pack('U').unpack('C*')
 		@name     = name
 	end
 	
