@@ -5,4 +5,4 @@ source setuptests
 platex -ini platex.ini
 xelatex -ini \*xelatex.ini
 xetex -ini \*xetex.ini
-pdftex -ini pdflatex.ini
+pdftex -ini -etex pdflatex.ini
