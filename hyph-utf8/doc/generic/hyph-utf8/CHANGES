@@ -1,3 +1,12 @@
+== CTAN release 2012.05.08 (#634) ==
+
+2013-05-08 (#634)
+- update the list of languages in documentation
+
+2013-05-08 (#633)
+- use new converters for T8M and LTH
+- update the list of languages in documentation
+
 2013-05-02 (#630)
 - add proper converters for T8M and LTH encodings
 
