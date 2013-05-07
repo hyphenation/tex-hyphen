@@ -9,7 +9,7 @@ $package_name="hyph-utf8"
 # TODO - make this a bit less hard-coded
 $path_tex_generic=File.expand_path("../../../tex/generic")
 $path_TL=File.expand_path("../../../../TL")
-$path_language_dat="#{$path_TL}/texmf/tex/generic/config"
+$path_language_dat="#{$path_TL}/texmf-dist/tex/generic/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
 
@@ -181,20 +181,20 @@ language_groups.sort.each do |language_name,language_list|
 		$file_tlpsrc.puts
 		language_list.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.filename_old_patterns != "copthyph.tex" then
-				$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/#{language.filename_old_patterns}"
+				$file_tlpsrc.puts "runpattern f texmf-dist/tex/generic/hyphen/#{language.filename_old_patterns}"
 			end
 		end
 	end
 	if language_name == "greek" then
 		$file_tlpsrc.puts
-		$file_tlpsrc.puts "docpattern d texmf/doc/generic/elhyphen"
+		$file_tlpsrc.puts "docpattern d texmf-dist/doc/generic/elhyphen"
 	elsif language_name == "hungarian" then
 		$file_tlpsrc.puts
-		$file_tlpsrc.puts "docpattern d texmf/doc/generic/huhyphen"
+		$file_tlpsrc.puts "docpattern d texmf-dist/doc/generic/huhyphen"
 	elsif language_name == "german" then
 		$file_tlpsrc.puts
-		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/dehyphtex.tex"
-		$file_tlpsrc.puts "runpattern f texmf/tex/generic/hyphen/ghyphen.README"
+		$file_tlpsrc.puts "runpattern f texmf-dist/tex/generic/hyphen/dehyphtex.tex"
+		$file_tlpsrc.puts "runpattern f texmf-dist/tex/generic/hyphen/ghyphen.README"
 	end
 	$file_tlpsrc.close
 end

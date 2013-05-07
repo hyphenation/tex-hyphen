@@ -20,5 +20,5 @@ execute AddHyphen \
 	file=ibyhyph.tex \
 	luaspecial="disabled:8-bit only"
 
-runpattern f texmf/tex/generic/hyphen/grahyph5.tex
-runpattern f texmf/tex/generic/hyphen/ibyhyph.tex
+runpattern f texmf-dist/tex/generic/hyphen/grahyph5.tex
+runpattern f texmf-dist/tex/generic/hyphen/ibyhyph.tex

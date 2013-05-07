@@ -13,4 +13,4 @@ execute AddHyphen \
 	file_exceptions=
 
 
-docpattern d texmf/doc/generic/huhyphen
+docpattern d texmf-dist/doc/generic/huhyphen

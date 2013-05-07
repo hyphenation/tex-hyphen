@@ -34,8 +34,8 @@ execute AddHyphen \
 	file_patterns=hyph-de-ch-1901.pat.txt \
 	file_exceptions=
 
-runpattern f texmf/tex/generic/hyphen/dehypht.tex
-runpattern f texmf/tex/generic/hyphen/dehyphn.tex
+runpattern f texmf-dist/tex/generic/hyphen/dehypht.tex
+runpattern f texmf-dist/tex/generic/hyphen/dehyphn.tex
 
-runpattern f texmf/tex/generic/hyphen/dehyphtex.tex
-runpattern f texmf/tex/generic/hyphen/ghyphen.README
+runpattern f texmf-dist/tex/generic/hyphen/dehyphtex.tex
+runpattern f texmf-dist/tex/generic/hyphen/ghyphen.README

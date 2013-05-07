@@ -21,7 +21,7 @@ execute AddHyphen \
 	file_patterns=hyph-el-polyton.pat.txt \
 	file_exceptions=
 
-runpattern f texmf/tex/generic/hyphen/grmhyph5.tex
-runpattern f texmf/tex/generic/hyphen/grphyph5.tex
+runpattern f texmf-dist/tex/generic/hyphen/grmhyph5.tex
+runpattern f texmf-dist/tex/generic/hyphen/grphyph5.tex
 
-docpattern d texmf/doc/generic/elhyphen
+docpattern d texmf-dist/doc/generic/elhyphen
