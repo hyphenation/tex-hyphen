@@ -12,6 +12,8 @@
 --  
 --  This work is under the CC0 license.
 --  
+luatexhyphen = luatexhyphen or {}
+local luatexhyphen = luatexhyphen
 local function wlog(msg, ...)
     texio.write_nl('log', 'luatex-hyphen: '..msg:format(...))
 end
@@ -40,6 +42,7 @@ local function lookupname(name)
         end
     end
 end
+luatexhyphen.lookupname = lookupname
 local function loadlanguage(lname, id)
     if id == 0 then
         return
@@ -76,6 +79,7 @@ local function loadlanguage(lname, id)
         end
     end
 end
+luatexhyphen.loadlanguage = loadlanguage
 local function adddialect(dialect, language)
     if dialect ~= '0' then
         dialect = dialect:gsub('l@', '')
@@ -86,10 +90,6 @@ local function adddialect(dialect, language)
         end
     end
 end
-return {
-    lookupname = lookupname,
-    loadlanguage = loadlanguage,
-    adddialect = adddialect,
-}
+luatexhyphen.adddialect = adddialect
 -- 
 --  End of File `luatex-hyphen.lua'.
