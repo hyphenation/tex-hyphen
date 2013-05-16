@@ -216,6 +216,8 @@ This work is under the CC0 license.
 %    Start a Lua module, two functions for error and information reporting.
 %
 %    \begin{macrocode}
+luatexhyphen = luatexhyphen or {}
+local luatexhyphen = luatexhyphen
 local function wlog(msg, ...)
     texio.write_nl('log', 'luatex-hyphen: '..msg:format(...))
 end
