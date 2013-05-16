@@ -22,7 +22,7 @@ local function err(msg, ...)
 end
 local dbname = "language.dat.lua"
 local language_dat
-local dbfile = kpse.find_file(dbname)
+local dbfile = kpse.find_file(dbname, 'lua')
 if not dbfile then
     err("file not found: "..dbname)
 else
