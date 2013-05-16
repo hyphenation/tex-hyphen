@@ -1,30 +1,7 @@
 % \iffalse meta-comment
 %
-% This is a modified version of the hyphen.cfg file from the babel system,
-% intended for use with LuaTeX, but compatible with other engines.
-% The present file IS NOT part of the babel system.
-%
-% The modifications are Copyright 2012 Khaled Hosny, Élie Roux, and Manuel
-% Pégourié-Gonnard, under LPPL version 1.3 or later.
-%
-% Here is the licence statement of the original hyphen.cfg file:
-%  |
-%  | Copyright 1989-2008 Johannes L. Braams and any individual authors
-%  | Listed elsewhere in this file.  All rights reserved.
-%  |
-%  | It may be distributed and/or modified under the
-%  | Conditions of the LaTeX Project Public License, either version 1.3
-%  | Of this license or (at your option) any later version.
-%  | The latest version of this license is in
-%  |   http://www.latex-project.org/lppl.txt
-%  | And version 1.3 or later is part of all distributions of LaTeX
-%  | Version 2003/12/01 or later.
-%  |
-%  | This work has the LPPL maintenance status "maintained".
-%  |
-%  | The Current Maintainer of this work is Johannes Braams.
-%  |
-%  `---=(licence statement of original hyphen.cfg)=---
+% This is a module for hyphenation patterns loading for LuaTeX. It is under
+% the CC0 license (http://creativecommons.org/publicdomain/zero/1.0/).
 % 
 %<*ignore>
 \begingroup
@@ -54,7 +31,7 @@
 
 This is a generated file (source: luatex-hyphen.dtx).
 
-Copyright (C) 2012 by The LuaLaTeX development team.
+Copyright (C) 2012-2013 by The LuaLaTeX development team.
 
 This work is under the CC0 license.
 
@@ -72,9 +49,23 @@ This work is under the CC0 license.
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{luatex-hyphen.drv}
-  [2013/05/16 v1.6 Hyphenation file for LuaTeX]
+  [2013/05/16 v1.6 Hyphenation pattern loading for LuaTeX]
 \documentclass{ltxdoc}
+\usepackage[
+     pdftitle={The luatex-hyphen package},
+   pdfsubject={Hyphenation pattern loading for LuaTeX},
+    pdfauthor={Manuel Pégourié-Gonnard, Khaled Hosny & Elie Roux},
+  pdfkeywords={luatex, lualatex, unicode, hyphenation}
+]{hyperref}
 \usepackage{fontspec}
+\setmainfont[
+  Ligatures   = TeX,
+  BoldFont    = {Linux Libertine O Bold},
+  ItalicFont  = {Linux Libertine O Italic},
+  SlantedFont = {Linux Libertine O Italic},
+]{Linux Libertine O}
+\setmonofont[Ligatures=TeX,Scale=MatchLowercase]{Liberation Mono}
+\setsansfont[Ligatures=TeX,Scale=MatchLowercase]{Iwona Medium}
 \EnableCrossrefs
 \CodelineIndex
 \begin{document}
@@ -104,7 +95,7 @@ This work is under the CC0 license.
 % \GetFileInfo{luatex-hyphen.drv}
 %
 % \title{The \texttt{hyphen.cfg} file for Lua\TeX }
-% \date{2012/04/16 v1.5}
+% \date{2013/05/16 v1.6}
 % \author{Khaled Hosny, Élie Roux, and Manuel Pégourié-Gonnard\\
 % \texttt{khaledhosny@eglug.org} \\
 % \texttt{elie.roux@telecom-bretagne.eu} \\
@@ -120,9 +111,10 @@ This work is under the CC0 license.
 % be present in the distribution, in addition to the regular 
 % \texttt{language.dat} file.
 %
-% \textsf{Babel} does not need to be updated since version \textsf{3.9}
-% (\TeX Live 2013), and \textsf{polyglossia} handles Lua\TeX\ since version
-% \textsf{1.3} (\TeX Live 2013).
+% \textsf{Babel} needed to be updated -- this used to be the goal of this 
+% package -- before version \textsf{3.9} (\TeX Live 2013)  and 
+% \textsf{polyglossia} handles Lua\TeX\ since version \textsf{1.3} (\TeX Live 
+% 2013).
 %
 % There is a version of \texttt{etex.src} modified for the same reasons using
 % similar code, which also makes use of the \texttt{luatex-hyphen.lua} and
