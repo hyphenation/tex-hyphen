@@ -41,40 +41,6 @@
 \keepsilent
 \askforoverwritefalse
 
-\preamble
-
-This is a modified version of the hyphen.cfg file from the babel system,
-intended for use with LuaTeX, but compatible with other engines.
-The present file IS NOT part of the babel system.
-
-The modifications are Copyright 2012 Khaled Hosny, Elie Roux, and Manuel
-Pegourie-Gonnard, under LPPL version 1.3 or later.
-
-Here is the licence statement of the original hyphen.cfg file:
- |
- | Copyright 1989-2008 Johannes L. Braams and any individual authors
- | Listed elsewhere in this file.  All rights reserved.
- |
- | It may be distributed and/or modified under the
- | Conditions of the LaTeX Project Public License, either version 1.3
- | Of this license or (at your option) any later version.
- | The latest version of this license is in
- |   http://www.latex-project.org/lppl.txt
- | And version 1.3 or later is part of all distributions of LaTeX
- | Version 2003/12/01 or later.
- |
- | This work has the LPPL maintenance status "maintained".
- |
- | The Current Maintainer of this work is Johannes Braams.
- |
- `---=(licence statement of original hyphen.cfg)=---
-
-\endpreamble
-
-\generate{%
-  \file{hyphen.cfg}{\from{luatex-hyphen.dtx}{hyphen}}%
-}
-
 \def\MetaPrefix{-- }
 
 \def\luapostamble{%
@@ -106,11 +72,9 @@ This work is under the CC0 license.
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{luatex-hyphen.drv}
-  [2012/04/16 v1.5 Hyphenation file for LuaTeX]
+  [2013/05/16 v1.6 Hyphenation file for LuaTeX]
 \documentclass{ltxdoc}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
+\usepackage{fontspec}
 \EnableCrossrefs
 \CodelineIndex
 \begin{document}
@@ -149,12 +113,16 @@ This work is under the CC0 license.
 % \maketitle
 %
 % \begin{abstract}
-% This is a modified version of the file \texttt{hyphen.cfg} distributed with
-% the \textsf{babel} package, with a supporting Lua module, aimed at adapting
-% \textsf{babel}'s hyphenation patterns loading mechanism to Lua\TeX's dynamic
-% pattern loading capabilities. It makes use of a \texttt{language.dat.lua}
-% file (whose format is described below) that should be present in the
-% distribution, in addition to the regular \texttt{language.dat} file.
+% This package is mainly a Lua module, to be used by \textsf{Babel} and
+% \textsf{polyglossia} to adapt their hyphenation patterns loading mechanism to 
+% Lua\TeX's dynamic pattern loading capabilities. It makes use of a 
+% \texttt{language.dat.lua} file (whose format is described below) that should 
+% be present in the distribution, in addition to the regular 
+% \texttt{language.dat} file.
+%
+% \textsf{Babel} does not need to be updated since version \textsf{3.9}
+% (\TeX Live 2013), and \textsf{polyglossia} handles Lua\TeX\ since version
+% \textsf{1.3} (\TeX Live 2013).
 %
 % There is a version of \texttt{etex.src} modified for the same reasons using
 % similar code, which also makes use of the \texttt{luatex-hyphen.lua} and
@@ -236,18 +204,10 @@ This work is under the CC0 license.
 % always loaded in the format, as \verb+\language0+.\footnote{It is assumed
 % to be the first entry in \texttt{language.dat}.}
 %
-% The modified version of \texttt{hyphen.cfg} provided here checks for the
-% engine, and should continue to work with any engine without any modified
-% behaviour. However, it is recommended to install it in such a way that the
-% original \verb+hyphen.cfg+ from \textsf{babel} is found first by any engine
-% other than Lua\TeX.
-%
 % \StopEventually{
 % }
 %
 % \section{Implementation}
-%
-% \subsection{luatex-hyphen.lua}
 %
 %    \begin{macrocode}
 %<*lua>
@@ -270,7 +230,7 @@ end
 %    \begin{macrocode}
 local dbname = "language.dat.lua"
 local language_dat
-local dbfile = kpse.find_file(dbname)
+local dbfile = kpse.find_file(dbname, 'lua')
 if not dbfile then
     err("file not found: "..dbname)
 else
@@ -296,6 +256,7 @@ local function lookupname(name)
         end
     end
 end
+luatexhyphen.lookupname = lookupname
 %    \end{macrocode}
 %
 %    Set hyphenation patterns and exceptions for a language given by its name
@@ -355,9 +316,10 @@ local function loadlanguage(lname, id)
         end
     end
 end
+luatexhyphen.loadlanguage = loadlanguage
 %    \end{macrocode}
 %
-%    Add Babe's ``dialects'' as synonyms.
+%    Add \textsf{Babel}'s ``dialects'' as synonyms.
 %
 %    \begin{macrocode}
 local function adddialect(dialect, language)
@@ -370,508 +332,11 @@ local function adddialect(dialect, language)
         end
     end
 end
-%    \end{macrocode}
-%
-%    Return module functions to the loader.
-%
-%    \begin{macrocode}
-return {
-    lookupname = lookupname,
-    loadlanguage = loadlanguage,
-    adddialect = adddialect,
-}
+luatexhyphen.adddialect = adddialect
 %    \end{macrocode}
 %
 %    \begin{macrocode}
 %</lua>
-%    \end{macrocode}
-%
-% \subsection{hyphen.cfg}
-%
-%    \begin{macrocode}
-%<*hyphen>
-%    \end{macrocode}
-%
-%    Start with unmodified code from \textsf{babel}.
-%
-%    \begin{macrocode}
-\ifx\ProvidesFile\@undefined
-  \def\ProvidesFile#1[#2 #3 #4]{%
-    \wlog{File: #1 #4 #3 <#2>}%
-%    \end{macrocode}
-%
-%    Use a modified banner for Lua\TeX.
-%
-%    \begin{macrocode}
-    \ifx\directlua\@undefined
-      \toks8{Babel <#3> and hyphenation patterns for }%
-    \else
-      \toks8{LuaTeX adaptation of babel <#3>
-        and hyphenation patterns for }%
-    \fi
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-    \let\ProvidesFile\@undefined
-    }
-  \def\ProvidesLanguage#1[#2 #3 #4]{%
-    \wlog{Language: #1 #4 #3 <#2>}%
-    }
-\else
-  \let\bbl@tempa\ProvidesFile
-  \def\ProvidesFile#1[#2 #3 #4]{%
-%    \end{macrocode}
-%
-%    Same here.
-%
-%    \begin{macrocode}
-    \ifx\directlua\@undefined
-      \toks8{Babel <#3> and hyphenation patterns for }%
-    \else
-      \toks8{LuaTeX adaptation of babel <#3>
-        and hyphenation patterns for }%
-    \fi
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-    \bbl@tempa#1[#2 #3 #4]%
-    \let\ProvidesFile\bbl@tempa}
-  \def\ProvidesLanguage#1{%
-    \begingroup
-      \catcode`\ 10 %
-      \@makeother\/%
-      \@ifnextchar[%]
-        {\@provideslanguage{#1}}{\@provideslanguage{#1}[]}}
-  \def\@provideslanguage#1[#2]{%
-    \wlog{Language: #1 #2}%
-    \expandafter\xdef\csname ver@#1.ldf\endcsname{#2}%
-    \endgroup}
-\fi
-
-%    \end{macrocode}
-%
-%    File identification is modified again.
-%
-%    \begin{macrocode}
-\ProvidesFile{hyphen.cfg}
-                [2012/04/16 v3.8m-luatex-1.5 %
-      Language switching mechanism for LuaTeX, adapted from babel v3.8m]
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-\ifx\AtBeginDocument\@undefined
-  \input plain.def\relax
-\fi
-\ifx\language\@undefined
-  \csname newcount\endcsname\language
-\fi
-\ifx\newlanguage\@undefined
-  \csname newcount\endcsname\last@language
-\else
-  \countdef\last@language=19
-\fi
-\ifx\newlanguage\@undefined
-  \def\addlanguage#1{%
-    \global\advance\last@language \@ne
-    \ifnum\last@language<\@cclvi
-    \else
-        \errmessage{No room for a new \string\language!}%
-    \fi
-    \global\chardef#1\last@language
-    \wlog{\string#1 = \string\language\the\last@language}}
-\else
-  \def\addlanguage{\alloc@9\language\chardef\@cclvi}
-\fi
-\def\adddialect#1#2{%
-    \global\chardef#1#2\relax
-    \ifx\directlua\@undefined\else
-      \ifx\directlua\relax\else
-        \directlua{
-          if not luatexhyphen then
-              luatexhyphen = require("luatex-hyphen")
-          end
-          luatexhyphen.adddialect("\string#1", "\string#2")
-        }%
-      \fi
-    \fi
-    \wlog{\string#1 = a dialect from \string\language#2}}
-\def\iflanguage#1{%
-  \expandafter\ifx\csname l@#1\endcsname\relax
-    \@nolanerr{#1}%
-  \else
-    \bbl@afterfi{\ifnum\csname l@#1\endcsname=\language
-      \expandafter\@firstoftwo
-    \else
-      \expandafter\@secondoftwo
-    \fi}%
-  \fi}
-\edef\selectlanguage{%
-  \noexpand\protect
-  \expandafter\noexpand\csname selectlanguage \endcsname
-  }
-\ifx\@undefined\protect\let\protect\relax\fi
-\ifx\documentclass\@undefined
-  \def\xstring{\string\string\string}
-\else
-  \let\xstring\string
-\fi
-\xdef\bbl@language@stack{}
-\def\bbl@push@language{%
-  \xdef\bbl@language@stack{\languagename+\bbl@language@stack}%
-  }
-\def\bbl@pop@lang#1+#2-#3{%
-  \def\languagename{#1}\xdef#3{#2}%
-  }
-\def\bbl@pop@language{%
-  \expandafter\bbl@pop@lang\bbl@language@stack-\bbl@language@stack
-  \expandafter\bbl@set@language\expandafter{\languagename}%
-  }
-\expandafter\def\csname selectlanguage \endcsname#1{%
-  \bbl@push@language
-  \aftergroup\bbl@pop@language
-  \bbl@set@language{#1}}
-\def\bbl@set@language#1{%
-  \edef\languagename{%
-    \ifnum\escapechar=\expandafter`\string#1\@empty
-    \else \string#1\@empty\fi}%
-  \select@language{\languagename}%
-  \if@filesw
-    \protected@write\@auxout{}{\string\select@language{\languagename}}%
-    \addtocontents{toc}{\xstring\select@language{\languagename}}%
-    \addtocontents{lof}{\xstring\select@language{\languagename}}%
-    \addtocontents{lot}{\xstring\select@language{\languagename}}%
-  \fi}
-\def\select@language#1{%
-  \expandafter\ifx\csname l@#1\endcsname\relax
-    \@nolanerr{#1}%
-  \else
-    \expandafter\ifx\csname date#1\endcsname\relax
-      \@noopterr{#1}%
-    \else
-      \bbl@patterns{\languagename}%
-      \originalTeX
-      \expandafter\def\expandafter\originalTeX
-          \expandafter{\csname noextras#1\endcsname
-                       \let\originalTeX\@empty}%
-      \languageshorthands{none}%
-      \babel@beginsave
-      \csname captions#1\endcsname
-      \csname date#1\endcsname
-      \csname extras#1\endcsname\relax
-      \babel@savevariable\lefthyphenmin
-      \babel@savevariable\righthyphenmin
-      \expandafter\ifx\csname #1hyphenmins\endcsname\relax
-        \set@hyphenmins\tw@\thr@@\relax
-      \else
-        \expandafter\expandafter\expandafter\set@hyphenmins
-          \csname #1hyphenmins\endcsname\relax
-      \fi
-    \fi
-  \fi}
-\long\def\otherlanguage#1{%
-  \csname selectlanguage \endcsname{#1}%
-  \ignorespaces
-  }
-\long\def\endotherlanguage{%
-  \originalTeX
-  \global\@ignoretrue\ignorespaces
-  }
-\expandafter\def\csname otherlanguage*\endcsname#1{%
-  \foreign@language{#1}%
-  }
-\expandafter\def\csname endotherlanguage*\endcsname{%
-  \csname noextras\languagename\endcsname
-  }
-\def\foreignlanguage{\protect\csname foreignlanguage \endcsname}
-\expandafter\def\csname foreignlanguage \endcsname#1#2{%
-  \begingroup
-    \originalTeX
-    \foreign@language{#1}%
-    #2%
-    \csname noextras#1\endcsname
-  \endgroup
-  }
-\def\foreign@language#1{%
-  \def\languagename{#1}%
-  \expandafter\ifx\csname l@#1\endcsname\relax
-    \@nolanerr{#1}%
-  \else
-    \bbl@patterns{\languagename}%
-    \languageshorthands{none}%
-    \csname extras#1\endcsname
-    \expandafter\ifx\csname #1hyphenmins\endcsname\relax
-      \set@hyphenmins\tw@\thr@@\relax
-    \else
-      \expandafter\expandafter\expandafter\set@hyphenmins
-        \csname #1hyphenmins\endcsname\relax
-    \fi
-  \fi
-  }
-\def\bbl@patterns#1{%
-  \language=\expandafter\ifx\csname l@#1:\f@encoding\endcsname\relax
-    \csname l@#1\endcsname
-  \else
-    \csname l@#1:\f@encoding\endcsname
-  \fi\relax
-%    \end{macrocode}
-%
-%    With Lua\TeX, load patterns and exceptions on the fly using functions
-%    from the supporting Lua module, unless of course they are already loaded
-%    for this language (identified by its number to avoid problems with
-%    synonyms).
-%
-%    Also, since this code will be executed at runtime, be careful while
-%    testing if we're using Lua\TeX.
-%
-%    \begin{macrocode}
-  \ifx\directlua\@undefined\else
-    \ifx\directlua\relax\else
-      \ifcsname lu@texhyphen@loaded@\the\language\endcsname \else
-        \global\@namedef{lu@texhyphen@loaded@\the\language}{}%
-        \directlua{
-          if not luatexhyphen then
-              luatexhyphen = require("luatex-hyphen")
-          end
-          luatexhyphen.loadlanguage("\luatexluaescapestring{#1}",
-            \the\language)}%
-      \fi
-    \fi
-  \fi
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-}
-\def\hyphenrules#1{%
-  \expandafter\ifx\csname l@#1\endcsname\@undefined
-    \@nolanerr{#1}%
-  \else
-    \bbl@patterns{#1}%
-    \languageshorthands{none}%
-       \expandafter\ifx\csname #1hyphenmins\endcsname\relax
-         \set@hyphenmins\tw@\thr@@\relax
-       \else
-         \expandafter\expandafter\expandafter\set@hyphenmins
-         \csname #1hyphenmins\endcsname\relax
-       \fi
-  \fi
-  }
-\def\endhyphenrules{}
-\def\providehyphenmins#1#2{%
-  \expandafter\ifx\csname #1hyphenmins\endcsname\relax
-    \@namedef{#1hyphenmins}{#2}%
-  \fi}
-\def\set@hyphenmins#1#2{\lefthyphenmin#1\righthyphenmin#2}
-\def\LdfInit{%
-  \chardef\atcatcode=\catcode`\@
-  \catcode`\@=11\relax
-  \input babel.def\relax
-  \catcode`\@=\atcatcode \let\atcatcode\relax
-  \LdfInit}
-\ifx\originalTeX\@undefined\let\originalTeX\@empty\fi
-\ifx\babel@beginsave\@undefined\let\babel@beginsave\relax\fi
-\ifx\PackageError\@undefined
-  \def\@nolanerr#1{%
-    \errhelp{Your command will be ignored, type <return> to proceed}%
-    \errmessage{You haven't defined the language #1\space yet}}
-  \def\@nopatterns#1{%
-    \message{No hyphenation patterns were loaded for}%
-    \message{the language `#1'}%
-    \message{I will use the patterns loaded for \string\language=0
-          instead}}
-  \def\@noopterr#1{%
-    \errmessage{The option #1 was not specified in \string\usepackage}
-    \errhelp{You may continue, but expect unexpected results}}
-  \def\@activated#1{%
-    \wlog{Package babel Info: Making #1 an active character}}
-\else
-  \newcommand*{\@nolanerr}[1]{%
-    \PackageError{babel}%
-                 {You haven't defined the language #1\space yet}%
-        {Your command will be ignored, type <return> to proceed}}
-  \newcommand*{\@nopatterns}[1]{%
-    \PackageWarningNoLine{babel}%
-        {No hyphenation patterns were loaded for\MessageBreak
-          the language `#1'\MessageBreak
-          I will use the patterns loaded for \string\language=0
-          instead}}
-  \newcommand*{\@noopterr}[1]{%
-    \PackageError{babel}%
-                 {You haven't loaded the option #1\space yet}%
-             {You may proceed, but expect unexpected results}}
-  \newcommand*{\@activated}[1]{%
-    \PackageInfo{babel}{%
-      Making #1 an active character}}
-\fi
-\def\process@line#1#2 #3/{%
-  \ifx=#1
-    \process@synonym#2 /
-  \else
-    \process@language#1#2 #3/%
-  \fi
-  }
-\toks@{}
-\def\process@synonym#1 /{%
-  \ifnum\last@language=\m@ne
-    \expandafter\chardef\csname l@#1\endcsname0\relax
-    \wlog{\string\l@#1=\string\language0}
-    \toks@\expandafter{\the\toks@
-      \expandafter\let\csname #1hyphenmins\expandafter\endcsname
-      \csname\languagename hyphenmins\endcsname}%
-  \else
-    \expandafter\chardef\csname l@#1\endcsname\last@language
-    \wlog{\string\l@#1=\string\language\the\last@language}
-    \expandafter\let\csname #1hyphenmins\expandafter\endcsname
-    \csname\languagename hyphenmins\endcsname
-  \fi
-  }
-\def\process@language#1 #2 #3/{%
-  \expandafter\addlanguage\csname l@#1\endcsname
-  \expandafter\language\csname l@#1\endcsname
-  \def\languagename{#1}%
-%    \end{macrocode}
-%
-%    In the Lua\TeX\ case, we have to decide wether to load the language now.
-%    Remember our choice, since we'll need it two times more.
-%
-%    If we choose to load the language now, mark it as loaded. This is done
-%    using \TeX\ macros in order to survive the format dumping-loading cycle,
-%    which would not be as straigthforward using Lua objects.
-%
-%    \begin{macrocode}
-  \ifx\directlua\@undefined
-    \global\toks8\expandafter{\the\toks8#1, }%
-  \else
-    \directlua{
-      if not luatexhyphen then
-          luatexhyphen = require("luatex-hyphen")
-      end
-      processnow = (tex.language == 0) or
-        (luatexhyphen.lookupname("\luatexluaescapestring{#1}") == nil)}%
-    \ifnum0=\directlua{tex.sprint(processnow and "0" or "1")}\relax
-      \global\toks8\expandafter{\the\toks8#1, }%
-      \global\@namedef{lu@texhyphen@loaded@\the\language}{}%
-    \fi
-  \fi
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-  \begingroup
-    \bbl@get@enc#1:\@@@
-    \ifx\bbl@hyph@enc\@empty
-    \else
-      \fontencoding{\bbl@hyph@enc}\selectfont
-    \fi
-    \lefthyphenmin\m@ne
-%    \end{macrocode}
-%
-%    Conditionally input the patterns file.
-%
-%    \begin{macrocode}
-    \ifx\directlua\@undefined
-      \input #2\relax
-    \else
-      \ifnum0=\directlua{tex.sprint(processnow and "0" or "1")}\relax
-        \input #2\relax
-      \fi
-    \fi
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-    \ifnum\lefthyphenmin=\m@ne
-    \else
-      \expandafter\xdef\csname #1hyphenmins\endcsname{%
-        \the\lefthyphenmin\the\righthyphenmin}%
-    \fi
-  \endgroup
-  \ifnum\the\language=\z@
-    \expandafter\ifx\csname #1hyphenmins\endcsname\relax
-      \set@hyphenmins\tw@\thr@@\relax
-    \else
-      \expandafter\expandafter\expandafter\set@hyphenmins
-        \csname #1hyphenmins\endcsname
-    \fi
-    \the\toks@
-  \fi
-  \toks@{}%
-  \def\bbl@tempa{#3}%
-  \ifx\bbl@tempa\@empty
-  \else
-    \ifx\bbl@tempa\space
-    \else
-%    \end{macrocode}
-%
-%    Conditionnaly input the exceptions file.
-%
-%    \begin{macrocode}
-      \ifx\directlua\@undefined
-        \input #3\relax
-      \else
-        \ifnum0=\directlua{tex.sprint(processnow and "0" or "1")}\relax
-          \input #3\relax
-        \fi
-        \directlua{processnow = nil}%
-      \fi
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-    \fi
-  \fi
-  }
-\def\bbl@get@enc#1:#2\@@@{%
-  \def\bbl@tempa{#1}%
-  \def\bbl@tempb{#2}%
-  \ifx\bbl@tempb\@empty
-    \let\bbl@hyph@enc\@empty
-  \else
-    \bbl@get@enc#2\@@@
-    \edef\bbl@hyph@enc{\bbl@tempa}%
-  \fi}
-\openin1 = language.dat
-\ifeof1
-  \message{I couldn't find the file language.dat,\space
-           I will try the file hyphen.tex}
-  \input hyphen.tex\relax
-  \def\l@english{0}%
-  \def\languagename{english}%
-\else
-  \last@language\m@ne
-  \loop
-    \endlinechar\m@ne
-    \read1 to \bbl@line
-    \endlinechar`\^^M
-    \ifx\bbl@line\@empty
-    \else
-      \edef\bbl@line{\bbl@line\space/}%
-      \expandafter\process@line\bbl@line
-      \ifx\bbl@defaultlanguage\@undefined
-        \let\bbl@defaultlanguage\languagename
-      \fi
-    \fi
-    \iftrue \csname fi\endcsname
-    \csname if\ifeof1 false\else true\fi\endcsname
-  \repeat
-  \language=0
-  \let\languagename\bbl@defaultlanguage
-  \let\bbl@defaultlanguage\@undefined
-\fi
-\closein1
-\let\process@language\@undefined
-\let\process@synonym\@undefined
-\let\process@line\@undefined
-\let\bbl@tempa\@undefined
-\let\bbl@tempb\@undefined
-\let\bbl@eq@\@undefined
-\let\bbl@line\@undefined
-\let\bbl@get@enc\@undefined
-\ifx\addto@hook\@undefined
-\else
-  \expandafter\addto@hook\expandafter\everyjob\expandafter{%
-    \expandafter\typeout\expandafter{\the\toks8 loaded.}}
-\fi
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-%</hyphen>
 %    \end{macrocode}
 %
 % \Finale
