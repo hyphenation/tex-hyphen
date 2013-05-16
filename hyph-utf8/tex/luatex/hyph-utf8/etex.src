@@ -1,5 +1,5 @@
-%% e-TeX V2.1;0-luatex
-%% Revision-date:  26-APR-2010 11:05:45
+%% e-TeX V2.1;0-luatex2
+%% Revision-date:  16-MAY-2013 18:33:45
 %% Revision-history: (at-end)
 
 % The version  number in the first line is compared with the corresponding
@@ -281,9 +281,7 @@
               lu@texhyphen@loaded@\the\language\endcsname{}%
             \directlua{
               if not status.ini_version then
-                if not luatexhyphen then
-                  luatexhyphen = require("luatex-hyphen")
-                end
+                require("luatex-hyphen")
                 luatexhyphen.loadlanguage("\luatexluaescapestring{#1}",
                 \the\language)
               end}%
@@ -309,9 +307,7 @@
      \ifdefined\directlua % V2.1;0-luatex
        \csname fi\endcsname
        \csname if\directlua{% do we want to skip this language now?
-           if not luatexhyphen then
-             luatexhyphen = require("luatex-hyphen")
-           end
+           require("luatex-hyphen")
            if (luatexhyphen.lookupname("\luatexluaescapestring{#1}") == nil)
                or (\number\csname lang@#1\endcsname == 0) then
              tex.sprint("false") % no, load it (execute 'else' part)
@@ -804,13 +800,16 @@
 
 %% Revision-history:
 
-3-MAY-2010: 2.1;0-luatex  With LuaTeX, don't embed hyphenation patterns and
-            exceptions in the format, but on-demand at runtime, for faster
-            format loading. Use the Lua interface for loading hyphenation
-            rules from plain text files according to the new configuration
-            file language.lua.dat. Make use of a supporting lua file,
-            luatex-hyphen.lua. See also luatex-hyphen.pdf.
-            (Manuel Pegourie-Gonnard, Elie Roux and Khaled Hosny)
+16-MAY-2013: 2.1;0-luatex2 Minor changes for LuaTeX, adapting to new
+             luatex-hyphen package.
+
+03-MAY-2010: 2.1;0-luatex  With LuaTeX, don't embed hyphenation patterns and
+             exceptions in the format, but on-demand at runtime, for faster
+             format loading. Use the Lua interface for loading hyphenation
+             rules from plain text files according to the new configuration
+             file language.lua.dat. Make use of a supporting lua file,
+             luatex-hyphen.lua. See also luatex-hyphen.pdf.
+             (Manuel Pegourie-Gonnard, Elie Roux and Khaled Hosny)
 
 01-FEB-1999: 2.1;0  Allow file to be used with e-TeX versions 2.0 and 2.1
 
