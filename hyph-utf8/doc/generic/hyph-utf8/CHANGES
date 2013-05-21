@@ -1,3 +1,13 @@
+2013-05-21 (#644)
+- add LPPL licence statement to Thai patterns
+
+2013-05-16 (#636-#643)
+- update luatex-hyphen.dtx and derivate files:
+- remove hyphen.cfg (Babel now provides a working one)
+- update etex.src
+- update luatex-hyphen.lua
+- update documentation
+
 2013-05-08 (#635)
 - texmf -> texmf-dist
 
