@@ -1,3 +1,6 @@
+2013-05-26 (#645)
+- update German patterns (by Werner Lemberg), version 2013-05-26
+
 2013-05-21 (#644)
 - add LPPL licence statement to Thai patterns
 
@@ -11,7 +14,7 @@
 2013-05-08 (#635)
 - texmf -> texmf-dist
 
-== CTAN release 2012.05.08 (#634) ==
+== CTAN release 2013.05.08 (#634) ==
 
 2013-05-08 (#634)
 - update the list of languages in documentation
@@ -44,7 +47,7 @@
 - add support for Georgian and Thai font encodings: T8M and LTH
 - fix a line in QX font encoding
 
-== CTAN release 2012.02.21 (#614) ==
+== CTAN release 2013.02.21 (#614) ==
 
 2013-02-14 (#613)
 - add Piedmontese patterns (by Claudio Beccari)

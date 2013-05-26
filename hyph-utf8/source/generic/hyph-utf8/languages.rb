@@ -413,8 +413,8 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "German hyphenation patterns (traditional orthography)",
 
-	"version"       => nil,
-	"last_modified" => "2012-05-30", # For the active project
+	"version"       => "0.3",
+	"last_modified" => "2013-05-26", # For the active project
 	"type"          => "dictionary",
 	"authors"       => ["werner_lemberg"],
 	"licence"       => "LPPL",
@@ -452,8 +452,8 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "German hyphenation patterns (reformed orthography)",
 
-	"version"       => nil,
-	"last_modified" => "2012-05-30", # For the active project
+	"version"       => "0.3",
+	"last_modified" => "2013-05-26", # For the active project
 	"type"          => "dictionary",
 	"authors"       => ["werner_lemberg"],
 	"licence"       => "LPPL",
@@ -474,8 +474,8 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Swiss-German hyphenation patterns (traditional orthography)",
 
-	"version"       => nil,
-	"last_modified" => "2012-05-30", # For the active project
+	"version"       => "0.3",
+	"last_modified" => "2013-05-26", # For the active project
 	"type"          => "dictionary",
 	"authors"       => ["werner_lemberg"],
 	"licence"       => "LPPL",
