@@ -1967,27 +1967,27 @@ class Languages < Hash
 	],
 },
 # georgian
-#{
-#	"code" => "ka",
-#	"name" => "georgian",
-#	"use_new_loader" => true,
-#	"use_old_patterns" => false,
-#	"hyphenmin" => [2,3], # TODO
-#	"encoding" => "t8m",
-#	"exceptions" => false,
-#	"message" => "Georgian hyphenation patterns",
-#
-#	"version"       => nil,
-#	"last_modified" => "2013-02-25", # TODO
-#	"type"          => "dictionary",
-#	"authors"       => [ "levan_shoshiashvili" ],
-#	"licence"       => "other-free",
-#	"description_s" => "Georgian hyphenation patterns",
-#	"description_l" => [
-#		#......................................................................#
-#		"Hyphenation patterns for Georgian in T8M, T8K and UTF-8 encodings.",
-#	],
-#},
+{
+	"code" => "ka",
+	"name" => "georgian",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1,2],
+	"encoding" => "t8m",
+	"exceptions" => false,
+	"message" => "Georgian hyphenation patterns",
+
+	"version"       => "0.3",
+	"last_modified" => "2013-04-15",
+	"type"          => "dictionary",
+	"authors"       => [ "levan_shoshiashvili" ],
+	"licence"       => "LPPL",
+	"description_s" => "Georgian hyphenation patterns",
+	"description_l" => [
+		#......................................................................#
+		"Hyphenation patterns for Georgian in T8M, T8K and UTF-8 encodings.",
+	],
+},
 # dumylang -> dumyhyph.tex
 # nohyphenation -> zerohyph.tex
 # arabic -> zerohyph.tex
