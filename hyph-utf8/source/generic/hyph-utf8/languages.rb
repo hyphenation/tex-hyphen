@@ -560,8 +560,8 @@ class Languages < Hash
 	"exceptions" => true,
 	"message" => "Afrikaans hyphenation patterns",
 
-	"version"       => "0.9",
-	"last_modified" => "2010-10-18",
+	"version"       => "1.0",
+	"last_modified" => "2013-10-08",
 	"type"          => "dictionary",
 	"authors"       => [ "tilla_fick", "chris_swanepoel" ],
 	"email"         => [ "hyphen{at}rekenaar{dot}net" ],
