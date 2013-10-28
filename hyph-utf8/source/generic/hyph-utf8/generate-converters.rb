@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'hyph-utf8'
+require File.expand_path(File.join(File.dirname(__FILE__), 'hyph-utf8'))
 
 $encoding_data_dir = "data/encodings"
 # $encodings = ["ec", "qx", "t2a", "lmc", "il2", "il3", "l7x", "t8m", "lth"]

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 class Author
 	def intialize(name,surname,email,contacted1,contacted2)
