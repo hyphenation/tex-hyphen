@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# encoding: utf-8
 
 # this file generates plain patterns (one-per-line) out of TeX source
 
