@@ -1911,7 +1911,7 @@ class Languages < Hash
 	"message" => "Thai hyphenation patterns",
 
 	"version"       => nil,
-	"last_modified" => "2013-01-28",
+	"last_modified" => "2013-10-28",
 	"type"          => "dictionary",
 	"authors"       => [ "theppitak_karoonboonyanan" ],
 	"licence"       => "LPPL",
