@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
-<!-- Indonesian Hyphenation Patterns -->
+<!-- Indonesian hyphenation patterns -->
 
 <!-- (more info about the licence to be added later) -->
 
@@ -65,19 +65,19 @@
 
 <!-- ‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐ -->
 
-<!-- inhyph.tex  -->
+<!-- inhyph.tex -->
 <!-- Version 1.3 19-SEP-1997 -->
 
 <!-- Hyphenation patterns for bahasa indonesia (probably also usable -->
 <!-- for bahasa melayu) -->
 
 <!-- (c) Copyright 1996, 1997 Jörg Knappen and Terry Mart -->
- 
-<!-- This patterns are free software according to the GNU General Public  -->
+
+<!-- This patterns are free software according to the GNU General Public -->
 <!-- licence version 2, June 1991. -->
 
 <!-- Please read the GNU licence for details. If you don't receive a GNU -->
-<!-- licence with these patterns, you can obtain it from  -->
+<!-- licence with these patterns, you can obtain it from -->
 
 <!-- Free Software Foundation, Inc. -->
 <!-- 675 Mass Ave, Cambridge, MA 02139, USA -->

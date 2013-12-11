@@ -15,7 +15,72 @@ $path_to_top = '../../..'
 # languages.rb
 # hyph-utf8/source/generic/hyph-utf8
 $path_lang = 'hyph-utf8/source/generic/hyph-utf8'
-load "#{$path_to_top}/#{$path_lang}/languages-txt.rb"
+load "#{$path_to_top}/#{$path_lang}/languages.rb"
+
+# modify methods of class Language
+class Language
+	# TODO: simplify this (reduce duplication)
+
+	def get_exceptions(pattern_path)
+		if @exceptions1 == nil
+          filename = "#{pattern_path}/hyph-#{@code}.hyp.txt";
+			lines = IO.readlines(filename, '.').join("")
+			exceptions = lines.gsub(/%.*/,'');
+			@exceptions1 = exceptions.
+				gsub(/\s+/m,"\n").
+				gsub(/^\s*/m,'').
+				gsub(/\s*$/m,'').
+				split("\n")
+		end
+
+		return @exceptions1
+	end
+
+	def get_patterns(pattern_path)
+		if @patterns == nil
+			filename = "#{pattern_path}/hyph-#{@code}.pat.txt"
+			lines = IO.readlines(filename, '.').join("")
+			@patterns = lines.gsub(/%.*/,'').
+				gsub(/\s+/m,"\n").
+				gsub(/^\s*/m,'').
+				gsub(/\s*$/m,'').
+				split("\n")
+
+			if @code == 'eo' then
+				@patterns = lines.gsub(/%.*/,'').
+					#
+					gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
+					gsub(/\\nom\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e. \1o. \1oj. \1ojn. \1on.').
+					gsub(/\\ver\{(.*?)\}/m,'\1as. \1i. \1is. \1os. \1u. \1us.').
+					#
+					gsub(/\s+/m,"\n").
+					gsub(/^\s*/m,'').
+					gsub(/\s*$/m,'').
+					split("\n")
+			end
+		end
+		return @patterns
+	end
+
+	def get_comments_and_licence(pattern_path)
+		if @comments_and_licence == nil then
+			filename = File.expand_path("#{pattern_path}/hyph-#{@code}.lic.txt");
+			lines = IO.readlines(filename)
+			@comments_and_licence = lines
+		end
+		return @comments_and_licence
+	end
+
+    def get_classes(pattern_path)
+        if @classes == nil then
+            filename = File.expand_path("#{pattern_path}/hyph-#{@code}.chr.txt");
+			lines = IO.readlines(filename, '.').join("")
+			@classes = lines
+		end
+		return @classes
+    end
+
+end
 
 # source patterns
 # hyph-utf8/tex/generic/hyph-utf8/patterns/txt
@@ -28,7 +93,7 @@ $path_offo = "collaboration/repository/offo"
 $rel_path_offo = "#{$path_to_top}/#{$path_offo}"
 $rel_path_patterns = "#{$path_to_top}/#{$path_src_pat}"
 
-$l = Languages.new($rel_path_patterns)
+$l = Languages.new()
 # TODO: should be singleton
 languages = $l.list.sort{|a,b| a.name <=> b.name}
 
@@ -53,11 +118,10 @@ language_codes['en-us']        = 'en'
 language_codes['hu']           = nil
 language_codes['mn-cyrl']      = 'mn'
 language_codes['mn-cyrl-x-lmc'] = nil # no such pattern
-language_codes['sh-cyrl']      = nil # no such pattern
-language_codes['sh-latn']      = nil # no such pattern
-language_codes['sr-cyrl']      = 'sr_Cyrl'
-language_codes['sr-latn']      = 'sr_Latn'
-language_codes['zh-latn']      = 'zh_Latn'
+language_codes['mul-ethi']     = 'mul_ET'
+language_codes['sh-cyrl']      = 'sr_Cyrl'
+language_codes['sh-latn']      = 'sr_Latn'
+language_codes['zh-latn-pinyin']      = 'zh_Latn'
 
 # How can I sort on language_codes?
 # language_codes[a.code] <=> language_codes[b.code] fails.
@@ -89,12 +153,12 @@ languages.each do |language|
 	
 		$file_offo_pattern = File.open("#{$rel_path_offo}/#{code}.xml", 'w')
 
-        comments_and_licence = language.get_comments_and_licence
+        comments_and_licence = language.get_comments_and_licence($rel_path_patterns)
         # do not use classes (SP 2010/10/26)
         # classes    = language.get_classes
         classes = nil
-		exceptions = language.get_exceptions
-		patterns   = language.get_patterns
+		exceptions = language.get_exceptions($rel_path_patterns)
+		patterns   = language.get_patterns($rel_path_patterns)
 
 		# if code == 'nn' or code == 'nb'
 		# 	patterns = ""

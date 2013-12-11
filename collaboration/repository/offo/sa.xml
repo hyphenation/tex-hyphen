@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
-<!-- Sanskrit Hyphenation Patterns (v0.2, 2008/1/3) -->
+<!-- Sanskrit hyphenation patterns (v0.6, 2011/09/14) -->
 
 <!-- (more info about the licence to be added later) -->
 
@@ -14,14 +14,16 @@
 
 <!-- Created:        April 1st, 2005 -->
 <!-- First release:  June 8th, 2006 -->
-<!-- Revised:        February 26th, 2010 -->
-<!-- Version:        0.4 -->
+<!-- Revised:        September 14th, 2011 -->
+<!-- Version:        0.6 -->
 
-<!-- Created by Yves Codet with Jonathan Kew's help. -->
+<!-- Created by Yves Codet. Special thanks to Jonathan Kew and Benjamin Varghese who provided very useful informations. -->
+
+<!-- Copyright 2006-2011 Yves Codet. -->
+<!-- You may freely use, copy, modify and/or distribute this file. -->
 
 
-
-<hyphen-min before="1" after="5"/>
+<hyphen-min before="1" after="3"/>
 
 <exceptions>
 </exceptions>
@@ -94,9 +96,15 @@ a3ü1
 2rp.
 2rb.
 2ṃ1
+2ṁ1
 2m̐1
 2ḥ1
+2ẖ1
+2ḫ1
+2̮
+2̐
 2̄
+2̱1
 2́1
 2̀1
 2̈
@@ -134,7 +142,10 @@ a3ü1
 2rṭ.
 2rḍ.
 2ṃ1
+2ṁ1
 2ḥ1
+2ẖ1
+2ḫ1
 1अ1
 1आ1
 1इ1
@@ -670,6 +681,19 @@ a3ü1
 2ര്ട.
 2ര്ത.
 2ര്പ.
+2ൺ1
+2ൻ1
+2ർ1
+2ൽ1
+2ൾ1
+2ൿ1
+2ണ്‍1
+2ന്‍1
+2ര്‍1
+2ല്‍1
+2ത്‍1
+2ള്‍1
+2ക്‍1
 2ം
 2ഃ
 2ൗ

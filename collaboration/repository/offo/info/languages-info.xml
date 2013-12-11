@@ -6,73 +6,73 @@
 <name>afrikaans</name>
 <tex-code>af</tex-code>
 <code>af</code>
-<message>Afrikaans Hyphenation Patterns</message>
+<message>Afrikaans hyphenation patterns</message>
 </language>
 <language>
 <name>assamese</name>
 <tex-code>as</tex-code>
 <code>as</code>
-<message>Assameze Hyphenation Patterns</message>
+<message>Assamese hyphenation patterns</message>
 </language>
 <language>
 <name>bulgarian</name>
 <tex-code>bg</tex-code>
 <code>bg</code>
-<message>Bulgarian Hyphenation Patterns</message>
+<message>Bulgarian hyphenation patterns</message>
 </language>
 <language>
 <name>bengali</name>
 <tex-code>bn</tex-code>
 <code>bn</code>
-<message>Bengali Hyphenation Patterns</message>
+<message>Bengali hyphenation patterns</message>
 </language>
 <language>
 <name>catalan</name>
 <tex-code>ca</tex-code>
 <code>ca</code>
-<message>Catalan Hyphenation Patterns</message>
+<message>Catalan hyphenation patterns</message>
 </language>
 <language>
 <name>coptic</name>
 <tex-code>cop</tex-code>
 <code>cop</code>
-<message>Coptic Hyphenation Patterns</message>
+<message>Coptic hyphenation patterns</message>
 </language>
 <language>
 <name>czech</name>
 <tex-code>cs</tex-code>
 <code>cs</code>
-<message>Czech Hyphenation Patterns (Pavel Sevecek, v3, 1995)</message>
+<message>Czech hyphenation patterns (Pavel Sevecek, v3, 1995)</message>
 </language>
 <language>
 <name>welsh</name>
 <tex-code>cy</tex-code>
 <code>cy</code>
-<message>Welsh Hyphenation Patterns</message>
+<message>Welsh hyphenation patterns</message>
 </language>
 <language>
 <name>danish</name>
 <tex-code>da</tex-code>
 <code>da</code>
-<message>Danish Hyphenation Patterns</message>
+<message>Danish hyphenation patterns</message>
 </language>
 <language>
 <name>german</name>
 <tex-code>de-1901</tex-code>
 <code>de_1901</code>
-<message>German Hyphenation Patterns (Traditional Orthography)</message>
+<message>German hyphenation patterns (traditional orthography)</message>
 </language>
 <language>
 <name>ngerman</name>
 <tex-code>de-1996</tex-code>
 <code>de</code>
-<message>German Hyphenation Patterns (Reformed Orthography)</message>
+<message>German hyphenation patterns (reformed orthography)</message>
 </language>
 <language>
 <name>swissgerman</name>
 <tex-code>de-ch-1901</tex-code>
 <code>de_CH</code>
-<message>Swiss-German Hyphenation Patterns (Traditional Orthography)</message>
+<message>Swiss-German hyphenation patterns (traditional orthography)</message>
 </language>
 <language>
 <name>monogreek</name>
@@ -90,43 +90,43 @@
 <name>ukenglish</name>
 <tex-code>en-gb</tex-code>
 <code>en_GB</code>
-<message>Hyphenation Patterns for British English</message>
+<message>Hyphenation patterns for British English</message>
 </language>
 <language>
 <name>usenglishmax</name>
 <tex-code>en-us</tex-code>
 <code>en</code>
-<message>Hyphenation Patterns for American English</message>
+<message>Hyphenation patterns for American English</message>
 </language>
 <language>
 <name>esperanto</name>
 <tex-code>eo</tex-code>
 <code>eo</code>
-<message>Esperanto Hyphenation Patterns</message>
+<message>Esperanto hyphenation patterns</message>
 </language>
 <language>
 <name>spanish</name>
 <tex-code>es</tex-code>
 <code>es</code>
-<message>Spanish Hyphenation Patterns</message>
+<message>Spanish hyphenation patterns</message>
 </language>
 <language>
 <name>estonian</name>
 <tex-code>et</tex-code>
 <code>et</code>
-<message>Estonian Hyphenation Patterns</message>
+<message>Estonian hyphenation patterns</message>
 </language>
 <language>
 <name>basque</name>
 <tex-code>eu</tex-code>
 <code>eu</code>
-<message>Basque Hyphenation Patterns</message>
+<message>Basque hyphenation patterns</message>
 </language>
 <language>
 <name>finnish</name>
 <tex-code>fi</tex-code>
 <code>fi</code>
-<message>Finnish Hyphenation Patterns</message>
+<message>Finnish hyphenation patterns</message>
 </language>
 <language>
 <name>french</name>
@@ -135,16 +135,22 @@
 <message>French hyphenation patterns (V2.12, 2002/12/11)</message>
 </language>
 <language>
+<name>friulan</name>
+<tex-code>fur</tex-code>
+<code>fur</code>
+<message>Friulan hyphenation patterns</message>
+</language>
+<language>
 <name>irish</name>
 <tex-code>ga</tex-code>
 <code>ga</code>
-<message>Irish Hyphenation Patterns</message>
+<message>Irish hyphenation patterns</message>
 </language>
 <language>
 <name>galician</name>
 <tex-code>gl</tex-code>
 <code>gl</code>
-<message>Galician Hyphenation Patterns</message>
+<message>Galician hyphenation patterns</message>
 </language>
 <language>
 <name>ancientgreek</name>
@@ -156,193 +162,211 @@
 <name>gujarati</name>
 <tex-code>gu</tex-code>
 <code>gu</code>
-<message>Gujarati Hyphenation Patterns</message>
+<message>Gujarati hyphenation patterns</message>
 </language>
 <language>
 <name>hindi</name>
 <tex-code>hi</tex-code>
 <code>hi</code>
-<message>Hindi Hyphenation Patterns</message>
+<message>Hindi hyphenation patterns</message>
 </language>
 <language>
 <name>croatian</name>
 <tex-code>hr</tex-code>
 <code>hr</code>
-<message>Croatian Hyphenation Patterns</message>
+<message>Croatian hyphenation patterns</message>
 </language>
 <language>
 <name>uppersorbian</name>
 <tex-code>hsb</tex-code>
 <code>hsb</code>
-<message>Upper Sorbian Hyphenation Patterns (E. Werner)</message>
+<message>Upper Sorbian hyphenation patterns (E. Werner)</message>
 </language>
 <language>
 <name>armenian</name>
 <tex-code>hy</tex-code>
 <code>hy</code>
-<message>Armenian Hyphenation Patterns</message>
+<message>Armenian hyphenation patterns</message>
 </language>
 <language>
 <name>interlingua</name>
 <tex-code>ia</tex-code>
 <code>ia</code>
-<message>Hyphenation Patterns for Interlingua</message>
+<message>Hyphenation patterns for Interlingua</message>
 </language>
 <language>
 <name>indonesian</name>
 <tex-code>id</tex-code>
 <code>id</code>
-<message>Indonesian Hyphenation Patterns</message>
+<message>Indonesian hyphenation patterns</message>
 </language>
 <language>
 <name>icelandic</name>
 <tex-code>is</tex-code>
 <code>is</code>
-<message>Icelandic Hyphenation Patterns</message>
+<message>Icelandic hyphenation patterns</message>
 </language>
 <language>
 <name>italian</name>
 <tex-code>it</tex-code>
 <code>it</code>
-<message>Italian Hyphenation Patterns</message>
+<message>Italian hyphenation patterns</message>
+</language>
+<language>
+<name>georgian</name>
+<tex-code>ka</tex-code>
+<code>ka</code>
+<message>Georgian hyphenation patterns</message>
 </language>
 <language>
 <name>kurmanji</name>
 <tex-code>kmr</tex-code>
 <code>kmr</code>
-<message>Kurmanji Hyphenation Patterns (v. 1.0 2009/06/29 JKn and MSh)</message>
+<message>Kurmanji hyphenation patterns (v. 1.0 2009/06/29 JKn and MSh)</message>
 </language>
 <language>
 <name>kannada</name>
 <tex-code>kn</tex-code>
 <code>kn</code>
-<message>Kannada Hyphenation Patterns</message>
+<message>Kannada hyphenation patterns</message>
 </language>
 <language>
 <name>latin</name>
 <tex-code>la</tex-code>
 <code>la</code>
-<message>Latin Hyphenation Patterns</message>
-</language>
-<language>
-<name>lao</name>
-<tex-code>lo</tex-code>
-<code>lo</code>
-<message>Lao Hyphenation Patterns</message>
+<message>Latin hyphenation patterns</message>
 </language>
 <language>
 <name>lithuanian</name>
 <tex-code>lt</tex-code>
 <code>lt</code>
-<message>Lithuanian Hyphenation Patterns</message>
+<message>Lithuanian hyphenation patterns</message>
 </language>
 <language>
 <name>latvian</name>
 <tex-code>lv</tex-code>
 <code>lv</code>
-<message>Latvian Hyphenation Patterns</message>
+<message>Latvian hyphenation patterns</message>
 </language>
 <language>
 <name>malayalam</name>
 <tex-code>ml</tex-code>
 <code>ml</code>
-<message>Malayalam Hyphenation Patterns</message>
+<message>Malayalam hyphenation patterns</message>
 </language>
 <language>
 <name>mongolian</name>
 <tex-code>mn-cyrl</tex-code>
 <code>mn</code>
-<message>(New) Mongolian Hyphenation Patterns</message>
+<message>(New) Mongolian hyphenation patterns</message>
 </language>
 <language>
 <name>marathi</name>
 <tex-code>mr</tex-code>
 <code>mr</code>
-<message>Marathi Hyphenation Patterns</message>
+<message>Marathi hyphenation patterns</message>
+</language>
+<language>
+<name>ethiopic</name>
+<tex-code>mul-ethi</tex-code>
+<code>mul_ET</code>
+<message>Pan-Ethiopic hyphenation patterns</message>
 </language>
 <language>
 <name>bokmal</name>
 <tex-code>nb</tex-code>
 <code>nb</code>
-<message>Norwegian Bokmal Hyphenation Patterns</message>
+<message>Norwegian Bokmal hyphenation patterns</message>
 </language>
 <language>
 <name>dutch</name>
 <tex-code>nl</tex-code>
 <code>nl</code>
-<message>Dutch Hyphenation Patterns</message>
+<message>Dutch hyphenation patterns</message>
 </language>
 <language>
 <name>nynorsk</name>
 <tex-code>nn</tex-code>
 <code>nn</code>
-<message>Norwegian Nynorsk Hyphenation Patterns</message>
+<message>Norwegian Nynorsk hyphenation patterns</message>
 </language>
 <language>
 <name>oriya</name>
 <tex-code>or</tex-code>
 <code>or</code>
-<message>Oriya Hyphenation Patterns</message>
+<message>Oriya hyphenation patterns</message>
 </language>
 <language>
 <name>panjabi</name>
 <tex-code>pa</tex-code>
 <code>pa</code>
-<message>Panjabi Hyphenation Patterns</message>
+<message>Panjabi hyphenation patterns</message>
 </language>
 <language>
 <name>polish</name>
 <tex-code>pl</tex-code>
 <code>pl</code>
-<message>Polish Hyphenation Patterns</message>
+<message>Polish hyphenation patterns</message>
+</language>
+<language>
+<name>piedmontese</name>
+<tex-code>pms</tex-code>
+<code>pms</code>
+<message>Piedmontese hyphenation patterns</message>
 </language>
 <language>
 <name>portuguese</name>
 <tex-code>pt</tex-code>
 <code>pt</code>
-<message>Portuguese Hyphenation Patterns</message>
+<message>Portuguese hyphenation patterns</message>
+</language>
+<language>
+<name>romansh</name>
+<tex-code>rm</tex-code>
+<code>rm</code>
+<message>Romansh hyphenation patterns</message>
 </language>
 <language>
 <name>romanian</name>
 <tex-code>ro</tex-code>
 <code>ro</code>
-<message>Romanian Hyphenation Patterns</message>
+<message>Romanian hyphenation patterns</message>
 </language>
 <language>
 <name>russian</name>
 <tex-code>ru</tex-code>
 <code>ru</code>
-<message>Russian Hyphenation Patterns</message>
+<message>Russian hyphenation patterns</message>
 </language>
 <language>
 <name>sanskrit</name>
 <tex-code>sa</tex-code>
 <code>sa</code>
-<message>Sanskrit Hyphenation Patterns (v0.2, 2008/1/3)</message>
+<message>Sanskrit hyphenation patterns (v0.6, 2011/09/14)</message>
+</language>
+<language>
+<name>serbianc</name>
+<tex-code>sh-cyrl</tex-code>
+<code>sh_Cyrl</code>
+<message>Serbian hyphenation patterns in Cyrillic script</message>
+</language>
+<language>
+<name>serbian</name>
+<tex-code>sh-latn</tex-code>
+<code>sh_Latn</code>
+<message>Serbian hyphenation patterns in Latin script</message>
 </language>
 <language>
 <name>slovak</name>
 <tex-code>sk</tex-code>
 <code>sk</code>
-<message>Slovak Hyphenation Patterns (Jana Chlebikova, 1992)</message>
+<message>Slovak hyphenation patterns (Jana Chlebikova, 1992)</message>
 </language>
 <language>
 <name>slovenian</name>
 <tex-code>sl</tex-code>
 <code>sl</code>
-<message>Slovenian Hyphenation Patterns</message>
-</language>
-<language>
-<name>serbianc</name>
-<tex-code>sr-cyrl</tex-code>
-<code>sr_Cyrl</code>
-<message>Serbian hyphenation patterns in Cyrillic script</message>
-</language>
-<language>
-<name>serbian</name>
-<tex-code>sr-latn</tex-code>
-<code>sr_Latn</code>
-<message>Serbian hyphenation patterns in Latin script</message>
+<message>Slovenian hyphenation patterns</message>
 </language>
 <language>
 <name>swedish</name>
@@ -354,35 +378,41 @@
 <name>tamil</name>
 <tex-code>ta</tex-code>
 <code>ta</code>
-<message>Tamil Hyphenation Patterns</message>
+<message>Tamil hyphenation patterns</message>
 </language>
 <language>
 <name>telugu</name>
 <tex-code>te</tex-code>
 <code>te</code>
-<message>Telugu Hyphenation Patterns</message>
+<message>Telugu hyphenation patterns</message>
+</language>
+<language>
+<name>thai</name>
+<tex-code>th</tex-code>
+<code>th</code>
+<message>Thai hyphenation patterns</message>
 </language>
 <language>
 <name>turkmen</name>
 <tex-code>tk</tex-code>
 <code>tk</code>
-<message>Turkmen Hyphenation Patterns</message>
+<message>Turkmen hyphenation patterns</message>
 </language>
 <language>
 <name>turkish</name>
 <tex-code>tr</tex-code>
 <code>tr</code>
-<message>Turkish Hyphenation Patterns</message>
+<message>Turkish hyphenation patterns</message>
 </language>
 <language>
 <name>ukrainian</name>
 <tex-code>uk</tex-code>
 <code>uk</code>
-<message>Ukrainian Hyphenation Patterns</message>
+<message>Ukrainian hyphenation patterns</message>
 </language>
 <language>
 <name>pinyin</name>
-<tex-code>zh-latn</tex-code>
+<tex-code>zh-latn-pinyin</tex-code>
 <code>zh_Latn</code>
 <message>Hyphenation patterns for unaccented pinyin syllables (CJK 4.8.0)</message>
 </language>

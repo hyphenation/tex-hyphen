@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
-<!-- Irish Hyphenation Patterns -->
+<!-- Irish hyphenation patterns -->
 
 <!-- (more info about the licence to be added later) -->
 
@@ -72,12 +72,12 @@
 <!-- modify it under the terms of the GNU General Public License -->
 <!-- as published by the Free Software Foundation; either version 2 -->
 <!-- of the License, or (at your option) any later version. -->
- 
+
 <!-- This program is distributed in the hope that it will be useful, -->
 <!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
 <!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
 <!-- GNU General Public License for more details. -->
- 
+
 <!-- ==================================================================== -->
 <!-- @TeX-hyphen-file{ -->
 <!-- author          = "Kevin P. Scannell", -->
@@ -97,8 +97,8 @@
 
 <!-- See the web page  http://borel.slu.edu/fleiscin/index.html -->
 <!-- for more information on how these patterns were generated. -->
-  
-<!-- Please report incorrect hyphenations to the author at the  -->
+
+<!-- Please report incorrect hyphenations to the author at the -->
 <!-- email address above. -->
 
 <!-- \message{Hyphenation patterns `gahyph.tex' Version 1.0 <2004/01/22>} -->

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
-<!-- Italian hyphenation patterns -->
+<!-- Piedmontese hyphenation patterns -->
 
 <!-- (more info about the licence to be added later) -->
 
-<!-- hyph-it.tex -->
+<!-- File hyph-pms.tex -->
 
-<!-- Italian hyphenation patterns -->
+<!-- Piedmontese hyphenation patterns -->
 
 <!-- This file is part of the hyph-utf8 package. -->
-<!-- For more unformation see -->
+<!-- For more information see -->
 
 <!-- http://tug.org/tex-hyphen -->
 
 <!-- ‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐ -->
 
-<!-- Copyright 2008-2011 Claudio Beccari -->
+<!-- Copyright 2013 Claudio Beccari -->
 
 <!-- This work may be distributed and/or modified under the -->
 <!-- conditions of the LaTeX Project Public License, either -->
@@ -28,24 +28,24 @@
 
 <!-- This work has the LPPL maintenance status "maintained". -->
 
-<!-- This Current Maintainer of this work is Claudio Beccari -->
+<!-- The Current Maintainer of this work is Claudio Beccari -->
 <!-- e-mail:  claudio dot beccari at gmail dot com -->
 
-<!-- This work consists of the single file hyph-it.tex. -->
+<!-- This work consists of the single file hyph-pms.tex. -->
 
-<!-- \versionnumber{4.8i}   \versiondate{2011/08/16} -->
+<!-- \versionnumber{1.0}   \versiondate{2013/02/14} -->
 
-<!-- These hyphenation patterns for the Italian language are supposed to comply -->
-<!-- with the Recommendation UNI 6461 on hyphenation issued by the Italian -->
-<!-- Standards Institution (Ente Nazionale di Unificazione UNI).  No guarantee -->
-<!-- or declaration of fitness to any particular purpose is given and any -->
-<!-- liability is disclaimed. -->
+<!-- These hyphenation patterns for the Piedmontese language are supposed to comply -->
+<!-- with the common spelling of the Piedmontese language as fixed by the -->
+<!-- "Gramatica dla lengua piemonteisa" by Camillo Brero. -->
+<!-- They were initially obtained by merging the consonant endings to the Italian -->
+<!-- patterns and adding the necessary patterns for the special Piedmontese digraphs -->
+<!-- used in this language. The common Latin roots of both languages helped a lot -->
+<!-- in this adaptation. -->
+<!-- Digraphs: cc, ch, gi, gh, gn, ss. -->
 
 <!-- ChangeLog: -->
-<!-- - 2011-08-16 - Change the licence from GNU LGPL into LPPL v1.3. -->
-<!-- - 2010-05-24 - Fix for Italian patterns for proper hyphenation of -ich and Ljubljana. -->
-<!-- - 2008-06-09 - Import of original ithyph.tex into hyph-utf8 package. -->
-<!-- - 2008-03-08 - (last change in ithyph.tex) -->
+<!-- - 2013-02-14 - First release 1.0 -->
 
 
 <hyphen-min before="2" after="2"/>
@@ -54,15 +54,76 @@
 </exceptions>
 
 <patterns>
+.’2s2
+.’2s2
+2’2
+2’2
+2’.
+2’.
+2b’
+2b’
+2c’
+2c’
+2d’
+2d’
+2f’
+2f’
+2g’
+2g’
+2h’
+2h’
+2j’
+2j’
+2k’
+2k’
+2l’.
+2l’.
+2l’’
+2l’’
+2m’
+2m’
+2n’
+2n’
+.’n2
+.’n2
+2p’
+2p’
+2q’
+2q’
+2r’
+2r’
+4s’.
+4s’.
+4s’’
+4s’’
+2st’
+2st’
+2t’.
+2t’.
+2t’’
+2t’’
+2v’.
+2v’.
+2v’’
+2v’’
+2w’
+2w’
+2x’
+2x’
+2z’.
+2z’.
+2z’’
+2z’’
 .a3p2n
 .anti1
 .anti3m2n
 .bio1
 .ca4p3s
 .circu2m1
-.contro1
-.di2s3cine
-.e2x1eu
+.co1o2p
+.di2s3
+.e2x1e
+.ex2tra3
 .fran2k3
 .free3
 .li3p2sa
@@ -73,8 +134,9 @@
 .poli3p2
 .pre1
 .p2s
+.re1ac
 .re1i2scr
-.sha2re3
+.tran2s3ac
 .tran2s3c
 .tran2s3d
 .tran2s3l
@@ -86,21 +148,18 @@
 .su2b3r
 .wa2g3n
 .wel2t1
-2’2
-2’2
 a1ia
 a1ie
 a1io
 a1iu
 a1uo
-a1ya
 2at.
 e1iu
 e2w
-o1ia
-o1ie
-o1io
-o1iu
+o2a
+o2e
+o2i
+o2u
 1b
 2bb
 2bc
@@ -115,13 +174,14 @@ o1iu
 b2l
 b2r
 2b.
-2b’
-2b’
 1c
 2cb
 2cc
+c2c.
 2cd
 2cf
+c2j
+2cj.
 2ck
 2cm
 2cn
@@ -132,23 +192,18 @@ b2r
 2chh
 c2h
 2ch.
-2ch’.
-2ch’.
-2ch’’.
-2ch’’.
 2chb
 ch2r
 2chn
 c2l
 c2r
 2c.
-2c’
-2c’
 .c2
 1d
 2db
 2dd
 2dg
+d2h
 2dl
 2dm
 2dn
@@ -159,8 +214,6 @@ d2r
 2dv
 2dw
 2d.
-2d’
-2d’
 .d2
 1f
 2fb
@@ -172,17 +225,18 @@ f2r
 2fs
 2ft
 2f.
-2f’
-2f’
 1g
 2gb
 2gd
 2gf
 2gg
+g2g.
 g2h
+g2j
 g2l
 2gm
 g2n
+2gn.
 2gp
 g2r
 2gs
@@ -192,8 +246,6 @@ g2r
 2gz
 2gh2t
 2g.
-2g’
-2g’
 1h
 2hb
 2hd
@@ -205,12 +257,8 @@ h2l
 2hr
 2hv
 2h.
-2h’
-2h’
 1j
 2j.
-2j’
-2j’
 1k
 2kg
 2kf
@@ -222,8 +270,6 @@ k2r
 2ks
 2kt
 2k.
-2k’
-2k’
 1l
 2lb
 2lc
@@ -245,10 +291,6 @@ l2j
 2lw
 2lz
 2l.
-2l’.
-2l’.
-2l’’
-2l’’
 1m
 2mb
 2mc
@@ -264,8 +306,6 @@ l2j
 2mv
 2mw
 2m.
-2m’
-2m’
 1n
 2nb
 2nc
@@ -280,15 +320,15 @@ l2j
 2nq
 2nr
 2ns
+n2s.
 n2s3fer
 2nt
+n2t.
 2nv
 2nz
 n2g3n
 2nheit
 2n.
-2n’
-2n’
 1p
 2pd
 p2h
@@ -302,13 +342,9 @@ p2r
 2pt
 2pz
 2p.
-2p’
-2p’
 1q
 2qq
 2q.
-2q’
-2q’
 1r
 2rb
 2rc
@@ -331,48 +367,39 @@ r2t2s3
 2rw
 2rz
 2r.
-2r’
-2r’
-1s2
-2shm
-2sh.
-2sh’
-2sh’
-2s3s
-s4s3m
-2s3p2n
-2stb
-2stc
-2std
-2stf
-2stg
-2stm
-2stn
-2stp
-2sts
-2stt
-2stv
-2sz
+.s2
 4s.
-4s’.
-4s’.
-4s’’
-4s’’
+4ss.
+1s2
+2s3s
+2s3p2n
+2s4s3m
+2s2t.
+2s2tb
+2s2tc
+2s2td
+2s2tf
+2s2tm
+2s2tn
+2s2tp
+2s2ts
+2s2tt
+2s2tv
 1t
 2tb
 2tc
 2td
 2tf
-2tg
+t2g
 t2h
 t2l
 2tm
 2tn
 2tp
 t2r
-t2s
-3t2sch
+2t2s
 2tt
+t2t3m
 t2t3s
 2tv
 2tw
@@ -380,27 +407,19 @@ t2z
 2tzk
 tz2s
 2t.
-2t’.
-2t’.
-2t’’
-2t’’
+2ts.
 1v
 2vc
 v2l
 v2r
+2vs.
 2vv
 2v.
-2v’.
-2v’.
-2v’’
-2v’’
 1w
 w2h
 wa2r
 2w1y
 2w.
-2w’
-2w’
 1x
 2xb
 2xc
@@ -411,8 +430,6 @@ wa2r
 2xt
 2xw
 2x.
-2x’
-2x’
 y1ou
 y1i
 1z
@@ -421,15 +438,12 @@ y1i
 2zl
 2zn
 2zp
-2zt
+2zr
 2zs
+2zt
 2zv
 2zz
 2z.
-2z’.
-2z’.
-2z’’
-2z’’
 .z2
 </patterns>
 

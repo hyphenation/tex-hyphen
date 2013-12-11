@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
-<!-- Turkmen Hyphenation Patterns -->
+<!-- Turkmen hyphenation patterns -->
 
 <!-- (more info about the licence to be added later) -->
 
@@ -20,7 +20,7 @@
 <!-- For more information about UTF-8 hyphenation patterns for TeX and -->
 <!-- links to this file see -->
 <!-- http://www.tug.org/tex-hyphen/ -->
- 
+
 
 <hyphen-min before="2" after="2"/>
 
