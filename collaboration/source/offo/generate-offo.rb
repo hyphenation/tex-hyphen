@@ -132,7 +132,6 @@ languages = $l.list.sort{|a,b| a.code <=> b.code}
 $languages_info = File.open("#{$rel_path_offo}/info/languages-info.xml", 'w')
 $languages_info.puts '<?xml version="1.0" encoding="utf-8"?>'
 $languages_info.puts '<?xml-stylesheet type="text/xsl" href="languages-info.xsl"?>'
-$languages_info.puts '<!DOCTYPE languages-info PUBLIC "-//OFFO//DTD LANGUAGES INFO 1.0//EN" "languages-info.dtd">'
 $languages_info.puts '<languages-info>'
 
 languages.each do |language|

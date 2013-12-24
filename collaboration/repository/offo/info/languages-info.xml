@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="languages-info.xsl"?>
-<!DOCTYPE languages-info PUBLIC "-//OFFO//DTD LANGUAGES INFO 1.0//EN" "languages-info.dtd">
 <languages-info>
 <language>
 <name>afrikaans</name>
@@ -347,13 +346,13 @@
 <language>
 <name>serbianc</name>
 <tex-code>sh-cyrl</tex-code>
-<code>sh_Cyrl</code>
+<code>sr_Cyrl</code>
 <message>Serbian hyphenation patterns in Cyrillic script</message>
 </language>
 <language>
 <name>serbian</name>
 <tex-code>sh-latn</tex-code>
-<code>sh_Latn</code>
+<code>sr_Latn</code>
 <message>Serbian hyphenation patterns in Latin script</message>
 </language>
 <language>
