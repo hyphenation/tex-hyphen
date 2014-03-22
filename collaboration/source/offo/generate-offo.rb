@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # this file generates FOP XML Hyphenation Patterns
+# original author: Simon Pepping
 
 # use 'gem install unicode' if unicode is missing on your computer
 # require 'jcode'
