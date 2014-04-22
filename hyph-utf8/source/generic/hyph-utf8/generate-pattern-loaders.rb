@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# encoding: utf-8
 
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
