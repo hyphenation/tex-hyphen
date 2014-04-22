@@ -1066,8 +1066,8 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Italian hyphenation patterns",
 
-	"version"       => "4.8i",
-	"last_modified" => "2010-05-24",
+	"version"       => "4.9",
+	"last_modified" => "2014-04-22",
 	"type"          => "rules", # TODO: we might want to check that, but it seems unlikely that patgen was used
 	"authors"       => ["claudio_beccari"],
 	"licence"       => "LPPL", # Status: maintained!
