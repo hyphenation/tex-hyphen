@@ -11,7 +11,7 @@ $output_data_dir = "#{$path_root}/tex/generic/hyph-utf8/conversions"
 
 $encodings.each do |encoding|
 	# load encoding
-	e = Encoding.new(encoding)
+	e = HyphEncoding.new(encoding)
 
 	# open file
 	file_out = File.open("#{$output_data_dir}#{File::Separator}conv-utf8-#{encoding}.tex", "w")
@@ -99,7 +99,7 @@ $encodings = ["ec", "qx", "t2a", "lmc", "il2", "il3", "l7x"]
 
 $encodings.each do |encoding|
 	# load encoding
-	e = Encoding.new(encoding)
+	e = HyphEncoding.new(encoding)
 
 	# open file
 	file_out = File.open("#{$output_data_dir}#{File::Separator}conv-utf8-#{encoding}.tex", "w")
