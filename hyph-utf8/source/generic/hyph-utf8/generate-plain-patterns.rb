@@ -4,8 +4,6 @@
 # this file generates plain patterns (one-per-line) out of TeX source
 
 # use 'gem install unicode' if unicode is missing on your computer
-require 'jcode'
-require 'rubygems'
 require 'unicode'
 
 load 'languages.rb'
