@@ -117,7 +117,7 @@ end
 authors = {
 	"peter_heslin"        => ["Peter", "Heslin", nil, false, false],
 	"dimitrios_filippou"  => ["Dimitrios", "Filippou", "dfilipp{at}hotmail{dot}com", true, true],
-	"claudio_beccari"     => ["Claudio", "Beccari","claudio{dot}beccari{at}polito{dot}it", true, true],
+	"claudio_beccari"     => ["Claudio", "Beccari","claudio{dot}beccari{at}gmail{dot}com", true, true],
 	"juan_aguirregabiria" => ["Juan M.", "Aguirregabiria", "juanmari{dot}aguirregabiria{at}ehu.es", true, true],
 	"igor_marinovic"      => ["Igor", "Marinović", "marinowski{at}gmail.com", true, true],
 	"tilla_fick"          => ["Tilla", "Fick", "fick{dot}tilla{at}gmail{dot}com", true, true],
@@ -1189,16 +1189,15 @@ class Languages < Hash
 	"name" => "latin",
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
-	"use_old_patterns_comment" => "Old patterns support both EC & OT1 encodings at the same time.",
 	"filename_old_patterns" => "lahyph.tex",
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Latin hyphenation patterns",
 
-	"version"       => "3.2",
-	"last_modified" => "2010-06-01",
-	"type"          => "dictionary",
+	"version"       => "3.2a",
+	"last_modified" => "2014-06-04", # patterns (behaviour) last modified on 2010-06-01
+	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "LPPL",
 	"description_s" => "Latin hyphenation patterns",
@@ -1210,6 +1209,31 @@ class Languages < Hash
 		"lowercase 'v' written as a 'u' is also supported.  Apparently",
 		"there is no conflict between the patterns of modern Latin and",
 		"those of medieval Latin.",
+	],
+},
+# classiclatin
+{
+	"code" => "la-x-classic",
+	"name" => "classiclatin",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => nil,
+	"hyphenmin" => [2,2],
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "Classical Latin hyphenation patterns",
+
+	"version"       => "1.0",
+	"last_modified" => "2014-05-27",
+	"type"          => "rules",
+	"authors"       => [ "claudio_beccari" ],
+	"licence"       => "LPPL",
+	"description_s" => "Classical Latin hyphenation patterns",
+	"description_l" => [
+		#......................................................................#
+		"Hyphenation patterns for the Classical Latin in T1/EC and UTF-8",
+		"encodings. Classical Latin hyphenation patterns are different from",
+		"those of 'plain' Latin, the latter being more adapted to modern Latin.",
 	],
 },
 # lithuanian

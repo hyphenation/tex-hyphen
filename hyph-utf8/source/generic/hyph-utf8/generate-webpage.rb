@@ -10,14 +10,28 @@ $ctan_url = "http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph
 # TODO - make this a bit less hard-coded
 $path_tex_generic="../../../tex/generic"
 
+language_default = Language.new({
+	"code"      => "(default)",
+	"name"      => "english", "synonyms" => ["usenglish", "USenglish", "american"],
+	"hyphenmin" => [2,3],
+	"encoding"  => "ascii",
+	"type"      => "dictionary",
+	"authors"   => [ "donald_knuth" ],
+	"licence"   => "",
+})
+
 $l = Languages.new
+# add english to the list
+$l["default"] = language_default
 # TODO: should be singleton
 languages = $l.list.sort{|a,b| a.name <=> b.name}
 
 language_grouping = {
+	'english' => ['default', 'en-gb', 'en-us'],
+	'latin' => ['la', 'la-x-classic'],
 	'norwegian' => ['nb', 'nn'],
 	'german' => ['de-1901', 'de-1996','de-ch-1901'],
-	'mongolian' => ['mn-cyrl', 'mn-cyrl-x-2a'],
+	'mongolian' => ['mn-cyrl', 'mn-cyrl-x-lmc'],
 	'greek' => ['el-monoton', 'el-polyton'],
 	'ancientgreek' => ['grc', 'grc-x-ibycus'],
 	'chinese' => ['zh-latn-pinyin'],
@@ -32,6 +46,9 @@ language_grouping.each_value do |group|
 		language_used_in_group[code] = true
 	end
 end
+
+space_leading = "            "
+space_tr      = "  "
 
 # a hash with language name as key and array of languages as the value
 language_groups = Hash.new
@@ -58,12 +75,16 @@ language_groups.sort.each do |language_name,language_list|
 	first_line_printed = false
 	language_list.each do |language|
 		if language != nil then
+			puts "#{space_leading}<tr>"
+
+			line_content = ""
 			if not first_line_printed then
-				puts "<tr>\n\t<td><b>#{language_name.capitalize}</b></td>"
+				line_content = "<b>#{language_name.capitalize}</b>"
 				first_line_printed = true;
 			else
-				puts "<tr>\n\t<td>&nbsp;</td>"
+				line_content = "&nbsp;"
 			end
+			puts "#{space_leading}#{space_tr}<td>#{line_content}</td>"
 	
 			# synonyms
 			if language.synonyms != nil and language.synonyms.length > 0 then
@@ -71,7 +92,7 @@ language_groups.sort.each do |language_name,language_list|
 			else
 				synonyms=""
 			end
-			puts "\t<td>#{language.name}#{synonyms}</td>"
+			puts "#{space_leading}#{space_tr}<td>#{language.name}#{synonyms}</td>"
 	
 	#		if language.use_old_patterns == false then
 			if language.use_new_loader == true then
@@ -82,7 +103,7 @@ language_groups.sort.each do |language_name,language_list|
 				code = language.code
 			end
 			
-			puts "\t<td>#{code}</td>"
+			puts "#{space_leading}#{space_tr}<td>#{code}</td>"
 	
 			# lefthyphenmin/righthyphenmin
 			if language.hyphenmin == nil or language.hyphenmin.length == 0 then
@@ -95,7 +116,7 @@ language_groups.sort.each do |language_name,language_list|
 				lmin = language.hyphenmin[0]
 				rmin = language.hyphenmin[1]
 			end
-			puts "\t<td>(#{lmin},#{rmin})</td>"
+			puts "#{space_leading}#{space_tr}<td>(#{lmin},#{rmin})</td>"
 			# which file to use
 			if language.use_new_loader then
 				file = "loadhyph-#{language.code}.tex"
@@ -108,8 +129,8 @@ language_groups.sort.each do |language_name,language_list|
 			else
 				encoding = language.encoding.upcase
 			end
-			puts "\t<td>#{encoding}</td>"
-			puts "</tr>\n"
+			puts "#{space_leading}#{space_tr}<td>#{encoding}</td>"
+			puts "#{space_leading}</tr>\n"
 		end
 	end
 end
