@@ -10,6 +10,7 @@ languages = %w(as bn gu hi kn ml mr or pa ta te)
 
 languages.each do |language_code|
 	filename = "hyph_#{language_code}_IN.dic"
+	# git://git.sv.gnu.org/smc/hyphenation.git
 	url      = "http://git.savannah.gnu.org/cgit/smc/hyphenation.git/plain/#{language_code}_IN/#{filename}"
 	system("wget -N -c -P original #{url}")
 
