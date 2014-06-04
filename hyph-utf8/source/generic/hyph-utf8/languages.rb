@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Author
-	def intialize(name,surname,email,contacted1,contacted2)
+	def initialize(name,surname,email,contacted1,contacted2)
 		@name       = name
 		@surname    = surname
 		@email      = email
@@ -33,7 +33,10 @@ class Language
 		@description_s = language_hash["description_s"]
 		@description_l = language_hash["description_l"]
 		@version       = language_hash["version"]
-		
+
+		@licence = language_hash["licence"]
+		@authors = language_hash["authors"]
+
 		if @synonyms==nil then @synonyms = [] end
 	end
 
@@ -109,12 +112,18 @@ class Language
 	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns
 	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
 	attr_reader :description_s, :description_l, :version
+	attr_reader :licence, :authors
 	# this hack is needed for Serbian
 	attr_writer :code
 end
 
-
-authors = {
+class Authors < Hash
+	@@list = []
+	
+	def initialize
+		authors = {
+#authors = {
+	"donald_knuth"        => ["Donald", "Knuth", nil, false, false],
 	"peter_heslin"        => ["Peter", "Heslin", nil, false, false],
 	"dimitrios_filippou"  => ["Dimitrios", "Filippou", "dfilipp{at}hotmail{dot}com", true, true],
 	"claudio_beccari"     => ["Claudio", "Beccari","claudio{dot}beccari{at}gmail{dot}com", true, true],
@@ -151,7 +160,7 @@ authors = {
 	"sigitas_tolusis"     => ["Sigitas", "Tolusis", "sigitas{at}vtex{dot}lt", false, false],
 	"janis_vilims"        => ["Janis", "Vilims", "jvilims{at}apollo{dot}lv", false, false],
 	"joerg_knappen"       => ["Jörg", "Knappen", "knappen{at}vkpmzd{dot}kph{dot}uni-mainz{dot}de", false, false], # TODO From id patterns; obviously there must be some more recent address for him
-	"medeni_semde"        => ["Medeni", "Shemdê", nil, false, false],
+	"medeni_shemde"        => ["Medeni", "Shemdê", nil, false, false],
 	"terry_mart"          => ["Terry", "Mart", "mart{at}kph{dot}uni-mainz{dot}de", false, false],
 	"jorgen_pind"         => ["Jorgen", "Pind", "jorgen{at}lexis{dot}hi{dot}is", false, false],
 	"marteinn_sverrisson" => ["Marteinn", "Sverrisson", nil, false, false],
@@ -179,9 +188,19 @@ authors = {
 	"rene_bastian"        => ["René", "Bastian", nil, false, false], # TODO make contact
 	"daniel_flipo"        => ["Daniel", "Flipo", nil, false, false], # TODO make contact
 	"bernard_gaulle"      => ["Bernard", "Gaulle", nil, false, false], # Deceased...
-	"theppitak_karoonboonyanan" => ["Theppitak", "Karoonboonyanan" "thep{at}linux{dot}thai{dot}net", true, true],
+	"theppitak_karoonboonyanan" => ["Theppitak", "Karoonboonyanan", "thep{at}linux{dot}thai{dot}net", true, true],
 	"levan_shoshiashvili" => ["Levan", "Shoshiashvili", "shoshia{at}hotmail{dot}com", true, true],
+	"javier_mugica"       => ["Javier", "Múgica", "javier{at}digi21{dot}eu", true, true],
+	"georgi_boshnakov"    => ["Georgi", "Boshnakov", "georgi{dot}boshnakov{at}manchester{dot}ac{dot}uk", true, true],
 }
+#
+		authors.each do |a|
+			author = Author.new(a[1][0], a[1][1], a[1][2], a[1][3], a[1][4])
+			@@list.push(author)
+			self[a[0]] = author
+		end
+	end
+end
 
 
 # "use_new_loader"
@@ -1710,7 +1729,7 @@ class Languages < Hash
 	"version"       => "1.7",
 	"last_modified" => "2008-06",
 	"type"          => "pattern",
-	"authors"       => [ "" ],
+	"authors"       => [ "georgi_boshnakov" ],
 	"licence"       => "LPPL",
 	"description_s" => "Bulgarian hyphenation patterns",
 	"description_l" => [

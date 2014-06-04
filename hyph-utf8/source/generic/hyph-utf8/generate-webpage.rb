@@ -26,6 +26,8 @@ $l["default"] = language_default
 # TODO: should be singleton
 languages = $l.list.sort{|a,b| a.name <=> b.name}
 
+$a = Authors.new
+
 language_grouping = {
 	'english' => ['default', 'en-gb', 'en-us'],
 	'latin' => ['la', 'la-x-classic'],
@@ -130,6 +132,25 @@ language_groups.sort.each do |language_name,language_list|
 				encoding = language.encoding.upcase
 			end
 			puts "#{space_leading}#{space_tr}<td>#{encoding}</td>"
+
+			# licence
+			licence = language.licence
+			puts "#{space_leading}#{space_tr}<td>#{licence}</td>"
+
+			authors = []
+			if language.authors != nil then
+				language.authors.each do |a|
+					author = $a[a]
+					if author != nil then
+						authors.push("#{author.name} #{author.surname}")
+					else
+						puts "author is nil!!!"
+					end
+				end
+			end
+			puts "#{space_leading}#{space_tr}<td>#{authors.join('<br/>')}</td>"
+
+			# finish the language definition
 			puts "#{space_leading}</tr>\n"
 		end
 	end
