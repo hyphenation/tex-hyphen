@@ -2,54 +2,228 @@
 \setupbodyfont[antykwa-poltawskiego,10pt]
 
 \setuphead
-	[subject]
-	[style=\bfc]
+	[section]
+	[style=\bfc,numberstyle=\bfc]
 \setuphead
-	[subsubject]
-	[style=\bfb]
+	[subsection]
+	[style=\bfb,numberstyle=\bfb]
+\setuphead
+	[subsubsection]
+	[style=\bfa,numberstyle=\bfa]
+\setuphead
+	[title]
+	[style=\bfd]
 \setuppagenumbering
-	[location={footer}]
+	[location={footer,right},style=\os]
 \setuplayout
-	[backspace=2cm,width=middle,
+	[backspace=1in,width=middle,
 	 header=0pt,headerdistance=0pt,height=24.5cm]
+
+\def\sc{\addff{smallcaps}}
+\def\os{\addff{oldstyle}}
 
 \def\eTeX{ε-\TeX}
 % TODO
 \def\XeLaTeX{Xe\LaTeX}
 \def\LuaLaTeX{Lua\LaTeX}
+\def\pTeX{p\TeX}
+
+\definecolor
+	[verylightgray]
+	[s=.95]
+\defineframedtext
+	[framedCODE]
+	[frame=off,
+	 strut=yes,
+	 offset=2mm,
+	 width=.9\textwidth,
+	 location=middle,
+	 background=color,
+	 backgroundcolor=verylightgray]
+\definetyping
+	[TEX]
+	[option=TEX,
+	 before={\startframedCODE},
+	 after={\stopframedCODE}]
 
 \starttext
 
-\centerline{\tt\bfc hyph-utf8}
+\title{The {\tt hyph-utf8} package and hyphenation with \TeX}
 
 \blank[big]
 
-\centerline{Mojca Miklavec, Manuel Pégourié-Gonnard, Élie Roux, Khaled Hosny (current maintainers)}
-\centerline{Arthur Reutenauer (no longer active on hyph-utf8)}
+\startnarrower
+{\bf Maintainers} of the {\tt hyph-utf8} package and patterns collection:
+\startnarrower
+\startitemize[packed,joinedup]
+\item {\it Mojca Miklavec, Arthur Reutenauer} (core, patterns)
+\item {\it Manuel Pégourié-Gonnard, Khaled Hosny} (\LuaTeX\ support)
+\item {\it Élie Roux} (no longer active)
+\stopitemize
+\stopnarrower
+\stopnarrower
 
-\blank[big]
+\blank
 
-\centerline{\currentdate[year,-,mm,-,dd]}
+\startnarrower
+{\bf Date}:
+\startnarrower
+\currentdate[year,-,mm,-,dd]
+\stopnarrower
+\stopnarrower
 
-\blank[3*big]
+\blank
 
-\startalignment[center]
-{\bf Abstract}
+\startnarrower
+{\bf Abstract}:
+\startnarrower\sl
+In 2008 all the existing hyphenation patterns from \TeX\ distributions have
+been collected in a single package {\tt hyph-utf8}, converted into UTF-8
+encoding and adapted for use in different \TeX\ engines. The patterns can be
+used directly by Unicode-aware engines such as \LuaTeX\ and \XeTeX, and there
+is a mechanism to convert the patterns to the appropriate 8-bit encoding when
+used with \pTeX, \pdfTeX\ or Knuth's \TeX.
+\stopnarrower
+\stopnarrower
 
-The {\tt hyph-utf8} package gathers all the existing hyphenation patterns for
-\TEX, converted to UTF-8.  They can be used directly by UTF-8-aware \TEX{}
-engines such as \LUATEX{} and \XETEX, and there is a mechanism to convert the
-patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
+\blank
 
-\stopalignment
+\startnarrower
+{\bf Table of Contents}:
+\blank
+\startnarrower
+\setuplist[section]      [width=10mm,textstyle=\bf\sc,numberstyle=\bf\os,pagestyle=\os]
+\setuplist[subsection]   [width=15mm,textstyle=normal,numberstyle=\os,pagestyle=\os]
+\setuplist[subsubsection][distance=20mm,headnumber=no,textstyle=italic,pagestyle=\os]
 
-\subject{List of supported languages}
+\placecontent[criterium=all,alternative=c]
+\stopnarrower
+\stopnarrower
+
+\page
+\section{Using hyphenation patterns}
+
+\subsection{Plain \TeX}
+
+In engines that support \eTeX\ you can select the desired hyphenation patterns with:
+\startTEX
+\uselanguage{langname}
+\stopTEX
+where \type{langname} is the string identifying a particular hyphenation file in \type{language.def} (see Section \in[sec:languages]).
+
+\subsection{\LaTeX}
+
+\subsubsection{\LaTeX\ with Babel}
+
+You can switch the language in \LaTeX\ with:
+
+\startTEX
+\usepackage[languagename]{babel}
+\stopTEX
+
+In 8-bit engines you also need to make sure that you load the proper font encoding which supports all the characters used in the language of your choice, for example:
+\startTEX
+\usepackage[T1]{fontenc}
+\stopTEX
+% TODO: reference to encoding list
+
+{\it N.B.:}\/ You can use Babel with any \TeX\ engine, however it has never been properly adapted to work well with Unicode engines. If you are using \XeTeX\ it is advisable to use Polyglossia instead.
+
+
+\subsubsection{\LaTeX\ with Polyglossia}
+
+Polyglossia should be the preferred choice when using \XeLaTeX. It doesn't support \LuaLaTeX\ yet, but it is planned to extend it in future.
+
+\startTEX
+\usepackage{polyglossia}
+\setmainlanguage[optional settings]{langname}
+\setotherlanguages{otherlangname}
+
+\begin[optional settings]{otherlangname} ... \end{otherlangname}
+\stopTEX
+
+See Polyglossia manual for extensive list of options.
+
+\subsubsection{Low-level commands}
+
+Since Babel's \type{hyphen.cfg} is built into the \LaTeX\ format, hyphenation patterns can be used without even loading Babel or Polyglossia. At the low-level this simply corresponds to defining
+\startTEX
+\language=\l@<langname>
+\stopTEX
+The user command is supposed to be
+\startTEX
+\hyphenrules{langname}
+\stopTEX
+or
+\startTEX
+\begin{hyphenrules}{langname} ... \end{hyphenrules}.
+\stopTEX
+and {\it should}\/ work with any flavour of \LaTeX, however we couldn't make it work.
+
+\subsection{\ConTeXt}
+
+\ConTeXt\ doesn't load patterns for all the language that {\tt hyph-utf8} provides. If you miss any language, please contact the mailing list. The general syntax for supported languages is the following:
+
+\startTEX
+% language of the main document
+\mainlanguage[language]
+
+% to switch to another language locally
+{\language[otherlanguage] language of some short fragment}
+\stopTEX
+
+You can use full language name or the two-letter language code.
+
+\subsubsection{\ConTeXt\ MkII}
+When using \ConTeXt\ MkII the EC/T1 font encoding is used by default already, but you might need to change the encoding when using Polish, languages written in Cyrillic scripts, etc. For example:
+
+\startTEX
+\usetypescript[iwona][qx]
+\setupbodyfont[iwona]
+\mainlanguage[polish]
+\stopTEX
+
+\ConTeXt\ loads hyphenation patterns in several encodings. The Czech or Slovak patterns can be used with both EC and IL2 font encoding for example. The right hyphenation patterns will be chosen based on current font encoding.
+
+\subsection{Some advanced examples}
+
+\subsubsection{Example for Polyglossia}
+
+\startTEX
+\usepackage{polyglossia}
+% the language used for main document
+\setmainlanguage{asturian}
+% American English with extended hyphenation patterns
+\setotherlanguage[variant=usmax]{english}
+% German with experimental patterns "ngerman-x-latest"
+\setotherlanguage[spelling=new,latesthyphen=true]{german}
+\setotherlanguages{spanish,catalan,french}
+
+\begin{document}
+
+Long Asturian text ... (Hyphenation for Asturian is not available,
+but polyglossia automatically falls back on Catalan for now,
+which seems to be a reasonable choice.)
+
+\begin{german}
+Deutscher Text ... (with the hyphenation patterns selected above:
+"ngerman-x-latest")
+\end{german}
+
+\begin[script=fraktur,spelling=old]{german}
+Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
+\end{german}
+
+\end{document}
+\stopTEX
+
+
+\section[sec:languages]{List of supported languages}
 
 \def\lanname#1{\hbox to \textwidth{\bf#1\hss}}
 \def\landata#1#2#3{\hbox to \textwidth{\hbox to 3mm{}\hbox to 6.5em{#1\hss}\hbox to 7em{#2}\hbox{#3}\hss} }
 % \def\landata#1#2#3{}
-
-\startcolumns[n=2]
+% \startcolumns[n=2]
 
 \lanname{English}
 \landata{-}{\bf english}{usenglish, USenglish, american}
@@ -87,7 +261,7 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 \lanname{Dutch}
 \landata{nl}{dutch}{}
 % \column
-\crlf\crlf\crlf\crlf
+% \crlf\crlf\crlf\crlf
 \lanname{Esperanto}
 \landata{eo}{esperanto}{}
 \lanname{Estonian}
@@ -156,7 +330,7 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 \landata{pl}{polish}{}
 \lanname{Piedmontese}
 \landata{pms}{piedmontese}{}
-\crlf\crlf
+% \crlf\crlf
 \lanname{Portuguese}
 \landata{pt}{portuguese}{portuges}
 \lanname{Romanian}
@@ -199,9 +373,9 @@ patterns to some 8-bit encoding when used with \PDFTEX{} or Knuth's \TEX.
 \lanname{Welsh}
 \landata{cy}{welsh}{}
 \crlf\crlf
-\stopcolumns
+% \stopcolumns
 
-\blank[3*big]
+\blank[2*big]
 
 Babel defines a few more synonyms (which consequently only work in \LaTeX):
 
@@ -212,105 +386,6 @@ Babel defines a few more synonyms (which consequently only work in \LaTeX):
 \lansyn{ngerman}{naustrian}
 \lansyn{portuguese}{brazilian, brazil}
 
-\page
-
-\subject{Using hyphenation patterns}
-
-\subsubject{Plain \TeX}
-
-In engines that support \eTeX\ you can select the desired hyphenation patterns with:
-\startTEX
-\uselanguage{langname}
-\stopTEX
-where \type{langname} is the string identifying a particular hyphenation file in \type{language.dat} and can be taken from table on the first two pages.
-% TODO: create a proper table and reference it
-
-\subsubject{\LaTeX}
-
-Since Babel's \type{hyphen.cfg} is built in the \XeLaTeX format, hyphenation patterns can be used without even loading Babel or Polyglossia. At the low-level this simply corresponds to defining
-\startTEX
-   \language=\l@<langname>
-\stopTEX
-The user command is supposed to be
-\startTEX
-    \hyphenrules{langname}
-\stopTEX
-or
-\startTEX
-   \begin{hyphenrules}{langname} ... \end{hyphenrules}.
-\stopTEX
-and should work with any flavour of \LaTeX, however we couldn't make it work.
-
-\subsubsubject{\LaTeX\ with Babel}
-
-You can use Babel with any \TeX\ engine, however it is currently unmaintained and has never been adapted to work well with Unicode engines. If you are using \XeTeX\ please use Polyglossia instead.
-
-\startTEX
-\usepackage[languagename]{babel}
-\stopTEX
-
-\subsubsubject{\LaTeX\ with Polyglossia}
-
-Polyglossia should be the preferred choice when using \XeLaTeX. It doesn't support \LuaLaTeX\ yet, but it is planned to extend it in future.
-
-\startTEX
-\usepackage{polyglossia}
-\setmainlanguage[optional settings]{langname}
-\setotherlanguages{otherlangname}
-
-\begin[optional settings]{otherlangname} ... \end{otherlangname}
-\stopTEX
-
-See Polyglossia manual for extensive list of options.
-
-\subsubject{\ConTeXt}
-
-ConTeXt doesn't load patterns for all the language that hyph-utf8 provides. If you miss any language, please contact the mailing list. The general syntax for supported languages is the following:
-
-\startTEX
-% language of the main document
-\mainlanguage[language]
-
-{\language[otherlanguage] language of some short fragment}
-\stopTEX
-
-You can use full language name or language code. When using \ConTeXt\ MKII you might need to select the appropriate font encoding for Cyrillic scripts, Polish and some other languages:
-
-\startTEX
-\usetypescript[iwona][qx]
-\setupbodyfont[iwona]
-\mainlanguage[polish]
-\stopTEX
-
-\ConTeXt\ loads hyphenation patterns in several encodings, so that you can for example use Czech patterns with either \type{ec} or \type{il2} font encodings. The right hyphenation patterns will be chosen based on current font encoding.
-
-\subsubject{More examples}
-
-\subsubsubject{Example for Polyglossia}
-
-\startTEX
-\usepackage{polyglossia}
-% the language used for main document
-\setmainlanguage{asturian}
-% American English with extended hyphenation patterns
-\setotherlanguage[variant=usmax]{english}
-% German with experimental patterns "ngerman-x-latest"
-\setotherlanguage[spelling=new,latesthyphen=true]{german}
-\setotherlanguages{spanish,catalan,french}
-
-\begin{document}
-
-Long Asturian text ... (Hyphenation for Asturian is not available, but polyglossia automatically falls back on Catalan for now, which seems to be a reasonable choice.)
-
-\begin{german}
-Deutscher Text ... (with the hyphenation patterns selected above: "ngerman-x-latest")
-\end{german}
-
-\begin[script=fraktur,spelling=old]{german}
-Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
-\end{german}
-
-\end{document}
-\stopTEX
+% TODO: bibliography
 
 \stoptext
