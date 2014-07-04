@@ -162,7 +162,7 @@ class Authors < Hash
 	# email doesn't work
 	"piet_tutelaers"      => ["Piet", "Tutelaers", "p{dot}t{dot}h{dot}tutelaers{at}tue{dot}nl", false, false],
 	"vytas_statulevicius" => ["Vytas", "Statulevičius", "vytas{at}vtex{dot}nl", false, false],
-	"sigitas_tolusis"     => ["Sigitas", "Tolusis", "sigitas{at}vtex{dot}lt", false, false],
+	"sigitas_tolusis"     => ["Sigitas", "Tolušis", "sigitas{at}vtex{dot}lt", false, false],
 	"janis_vilims"        => ["Janis", "Vilims", "jvilims{at}apollo{dot}lv", false, false],
 	"joerg_knappen"       => ["Jörg", "Knappen", "jknappen{at}web{dot}de", true, true],
 	"medeni_shemde"        => ["Medeni", "Shemdê", nil, false, false],
