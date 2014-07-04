@@ -39,7 +39,7 @@ language_grouping = {
 	'chinese' => ['zh-latn-pinyin'],
 	# TODO - until someone tells what to do
 	#'serbian' => ['sr-latn', 'sr-cyrl'],
-	'serbian' => ['sh-latn'],
+	'serbian' => ['sh-latn', 'sh-cyrl'],
 }
 
 language_used_in_group = Hash.new
@@ -59,8 +59,6 @@ languages.each do |language|
 	# temporary remove cyrilic serbian until someone explains what is needed
 	if language.code == 'sr-cyrl' then
 		languages.delete(language)
-	elsif language.code == 'sh-latn' then
-		language.code = 'sr-latn'
 	elsif language_used_in_group[language.code] == nil then
 		language_groups[language.name] = [language]
 	end
