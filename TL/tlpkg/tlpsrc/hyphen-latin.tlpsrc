@@ -15,4 +15,15 @@ execute AddHyphen \
 	file=loadhyph-la.tex \
 	file_patterns=hyph-la.pat.txt \
 	file_exceptions=
+shortdesc Classical Latin hyphenation patterns.
+longdesc Hyphenation patterns for the Classical Latin in T1/EC and UTF-8
+longdesc encodings. Classical Latin hyphenation patterns are different from
+longdesc those of 'plain' Latin, the latter being more adapted to modern Latin.
+execute AddHyphen \
+	name=classiclatin \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-la-x-classic.tex \
+	file_patterns=hyph-la-x-classic.pat.txt \
+	file_exceptions=
 
