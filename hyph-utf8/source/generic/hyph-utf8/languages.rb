@@ -200,7 +200,7 @@ class Authors < Hash
 	"rene_bastian"        => ["René", "Bastian", nil, false, false], # TODO make contact
 	"daniel_flipo"        => ["Daniel", "Flipo", nil, false, false], # TODO make contact
 	"bernard_gaulle"      => ["Bernard", "Gaulle", nil, false, false], # Deceased...
-	"theppitak_karoonboonyanan" => ["Theppitak", "Karoonboonyanan", "thep{at}linux{dot}thai{dot}net", true, true],
+	"theppitak_karoonboonyanan" => ["Theppitak", "Karoonboonyanan", "theppitak{at}gmail{dot}com", true, true],
 	"levan_shoshiashvili" => ["Levan", "Shoshiashvili", "shoshia{at}hotmail{dot}com", true, true],
 	# email doesn't work
 	"javier_mugica"       => ["Javier", "Múgica", "javier{at}digi21{dot}eu", true, true],
@@ -1967,7 +1967,7 @@ class Languages < Hash
 	"message" => "Thai hyphenation patterns",
 
 	"version"       => nil,
-	"last_modified" => "2013-10-28",
+	"last_modified" => "2014-08-22",
 	"type"          => "dictionary",
 	"authors"       => [ "theppitak_karoonboonyanan" ],
 	"licence"       => "LPPL",
