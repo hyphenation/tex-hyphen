@@ -1,0 +1,28 @@
+2014-08-22  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Update dict from latest libthai SVN.
+
+	* tdict-city.txt:
+	* tdict-common.txt:
+	* tdict-district.txt:
+	* tdict-geo.txt:
+	* tdict-ict.txt:
+	* tdict-lang-ethnic.txt:
+	* tdict-proper.txt:
+	* tdict-science.txt:
+	* tdict-spell.txt:
+	* tdict-std-compound.txt:
+	* tdict-std.txt:
+	  - Update dict from libthai SVN.
+
+	* hyphen/thai-exc.pat:
+	  + Remove forcing pattern for:
+	    - 'ชิ-ชิ', 'มิต~ซู~บิ-ชิ', 'โอ~อิ-ชิ', but not 'ว-ชิร*', 'อัส~ส-ชิ', 'เผ-ชิญ'
+	    (It caused conflict with generated one.)
+	  + Add forcing exceptions for:
+	    - อิศ-รา
+
+2013-10-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add source for Thai hyphenation dictionary.
+
