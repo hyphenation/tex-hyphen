@@ -7,7 +7,6 @@ fF
 gG
 hH
 iI
-jJ
 kK
 lL
 mM
@@ -19,9 +18,6 @@ rR
 sS
 tT
 uU
-vV
 xX
 yY
 zZ
-æÆ
-œŒ

@@ -5,8 +5,8 @@ Classical Latin hyphenation patterns
 %
 %                  ********** hyph-la-x-classic.tex *************
 %
-% Copyright 1999-2014 Claudio Beccari
-%                [latin hyphenation patterns]
+% Copyright 2014 Claudio Beccari
+%                [classical latin hyphenation patterns]
 %
 % -----------------------------------------------------------------
 % IMPORTANT NOTICE:
@@ -17,23 +17,23 @@ Classical Latin hyphenation patterns
 % version 1 of the License, or any later version.
 % -----------------------------------------------------------------
 %
-% Patterns for the classical Latin language mainly in modern spelling
-% (u when u is needed and v when v is needed); medieval spelling
-% with the ligatures \ae and \oe  and the (uncial) lowercase `v'
-% written as a `u' is also supported; apparently there is no conflict
-% between the patterns of modern  Latin and those of medieval Latin.
+% Patterns for the classical Latin language; classical spelling
+% with the (uncial) lowercase `v' written as a `u' is supported.
 % Classical Latin hyphenation patterns are different from those of
 % "plain" Latin, the latter being more adapted to modern Latin.
 %
 %
 % Prepared by  Claudio Beccari
-%              Torino, Italy
-%              e-mail claudio dot beccari at gmail.com
+%              e-mail claudio dot beccari at gmail dot com
 %
-% \versionnumber{1.0}   \versiondate{2014/05/27}
+% Aknowledgements: This file has been substantially upgraded with
+% the contributions of Francisco Gracia. 
+%
+% \versionnumber{1.2}   \versiondate{2014/10/06}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% \message{Classical Latin Hyphenation Patterns Version 1.0 <2014/05/27>}
+% \message{Classical Latin hyphenation patterns `hyph-la-x-classic'
+% Version 1.2 <2014/10/06>}
 %
 %
