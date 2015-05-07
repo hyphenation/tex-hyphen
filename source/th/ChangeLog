@@ -1,3 +1,17 @@
+2015-05-07  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Update dict from latest libthai SVN.
+
+	* hyphen/tdict-city.txt:
+	* hyphen/tdict-collection.txt:
+	* hyphen/tdict-common.txt:
+	* hyphen/tdict-country.txt:
+	* hyphen/tdict-ict.txt:
+	* hyphen/tdict-proper.txt:
+	* hyphen/tdict-science.txt:
+	* hyphen/tdict-spell.txt:
+	  - Update dict from libthai SVN.
+
 2014-08-22  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Update dict from latest libthai SVN.
