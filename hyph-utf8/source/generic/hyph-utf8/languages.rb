@@ -1967,7 +1967,7 @@ class Languages < Hash
 	"message" => "Thai hyphenation patterns",
 
 	"version"       => nil,
-	"last_modified" => "2014-08-22",
+	"last_modified" => "2015-05-07",
 	"type"          => "dictionary",
 	"authors"       => [ "theppitak_karoonboonyanan" ],
 	"licence"       => "LPPL",
