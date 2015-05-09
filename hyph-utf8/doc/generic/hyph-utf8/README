@@ -7,7 +7,7 @@ This is HYPH-UTF8 package which contains:
 - converters from UTF-8 into EC/T1, QX, part of ISO Latin 3, T2A & LMC
 - some scripts to assist with auto-generating the files
 
-Modificatios were needed in order to support native UTF-8 engines,
+Modifications were needed in order to support native UTF-8 engines,
 but functionality (hopefully) didn't change in any way, at least not intentionally.
 The patterns themselves are no longer stand-alone; at least for 8-bit engines
 you need to use loadhyph-foo.tex (which will load the patterns) instead.
@@ -54,7 +54,7 @@ For more information see
    http://tug.org/tex-hyphen
 
 
-Copyright 2008-2012 by TUG
+Copyright 2008-2015 by TUG
 
 The licence for hyph-foo.tex: Respect licences of original authors.
 The licence for the rest: Use common sense when modifying and coordinate your work.
