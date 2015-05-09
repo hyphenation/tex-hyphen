@@ -1,6 +1,10 @@
 This is the central repository for all hyphenation patterns (that we know of).
 These patterns are encoded in UTF-8, but can also be used with 8-bit TeX
 engines such as pdfTeX with the help of mechanisms provided with the package.
+It is meant to be a low-level package and is integrated with all major TeX
+distributions (TeX Live, MiKTeX, W32TeX); most TeX users should thus not
+concern themselves with this package, unless of course they’re working on the
+hyphenation patterns themselves.
 
 If you are an author of hyphenation patterns and want to add or update them,
 please contact the maintainers through the mailing list: tex-hyphen@tug.org
