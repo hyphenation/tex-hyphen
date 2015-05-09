@@ -8,7 +8,6 @@ cd $TMPDIR
 svn co svn://tug.org/texhyphen/trunk/hyph-utf8
 find . -name .svn -exec rm -rf {} \;
 cd hyph-utf8
-ln -s doc/generic/hyph-utf8/README .
 ln -s doc/generic/hyph-utf8/CHANGES .
 cd ..
 zip -ry hyph-utf8.zip hyph-utf8
