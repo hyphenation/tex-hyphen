@@ -8,5 +8,5 @@ hyphenation patterns themselves.
 
 If you are an author of hyphenation patterns and want to add or update them,
 please contact the maintainers through the mailing list: tex-hyphen@tug.org
-You can also visit the home page at http://www.hyphenation.org for more
+You can also visit the [TeX hyphenation page](http://www.hyphenation.org) for more
 information and technical details.
