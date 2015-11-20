@@ -784,11 +784,11 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Spanish hyphenation patterns",
 
-	"version"       => "4.6",
-	"last_modified" => "2010-05-18",
+	"version"       => "4.7",
+	"last_modified" => "2015-11-12",
 	"type"          => "dictionary",
 	"authors"       => [ "javier_bezos" ],
-	"licence"       => "LPPL",
+	"licence"       => "MIT/X11",
 	"description_s" => "Spanish hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
