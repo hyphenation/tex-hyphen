@@ -1,3 +1,11 @@
+Spanish hyphenation patterns
+
+(more info about the licence to be added later)
+
+% GUIONIZADO DE PALABRAS
+% ~~~~~~~~~~~~~~~~~~~~~
+% hyph-es.tex 4.7
+%
 % License: MIT/X11
 %
 % Copyright (c) 1993, 1997 Javier Bezos
@@ -30,3 +38,9 @@
 % patterns, (c) by Francesc Carmona
 % 
 % 2015-11-12
+% 
+% _____________________________________________________________
+% Javier Bezos                | http://www.cervantex.es/
+% .............................................................
+% TeX y tipografia            | http://www.tex-tipografia.com/
+
