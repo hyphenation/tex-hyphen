@@ -886,7 +886,7 @@ class Languages < Hash
 	"last_modified" => "2004-04-13",
 	"type"          => "dictionary",
 	"authors"       => [ "een_saar" ],
-	"licence"       => "LPPL",
+	"licence"       => "LPPL", # Now dual MIT-LPPL; how do we write that?
 	"description_s" => "Estonian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
