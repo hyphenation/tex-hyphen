@@ -1832,11 +1832,11 @@ class Languages < Hash
 	"message" => "Assamese hyphenation patterns",
 
 	# this is true for all Indic patterns
-	"version"       => "0.5.3",
-	"last_modified" => "2010-05-01",
+	"version"       => "0.9.0",
+	"last_modified" => "2016-01-16",
 	"type"          => "rules",
 	"authors"       => ["santhosh_thottingal"],
-	"licence"       => "LGPL",
+	"licence"       => "MIT",
 	"description_s" => "Indic hyphenation patterns",
 	"description_l" => [
 		#......................................................................#

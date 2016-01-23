@@ -11,15 +11,16 @@ languages = %w(as bn gu hi kn ml mr or pa ta te)
 languages.each do |language_code|
 	filename = "hyph_#{language_code}_IN.dic"
 	# git://git.sv.gnu.org/smc/hyphenation.git
-	url      = "http://git.savannah.gnu.org/cgit/smc/hyphenation.git/plain/#{language_code}_IN/#{filename}"
+  # url      = "http://git.savannah.gnu.org/cgit/smc/hyphenation.git/plain/#{language_code}_IN/#{filename}"
+	url      = "https://raw.githubusercontent.com/santhoshtr/hyphenation/master/#{language_code}_IN/#{filename}"
 	system("wget -N -c -P original #{url}")
 
 	lines = IO.readlines("original/#{filename}", '.').join("").
 # a few temporary patches - remove double newline at the end of file, remove trailing spaces, remove double "GENERAL RULE" comment in the file
-		gsub(/\n\n$/, "\n").gsub(/(\s*)\n/, "\n").
-		gsub(/(% GENERAL RULE)\n% GENERAL RULE/, '\1').
+		gsub(/\n\n$/, "\n").gsub(/[ ]*\n/, "\n").
+		# gsub(/(% GENERAL RULE)\n% GENERAL RULE/, '\1').
 # end of temporary patches
-		gsub(/UTF-8/, "% These patterns originate from\n%    http://git.savannah.gnu.org/cgit/smc/hyphenation.git/tree/)\n% and have been adapted for hyph-utf8 (for use in TeX).\n%").
+		gsub(/UTF-8/, "% These patterns originate from\n%    https://github.com/santhoshtr/hyphenation/)\n% and have been adapted for hyph-utf8 (for use in TeX).\n%").
 		gsub(/% GENERAL RULE/, "\\patterns{\n% GENERAL RULE") + "}\n"
 
 	filename_out = "#{path}/hyph-#{language_code}.tex"
