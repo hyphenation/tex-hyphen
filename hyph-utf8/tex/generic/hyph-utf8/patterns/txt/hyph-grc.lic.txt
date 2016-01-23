@@ -1,7 +1,3 @@
-Hyphenation patterns for Ancient Greek
-
-(more info about the licence to be added later)
-
 % ****************************************************************
 %
 % File name: hyph-grc.tex

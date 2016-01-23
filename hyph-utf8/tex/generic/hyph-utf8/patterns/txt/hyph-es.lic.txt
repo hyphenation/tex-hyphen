@@ -1,7 +1,3 @@
-Spanish hyphenation patterns
-
-(more info about the licence to be added later)
-
 % GUIONIZADO DE PALABRAS
 % ~~~~~~~~~~~~~~~~~~~~~
 % hyph-es.tex 4.7

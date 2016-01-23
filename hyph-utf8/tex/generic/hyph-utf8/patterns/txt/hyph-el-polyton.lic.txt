@@ -1,7 +1,3 @@
-Hyphenation patterns for multi-accent (polytonic) Modern Greek
-
-(more info about the licence to be added later)
-
 % ****************************************************************
 %
 % File name: hyph-el-polyton.tex

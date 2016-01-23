@@ -886,7 +886,7 @@ class Languages < Hash
 	"last_modified" => "2004-04-13",
 	"type"          => "dictionary",
 	"authors"       => [ "een_saar" ],
-	"licence"       => "LPPL", # Now dual MIT-LPPL; how do we write that?
+	"licence"       => "LPPL|MIT", # Dual MIT-LPPL
 	"description_s" => "Estonian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
@@ -1386,7 +1386,7 @@ class Languages < Hash
 	"last_modified" => "1996-07-21",
 	"type"          => "rules", # TODO: we could create a generating script
 	"authors"       => ["pedro_j_de_rezende", "j_joao_dias_almeida"],
-	"licence"       => "LPPL",
+	"licence"       => "BSD-3",
 	"description_s" => "Portuguese hyphenation patterns",
 	"description_l" => [
 		#......................................................................#

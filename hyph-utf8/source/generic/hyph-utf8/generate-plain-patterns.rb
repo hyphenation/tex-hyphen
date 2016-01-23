@@ -95,7 +95,7 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 			end
 		end
 		# licence and readme
-		$file_inf.puts "#{language.message}\n\n(more info about the licence to be added later)\n\n"
+		# $file_inf.puts "#{language.message}\n\n(more info about the licence to be added later)\n\n"
 		$file_inf.puts language.get_comments_and_licence
 
 		$file_pat.close

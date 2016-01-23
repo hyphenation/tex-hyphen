@@ -1,7 +1,3 @@
-Latvian hyphenation patterns
-
-(more info about the licence to be added later)
-
 % This file is part if hyph-utf8 package and resulted from semi-manual
 % conversions of hyphenation patterns into UTF-8 in November 2008 by Mojca &
 % Arthur.

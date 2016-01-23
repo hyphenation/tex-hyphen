@@ -1,7 +1,3 @@
-Turkish hyphenation patterns
-
-(more info about the licence to be added later)
-
 % hyph-tr.tex
 %
 % Turkish hyphenation patterns

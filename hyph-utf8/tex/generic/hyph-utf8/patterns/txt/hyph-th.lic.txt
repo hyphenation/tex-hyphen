@@ -1,7 +1,3 @@
-Thai hyphenation patterns
-
-(more info about the licence to be added later)
-
 % Thai hyphenation patterns
 %
 % Copyright 2012-2013 Theppitak Karoonboonyanan <theppitak at gmail.com>

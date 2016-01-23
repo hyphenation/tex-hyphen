@@ -1,7 +1,3 @@
-Classical Latin hyphenation patterns
-
-(more info about the licence to be added later)
-
 %
 %                  ********** hyph-la-x-classic.tex *************
 %

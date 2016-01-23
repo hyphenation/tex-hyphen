@@ -1,7 +1,3 @@
-Piedmontese hyphenation patterns
-
-(more info about the licence to be added later)
-
 %  File hyph-pms.tex
 %
 % Piedmontese hyphenation patterns

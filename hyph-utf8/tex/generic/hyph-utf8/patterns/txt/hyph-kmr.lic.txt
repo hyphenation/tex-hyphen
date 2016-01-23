@@ -1,7 +1,3 @@
-Kurmanji hyphenation patterns (v. 1.0 2009/06/29 JKn and MSh)
-
-(more info about the licence to be added later)
-
 % hyph-kmr.tex
 %
 % Hyphenation patterns for Kurmanji (Northern Kurdish)

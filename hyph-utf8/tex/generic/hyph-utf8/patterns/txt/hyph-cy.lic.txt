@@ -1,7 +1,3 @@
-Welsh hyphenation patterns
-
-(more info about the licence to be added later)
-
 %% hyph-cy.tex, Welsh hyphenation patterns
 %% Copyright 1996 Yannis Haralambous
 %%     <yannis dat haralambous at telecom-bretagne dot eu>

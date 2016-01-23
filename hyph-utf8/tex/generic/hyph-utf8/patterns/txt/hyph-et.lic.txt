@@ -1,3 +1,9 @@
+% This file is part of hyph-utf8 package and resulted from
+% semi-manual conversions of hyphenation patterns into UTF-8 in June 2008.
+%
+% Source: eehyph.tex (2015-12-22)
+% Author: Een Saar <saar at aai dot ee>
+%------------------------------------------------------------------------------
 % Estonian hyphenation patterns (T1 encoding).
 % Copyright (c) 2004-2015 Enn Saar <saar at aai dot ee>
 %
@@ -36,3 +42,4 @@
 % The patterns were generated long ago by applying patgen to
 % an Estonian dictionary; a few patterns were added later manually 
 % to prohibit aa-bits type cases. 
+%

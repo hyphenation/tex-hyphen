@@ -1,7 +1,3 @@
-Italian hyphenation patterns
-
-(more info about the licence to be added later)
-
 % hyph-it.tex
 %
 % Italian hyphenation patterns

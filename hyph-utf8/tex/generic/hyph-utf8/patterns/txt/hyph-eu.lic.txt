@@ -1,7 +1,3 @@
-Basque hyphenation patterns
-
-(more info about the licence to be added later)
-
 % Hyphenation patterns for Basque.
 %
 % This file has first been written by Juan M. Aguirregabiria

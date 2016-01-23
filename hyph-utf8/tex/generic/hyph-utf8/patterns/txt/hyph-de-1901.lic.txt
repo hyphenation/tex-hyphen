@@ -1,7 +1,3 @@
-German hyphenation patterns (traditional orthography)
-
-(more info about the licence to be added later)
-
 % dehypht-x-2014-05-21.pat
 
 \message{German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2014-05-21 (WL)}

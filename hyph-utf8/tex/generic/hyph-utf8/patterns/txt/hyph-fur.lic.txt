@@ -1,7 +1,3 @@
-Friulan hyphenation patterns
-
-(more info about the licence to be added later)
-
 % hyph-fur.tex
 %
 % Friulan hyphenation patterns

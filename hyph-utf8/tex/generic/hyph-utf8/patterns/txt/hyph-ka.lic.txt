@@ -1,7 +1,3 @@
-Georgian hyphenation patterns
-
-(more info about the licence to be added later)
-
 % Georgian hyphenation paterns
 %
 % Author: Levan Shoshiashvili <shoshia at hotmail dot com>

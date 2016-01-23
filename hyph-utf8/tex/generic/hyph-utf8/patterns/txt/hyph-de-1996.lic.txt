@@ -1,7 +1,3 @@
-German hyphenation patterns (reformed orthography)
-
-(more info about the licence to be added later)
-
 % dehyphn-x-2014-05-21.pat
 
 \message{German Hyphenation Patterns (Reformed Orthography, 2006) `dehyphn-x' 2014-05-21 (WL)}

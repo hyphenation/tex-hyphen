@@ -1,7 +1,3 @@
-Turkmen hyphenation patterns
-
-(more info about the licence to be added later)
-
 % Hyphenation patterns for Turkmen (hyph-tk.tex)
 %
 % Author:  Nazar Annagurban <nazartm at gmail.com>

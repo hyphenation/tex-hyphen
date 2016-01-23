@@ -1,7 +1,3 @@
-Hyphenation patterns for uni-accent (monotonic) Modern Greek
-
-(more info about the licence to be added later)
-
 % ****************************************************************
 %
 % File name: hyph-el-monoton.tex

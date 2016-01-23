@@ -1,7 +1,3 @@
-Hungarian hyphenation patterns (v20110815)
-
-(more info about the licence to be added later)
-
 % from https://github.com/nagybence/huhyphn/
 % ------------------------------------------
 % Huhyphn - hungarian hyphenation patterns v20110815

@@ -1,7 +1,3 @@
-Armenian hyphenation patterns
-
-(more info about the licence to be added later)
-
 % Hyphenation patterns for Armenian.
 %
 % Written by Sahak Petrosyan <sahak at mit.edu>
