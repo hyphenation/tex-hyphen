@@ -982,7 +982,7 @@ class Languages < Hash
 	"last_modified" => "2010-05",
 	"type"          => "rules",
 	"authors"       => ["sahak_petrosyan"],
-	"licence"       => "LPGL",
+	"licence"       => "LGPL",
 	"description_s" => "Armenian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
