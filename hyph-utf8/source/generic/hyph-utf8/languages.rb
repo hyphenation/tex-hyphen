@@ -1344,6 +1344,32 @@ class Languages < Hash
 		"to their meaning."
 	],
 },
+# occitan
+{
+	"code" => "oc",
+	"name" => "occitan",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [2,2],
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "Occitan hyphenation patterns",
+
+	"version"       => "0.1",
+	"last_modified" => "2016-02-04",
+	"type"          => "rules",
+	"authors"       => [ "claudio_beccari" ],
+	"licence"       => "LPPL",
+	"description_s" => "Occitan hyphenation patterns",
+	"description_l" => [
+		#......................................................................#
+		"Hyphenation patterns for Occitan in T1/EC and UTF-8 encodings.",
+		"They are supposed to be valid for all the Occitan variants",
+		"spoken and written in the wide area called 'Occitanie' by the French.",
+		"It ranges from the Val d'Aran within Catalunya, to the South Western",
+		"Italian Alps encompassing the southern half of the French pentagon.",
+	],
+},
 # polish
 {
 	"code" => "pl",

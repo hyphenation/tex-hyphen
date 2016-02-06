@@ -1,0 +1,17 @@
+category TLCore
+depend hyphen-base
+depend hyph-utf8
+shortdesc Occitan hyphenation patterns.
+longdesc Hyphenation patterns for Occitan in T1/EC and UTF-8 encodings.
+longdesc They are supposed to be valid for all the Occitan variants
+longdesc spoken and written in the wide area called 'Occitanie' by the French.
+longdesc It ranges from the Val d'Aran within Catalunya, to the South Western
+longdesc Italian Alps encompassing the southern half of the French pentagon.
+execute AddHyphen \
+	name=occitan \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-oc.tex \
+	file_patterns=hyph-oc.pat.txt \
+	file_exceptions=
+
