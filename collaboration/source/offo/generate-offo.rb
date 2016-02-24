@@ -117,6 +117,7 @@ language_codes['en-gb']        = 'en_GB'
 language_codes['en-us']        = 'en'
 # hu patterns cause a stack overflow when compiled with FOP
 language_codes['hu']           = nil
+language_codes['la-x-classic'] = 'la_CL'
 language_codes['mn-cyrl']      = 'mn'
 language_codes['mn-cyrl-x-lmc'] = nil # no such pattern
 language_codes['mul-ethi']     = 'mul_ET'
