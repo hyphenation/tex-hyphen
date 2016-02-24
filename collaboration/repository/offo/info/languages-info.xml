@@ -236,6 +236,12 @@
 <message>Latin hyphenation patterns</message>
 </language>
 <language>
+<name>classiclatin</name>
+<tex-code>la-x-classic</tex-code>
+<code>la_CL</code>
+<message>Classical Latin hyphenation patterns</message>
+</language>
+<language>
 <name>lithuanian</name>
 <tex-code>lt</tex-code>
 <code>lt</code>
@@ -288,6 +294,12 @@
 <tex-code>nn</tex-code>
 <code>nn</code>
 <message>Norwegian Nynorsk hyphenation patterns</message>
+</language>
+<language>
+<name>occitan</name>
+<tex-code>oc</tex-code>
+<code>oc</code>
+<message>Occitan hyphenation patterns</message>
 </language>
 <language>
 <name>oriya</name>

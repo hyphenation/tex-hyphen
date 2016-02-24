@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
-<!-- Italian hyphenation patterns -->
-
-<!-- (more info about the licence to be added later) -->
-
 <!-- hyph-it.tex -->
 
 <!-- Italian hyphenation patterns -->
@@ -33,7 +29,7 @@
 
 <!-- This work consists of the single file hyph-it.tex. -->
 
-<!-- \versionnumber{4.8i}   \versiondate{2011/08/16} -->
+<!-- \versionnumber{4.9}   \versiondate{2014/04/22} -->
 
 <!-- These hyphenation patterns for the Italian language are supposed to comply -->
 <!-- with the Recommendation UNI 6461 on hyphenation issued by the Italian -->
@@ -42,6 +38,7 @@
 <!-- liability is disclaimed. -->
 
 <!-- ChangeLog: -->
+<!-- - 2014-04-22 - Add few patterns involving `h' -->
 <!-- - 2011-08-16 - Change the licence from GNU LGPL into LPPL v1.3. -->
 <!-- - 2010-05-24 - Fix for Italian patterns for proper hyphenation of -ich and Ljubljana. -->
 <!-- - 2008-06-09 - Import of original ithyph.tex into hyph-utf8 package. -->
@@ -70,6 +67,8 @@
 .opto1
 .orto3p2
 .para1
+.ph2l
+.ph2r
 .poli3p2
 .pre1
 .p2s
@@ -194,6 +193,7 @@ g2r
 2g.
 2g’
 2g’
+.h2
 1h
 2hb
 2hd
@@ -207,10 +207,12 @@ h2l
 2h.
 2h’
 2h’
+.j2
 1j
 2j.
 2j’
 2j’
+.k2
 1k
 2kg
 2kf
@@ -358,6 +360,7 @@ s4s3m
 4s’.
 4s’’
 4s’’
+.t2
 1t
 2tb
 2tc
@@ -365,6 +368,7 @@ s4s3m
 2tf
 2tg
 t2h
+2th.
 t2l
 2tm
 2tn

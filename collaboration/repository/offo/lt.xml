@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hyphenation-info>
 
-<!-- Lithuanian hyphenation patterns -->
-
-<!-- (more info about the licence to be added later) -->
-
 <!-- This file is part of hyph-utf8 package and resulted from -->
 <!-- semi-manual conversions of hyphenation patterns into UTF-8 -->
 <!-- in October 2008 by Mojca & Arthur. -->
@@ -19,7 +15,7 @@
 <!-- - Yannis Haralambous -->
 <!-- (Vilnius, March 4, 1992) -->
 <!-- Conversion into Latin 7 and aditional support files (babel, fonts): -->
-<!-- - Sigitas Tolusis <sigitas at vtex.lt> -->
+<!-- - Sigitas Tolušis <sigitas at vtex.lt> -->
 <!-- (2002-11-20) -->
 <!-- Adaptation for hyph-utf8: -->
 <!-- - Mojca & Arthur (see below), October 2008 -->
