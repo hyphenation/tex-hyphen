@@ -5,7 +5,7 @@
 %     This file is part of the hyph-utf8 package.
 %     See http://www.hyphenation.org for more information on the package,
 %     and http://tp.lc.ehu.es/jma/basque.html for details on Basque hyphenation.
-% licence: >
+% license: >
 %     Permission is hereby granted, free of charge, to any person obtaining
 %     a copy of this file and any associated documentation
 %     (the "Data Files") to deal in the Data Files
@@ -30,7 +30,7 @@
 %     DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
 %     DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
 %     TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-%     PERFORMANCE OF THE DATA FILES OR SOFTWARE.
+%     PERFORMANCE OF THE DATA FILES.
 %
 %     Except as contained in this notice, the name of a copyright holder
 %     shall not be used in advertising or otherwise to promote the sale,
