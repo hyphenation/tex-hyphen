@@ -1,3 +1,8 @@
+2016-03-21 (#735, #736)
+- Added MIT licence for Irish [ga], Cyrillic Mongolian [mn-cyrl], Turkmen [tk]
+- Added “Unicode licence” for Croatian [hr]
+- Added text of “Unicode licence” to hyph-en-gb.tex(unicode-licence)
+
 2016-03-20 (#733)
 - Put French patterns under the MIT licence.
 
