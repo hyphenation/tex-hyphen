@@ -1,0 +1,362 @@
+%%
+%% This is file `macedonian.ldf',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% macedonian.dtx  (with options: `code')
+%% This is a generated file.
+%% 
+%% Copyright 1989-2005 Johannes L. Braams and any individual authors
+%% listed elsewhere in this file.  All rights reserved.
+%% 
+%% This file was generated from file(s) of the Babel system.
+%% ---------------------------------------------------------
+%% 
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status "maintained".
+%% 
+%% The Current Maintainer of this work is Johannes Braams.
+%% 
+%% This file may only be distributed together with a copy of the Babel
+%% system. You may however distribute the Babel system without
+%% such generated files.
+%% 
+%% The list of all files belonging to the Babel distribution is
+%% given in the file `manifest.bbl'. See also `legal.bbl for additional
+%% information.
+%% 
+%% The list of derived (unpacked) files belonging to the distribution
+%% and covered by LPPL is defined by the unpacking scripts (with
+%% extension .ins) which are part of the distribution.
+\ProvidesLanguage{macedonian}
+          [2006/03/31 v1.0e Macedonian support from the babel system]
+%% File `macedonian.dtx'
+%% Babel package for LaTeX version 2e
+%% Copyright (C) 1989-2006
+%%               by Johannes Braams,TeXniek
+%% Macedonian Language Definition File
+%%               Copyright (C) 1995-2005
+%%               by Vasil.Taneski <vasil.taneski at gmail.com>
+%%                  Johannes Braams,TeXniek
+%% Adapted from bulgarian.dtx
+%%               by Vasil.Taneski <vasil.taneski at gmail.com>
+%% Please report errors to:J.L.Braams
+%%               babel at braams.cistron.nl
+\LdfInit{macedonian}{captionsmacedonian}
+\ifx\l@macedonian\@undefined
+  \@nopatterns{Macedonian}
+  \adddialect\l@macedonian0
+\fi
+\let\latinencoding\cf@encoding
+\def\reserved@a#1#2{%
+   \edef\reserved@b{#1}%
+   \edef\reserved@c{#2}%
+   \ifx\reserved@b\reserved@c
+     \let\cyrillicencoding\reserved@c
+   \fi}
+\def\cdp@elt#1#2#3#4{%
+   \reserved@a{#1}{OT2}%
+%   \reserved@a{#1}{LWN}%
+%   \reserved@a{#1}{LCY}%
+%   \reserved@a{#1}{X2}%
+%   \reserved@a{#1}{T2C}%
+%   \reserved@a{#1}{T2B}%
+   \reserved@a{#1}{T2A}
+   }
+\cdp@list
+\ifx\cyrillicencoding\undefined
+  \IfFileExists{ot2enc.def}{\def\cyrillicencoding{OT2}}\relax
+%  \IfFileExists{lwnenc.def}{\def\cyrillicencoding{LWN}}\relax
+%  \IfFileExists{lcyenc.def}{\def\cyrillicencoding{LCY}}\relax
+%  \IfFileExists{x2enc.def}{\def\cyrillicencoding{X2}}\relax
+%  \IfFileExists{t2cenc.def}{\def\cyrillicencoding{T2C}}\relax
+%  \IfFileExists{t2benc.def}{\def\cyrillicencoding{T2B}}\relax
+  \IfFileExists{t2aenc.def}{\def\cyrillicencoding{T2A}}\relax
+\ifx\cyrillicencoding\undefined
+    \PackageError{babel}%
+    {No Cyrillic encoding definition files were found}%
+    {Your installation is incomplete. \MessageBreak
+    You need at least one of the following files: \MessageBreak
+    \space\space
+    x2enc.def, t2aenc.def, t2benc.def, t2cenc.def, \MessageBreak
+    \space\space
+    lcyenc.def, lwnenc.def, ot2enc.def.}%
+  \else
+    \lowercase
+      \expandafter{\expandafter\input\cyrillicencoding enc.def\relax}%
+  \fi
+\fi
+\DeclareRobustCommand{\Macedonian}{%
+  \fontencoding\cyrillicencoding\selectfont
+  \let\encodingdefault\cyrillicencoding
+  \expandafter\set@hyphenmins\macedonianhyphenmins
+  \language\l@macedonian}
+\DeclareRobustCommand{\English}{%
+  \fontencoding\latinencoding\selectfont
+  \let\encodingdefault\latinencoding
+  \expandafter\set@hyphenmins\englishhyphenmins
+  \language\l@english}
+\let\Mak\Macedonian
+\let\mak\Macedonian
+\let\cyrillictext\Macedonian
+\let\cyr\Macedonian
+\let\Eng\English
+\def\selectenglanguage{\selectlanguage{english}}
+\def\selectbglanguage{\selectlanguage{macedonian}}
+\expandafter\ifx\csname T@X2\endcsname\relax\else
+  \def\@Alph@eng#1{{\fontencoding{\latinencoding}\selectfont
+      \ifcase#1\or A\or B\or C\or D\or E\or F\or G\or H\or I\or J\or
+      K\or L\or M\or N\or O\or P\or Q\or R\or S\or T\or U\or V\or W\or
+      X\or Y\or Z\else \@ctrerr\fi}}%
+  \def\@alph@eng#1{{\fontencoding{\latinencoding}\selectfont
+      \ifcase#1\or a\or b\or c\or d\or e\or f\or g\or h\or i\or j\or
+      k\or l\or m\or n\or o\or p\or q\or r\or s\or t\or u\or v\or w\or
+      x\or y\or z\else \@ctrerr\fi}}%
+  \let\@Alph\@Alph@eng
+  \let\@alph\@alph@eng
+  \DeclareTextSymbolDefault{\AA}{OT1}
+  \DeclareTextSymbolDefault{\aa}{OT1}
+  \DeclareTextCommand{\AA}{OT1}{\r A}
+  \DeclareTextCommand{\aa}{OT1}{\r a}
+\fi
+\begingroup\catcode`\"=12
+\def\@tempa#1{\expandafter\@tempb\meaning#1\relax\relax\relax\relax
+ "0000\@nil#1}
+\def\@tempb#1"#2#3#4#5#6\@nil#7{%
+\ifnum"#2=7 \count@"1#3#4#5\relax
+\ifnum\count@<"1000 \else \global\mathchardef#7="0#3#4#5\relax \fi
+ \fi}
+\@tempa\Gamma\@tempa\Delta\@tempa\Theta\@tempa\Lambda\@tempa\Xi
+\@tempa\Pi\@tempa\Sigma\@tempa\Upsilon\@tempa\Phi\@tempa\Psi
+\@tempa\Omega
+\def\@tempa#1#2\@nil{\def\@tempc{#1}}\def\@tempb{\mathaccent}
+\expandafter\@tempa\hat\relax\relax\@nil
+\ifx\@tempb\@tempc
+\def\@tempa#1\@nil{#1}%
+\def\@tempb#1{\afterassignment\@tempa\mathchardef\@tempc=}%
+\def\do#1"#2{}
+\def\@tempd#1{\expandafter\@tempb#1\@nil
+ \ifnum\@tempc>"FFF
+ \xdef#1{\mathaccent"\expandafter\do\meaning\@tempc\space}%
+ \fi}
+\@tempd\hat\@tempd\check\@tempd\tilde\@tempd\acute\@tempd\grave
+\@tempd\dot\@tempd\ddot\@tempd\breve\@tempd\bar
+\fi
+\endgroup
+\@ifpackageloaded{inputenc}{}{%
+\def\reserved@a{LWN}%
+\ifx\reserved@a\cyrillicencoding\else
+\def\reserved@a{T2A}%
+\ifx\reserved@a\cyrillicencoding\else
+\def\reserved@a{OT2}%
+\ifx\reserved@a\cyrillicencoding\else
+\PackageWarning{babel}%
+{No input encoding specified for Macedonian language}\fi\fi\fi}
+\let\lat\latintext
+\DeclareTextFontCommand{\textcyrillic}{\cyrillictext}
+\addto\captionsmacedonian{%
+  \def\prefacename{%
+    {\cyr\CYRP\cyrr\cyre\cyrd\cyrg\cyro\cyrv\cyro\cyrr}}%
+  \def\refname{%
+    {\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
+  \def\abstractname{%
+    {\cyr\CYRP\cyrr\cyre\cyrg\cyrl\cyre\cyrd}}%
+  \def\bibname{%
+    {\cyr\CYRB\cyri\cyrb\cyrl\cyri\cyro\cyrg\cyrr\cyra\cyrf\cyri\cyrje\cyra}}%
+  \def\chaptername{%
+    {\cyr\CYRG\cyrl\cyra\cyrv\cyra}}%
+  \def\appendixname{%
+    {\cyr\CYRP\cyrr\cyri\cyrl\cyro\cyrg}}%
+  \def\contentsname{%
+    {\cyr\CYRS\cyro\cyrd\cyrr\cyrzh\cyri\cyrn\cyra}}%
+  \def\listfigurename{%
+    {\cyr\CYRS\cyrl\cyri\cyrk\cyri}}%
+  \def\listtablename{%
+    {\cyr\CYRT\cyra\cyrb\cyre\cyrl\cyri}}%
+  \def\indexname{%
+    {\cyr\CYRI\cyrn\cyrd\cyre\cyrk\cyrs}}%
+  \def\authorname{%
+    {\cyr\CYRA\cyrv\cyrt\cyro\cyrr}}%
+  \def\figurename{%
+    {\cyr\CYRS\cyrl\cyri\cyrk\cyra}}%
+  \def\tablename{%
+    {\cyr\CYRT\cyra\cyrb\cyre\cyrl\cyra}}%
+  \def\partname{%
+    {\cyr\CYRD\cyre\cyrl}}%
+  \def\enclname{%
+    {\cyr\CYRP\cyrr\cyri\cyrl\cyro\cyrz\cyri}}%
+  \def\ccname{%
+    {\cyr\cyrk\cyro\cyrp\cyri\cyrje\cyra}}%
+  \def\headtoname{%
+    {\cyr\CYRZ\cyra}}%
+  \def\pagename{%
+    {\cyr\CYRS\cyrt\cyrr.}}%
+  \def\seename{%
+    {\cyr\cyrv\cyri\cyrd\cyri:}}%
+  \def\alsoname{%
+    {\cyr\cyrv\cyri\cyrd\cyri\ \cyri:}}%
+  \def\proofname{%
+   \cyr\CYRD\cyro\cyrk\cyra\cyrz:}%
+  \def\glossaryname{%
+   \cyr\CYRR\cyre\cyrch\cyrn\cyri\cyrok}%
+}
+%%
+\def\datemacedonian{%
+  \def\month@macedonian{\ifcase\month\or
+    \cyrje\cyra\cyrn\cyru\cyra\cyrr\cyri\or
+    \cyrf\cyre\cyrv\cyrr\cyru\cyra\cyrr\cyri\or
+    \cyrm\cyra\cyrr\cyrt\or
+    \cyra\cyrp\cyrr\cyri\cyrl\or
+    \cyrm\cyra\cyrje\or
+    \cyrje\cyru\cyrn\cyri\or
+    \cyrje\cyru\cyrl\cyri\or
+    \cyra\cyrv\cyrg\cyru\cyrs\cyrt\or
+    \cyrs\cyre\cyrp\cyrt\cyre\cyrm\cyrv\cyrr\cyri\or
+    \cyro\cyrk\cyrt\cyro\cyrm\cyrv\cyrr\cyri\or
+    \cyrn\cyro\cyre\cyrm\cyrv\cyrr\cyri\or
+    \cyrd\cyre\cyrk\cyre\cyrm\cyrv\cyrr\cyri\fi}%
+  \def\month@Roman{\expandafter\@Roman\month}%
+  \def\today{\number\day~\month@macedonian\ \number\year~\cyrg.}%
+  \def\todayRoman{\number\day.\,\month@Roman.\,\number\year~\cyrg.}%
+}
+\def\Romannumeral#1{\uppercase\expandafter{\romannumeral #1}}
+\def\todayRoman{\number\day.\Romannumeral{\month}.\number\year~\cyrg.}
+\addto\extrasmacedonian{\cyrillictext}
+\addto\noextrasmacedonian{\latintext}
+\initiate@active@char{"}
+\addto\extrasmacedonian{\languageshorthands{macedonian}}
+\addto\extrasmacedonian{%
+  \bbl@activate{"}}
+\addto\noextrasmacedonian{%
+  \bbl@deactivate{"}}
+\begingroup \catcode`\"12
+\def\reserved@a{\endgroup
+  \def\@SS{\mathchar"7019}
+  \def\dq{"}}
+\reserved@a
+\declare@shorthand{macedonian}{"`}{\glqq}
+\declare@shorthand{macedonian}{"'}{\grqq}
+\declare@shorthand{macedonian}{"<}{\flqq}
+\declare@shorthand{macedonian}{">}{\frqq}
+\declare@shorthand{macedonian}{""}{\hskip\z@skip}
+\declare@shorthand{macedonian}{"~}{\textormath{\leavevmode\hbox{-}}{-}}
+\declare@shorthand{macedonian}{"=}{\nobreak-\hskip\z@skip}
+\declare@shorthand{macedonian}{"|}{%
+\textormath{\nobreak\discretionary{-}{}{\kern.03em}%
+\allowhyphens}{}}
+\declare@shorthand{macedonian}{"-}{%
+  \def\macedonian@sh@tmp{%
+    \if\macedonian@sh@next-\expandafter\macedonian@sh@emdash
+    \else\expandafter\macedonian@sh@hyphen\fi
+  }%
+  \futurelet\macedonian@sh@next\macedonian@sh@tmp}
+\def\macedonian@sh@hyphen{\nobreak\-\bbl@allowhyphens}
+\def\macedonian@sh@emdash#1#2{\cdash-#1#2}
+\ifx\cdash\undefined % should be defined earlier
+\def\cdash#1#2#3{\def\tempx@{#3}%
+\def\tempa@{-}\def\tempb@{~}\def\tempc@{*}%
+ \ifx\tempx@\tempa@\@Acdash\else
+  \ifx\tempx@\tempb@\@Bcdash\else
+   \ifx\tempx@\tempc@\@Ccdash\else
+    \errmessage{Wrong usage of cdash}\fi\fi\fi}
+\def\@Acdash{\ifdim\lastskip>\z@\unskip\nobreak\hskip.2em\fi
+\cyrdash\hskip.2em\ignorespaces}%
+\def\@Bcdash{\leavevmode\ifdim\lastskip>\z@\unskip\fi
+ \nobreak\cyrdash\penalty\exhyphenpenalty\hskip\z@skip\ignorespaces}%
+\def\@Ccdash{\leavevmode
+ \nobreak\cyrdash\nobreak\hskip.35em\ignorespaces}%
+\ifx\cyrdash\undefined
+\def\cyrdash{\hbox to.8em{--\hss--}}
+\fi
+\declare@shorthand{macedonian}{",}{\nobreak\hskip.2em\ignorespaces}
+\providehyphenmins{\CurrentOption}{\tw@\tw@}
+\fi
+\addto\extrasmacedonian{\bbl@frenchspacing}
+\addto\noextrasmacedonian{\bbl@nonfrenchspacing}
+\def\enumMak{\let\@Alph\@Alph@mak \let\@alph\@alph@mak}
+\def\enumEng{\let\@Alph\@Alph@eng \let\@alph\@alph@eng}
+\def\enumLat{\let\@Alph\@Alph@eng \let\@alph\@alph@eng}
+\addto\extrasmacedonian{\enumMak}
+\addto\noextrasmacedonian{\enumLat}
+\def\@Alph@mak#1{%
+  \ifcase#1\or
+  \CYRA\or \CYRB\or \CYRV\or \CYRG\or \CYRD\or \CYRGJ\or \CYRE\or \CYRZH\or \CYRZ\or \CYRDZ\or \CYRI\or \CYRJE\or \CYRK\or \CYRL\or \CYRLJ\or \CYRM\or \CYRN\or \CYRNJ\or \CYRO\or \CYRP\or \CYRR\or \CYRS\or \CYRT\or \CYRKJ\or \CYRU\or \CYRF\or \CYRH\or \CYRC\or \CYRCH\or \CYRDZH\or \CYRSH\else
+  \@ctrerr\fi
+ }
+\def\@Alph@eng#1{%
+  \ifcase#1\or
+  A\or B\or C\or D\or E\or F\or G\or H\or I\or J\or K\or L\or M\or N\or O\or P\or Q\or R\or S\or T\or U\or V\or W\or X\or Y\or Z\else
+  \@ctrerr\fi
+  }
+\def\@alph@mak#1{%
+  \ifcase#1\or
+  \cyra\or \cyrb\or \cyrv\or \cyrg\or \cyrd\or \cyrgj\or \cyre\or \cyrzh\or \cyrz\or \cyrdz\or \cyri\or \cyrje\or \cyrk\or \cyrl\or \cyrlj\or \cyrm\or \cyrn\or \cyrnj\or \cyro\or \cyrp\or \cyrr\or \cyrs\or \cyrt\or \cyrkj\or \cyru\or \cyrf\or \cyrh\or \cyrc\or \cyrch\or \cyrdzh\or \cyrsh\else
+  \@ctrerr\fi
+  }
+\def\@alph@eng#1{%
+  \ifcase#1\or
+  a\or b\or c\or d\or e\or f\or g\or h\or i\or j\or k\or l\or m\or n\or o\or p\or q\or r\or s\or t\or u\or v\or w\or x\or y\or z\else
+  \@ctrerr\fi
+  }
+\@ifundefined{sym\cyrillicencoding letters}{}{%
+\SetSymbolFont{\cyrillicencoding letters}{bold}\cyrillicencoding
+  \rmdefault\bfdefault\updefault
+\DeclareSymbolFontAlphabet\cyrmathrm{\cyrillicencoding letters}
+\DeclareMathAlphabet\cyrmathbf\cyrillicencoding
+  \rmdefault\bfdefault\updefault
+\DeclareMathAlphabet\cyrmathsf\cyrillicencoding
+  \sfdefault\mddefault\updefault
+\DeclareMathAlphabet\cyrmathit\cyrillicencoding
+  \rmdefault\mddefault\itdefault
+\DeclareMathAlphabet\cyrmathtt\cyrillicencoding
+  \ttdefault\mddefault\updefault
+\SetMathAlphabet\cyrmathsf{bold}\cyrillicencoding
+  \sfdefault\bfdefault\updefault
+\SetMathAlphabet\cyrmathit{bold}\cyrillicencoding
+  \rmdefault\bfdefault\itdefault
+}
+\def\sh{\mathop{\operator@font sh}\nolimits}
+\def\ch{\mathop{\operator@font ch}\nolimits}
+\def\tg{\mathop{\operator@font tg}\nolimits}
+\def\arctg{\mathop{\operator@font arctg}\nolimits}
+\def\arcctg{\mathop{\operator@font arcctg}\nolimits}
+\addto\extrasrussian{%
+  \babel@save{\th}%
+  \let\ltx@th\th
+  \def\th{\textormath{\ltx@th}%
+                     {\mathop{\operator@font th}\nolimits}}%
+  }
+\def\ctg{\mathop{\operator@font ctg}\nolimits}
+\def\cth{\mathop{\operator@font cth}\nolimits}
+\def\cosec{\mathop{\operator@font cosec}\nolimits}
+\DeclareRobustCommand{\No}{%
+    \ifmmode{\nfss@text{\textnumero}}\else\textnumero\fi}
+\ldf@finish{macedonian}
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote \"    Hash (number) \#
+%%   Dollar        \$     Percent      \%    Ampersand     \&
+%%   Acute accent  \'     Left paren   \(    Right paren   \)
+%%   Asterisk      \*     Plus         \+    Comma         \,
+%%   Minus         \-     Point        \.    Solidus       \/
+%%   Colon         \:     Semicolon    \;    Less than     \<
+%%   Equals        \=     Greater than \>    Question mark \?
+%%   Commercial at \@     Left bracket \[    Backslash     \\
+%%   Right bracket \]     Circumflex   \^    Underscore    \_
+%%   Grave accent  \`     Left brace   \{    Vertical bar  \|
+%%   Right brace   \}     Tilde        \~}
+%%
+\endinput
+%%
+%% End of file `macedonian.ldf'.
