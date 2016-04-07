@@ -219,8 +219,9 @@ language_groups.sort.each do |language_name,language_list|
 		if ['es', 'eu', 'gl', 'hy', 'mul-ethi', 'tk', 'tr'].include?(language.code) then
 			files_src.push("source/generic/hyph-utf8/languages/#{language.code}")
 		end
-		if ['es', 'hu', 'sa'].include?(language.code) then
-			files_src.push("doc/generic/hyph-utf8/#{language.code}")
+		# add documentation
+		if ['bg', 'es', 'hu', 'sa'].include?(language.code) then
+			files_doc.push("doc/generic/hyph-utf8/#{language.code}")
 		end
 	end
 	if language_name != "russian" and language_name != "ukrainian" then

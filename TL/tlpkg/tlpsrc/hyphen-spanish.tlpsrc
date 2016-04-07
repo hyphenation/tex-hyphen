@@ -10,7 +10,7 @@ execute AddHyphen \
 	file=loadhyph-es.tex \
 	file_patterns=hyph-es.pat.txt \
 	file_exceptions=
-srcpattern d texmf-dist/doc/generic/hyph-utf8/es
+docpattern d texmf-dist/doc/generic/hyph-utf8/es
 srcpattern d texmf-dist/source/generic/hyph-utf8/languages/es
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-es.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-es.ec.tex
