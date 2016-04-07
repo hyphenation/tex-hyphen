@@ -11,10 +11,10 @@ execute AddHyphen \
 	file=loadhyph-pl.tex \
 	file_patterns=hyph-pl.pat.txt \
 	file_exceptions=hyph-pl.hyp.txt
-runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-pl.tex
-runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-pl.qx.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-pl.tex
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-pl.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-pl.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-pl.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-pl.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-pl.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-pl.qx.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-pl.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-pl.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-pl.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-pl.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-pl.pat.txt

@@ -12,10 +12,10 @@ execute AddHyphen \
 	file=loadhyph-sa.tex \
 	file_patterns=hyph-sa.pat.txt \
 	file_exceptions=
-srcpattern d doc/generic/hyph-utf8/sa
-runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-sa.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-sa.tex
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sa.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sa.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sa.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sa.pat.txt
+srcpattern d texmf-dist/doc/generic/hyph-utf8/sa
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-sa.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-sa.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sa.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sa.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sa.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sa.pat.txt

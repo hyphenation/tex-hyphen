@@ -13,10 +13,10 @@ execute AddHyphen \
 	file=loadhyph-ro.tex \
 	file_patterns=hyph-ro.pat.txt \
 	file_exceptions=
-runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-ro.tex
-runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-ro.ec.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-ro.tex
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-ro.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-ro.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-ro.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-ro.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-ro.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-ro.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-ro.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ro.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ro.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ro.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ro.pat.txt

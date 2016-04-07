@@ -21,22 +21,22 @@ execute AddHyphen \
 	file=loadhyph-sr-cyrl.tex \
 	file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt \
 	file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt
-runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-sr-cyrl.tex
-runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-sr-latn.tex
-runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-sh-cyrl.t2a.tex
-runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-sh-latn.ec.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-sh-cyrl.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-sh-latn.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-sr-cyrl.tex
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sh-cyrl.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sh-cyrl.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sh-cyrl.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sh-cyrl.pat.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.pat.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-sr-cyrl.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-sr-latn.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-sh-cyrl.t2a.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-sh-latn.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-sh-cyrl.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-sh-latn.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-sr-cyrl.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-cyrl.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-cyrl.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-cyrl.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-cyrl.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.pat.txt

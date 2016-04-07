@@ -10,11 +10,11 @@ execute AddHyphen \
 	file=loadhyph-eu.tex \
 	file_patterns=hyph-eu.pat.txt \
 	file_exceptions=
-srcpattern d source/generic/hyph-utf8/languages/eu
-runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-eu.tex
-runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-eu.ec.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-eu.tex
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-eu.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-eu.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-eu.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-eu.pat.txt
+srcpattern d texmf-dist/source/generic/hyph-utf8/languages/eu
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-eu.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-eu.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-eu.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-eu.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-eu.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-eu.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-eu.pat.txt

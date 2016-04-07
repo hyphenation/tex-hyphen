@@ -26,16 +26,16 @@ execute AddHyphen \
 	file=loadhyph-la-x-classic.tex \
 	file_patterns=hyph-la-x-classic.pat.txt \
 	file_exceptions=
-runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-la-x-classic.tex
-runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-la.tex
-runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-la.ec.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-la-x-classic.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-la.tex
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.pat.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-la.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-la.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-la.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-la.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-la-x-classic.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-la.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-la.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la-x-classic.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la.pat.txt

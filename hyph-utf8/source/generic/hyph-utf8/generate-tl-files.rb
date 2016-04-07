@@ -242,13 +242,13 @@ language_groups.sort.each do |language_name,language_list|
 	end
 
 	files_doc.sort.each do |f|
-		$file_tlpsrc.puts "docpattern d #{f}"
+		$file_tlpsrc.puts "docpattern d texmf-dist/#{f}"
 	end
 	files_src.sort.each do |f|
-		$file_tlpsrc.puts "srcpattern d #{f}"
+		$file_tlpsrc.puts "srcpattern d texmf-dist/#{f}"
 	end
 	files_run.sort.uniq.each do |f|
-		$file_tlpsrc.puts "runpattern f #{f}"
+		$file_tlpsrc.puts "runpattern f texmf-dist/#{f}"
 	end
 	$file_tlpsrc.close
 end

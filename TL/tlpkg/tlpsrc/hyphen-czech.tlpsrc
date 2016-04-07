@@ -12,10 +12,10 @@ execute AddHyphen \
 	file=loadhyph-cs.tex \
 	file_patterns=hyph-cs.pat.txt \
 	file_exceptions=hyph-cs.hyp.txt
-runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-cs.tex
-runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-cs.ec.tex
-runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-cs.tex
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-cs.chr.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-cs.hyp.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-cs.lic.txt
-runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-cs.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-cs.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-cs.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-cs.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cs.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cs.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cs.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cs.pat.txt
