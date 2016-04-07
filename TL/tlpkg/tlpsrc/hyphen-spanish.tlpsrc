@@ -10,4 +10,12 @@ execute AddHyphen \
 	file=loadhyph-es.tex \
 	file_patterns=hyph-es.pat.txt \
 	file_exceptions=
-
+srcpattern d doc/generic/hyph-utf8/es
+srcpattern d source/generic/hyph-utf8/languages/es
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-es.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-es.ec.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-es.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-es.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-es.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-es.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-es.pat.txt

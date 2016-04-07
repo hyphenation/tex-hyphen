@@ -13,4 +13,10 @@ execute AddHyphen \
 	file=loadhyph-nl.tex \
 	file_patterns=hyph-nl.pat.txt \
 	file_exceptions=hyph-nl.hyp.txt
-
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-nl.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-nl.ec.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-nl.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-nl.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-nl.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-nl.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-nl.pat.txt

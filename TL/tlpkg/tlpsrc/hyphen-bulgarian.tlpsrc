@@ -10,4 +10,10 @@ execute AddHyphen \
 	file=loadhyph-bg.tex \
 	file_patterns=hyph-bg.pat.txt \
 	file_exceptions=
-
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-bg.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-bg.t2a.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-bg.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-bg.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-bg.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-bg.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-bg.pat.txt

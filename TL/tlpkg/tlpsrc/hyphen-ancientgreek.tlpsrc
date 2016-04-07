@@ -19,6 +19,11 @@ execute AddHyphen \
 	righthyphenmin=2 \
 	file=ibyhyph.tex \
 	luaspecial="disabled:8-bit only"
-
-runpattern f texmf-dist/tex/generic/hyphen/grahyph5.tex
-runpattern f texmf-dist/tex/generic/hyphen/ibyhyph.tex
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-grc.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-grc.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-grc.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-grc.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-grc.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-grc.pat.txt
+runpattern f tex/generic/hyphen/grahyph5.tex
+runpattern f tex/generic/hyphen/ibyhyph.tex

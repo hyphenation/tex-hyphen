@@ -37,7 +37,18 @@ class Language
 		@licence = language_hash["licence"]
 		@authors = language_hash["authors"]
 
+		@has_quotes = false
+		@has_dashes = false
+
 		if @synonyms==nil then @synonyms = [] end
+	end
+
+	def set_quotes
+		@has_quotes = true
+	end
+
+	def set_dashes
+		@has_dashes = true
 	end
 
 	# TODO: simplify this (reduce duplication)
@@ -113,6 +124,7 @@ class Language
 	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
 	attr_reader :description_s, :description_l, :version
 	attr_reader :licence, :authors
+	attr_reader :has_quotes, :has_dashes
 	# this hack is needed for Serbian
 	attr_writer :code
 end
@@ -2078,8 +2090,18 @@ class Languages < Hash
 # =persian
 		]
 
+		# TODO: do not hardcode this list; auto-generate it instead
+		languages_with_quotes = ['af', 'fr', 'fur', 'it', 'oc', 'pms', 'rm', 'uk', 'zh-latn-pinyin']
+		languages_with_dashes = ['af', 'pt', 'ru', 'tk', 'uk']
+
 		languages.each do |l|
 			language = Language.new(l)
+			if languages_with_quotes.include?(language.code) then
+				language.set_quotes()
+			end
+			if languages_with_dashes.include?(language.code) then
+				language.set_dashes()
+			end
 			@@list.push(language)
 			self[language.code] = language
 		end

@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
+# encoding: utf-8
+
+# this file auto-generates tlpsrc files for hyphenation patterns - to be improved
 
 load 'languages.rb'
-
-# this file auto-generates loaders for hyphenation patterns - to be improved
 
 $package_name="hyph-utf8"
 
@@ -80,6 +81,10 @@ end
 # TLPSRC #
 #--------#
 language_groups.sort.each do |language_name,language_list|
+	files_path_hyph8 = "tex/generic/hyph-utf8"
+	files_run = []
+	files_doc = []
+	files_src = []
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
 	puts "generating #{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc"
 	
@@ -93,6 +98,8 @@ language_groups.sort.each do |language_name,language_list|
 		$file_tlpsrc.puts "depend ruhyphen"
 	elsif language_name == "ukrainian" then
 		$file_tlpsrc.puts "depend ukrhyph"
+	elsif language_name == "norwegian" then
+		files_run.push("#{files_path_hyph8}/patterns/tex/hyph-no.tex")
 	end
 	language_list.each do |language|
 		if language.description_s != nil then
@@ -128,14 +135,44 @@ language_groups.sort.each do |language_name,language_list|
 		file_exceptions = ""
 		if language.use_new_loader then
 			file = "file=loadhyph-#{language.code}.tex"
-			# we skip the mongolian language
-			if language.code != "mn-cyrl-x-lmc" then
+			files_run.push("#{files_path_hyph8}/loadhyph/loadhyph-#{language.code}.tex")
+			if language.has_quotes then
+				files_run.push("#{files_path_hyph8}/patterns/quote/hyph-quote-#{language.code}.tex")
+			end
+
+			if language.code == "mn-cyrl-x-lmc" then
+				files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
+				files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
+			# we skip the mongolian language for luatex files
+			else
 				if language.code == "sr-latn" or language.code == "sr-cyrl" then
+					code = language.code.gsub(/sr/, "sh")
 					filename_pat = "hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt"
 					filename_hyp = "hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt"
+
+					files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{code}.tex")
+					files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{code}.#{language.encoding}.tex")
+					# duplicate entries (will be removed later)
+					files_run.push("#{files_path_hyph8}/patterns/tex/hyph-sr-cyrl.tex")
+					['chr', 'pat', 'hyp', 'lic'].each do |t|
+						files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{code}.#{t}.txt")
+						# duplicate entries (will be removed later)
+						files_run.push("#{files_path_hyph8}/patterns/txt/hyph-sr-cyrl.#{t}.txt")
+					end
 				else
 					filename_pat = "hyph-#{language.code}.pat.txt"
 					filename_hyp = "hyph-#{language.code}.hyp.txt"
+
+					files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
+					if language.encoding != nil and language.encoding != "ascii" then
+						files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
+					elsif language.code == "cop" then
+						files_run.push("#{files_path_hyph8}/patterns/tex-8bit/#{language.filename_old_patterns}")
+						# files_run.push("#{files_path_hyph8}/patterns/tex-8bit/copthyph.tex")
+					end
+					['chr', 'pat', 'hyp', 'lic'].each do |t|
+						files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{language.code}.#{t}.txt")
+					end
 
 					# check for existance of patterns and exceptions
 					if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then
@@ -177,25 +214,41 @@ language_groups.sort.each do |language_name,language_list|
 		end
 		# end-of-line
 		$file_tlpsrc.puts
+
+		# add sources
+		if ['es', 'eu', 'gl', 'hy', 'mul-ethi', 'tk', 'tr'].include?(language.code) then
+			files_src.push("source/generic/hyph-utf8/languages/#{language.code}")
+		end
+		if ['es', 'hu', 'sa'].include?(language.code) then
+			files_src.push("doc/generic/hyph-utf8/#{language.code}")
+		end
 	end
 	if language_name != "russian" and language_name != "ukrainian" then
-		$file_tlpsrc.puts
 		language_list.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.filename_old_patterns != "copthyph.tex" then
-				$file_tlpsrc.puts "runpattern f texmf-dist/tex/generic/hyphen/#{language.filename_old_patterns}"
+				files_run.push("tex/generic/hyphen/#{language.filename_old_patterns}")
 			end
 		end
 	end
+
+	# documeentation
 	if language_name == "greek" then
-		$file_tlpsrc.puts
-		$file_tlpsrc.puts "docpattern d texmf-dist/doc/generic/elhyphen"
+		files_doc.push("doc/generic/elhyphen")
 	elsif language_name == "hungarian" then
-		$file_tlpsrc.puts
-		$file_tlpsrc.puts "docpattern d texmf-dist/doc/generic/huhyphen"
+		files_doc.push("doc/generic/huhyphen")
 	elsif language_name == "german" then
-		$file_tlpsrc.puts
-		$file_tlpsrc.puts "runpattern f texmf-dist/tex/generic/hyphen/dehyphtex.tex"
-		$file_tlpsrc.puts "runpattern f texmf-dist/tex/generic/hyphen/ghyphen.README"
+		files_run.push("tex/generic/hyphen/dehyphtex.tex")
+		files_run.push("tex/generic/hyphen/ghyphen.README")
+	end
+
+	files_doc.sort.each do |f|
+		$file_tlpsrc.puts "docpattern d #{f}"
+	end
+	files_src.sort.each do |f|
+		$file_tlpsrc.puts "srcpattern d #{f}"
+	end
+	files_run.sort.uniq.each do |f|
+		$file_tlpsrc.puts "runpattern f #{f}"
 	end
 	$file_tlpsrc.close
 end

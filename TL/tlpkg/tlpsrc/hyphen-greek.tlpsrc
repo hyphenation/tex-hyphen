@@ -20,8 +20,18 @@ execute AddHyphen \
 	file=loadhyph-el-polyton.tex \
 	file_patterns=hyph-el-polyton.pat.txt \
 	file_exceptions=
-
-runpattern f texmf-dist/tex/generic/hyphen/grmhyph5.tex
-runpattern f texmf-dist/tex/generic/hyphen/grphyph5.tex
-
-docpattern d texmf-dist/doc/generic/elhyphen
+docpattern d doc/generic/elhyphen
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-el-monoton.tex
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-el-polyton.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-el-monoton.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-el-polyton.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-el-monoton.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-el-monoton.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-el-monoton.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-el-monoton.pat.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-el-polyton.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-el-polyton.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-el-polyton.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-el-polyton.pat.txt
+runpattern f tex/generic/hyphen/grmhyph5.tex
+runpattern f tex/generic/hyphen/grphyph5.tex

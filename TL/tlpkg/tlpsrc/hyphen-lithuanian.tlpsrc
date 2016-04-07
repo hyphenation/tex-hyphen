@@ -11,4 +11,10 @@ execute AddHyphen \
 	file=loadhyph-lt.tex \
 	file_patterns=hyph-lt.pat.txt \
 	file_exceptions=
-
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-lt.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-lt.l7x.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-lt.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-lt.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-lt.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-lt.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-lt.pat.txt

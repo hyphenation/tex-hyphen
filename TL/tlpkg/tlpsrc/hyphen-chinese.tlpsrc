@@ -11,4 +11,11 @@ execute AddHyphen \
 	file=loadhyph-zh-latn-pinyin.tex \
 	file_patterns=hyph-zh-latn-pinyin.pat.txt \
 	file_exceptions=
-
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-zh-latn-pinyin.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-zh-latn-pinyin.ec.tex
+runpattern f tex/generic/hyph-utf8/patterns/quote/hyph-quote-zh-latn-pinyin.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-zh-latn-pinyin.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-zh-latn-pinyin.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-zh-latn-pinyin.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-zh-latn-pinyin.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-zh-latn-pinyin.pat.txt

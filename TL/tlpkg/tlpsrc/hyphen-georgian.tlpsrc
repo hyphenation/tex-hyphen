@@ -10,4 +10,10 @@ execute AddHyphen \
 	file=loadhyph-ka.tex \
 	file_patterns=hyph-ka.pat.txt \
 	file_exceptions=
-
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-ka.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-ka.t8m.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-ka.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-ka.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-ka.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-ka.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-ka.pat.txt

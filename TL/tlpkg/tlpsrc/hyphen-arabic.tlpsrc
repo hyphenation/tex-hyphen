@@ -9,4 +9,3 @@ execute AddHyphen \
 	righthyphenmin= \
 	file=zerohyph.tex \
 	file_patterns=
-

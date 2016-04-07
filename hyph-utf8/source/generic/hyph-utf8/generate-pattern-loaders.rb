@@ -7,7 +7,6 @@ load 'languages.rb'
 
 $package_name="hyph-utf8"
 
-
 # TODO - make this a bit less hard-coded
 $path_tex_generic=File.expand_path("../../../tex/generic")
 $path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
@@ -78,21 +77,19 @@ text_patterns_utf8  =  text_patterns
 
 text_patterns_quote =  "    \\input hyph-quote-#{language.code}.tex"
 
-list_languages_with_quotes = ['af', 'fr', 'fur', 'it', 'oc', 'pms', 'rm', 'uk', 'zh-latn-pinyin']
-
 ###########
 # lccodes #
 ###########
 
 lccodes_common = []
-if list_languages_with_quotes.include?(language.code)
+if language.has_quotes then
 	lccodes_common.push("\\lccode`\\'=`\\'")
 end
-if ['af', 'pt', 'ru', 'tk', 'uk'].include?(language.code)
+if language.has_dashes then
 	lccodes_common.push("\\lccode`\\-=`\\-")
 end
 
-if ['sh-latn', 'sh-cyrl'].include?(language.code)
+if ['sh-latn', 'sh-cyrl'].include?(language.code) then
 	text_patterns_utf8 = ["    \\input hyph-sh-latn.tex",
 	                      "    \\input hyph-sh-cyrl.tex"]
 	text_engine_utf8   = ["    #{comment_engine_utf8}",
@@ -209,7 +206,7 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				file.puts(text_patterns_utf8)
-				if list_languages_with_quotes.include?(language.code)
+				if language.has_quotes
 					file.puts(text_patterns_quote)
 				end
 				file.puts('\else')

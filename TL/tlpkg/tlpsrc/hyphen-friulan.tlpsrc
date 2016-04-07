@@ -13,4 +13,11 @@ execute AddHyphen \
 	file=loadhyph-fur.tex \
 	file_patterns=hyph-fur.pat.txt \
 	file_exceptions=
-
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-fur.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-fur.ec.tex
+runpattern f tex/generic/hyph-utf8/patterns/quote/hyph-quote-fur.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-fur.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-fur.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-fur.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-fur.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-fur.pat.txt

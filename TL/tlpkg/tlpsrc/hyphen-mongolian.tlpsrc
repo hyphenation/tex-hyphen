@@ -18,4 +18,13 @@ execute AddHyphen \
 	righthyphenmin=2 \
 	file=loadhyph-mn-cyrl-x-lmc.tex \
 	luaspecial="disabled:only for 8bit montex with lmc encoding"
-
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-mn-cyrl-x-lmc.tex
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-mn-cyrl.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-mn-cyrl-x-lmc.lmc.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-mn-cyrl.t2a.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-mn-cyrl-x-lmc.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-mn-cyrl.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-mn-cyrl.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-mn-cyrl.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-mn-cyrl.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-mn-cyrl.pat.txt

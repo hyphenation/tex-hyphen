@@ -15,4 +15,11 @@ execute AddHyphen \
 	file=loadhyph-tr.tex \
 	file_patterns=hyph-tr.pat.txt \
 	file_exceptions=
-
+srcpattern d source/generic/hyph-utf8/languages/tr
+runpattern f tex/generic/hyph-utf8/loadhyph/loadhyph-tr.tex
+runpattern f tex/generic/hyph-utf8/patterns/ptex/hyph-tr.ec.tex
+runpattern f tex/generic/hyph-utf8/patterns/tex/hyph-tr.tex
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-tr.chr.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-tr.hyp.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-tr.lic.txt
+runpattern f tex/generic/hyph-utf8/patterns/txt/hyph-tr.pat.txt
