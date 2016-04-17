@@ -217,6 +217,8 @@ class Authors < Hash
 	# email doesn't work
 	"javier_mugica"       => ["Javier", "Múgica", "javier{at}digi21{dot}eu", true, true],
 	"georgi_boshnakov"    => ["Georgi", "Boshnakov", "georgi{dot}boshnakov{at}manchester{dot}ac{dot}uk", true, true],
+	"mike_kroutikov"      => ["Mike", "Kroutikov", "pgmmpk{at}gmail{dot}com", true, true],
+	"aleksandr_andreev"   => ["Aleksandr", "Andreev", "", true, true],
 }
 #
 		authors.each do |a|
@@ -2090,11 +2092,13 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"hyphenmin" => [1, 2],
 	"encoding" => nil,
-	"exceptions" => false,
+	"exceptions" => true,
 	"message" => "Church Slavonic hyphenation patterns",
+
 	"version" => nil,
 	"last_modified" => "2016-04-16",
 	"type" => "machine learning",
+	"authors" => ["mike_kroutikov", "aleksandr_andreev"],
 	"licence" => "MIT",
 	"description_s" => "Church Slavonic hyphenation patterns",
 	"description_l" => [

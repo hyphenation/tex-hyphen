@@ -118,11 +118,11 @@ end
 ########################################
 # GROUP nr. 1 - ONLY USABLE WITH UTF-8 #
 ########################################
-			# some special cases firs
+			# some special cases first
 			#
 			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
 			# TODO - maybe consider doing something similar for ibycus
-			if ['sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te'].include?(language.code) then
+			if ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te'].include?(language.code) then
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				# lccodes
@@ -130,6 +130,12 @@ end
 					file.puts('    % Set \lccode for Ethiopian word space.')
 					file.puts('    \lccode"1361="1361')
 					file.puts('    \lccode"1362="1362')
+				elsif language.code == "cu" then
+					file.puts('    % fix lccodes for some characters (they were recently included in Unicode)')
+					file.puts('    \lccode"1C82="1C82 % sharp o in lowercase "uk"')
+					['1DF6', '1DF7', '1DF8', '1DF9', 'A69E', '1C86', 'A67E', 'FE2E', 'FE2F'].each do |l|
+						file.puts("    \\lccode\"#{l}=\"#{l}")
+					end
 				elsif language.code != 'lo' then
 					file.puts('    % Set \lccode for ZWNJ and ZWJ.')
 					file.puts('    \lccode"200C="200C')
