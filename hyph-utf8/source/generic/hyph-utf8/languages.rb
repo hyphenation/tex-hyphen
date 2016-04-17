@@ -2083,6 +2083,24 @@ class Languages < Hash
 		"Hyphenation patterns for Georgian in T8M, T8K and UTF-8 encodings.",
 	],
 },
+# Church Slavonic
+{
+	"code" => "cu",
+	"name" => "churchslavonic",
+	"use_new_loader" => true,
+	"hyphenmin" => [1, 2],
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => "Church Slavonic hyphenation patterns",
+	"version" => nil,
+	"last_modified" => "2016-04-16",
+	"type" => "machine learning",
+	"licence" => "MIT",
+	"description_s" => "Church Slavonic hyphenation patterns",
+	"description_l" => [
+		"Hyphenation patterns for Church Slavonic in UTF-8 encoding",
+	],
+}
 # dumylang -> dumyhyph.tex
 # nohyphenation -> zerohyph.tex
 # arabic -> zerohyph.tex

@@ -1,0 +1,25 @@
+\begingroup
+% Test whether we received one or two arguments
+\def\testengine#1#2!{\def\secondarg{#2}}
+% That's Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
+\testengine Τ!\relax
+% Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
+\ifx\secondarg\empty
+    \message{UTF-8 Church Slavonic Hyphenation Patterns}
+    % fix lccodes for some characters (they were recently included in Unicode)
+    \lccode"1C82="1C82 % sharp o in lowercase "uk"
+    \lccode"1DF6="1DF6
+    \lccode"1DF7="1DF7
+    \lccode"1DF8="1DF8
+    \lccode"1DF9="1DF9
+    \lccode"A69E="A69E
+    \lccode"1C86="1C86
+    \lccode"A67E="A67E
+    \lccode"FE2E="FE2E
+    \lccode"FE2F="FE2F
+    %
+    \input hyph-cu.tex
+\else
+    \message{No Church Slavonic hyphenation patterns - please use XeLaTeX or LuaLaTex}
+\fi
+\endgroup
