@@ -1,0 +1,211 @@
+%D \module
+%D   [      file=s-lan-04,
+%D        version=2011.05.01,
+%D          title=\CONTEXT\ Style File,
+%D       subtitle=Language Environment 4,
+%D         author=Hans Hagen,
+%D           date=\currentdate,
+%D      copyright={PRAGMA / Hans Hagen \& Ton Otten}]
+%C
+%C This module is part of the \CONTEXT\ macro||package and is
+%C therefore copyrighted by \PRAGMA. See mreadme.pdf for
+%C details.
+
+%D For Mojca.
+
+% \enabletrackers[fonts.goodies,languages.patterns]
+
+% TODO: lm, lo, mn
+
+\startluacode
+    local a_colormodel   = attributes.private('colormodel')
+
+    local nodecodes      = nodes.nodecodes
+    local nodepool       = nodes.pool
+    local disc           = nodecodes.disc
+    local glyph          = nodecodes.glyph
+    local quads          = fonts.hashes.quads
+    local newkern        = nodepool.kern
+    local newrule        = nodepool.rule
+    local newglue        = nodepool.glue
+
+    local get_attribute  = node.has_attribute
+
+    local tracers        = nodes.tracers
+    local colortracers   = tracers and tracers.colors
+    local setnodecolor   = colortracers.set
+
+    local function identify(head,marked)
+        local current, prev = head, nil
+        while current do
+            local id = current.id
+            local next = current.next
+            if id == disc then
+                if prev and next.id == glyph then -- catch other usage of disc
+                    marked[#marked+1] = prev
+                end
+            elseif id == glyph then
+                prev = current
+            end
+            current = next
+        end
+    end
+
+    local function strip(head,marked)
+        for i=1,#marked do
+            local prev = marked[i]
+            nodes.remove(head,prev.next,true)
+        end
+    end
+
+    local function mark(head,marked,what,how)
+        -- local xquad = quads[marked[1].font]
+        head, prev = node.insert_after(head,prev,newkern(1000))
+        for i=1,#marked do
+            local prev = marked[i]
+            local font = prev.font
+            local quad = quads[font]
+            head, prev = node.insert_after(head,prev,newkern(-quad/20))
+            -- head, prev = node.insert_after(head,prev,newkern(0))
+            if what then
+--                local rule = newrule(quad/10,.75*quad,-0.3*quad)
+                local rule = newrule(quad/10,.15*quad,0*quad)
+                head, prev = node.insert_after(head,prev,rule)
+                setnodecolor(rule,how,get_attribute(prev,a_colormodel))
+            else
+--                local rule = newrule(quad/10,.15*quad,.3*quad)
+                local rule = newrule(quad/10,.75*quad,0*quad)
+                head, prev = node.insert_after(head,prev,rule)
+                setnodecolor(rule,how,get_attribute(prev,a_colormodel))
+            end
+            head, prev = node.insert_after(head,prev,newkern(-quad/20))
+--            head, prev = node.insert_after(head,prev,newkern(0))
+            head, prev = node.insert_after(head,prev,newglue(0))
+        end
+--        head, prev = node.insert_after(head,prev,newkern(quad/40))
+    end
+
+    local language_one, language_two, tag_one, tag_two
+
+    function nodes.showhyphens(head)
+        local marked_1, marked_2 = { }, { }
+        if language_one then
+            for n in node.traverse_id(glyph,head) do
+                n.lang = language_one
+            end
+            lang.hyphenate(head,node.slide(head))
+            identify(head,marked_1)
+            strip(head,marked_1)
+        end
+        if language_two then
+            for n in node.traverse_id(glyph,head) do
+                n.lang = language_two
+            end
+            lang.hyphenate(head,node.slide(head))
+            identify(head,marked_2)
+            strip(head,marked_2)
+        end
+        mark(head,marked_1,true,"hyphenation:"..tag_one)
+        if not tag_2 ~= nil then
+            mark(head,marked_2,false,"hyphenation:"..tag_two)
+        end
+        if language_one then
+            for n in node.traverse_id(glyph,head) do
+                n.lang = language_one
+            end
+            lang.hyphenate(head,node.slide(head))
+        end
+        return head, true
+    end
+
+    function languages.startcomparepatterns(list)
+        local list = utilities.parsers.settings_to_array(list)
+        tag_one = list[1]
+        tag_two = list[2]
+        language_one = tag_one and languages.getnumber(tag_one)
+        language_two = tag_two and languages.getnumber(tag_two)
+    --  nodes.tasks.appendaction("processors","words","nodes.showhyphens")
+        nodes.tasks.appendaction("processors","before","nodes.showhyphens")
+        nodes.tasks.enableaction("processors","nodes.showhyphens")
+    end
+
+    function languages.stopcomparepatterns()
+        nodes.tasks.disableaction("processors","nodes.showhyphens")
+    end
+
+\stopluacode
+
+\unprotect
+
+\def\startcomparepatterns[#1]%
+  {\bgroup
+   \language\zerocount
+   \setupalign[\v!nothyphenated]%
+   \ctxlua{languages.startcomparepatterns("#1")}}
+
+\def\stopcomparepatterns
+  {\ctxlua{languages.stopcomparepatterns()}%
+   \egroup}
+
+\protect
+
+\definecolor[hyphenation:ka]  [b=1.]
+\definecolor[hyphenation:ka2] [r=.8]
+\definecolor[hyphenation:en]  [g=.8]
+% \definecolor[hyphenation:nl] [b=.8]
+
+% \doifnotmode{demo}{\endinput}
+
+\installlanguage
+	[ka]
+	[patterns=ka,
+	 lefthyphenchar=-1,
+	 righthyphenchar=-1,
+	]
+\installlanguage
+	[ka2]
+	[patterns=ka, % use different patterns
+	 lefthyphenchar=-1,
+	 righthyphenchar=-1,
+	]
+\mainlanguage
+	[ka]
+
+\starttypescript[serif][arial]
+	\definefontsynonym [Serif] [file:Arial Unicode.ttf] [features=default]
+\stoptypescript
+
+\starttypescript[arial]
+	\definetypeface [arial] [rm] [serif] [arial] [default]
+\stoptypescript
+
+
+\setupbodyfont[arial]
+
+\setupwhitespace
+	[big]
+
+\definecolor[colorscheme:3:1][r=.8,b=.8]
+\definecolor[colorscheme:3:2][b=1.]
+\definecolor[colorscheme:3:3][b=.8]
+\definecolor[colorscheme:3:4][b=.8]
+\definecolor[colorscheme:3:5][b=.4]
+\definecolor[colorscheme:3:6][b=.3]
+\definecolor[colorscheme:3:7][r=.5]
+\definecolor[colorscheme:3:8][g=.5]
+
+\starttext
+
+\setfontcolorscheme[3]
+
+\startcomparepatterns[ka,ka]
+    \input ka-text-plain.txt\par
+\stopcomparepatterns
+
+% Reference syllabification:
+% 
+% \catcode`\​=\active
+% \def​{\color[red]{\kern-0.5pt\vrule width1pt height 10pt depth0pt\kern-0.5pt}\hskip0pt}
+% \input ka-text-hyphenated.txt\par
+
+\stoptext
