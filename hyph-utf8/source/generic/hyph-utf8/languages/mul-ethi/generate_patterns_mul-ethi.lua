@@ -1,10 +1,26 @@
 #!/usr/bin/env texlua
 
 -- Extract Ethiopic syllables from the Unicode Character Database.
--- Arthur Reutenauer, London, 2011, for the hyph-utf8 project
--- http://tug.org/tex-hyphen
--- Copyright (c) TeX Users Group, 2011.
--- You may freely use, copy, modify and / or redistribute this file.
+-- Copyright (c) 2011, 2016 Arthur Reutenauer
+-- http://www.hyphenation.org/
+-- This file is available under the terms of the MIT licence.
+-- Permission is hereby granted, free of charge, to any person obtaining a copy
+-- of this software and associated documentation files (the "Software"), to deal
+-- in the Software without restriction, including without limitation the rights to
+-- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+-- of the Software, and to permit persons to whom the Software is furnished to do
+-- so, subject to the following conditions:
+--
+-- The above copyright notice and this permission notice shall be included in all
+-- copies or substantial portions of the Software.
+--
+-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-- SOFTWARE.
 
 -- Use with TeXLua.
 
@@ -53,15 +69,14 @@ local pattfile = assert(io.open("hyph-mul-ethi.tex", "w"))
 
 pattfile:write[[
 % Experimental pattern file for languages written using the Ethiopic script.
-% Arthur Reutenauer, London, 2011, for the hyph-utf8 project.
-% Copyright (c) TeX Users Group, 2011.
+% Copyright (c) 2011, 2016 Arthur Reutenauer
 % You may freely use, copy, modify and / or redistribute this file.
 %
 % This is a generated file.  If you wish to edit it, consider adapting the
 % generating programme
 % (svn://tug.org/texhyphen/trunk/hyph-utf8/source/generic/hyph-utf8/languages/mul-ethi/generate_patterns_mul-ethi.lua).
 %
-% The BCP 47 language tag for that file is "mul-ethi" to reflect the fact that
+% The BCP 47 language tag for that file is “mul-ethi” to reflect the fact that
 % it can be used by multiple languages (and a single script, Ethiopic).  It is,
 % though, not supposed to be linguistically relevant and should, for proper
 % typography, be replaced by files tailored to individual languages.  What we
@@ -78,13 +93,13 @@ for ucd_line in io.lines(ucd_file) do
   -- if usv then print(usv, char_name) end
   if usv then
     -- arbitrarily excluding Ethiopic Extended-A
-    -- because they're not in unicode-letters.tex
+    -- because they’re not in unicode-letters.tex
     local hex = hex_string_to_num(usv)
-    if hex < 0xAB00  then
+    -- if hex < 0xAB00  then
       local hex = hex_string_to_num
       pattfile:write("1", unicode.utf8.char(hex_string_to_num(usv)), "1 ")
       pattfile:write("% U+", usv, " ", char_name:lower(), "\n")
-    end
+    -- end
   end
 end
 
