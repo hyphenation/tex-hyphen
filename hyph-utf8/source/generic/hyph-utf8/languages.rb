@@ -842,7 +842,7 @@ class Languages < Hash
 	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "frhyph.tex",
-	"hyphenmin" => [2,3],
+	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "French hyphenation patterns",
@@ -850,9 +850,8 @@ class Languages < Hash
 	"version"       => "2.13",
 	"last_modified" => "2016-05-12",
 	"type"          => "rules",
-	"authors"       => ["rene_bastian", "daniel_flipo", "bernard_gaulle", "arthur_reutenauer"],
-	# TODO for Arthur: recreate mailing-list
-	# "email"         => ["cesure-l{at}gutenberg{dot}eu{dot}org"],
+	"authors"       => ["daniel_flipo", "bernard_gaulle", "arthur_reutenauer"],
+	"email"         => ["cesure-l{at}gutenberg{dot}eu{dot}org"],
 	"licence"       => "MIT",
 	"description_s" => "French hyphenation patterns",
 	"description_l" => [
