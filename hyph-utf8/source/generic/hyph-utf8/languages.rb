@@ -845,15 +845,15 @@ class Languages < Hash
 	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "French hyphenation patterns (V2.12, 2002/12/11)",
+	"message" => "French hyphenation patterns",
 
-	"version"       => "2.12",
-	"last_modified" => "2002-12-11",
+	"version"       => "2.13",
+	"last_modified" => "2016-05-12",
 	"type"          => "rules",
-	"authors"       => ["rene_bastian", "daniel_flipo", "bernard_gaulle"],
+	"authors"       => ["rene_bastian", "daniel_flipo", "bernard_gaulle", "arthur_reutenauer"],
 	# TODO for Arthur: recreate mailing-list
 	# "email"         => ["cesure-l{at}gutenberg{dot}eu{dot}org"],
-	"licence"       => "other-free", # Knuthian type
+	"licence"       => "MIT",
 	"description_s" => "French hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
