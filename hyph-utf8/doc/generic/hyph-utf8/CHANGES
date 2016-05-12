@@ -1,3 +1,6 @@
+2016-05-12 (c060b6d)
+- Added four patterns in French to prevent breaks before apostrophes
+
 2016-04-17 (#744, #745)
 - Added Church Slavonic patterns (by Mike Kroutikov and Aleksandr Andreev)
 
