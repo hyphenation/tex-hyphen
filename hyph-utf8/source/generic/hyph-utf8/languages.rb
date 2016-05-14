@@ -1281,6 +1281,30 @@ class Languages < Hash
 		"those of 'plain' Latin, the latter being more adapted to modern Latin.",
 	],
 },
+# liturgicallatin
+{
+	"code" => "la-x-liturgic",
+	"name" => "liturgicallatin",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"filename_old_patterns" => nil,
+	"hyphenmin" => [2,2],
+	"encoding" => "ec",
+	"exceptions" => false,
+	"message" => "Liturgical Latin hyphenation patterns",
+
+	"version"       => "1.030",
+	"last_modified" => "2016-04-28",
+	"type"          => "rules",
+	"authors"       => [ "claudio_beccari" ],
+	"licence"       => "MIT",
+	"description_s" => "Liturgical Latin hyphenation patterns",
+	"description_l" => [
+		#......................................................................#
+		"Hyphenation patterns for the Liturgical Latin in T1/EC and UTF-8",
+		"encodings.",
+	],
+},
 # lithuanian
 {
 	"code" => "lt",
