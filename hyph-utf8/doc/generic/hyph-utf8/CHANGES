@@ -1,3 +1,9 @@
+2016-05-14 (a46baa4)
+- Added support for curled theta (ϑ U+03D1 GREEK THETA SYMBOL) in Ancient Greek patterns, UTF-8 version
+
+2016-05-12 (500a620)
+- Added support for curled beta (ϐ U+03D0 GREEK BETA SYMBOL) in Ancient Greek patterns, UTF-8 version
+
 2016-04-17 (#744, #745)
 - Added Church Slavonic patterns (by Mike Kroutikov and Aleksandr Andreev)
 
