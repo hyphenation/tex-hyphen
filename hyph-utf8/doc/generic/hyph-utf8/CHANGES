@@ -1,3 +1,6 @@
+2016-05-14
+- Change righthyphenmin in hyphen-french.tlpsrc to 2
+
 2016-05-12 (c060b6d)
 - Added four patterns in French to prevent breaks before apostrophes
 
