@@ -82,7 +82,9 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 		file_ptex.puts("\\bgroup")
 		# setting lccodes for letters
 		characters.each do |c|
-			if c >= 128 then
+			if (c == 0x01FD or c == 0x0301) and language.code == 'la-x-liturgic'
+				# skip
+			elsif c >= 128 then
 				code = encoding.unicode_characters[c].code_enc
 				file_ptex.puts sprintf("\\lccode\"%02X=\"%02X", code, code)
 			end

@@ -217,8 +217,12 @@ end
 				end
 				file.puts('\else')
 				file.puts(text_engine_8bit)
-				file.puts(text_patterns_conv)
-				file.puts(text_patterns)
+				if ['la-x-liturgic'].include?(language.code) then
+					file.puts(text_patterns_ptex)
+				else
+					file.puts(text_patterns_conv)
+					file.puts(text_patterns)
+				end
 				file.puts('\fi\else')
 				file.puts(text_engine_ptex)
 				file.puts(text_patterns_ptex)
