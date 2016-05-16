@@ -1,3 +1,8 @@
+== CTAN release 2016.05.16 ==
+
+2016-05-16
+- Added support for curled beta (ϐ U+03D0 GREEK BETA SYMBOL) in Ancient Greek patterns, UTF-8 version
+
 2016-05-14
 - add Liturgical Latin patterns (by Claudio Beccari)
 

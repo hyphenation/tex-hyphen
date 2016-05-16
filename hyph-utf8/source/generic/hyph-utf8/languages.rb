@@ -398,7 +398,7 @@ class Languages < Hash
 	"message" => "Hyphenation patterns for Ancient Greek",
 
 	"version"       => "5.0",
-	"last_modified" => "2008-06-06",
+	"last_modified" => "2016-05-12",
 	"type"          => "rules",
 	"authors"       => ["dimitrios_filippou"],
 	"licence"       => "LPPL",

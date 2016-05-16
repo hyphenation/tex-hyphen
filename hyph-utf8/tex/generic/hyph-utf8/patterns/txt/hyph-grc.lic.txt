@@ -1,15 +1,32 @@
-% ****************************************************************
+% title: Unicode hyphenation patterns for Ancient Greek.
+% copyright: Dimitrios Filippou, (c) 2008-2016
+% notice: >
+%     This file is part of the hyph-utf8 package.
+%     See http://www.hyphenation.org for more information.
+% language:
+%    name: Ancient Greek
+%    tag: grc
+% licence:
+%     name: LPPL
+%     url: http://www.latex-project.org/lppl/
+% changes:
+%   -
+%     date: 2016-05-12
+%     author: Arthur Reutenauer
+%     description: added support for curly beta
+%   -
+%     date: 2011-09-12
+%     author: Dimitrios Filippou
+%     description: updated headers and added the LPPL licence statement
+%   -
+%     date: 2008-06-06
+%     author: Dimitrios Filippou
+%     description: removed guillemets (»)
+%   -
+%     date: 2008-05-27
+%     author: Dimitrios Filippou
 %
-% File name: hyph-grc.tex
-%
-% Created:       June 6, 2008
-% Last modified: Sept. 12, 2011
-%
-% Unicode hyphenation patterns for Ancient Greek.
-%
-% Author:        Dimitrios Filippou, (c) 2008-2011
-% Licence:       LaTeX Project Public Licence
-%
+% ==========================================
 % This file was first created by mechanical translation from
 % GRAhyph5.tex via "elhyph-utf8 -a -c" (version 0.1 by Peter
 % Heslin -- p.j.heslin at durham dot ac dot uk). Some additions
