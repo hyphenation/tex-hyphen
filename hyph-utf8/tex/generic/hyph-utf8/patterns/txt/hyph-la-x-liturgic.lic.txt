@@ -1,6 +1,6 @@
 % copyright: Copyright (C) Claudio Beccari, 2016
 % title: Hyphenation patterns for Liturgical Latin
-% version: 1.030 2016-04-28
+% version: 1.040 2016-05-19
 % language:
 %     name: Liturgical Latin
 %     code: la-x-liturgic
@@ -32,10 +32,3 @@
 %         ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 %         CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 %         SOFTWARE.
-% changelog:
-%   -
-%     date: 2016-04-28
-%     version: 1.030
-%     author: Claudio Beccari
-%     description: first public release
-%

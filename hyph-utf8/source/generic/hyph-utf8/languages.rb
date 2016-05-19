@@ -1293,8 +1293,8 @@ class Languages < Hash
 	"exceptions" => false,
 	"message" => "Liturgical Latin hyphenation patterns",
 
-	"version"       => "1.030",
-	"last_modified" => "2016-04-28",
+	"version"       => "1.040",
+	"last_modified" => "2016-05-19",
 	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "MIT",

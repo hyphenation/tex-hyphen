@@ -1,6 +1,6 @@
 % copyright: Copyright (C) Claudio Beccari, 2016
 % title: Hyphenation patterns for Liturgical Latin
-% version: 1.030 2016-04-28
+% version: 1.040 2016-05-19
 % language:
 %     name: Liturgical Latin
 %     code: la-x-liturgic
@@ -32,34 +32,31 @@
 %         ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 %         CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 %         SOFTWARE.
-% changelog:
-%   -
-%     date: 2016-04-28
-%     version: 1.030
-%     author: Claudio Beccari
-%     description: first public release
-%
 \patterns{
 .a2b1ali
 .a2b1auu
 .a2b1eo
 .a2b1er
+.a2b1eu
+.a2b1eú
 .a2b1í
 .a2b1i2é
 .a2b1i2ec
 .a2b1i2éct
 .a2b1i2i
 .a2b1i2í
+.a2b1i4ur
 .a2b1ic
 .a2b1ig
 .a2b1in1
+.a2b1ir
 .a2b1it
-.a2b1iu
 .a2b1iv
 .a2b1ol
 .a2b1om
 .a2b1or
 .a2b1ort
+.a2b3c
 .a2b3l
 .a2b3r
 .a2b3ru
@@ -75,9 +72,12 @@
 .a2d3a3s4cr
 .a2d5s2t
 .a2dfu
+.a3b3æq
 .a3b4rah
 .a3d4æ
-.a3d4am
+.a3d4am.
+.a3d4ep
+.a3d4on
 .a3d4ran
 .a3d4u3a
 .a3d4ul
@@ -87,6 +87,13 @@
 .a3s2p
 .a3s2t
 .a4b3es
+.a4d3ole
+.a4d5æq
+.a4d5ule
+.a4d5ult
+.a4d5últ
+.a4dy
+.á4dy
 .a4s3per
 .a5s4perg
 .a5s4pern
@@ -102,6 +109,7 @@
 .ab3su2
 .áb4s3
 .ab4s3c
+.ab4s3en
 .ab4s3tem
 .ab4s3ter
 .ab4s3tér
@@ -111,32 +119,37 @@
 .ab4s3tu
 .ab4s3tú
 .ab5s4cin
-.ab5s4ent
+.ab5s4i3d
+.áb5s4i3d
+.ab5si3l
+.ab5si3m
+.ab5su3m
 .ad3i2i
 .ad3i2í
 .ad3i2u
 .ad3i2ú
 .ad3s2cr
-.ad3si2
+.ad3si
 .ad5is.
 .ad5it.
 .ader2
 .ades2
-.adsu2
-.ady3
-.ády3
+.adi2a
+.adi2á
+.adi2e
+.adi2é
+.adsu3e
 .ani2m3ad
 .anti1
 .anti3m2n
 .ape3r2u
 .archi3e
-.ari5s2to
 .b2
 .c2
 .ci2s3
 .circu4m1
-.circú4m3s4
-.circum3s4
+.circú4m5s4
+.circum5s4
 .circumi2a
 .circumi2e
 .circumi2i
@@ -146,6 +159,9 @@
 .co1i
 .co1i2e
 .co2e1n
+.co2m3ed
+.co2m3es.
+.co2m3it
 .co2n1
 .có2n1
 .co3e2lec
@@ -155,10 +171,15 @@
 .co3emen
 .co3g2nos
 .co3g2nós
-.co3n2i3ue
-.co3n2if
-.co3n2ig
-.co3n2it
+.co3n2a
+.co3n2e
+.co3n2i
+.co3n2o
+.co3n2u
+.co4n3i2u
+.co4n3i2ú
+.có4n3i2u
+.co6n5i4ec
 .coex3s2
 .coi3u
 .con3ic
@@ -169,9 +190,9 @@
 .coni2a
 .coni2e
 .coni2i
-.coni2u
-.coni2ú
-.cóni2u
+.conif
+.conig
+.conit
 .cu4m5s4cr
 .de1í
 .dé1i
@@ -182,8 +203,6 @@
 .de3s2p
 .dé3s2p
 .de3s2q
-.de5s2t
-.dé5s2t
 .di2r1im
 .di2s1i2
 .di2sj
@@ -194,22 +213,30 @@
 .di3u
 .di4s3
 .dí4s3
-.di5s4cin
+.di5s4cen
+.di5s4cid
+.di5s4cip
+.di5s4cíp
 .di5s4ciss
 .di5s4cr
 .di5s4pi
 .di5s4ta
+.di5s4tin
 .di5s4to.
 .di5s4tric
 .di5s4trin
+.di6s5cre
 .di6s5crim
 .di6s5crím
 .di6s5cru
+.di6s5per
+.disi3c
 .e2t3en
 .e2x3
 .é2x3
 .ex5s2t
 .éx5s2t
+.ex5s4c
 .exs2p
 .éxs2p
 .f2
@@ -249,6 +276,9 @@
 .i3n2ul
 .i4a
 .i4d3em
+.i4d3eo.
+.i4d3eoq
+.i4d3eóq
 .i4d3es
 .i4n3
 .í4n3
@@ -260,7 +290,6 @@
 .iei2u
 .in3s2p
 .in3s4cr
-.in4d3
 .in5d4is
 .in5s2t
 .ín5s2t
@@ -280,6 +309,9 @@
 .ino3b2oe
 .inob3s2c
 .inpe2r3iur
+.inte2r3e
+.inte2r3i2a
+.inte2r3s4pe
 .inu2a
 .inu2e
 .inu2i
@@ -297,7 +329,7 @@
 .lu3x2ú
 .m2
 .n2
-.ne2g3ot
+.ne2c1op
 .o2b1
 .ó2b1
 .o3b2ed
@@ -338,8 +370,12 @@
 .pe2r1ac
 .pe2r1ác
 .pe2r1ae
+.pe2r1ama
 .pe2r1amb
+.pe2r1anti
 .pe2r1ar
+.pe2r1coq
+.pe2r1cu
 .pe2r1eff
 .pe2r1el
 .pe2r1em
@@ -378,7 +414,11 @@
 .pe2r3ié
 .pe2r3íe
 .pé2r3ii
+.pe2r3im
 .pe2r3ímu
+.pe2r3in
+.pe2r3ir
+.pe2r3ír
 .pe2r3ju
 .pe2r3or
 .pe2r3reg
@@ -390,9 +430,12 @@
 .pe2r3ú
 .pe2r7s2t
 .pe3r2enn
+.pe3r4int
+.pe3r4ul
 .pe4r1e2x3
 .pe4r1ed
 .pe4r3ec
+.pe4r3en
 .pe6r3egr
 .pé6r3egr
 .peri1
@@ -406,7 +449,9 @@
 .po3et
 .po4s4t3hac
 .pos4t3ea
+.pos4t3er
 .pos4t3h
+.pos4t3il
 .posu3í
 .pósu3i
 .præ1
@@ -430,9 +475,9 @@
 .pro2d1ir
 .pro2d3is
 .pro2d5it
-.pro3d2iti
-.pro3d2ito
-.pro3d2itr
+.pro3d6iti
+.pro3d6ito
+.pro3d6itr
 .pro3g2n
 .pro3i4e
 .pro3i4é
@@ -456,8 +501,6 @@
 .qua2m3o2b3
 .que2m3a2d3m
 .quin2c3un
-.quo2n3i4a
-.quó2n3i4a
 .quo2t1an
 .quo2t1en
 .quo2t1i4e
@@ -490,6 +533,9 @@
 .re2d1íer
 .re2d1ig
 .ré2d1ig
+.re2d1im
+.re2d1ím
+.ré2d1im
 .re2d1in
 .re2d1ir
 .re2d1ol
@@ -497,11 +543,12 @@
 .re2d1ord
 .re2d1orn
 .re2d1ul
+.re2d1un
+.re2d1uv
 .re2d5is
 .re2d5it
 .ré2d5it
 .re3d2ic
-.re3d2im
 .re3d2orm
 .re3i2ec
 .re3ips
@@ -540,12 +587,19 @@
 .sta3g2n
 .su2b3
 .sú2b3
+.su3b4ul
 .su3s2c
 .sú3s2c
 .su3s2p
+.su4b5ult
 .su4s3cep
 .su4s3cip
+.su4s3cíp
+.sú4s3cip
 .su4s3cit
+.su4s3cít
+.sú4s3cit
+.su4s3pen
 .sub5s4cr
 .sub5s4t
 .subi4a
@@ -557,6 +611,8 @@
 .súbi4i
 .subi4u
 .subi4ú
+.subte2r3h
+.su4b5ulc
 .supe2r1a3s2p
 .supe2r1a3s2t
 .supe2r1ab
@@ -580,6 +636,7 @@
 .supe2r1em
 .supe2r1en
 .supe2r1er
+.supe2r1es
 .supe2r1eu
 .supe2r1il
 .supe2r1im
@@ -637,13 +694,13 @@
 .trans3i
 .trans3í
 .tráns3i
-.trans3i4e
-.trans3i4é
-.tráns3i4e
 .tráns3i4i
 .trans3íb
 .transa2
 .transe2u
+.transi3e
+.transi3é
+.tránsi3e
 .tri3en
 .u2n1i2us
 .u3n2i3uscu
@@ -953,6 +1010,7 @@ g2n
 g2r
 g4ne.
 ge3n2ua
+gu6us.
 h3m
 hu2c5us
 i1
@@ -995,12 +1053,13 @@ ngu2i
 ngu2í
 ngu2ó
 ngu3i.
-ngu4e
-ngu4é
 ngu4o
 ngu5ere.
 ngu6a
+ngu6e
+ngu6é
 ni2a
+nu3is.
 o1
 ó1
 o3um.
@@ -1011,6 +1070,7 @@ oi2o
 oi2u
 ou2s3que
 p2h
+pi4o.
 p2l
 p2r
 ph3ph
@@ -1018,13 +1078,13 @@ pha3el
 po2t3en
 po2t3er
 po2t3es
+qu6o.
 qu6u
 qu6um.
-qui4e
-qui4é
 r2chm
 r2h
 r4us.
+ri3e.
 ru3is.
 ru3it.
 s2t3l
@@ -1058,8 +1118,8 @@ u3e.
 u3en
 u3et.
 u3it.
-u3o.
 u5ant.
+u5o.
 u5um.
 u5us.
 ui1a
