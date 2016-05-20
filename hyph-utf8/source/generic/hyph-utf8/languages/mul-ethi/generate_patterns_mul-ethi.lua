@@ -3,6 +3,7 @@
 -- Extract Ethiopic syllables from the Unicode Character Database.
 -- Copyright (c) 2011, 2016 Arthur Reutenauer
 -- http://www.hyphenation.org/
+-- === Text of the MIT licence ===
 -- This file is available under the terms of the MIT licence.
 -- Permission is hereby granted, free of charge, to any person obtaining a copy
 -- of this software and associated documentation files (the "Software"), to deal
@@ -21,8 +22,30 @@
 -- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 -- SOFTWARE.
+-- === End of MIT licence ===
 
 -- Use with TeXLua.
+
+local function extract_mit_licence()
+  reading_mit_licence = false
+  bolicence = lpeg.P'=== Text of the MIT licence ==='
+  eolicence = lpeg.P'=== End of MIT licence ==='
+  mit_licence = { }
+  for line in io.lines(arg[0]) do
+    line = line:gsub('^%-%- ', ''):gsub('^%-%-', '')
+    if eolicence:match(line) then
+      reading_mit_licence = false
+    end
+
+    if reading_mit_licence then
+      mit_licence[#mit_licence + 1] = line
+    end
+
+    if bolicence:match(line) then
+      reading_mit_licence = true
+    end
+  end
+end
 
 -- Small library to convert a hexadecimal string to a number
 local function hex_digit_to_num(h)
@@ -67,10 +90,18 @@ local ucd_entry = C(digit^4) * colon * eth_syll
 
 local pattfile = assert(io.open("hyph-mul-ethi.tex", "w"))
 
+extract_mit_licence()
+
 pattfile:write[[
 % Experimental pattern file for languages written using the Ethiopic script.
 % Copyright (c) 2011, 2016 Arthur Reutenauer
-% You may freely use, copy, modify and / or redistribute this file.
+]]
+
+for _, line in ipairs(mit_licence) do
+  pattfile:write('% ', line, '\n')
+end
+
+pattfile:write[[
 %
 % This is a generated file.  If you wish to edit it, consider adapting the
 % generating programme
@@ -92,14 +123,10 @@ for ucd_line in io.lines(ucd_file) do
   -- print(string.format("%04X", usv))
   -- if usv then print(usv, char_name) end
   if usv then
-    -- arbitrarily excluding Ethiopic Extended-A
-    -- because they’re not in unicode-letters.tex
     local hex = hex_string_to_num(usv)
-    -- if hex < 0xAB00  then
-      local hex = hex_string_to_num
-      pattfile:write("1", unicode.utf8.char(hex_string_to_num(usv)), "1 ")
-      pattfile:write("% U+", usv, " ", char_name:lower(), "\n")
-    -- end
+    local hex = hex_string_to_num
+    pattfile:write("1", unicode.utf8.char(hex_string_to_num(usv)), "1 ")
+    pattfile:write("% U+", usv, " ", char_name:lower(), "\n")
   end
 end
 
