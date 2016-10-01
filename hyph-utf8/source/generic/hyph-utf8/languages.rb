@@ -24,7 +24,7 @@ class Language
 		@filename_old_patterns_other = language_hash["filename_old_patterns_other"]
 		@code = language_hash["code"]
 		@name = language_hash["name"]
-		@synonyms = language_hash["synonyms"] 
+		@synonyms = language_hash["synonyms"]
 		@hyphenmin = language_hash["hyphenmin"]
 		@encoding = language_hash["encoding"]
 		@exceptions = language_hash["exceptions"]
@@ -131,7 +131,7 @@ end
 
 class Authors < Hash
 	@@list = []
-	
+
 	def initialize
 		authors = {
 #authors = {
@@ -249,7 +249,7 @@ end
 
 class Languages < Hash
 	@@list = []
-	
+
 	def initialize
 		languages = [
 # --------------------------------------
@@ -308,7 +308,7 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding (v3.0)",
-	
+
 	# "authors" => ["peter_heslin"],
 	"version" => 3.0,
 },
@@ -743,7 +743,7 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Danish hyphenation patterns",
-	
+
 	"version"       => nil,
 	"last_modified" => "2011-01-11",
 	"type"          => "dictionary",
@@ -1766,7 +1766,7 @@ class Languages < Hash
 	# only for this one
 	"version"       => "1.2",
 	"last_modified" => "2010-04-03",
-	"type"          => "dictionary",	
+	"type"          => "dictionary",
 	"authors"       => [ "dorjgotov_batmunkh" ],
 	"licence"       => "LPPL",
 	# for both
@@ -2151,7 +2151,7 @@ class Languages < Hash
 			self[language.code] = language
 		end
 	end
-	
+
 	def list
 		return @@list
 	end
