@@ -24,7 +24,7 @@ class Language
 		@filename_old_patterns_other = language_hash["filename_old_patterns_other"]
 		@code = language_hash["code"]
 		@name = language_hash["name"]
-		@synonyms = language_hash["synonyms"] 
+		@synonyms = language_hash["synonyms"]
 		@hyphenmin = language_hash["hyphenmin"]
 		@encoding = language_hash["encoding"]
 		@exceptions = language_hash["exceptions"]
@@ -131,7 +131,7 @@ end
 
 class Authors < Hash
 	@@list = []
-	
+
 	def initialize
 		authors = {
 #authors = {
@@ -219,6 +219,7 @@ class Authors < Hash
 	"georgi_boshnakov"    => ["Georgi", "Boshnakov", "georgi{dot}boshnakov{at}manchester{dot}ac{dot}uk", true, true],
 	"mike_kroutikov"      => ["Mike", "Kroutikov", "pgmmpk{at}gmail{dot}com", true, true],
 	"aleksandr_andreev"   => ["Aleksandr", "Andreev", "", true, true],
+	"maksim_salau"        => ["Maksim", "Salau", "maksim{dot}salau{at}gmail{dot}com", true, false],
 }
 #
 		authors.each do |a|
@@ -249,7 +250,7 @@ end
 
 class Languages < Hash
 	@@list = []
-	
+
 	def initialize
 		languages = [
 # --------------------------------------
@@ -308,7 +309,7 @@ class Languages < Hash
 	"encoding" => nil,
 	"exceptions" => false,
 	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding (v3.0)",
-	
+
 	# "authors" => ["peter_heslin"],
 	"version" => 3.0,
 },
@@ -743,7 +744,7 @@ class Languages < Hash
 	"encoding" => "ec",
 	"exceptions" => false,
 	"message" => "Danish hyphenation patterns",
-	
+
 	"version"       => nil,
 	"last_modified" => "2011-01-11",
 	"type"          => "dictionary",
@@ -1766,7 +1767,7 @@ class Languages < Hash
 	# only for this one
 	"version"       => "1.2",
 	"last_modified" => "2010-04-03",
-	"type"          => "dictionary",	
+	"type"          => "dictionary",
 	"authors"       => [ "dorjgotov_batmunkh" ],
 	"licence"       => "LPPL",
 	# for both
@@ -2127,6 +2128,26 @@ class Languages < Hash
 	"description_l" => [
 		"Hyphenation patterns for Church Slavonic in UTF-8 encoding",
 	],
+},
+# Belarusian
+{
+	"code" => "be",
+	"name" => "belarusian",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [2,2],
+	"encoding" => "t2a",
+	"message" => "Belarusian hyphenation patterns",
+
+	"version"       => nil,
+	"last_modified" => "2016-09-29",
+	"type"          => "rules",
+	"authors"       => ["maksim_salau"],
+	"licence"       => "MIT",
+	"description_s" => "Belarusian hyphenation patterns",
+	"description_l" => [
+		"Belarusian hyphenation patterns in T2A and UTF-8 encodings"
+	],
 }
 # dumylang -> dumyhyph.tex
 # nohyphenation -> zerohyph.tex
@@ -2136,8 +2157,8 @@ class Languages < Hash
 		]
 
 		# TODO: do not hardcode this list; auto-generate it instead
-		languages_with_quotes = ['af', 'fr', 'fur', 'it', 'oc', 'pms', 'rm', 'uk', 'zh-latn-pinyin']
-		languages_with_dashes = ['af', 'pt', 'ru', 'tk', 'uk']
+		languages_with_quotes = ['af', 'be', 'fr', 'fur', 'it', 'oc', 'pms', 'rm', 'uk', 'zh-latn-pinyin']
+		languages_with_dashes = ['af', 'be', 'pt', 'ru', 'tk', 'uk']
 
 		languages.each do |l|
 			language = Language.new(l)
@@ -2151,7 +2172,7 @@ class Languages < Hash
 			self[language.code] = language
 		end
 	end
-	
+
 	def list
 		return @@list
 	end
