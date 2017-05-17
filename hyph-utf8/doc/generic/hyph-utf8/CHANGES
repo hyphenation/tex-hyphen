@@ -1,3 +1,17 @@
+207-05-08
+- Updated all German [de-1901, de-ch-1901, de-1996] patterns to the latest version
+  provided by dehyph-exptl (2017-03-31).  By the German hyphenation pattern working group
+
+2017-01-20
+- Synched Liturgical Latin [la-x-liturgic] patterns with their source
+  at the Gregorio project (by Élie Roux)
+
+2017-10-17
+- Updated Church Slavonic [cu] patterns to version 1.1 (by Mike Kroutikov)
+
+2017-10-01
+- Added Belarusian [be] patterns (by Maksim Salau)
+
 2016-05-19
 - update Liturgical Latin patterns (by Claudio Beccari), version 1.040
 
