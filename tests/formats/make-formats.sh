@@ -2,8 +2,8 @@
 
 source setuptests
 
-platex -ini platex.ini
-uplatex -ini uplatex.ini
+eptex -ini \*platex.ini
+euptex -ini \*uplatex.ini
 xelatex -ini \*xelatex.ini
 xetex -ini \*xetex.ini
 pdftex -ini -etex pdflatex.ini
