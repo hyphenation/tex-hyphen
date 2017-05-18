@@ -217,18 +217,18 @@ Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
 \end{document}
 \stopTEX
 
-
+\page
 \section[sec:languages]{List of supported languages}
 
 \def\lanname#1{\hbox to \textwidth{\bf#1\hss}}
 \def\landata#1#2#3{\hbox to \textwidth{\hbox to 3mm{}\hbox to 6.5em{#1\hss}\hbox to 7em{#2}\hbox{#3}\hss} }
-% \def\landata#1#2#3{}
-% \startcolumns[n=2]
 
 \lanname{English}
 \landata{-}{\bf english}{usenglish, USenglish, american}
 \landata{en-us}{usenglishmax}{}
 \landata{en-gb}{ukenglish}{british, UKenglish}
+
+\startcolumns[n=2]
 \lanname{Afrikaans}
 \landata{af}{afrikaans}{}
 \lanname{Ancientgreek}
@@ -242,6 +242,8 @@ Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
 \landata{as}{assamese}{}
 \lanname{Basque}
 \landata{eu}{basque}{}
+\lanname{Belarusian}
+\landata{be}{belarusian}{}
 \lanname{Bengali}
 \landata{bn}{bengali}{}
 \lanname{Bulgarian}
@@ -250,6 +252,8 @@ Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
 \landata{ca}{catalan}{}
 \lanname{Chinese}
 \landata{zh-latn-pinyin}{pinyin}{}
+\lanname{Church Slavonic}
+\landata{cu}{churchslavonic}{}
 \lanname{Coptic}
 \landata{cop}{coptic}{}
 \lanname{Croatian}
@@ -260,8 +264,6 @@ Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
 \landata{da}{danish}{}
 \lanname{Dutch}
 \landata{nl}{dutch}{}
-% \column
-% \crlf\crlf\crlf\crlf
 \lanname{Esperanto}
 \landata{eo}{esperanto}{}
 \lanname{Estonian}
@@ -272,12 +274,15 @@ Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
 \landata{fa}{farsi}{persian}
 \lanname{Finnish}
 \landata{fi}{finnish}{}
+\column
 \lanname{French}
 \landata{fr}{french}{patois, francais}
 \lanname{Friulan}
 \landata{fur}{friulan}{}
 \lanname{Galician}
 \landata{gl}{galician}{}
+\lanname{Georgian}
+\landata{ka}{georgian}{}
 \lanname{German}
 \landata{de-1901}{german}{}
 \landata{de-1996}{ngerman}{}
@@ -308,12 +313,14 @@ Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
 \lanname{Latin}
 \landata{la}{latin}{}
 \landata{la-x-classic}{classiclatin}{}
+\landata{la-x-liturgic}{liturgicallatin}{}
 \lanname{Latvian}
 \landata{lv}{latvian}{}
 \lanname{Lithuanian}
 \landata{lt}{lithuanian}{}
 \lanname{Malayalam}
 \landata{ml}{malayalam}{}
+\column
 \lanname{Marathi}
 \landata{mr}{marathi}{}
 \lanname{Mongolian}
@@ -322,6 +329,8 @@ Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
 \lanname{Norwegian}
 \landata{nb}{bokmal}{norwegian, norsk}
 \landata{nn}{nynorsk}{}
+\lanname{Occitan}
+\landata{oc}{occitan}{}
 \lanname{Oriya}
 \landata{or}{oriya}{}
 \lanname{Panjabi}
@@ -330,7 +339,6 @@ Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
 \landata{pl}{polish}{}
 \lanname{Piedmontese}
 \landata{pms}{piedmontese}{}
-% \crlf\crlf
 \lanname{Portuguese}
 \landata{pt}{portuguese}{portuges}
 \lanname{Romanian}
@@ -362,18 +370,13 @@ Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
 \landata{tr}{turkish}{}
 \lanname{Turkmen}
 \landata{tk}{turkmen}{}
-% \lanname{Ukenglish}
-% \landata{en-gb}{ukenglish}{british, UKenglish}
 \lanname{Ukrainian}
 \landata{uk}{ukrainian}{}
 \lanname{Uppersorbian}
 \landata{hsb}{uppersorbian}{}
-% \lanname{Usenglishmax}
-% \landata{en-us}{usenglishmax}{}
 \lanname{Welsh}
 \landata{cy}{welsh}{}
-\crlf\crlf
-% \stopcolumns
+\stopcolumns
 
 \blank[2*big]
 

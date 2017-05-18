@@ -32,7 +32,7 @@
 
 In \TeXLive\ you can install different language collections \type{collection-lang}{\tt\sl <foo>}.
 
-\placefigure[force]{}{\externalfigure[img/texlive-collection.png][width=150pt]}
+\placefigure[force]{}{\externalfigure[img/texlive-collection.png][width=340pt]}
 
 For example, the German collection \type{collection-langgerman} contains packages \type{hyphen-german} and \type{dehyph-exptl} which both contain hyphenation patterns (in addition to many other packages related to German language). The Greek collection \type{collection-langgreek} contains \type{hyphen-greek} and \type{hyphen-ancientgreek} among other packages. The package \type{dehyph-exptl} is maintained independently, while all packages \type{hyphen-}{\tt\sl<foo>} belong to \type{hyph-utf8}.
 
@@ -59,8 +59,15 @@ execute AddHyphen \
 
 The keywords {\bf name} and {\bf synonyms} are used as language name to access the patterns in \TeX, {\bf file} is used as pattern loader for 8-bit engines and \XeTeX, while {\bf file\_patterns} and {\bf file\_exceptions} are plain text files used by \LuaTeX.
 
-The information from \type{AddHyphen} directives end up in three different files: \type{language.dat} used by \LaTeX, \type{language.def} used by plain \eTeX\  and \type{language.dat.lua} used by \LuaTeX. All the three are placed in\crlf \type{    $TEXMFSYSVAR/tex/generic/config},\crlf for example to\crlf \type{    /usr/local/texlive/2013/texmf-var/tex/generic/config},\crlf while a static copy also exists in\crlf
-	\type{    $TEXMFDIST/tex/generic/config},\crlf but that one contains all languages and only makes sense if you have a complete checkout from SVN repository for example.
+The information from \type{AddHyphen} directives end up in three different files: \type{language.dat} used by \LaTeX, \type{language.def} used by plain \eTeX\  and \type{language.dat.lua} used by \LuaTeX.
+
+All the three are placed in\crlf
+\strut\type{    $TEXMFSYSVAR/tex/generic/config},\crlf
+for example in\crlf
+\strut\type{    /usr/local/texlive/2017/texmf-var/tex/generic/config},\crlf
+while a static copy also exists in\crlf
+\strut\type{    $TEXMFDIST/tex/generic/config},\crlf
+but that one contains all languages and only makes sense if you have a complete checkout from SVN repository for example.
 
 \placefigure[force]{\type{language.dat}}{
 \starttyping
@@ -142,27 +149,28 @@ patterns=hyph-nn.pat.txt
 \stoptyping
 }
 
-\subsection{\W32TeX}
+% \subsection{\W32TeX}
 
 \page
 
-List of languages in \TeXLive\ 2013:
+List of languages in \TeXLive\ 2017:
 \startcolumns[two]
 \starttyping
-collection-langafrican
-  hyphen-ethiopic
-    ethiopic,amharic,geez
 collection-langarabic
   hyphen-arabic
     arabic
   hyphen-farsi
     farsi,persian
-collection-langcjk
+collection-langchinese
   hyphen-chinese
     pinyin
 collection-langcyrillic
+  hyphen-belarusian
+    belarusian
   hyphen-bulgarian
     bulgarian
+  hyphen-churchslavonic
+    churchslavonic
   hyphen-mongolian
     mongolian
     mongolianlmc
@@ -206,7 +214,9 @@ collection-langeuropean
   hyphen-kurmanji
     kurmanji
   hyphen-latin
+    classiclatin
     latin
+    liturgicallatin
   hyphen-latvian
     latvian
   hyphen-lithuanian
@@ -214,6 +224,8 @@ collection-langeuropean
   hyphen-norwegian
     bokmal,norwegian,norsk
     nynorsk
+  hyphen-occitan
+    occitan
   hyphen-piedmontese
     piedmontese
   hyphen-romanian
@@ -247,7 +259,20 @@ collection-langgreek
   hyphen-ancientgreek
     ancientgreek
     ibycus
-collection-langindic
+collection-langitalian
+  hyphen-italian
+    italian
+collection-langother
+  hyphen-afrikaans
+    afrikaans
+  hyphen-coptic
+    coptic
+  hyphen-esperanto
+    esperanto
+  hyphen-ethiopic
+    ethiopic,amharic,geez
+  hyphen-georgian
+    georgian
   hyphen-indic
     assamese
     bengali
@@ -260,22 +285,12 @@ collection-langindic
     panjabi
     tamil
     telugu
-  hyphen-sanskrit
-    sanskrit
-collection-langitalian
-  hyphen-italian
-    italian
-collection-langother
-  hyphen-afrikaans
-    afrikaans
-  hyphen-coptic
-    coptic
-  hyphen-esperanto
-    esperanto
   hyphen-indonesian
     indonesian
   hyphen-interlingua
     interlingua
+  hyphen-sanskrit
+    sanskrit
   hyphen-thai
     thai
   hyphen-turkmen
