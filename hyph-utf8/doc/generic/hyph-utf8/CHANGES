@@ -1,3 +1,6 @@
+2017-05-18
+- Added a missing pattern for Latin, version 3.201 (by Claudio Beccari)
+
 2017-05-08
 - Updated all German [de-1901, de-ch-1901, de-1996] patterns to the latest version
   provided by dehyph-exptl (2017-03-31).  By the German hyphenation pattern working group
