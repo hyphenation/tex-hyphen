@@ -4,6 +4,7 @@ ibycus	ibyhyph.tex
 arabic	zerohyph.tex
 armenian	loadhyph-hy.tex
 basque	loadhyph-eu.tex
+belarusian	loadhyph-be.tex
 bulgarian	loadhyph-bg.tex
 catalan	loadhyph-ca.tex
 pinyin	loadhyph-zh-latn-pinyin.tex
