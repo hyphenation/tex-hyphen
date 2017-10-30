@@ -1,5 +1,17 @@
 2017-10-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add hyphenation exceptions.
+
+	* thai-exc.pat:
+	  + Add forcing exceptions for:
+	    - ทัก~ษ-อร
+	    - เด-ชะ
+	    - โก~โบ-ริ
+	  + Add blocking exceptions for:
+	    - นิร~ช-รา, เน~รัญ~ช-รา
+
+2017-10-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Update dict from libthai 0.1.27
 
 	* tdict-city.txt:
