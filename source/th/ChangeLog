@@ -1,5 +1,23 @@
 2016-06-30  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Update dict from libthai 0.1.25.
+
+	* tdict-city.txt:
+	* tdict-common.txt:
+	* tdict-country.txt:
+	* tdict-district.txt:
+	* tdict-ict.txt:
+	* tdict-lang-ethnic.txt:
+	* tdict-proper.txt:
+	* tdict-science.txt:
+	* tdict-spell.txt:
+	  - Update dict from libthai 0.1.25.
+
+	* tdict-std.txt:
+	  - Correct hyphenation for 'สาธารณสมบัติ'.
+
+2016-06-30  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Fix hyphenation dict tools.
 
 	* diff-dicts.sh, test-hyphen.sh:
