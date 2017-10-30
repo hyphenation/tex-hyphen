@@ -14,8 +14,8 @@
 %
 % The Current Maintainer of this work is Theppitak Karoonboonyanan.
 %
-% http://linux.thai.net/projects/thailatex
-% http://linux.thai.net/svn/software/thailatex/trunk
+% https://linux.thai.net/projects/thailatex
+% https://github.com/tlwg/thailatex
 %
 \patterns{%
 @PATTERNS@

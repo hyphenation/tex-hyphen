@@ -1,3 +1,13 @@
+2017-10-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Update URLs in files
+
+	* README, hyph-th.tex.in:
+	  - Use HTTPS for LTN project pages
+
+	* hyph-th.tex.in:
+	  - Replace obsolete LTN SVN URL with that of GitHub
+
 2016-12-15  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Update dict from libthai 0.1.26
