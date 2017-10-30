@@ -1,3 +1,12 @@
+2016-06-30  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Fix hyphenation dict tools.
+
+	* diff-dicts.sh, test-hyphen.sh:
+	  - Convert pdflatex output to UTF-8 before applying grep,
+	    as newer grep seems to treat TIS-620 string as binary
+	    and output error message instead.
+
 2015-05-07  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Update dict from latest libthai SVN.
