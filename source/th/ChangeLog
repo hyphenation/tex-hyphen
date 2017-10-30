@@ -1,3 +1,22 @@
+2017-10-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Update dict from libthai 0.1.27
+
+	* tdict-city.txt:
+	* tdict-common.txt:
+	* tdict-district.txt:
+	* tdict-geo.txt:
+	* tdict-history.txt:
+	* tdict-ict.txt:
+	* tdict-lang-ethnic.txt:
+	* tdict-proper.txt:
+	* tdict-science.txt:
+	* tdict-spell.txt:
+	  - Update dict from libthai 0.1.27.
+
+	* thai-exc.pat:
+	  - Drop 'ฮ7โ' exception, which duplicated the generated 'ฮ1โ'.
+
 2017-10-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Update URLs in files

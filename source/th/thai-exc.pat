@@ -1505,8 +1505,6 @@
 ส7ตุ
 % Force 'ลิ-บง' inhibited by 'ลิ4บ' pattern
 ลิ7บง
-% Force 'เฮ-โล'
-ฮ7โ
 % Force 'เอก-อุ', but not 'ช-อุ่ม'
 7อุ.
 % Force 'อิศ-รา'
