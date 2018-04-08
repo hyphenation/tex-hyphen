@@ -36,7 +36,7 @@ EOT
 
   NEWDICT=$d.new
   pdflatex odict.tex \
-    | grep '^\[\]' | cut -d' ' -f3 | iconv -f tis-620 -t utf-8 > ${NEWDICT}
+    | iconv -f tis-620 -t utf-8 | grep '^\[\]' | cut -d' ' -f3 > ${NEWDICT}
 
   diff -u $d ${NEWDICT} > $d.diff
 

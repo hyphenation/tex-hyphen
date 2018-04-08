@@ -15,7 +15,7 @@ cat >> hyphtest.tex << EOT
 EOT
 
 pdflatex hyphtest.tex \
-  | grep '^\[\]' | cut -d' ' -f3 | iconv -f tis-620 -t utf-8 > hyphres.dic
+  | iconv -f tis-620 -t utf-8 | grep '^\[\]' | cut -d' ' -f3 > hyphres.dic
 
 diff -u thai.dic hyphres.dic > hyph.diff
 

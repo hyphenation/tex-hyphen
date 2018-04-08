@@ -1,6 +1,9 @@
 2018-04-02
 - Synched German patterns [de-1901, de-ch-1901, de-1996] with upstream (dehyph-exptl) 2018-03-31.
   By the German hyphenation patterns team.
+  
+2018-03-25
+- Switched Bulgarian patterns to a different set, by Anton Zinoviev.  Removed out-of-date documentation.
 
 2017-09-13
 - Liturgical Latin [la-x-liturgic] Fix form of possum and quoties, by Claudio Beccari and Élie Roux
