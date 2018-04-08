@@ -1,49 +1,62 @@
-% title: TeX-Trennmuster für die reformierte (2006) deutsche Rechtschreibung
-% copyright: >
-%     Copyright (c) 2013-2017
-%     Stephan Hennig, Werner Lemberg, Guenter Milde, Sander van Geloven,
-%     Georg Pfeiffer, Gisbert W. Selke, Tobias Wendorf
-% notice: This file is part of hyph-utf8 package.
-%     See http://www.hyphenation.org for more information.
-% source: dehyphn-x-2017-03-31.pat
+% title: German Hyphenation Patterns (Reformed Orthography, 2006)
+%
+% notice: TeX-Trennmuster für die reformierte (2006) deutsche Rechtschreibung
+%
+% version: 2018-03-31
+%
+% authors:
+%   -
+%     name:    Deutschsprachige Trennmustermannschaft
+%     contact: trennmuster@dante.de
+%
+% copyright: Copyright (c) 2013-2018
+%            Stephan Hennig, Werner Lemberg, Günter Milde,
+%            Sander van Geloven, Georg Pfeiffer, Gisbert W. Selke,
+%            Tobias Wendorf
+%
+% licence:
+%     name: MIT
+%     url:  http://opensource.org/licenses/mit-license.php
+%     text: >
+%           Permission is hereby granted, free of charge, to any person
+%           obtaining a copy of this software and associated documentation
+%           files (the “Software”), to deal in the Software without
+%           restriction, including without limitation the rights to use,
+%           copy, modify, merge, publish, distribute, sublicense, and/or
+%           sell copies of the Software, and to permit persons to whom the
+%           Software is furnished to do so, subject to the following
+%           conditions:
+%
+%           The above copyright notice and this permission notice shall be
+%           included in all copies or substantial portions of the Software.
+%
+%           THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+%           EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%           OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%           NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%           HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%           WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%           FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%           OTHER DEALINGS IN THE SOFTWARE.
+%
+% source: http://repo.or.cz/w/wortliste.git?a=commit;h=8b9a428c271e064f0047a364c532308f0fd4051f
+%
 % language:
 %     name: German, reformed spelling
-%     tag: de-1996
-% licence:
-%     - This file is made available under any of the following licences:
-%     -
-%         name: MIT
-%         url: https://opensource.org/licenses/MIT
-%         text: >
-%             Permission is hereby granted, free of charge, to any person
-%             obtaining a copy of this software and associated documentation
-%             files (the “Software”), to deal in the Software without
-%             restriction, including without limitation the rights to use,
-%             copy, modify, merge, publish, distribute, sublicense, and/or sell
-%             copies of the Software, and to permit persons to whom the
-%             Software is furnished to do so, subject to the following
-%             conditions:
+%     tag:  de-1996
 %
-%             The above copyright notice and this permission notice shall be
-%             included in all copies or substantial portions of the Software.
+% hyphenmins:
+%     generation:
+%         left:  2
+%         right: 2
+%     typesetting:
+%         left:  2
+%         right: 2
 %
-%             THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
-%             EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-%             OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-%             NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-%             HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-%             WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-%             FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-%             OTHER DEALINGS IN THE SOFTWARE.
-%     -
-%         name: LPPL
-%         version: 1
-%         or_later: true
-%         url: https://latex-project.org/lppl/
-% ==========================================
-% The word list is available from
-%
-%   http://repo.or.cz/w/wortliste.git?a=commit;h=5fd786fcb1ed48448e058672f1f58d185653d8c6
+% ===========================================================================
+
+\message{German Hyphenation Patterns (Reformed Orthography, 2006) `dehyphn-x' 2018-03-31 (WL)}
+
 %
 % The used patgen parameters are
 %
@@ -56,4 +69,3 @@
 %   7 7 | 2 13 | 1 4 1
 %   8 8 | 2 13 | 1 8 1
 
-\message{German Hyphenation Patterns (Reformed Orthography, 2006) `dehyphn-x' 2017-03-31 (WL)}
