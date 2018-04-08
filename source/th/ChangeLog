@@ -1,3 +1,100 @@
+2017-11-02  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Reformat header as YAML.
+
+	* hyph-th.tex.in:
+	  - Reformat the template file header as YAML.
+
+2017-10-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add hyphenation exceptions.
+
+	* thai-exc.pat:
+	  + Add forcing exceptions for:
+	    - ทัก~ษ-อร
+	    - เด-ชะ
+	    - โก~โบ-ริ
+	  + Add blocking exceptions for:
+	    - นิร~ช-รา, เน~รัญ~ช-รา
+
+2017-10-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Update dict from libthai 0.1.27
+
+	* tdict-city.txt:
+	* tdict-common.txt:
+	* tdict-district.txt:
+	* tdict-geo.txt:
+	* tdict-history.txt:
+	* tdict-ict.txt:
+	* tdict-lang-ethnic.txt:
+	* tdict-proper.txt:
+	* tdict-science.txt:
+	* tdict-spell.txt:
+	  - Update dict from libthai 0.1.27.
+
+	* thai-exc.pat:
+	  - Drop 'ฮ7โ' exception, which duplicated the generated 'ฮ1โ'.
+
+2017-10-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Update URLs in files
+
+	* README, hyph-th.tex.in:
+	  - Use HTTPS for LTN project pages
+
+	* hyph-th.tex.in:
+	  - Replace obsolete LTN SVN URL with that of GitHub
+
+2016-12-15  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Update dict from libthai 0.1.26
+
+	* tdict-city.txt:
+	* tdict-common.txt:
+	* tdict-geo.txt:
+	* tdict-ict.txt:
+	* tdict-proper.txt:
+	* tdict-science.txt:
+	* tdict-spell.txt:
+	* tdict-std-compound.txt:
+	* tdict-std.txt:
+	  - Update dict from libthai 0.1.26.
+
+	Make hyphenation of "*สเตอร์*" portions consistent.
+
+	* tdict-city.txt:
+	  - Correct hyphenation for 'อัมสเตอร์ดัม'.
+	* tdict-common.txt:
+	  - Correct hyphenation for 'ฮิปสเตอร์'.
+
+2016-06-30  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Update dict from libthai 0.1.25.
+
+	* tdict-city.txt:
+	* tdict-common.txt:
+	* tdict-country.txt:
+	* tdict-district.txt:
+	* tdict-ict.txt:
+	* tdict-lang-ethnic.txt:
+	* tdict-proper.txt:
+	* tdict-science.txt:
+	* tdict-spell.txt:
+	  - Update dict from libthai 0.1.25.
+
+	* tdict-std.txt:
+	  - Correct hyphenation for 'สาธารณสมบัติ'.
+
+2016-06-30  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Fix hyphenation dict tools.
+
+	* diff-dicts.sh, test-hyphen.sh:
+	  - Convert pdflatex output to UTF-8 before applying grep,
+	    as newer grep seems to treat TIS-620 string as binary
+	    and output error message instead.
+
 2015-05-07  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Update dict from latest libthai SVN.
