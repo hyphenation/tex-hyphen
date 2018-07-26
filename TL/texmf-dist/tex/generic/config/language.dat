@@ -68,6 +68,7 @@ bokmal	loadhyph-nb.tex
 =norsk
 nynorsk	loadhyph-nn.tex
 occitan	loadhyph-oc.tex
+pali	loadhyph-pi.tex
 piedmontese	loadhyph-pms.tex
 polish	loadhyph-pl.tex
 portuguese	loadhyph-pt.tex

@@ -122,7 +122,7 @@ end
 			#
 			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
 			# TODO - maybe consider doing something similar for ibycus
-			if ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te'].include?(language.code) then
+			if ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include?(language.code) then
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				# lccodes

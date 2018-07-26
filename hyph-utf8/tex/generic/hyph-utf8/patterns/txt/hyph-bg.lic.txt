@@ -3,11 +3,12 @@
 % version: 21 October 2017
 % language:
 %     name: Bulgarian
-%     code: bg
+%     tag: bg
 % notice: >
 %     This file is part of the hyph-utf8 package.
 %     See http://www.hyphenation.org for more information.
-%     authors:
+% authors:
+%     -
 %         name: Anton Zinoviev
 %         contact: anton:lml.bas.bg
 % licence:
@@ -21,7 +22,7 @@
 %         SHALL THE AUTHOR BE LIABLE FOR ANY DAMAGES ARISING IN ANY WAY OUT
 %         OF THE USE OF THIS SOFTWARE.
 % hyphenmins:
-%     for_typesetting:
+%     typesetting:
 %         left: 2
 %         right: 2
 % changes: See below

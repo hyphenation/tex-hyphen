@@ -220,6 +220,7 @@ class Authors < Hash
 	"mike_kroutikov"      => ["Mike", "Kroutikov", "pgmmpk{at}gmail{dot}com", true, true],
 	"aleksandr_andreev"   => ["Aleksandr", "Andreev", "", true, true],
 	"maksim_salau"        => ["Maksim", "Salau", "maksim{dot}salau{at}gmail{dot}com", true, false],
+	"wie_ming_ang"        => ["Wie-Ming", "Cittānurakkho Bhikkhu", "wiemingang{at}gmail{dot}com", true, true]
 }
 #
 		authors.each do |a|
@@ -2148,7 +2149,26 @@ class Languages < Hash
 	"description_l" => [
 		"Belarusian hyphenation patterns in T2A and UTF-8 encodings"
 	],
-}
+},
+# Pali
+{
+	"code" => "pi",
+	"name" => "pali",
+	"use_new_loader" => true,
+	"use_old_patterns" => false,
+	"hyphenmin" => [1, 2],
+	# no encoding
+	"message" => "Pali hyphenation patterns",
+	# no version number
+	"last_modified" => "2018-06-29",
+	"type" => "rules",
+	"authors" => ["wie_ming_ang"],
+	"licence" => "MIT",
+	"description_s" => "Pali hyphenation patterns",
+	"description_l" => [
+	  "Pali hyphenation patterns in UTF-8 encoding",
+	],
+},
 # dumylang -> dumyhyph.tex
 # nohyphenation -> zerohyph.tex
 # arabic -> zerohyph.tex
