@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/hyphenation/tex-hyphen.svg?branch=master)](https://travis-ci.com/hyphenation/tex-hyphen)
+
 This is the central repository for all hyphenation patterns (that we know of).
 These patterns are encoded in UTF-8, but can also be used with 8-bit TeX
 engines such as pdfTeX with the help of mechanisms provided with the package.
