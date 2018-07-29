@@ -6,12 +6,13 @@
 # use 'gem install unicode' if unicode is missing on your computer
 require 'unicode'
 
-load 'languages.rb'
+$LOAD_PATH << File.expand_path('..', __FILE__)
+require 'languages.rb'
 
-$path_root=File.expand_path("../../..")
+$path_root=File.expand_path("../../../..", __FILE__)
 $path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns/txt"
 $path_quote="#{$path_root}/tex/generic/hyph-utf8/patterns/quote"
-$path_TL=File.expand_path("../../../../TL")
+$path_TL=File.expand_path("../../../../../TL", __FILE__)
 $path_language_dat_lua="#{$path_root}/tex/luatex/hyph-utf8/config"
 
 $l = Languages.new
