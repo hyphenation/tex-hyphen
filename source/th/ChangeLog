@@ -1,5 +1,29 @@
 2018-08-03  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Update dict from libthai 0.1.28
+
+	* tdict-city.txt:
+	* tdict-common.txt:
+	* tdict-country.txt:
+	* tdict-district.txt:
+	* tdict-geo.txt:
+	* tdict-history.txt:
+	* tdict-ict.txt:
+	* tdict-lang-ethnic.txt:
+	* tdict-proper.txt:
+	* tdict-science.txt:
+	* tdict-slang.txt:
+	* tdict-spell.txt:
+	* tdict-std.txt:
+	  - Update dict from libthai 0.1.28.
+
+	* thai-exc.pat:
+	  - Drop 'า7มี' exception, duplicating generated 'า3มี'.
+	  - Drop 'โค7ลี' exception, duplicating 'โค5ลี'.
+	  - Drop '<SARA-II>7รี' exception, duplicating '<SARA-II>3รี'.
+
+2018-08-03  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Move slang dict entries to a new file.
 
 	* Makefile, +tdict-slang.txt, tdict-common.txt:
