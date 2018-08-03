@@ -1,5 +1,21 @@
 2018-08-03  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add hyphenation exceptions.
+
+	* thai-exc.pat:
+	  + Add forcing exceptions for:
+	    - ปโต~เล-มี
+	    - พรม-คด
+	    - อี-สป
+	    - เก~ร-ละ
+	    - เทส-ลา
+	    - เอส~เพรส-โซ
+	    - โซ-ฟี
+	  + Add blocking exceptions for:
+	    - ปฏิ~ป-ทา
+
+2018-08-03  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Update dict from libthai 0.1.28
 
 	* tdict-city.txt:
