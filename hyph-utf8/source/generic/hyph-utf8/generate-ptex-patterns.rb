@@ -9,9 +9,9 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'hyph-utf8'))
 # require 'rubygems'
 # require 'unicode'
 
-load 'languages.rb'
+require_relative 'languages.rb'
 
-$path_root=File.expand_path("../../..")
+$path_root=File.expand_path("../../../..", __FILE__)
 $path_ptex="#{$path_root}/tex/generic/hyph-utf8/patterns/ptex"
 
 # load encodings

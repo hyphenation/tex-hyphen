@@ -2,11 +2,11 @@
 
 require File.expand_path(File.join(File.dirname(__FILE__), 'hyph-utf8'))
 
-$encoding_data_dir = "data/encodings"
 # $encodings = ["ec", "qx", "t2a", "lmc", "il2", "il3", "l7x", "t8m", "lth"]
 $encodings = ["t8m", "lth"]
 
-$path_root=File.expand_path("../../..")
+$path_root=File.expand_path("../../../..", __FILE__)
+$encoding_data_dir = File.expand_path("../data/encodings", __FILE__)
 $output_data_dir = "#{$path_root}/tex/generic/hyph-utf8/conversions"
 
 $encodings.each do |encoding|

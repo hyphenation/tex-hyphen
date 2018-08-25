@@ -86,7 +86,7 @@ class HyphEncoding
 private
 	def read_data
 		# fetch the characters
-		encoding_data_dir = File.expand_path("data/encodings")
+		encoding_data_dir = File.expand_path("../data/encodings", __FILE__)
 		filename = "#{encoding_data_dir}/#{@encoding_name}.dat"
 
 		if File.exists?(filename) then

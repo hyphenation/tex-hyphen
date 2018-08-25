@@ -3,13 +3,13 @@
 
 # this file auto-generates tlpsrc files for hyphenation patterns - to be improved
 
-load 'languages.rb'
+require_relative 'languages.rb'
 
 $package_name="hyph-utf8"
 
 # TODO - make this a bit less hard-coded
-$path_tex_generic=File.expand_path("../../../tex/generic")
-$path_TL=File.expand_path("../../../../TL")
+$path_tex_generic=File.expand_path("../../../../tex/generic", __FILE__)
+$path_TL=File.expand_path("../../../../../TL", __FILE__)
 $path_language_dat="#{$path_TL}/texmf-dist/tex/generic/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"

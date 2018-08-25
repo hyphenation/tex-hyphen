@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-load 'languages.rb'
+require_relative 'languages.rb'
 
 # this file auto-generates loaders for hyphenation patterns - to be improved
 

@@ -3,12 +3,12 @@
 
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
-load 'languages.rb'
+require_relative 'languages.rb'
 
 $package_name="hyph-utf8"
 
 # TODO - make this a bit less hard-coded
-$path_tex_generic=File.expand_path("../../../tex/generic")
+$path_tex_generic=File.expand_path("../../../../tex/generic", __FILE__)
 $path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
 
 # TODO: should be singleton
