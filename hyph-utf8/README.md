@@ -8,6 +8,12 @@ distributions (TeX Live, MiKTeX, W32TeX); most TeX users should thus not
 concern themselves with this package, unless of course they’re working on the
 hyphenation patterns themselves.
 
+We upload the package to CTAN regularly and use git tags to identify versions;
+a CTAN upload has a version date in the form `yyyy-mm-dd`, corresponding to tag
+`CTAN-yyyy.mm.dd` in this git repository. Because the package contains
+contributions from many different sources that are not updated at the same
+time, we felt this was this best choice for version identifiers.
+
 If you are an author of hyphenation patterns and want to add or update them,
 please contact the maintainers through the mailing list: tex-hyphen@tug.org
 You can also visit the [TeX hyphenation page](http://www.hyphenation.org/tex) for more
