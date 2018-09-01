@@ -20,10 +20,24 @@ end
 
 describe TeX::Hyphen::Language do
   describe '.new' do
-    it "creates a new Language instance"
-    it "sets the BCP47 tag"
-    it "sets the patterns"
-    it "sets the hyphenation exceptions"
+    it "creates a new Language instance" do
+      expect(TeX::Hyphen::Language.new).to be_a TeX::Hyphen::Language
+    end
+
+    it "takes an optional BCP47 tag as argument" do
+      language = TeX::Hyphen::Language.new('ro')
+      expect(language.instance_variable_get :@bcp47).to eq 'ro'
+    end
+
+    it "sets the patterns" do
+      language = TeX::Hyphen::Language.new('nl')
+      expect(language.instance_variable_get :@patterns).to match /^\.a4\n\.aan5\n\.aarts5/
+    end
+
+    it "sets the hyphenation exceptions" do
+      language = TeX::Hyphen::Language.new('af')
+      expect(language.instance_variable_get :@expections).to match /^sandaal\naand-e-tes\naan-gons/
+    end
   end
 
   describe '.all' do
@@ -38,7 +52,15 @@ describe TeX::Hyphen::Language do
   end
 
   describe '.find_by_bcp47' do
-    it "finds the language for that BCP47 tag"
+    it "finds the language for that BCP47 tag" do
+      language = TeX::Hyphen::Language.find_by_bcp47 'bn'
+      expect(language).to be_a TeX::Hyphen::Language
+    end
+
+    it "calls .all first" do
+      expect(TeX::Hyphen::Language).to receive(:all).and_return({ 'cy' => TeX::Hyphen::Language.new('cy') })
+      TeX::Hyphen::Language.find_by_bcp47('cy')
+    end
   end
 end
 
