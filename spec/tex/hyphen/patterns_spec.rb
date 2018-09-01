@@ -19,27 +19,30 @@ describe TeX::Hyphen::Patterns do
 end
 
 describe TeX::Hyphen::Language do
+  describe '.new' do
+    it "creates a new Language instance"
+    it "sets the BCP47 tag"
+    it "sets the patterns"
+    it "sets the hyphenation exceptions"
+  end
+
   describe '.all' do
     it "sets the @@languages class variable" do
       TeX::Hyphen::Language.all
-      expect(TeX::Hyphen::Language.class_variable_get :@@languages).to be_an Array
+      expect(TeX::Hyphen::Language.class_variable_get :@@languages).to be_an Hash
     end
 
     it "lists all languages" do
       expect(TeX::Hyphen::Language.all.count).to eq 77
     end
   end
+
+  describe '.find_by_bcp47' do
+    it "finds the language for that BCP47 tag"
+  end
 end
 
 # Language
-#   .all
-#     sets the languages class variable
-#     lists all languages
-#   .find_by_bcp47
-#     finds the language for that BCP47 tag
-#   .new
-#     creates a new Language instance
-#     sets the BCP47 tag
 #   #bcp47
 #     returns the BCP47 tag of the language
 #     calls Language.all first
@@ -49,7 +52,7 @@ end
 #   #hyphenate
 #     hyphenates
 #     initialises the hydra if needed
-# 
+#
 # Finished in 1.87 seconds (files took 0.52834 seconds to load)
 # 11 examples, 0 failures
-# 
+#

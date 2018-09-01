@@ -1,3 +1,5 @@
+require 'byebug' rescue LoadError
+
 module TeX
   module Hyphen
     class Patterns
@@ -14,9 +16,10 @@ module TeX
 
     class Language
       def self.all
-        @@languages ||= Dir.glob(File.join(Patterns.class_variable_get(:@@topdir), 'txt', 'hyph-*.pat.txt')).map do |txtfile|
-          txtfile.gsub /^.*\/hyph-(.*)\.pat\.txt$/, '\1'
-        end.sort
+        @@languages ||= Dir.glob(File.join(Patterns.class_variable_get(:@@topdir), 'txt', 'hyph-*.pat.txt')).inject [] do |languages, txtfile|
+          bcp47 = txtfile.gsub /^.*\/hyph-(.*)\.pat\.txt$/, '\1'
+          languages << [bcp47, File.read(txtfile)]
+        end.to_h
       end
     end
   end

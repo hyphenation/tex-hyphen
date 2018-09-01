@@ -5,5 +5,6 @@ group :development do
     gem 'rake'
     gem 'rspec'
   end
+  gem 'byebug'
 end
 gem 'unicode'
