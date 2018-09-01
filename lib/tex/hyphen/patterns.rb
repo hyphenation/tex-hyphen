@@ -11,5 +11,13 @@ module TeX
         end
       end
     end
+
+    class Language
+      def self.all
+        @@languages ||= Dir.glob(File.join(Patterns.class_variable_get(:@@topdir), 'txt', 'hyph-*.pat.txt')).map do |txtfile|
+          txtfile.gsub /^.*\/hyph-(.*)\.pat\.txt$/, '\1'
+        end.sort
+      end
+    end
   end
 end
