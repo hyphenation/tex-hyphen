@@ -36,7 +36,7 @@ describe TeX::Hyphen::Language do
 
     it "sets the hyphenation exceptions" do
       language = TeX::Hyphen::Language.new('af')
-      expect(language.instance_variable_get :@expections).to match /^sandaal\naand-e-tes\naan-gons/
+      expect(language.instance_variable_get :@exceptions).to match /^sandaal\naand-e-tes\naan-gons/
     end
   end
 

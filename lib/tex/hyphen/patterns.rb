@@ -19,7 +19,6 @@ module TeX
         @bcp47 = bcp47
         if @bcp47
           @patterns = File.read(File.join(Patterns.class_variable_get(:@@topdir), 'txt', sprintf('hyph-%s.pat.txt', bcp47))) # TODO Call .all and check if exists
-          byebug
           @exceptions = File.read(File.join(Patterns.class_variable_get(:@@topdir), 'txt', sprintf('hyph-%s.hyp.txt', bcp47)))
         end
       end
