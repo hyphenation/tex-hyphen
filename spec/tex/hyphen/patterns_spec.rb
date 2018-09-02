@@ -1,24 +1,12 @@
 require 'spec_helper'
 
-describe TeX::Hyphen::Patterns do
-  describe '.new' do
+describe TeX::Hyphen::Language do
+  describe 'class variable' do
     it "sets the path to the pattern files" do
-      expect(TeX::Hyphen::Patterns.class_variable_get :@@topdir).to eq File.expand_path('../../../../hyph-utf8/tex/generic/hyph-utf8/patterns', __FILE__)
-    end
-
-    it "loads all names of the TeX files" do
-      patterns = TeX::Hyphen::Patterns.new
-      expect(patterns.instance_variable_get(:@texfiles).count).to eq 79
-    end
-
-    it "loads all names of the text pattern files" do
-      patterns = TeX::Hyphen::Patterns.new
-      expect(patterns.instance_variable_get(:@txtfiles).count).to eq 77
+      expect(TeX::Hyphen::Language.class_variable_get :@@topdir).to match /tex\/generic\/hyph-utf8\/patterns$/
     end
   end
-end
 
-describe TeX::Hyphen::Language do
   describe '.new' do
     it "creates a new Language instance" do
       expect(TeX::Hyphen::Language.new).to be_a TeX::Hyphen::Language
@@ -59,7 +47,10 @@ describe TeX::Hyphen::Language do
       expect(language.bcp47).to eq 'oc'
     end
 
-    # it "calls Language.all first" # FIXME Do we need that?
+    it "calls Language.all first" do
+      expect(TeX::Hyphen::Language).to receive(:all).and_return({ 'pl' => TeX::Hyphen::Language.new('pl') })
+      TeX::Hyphen::Language.new('pl').bcp47
+    end
   end
 
   describe '#patterns' do
@@ -84,7 +75,11 @@ describe TeX::Hyphen::Language do
       expect { TeX::Hyphen::Language.new('zu').patterns }.not_to raise_exception
     end
 
-    # TODO Caches!
+    it "caches the list of patterns" do
+      language = TeX::Hyphen::Language.new('ru')
+      language.patterns
+      expect(language.instance_variable_get :@patterns).to match /\.аб1р\n\.аг1ро\n\.ади2/
+    end
   end
 
   describe '#exceptions' do
@@ -110,7 +105,11 @@ describe TeX::Hyphen::Language do
       expect { TeX::Hyphen::Language.new('iu').exceptions}.not_to raise_exception
     end
 
-    it "Caches the patterns"
+    it "caches the exceptions" do
+      language = TeX::Hyphen::Language.new('sk')
+      language.exceptions
+      expect(language.instance_variable_get :@exceptions).to match /dosť\nme-tó-da\nme-tó-dy/
+    end
   end
 end
 
