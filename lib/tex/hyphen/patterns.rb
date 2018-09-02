@@ -33,6 +33,10 @@ module TeX
       def self.find_by_bcp47(bcp47)
         all[bcp47]
       end
+
+      def bcp47
+        @bcp47
+      end
     end
   end
 end
