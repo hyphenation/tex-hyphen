@@ -65,6 +65,15 @@ module TeX
           next if licence.count == 1 && licence.values == [nil]
           licence.dig('name') || 'custom'
         end.compact
+        authors = metadata.dig('authors')
+        # puts "Authors: #{authors}"
+        @authors = if authors
+          authors.map do |author|
+            author['name']
+          end
+        else
+          nil
+        end
 
         metadata
       end

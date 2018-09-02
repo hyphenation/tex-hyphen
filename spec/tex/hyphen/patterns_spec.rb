@@ -168,7 +168,12 @@ describe TeX::Hyphen::Language do
     end
 
     it "sets the 8-bit encoding"
-    it "sets the list of authors"
+
+    it "sets the list of authors" do
+      liturgical_latin = TeX::Hyphen::Language.new('la-x-liturgic')
+      liturgical_latin.extract_metadata
+      expect(liturgical_latin.instance_variable_get :@authors).to eq ['Claudio Beccari', 'Monastery of Solesmes', 'Élie Roux']
+    end
 
     it "raises an exception if the licence is missing" do
       croatian = TeX::Hyphen::Language.new('hr')
