@@ -1,10 +1,14 @@
+require 'yaml'
 require 'hydra'
 require 'byebug' rescue LoadError
 
 module TeX
   module Hyphen
+    class InvalidMetadata < StandardError; end
+
     class Language
       @@topdir = File.expand_path('../../../../hyph-utf8/tex/generic/hyph-utf8/patterns', __FILE__)
+      @@eohmarker = '=' * 42
 
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
@@ -36,7 +40,26 @@ module TeX
 
       def hyphenate(word)
         @hydra ||= @hydra = Hydra.new patterns.split
-        @hydra.showhyphens(word)
+        @hydra.showhyphens(word) # FIXME Take exceptions in account!
+      end
+
+      def extract_metadata
+        header = ""
+        File.read(File.join(@@topdir, 'tex', sprintf('hyph-%s.tex', @bcp47))).each_line do |line|
+          break if line =~ /\\patterns|#{@@eohmarker}/
+          header += line.gsub(/^% /, '').gsub(/%.*/, '')
+        end
+        begin
+          metadata = YAML::load header
+        rescue Psych::SyntaxError
+          raise InvalidMetadata
+        end
+
+        @name = metadata.dig('language', 'name')
+        @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left')
+        @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right')
+
+        metadata
       end
     end
   end

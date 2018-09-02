@@ -1,9 +1,13 @@
 require 'spec_helper'
 
 describe TeX::Hyphen::Language do
-  describe 'class variable' do
+  describe 'class variables' do
     it "sets the path to the pattern files" do
       expect(TeX::Hyphen::Language.class_variable_get :@@topdir).to match /tex\/generic\/hyph-utf8\/patterns$/
+    end
+
+    it "has an end-of-header marker" do
+      expect(TeX::Hyphen::Language.class_variable_get :@@eohmarker).to match /^\={42}$/
     end
   end
 
@@ -41,7 +45,7 @@ describe TeX::Hyphen::Language do
     end
   end
 
-  describe '#bcp47' do
+  describe '#bcp47' do # TODO Add #name, #licences, #lefthyphenmin, #righthyphenmin, #authors, #8bitenc
     it "returns the BCP47 tag of the language" do
       language = TeX::Hyphen::Language.new('oc')
       expect(language.bcp47).to eq 'oc'
@@ -124,5 +128,46 @@ describe TeX::Hyphen::Language do
       language.hyphenate('Zwangsvollstreckungsmaßnahme')
       expect(language.instance_variable_get(:@hydra)).to be_a Hydra
     end
+  end
+
+  describe '#extract_metadata' do
+    it "returns a hash with the metadata" do
+      language = TeX::Hyphen::Language.new('bg')
+      expect(language.extract_metadata).to be_a Hash
+    end
+
+    it "raises an exception if the metadata is invalid" do
+      language = TeX::Hyphen::Language.new('sl')
+      expect { language.extract_metadata }.to raise_exception TeX::Hyphen::InvalidMetadata # FIXME Figure out why it does
+    end
+  end
+
+  describe '#parse_tex_file' do
+    it "sets the language name" do
+      language = TeX::Hyphen::Language.new('th')
+      language.extract_metadata
+      expect(language.instance_variable_get :@name).to eq 'Thai'
+    end
+
+    it "sets the licence list" do
+      language = TeX::Hyphen::Language.new('la')
+      language.extract_metadata
+      expect(language.instance_variable_get :@licences).to eq ['MIT', 'LPPL']
+    end
+
+    it "sets lefthyphenmin" do
+      pali = TeX::Hyphen::Language.new('pi')
+      pali.extract_metadata
+      expect(pali.instance_variable_get :@lefthyphenmin).to eq 1
+    end
+
+    it "sets righthyphenmin" do
+      german = TeX::Hyphen::Language.new('de-1996')
+      german.extract_metadata
+      expect(german.instance_variable_get :@righthyphenmin).to eq 2
+    end
+
+    it "sets the 8-bit encoding"
+    it "sets the list of authors"
   end
 end
