@@ -1,3 +1,4 @@
+require 'hydra'
 require 'byebug' rescue LoadError
 
 module TeX
@@ -26,13 +27,16 @@ module TeX
       end
 
       def patterns
-        self.class.all
-        @patterns ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.pat.txt', @bcp47))) rescue Errno::ENOENT
+        @patterns ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.pat.txt', @bcp47))) if self.class.all[@bcp47]
       end
 
       def exceptions
-        self.class.all
-        @exceptions ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.hyp.txt', @bcp47))) rescue Errno::ENOENT
+        @exceptions ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.hyp.txt', @bcp47))) rescue Errno::ENOENT if self.class.all[@bcp47]
+      end
+
+      def hyphenate(word)
+        @hydra ||= @hydra = Hydra.new patterns.split
+        @hydra.showhyphens(word)
       end
     end
   end

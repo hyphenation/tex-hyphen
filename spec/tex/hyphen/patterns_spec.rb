@@ -111,13 +111,18 @@ describe TeX::Hyphen::Language do
       expect(language.instance_variable_get :@exceptions).to match /dosť\nme-tó-da\nme-tó-dy/
     end
   end
-end
 
-# Language
-#   #hyphenate
-#     hyphenates
-#     initialises the hydra if needed
-#
-# Finished in 1.87 seconds (files took 0.52834 seconds to load)
-# 11 examples, 0 failures
-#
+  describe '#hyphenate' do
+    it "hyphenates with the appropriate patterns and exceptions" do
+      language = TeX::Hyphen::Language.new('de-1996')
+      expect(language.hyphenate('Zwangsvollstreckungsmaßnahme')).to eq 'zwangs-voll-stre-ckungs-maß-nahme'
+      # FIXME expect(language.hyphenate('Zwangsvollstreckungsmaßnahme')).to eq 'zwangs-voll-stre-ckungs-maß-nah-me'
+    end
+
+    it "initialises the hydra if needed" do # TODO hyphenmins
+      language = TeX::Hyphen::Language.new('de-1901')
+      language.hyphenate('Zwangsvollstreckungsmaßnahme')
+      expect(language.instance_variable_get(:@hydra)).to be_a Hydra
+    end
+  end
+end

@@ -8,3 +8,4 @@ group :development do
   gem 'byebug'
 end
 gem 'unicode'
+gem 'hydra', git: 'https://github.com/hyphenation/hydra'
