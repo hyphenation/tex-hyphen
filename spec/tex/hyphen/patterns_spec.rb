@@ -28,16 +28,6 @@ describe TeX::Hyphen::Language do
       language = TeX::Hyphen::Language.new('ro')
       expect(language.instance_variable_get :@bcp47).to eq 'ro'
     end
-
-    it "sets the patterns" do
-      language = TeX::Hyphen::Language.new('nl')
-      expect(language.instance_variable_get :@patterns).to match /^\.a4\n\.aan5\n\.aarts5/
-    end
-
-    it "sets the hyphenation exceptions" do
-      language = TeX::Hyphen::Language.new('af')
-      expect(language.instance_variable_get :@exceptions).to match /^sandaal\naand-e-tes\naan-gons/
-    end
   end
 
   describe '.all' do
@@ -65,8 +55,8 @@ describe TeX::Hyphen::Language do
 
   describe '#bcp47' do
     it "returns the BCP47 tag of the language" do
-      language = TeX::Hyphen::Language.new('zu')
-      expect(language.bcp47).to eq 'zu'
+      language = TeX::Hyphen::Language.new('oc')
+      expect(language.bcp47).to eq 'oc'
     end
 
     # it "calls Language.all first" # FIXME Do we need that?
@@ -84,7 +74,17 @@ describe TeX::Hyphen::Language do
       language.patterns
     end
 
-    # it "loads the patterns first" # TODO Actually that’s prabably stupid
+    it "loads the patterns" do
+      language = TeX::Hyphen::Language.new('fi')
+      expect(language.patterns).to match /uu1a2\nuu1e2\nuu1o2\nuu1i2/
+      # expect(language.patterns).to match /yli-opisto.*xxs-osakas.*suur-ajot/
+    end
+
+    it "doesn’t crash on inexistent patterns" do
+      expect { TeX::Hyphen::Language.new('zu').patterns }.not_to raise_exception
+    end
+
+    # TODO Caches!
   end
 
   describe '#exceptions' do
@@ -99,11 +99,18 @@ describe TeX::Hyphen::Language do
       language.patterns
     end
 
-    it "loads the exceptions first" do
+    it "loads the exceptions" do
       language = TeX::Hyphen::Language.new('is')
-      expect(File).to receive(:read).and_return(".a∂3 .a∂a4 .a∂k2")
+      # expect(File).to receive(:read).and_return(".a∂3 .a∂a4 .a∂k2")
+      expect(File).to receive(:read).and_return("alc-un alc-u-nis-si-me alc-un-men-te")
       language.patterns
     end
+
+    it "doesn’t crash on inexistent patterns" do
+      expect { TeX::Hyphen::Language.new('iu').exceptions}.not_to raise_exception
+    end
+
+    it "Caches the patterns"
   end
 end
 

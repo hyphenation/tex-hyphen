@@ -17,10 +17,6 @@ module TeX
     class Language
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
-        if @bcp47
-          @patterns = File.read(File.join(Patterns.class_variable_get(:@@topdir), 'txt', sprintf('hyph-%s.pat.txt', bcp47))) # TODO Call .all and check if exists
-          @exceptions = File.read(File.join(Patterns.class_variable_get(:@@topdir), 'txt', sprintf('hyph-%s.hyp.txt', bcp47)))
-        end
       end
 
       def self.all
@@ -36,6 +32,16 @@ module TeX
 
       def bcp47
         @bcp47
+      end
+
+      def patterns
+        self.class.all
+        File.read(File.join(Patterns.class_variable_get(:@@topdir), 'txt', sprintf('hyph-%s.pat.txt', @bcp47))) rescue Errno::ENOENT
+      end
+
+      def exceptions
+        self.class.all
+        File.read(File.join(Patterns.class_variable_get(:@@topdir), 'txt', sprinf('hyph-%s.hyp.txt', @bcp47))) rescue Errno::ENOENT
       end
     end
   end
