@@ -58,6 +58,10 @@ module TeX
         @name = metadata.dig('language', 'name')
         @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left')
         @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right')
+        if licences = metadata.dig('licence')
+          licences = [licences] unless licences.is_a? Enumerable
+          @licences = licences.map { |licence| licence.dig('name') }.compact
+        end
 
         metadata
       end
