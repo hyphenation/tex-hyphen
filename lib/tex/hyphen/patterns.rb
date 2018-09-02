@@ -59,8 +59,12 @@ module TeX
         @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left')
         @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right')
         if licences = metadata.dig('licence')
-          licences = [licences] unless licences.is_a? Enumerable
-          @licences = licences.map { |licence| licence.dig('name') }.compact
+          # puts licences
+          licences = [licences] unless licences.is_a? Array
+          @licences = licences.map do |licence|
+            next if licence.count == 1 && licence.values == [nil]
+            licence.dig('name') || 'custom'
+          end.compact
         end
 
         metadata
