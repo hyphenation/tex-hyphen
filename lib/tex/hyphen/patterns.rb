@@ -58,14 +58,13 @@ module TeX
         @name = metadata.dig('language', 'name')
         @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left')
         @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right')
-        if licences = metadata.dig('licence')
-          # puts licences
-          licences = [licences] unless licences.is_a? Array
-          @licences = licences.map do |licence|
-            next if licence.count == 1 && licence.values == [nil]
-            licence.dig('name') || 'custom'
-          end.compact
-        end
+        licences = metadata.dig('licence')
+        raise InvalidMetadata unless licences
+        licences = [licences] unless licences.is_a? Array
+        @licences = licences.map do |licence|
+          next if licence.count == 1 && licence.values == [nil]
+          licence.dig('name') || 'custom'
+        end.compact
 
         metadata
       end

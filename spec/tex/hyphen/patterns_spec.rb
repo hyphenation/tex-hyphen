@@ -169,5 +169,10 @@ describe TeX::Hyphen::Language do
 
     it "sets the 8-bit encoding"
     it "sets the list of authors"
+
+    it "raises an exception if the licence is missing" do
+      croatian = TeX::Hyphen::Language.new('hr')
+      expect { croatian.extract_metadata }.to raise_exception TeX::Hyphen::InvalidMetadata
+    end
   end
 end
