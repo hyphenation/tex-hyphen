@@ -10,7 +10,7 @@
 %         name: Claudio Beccari
 %         contact: claudio.beccari (at) gmail.com
 %     -
-%         Monastery of Solesmes
+%         name: Monastery of Solesmes
 %     -
 %         name: Élie Roux
 %         contact: elie.roux (at) telecom-bretagne.eu

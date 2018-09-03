@@ -156,6 +156,13 @@ describe Language do
     end
   end
 
+  describe '#github_link' do
+    it "returns the GitHub link" do
+      upper_sorbian = Language.new('hsb')
+      expect(upper_sorbian.github_link).to eq 'https://github.com/hyphenation/tex-hyphen/tree/master/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-hsb.tex'
+    end
+  end
+
   describe '#patterns' do
     it "returns the patterns" do
       language = Language.new('da')
