@@ -9,7 +9,6 @@ module TeX
     class Language
       @@topdir = File.expand_path('../../../../hyph-utf8/tex/generic/hyph-utf8/patterns', __FILE__)
       @@eohmarker = '=' * 42
-      attr_reader :licences, :lefthyphenmin, :righthyphenmin, :authors
 
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
@@ -32,8 +31,28 @@ module TeX
       end
 
       def name
-        self.class.all
+        extract_metadata unless @name
         @name
+      end
+
+      def licences
+        extract_metadata unless @licences
+        @licences
+      end
+
+      def lefthyphenmin
+        extract_metadata unless @lefthyphenmin
+        @lefthyphenmin
+      end
+
+      def righthyphenmin
+        extract_metadata unless @righthyphenmin
+        @righthyphenmin
+      end
+
+      def authors
+        extract_metadata unless @authors
+        @authors
       end
 
       def patterns

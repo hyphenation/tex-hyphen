@@ -60,42 +60,99 @@ describe Language do
   end
 
   describe '#name' do
+    let(:new_orthography_german) { Language.new('de-1996') }
+
     it "returns the name" do 
-      new_orthography_german = Language.new('de-1996')
       expect(new_orthography_german.name).to eq 'German, reformed spelling'
     end
 
-    it "calls Language.all first" do
-      expect(Language).to receive(:all).and_return({ 'de-1996' => Language.new('de-1996') })
-      Language.new('de-1996').name
+    it "calls #extract_metadata first if necessary" do
+      expect(new_orthography_german).to receive(:extract_metadata).and_return({ 'name' => 'German, reformed spelling' })
+      new_orthography_german.name
+    end
+
+    it "doesn’t call #extract_metadata if @name is already set" do
+      new_orthography_german.instance_variable_set :@name, 'Deutch in neuer Rechtschreibung'
+      expect(new_orthography_german).not_to receive :extract_metadata
+      new_orthography_german.name
     end
   end
 
   describe '#licences' do
-    it "returns the licences" do
-      church_slavonic = Language.new('cu')
+    let(:church_slavonic) { Language.new('cu') }
+
+    it "returns the licences as an array" do
       expect(church_slavonic.licences).to eq ['MIT']
+    end
+
+    it "call #extract_metadata first if necessary" do
+      expect(church_slavonic).to receive(:extract_metadata)
+      church_slavonic.licences
+    end
+
+    it "doesn’t call #extract_metadata if @licences is already set" do
+      church_slavonic.instance_variable_set :@licences, ['MIT licence']
+      expect(church_slavonic).not_to receive :extract_metadata
+      church_slavonic.licences
     end
   end
 
   describe '#lefthyphenmin' do
+    let(:swiss_spelling_german) { Language.new('de-ch-1901') }
+
     it "returns the left hyphenmin value for typesetting" do
-      swiss_spelling_german = Language.new('de-ch-1901')
       expect(swiss_spelling_german.lefthyphenmin).to eq 2
+    end
+
+    it "calls #extract_metadata first if necessary" do
+      expect(swiss_spelling_german).to receive :extract_metadata
+      swiss_spelling_german.lefthyphenmin
+    end
+
+    it "doesn’t call #extract_metadata if @lefthyphenmin is already set" do
+      swiss_spelling_german.instance_variable_set :@lefthyphenmin, 1
+      expect(swiss_spelling_german).not_to receive :extract_metadata
+      swiss_spelling_german.lefthyphenmin
     end
   end
 
   describe '#righthyphenmin' do
+    let(:french) { Language.new('fr') }
+
     it "returns the right hyphenmin value for typesetting" do
-      traditional_orthography_german = Language.new('de-1901')
-      expect(traditional_orthography_german.righthyphenmin).to eq 2
+      expect(french.righthyphenmin).to eq nil
+    end
+
+    it "call #extract_metadata first if necessary" do
+      expect(french).to receive :extract_metadata
+      french.righthyphenmin
+    end
+
+    it "doesn’t call #extract_metadata if @righthyphenmin is already set" do
+      # puts french.righthyphenmin
+      french.instance_variable_set :@righthyphenmin, 2
+      # puts french.righthyphenmin
+      expect(french).not_to receive :extract_metadata
+      french.righthyphenmin
     end
   end
 
   describe '#authors' do
-    it "returns the list of authors" do
-      upper_sorbian = Language.new('hsb')
-      expect(upper_sorbian.authors).to eq []
+    let(:traditional_orthography_german) { Language.new('de-1901') }
+
+    it "returns the authors as an array" do
+      expect(traditional_orthography_german.authors).to eq ['Deutschsprachige Trennmustermannschaft']
+    end
+
+    it "calls #extract_metadata first if necessary" do
+      expect(traditional_orthography_german).to receive :extract_metadata
+      traditional_orthography_german.authors
+    end
+
+    it "doesn’t call #extract_metadata if @authors is already set" do
+      traditional_orthography_german.instance_variable_set :@authors, ['German hyphenation patterns team']
+      expect(traditional_orthography_german).not_to receive :extract_metadata
+      traditional_orthography_german.authors
     end
   end
 
