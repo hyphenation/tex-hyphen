@@ -39,7 +39,14 @@ module TeX
       end
 
       def hyphenate(word)
-        @hydra ||= @hydra = Hydra.new patterns.split
+        unless @hydra
+          begin
+            metadata = extract_metadata
+            @hydra = Hydra.new patterns.split, :lax, '', metadata
+          rescue InvalidMetadata
+            @hydra = Hydra.new patterns.split
+          end
+        end
         @hydra.showhyphens(word) # FIXME Take exceptions in account!
       end
 
@@ -51,6 +58,7 @@ module TeX
         end
         begin
           metadata = YAML::load header
+          raise InvalidMetadata unless metadata.is_a? Hash
         rescue Psych::SyntaxError
           raise InvalidMetadata
         end

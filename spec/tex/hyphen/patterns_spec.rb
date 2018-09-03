@@ -119,11 +119,17 @@ describe Language do
   end
 
   describe '#hyphenate' do
-    it "hyphenates with the appropriate patterns and exceptions" do
-      language = Language.new('de-1996')
-      expect(language.hyphenate('Zwangsvollstreckungsmaßnahme')).to eq 'zwangs-voll-stre-ckungs-maß-nahme'
-      # FIXME expect(language.hyphenate('Zwangsvollstreckungsmaßnahme')).to eq 'zwangs-voll-stre-ckungs-maß-nah-me'
+    it "hyphenates with the appropriate patterns" do
+      czech = Language.new('cs')
+      expect(czech.hyphenate('ubrousek')).to eq 'ubrou-sek'
     end
+
+    it "takes hyphenmins in account if available" do
+      language = Language.new('de-1996')
+      expect(language.hyphenate('Zwangsvollstreckungsmaßnahme')).to eq 'zwangs-voll-stre-ckungs-maß-nah-me'
+    end
+
+    it "takes exceptions in account if available"
 
     it "initialises the hydra if needed" do # TODO hyphenmins
       language = Language.new('de-1901')
@@ -140,6 +146,11 @@ describe Language do
 
     it "raises an exception if the metadata is invalid" do
       language = Language.new('sl')
+      expect { language.extract_metadata }.to raise_exception InvalidMetadata
+    end
+
+    it "raises an exception if the metadata is just a string" do
+      language = Language.new('cs')
       expect { language.extract_metadata }.to raise_exception InvalidMetadata
     end
   end
