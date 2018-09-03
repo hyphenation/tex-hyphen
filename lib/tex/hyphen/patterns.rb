@@ -15,9 +15,9 @@ module TeX
       end
 
       def self.all
-        @@languages ||= Dir.glob(File.join(@@topdir, 'txt', 'hyph-*.pat.txt')).inject [] do |languages, txtfile|
-          bcp47 = txtfile.gsub /^.*\/hyph-(.*)\.pat\.txt$/, '\1' # TODO Move that to #hyphenate
-          languages << [bcp47, Language.new(bcp47)]
+        @@languages ||= Dir.glob(File.join(@@topdir, 'tex', 'hyph-*.tex')).inject [] do |languages, texfile|
+          bcp47 = texfile.gsub /^.*\/hyph-(.*)\.tex$/, '\1'
+          languages << [bcp47, Language.new(bcp47)] # TODO Load names of files (patterns, exceptions)
         end.to_h
       end
 
@@ -70,11 +70,10 @@ module TeX
         raise InvalidMetadata unless licences
         licences = [licences] unless licences.is_a? Array
         @licences = licences.map do |licence|
-          next if licence.count == 1 && licence.values == [nil]
+          next if licence.values == [nil]
           licence.dig('name') || 'custom'
         end.compact
         authors = metadata.dig('authors')
-        # puts "Authors: #{authors}"
         @authors = if authors
           authors.map do |author|
             author['name']

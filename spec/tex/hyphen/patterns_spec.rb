@@ -31,7 +31,7 @@ describe Language do
     end
 
     it "lists all languages" do
-      expect(Language.all.count).to eq 77
+      expect(Language.all.count).to eq 79
     end
   end
 
@@ -74,7 +74,6 @@ describe Language do
     it "loads the patterns" do
       language = Language.new('fi')
       expect(language.patterns).to match /uu1a2\nuu1e2\nuu1o2\nuu1i2/
-      # expect(language.patterns).to match /yli-opisto.*xxs-osakas.*suur-ajot/
     end
 
     it "doesn’t crash on inexistent patterns" do
@@ -102,7 +101,6 @@ describe Language do
 
     it "loads the exceptions" do
       language = Language.new('is')
-      # expect(File).to receive(:read).and_return(".a∂3 .a∂a4 .a∂k2")
       expect(File).to receive(:read).and_return("alc-un alc-u-nis-si-me alc-un-men-te")
       language.patterns
     end
@@ -131,7 +129,7 @@ describe Language do
 
     it "takes exceptions in account if available"
 
-    it "initialises the hydra if needed" do # TODO hyphenmins
+    it "initialises the hydra if needed" do
       language = Language.new('de-1901')
       language.hyphenate('Zwangsvollstreckungsmaßnahme')
       expect(language.instance_variable_get(:@hydra)).to be_a Hydra
