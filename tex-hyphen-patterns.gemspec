@@ -8,4 +8,5 @@ Gem::Specification.new do |s|
   s.email = "info@hyphenation.org"
   s.files = ['lib/tex/hyphen/patterns.rb'] + Dir.glob('hyph-utf8/tex/generic/hyph-utf8/patterns/tex/*')
   s.homepage = 'http://www.hyphenation.org/tex'
+  s.add_dependency 'hydra'
 end

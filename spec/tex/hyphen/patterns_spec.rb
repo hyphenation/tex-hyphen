@@ -47,7 +47,7 @@ describe Language do
     end
   end
 
-  describe '#bcp47' do # TODO Add #name, #licences, #lefthyphenmin, #righthyphenmin, #authors, #8bitenc
+  describe '#bcp47' do # TODO Add #8bitenc
     it "returns the BCP47 tag of the language" do
       language = Language.new('oc')
       expect(language.bcp47).to eq 'oc'
@@ -56,6 +56,45 @@ describe Language do
     it "calls Language.all first" do
       expect(Language).to receive(:all).and_return({ 'pl' => Language.new('pl') })
       Language.new('pl').bcp47
+    end
+  end
+
+  describe '#name' do
+    it "returns the name" do 
+      new_orthography_german = Language.new('de-1996')
+      expect(new_orthography_german.name).to eq 'German, reformed spelling'
+    end
+
+    it "calls Language.all first" do
+      expect(Language).to receive(:all).and_return({ 'de-1996' => Language.new('de-1996') })
+    end
+  end
+
+  describe '#licences' do
+    it "returns the licences" do
+      church_slavonic = Language.new('cu')
+      expect(church_slavonic.licences).to eq ['MIT']
+    end
+  end
+
+  describe '#lefthyphenmin' do
+    it "returns the left hyphenmin value for typesetting" do
+      swiss_spelling_german = Language.new('de-ch-1901')
+      expect(swiss_spelling_german.lefthyphenmin).to eq 2
+    end
+  end
+
+  describe '#righthyphenmin' do
+    it "returns the right hyphenmin value for typesetting" do
+      traditional_orthography_german = Language.new('de-1901')
+      expect(traditional_orthography_german.righthyphenmin).to eq 2
+    end
+  end
+
+  describe '#authors' do
+    it "returns the list of authors" do
+      upper_sorbian = Language.new('hsb')
+      expect(upper_sorbian.authors).to eq []
     end
   end
 
