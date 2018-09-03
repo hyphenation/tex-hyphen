@@ -35,10 +35,19 @@ module TeX
       end
 
       def exceptions
-        @exceptions ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.hyp.txt', @bcp47))) rescue Errno::ENOENT if self.class.all[@bcp47]
+        if self.class.all[@bcp47]
+          @exceptions ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.hyp.txt', @bcp47)))
+          @hyphenation = @exceptions.split(/\s+/).inject [] do |exceptions, exception|
+            exceptions << [exception.gsub('-', ''), exception]
+          end.to_h
+
+          # puts @hyphenation
+        end
       end
 
       def hyphenate(word)
+        exceptions
+        return @hyphenation[word] if @hyphenation[word]
         unless @hydra
           begin
             metadata = extract_metadata

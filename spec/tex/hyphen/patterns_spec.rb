@@ -114,6 +114,14 @@ describe Language do
       language.exceptions
       expect(language.instance_variable_get :@exceptions).to match /dosť\nme-tó-da\nme-tó-dy/
     end
+
+    it "hashes the exceptions" do
+      language = Language.new('en-gb')
+      language.exceptions
+      hyphenation = language.instance_variable_get :@hyphenation
+      expect(hyphenation.count).to eq 8
+      expect(hyphenation['however']).to eq 'how-ever'
+    end
   end
 
   describe '#hyphenate' do
@@ -127,12 +135,22 @@ describe Language do
       expect(language.hyphenate('Zwangsvollstreckungsmaßnahme')).to eq 'zwangs-voll-stre-ckungs-maß-nah-me'
     end
 
-    it "takes exceptions in account if available"
+    it "takes exceptions in account if available" do
+      american_english = Language.new('en-us')
+      expect(american_english.hyphenate('project')).to eq 'project'
+    end
 
     it "initialises the hydra if needed" do
       language = Language.new('de-1901')
       language.hyphenate('Zwangsvollstreckungsmaßnahme')
       expect(language.instance_variable_get(:@hydra)).to be_a Hydra
+    end
+
+    it "calls #exceptions" do
+      esperanto = Language.new('eo')
+      expect(esperanto).to receive(:exceptions)
+      esperanto.instance_variable_set :@hyphenation, { 'ŝtatregosciencon' => 'ŝta-tre-go-scien-con' }
+      esperanto.hyphenate('ŝtatregosciencon')
     end
   end
 
