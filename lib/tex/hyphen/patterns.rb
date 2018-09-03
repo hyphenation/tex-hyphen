@@ -9,7 +9,7 @@ module TeX
     class Language
       @@topdir = File.expand_path('../../../../hyph-utf8/tex/generic/hyph-utf8/patterns', __FILE__)
       @@eohmarker = '=' * 42
-      attr_reader :name, :licences, :lefthyphenmin, :righthyphenmin, :authors
+      attr_reader :licences, :lefthyphenmin, :righthyphenmin, :authors
 
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
@@ -29,6 +29,11 @@ module TeX
       def bcp47
         self.class.all
         @bcp47
+      end
+
+      def name
+        self.class.all
+        @name
       end
 
       def patterns

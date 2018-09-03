@@ -67,6 +67,7 @@ describe Language do
 
     it "calls Language.all first" do
       expect(Language).to receive(:all).and_return({ 'de-1996' => Language.new('de-1996') })
+      Language.new('de-1996').name
     end
   end
 
