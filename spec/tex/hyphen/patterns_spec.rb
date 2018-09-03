@@ -163,6 +163,20 @@ describe Language do
     end
   end
 
+  describe '#<=>' do
+    it "compares Language’s using @name’s" do
+      expect(Language.new('de-1996') <=> Language.new('fr')).to eq 1
+    end
+
+    it "uses BCP47 codes if names are not available" do
+      expect(Language.new('cu') <=> Language.new('zh-latn-pinyin')).to eq -1
+    end
+
+    it "ranks Language’s without names higher" do
+      expect(Language.new('cs') <=> Language.new('bg')).to eq -1
+    end
+  end
+
   describe '#patterns' do
     it "returns the patterns" do
       language = Language.new('da')

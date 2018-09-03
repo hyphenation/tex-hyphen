@@ -59,6 +59,26 @@ module TeX
         sprintf 'https://github.com/hyphenation/tex-hyphen/tree/master/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-%s.tex', @bcp47
       end
 
+      def <=>(other)
+        begin # FIXME Move that to #name
+          a = self.name
+        rescue InvalidMetadata
+          a = ''
+        end
+
+        begin
+          b = other.name
+        rescue InvalidMetadata
+          b = ''
+        end
+
+        if a || b
+          a <=> b || -1
+        else
+          self.bcp47 <=> other.bcp47
+        end
+      end
+
       def patterns
         @patterns ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.pat.txt', @bcp47))) if self.class.all[@bcp47]
       end
