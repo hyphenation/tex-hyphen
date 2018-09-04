@@ -60,22 +60,17 @@ module TeX
       end
 
       def <=>(other)
-        begin # FIXME Move that to #name
-          a = self.name
-        rescue InvalidMetadata
-          a = ''
-        end
+        # FIXME Move that to #name
+        a = self.name rescue InvalidMetadata
+        a = '' if [nil, InvalidMetadata].include? a
 
-        begin
-          b = other.name
-        rescue InvalidMetadata
-          b = ''
-        end
+        b = other.name rescue InvalidMetadata
+        b = '' if [nil, InvalidMetadata].include? b
 
-        if a || b
-          a <=> b || -1
-        else
+        if a == b
           self.bcp47 <=> other.bcp47
+        else
+          a <=> b || -1
         end
       end
 

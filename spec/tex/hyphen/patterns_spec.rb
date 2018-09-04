@@ -178,11 +178,17 @@ describe Language do
     end
 
     it "uses BCP47 codes if names are not available" do
-      expect(Language.new('cu') <=> Language.new('zh-latn-pinyin')).to eq -1
+      expect(Language.new('zh-latn-pinyin') <=> Language.new('cu')).to eq 1
     end
 
     it "ranks Language’s without names higher" do
       expect(Language.new('cs') <=> Language.new('bg')).to eq -1
+    end
+
+    it "really works" do
+      grc = Language.new('grc')
+      cu = Language.new('cu')
+      expect(grc <=> cu).to eq 1
     end
   end
 
