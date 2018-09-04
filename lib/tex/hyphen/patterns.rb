@@ -21,6 +21,17 @@ module TeX
         end.to_h
       end
 
+      def self.all_with_licence
+        all.select do |bcp47, language|
+          begin
+            licences = language.licences
+          rescue InvalidMetadata
+            next
+          end
+          licences.count > 0
+        end
+      end
+
       def self.find_by_bcp47(bcp47)
         all[bcp47]
       end

@@ -31,7 +31,19 @@ describe Language do
     end
 
     it "lists all languages" do
+      # All the TeX files.  Note [no] and [mn-cyrl-x-lmc] don’t have corresponding plain text files.
       expect(Language.all.count).to eq 79
+    end
+  end
+
+  describe '.all_with_licence' do
+    it "returns all languages that have a non-empty licence" do
+      expect(Language.all_with_licence.count).to eq 11
+    end
+
+    it "calls .all first" do
+      expect(Language).to receive(:all).and_return({ 'pl' => Language.new('pl') })
+      Language.all_with_licence
     end
   end
 
