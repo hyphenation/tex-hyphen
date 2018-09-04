@@ -95,6 +95,8 @@ describe Language do
       expect(church_slavonic).not_to receive :extract_metadata
       church_slavonic.licences
     end
+
+    it "raises an exception if @licences is nil or empty"
   end
 
   describe '#lefthyphenmin' do
@@ -153,6 +155,13 @@ describe Language do
       traditional_orthography_german.instance_variable_set :@authors, ['German hyphenation patterns team']
       expect(traditional_orthography_german).not_to receive :extract_metadata
       traditional_orthography_german.authors
+    end
+
+    it "raises an exception if @authors is nil or empty"
+
+    it "replaces nil by an empty array" do
+      church_slavonic = Language.new('cu')
+      expect(church_slavonic.authors).to eq []
     end
   end
 

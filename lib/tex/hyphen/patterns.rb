@@ -52,7 +52,7 @@ module TeX
 
       def authors
         extract_metadata unless @authors
-        @authors
+        @authors || []
       end
 
       def github_link
