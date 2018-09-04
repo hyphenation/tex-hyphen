@@ -1,6 +1,6 @@
 require 'yaml'
 require 'hydra'
-require 'byebug' rescue LoadError
+require 'byebug' unless ENV['RACK_ENV'] == "production"
 
 module TeX
   module Hyphen
