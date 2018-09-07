@@ -93,8 +93,11 @@ language_groups.sort.each do |language_name,language_list|
 	$file_tlpsrc.puts "depend hyphen-base"
 	$file_tlpsrc.puts "depend hyph-utf8"
 
-	# external dependencies for Russian and Ukrainian (until we implement the new functionality at least)
-	if language_name == "russian" then
+	# external dependencies
+	if language_name == "german" then
+		$file_tlpsrc.puts "depend dehyph"
+	# for Russian and Ukrainian (until we implement the new functionality at least)
+	elsif language_name == "russian" then
 		$file_tlpsrc.puts "depend ruhyphen"
 	elsif language_name == "ukrainian" then
 		$file_tlpsrc.puts "depend ukrhyph"
@@ -224,7 +227,7 @@ language_groups.sort.each do |language_name,language_list|
 			files_doc.push("doc/generic/hyph-utf8/#{language.code}")
 		end
 	end
-	if language_name != "russian" and language_name != "ukrainian" then
+	if language_name != "german" and language_name != "russian" and language_name != "ukrainian" then
 		language_list.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.filename_old_patterns != "copthyph.tex" then
 				files_run.push("tex/generic/hyphen/#{language.filename_old_patterns}")
@@ -237,9 +240,6 @@ language_groups.sort.each do |language_name,language_list|
 		files_doc.push("doc/generic/elhyphen")
 	elsif language_name == "hungarian" then
 		files_doc.push("doc/generic/huhyphen")
-	elsif language_name == "german" then
-		files_run.push("tex/generic/hyphen/dehyphtex.tex")
-		files_run.push("tex/generic/hyphen/ghyphen.README")
 	end
 
 	files_doc.sort.each do |f|
