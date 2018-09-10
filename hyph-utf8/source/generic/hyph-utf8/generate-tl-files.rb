@@ -105,7 +105,7 @@ language_groups.sort.each do |language_name,language_list|
 		files_run.push("#{files_path_hyph8}/patterns/tex/hyph-no.tex")
 	end
 	language_list.each do |language|
-		if language.description_s != nil then
+		if language.description_s && language.description_l then
 			$file_tlpsrc.puts "shortdesc #{language.description_s}."
 			$file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
 			# if language.version != nil then

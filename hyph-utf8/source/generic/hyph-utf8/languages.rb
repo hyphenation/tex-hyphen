@@ -122,11 +122,15 @@ class Language
 
 	attr_reader :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns
 	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
-	attr_reader :description_s, :description_l, :version
+	attr_reader :description_l, :version
 	attr_reader :licence, :authors
 	attr_reader :has_quotes, :has_dashes
 	# this hack is needed for Serbian
 	attr_writer :code
+
+	def description_s
+	  @description_s || @message
+	end
 end
 
 class Authors < Hash
@@ -436,7 +440,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "LPPL",
-	"description_s" => "Coptic hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Coptic in UTF-8 encoding",
@@ -546,7 +549,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["alexander_i_lebedev", "werner_lemberg", "vladimir_volovich"],
 	"licence"       => "LPPL",
-	"description_s" => "Russian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Russian in T2A and UTF-8 encodings.",
@@ -574,7 +576,6 @@ class Languages < Hash
 	# "type"          => "rules", # TODO: it is not really clear
 	"authors"       => ["maksym_polyakov", "werner_lemberg", "vladimir_volovich"],
 	"licence"       => "LPPL",
-	"description_s" => "Ukrainian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Ukrainian in T2A and UTF-8 encodings.",
@@ -605,7 +606,6 @@ class Languages < Hash
 	"authors"       => [ "tilla_fick", "chris_swanepoel" ],
 	"email"         => [ "hyphen{at}rekenaar{dot}net" ],
 	"licence"       => "LPPL",
-	"description_s" => "Afrikaans hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Afrikaans in T1/EC and UTF-8 encodings.",
@@ -630,7 +630,6 @@ class Languages < Hash
 	"type"          => "rules", # not only rules, also patgen, but it is a good approximation
 	"authors"       => [ "goncal_badenes" ],
 	"licence"       => "LPPL",
-	"description_s" => "Catalan hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Catalan in T1/EC and UTF-8 encodings.",
@@ -713,7 +712,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "yannis_haralambous" ],
 	"licence"       => "LPPL",
-	"description_s" => "Welsh hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Welsh in T1/EC and UTF-8 encodings.",
@@ -736,7 +734,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "frank_jensen" ],
 	"licence"       => "LPPL",
-	"description_s" => "Danish hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Danish in T1/EC and UTF-8 encodings.",
@@ -758,7 +755,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "sergei_pokrovsky" ],
 	"licence"       => "LPPL",
-	"description_s" => "Esperanto hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Esperanto ISO Latin 3 and UTF-8 encodings.",
@@ -788,7 +784,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "javier_bezos" ],
 	"licence"       => "MIT/X11",
-	"description_s" => "Spanish hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Spanish in T1/EC and UTF-8 encodings.",
@@ -810,7 +805,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "juan_aguirregabiria" ],
 	"licence"       => "other-free", # "public-check",
-	"description_s" => "Basque hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Basque in T1/EC and UTF-8 encodings.",
@@ -836,7 +830,6 @@ class Languages < Hash
 	"authors"       => ["daniel_flipo", "bernard_gaulle", "arthur_reutenauer"],
 	"email"         => ["cesure-l{at}gutenberg{dot}eu{dot}org"],
 	"licence"       => "MIT",
-	"description_s" => "French hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for French in T1/EC and UTF-8 encodings.",
@@ -858,7 +851,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["javier_mugica"],
 	"licence"       => "LPPL", # Status maintained
-	"description_s" => "Galician hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Galician in T1/EC and UTF-8 encodings.",
@@ -881,7 +873,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "een_saar" ],
 	"licence"       => "LPPL|MIT", # Dual MIT-LPPL
-	"description_s" => "Estonian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Estonian in T1/EC and UTF-8 encodings.",
@@ -903,7 +894,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["kauko_saarinen", "fred_karlsson"],
 	"licence"       => "other-free",
-	"description_s" => "Finnish hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Finnish in T1/EC and UTF-8 encodings.",
@@ -925,7 +915,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "igor_marinovic" ],
 	"licence"       => "LPPL",
-	"description_s" => "Croatian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Croatian in T1/EC and UTF-8 encodings.",
@@ -973,7 +962,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["sahak_petrosyan"],
 	"licence"       => "LGPL",
-	"description_s" => "Armenian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Armenian for Unicode engines.",
@@ -1018,7 +1006,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["joerg_knappen", "terry_mart"],
 	"licence"       => "GPL",
-	"description_s" => "Indonesian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Indonesian (Bahasa Indonesia) in ASCII",
@@ -1042,7 +1029,6 @@ class Languages < Hash
 	# TODO: I'm not sure that the last two names are relevant, I don't find the source of Marteinn Sverrisson
 	"authors"       => ["jorgen_pind", "marteinn_sverrisson", "kristinn_gylfason"],
 	"licence"       => "LPPL",
-	"description_s" => "Icelandic hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Icelandic in T1/EC and UTF-8 encodings.",
@@ -1064,7 +1050,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["kevin_p_scannell"],
 	"licence"       => "GPL",
-	"description_s" => "Irish hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Irish (Gaeilge) in T1/EC and UTF-8 encodings.",
@@ -1088,7 +1073,6 @@ class Languages < Hash
 	"type"          => "rules", # TODO: we might want to check that, but it seems unlikely that patgen was used
 	"authors"       => ["claudio_beccari"],
 	"licence"       => "LPPL", # Status: maintained!
-	"description_s" => "Italian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Italian in ASCII encoding.",
@@ -1116,7 +1100,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["claudio_beccari"],
 	"licence"       => "LPPL", # Status: maintained!
-	"description_s" => "Romansh hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Romansh in ASCII encoding.",
@@ -1140,7 +1123,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["claudio_beccari"],
 	"licence"       => "LPPL", # Status: maintained!
-	"description_s" => "Friulan hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Friulan in ASCII encoding.",
@@ -1165,7 +1147,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["claudio_beccari"],
 	"licence"       => "LPPL", # Status: maintained!
-	"description_s" => "Piedmontese hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Piedmontese in ASCII encoding.",
@@ -1212,7 +1193,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "LPPL",
-	"description_s" => "Latin hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Latin in T1/EC and UTF-8 encodings,",
@@ -1239,7 +1219,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "LPPL",
-	"description_s" => "Classical Latin hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for the Classical Latin in T1/EC and UTF-8",
@@ -1263,7 +1242,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "MIT",
-	"description_s" => "Liturgical Latin hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for the Liturgical Latin in T1/EC and UTF-8",
@@ -1284,7 +1262,6 @@ class Languages < Hash
 	"last_modified" => "2002-11-20", # 1992-03-04, for the content?
 	"authors"       => ["vytas_statulevicius", "yannis_haralambous", "sigitas_tolusis"],
 	# "licence"       => "LPPL",
-	"description_s" => "Lithuanian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Lithuanian in L7X and UTF-8 encodings.",
@@ -1309,7 +1286,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["janis_vilims"],
 	"licence"       => "LGPL",
-	"description_s" => "Latvian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Latvian in L7X and UTF-8 encodings.",
@@ -1333,7 +1309,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["piet_tutelaers"],
 	"licence"       => "LPPL",
-	"description_s" => "Dutch hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Dutch in T1/EC and UTF-8 encodings.",
@@ -1358,7 +1333,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => [ "claudio_beccari" ],
 	"licence"       => "LPPL",
-	"description_s" => "Occitan hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Occitan in T1/EC and UTF-8 encodings.",
@@ -1385,7 +1359,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => ["hanna_kolodziejska", "boguslaw_jackowski", "marek_rycko"],
 	"licence"       => "public", # TODO Knuthian type
-	"description_s" => "Polish hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Polish in QX and UTF-8 encodings.",
@@ -1409,7 +1382,6 @@ class Languages < Hash
 	"type"          => "rules", # TODO: we could create a generating script
 	"authors"       => ["pedro_j_de_rezende", "j_joao_dias_almeida"],
 	"licence"       => "BSD-3",
-	"description_s" => "Portuguese hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Portuguese in T1/EC and UTF-8 encodings.",
@@ -1453,7 +1425,6 @@ class Languages < Hash
 	"last_modified" => "1996-11-07",
 	"type"          => "dictionary",
 	"authors"       => ["adrian_rezus"],
-	"description_s" => "Romanian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Romanian in T1/EC and UTF-8 encodings.",
@@ -1480,7 +1451,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "matjaz_vrecko" ],
 	"licence"       => "LPPL",
-	"description_s" => "Slovenian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Slovenian in T1/EC and UTF-8 encodings.",
@@ -1549,7 +1519,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "nazar_annagurban" ],
 	"licence"       => "public",
-	"description_s" => "Turkmen hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Turkmen in T1/EC and UTF-8 encodings.",
@@ -1571,7 +1540,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["pierre_mackay", "h_turgut_uyar", "s_ekin_kocabas", "mojca_miklavec"],
 	"licence"       => "LPPL",
-	"description_s" => "Turkish hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Turkish in T1/EC and UTF-8 encodings.",
@@ -1752,7 +1720,6 @@ class Languages < Hash
 	"type"          => "pattern",
 	"authors"       => [ "georgi_boshnakov" ],
 	"licence"       => "LPPL",
-	"description_s" => "Bulgarian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Bulgarian in T2A and UTF-8 encodings.",
@@ -1964,7 +1931,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "theppitak_karoonboonyanan" ],
 	"licence"       => "LPPL",
-	"description_s" => "Thai hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Thai in LTH and UTF-8 encodings.",
@@ -2030,7 +1996,6 @@ class Languages < Hash
 	"type"          => "dictionary",
 	"authors"       => [ "levan_shoshiashvili" ],
 	"licence"       => "LPPL",
-	"description_s" => "Georgian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Georgian in T8M, T8K and UTF-8 encodings.",
@@ -2050,7 +2015,6 @@ class Languages < Hash
 	"type" => "machine learning",
 	"authors" => ["mike_kroutikov", "aleksandr_andreev"],
 	"licence" => "MIT",
-	"description_s" => "Church Slavonic hyphenation patterns",
 	"description_l" => [
 		"Hyphenation patterns for Church Slavonic in UTF-8 encoding",
 	],
@@ -2069,7 +2033,6 @@ class Languages < Hash
 	"type"          => "rules",
 	"authors"       => ["maksim_salau"],
 	"licence"       => "MIT",
-	"description_s" => "Belarusian hyphenation patterns",
 	"description_l" => [
 		"Belarusian hyphenation patterns in T2A and UTF-8 encodings"
 	],
@@ -2087,7 +2050,6 @@ class Languages < Hash
 	"type" => "rules",
 	"authors" => ["wie_ming_ang"],
 	"licence" => "MIT",
-	"description_s" => "Pali hyphenation patterns",
 	"description_l" => [
 	  "Pali hyphenation patterns in UTF-8 encoding",
 	],
