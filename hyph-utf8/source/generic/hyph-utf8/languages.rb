@@ -17,7 +17,6 @@ end
 
 class Language
 	def initialize(language_hash)
-		@use_new_loader = language_hash["use_new_loader"]
 		@use_old_patterns = language_hash["use_old_patterns"]
 		@use_old_patterns_comment = language_hash["use_old_patterns_comment"]
 		@use_old_loader = language_hash["use_old_loader"]
@@ -121,17 +120,13 @@ class Language
 	# 	return @lc_characters
 	# end
 
-	attr_reader :use_new_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns
+	attr_reader :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns
 	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
 	attr_reader :description_s, :description_l, :version
 	attr_reader :licence, :authors
 	attr_reader :has_quotes, :has_dashes
 	# this hack is needed for Serbian
 	attr_writer :code
-
-	def use_old_loader
-	  @use_old_loader
-	end
 end
 
 class Authors < Hash
@@ -266,7 +261,6 @@ class Languages < Hash
 {
 	"code" => "ar",
 	"name" => "arabic",
-	"use_new_loader" => false,
 	"use_old_patterns" => false,
 	"use_old_loader" => true,
 	"filename_old_patterns" => "zerohyph.tex",
@@ -287,7 +281,6 @@ class Languages < Hash
 {
 	"code" => "fa",
 	"name" => "farsi", "synonyms" => ["persian"],
-	"use_new_loader" => false,
 	"use_old_patterns" => false,
 	"use_old_loader" => true,
 	"filename_old_patterns" => "zerohyph.tex",
@@ -310,7 +303,6 @@ class Languages < Hash
 {
 	"code" => "grc-x-ibycus",
 	"name" => "ibycus",
-	"use_new_loader" => false,
 	"use_old_patterns" => true,
 	"use_old_loader" => true,
 	"filename_old_patterns" => "ibyhyph.tex",
@@ -330,7 +322,6 @@ class Languages < Hash
 {
 	"code" => "el-polyton",
 	"name" => "greek", "synonyms" => ["polygreek"],
-	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grphyph5.tex",
@@ -362,7 +353,6 @@ class Languages < Hash
 {
 	"code" => "el-monoton",
 	"name" => "monogreek",
-	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grmhyph5.tex",
@@ -398,7 +388,6 @@ class Languages < Hash
 {
 	"code" => "grc",
 	"name" => "ancientgreek",
-	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grahyph5.tex",
@@ -434,7 +423,6 @@ class Languages < Hash
 {
 	"code" => "cop",
 	"name" => "coptic",
-	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "TODO: automatic conversion could be done, but was too complicated; leave for later.",
 	"filename_old_patterns" => "copthyph.tex",
@@ -461,7 +449,6 @@ class Languages < Hash
 {
 	"code" => "de-1901",
 	"name" => "german",
-	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
 	"filename_old_patterns" => "dehypht.tex",
@@ -500,7 +487,6 @@ class Languages < Hash
 {
 	"code" => "de-1996",
 	"name" => "ngerman",
-	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
 	"filename_old_patterns" => "dehyphn.tex",
@@ -524,7 +510,6 @@ class Languages < Hash
 {
 	"code" => "de-ch-1901",
 	"name" => "swissgerman",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
@@ -548,7 +533,6 @@ class Languages < Hash
 {
 	"code" => "ru",
 	"name" => "russian",
-	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
 	"filename_old_patterns" => "ruhyphen.tex",
@@ -577,7 +561,6 @@ class Languages < Hash
 {
 	"code" => "uk",
 	"name" => "ukrainian",
-	"use_new_loader" => true,
 	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
 	"filename_old_patterns" => "ukrhyph.tex",
@@ -609,7 +592,6 @@ class Languages < Hash
 {
 	"code" => "af",
 	"name" => "afrikaans",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
 	"hyphenmin" => [1,2], # in babel: 2,2
@@ -636,7 +618,6 @@ class Languages < Hash
 {
 	"code" => "ca",
 	"name" => "catalan",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "cahyph.tex",
 	"hyphenmin" => [2,2], # babel
@@ -659,7 +640,6 @@ class Languages < Hash
 {
 	"code" => "cs",
 	"name" => "czech",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "czhyph.tex",
 	"filename_old_patterns_other" => ["czhyphen.tex","czhyphen.ex"],
@@ -694,7 +674,6 @@ class Languages < Hash
 {
 	"code" => "sk",
 	"name" => "slovak",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "skhyph.tex",
 	"filename_old_patterns_other" => ["skhyphen.tex","skhyphen.ex"],
@@ -722,7 +701,6 @@ class Languages < Hash
 {
 	"code" => "cy",
 	"name" => "welsh",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "cyhyph.tex",
 	"hyphenmin" => [2,3],
@@ -745,7 +723,6 @@ class Languages < Hash
 {
 	"code" => "da",
 	"name" => "danish",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "dkhyph.tex",
 	"filename_old_patterns_other" => ["dkcommon.tex", "dkspecial.tex"],
@@ -769,7 +746,6 @@ class Languages < Hash
 {
 	"code" => "eo",
 	"name" => "esperanto",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "eohyph.tex",
 	"hyphenmin" => [2,2],
@@ -800,7 +776,6 @@ class Languages < Hash
 {
 	"code" => "es",
 	"name" => "spanish", "synonyms" => ["espanol"],
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "eshyph.tex",
 	"hyphenmin" => [2,2],
@@ -823,7 +798,6 @@ class Languages < Hash
 {
 	"code" => "eu",
 	"name" => "basque",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "bahyph.tex",
 	"hyphenmin" => [2,2], # babel
@@ -849,7 +823,6 @@ class Languages < Hash
 {
 	"code" => "fr",
 	"name" => "french", "synonyms" => ["patois","francais"],
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "frhyph.tex",
 	"hyphenmin" => [2,2],
@@ -873,7 +846,6 @@ class Languages < Hash
 {
 	"code" => "gl",
 	"name" => "galician",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "glhyph.tex",
 	"hyphenmin" => [2,2],
@@ -897,7 +869,6 @@ class Languages < Hash
 {
 	"code" => "et",
 	"name" => "estonian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "ethyph.tex",
 	"hyphenmin" => [2,3], # babel
@@ -920,7 +891,6 @@ class Languages < Hash
 {
 	"code" => "fi",
 	"name" => "finnish",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "fihyph.tex",
 	"hyphenmin" => [2,2],
@@ -943,7 +913,6 @@ class Languages < Hash
 {
 	"code" => "hr",
 	"name" => "croatian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "hrhyph.tex",
 	"hyphenmin" => [2,2],
@@ -966,7 +935,6 @@ class Languages < Hash
 {
 	"code" => "hu",
 	"name" => "hungarian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "huhyphn.tex",
 	"hyphenmin" => [2,2], # polyglossia
@@ -993,7 +961,6 @@ class Languages < Hash
 {
 	"code" => "hy",
 	"name" => "armenian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
 	"hyphenmin" => [1,2], # taken from Hyphenator.js; check the value
@@ -1017,7 +984,6 @@ class Languages < Hash
 {
 	"code" => "ia",
 	"name" => "interlingua",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "iahyphen.tex",
 	"hyphenmin" => [2,2], # babel
@@ -1040,7 +1006,6 @@ class Languages < Hash
 {
 	"code" => "id",
 	"name" => "indonesian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "inhyph.tex",
 	"hyphenmin" => [2,2],
@@ -1064,7 +1029,6 @@ class Languages < Hash
 {
 	"code" => "is",
 	"name" => "icelandic",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "icehyph.tex",
 	"hyphenmin" => [2,2], # babel
@@ -1088,7 +1052,6 @@ class Languages < Hash
 {
 	"code" => "ga",
 	"name" => "irish",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "gahyph.tex",
 	"hyphenmin" => [2,3], # babel
@@ -1113,7 +1076,6 @@ class Languages < Hash
 {
 	"code" => "it",
 	"name" => "italian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "ithyph.tex",
 	"hyphenmin" => [2,2], # babel
@@ -1142,7 +1104,6 @@ class Languages < Hash
 {
 	"code" => "rm",
 	"name" => "romansh",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
 	"hyphenmin" => [2,2], # todo
@@ -1167,7 +1128,6 @@ class Languages < Hash
 {
 	"code" => "fur",
 	"name" => "friulan", "synonyms" => [],
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
 	"hyphenmin" => [2,2],
@@ -1193,7 +1153,6 @@ class Languages < Hash
 {
 	"code" => "pms",
 	"name" => "piedmontese",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
 	"hyphenmin" => [2,2],
@@ -1217,7 +1176,6 @@ class Languages < Hash
 {
 	"code" => "kmr",
 	"name" => "kurmanji",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "kmrhyph.tex",
 	"hyphenmin" => [2,2],
@@ -1242,7 +1200,6 @@ class Languages < Hash
 {
 	"code" => "la",
 	"name" => "latin",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "lahyph.tex",
 	"hyphenmin" => [2,2], # babel
@@ -1270,7 +1227,6 @@ class Languages < Hash
 {
 	"code" => "la-x-classic",
 	"name" => "classiclatin",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
 	"hyphenmin" => [2,2],
@@ -1295,7 +1251,6 @@ class Languages < Hash
 {
 	"code" => "la-x-liturgic",
 	"name" => "liturgicallatin",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
 	"hyphenmin" => [2,2],
@@ -1319,7 +1274,6 @@ class Languages < Hash
 {
 	"code" => "lt",
 	"name" => "lithuanian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [2,2],
 	"encoding" => "l7x",
@@ -1344,7 +1298,6 @@ class Languages < Hash
 {
 	"code" => "lv",
 	"name" => "latvian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [2,2],
 	"encoding" => "l7x",
@@ -1366,7 +1319,6 @@ class Languages < Hash
 {
 	"code" => "nl",
 	"name" => "dutch",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "nehyph96.tex",
 	# quoting Hans Hagen:
@@ -1395,7 +1347,6 @@ class Languages < Hash
 {
 	"code" => "oc",
 	"name" => "occitan",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
@@ -1421,7 +1372,6 @@ class Languages < Hash
 {
 	"code" => "pl",
 	"name" => "polish",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "plhyph.tex",
 	#{}"hyphenmin" => [1,1],
@@ -1447,7 +1397,6 @@ class Languages < Hash
 {
 	"code" => "pt",
 	"name" => "portuguese", "synonyms" => ["portuges"],
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "pthyph.tex",
 	"hyphenmin" => [2,3], # babel
@@ -1470,7 +1419,6 @@ class Languages < Hash
 {
 	"code" => "zh-latn-pinyin",
 	"name" => "pinyin",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "pyhyph.tex",
 	"hyphenmin" => [1,1],
@@ -1494,7 +1442,6 @@ class Languages < Hash
 {
 	"code" => "ro",
 	"name" => "romanian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "rohyphen.tex",
 	"hyphenmin" => [2,2],
@@ -1521,7 +1468,6 @@ class Languages < Hash
 {
 	"code" => "sl",
 	"name" => "slovenian", "synonyms" => ["slovene"],
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "sihyph.tex",
 	"hyphenmin" => [2,2],
@@ -1544,7 +1490,6 @@ class Languages < Hash
 {
 	"code" => "hsb",
 	"name" => "uppersorbian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "sorhyph.tex",
 	"hyphenmin" => [2,2],
@@ -1569,7 +1514,6 @@ class Languages < Hash
 {
 	"code" => "sv",
 	"name" => "swedish",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "svhyph.tex",
 	"hyphenmin" => [2,2], # patters say it could be 1,2; babel says 2,2 - double check
@@ -1593,7 +1537,6 @@ class Languages < Hash
 {
 	"code" => "tk",
 	"name" => "turkmen",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => nil,
 	"hyphenmin" => [2,2],
@@ -1616,7 +1559,6 @@ class Languages < Hash
 {
 	"code" => "tr",
 	"name" => "turkish",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "tkhyph.tex",
 	"hyphenmin" => [2,2], # polyglossia
@@ -1649,7 +1591,6 @@ class Languages < Hash
 {
 	"code" => "en-gb",
 	"name" => "ukenglish", "synonyms" => ["british", "UKenglish"],
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "ukhyphen.tex",
 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
@@ -1684,7 +1625,6 @@ class Languages < Hash
 {
 	"code" => "en-us",
 	"name" => "usenglishmax",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "ushyphmax.tex",
 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
@@ -1720,7 +1660,6 @@ class Languages < Hash
 {
 	"code" => "sh-latn",
 	"name" => "serbian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "shhyphl.tex",
 	# It is allowed to leave one character at the end of the row.
@@ -1753,7 +1692,6 @@ class Languages < Hash
 {
 	"code" => "sh-cyrl",
 	"name" => "serbianc",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	# "filename_old_patterns" => "srhyphc.tex",
 	"hyphenmin" => [2,2],
@@ -1765,7 +1703,6 @@ class Languages < Hash
 {
 	"code" => "mn-cyrl",
 	"name" => "mongolian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "mnhyphn.tex",
 	"hyphenmin" => [2,2],
@@ -1792,7 +1729,6 @@ class Languages < Hash
 {
 	"code" => "mn-cyrl-x-lmc",
 	"name" => "mongolianlmc",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "mnhyph.tex",
 	"hyphenmin" => [2,2],
@@ -1804,7 +1740,6 @@ class Languages < Hash
 {
 	"code" => "bg",
 	"name" => "bulgarian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"filename_old_patterns" => "bghyphen.tex",
 	"hyphenmin" => [2,2], # babel
@@ -1827,7 +1762,6 @@ class Languages < Hash
 {
 	"code" => "sa",
 	"name" => "sanskrit",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,3], # polyglossia
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -1851,7 +1785,6 @@ class Languages < Hash
 {
 	"code" => "no",
 	"name" => "norwegian", # TODO: fixme
-	"use_new_loader" => false,
 	"use_old_patterns" => false,
 	"use_old_loader" => true,
 	"hyphenmin" => [2,2], # babel
@@ -1863,7 +1796,6 @@ class Languages < Hash
 {
 	"code" => "nb",
 	"name" => "bokmal", "synonyms" => ["norwegian", "norsk"],
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
@@ -1886,7 +1818,6 @@ class Languages < Hash
 {
 	"code" => "nn",
 	"name" => "nynorsk",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
@@ -1898,7 +1829,6 @@ class Languages < Hash
 {
 	"code" => "as",
 	"name" => "assamese",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -1923,7 +1853,6 @@ class Languages < Hash
 {
 	"code" => "bn",
 	"name" => "bengali",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -1934,7 +1863,6 @@ class Languages < Hash
 {
 	"code" => "gu",
 	"name" => "gujarati",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -1945,7 +1873,6 @@ class Languages < Hash
 {
 	"code" => "hi",
 	"name" => "hindi",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -1956,7 +1883,6 @@ class Languages < Hash
 {
 	"code" => "kn",
 	"name" => "kannada",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -1967,7 +1893,6 @@ class Languages < Hash
 {
 	"code" => "ml",
 	"name" => "malayalam",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -1978,7 +1903,6 @@ class Languages < Hash
 {
 	"code" => "mr",
 	"name" => "marathi",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -1989,7 +1913,6 @@ class Languages < Hash
 {
 	"code" => "or",
 	"name" => "oriya",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -2000,7 +1923,6 @@ class Languages < Hash
 {
 	"code" => "pa",
 	"name" => "panjabi",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -2011,7 +1933,6 @@ class Languages < Hash
 {
 	"code" => "ta",
 	"name" => "tamil",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -2022,7 +1943,6 @@ class Languages < Hash
 {
 	"code" => "te",
 	"name" => "telugu",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1], # TODO
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -2033,7 +1953,6 @@ class Languages < Hash
 {
 	"code" => "th",
 	"name" => "thai",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [2,3],
 	"encoding" => "lth",
@@ -2082,7 +2001,6 @@ class Languages < Hash
 	"last_modified" => "2011-01-10",
 	"authors" => ["arthur_reutenauer", "mojca_miklavec"],
 	"licence" => "public-ask", # TODO
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,1],
 	"encoding" => nil, # no patterns for 8-bit engines
@@ -2101,7 +2019,6 @@ class Languages < Hash
 {
 	"code" => "ka",
 	"name" => "georgian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1,2],
 	"encoding" => "t8m",
@@ -2123,7 +2040,6 @@ class Languages < Hash
 {
 	"code" => "cu",
 	"name" => "churchslavonic",
-	"use_new_loader" => true,
 	"hyphenmin" => [1, 2],
 	"encoding" => nil,
 	"exceptions" => true,
@@ -2143,7 +2059,6 @@ class Languages < Hash
 {
 	"code" => "be",
 	"name" => "belarusian",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [2,2],
 	"encoding" => "t2a",
@@ -2163,7 +2078,6 @@ class Languages < Hash
 {
 	"code" => "pi",
 	"name" => "pali",
-	"use_new_loader" => true,
 	"use_old_patterns" => false,
 	"hyphenmin" => [1, 2],
 	# no encoding

@@ -95,12 +95,12 @@ language_groups.sort.each do |language_name,language_list|
 			puts "#{space_leading}#{space_tr}<td>#{language.name}#{synonyms}</td>"
 	
 	#		if language.use_old_patterns == false then
-			if language.use_new_loader == true then
-				url_patterns = "#{$ctan_url}/patterns/tex/hyph-#{language.code}.tex"
-				code = "<a href=\"#{url_patterns}\">#{language.code}</a>"
-			else
+			if language.use_old_loader then
 				url_patterns = ""
 				code = language.code
+			else
+				url_patterns = "#{$ctan_url}/patterns/tex/hyph-#{language.code}.tex"
+				code = "<a href=\"#{url_patterns}\">#{language.code}</a>"
 			end
 			
 			puts "#{space_leading}#{space_tr}<td>#{code}</td>"
@@ -118,10 +118,10 @@ language_groups.sort.each do |language_name,language_list|
 			end
 			puts "#{space_leading}#{space_tr}<td>(#{lmin},#{rmin})</td>"
 			# which file to use
-			if language.use_new_loader then
-				file = "loadhyph-#{language.code}.tex"
-			else
+			if language.use_old_loader then
 				file = "#{language.filename_old_patterns}"
+			else
+				file = "loadhyph-#{language.code}.tex"
 			end
 			#puts "\t<td>#{file}</td>"
 			if language.encoding == nil then
