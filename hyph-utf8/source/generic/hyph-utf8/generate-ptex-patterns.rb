@@ -26,15 +26,10 @@ $l = Languages.new
 # TODO: should be singleton
 languages = $l.list.sort{|a,b| a.name <=> b.name}
 
-language_codes = Hash.new
-languages.each do |language|
-	language_codes[language.code] = language.code
-end
-
 languages.sort{|x,y| x.code <=> y.code }.each do |language|
 	encoding = nil
 	if language.use_new_loader then
-		if language.encoding == nil or language_codes[language.code] == nil
+		if language.encoding == nil
 			include_language = false
 			puts "(skipping #{language.code} # encoding)"
 		elsif language.encoding == 'ascii'
@@ -49,7 +44,7 @@ languages.sort{|x,y| x.code <=> y.code }.each do |language|
 		puts "(skipping #{language.code} # loader)"
 	end
 
-	code = language_codes[language.code]
+	code = language.code
 
 	if include_language
 		puts ">> generating #{code} (#{language.name})"
