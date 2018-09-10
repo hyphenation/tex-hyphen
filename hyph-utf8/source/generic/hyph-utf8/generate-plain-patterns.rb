@@ -20,7 +20,7 @@ codes_to_skip = ['mn-cyrl-x-lmc']
 $l.list.sort{|x,y| x.code <=> y.code }.each do |language|
 	code = language.code
 
-	if !language.use_new_loader || codes_to_skip.include?(code)
+	if language.use_old_loader || codes_to_skip.include?(code)
 		puts "(skipping #{language.code})"
 		next
 	end

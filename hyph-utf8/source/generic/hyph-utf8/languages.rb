@@ -20,6 +20,7 @@ class Language
 		@use_new_loader = language_hash["use_new_loader"]
 		@use_old_patterns = language_hash["use_old_patterns"]
 		@use_old_patterns_comment = language_hash["use_old_patterns_comment"]
+		@use_old_loader = language_hash["use_old_loader"]
 		@filename_old_patterns = language_hash["filename_old_patterns"]
 		@filename_old_patterns_other = language_hash["filename_old_patterns_other"]
 		@code = language_hash["code"]
@@ -127,6 +128,10 @@ class Language
 	attr_reader :has_quotes, :has_dashes
 	# this hack is needed for Serbian
 	attr_writer :code
+
+	def use_old_loader
+	  @use_old_loader
+	end
 end
 
 class Authors < Hash
@@ -263,6 +268,7 @@ class Languages < Hash
 	"name" => "arabic",
 	"use_new_loader" => false,
 	"use_old_patterns" => false,
+	"use_old_loader" => true,
 	"filename_old_patterns" => "zerohyph.tex",
 #	"hyphenmin" => [], # not needed
 	"encoding" => nil,
@@ -283,6 +289,7 @@ class Languages < Hash
 	"name" => "farsi", "synonyms" => ["persian"],
 	"use_new_loader" => false,
 	"use_old_patterns" => false,
+	"use_old_loader" => true,
 	"filename_old_patterns" => "zerohyph.tex",
 #	"hyphenmin" => [], # not needed
 	"encoding" => nil,
@@ -305,6 +312,7 @@ class Languages < Hash
 	"name" => "ibycus",
 	"use_new_loader" => false,
 	"use_old_patterns" => true,
+	"use_old_loader" => true,
 	"filename_old_patterns" => "ibyhyph.tex",
 	"hyphenmin" => [2,2],
 	"encoding" => nil,
@@ -1845,6 +1853,7 @@ class Languages < Hash
 	"name" => "norwegian", # TODO: fixme
 	"use_new_loader" => false,
 	"use_old_patterns" => false,
+	"use_old_loader" => true,
 	"hyphenmin" => [2,2], # babel
 	"encoding" => "ec",
 	"exceptions" => false,

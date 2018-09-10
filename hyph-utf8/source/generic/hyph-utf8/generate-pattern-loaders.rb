@@ -97,7 +97,8 @@ if ['sh-latn', 'sh-cyrl'].include?(language.code) then
 	                      "    % We load both scripts at the same time to simplify usage"]
 end
 
-	if language.use_new_loader then
+	next if language.use_old_loader
+
 		if language.code == 'sh-latn' then
 			filename = "#{$path_loadhyph}/loadhyph-sr-latn.tex"
 		elsif language.code == 'sh-cyrl' then
@@ -233,5 +234,4 @@ end
 #######
 			file.puts('\endgroup')
 		end
-	end
 end

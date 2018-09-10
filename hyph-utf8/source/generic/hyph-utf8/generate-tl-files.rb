@@ -136,7 +136,7 @@ language_groups.sort.each do |language_name,language_list|
 		file = ""
 		file_patterns = ""
 		file_exceptions = ""
-		if language.use_new_loader then
+		unless language.use_old_loader then
 			file = "file=loadhyph-#{language.code}.tex"
 			files_run.push("#{files_path_hyph8}/loadhyph/loadhyph-#{language.code}.tex")
 			if language.has_quotes then
@@ -260,10 +260,10 @@ end
 $file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
 language_groups.sort.each do |language_name,language_list|
 	language_list.each do |language|
-		if language.use_new_loader then
-			$file_language_dat.puts "#{language.name}\tloadhyph-#{language.code}.tex"
-		else
+		if language.use_old_loader then
 			$file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
+		else
+			$file_language_dat.puts "#{language.name}\tloadhyph-#{language.code}.tex"
 		end
 
 		# synonyms

@@ -39,7 +39,7 @@ $l = Languages.new
 languages = $l.list.sort{|a,b| a.name <=> b.name}
 
 languages.sort { |x,y| x.code <=> y.code }.each do |language|
-	unless language.use_new_loader
+	if language.use_old_loader
 		puts "(skipping #{language.code} # loader)"
 		next
 	end
