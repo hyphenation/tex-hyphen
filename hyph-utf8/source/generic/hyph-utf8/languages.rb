@@ -1,5 +1,15 @@
 # -*- coding: utf-8 -*-
 
+class String
+	def superstrip
+		strip.gsub /%.*$/, ''
+	end
+
+	def supersplit
+		strip.gsub(/\s+/m,"\n").split("\n")
+	end
+end
+
 class Author
 	def initialize(name,surname,email,contacted1,contacted2)
 		@name       = name
@@ -53,17 +63,17 @@ class Language
 
 	# TODO: simplify this (reduce duplication)
 
+	def opentexfile(code = @code)
+		filename = File.expand_path("../../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{code}.tex", __FILE__);
+		lines = IO.readlines(filename, '.').join("")
+		lines.superstrip
+	end
+
 	def get_exceptions
-		if @exceptions1 == nil
-			filename = File.expand_path("../../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex", __FILE__);
-			lines = IO.readlines(filename, '.').join("")
-			exceptions = lines.gsub(/%.*/,'');
+		exceptions = opentexfile
+		unless @exceptions1
 			if (exceptions.index('\hyphenation') != nil)
-				@exceptions1 = exceptions.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').
-					gsub(/\s+/m,"\n").
-					gsub(/^\s*/m,'').
-					gsub(/\s*$/m,'').
-					split("\n")
+				@exceptions1 = exceptions.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
 			else
 				@exceptions1 = ""
 			end
@@ -73,32 +83,23 @@ class Language
 	end
 
 	def get_patterns
-		if @patterns == nil
-			code = @code
-			code = 'no' if ['nb', 'nn'].include? code
-			filename = File.expand_path("../../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{code}.tex", __FILE__)
-			lines = IO.readlines(filename, '.').join("")
-			@patterns = lines.gsub(/%.*/,'').
-				gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
-				gsub(/\s+/m,"\n").
-				gsub(/^\s*/m,'').
-				gsub(/\s*$/m,'').
-				split("\n")
-
+		unless @patterns
 			if @code == 'eo' then
-				@patterns = lines.gsub(/%.*/,'').
+				@patterns = opentexfile.
 					gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
 					#
 					gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
 					gsub(/\\nom\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e. \1o. \1oj. \1ojn. \1on.').
 					gsub(/\\ver\{(.*?)\}/m,'\1as. \1i. \1is. \1os. \1u. \1us.').
 					#
-					gsub(/\s+/m,"\n").
-					gsub(/^\s*/m,'').
-					gsub(/\s*$/m,'').
-					split("\n")
+					supersplit
+			else
+				@patterns = opentexfile(if ['nb', 'nn'].include? @code then 'no' else @code end).
+					gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
+					supersplit
 			end
 		end
+
 		return @patterns
 	end
 
@@ -131,7 +132,7 @@ class Language
 	attr_writer :code
 
 	def description_s
-	  @description_s || @message
+		@description_s || @message
 	end
 end
 
@@ -1982,7 +1983,7 @@ class Languages < Hash
 	"authors" => ["wie_ming_ang"],
 	"licence" => "MIT",
 	"description_l" => [
-	  "Pali hyphenation patterns in UTF-8 encoding",
+		"Pali hyphenation patterns in UTF-8 encoding",
 	],
 },
 # dumylang -> dumyhyph.tex

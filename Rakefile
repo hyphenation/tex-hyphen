@@ -9,6 +9,7 @@ task :spec do
   RSpec::Core::RakeTask.new
 end
 
+# TODO: Rubocop
 task :build do
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-converters.rb"
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-pattern-loaders.rb"
