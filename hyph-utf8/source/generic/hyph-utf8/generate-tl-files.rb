@@ -223,7 +223,7 @@ language_groups.sort.each do |language_name,language_list|
 			files_src.push("source/generic/hyph-utf8/languages/#{language.code}")
 		end
 		# add documentation
-		if ['bg', 'es', 'hu', 'sa'].include?(language.code) then
+		if ['es', 'hu', 'sa'].include?(language.code) then
 			files_doc.push("doc/generic/hyph-utf8/#{language.code}")
 		end
 	end
