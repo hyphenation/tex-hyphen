@@ -12,7 +12,7 @@ execute AddHyphen \
 	file_patterns=hyph-hu.pat.txt \
 	file_exceptions=
 docpattern d texmf-dist/doc/generic/huhyphen
-docpattern d texmf-dist/doc/generic/hyph-utf8/hu
+docpattern d texmf-dist/doc/generic/hyph-utf8/languages/hu
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-hu.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-hu.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-hu.tex
