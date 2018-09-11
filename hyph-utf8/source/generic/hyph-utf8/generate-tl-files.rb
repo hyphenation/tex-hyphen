@@ -59,15 +59,10 @@ end
 language_groups = Hash.new
 # single languages first
 $l.sort.each do |language|
-	# temporary remove cyrilic serbian until someone explains what is needed
-
-	# ignore the language
-	next if language.code == 'sr-cyrl' or language.code == 'en-us'
-
 	if groupname = lgreversed[language.code] then
 		(language_groups[groupname] ||= []) << language
 	else
-		language_groups[language.name] = [language]
+		language_groups[language.name] = [language] unless language_grouping[language.name]
 	end
 
 	if language.code == 'sh-latn' then
@@ -88,7 +83,7 @@ end
 
 # then groups of languages
 language_grouping.each do |name,group|
-	language_groups[name] = group.map { |code| $l[code] }
+	# language_groups[name] = group.map { |code| $l[code] }
 end
 
 # languages.each do |language|

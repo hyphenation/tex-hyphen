@@ -77,8 +77,8 @@ romanian	loadhyph-ro.tex
 romansh	loadhyph-rm.tex
 russian	loadhyph-ru.tex
 sanskrit	loadhyph-sa.tex
-serbian	loadhyph-sr-latn.tex
 serbianc	loadhyph-sr-cyrl.tex
+serbian	loadhyph-sr-latn.tex
 slovak	loadhyph-sk.tex
 slovenian	loadhyph-sl.tex
 =slovene
