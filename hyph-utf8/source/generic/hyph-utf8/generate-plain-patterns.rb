@@ -12,12 +12,9 @@ $path_root=File.expand_path("../../../..", __FILE__)
 $path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns/txt"
 $path_quote="#{$path_root}/tex/generic/hyph-utf8/patterns/quote"
 
-# TODO: should be singleton
-$l = Languages.new
-
 codes_to_skip = ['mn-cyrl-x-lmc']
 
-$l.list.sort{|x,y| x.code <=> y.code }.each do |language|
+Languages.new.sort.each do |language|
 	code = language.code
 
 	if language.use_old_loader || codes_to_skip.include?(code)

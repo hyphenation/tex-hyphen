@@ -33,12 +33,7 @@ header = <<-HEADER
 %%
 HEADER
 
-$l = Languages.new
-
-# TODO: should be singleton
-languages = $l.list.sort{|a,b| a.name <=> b.name}
-
-languages.sort { |x,y| x.code <=> y.code }.each do |language|
+Languages.new.sort.each do |language|
 	if language.use_old_loader
 		puts "(skipping #{language.code} # loader)"
 		next

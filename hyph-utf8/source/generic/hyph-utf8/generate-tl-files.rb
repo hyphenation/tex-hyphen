@@ -17,8 +17,6 @@ $path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
 $path_txt="#{$path_tex_generic}/#{$package_name}/patterns/txt"
 
 $l = Languages.new
-# TODO: should be singleton
-languages = $l.list.sort{|a,b| a.name <=> b.name}
 
 language_grouping = {
 	'english' => ['en-gb', 'en-us'],
@@ -43,11 +41,11 @@ end
 # a hash with language name as key and array of languages as the value
 language_groups = Hash.new
 # single languages first
-languages.each do |language|
+$l.sort.each do |language|
 	# temporary remove cyrilic serbian until someone explains what is needed
 	if language.code == 'sr-cyrl' or language.code == 'en-us' then
 		# ignore the language
-	elsif language_used_in_group[language.code] == nil then
+	elsif !language_used_in_group[language.code] then
 		language_groups[language.name] = [language]
 	end
 
@@ -55,6 +53,15 @@ languages.each do |language|
 		language.code = 'sr-latn'
 	elsif language.code == 'sh-cyrl' then
 		language.code = 'sr-cyrl'
+	end
+end
+
+$dirlist = Hash.new
+def dirlist(type)
+	$dirlist[type] ||= Dir.glob(File.expand_path(sprintf('../../../../%s/generic/hyph-utf8/languages/*', type), __FILE__)).select do |file|
+		File.directory?(file) && file !~ /\/img$/
+	end.map do |dir|
+		dir.gsub /^.*\//, ''
 	end
 end
 
@@ -219,11 +226,11 @@ language_groups.sort.each do |language_name,language_list|
 		$file_tlpsrc.puts
 
 		# add sources
-		if ['es', 'eu', 'gl', 'hy', 'mul-ethi', 'tk', 'tr'].include?(language.code) then
+		if dirlist('source').include?(language.code) then
 			files_src.push("source/generic/hyph-utf8/languages/#{language.code}")
 		end
 		# add documentation
-		if ['es', 'hu', 'sa'].include?(language.code) then
+		if dirlist('doc').include?(language.code) then
 			files_doc.push("doc/generic/hyph-utf8/languages/#{language.code}")
 		end
 	end

@@ -248,6 +248,7 @@ end
 # "exceptions" => false,
 # "message" => nil,
 
+# TODO: should be singleton
 class Languages < Hash
 	@@list = []
 
@@ -2004,5 +2005,9 @@ class Languages < Hash
 
 	def list
 		return @@list
+	end
+
+	def sort
+	  @@list.sort { |a, b| a.code <=> b.code }
 	end
 end
