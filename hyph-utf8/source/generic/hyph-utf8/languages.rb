@@ -61,8 +61,6 @@ class Language
 		@has_dashes = true
 	end
 
-	# TODO: simplify this (reduce duplication)
-
 	def readtexfile(code = @code)
 		filename = File.expand_path("../../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{code}.tex", __FILE__);
 		lines = IO.readlines(filename, '.').join("")
