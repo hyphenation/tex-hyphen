@@ -59,10 +59,6 @@ languages.sort { |x,y| x.code <=> y.code }.each do |language|
 		patterns   = language.get_patterns
 		exceptions = language.get_exceptions
 
-		if code == 'nn' or code == 'nb'
-			patterns = $l['no'].get_patterns
-		end
-
 		characters = patterns.join('').gsub(/[.0-9]/,'').unpack('U*').sort.uniq
 
 		if language.encoding != 'ascii' then

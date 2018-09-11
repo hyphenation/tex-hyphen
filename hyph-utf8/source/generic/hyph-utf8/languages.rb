@@ -74,7 +74,9 @@ class Language
 
 	def get_patterns
 		if @patterns == nil
-			filename = File.expand_path("../../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex", __FILE__)
+			code = @code
+			code = 'no' if ['nb', 'nn'].include? code
+			filename = File.expand_path("../../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{code}.tex", __FILE__)
 			lines = IO.readlines(filename, '.').join("")
 			@patterns = lines.gsub(/%.*/,'').
 				gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').

@@ -36,8 +36,6 @@ $l.list.sort{|x,y| x.code <=> y.code }.each do |language|
 	exceptions = language.get_exceptions
 	patterns_quote = Array.new
 
-	patterns = $l['no'].get_patterns if code == 'nn' or code == 'nb'
-
 	# patterns
 	patterns.each do |pattern|
 		$file_pat.puts pattern
