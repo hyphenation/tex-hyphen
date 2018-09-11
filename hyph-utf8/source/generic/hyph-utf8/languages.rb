@@ -102,7 +102,7 @@ class Language
 	end
 
 	def get_comments_and_licence
-		@comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1') unless @comments_and_licence
+		@comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1')
 	end
 
 	# def lc_characters

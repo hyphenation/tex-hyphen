@@ -18,7 +18,7 @@ $path_txt="#{$path_tex_generic}/#{$package_name}/patterns/txt"
 
 $l = Languages.new
 
-language_grouping = {
+$language_grouping = {
 	'english' => ['en-gb', 'en-us'],
 	'norwegian' => ['nb', 'nn'],
 	'german' => ['de-1901', 'de-1996', 'de-ch-1901'],
@@ -31,11 +31,19 @@ language_grouping = {
 	'latin' => ['la', 'la-x-classic', 'la-x-liturgic'],
 }
 
-language_used_in_group = Hash.new
-language_grouping.each_value do |group|
-	group.each do |code|
-		language_used_in_group[code] = true
+$lgreversed = Hash.new
+$language_grouping.each do |group, bcp47tags|
+  bcp47tags.each do |bcp47tag|
+	  $lgreversed[bcp47tag] = group
 	end
+end
+
+require 'pp'
+pp $lgreversed
+
+def isolated? bcp47
+  $ingroup ||= $language_grouping.each_value.inject([]) { |all, group| all + group }
+	!$ingroup.include? bcp47
 end
 
 # a hash with language name as key and array of languages as the value
@@ -43,9 +51,14 @@ language_groups = Hash.new
 # single languages first
 $l.sort.each do |language|
 	# temporary remove cyrilic serbian until someone explains what is needed
-	if language.code == 'sr-cyrl' or language.code == 'en-us' then
-		# ignore the language
-	elsif !language_used_in_group[language.code] then
+
+	# ignore the language
+	next if language.code == 'sr-cyrl' or language.code == 'en-us'
+
+	if $lgreversed[language.code] then
+		language_groups[$lgreversed[language.code]] ||= []
+		language_groups[$lgreversed[language.code]] << language
+	else
 		language_groups[language.name] = [language]
 	end
 
@@ -59,18 +72,15 @@ end
 $dirlist = Hash.new
 def dirlist(type)
 	$dirlist[type] ||= Dir.glob(File.expand_path(sprintf('../../../../%s/generic/hyph-utf8/languages/*', type), __FILE__)).select do |file|
-		File.directory?(file) && file !~ /\/img$/
+		File.directory?(file)
 	end.map do |dir|
 		dir.gsub /^.*\//, ''
 	end
 end
 
 # then groups of languages
-language_grouping.each do |name,group|
-	language_groups[name] = []
-	group.each do |code|
-		language_groups[name].push($l[code])
-	end
+$language_grouping.each do |name,group|
+	language_groups[name] = group.map { |code| $l[code] }
 end
 
 # languages.each do |language|
