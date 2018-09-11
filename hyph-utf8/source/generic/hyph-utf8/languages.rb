@@ -63,14 +63,14 @@ class Language
 
 	# TODO: simplify this (reduce duplication)
 
-	def opentexfile(code = @code)
+	def readtexfile(code = @code)
 		filename = File.expand_path("../../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{code}.tex", __FILE__);
 		lines = IO.readlines(filename, '.').join("")
-		lines.superstrip
+		lines
 	end
 
 	def get_exceptions
-		exceptions = opentexfile
+		exceptions = readtexfile.superstrip
 		unless @exceptions1
 			if (exceptions.index('\hyphenation') != nil)
 				@exceptions1 = exceptions.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
@@ -85,7 +85,7 @@ class Language
 	def get_patterns
 		unless @patterns
 			if @code == 'eo' then
-				@patterns = opentexfile.
+				@patterns = readtexfile.superstrip.
 					gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
 					#
 					gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
@@ -94,7 +94,7 @@ class Language
 					#
 					supersplit
 			else
-				@patterns = opentexfile(if ['nb', 'nn'].include? @code then 'no' else @code end).
+				@patterns = readtexfile(if ['nb', 'nn'].include? @code then 'no' else @code end).superstrip.
 					gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
 					supersplit
 			end
@@ -104,13 +104,7 @@ class Language
 	end
 
 	def get_comments_and_licence
-		if @comments_and_licence == nil then
-			filename = File.expand_path("../../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{@code}.tex", __FILE__);
-			lines = IO.readlines(filename, '.').join("")
-			@comments_and_licence = lines.
-				gsub(/(.*)\\patterns.*/m,'\1')
-		end
-		return @comments_and_licence
+		@comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1') unless @comments_and_licence
 	end
 
 	# def lc_characters
