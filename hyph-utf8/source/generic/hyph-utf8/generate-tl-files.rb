@@ -52,8 +52,7 @@ lgreversed =
 
 language_grouping = Hash.new
 lgreversed.each do |bcp47, groupname|
-  language_grouping[groupname] ||= []
-	language_grouping[groupname] << bcp47
+  (language_grouping[groupname] ||= []) << bcp47
 end
 
 # a hash with language name as key and array of languages as the value
@@ -65,9 +64,8 @@ $l.sort.each do |language|
 	# ignore the language
 	next if language.code == 'sr-cyrl' or language.code == 'en-us'
 
-	if lgreversed[language.code] then
-		language_groups[lgreversed[language.code]] ||= []
-		language_groups[lgreversed[language.code]] << language
+	if groupname = lgreversed[language.code] then
+		(language_groups[groupname] ||= []) << language
 	else
 		language_groups[language.name] = [language]
 	end
