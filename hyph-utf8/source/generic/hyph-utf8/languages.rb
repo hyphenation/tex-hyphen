@@ -2057,6 +2057,65 @@ class Languages < Hash
 		end
 	end
 
+	@@collection_mapping = {
+		"en-gb"=>"english",
+		"en-us"=>"english",
+		"nb"=>"norwegian",
+		"nn"=>"norwegian",
+		"de-1901"=>"german",
+		"de-1996"=>"german",
+		"de-ch-1901"=>"german",
+		"mn-cyrl"=>"mongolian",
+		"mn-cyrl-x-lmc"=>"mongolian",
+		"el-monoton"=>"greek",
+		"el-polyton"=>"greek",
+		"grc"=>"ancientgreek",
+		"grc-x-ibycus"=>"ancientgreek",
+		"zh-latn-pinyin"=>"chinese",
+		"as"=>"indic",
+		"bn"=>"indic",
+		"gu"=>"indic",
+		"hi"=>"indic",
+		"kn"=>"indic",
+		"ml"=>"indic",
+		"mr"=>"indic",
+		"or"=>"indic",
+		"pa"=>"indic",
+		"ta"=>"indic",
+		"te"=>"indic",
+		"sh-latn"=>"serbian",
+		"sh-cyrl"=>"serbian",
+		"la"=>"latin",
+		"la-x-classic"=>"latin",
+		"la-x-liturgic"=>"latin"
+	}
+
+  def self.make_mappings
+		@@language_collections = Hash.new
+		@@collection_mapping.each do |bcp47, collection|
+			(@@language_collections[collection] ||= []) << bcp47
+		end
+
+		# a hash with the names of TeX Live packages, either individual language names,
+		# or an array of languages as the value
+		@@texlive_packages = Hash.new
+		Languages.new.list.each do |language|
+			if groupname = @@collection_mapping[language.code]
+				# language is part of a collection
+				(@@texlive_packages[groupname] ||= []) << language
+			else
+				# language is individual, but yields to collection is there is one with the same name
+				@@texlive_packages[language.name] = [language] unless @@language_collections[language.name]
+			end
+		end
+	end
+
+	@@texlive_packages = nil
+	def self.texlive_packages
+	  make_mappings unless @@texlive_packages
+		@@texlive_packages
+	end
+
 	def list
 		return @@list
 	end

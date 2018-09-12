@@ -12,55 +12,6 @@ $path_language_dat="#{$path_TL}/texmf-dist/tex/generic/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
 
-collection_mapping =
-{"en-gb"=>"english",
- "en-us"=>"english",
- "nb"=>"norwegian",
- "nn"=>"norwegian",
- "de-1901"=>"german",
- "de-1996"=>"german",
- "de-ch-1901"=>"german",
- "mn-cyrl"=>"mongolian",
- "mn-cyrl-x-lmc"=>"mongolian",
- "el-monoton"=>"greek",
- "el-polyton"=>"greek",
- "grc"=>"ancientgreek",
- "grc-x-ibycus"=>"ancientgreek",
- "zh-latn-pinyin"=>"chinese",
- "as"=>"indic",
- "bn"=>"indic",
- "gu"=>"indic",
- "hi"=>"indic",
- "kn"=>"indic",
- "ml"=>"indic",
- "mr"=>"indic",
- "or"=>"indic",
- "pa"=>"indic",
- "ta"=>"indic",
- "te"=>"indic",
- "sh-latn"=>"serbian",
- "sh-cyrl"=>"serbian",
- "la"=>"latin",
- "la-x-classic"=>"latin",
- "la-x-liturgic"=>"latin"}
-
-language_collections = Hash.new
-collection_mapping.each do |bcp47, collection|
-  (language_collections[collection] ||= []) << bcp47
-end
-
-# a hash with the names of TeX Live packages, either individual language names,
-# or an array of languages as the value
-texlive_packages = Hash.new
-Languages.new.list.each do |language|
-	if groupname = collection_mapping[language.code]
-		# language is part of a collection
-		(texlive_packages[groupname] ||= []) << language
-	else
-		# language is individual, but yields to collection is there is one with the same name
-		texlive_packages[language.name] = [language] unless language_collections[language.name]
-	end
-end
 
 $dirlist = Hash.new
 def dirlist(type)
@@ -185,7 +136,8 @@ end
 #--------#
 # TLPSRC #
 #--------#
-texlive_packages.sort.each do |language_name,language_list|
+
+Languages.texlive_packages.sort.each do |language_name,language_list|
 	files_doc = []
 	files_src = []
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
@@ -257,7 +209,7 @@ end
 # language.dat #
 #--------------#
 $file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
-texlive_packages.sort.each do |language_name,language_list|
+Languages.texlive_packages.sort.each do |language_name,language_list|
 	language_list.each do |language|
 		if language.use_old_loader then
 			$file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
