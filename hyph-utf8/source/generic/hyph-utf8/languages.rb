@@ -26,9 +26,6 @@ class Author
 end
 
 class Language
-	@@path_tex_generic = File.expand_path("../../../../tex/generic", __FILE__)
-	@@path_txt = File.join(@@path_tex_generic, 'hyph-utf8', 'patterns', 'txt')
-
 	def initialize(language_hash)
 		@use_old_patterns = language_hash["use_old_patterns"]
 		@use_old_patterns_comment = language_hash["use_old_patterns_comment"]
@@ -130,54 +127,58 @@ class Language
 		@description_s || @message
 	end
 
-	def loadhyph
-		code = @code
-		code = @code.gsub 'sh-', 'sr-' if @code =~ /^sh-/
-		sprintf 'loadhyph-%s.tex', code
-	end
+	# Convenience methods related to TeX Live and the .tlpsrc files
+  module TeXLive
+		@@path_tex_generic = File.expand_path("../../../../tex/generic", __FILE__)
+		@@path_txt = File.join(@@path_tex_generic, 'hyph-utf8', 'patterns', 'txt')
 
-	def pattxt
-	  filename = plain_text_file('pat')
-		raise sprintf("There is some problem with plain patterns for language [%s]!!!", @code) unless filename
-
-		filename
-	end
-
-	def hyptxt
-	  plain_text_file('hyp')
-	end
-
-	def plain_text_file(type)
-	  if @code =~ /^sh-/
-			# TODO Warning
-			filename = sprintf('hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', type, type)
-		else
-			filename = sprintf 'hyph-%s.%s.txt', @code, type
-			filepath = File.join(@@path_txt, filename)
-			# check for existence of file and that it’s not empty
-			return nil unless File.file?(filepath) && File.read(filepath).length > 0
+		def loadhyph
+			code = @code
+			code = @code.gsub 'sh-', 'sr-' if @code =~ /^sh-/
+			sprintf 'loadhyph-%s.tex', code
 		end
 
-		filename
-	end
+		def pattxt
+			filename = plain_text_file('pat')
+			raise sprintf("There is some problem with plain patterns for language [%s]!!!", @code) if filename == ''
 
-	def tl_line(type, fulltype)
-	  return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
+			filename
+		end
 
-		if filename = plain_text_file(type)
-			sprintf "file_%s=%s", fulltype, filename
-		else
-			sprintf "file_%s=", fulltype
+		def hyptxt
+			plain_text_file('hyp')
+		end
+
+		def plain_text_file(type)
+			if @code =~ /^sh-/
+				# TODO Warning
+				filename = sprintf('hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', type, type)
+			else
+				filename = sprintf 'hyph-%s.%s.txt', @code, type
+				filepath = File.join(@@path_txt, filename)
+				# check for existence of file and that it’s not empty
+				return '' unless File.file?(filepath) && File.read(filepath).length > 0
+			end
+
+			filename
+		end
+
+		def tl_line(type, fulltype)
+			return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
+
+			sprintf "file_%s=%s", fulltype, plain_text_file(type)
+		end
+
+		def texlive_exceptions_line
+			tl_line('hyp', 'exceptions')
+		end
+
+		def texlive_patterns_line
+			tl_line('pat', 'patterns')
 		end
 	end
 
-	def texlive_exceptions_line
-	  tl_line('hyp', 'exceptions')
-	end
-
-	def texlive_patterns_line
-	  tl_line('pat', 'patterns')
-	end
+	include TeXLive
 end
 
 class Authors < Hash

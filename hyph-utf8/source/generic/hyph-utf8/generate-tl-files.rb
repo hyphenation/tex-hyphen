@@ -118,11 +118,11 @@ def make_hyphenmins(language)
 	"lefthyphenmin=#{lmin} \\\n\trighthyphenmin=#{rmin}"
 end
 
-def make_file_lists(language)
+def make_file_line(language)
 	# which file to use
 	if language.use_old_loader
 		file = "file=#{language.filename_old_patterns}"
-		if language.code == 'ar' or language.code == 'fa' then
+		if ['ar', 'fa'].include? language.code
 			file = file + " \\\n\tfile_patterns="
 		elsif language.code == 'grc-x-ibycus' then
 			# TODO: fix this
@@ -207,15 +207,14 @@ language_groups.sort.each do |language_name,language_list|
 			$file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
 		end
 
+		name = "name=#{language.name}"
 		synonyms = make_synonyms(language)
 		hyphenmins = make_hyphenmins(language)
 
-		file = make_file_lists(language)
 		files_run = make_run_file_list(language, files_run)
-		name = "name=#{language.name}"
 
 		$file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"
-		$file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{file}"
+		$file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{make_file_line(language)}"
 		if language.texlive_patterns_line + language.texlive_exceptions_line != ""
 			$file_tlpsrc.print " \\\n\t#{language.texlive_patterns_line} \\\n\t#{language.texlive_exceptions_line}"
 		end
