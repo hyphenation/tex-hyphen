@@ -128,7 +128,7 @@ class Language
 	end
 
 	# Convenience methods related to TeX Live and the .tlpsrc files
-  module TeXLive
+	module TeXLive
 		@@path_tex_generic = File.expand_path("../../../../tex/generic", __FILE__)
 		@@path_txt = File.join(@@path_tex_generic, 'hyph-utf8', 'patterns', 'txt')
 
