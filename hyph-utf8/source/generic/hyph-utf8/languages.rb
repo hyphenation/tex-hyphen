@@ -345,59 +345,11 @@ class Languages < Hash
 		"Prevent hyphenation in Persian.",
 	],
 },
-# -------------------------------
-# special patterns, not converted
-# -------------------------------
-# ibycus ibyhyph.tex
-{
-	"code" => "grc-x-ibycus",
-	"name" => "ibycus",
-	"use_old_patterns" => true,
-	"use_old_loader" => true,
-	"filename_old_patterns" => "ibyhyph.tex",
-	"hyphenmin" => [2,2],
-	"encoding" => nil,
-	"exceptions" => false,
-	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding (v3.0)",
-
-	# "authors" => ["peter_heslin"],
-	"version" => 3.0,
-},
 # ----------------------------
 # languages using old patterns
 # ----------------------------
 # greek
 # =polygreek
-{
-	"code" => "el-polyton",
-	"name" => "greek", "synonyms" => ["polygreek"],
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
-	"filename_old_patterns" => "grphyph5.tex",
-	# left/right hyphen min for Greek can be as low as one (1),
-	# but for aesthetic reasons keep them at 2/2.
-	# Dimitrios Filippou
-	"hyphenmin" => [1,1], # polyglossia
-	"encoding" => nil,
-	"exceptions" => true,
-	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
-
-	"version"       => "5.0",
-	"last_modified" => "2008-06-06",
-	"type"          => "rules",
-	"authors"       => ["dimitrios_filippou"],
-	"licence"       => "LPPL",
-	# "description_s" => "Polytonic Modern Greek hyphenation patterns",
-	# #                  #.....................................................................#
-	# "description_l" => [
-	# 	#......................................................................#
-	# 	"Hyphenation patterns for Modern Greek in polytonic spelling.",
-	# 	"The pattern file used for 8-bit engines is grphyph5.tex that is",
-	# 	"not part of hyph-utf8. Patterns in UTF-8 use two code positions for",
-	# 	"each of the vowels with acute accent (a.k.a tonos, oxia), e.g.,",
-	# 	"U+03AC, U+1F71 for alpha.",
-	# ],
-},
 # monogreek
 {
 	"code" => "el-monoton",
@@ -432,6 +384,36 @@ class Languages < Hash
 		"positions for each of the vowels with acute accent (a.k.a tonos,",
 		"oxia), e.g., U+03AC, U+1F71 for alpha.",
 	],
+},
+{
+	"code" => "el-polyton",
+	"name" => "greek", "synonyms" => ["polygreek"],
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
+	"filename_old_patterns" => "grphyph5.tex",
+	# left/right hyphen min for Greek can be as low as one (1),
+	# but for aesthetic reasons keep them at 2/2.
+	# Dimitrios Filippou
+	"hyphenmin" => [1,1], # polyglossia
+	"encoding" => nil,
+	"exceptions" => true,
+	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
+
+	"version"       => "5.0",
+	"last_modified" => "2008-06-06",
+	"type"          => "rules",
+	"authors"       => ["dimitrios_filippou"],
+	"licence"       => "LPPL",
+	# "description_s" => "Polytonic Modern Greek hyphenation patterns",
+	# #                  #.....................................................................#
+	# "description_l" => [
+	# 	#......................................................................#
+	# 	"Hyphenation patterns for Modern Greek in polytonic spelling.",
+	# 	"The pattern file used for 8-bit engines is grphyph5.tex that is",
+	# 	"not part of hyph-utf8. Patterns in UTF-8 use two code positions for",
+	# 	"each of the vowels with acute accent (a.k.a tonos, oxia), e.g.,",
+	# 	"U+03AC, U+1F71 for alpha.",
+	# ],
 },
 # ancientgreek
 {
@@ -468,6 +450,27 @@ class Languages < Hash
 		"acute accent (a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.",
 	],
 },
+# -------------------------------
+# special patterns, not converted
+# -------------------------------
+# ibycus ibyhyph.tex
+{
+	"code" => "grc-x-ibycus",
+	"name" => "ibycus",
+	"use_old_patterns" => true,
+	"use_old_loader" => true,
+	"filename_old_patterns" => "ibyhyph.tex",
+	"hyphenmin" => [2,2],
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding (v3.0)",
+
+	# "authors" => ["peter_heslin"],
+	"version" => 3.0,
+},
+# ---------------------------------------------------------
+# more languages using old patterns (see above gr-x-ibycus)
+# ---------------------------------------------------------
 # coptic
 {
 	"code" => "cop",

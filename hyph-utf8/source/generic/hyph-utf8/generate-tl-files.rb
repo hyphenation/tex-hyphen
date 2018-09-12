@@ -57,7 +57,7 @@ pp language_grouping
 # a hash with language name as key and array of languages as the value
 language_groups = Hash.new
 # single languages first
-$l.sort.each do |language|
+$l.list.each do |language|
 	if groupname = lgreversed[language.code] then
 		puts groupname, language.code
 		(language_groups[groupname] ||= []) << language
@@ -204,7 +204,6 @@ language_groups.sort.each do |language_name,language_list|
 	files_run = write_dependencies(language_name)
 
   puts language_name, language_list.map(&:code) if language_name == "serbian"
-	language_list.reverse! if language_name == "serbian" # FIXME Better solution ;-) AR 2018-09-12
 	language_list.each do |language|
 		if language.description_s && language.description_l then
 			$file_tlpsrc.puts "shortdesc #{language.description_s}."
