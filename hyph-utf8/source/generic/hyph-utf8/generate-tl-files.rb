@@ -279,6 +279,7 @@ end
 #--------------#
 $file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
 language_groups.sort.each do |language_name,language_list|
+	language_list.reverse! if language_name == "serbian" # FIXME Remove eventually :-)  AR 2018-09-12.
 	language_list.each do |language|
 		if language.use_old_loader then
 			$file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
