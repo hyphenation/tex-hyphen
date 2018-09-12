@@ -81,6 +81,50 @@ def dirlist(type)
 	end
 end
 
+def write_dependencies(language_name)
+	$file_tlpsrc.puts "category TLCore"
+	$file_tlpsrc.puts "depend hyphen-base"
+	$file_tlpsrc.puts "depend hyph-utf8"
+
+	return ["tex/generic/hyph-utf8/patterns/tex/hyph-no.tex"] if language_name == "norwegian"
+
+	# external dependencies
+	if language_name == "german" then
+		$file_tlpsrc.puts "depend dehyph"
+	# for Russian and Ukrainian (until we implement the new functionality at least)
+	elsif language_name == "russian" then
+		$file_tlpsrc.puts "depend ruhyphen"
+	elsif language_name == "ukrainian" then
+		$file_tlpsrc.puts "depend ukrhyph"
+	end
+
+	[]
+end
+
+def make_synonyms(language)
+	# synonyms
+	if language.synonyms != nil and language.synonyms.length > 0 then
+		synonyms=" synonyms=#{language.synonyms.join(',')}"
+	else
+		synonyms=""
+	end
+end
+
+def make_hyphenmins(language)
+	# lefthyphenmin/righthyphenmin
+	if language.hyphenmin == nil or language.hyphenmin.length == 0 then
+		lmin = ''
+		rmin = ''
+	elsif language.filename_old_patterns == "zerohyph.tex" then
+		lmin = ''
+		rmin = ''
+	else
+		lmin = language.hyphenmin[0]
+		rmin = language.hyphenmin[1]
+	end
+	"lefthyphenmin=#{lmin} \\\n\trighthyphenmin=#{rmin}"
+end
+
 def make_file_lists(language)
 	# which file to use
 	file = ""
@@ -191,63 +235,28 @@ end
 # TLPSRC #
 #--------#
 language_groups.sort.each do |language_name,language_list|
-	files_run = []
 	files_doc = []
 	files_src = []
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
 	puts "generating #{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc"
-	
-	#$file_tlpsrc.puts "name hyphen-#{language_name}"
-	$file_tlpsrc.puts "category TLCore"
-	$file_tlpsrc.puts "depend hyphen-base"
-	$file_tlpsrc.puts "depend hyph-utf8"
 
-	# external dependencies
-	if language_name == "german" then
-		$file_tlpsrc.puts "depend dehyph"
-	# for Russian and Ukrainian (until we implement the new functionality at least)
-	elsif language_name == "russian" then
-		$file_tlpsrc.puts "depend ruhyphen"
-	elsif language_name == "ukrainian" then
-		$file_tlpsrc.puts "depend ukrhyph"
-	elsif language_name == "norwegian" then
-		files_run.push("tex/generic/hyph-utf8/patterns/tex/hyph-no.tex")
-	end
+	files_run = write_dependencies(language_name)
+
 	language_list.each do |language|
 		if language.description_s && language.description_l then
 			$file_tlpsrc.puts "shortdesc #{language.description_s}."
 			$file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
-			# if language.version != nil then
-			# 	$file_tlpsrc.puts "catalogue-version #{language.version}"
-			# end
 		end
-		name = "name=#{language.name}"
 
-		# synonyms
-		if language.synonyms != nil and language.synonyms.length > 0 then
-			synonyms=" synonyms=#{language.synonyms.join(',')}"
-		else
-			synonyms=""
-		end
-		# lefthyphenmin/righthyphenmin
-		if language.hyphenmin == nil or language.hyphenmin.length == 0 then
-			lmin = ''
-			rmin = ''
-		elsif language.filename_old_patterns == "zerohyph.tex" then
-			lmin = ''
-			rmin = ''
-		else
-			lmin = language.hyphenmin[0]
-			rmin = language.hyphenmin[1]
-		end
-		hyphenmins = "lefthyphenmin=#{lmin} \\\n\trighthyphenmin=#{rmin}"
+		synonyms = make_synonyms(language)
+		hyphenmins = make_hyphenmins(language)
 
 		filelists = make_file_lists(language)
 		file = filelists[:file]
 		file_patterns = filelists[:patterns]
 		file_exceptions = filelists[:exceptions]
-
 		files_run = make_run_file_list(language, files_run)
+		name = "name=#{language.name}"
 
 		$file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"
 		$file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{file}"
@@ -269,6 +278,7 @@ language_groups.sort.each do |language_name,language_list|
 			files_doc.push("doc/generic/hyph-utf8/languages/#{language.code}")
 		end
 	end
+
 	if language_name != "german" and language_name != "russian" and language_name != "ukrainian" then
 		language_list.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.filename_old_patterns != "copthyph.tex" then
@@ -277,7 +287,7 @@ language_groups.sort.each do |language_name,language_list|
 		end
 	end
 
-	# documeentation
+	# documentation
 	if language_name == "greek" then
 		files_doc.push("doc/generic/elhyphen")
 	elsif language_name == "hungarian" then
