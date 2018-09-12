@@ -156,8 +156,20 @@ language_groups.sort.each do |language_name,language_list|
 		file = ""
 		file_patterns = ""
 		file_exceptions = ""
-		unless language.use_old_loader then
+
+		if language.use_old_loader
+			file = "file=#{language.filename_old_patterns}"
+			if language.code == 'ar' or language.code == 'fa' then
+				file = file + " \\\n\tfile_patterns="
+			elsif language.code == 'grc-x-ibycus' then
+				# TODO: fix this
+				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
+			end
+		else
 			file = "file=loadhyph-#{language.code}.tex"
+		end
+
+		unless language.use_old_loader then
 			files_run.push("#{files_path_hyph8}/loadhyph/loadhyph-#{language.code}.tex")
 			if language.has_quotes then
 				files_run.push("#{files_path_hyph8}/patterns/quote/hyph-quote-#{language.code}.tex")
@@ -216,14 +228,6 @@ language_groups.sort.each do |language_name,language_list|
 					file_exceptions = "file_exceptions="
 					# puts ">   #{filename_hyp} is empty"
 				end
-			end
-		else
-			file = "file=#{language.filename_old_patterns}"
-			if language.code == 'ar' or language.code == 'fa' then
-				file = file + " \\\n\tfile_patterns="
-			elsif language.code == 'grc-x-ibycus' then
-				# TODO: fix this
-				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
 			end
 		end
 
