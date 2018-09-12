@@ -51,11 +51,15 @@ lgreversed.each do |bcp47, groupname|
   (language_grouping[groupname] ||= []) << bcp47
 end
 
+require 'pp'
+pp language_grouping
+
 # a hash with language name as key and array of languages as the value
 language_groups = Hash.new
 # single languages first
 $l.sort.each do |language|
 	if groupname = lgreversed[language.code] then
+		puts groupname, language.code
 		(language_groups[groupname] ||= []) << language
 	else
 		language_groups[language.name] = [language] unless language_grouping[language.name]
