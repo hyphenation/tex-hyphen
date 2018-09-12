@@ -194,6 +194,7 @@ end
 #--------#
 # TLPSRC #
 #--------#
+puts language_groups['serbian'].map(&:code) # => sh-cyrl sh-latn
 language_groups.sort.each do |language_name,language_list|
 	files_doc = []
 	files_src = []
