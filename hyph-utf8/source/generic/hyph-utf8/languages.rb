@@ -151,7 +151,7 @@ class Language
 
 		def plain_text_file(type)
 			if @code =~ /^sh-/
-				# TODO Warning
+				# TODO Warning AR 2018-09-12
 				filename = sprintf('hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', type, type)
 			else
 				filename = sprintf 'hyph-%s.%s.txt', @code, type
@@ -177,8 +177,6 @@ class Language
 			tl_line('pat', 'patterns')
 		end
 	end
-
-	include TeXLive
 end
 
 class Authors < Hash

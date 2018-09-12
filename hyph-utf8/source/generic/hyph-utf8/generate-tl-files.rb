@@ -4,6 +4,7 @@
 # this file auto-generates tlpsrc files for hyphenation patterns - to be improved
 
 require_relative 'languages.rb'
+include Language::TeXLive
 
 # TODO - make this a bit less hard-coded
 $path_TL=File.expand_path("../../../../../TL", __FILE__)
