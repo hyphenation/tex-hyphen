@@ -129,41 +129,41 @@ def make_file_lists(language)
 end
 
 def make_run_file_list(language, files_run)
+	return files_run if language.use_old_loader
+
 	files_path_hyph8 = "tex/generic/hyph-utf8"
-	unless language.use_old_loader then
-		files_run.push("#{files_path_hyph8}/loadhyph/loadhyph-#{language.code}.tex")
-		if language.has_quotes then
-			files_run.push("#{files_path_hyph8}/patterns/quote/hyph-quote-#{language.code}.tex")
-		end
+	files_run.push("#{files_path_hyph8}/loadhyph/loadhyph-#{language.code}.tex")
+	if language.has_quotes then
+		files_run.push("#{files_path_hyph8}/patterns/quote/hyph-quote-#{language.code}.tex")
+	end
 
-		if language.code == "mn-cyrl-x-lmc" then
-			files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
-			files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
-		# we skip the mongolian language for luatex files
-		else
-			if language.code =~ /^sr-/
-				code = language.code.gsub("sr", "sh")
+	if language.code == "mn-cyrl-x-lmc" then
+		files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
+		files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
+	# we skip the mongolian language for luatex files
+	else
+		if language.code =~ /^sr-/
+			code = language.code.gsub("sr", "sh")
 
-				files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{code}.tex")
-				files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{code}.#{language.encoding}.tex")
+			files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{code}.tex")
+			files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{code}.#{language.encoding}.tex")
+			# duplicate entries (will be removed later)
+			files_run.push("#{files_path_hyph8}/patterns/tex/hyph-sr-cyrl.tex")
+			['chr', 'pat', 'hyp', 'lic'].each do |t|
+				files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{code}.#{t}.txt")
 				# duplicate entries (will be removed later)
-				files_run.push("#{files_path_hyph8}/patterns/tex/hyph-sr-cyrl.tex")
-				['chr', 'pat', 'hyp', 'lic'].each do |t|
-					files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{code}.#{t}.txt")
-					# duplicate entries (will be removed later)
-					files_run.push("#{files_path_hyph8}/patterns/txt/hyph-sr-cyrl.#{t}.txt")
-				end
-			else
-				files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
-				if language.encoding && language.encoding != "ascii" then
-					files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
-				elsif language.code == "cop" then
-					files_run.push("#{files_path_hyph8}/patterns/tex-8bit/#{language.filename_old_patterns}")
-					# files_run.push("#{files_path_hyph8}/patterns/tex-8bit/copthyph.tex")
-				end
-				['chr', 'pat', 'hyp', 'lic'].each do |t|
-					files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{language.code}.#{t}.txt")
-				end
+				files_run.push("#{files_path_hyph8}/patterns/txt/hyph-sr-cyrl.#{t}.txt")
+			end
+		else
+			files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
+			if language.encoding && language.encoding != "ascii" then
+				files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
+			elsif language.code == "cop" then
+				files_run.push("#{files_path_hyph8}/patterns/tex-8bit/#{language.filename_old_patterns}")
+				# files_run.push("#{files_path_hyph8}/patterns/tex-8bit/copthyph.tex")
+			end
+			['chr', 'pat', 'hyp', 'lic'].each do |t|
+				files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{language.code}.#{t}.txt")
 			end
 		end
 	end
