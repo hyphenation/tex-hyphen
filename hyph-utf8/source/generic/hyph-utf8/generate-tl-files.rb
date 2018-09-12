@@ -68,8 +68,6 @@ $l.sort.each do |language|
 	else
 		language_groups[language.name] = [language] unless language_grouping[language.name]
 	end
-
-	language.code.gsub! "sh", "sr" if language.code =~ /^sh-/
 end
 
 $dirlist = Hash.new
@@ -186,9 +184,7 @@ def make_run_file_list(language, files_run)
 		files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
 	# we skip the mongolian language for luatex files
 	else
-		if language.code =~ /^sr-/
-			code = language.code.gsub("sr", "sh")
-
+		if (code = language.code) =~ /^sh-/
 			files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{code}.tex")
 			files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{code}.#{language.encoding}.tex")
 			# duplicate entries (will be removed later)
