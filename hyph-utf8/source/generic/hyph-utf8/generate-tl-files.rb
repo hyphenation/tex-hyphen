@@ -166,7 +166,33 @@ language_groups.sort.each do |language_name,language_list|
 				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
 			end
 		else
+			if language.code =~ /^sr-/
+				filename_pat = "hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt"
+				filename_hyp = "hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt"
+			else
+				# check for existance of patterns and exceptions
+				if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then
+					puts "some problem with #{$path_txt}/#{filename_pat}!!!"
+				end
+				if !File::exists?( "#{$path_txt}/#{filename_hyp}" ) then
+					puts "some problem with #{$path_txt}/#{filename_hyp}!!!"
+				end
+
+				filename_pat = "hyph-#{language.code}.pat.txt"
+				filename_hyp = "hyph-#{language.code}.hyp.txt"
+			end
+
 			file = "file=loadhyph-#{language.code}.tex"
+			file_patterns   = "file_patterns=#{filename_pat}" unless language.code == 'mn-cyrl-x-lmc'
+			if File::size?( "#{$path_txt}/#{filename_hyp}" ) != nil then
+				file_exceptions = "file_exceptions=#{filename_hyp}"
+			# TODO: nasty workaround
+			elsif language.code =~ /^sr-/
+				file_exceptions = "file_exceptions=#{filename_hyp}"
+			else
+				file_exceptions = "file_exceptions=" unless language.code == 'mn-cyrl-x-lmc'
+				# puts ">   #{filename_hyp} is empty"
+			end
 		end
 
 		unless language.use_old_loader then
@@ -181,9 +207,7 @@ language_groups.sort.each do |language_name,language_list|
 			# we skip the mongolian language for luatex files
 			else
 				if language.code == "sr-latn" or language.code == "sr-cyrl" then
-					code = language.code.gsub(/sr/, "sh")
-					filename_pat = "hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt"
-					filename_hyp = "hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt"
+					code = language.code.gsub("sr", "sh")
 
 					files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{code}.tex")
 					files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{code}.#{language.encoding}.tex")
@@ -195,9 +219,6 @@ language_groups.sort.each do |language_name,language_list|
 						files_run.push("#{files_path_hyph8}/patterns/txt/hyph-sr-cyrl.#{t}.txt")
 					end
 				else
-					filename_pat = "hyph-#{language.code}.pat.txt"
-					filename_hyp = "hyph-#{language.code}.hyp.txt"
-
 					files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
 					if language.encoding != nil and language.encoding != "ascii" then
 						files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
@@ -208,25 +229,6 @@ language_groups.sort.each do |language_name,language_list|
 					['chr', 'pat', 'hyp', 'lic'].each do |t|
 						files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{language.code}.#{t}.txt")
 					end
-
-					# check for existance of patterns and exceptions
-					if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then
-						puts "some problem with #{$path_txt}/#{filename_pat}!!!"
-					end
-					if !File::exists?( "#{$path_txt}/#{filename_hyp}" ) then
-						puts "some problem with #{$path_txt}/#{filename_hyp}!!!"
-					end
-				end
-
-				file_patterns   = "file_patterns=#{filename_pat}"
-				if File::size?( "#{$path_txt}/#{filename_hyp}" ) != nil then
-					file_exceptions = "file_exceptions=#{filename_hyp}"
-				# TODO: nasty workaround
-				elsif language.code == "sr-latn" or language.code == "sr-cyrl" then
-					file_exceptions = "file_exceptions=#{filename_hyp}"
-				else
-					file_exceptions = "file_exceptions="
-					# puts ">   #{filename_hyp} is empty"
 				end
 			end
 		end
