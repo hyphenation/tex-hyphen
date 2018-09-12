@@ -12,9 +12,7 @@ $path_language_dat="#{$path_TL}/texmf-dist/tex/generic/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
 
-$l = Languages.new
-
-lgreversed =
+collection_mapping =
 {"en-gb"=>"english",
  "en-us"=>"english",
  "nb"=>"norwegian",
@@ -46,23 +44,21 @@ lgreversed =
  "la-x-classic"=>"latin",
  "la-x-liturgic"=>"latin"}
 
-language_grouping = Hash.new
-lgreversed.each do |bcp47, groupname|
-  (language_grouping[groupname] ||= []) << bcp47
+language_collections = Hash.new
+collection_mapping.each do |bcp47, collection|
+  (language_collections[collection] ||= []) << bcp47
 end
 
-require 'pp'
-pp language_grouping
-
-# a hash with language name as key and array of languages as the value
-language_groups = Hash.new
-# single languages first
-$l.list.each do |language|
-	if groupname = lgreversed[language.code] then
-		puts groupname, language.code
-		(language_groups[groupname] ||= []) << language
+# a hash with the names of TeX Live packages, either individual language names,
+# or an array of languages as the value
+texlive_packages = Hash.new
+Languages.new.list.each do |language|
+	if groupname = collection_mapping[language.code]
+		# language is part of a collection
+		(texlive_packages[groupname] ||= []) << language
 	else
-		language_groups[language.name] = [language] unless language_grouping[language.name]
+		# language is individual, but yields to collection is there is one with the same name
+		texlive_packages[language.name] = [language] unless language_collections[language.name]
 	end
 end
 
@@ -175,11 +171,6 @@ def make_run_file_list(language, files_run)
 	files_run
 end
 
-# then groups of languages
-language_grouping.each do |name,group|
-	# language_groups[name] = group.map { |code| $l[code] }
-end
-
 # languages.each do |language|
 # 	if language.hyphenmin == nil then
 # 		lmin = ''
@@ -194,8 +185,7 @@ end
 #--------#
 # TLPSRC #
 #--------#
-puts language_groups['serbian'].map(&:code) # => sh-cyrl sh-latn
-language_groups.sort.each do |language_name,language_list|
+texlive_packages.sort.each do |language_name,language_list|
 	files_doc = []
 	files_src = []
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
@@ -203,7 +193,6 @@ language_groups.sort.each do |language_name,language_list|
 
 	files_run = write_dependencies(language_name)
 
-  puts language_name, language_list.map(&:code) if language_name == "serbian"
 	language_list.each do |language|
 		if language.description_s && language.description_l then
 			$file_tlpsrc.puts "shortdesc #{language.description_s}."
@@ -268,7 +257,7 @@ end
 # language.dat #
 #--------------#
 $file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
-language_groups.sort.each do |language_name,language_list|
+texlive_packages.sort.each do |language_name,language_list|
 	language_list.each do |language|
 		if language.use_old_loader then
 			$file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
