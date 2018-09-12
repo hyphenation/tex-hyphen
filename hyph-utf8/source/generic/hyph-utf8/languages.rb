@@ -2091,6 +2091,8 @@ class Languages < Hash
 	}
 
   def self.make_mappings
+		# The reverse of @@collection_mapping above: a hash with collection names as key,
+		# and an array of the names of languages it contains
 		@@language_collections = Hash.new
 		@@collection_mapping.each do |bcp47, collection|
 			(@@language_collections[collection] ||= []) << bcp47
