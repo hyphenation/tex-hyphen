@@ -160,6 +160,24 @@ class Language
 
 		filename
 	end
+
+	def tl_line(type, fulltype)
+	  return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
+
+		if filename = plain_text_file(type)
+			sprintf "file_%s=%s", fulltype, filename
+		else
+			sprintf "file_%s=", fulltype
+		end
+	end
+
+	def texlive_exceptions_line
+	  tl_line('hyp', 'exceptions')
+	end
+
+	def texlive_patterns_line
+	  tl_line('pat', 'patterns')
+	end
 end
 
 class Authors < Hash

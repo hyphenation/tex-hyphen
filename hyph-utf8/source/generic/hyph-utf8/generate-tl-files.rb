@@ -120,10 +120,6 @@ end
 
 def make_file_lists(language)
 	# which file to use
-	file = ""
-	file_patterns = ""
-	file_exceptions = ""
-
 	if language.use_old_loader
 		file = "file=#{language.filename_old_patterns}"
 		if language.code == 'ar' or language.code == 'fa' then
@@ -134,17 +130,7 @@ def make_file_lists(language)
 		end
 	else
 		file = sprintf "file=%s", language.loadhyph
-		unless language.code == 'mn-cyrl-x-lmc'
-			file_patterns   = "file_patterns=#{language.pattxt}"
-			if language.hyptxt
-				file_exceptions = "file_exceptions=#{language.hyptxt}"
-			else
-				file_exceptions = "file_exceptions="
-			end
-		end
 	end
-
-	{ file: file, patterns: file_patterns, exceptions: file_exceptions }
 end
 
 def make_run_file_list(language, files_run)
@@ -224,17 +210,14 @@ language_groups.sort.each do |language_name,language_list|
 		synonyms = make_synonyms(language)
 		hyphenmins = make_hyphenmins(language)
 
-		filelists = make_file_lists(language)
-		file = filelists[:file]
-		file_patterns = filelists[:patterns]
-		file_exceptions = filelists[:exceptions]
+		file = make_file_lists(language)
 		files_run = make_run_file_list(language, files_run)
 		name = "name=#{language.name}"
 
 		$file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"
 		$file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{file}"
-		if file_patterns + file_exceptions != ""
-			$file_tlpsrc.print " \\\n\t#{file_patterns} \\\n\t#{file_exceptions}"
+		if language.texlive_patterns_line + language.texlive_exceptions_line != ""
+			$file_tlpsrc.print " \\\n\t#{language.texlive_patterns_line} \\\n\t#{language.texlive_exceptions_line}"
 		end
 		if language.code == "mn-cyrl-x-lmc" then
 			$file_tlpsrc.print " \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
