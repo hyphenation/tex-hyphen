@@ -26,6 +26,9 @@ class Author
 end
 
 class Language
+	@@path_tex_generic = File.expand_path("../../../../tex/generic", __FILE__)
+	@@path_txt = File.join(@@path_tex_generic, 'hyph-utf8', 'patterns', 'txt')
+
 	def initialize(language_hash)
 		@use_old_patterns = language_hash["use_old_patterns"]
 		@use_old_patterns_comment = language_hash["use_old_patterns_comment"]
@@ -128,27 +131,37 @@ class Language
 	end
 
 	def loadhyph
-		if @code =~ /^sh-/
-			sprintf 'loadhyph-sr-%s.tex', (@code.gsub 'sh-', '')
-		else
-			sprintf 'loadhyph-%s.tex', @code
-		end
+		code = @code
+		code = @code.gsub 'sh-', 'sr-' if @code =~ /^sh-/
+		sprintf 'loadhyph-%s.tex', code
 	end
 
 	def pattxt
 	  if @code =~ /^sh-/
-			'hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt'
+			# TODO Warning
+			filename = 'hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt'
 		else
-			sprintf 'hyph-%s.pat.txt', @code
+			filename = sprintf 'hyph-%s.pat.txt', @code
+			filepath = File.join(@@path_txt, filename)
+			# check for existence of plain pattern file
+			raise sprintf("There is some problem with %s!!!", filepath) unless File.file? filepath
 		end
+
+		filename
 	end
 
 	def hyptxt
 	  if @code =~ /^sh-/
-			'hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt'
+			# TODO Warning
+			filename = 'hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt'
 		else
-			sprintf 'hyph-%s.hyp.txt', @code
+			# check for existence of plain text exceptions’ file
+			filename = sprintf 'hyph-%s.hyp.txt', @code
+			filepath = File.join(@@path_txt, filename)
+			return nil unless File.file?(filepath) && File.read(filepath).length > 0
 		end
+
+		filename
 	end
 end
 

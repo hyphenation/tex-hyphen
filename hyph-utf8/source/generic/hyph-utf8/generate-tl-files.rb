@@ -5,16 +5,11 @@
 
 require_relative 'languages.rb'
 
-$package_name="hyph-utf8"
-
 # TODO - make this a bit less hard-coded
-$path_tex_generic=File.expand_path("../../../../tex/generic", __FILE__)
 $path_TL=File.expand_path("../../../../../TL", __FILE__)
 $path_language_dat="#{$path_TL}/texmf-dist/tex/generic/config"
 # hyphen-foo.tlpsrc for TeX Live
 $path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
-
-$path_txt="#{$path_tex_generic}/#{$package_name}/patterns/txt"
 
 $l = Languages.new
 
@@ -138,32 +133,17 @@ def make_file_lists(language)
 			file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
 		end
 	else
-		if language.code =~ /^sr-/
-			filename_pat = "hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt"
-			filename_hyp = "hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt"
-		else
-			# check for existance of patterns and exceptions
-			if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then
-				puts "some problem with #{$path_txt}/#{filename_pat}!!!"
-			end
-			if !File::exists?( "#{$path_txt}/#{filename_hyp}" ) then
-				puts "some problem with #{$path_txt}/#{filename_hyp}!!!"
-			end
-
+		file = sprintf "file=%s", language.loadhyph
+		unless language.code == 'mn-cyrl-x-lmc'
 			filename_pat = language.pattxt
 			filename_hyp = language.hyptxt
-		end
 
-		file = sprintf "file=%s", language.loadhyph
-		file_patterns   = "file_patterns=#{filename_pat}" unless language.code == 'mn-cyrl-x-lmc'
-		if File::size?( "#{$path_txt}/#{filename_hyp}" ) != nil then
-			file_exceptions = "file_exceptions=#{filename_hyp}"
-		# TODO: nasty workaround
-		elsif language.code =~ /^sh-/
-			file_exceptions = "file_exceptions=#{filename_hyp}"
-		else
-			file_exceptions = "file_exceptions=" unless language.code == 'mn-cyrl-x-lmc'
-			# puts ">   #{filename_hyp} is empty"
+			file_patterns   = "file_patterns=#{filename_pat}"
+			if filename_hyp
+				file_exceptions = "file_exceptions=#{filename_hyp}"
+			else
+				file_exceptions = "file_exceptions="
+			end
 		end
 	end
 
