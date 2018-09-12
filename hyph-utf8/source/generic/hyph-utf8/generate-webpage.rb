@@ -20,11 +20,11 @@ language_default = Language.new({
 	"licence"   => "",
 })
 
-$l = Languages.new
+
 # add english to the list
-$l["default"] = language_default
+# $l["default"] = language_default
 # TODO: should be singleton
-languages = $l.list.sort{|a,b| a.name <=> b.name}
+languages = Languages.new.list.sort{|a,b| a.name <=> b.name}
 
 $a = Authors.new
 
@@ -42,36 +42,10 @@ language_grouping = {
 	'serbian' => ['sh-latn', 'sh-cyrl'],
 }
 
-language_used_in_group = Hash.new
-language_grouping.each_value do |group|
-	group.each do |code|
-		language_used_in_group[code] = true
-	end
-end
-
 space_leading = "            "
 space_tr      = "  "
 
-# a hash with language name as key and array of languages as the value
-language_groups = Hash.new
-# single languages first
-languages.each do |language|
-	# temporary remove cyrilic serbian until someone explains what is needed
-	if language.code == 'sr-cyrl' then
-		languages.delete(language)
-	elsif language_used_in_group[language.code] == nil then
-		language_groups[language.name] = [language]
-	end
-end
-# then groups of languages
-language_grouping.each do |name,group|
-	language_groups[name] = []
-	group.each do |code|
-		language_groups[name].push($l[code])
-	end
-end
-
-language_groups.sort.each do |language_name,language_list|
+Languages.texlive_packages.sort.each do |language_name,language_list|
 	first_line_printed = false
 	language_list.each do |language|
 		if language != nil then

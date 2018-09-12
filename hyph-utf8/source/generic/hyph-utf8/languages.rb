@@ -102,7 +102,7 @@ class Language
 	end
 
 	def get_comments_and_licence
-		@comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1') unless @comments_and_licence
+		@comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1')
 	end
 
 	# def lc_characters
@@ -125,6 +125,57 @@ class Language
 
 	def description_s
 		@description_s || @message
+	end
+
+	# Convenience methods related to TeX Live and the .tlpsrc files
+	module TeXLive
+		@@path_tex_generic = File.expand_path("../../../../tex/generic", __FILE__)
+		@@path_txt = File.join(@@path_tex_generic, 'hyph-utf8', 'patterns', 'txt')
+
+		def loadhyph
+			code = @code
+			code = @code.gsub 'sh-', 'sr-' if @code =~ /^sh-/
+			sprintf 'loadhyph-%s.tex', code
+		end
+
+		def pattxt
+			filename = plain_text_file('pat')
+			raise sprintf("There is some problem with plain patterns for language [%s]!!!", @code) if filename == ''
+
+			filename
+		end
+
+		def hyptxt
+			plain_text_file('hyp')
+		end
+
+		def plain_text_file(type)
+			if @code =~ /^sh-/
+				# TODO Warning AR 2018-09-12
+				filename = sprintf('hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', type, type)
+			else
+				filename = sprintf 'hyph-%s.%s.txt', @code, type
+				filepath = File.join(@@path_txt, filename)
+				# check for existence of file and that it’s not empty
+				return '' unless File.file?(filepath) && File.read(filepath).length > 0
+			end
+
+			filename
+		end
+
+		def tl_line(type, fulltype)
+			return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
+
+			sprintf "file_%s=%s", fulltype, plain_text_file(type)
+		end
+
+		def texlive_exceptions_line
+			tl_line('hyp', 'exceptions')
+		end
+
+		def texlive_patterns_line
+			tl_line('pat', 'patterns')
+		end
 	end
 end
 
@@ -294,59 +345,11 @@ class Languages < Hash
 		"Prevent hyphenation in Persian.",
 	],
 },
-# -------------------------------
-# special patterns, not converted
-# -------------------------------
-# ibycus ibyhyph.tex
-{
-	"code" => "grc-x-ibycus",
-	"name" => "ibycus",
-	"use_old_patterns" => true,
-	"use_old_loader" => true,
-	"filename_old_patterns" => "ibyhyph.tex",
-	"hyphenmin" => [2,2],
-	"encoding" => nil,
-	"exceptions" => false,
-	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding (v3.0)",
-
-	# "authors" => ["peter_heslin"],
-	"version" => 3.0,
-},
 # ----------------------------
 # languages using old patterns
 # ----------------------------
 # greek
 # =polygreek
-{
-	"code" => "el-polyton",
-	"name" => "greek", "synonyms" => ["polygreek"],
-	"use_old_patterns" => true,
-	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
-	"filename_old_patterns" => "grphyph5.tex",
-	# left/right hyphen min for Greek can be as low as one (1),
-	# but for aesthetic reasons keep them at 2/2.
-	# Dimitrios Filippou
-	"hyphenmin" => [1,1], # polyglossia
-	"encoding" => nil,
-	"exceptions" => true,
-	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
-
-	"version"       => "5.0",
-	"last_modified" => "2008-06-06",
-	"type"          => "rules",
-	"authors"       => ["dimitrios_filippou"],
-	"licence"       => "LPPL",
-	# "description_s" => "Polytonic Modern Greek hyphenation patterns",
-	# #                  #.....................................................................#
-	# "description_l" => [
-	# 	#......................................................................#
-	# 	"Hyphenation patterns for Modern Greek in polytonic spelling.",
-	# 	"The pattern file used for 8-bit engines is grphyph5.tex that is",
-	# 	"not part of hyph-utf8. Patterns in UTF-8 use two code positions for",
-	# 	"each of the vowels with acute accent (a.k.a tonos, oxia), e.g.,",
-	# 	"U+03AC, U+1F71 for alpha.",
-	# ],
-},
 # monogreek
 {
 	"code" => "el-monoton",
@@ -381,6 +384,36 @@ class Languages < Hash
 		"positions for each of the vowels with acute accent (a.k.a tonos,",
 		"oxia), e.g., U+03AC, U+1F71 for alpha.",
 	],
+},
+{
+	"code" => "el-polyton",
+	"name" => "greek", "synonyms" => ["polygreek"],
+	"use_old_patterns" => true,
+	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
+	"filename_old_patterns" => "grphyph5.tex",
+	# left/right hyphen min for Greek can be as low as one (1),
+	# but for aesthetic reasons keep them at 2/2.
+	# Dimitrios Filippou
+	"hyphenmin" => [1,1], # polyglossia
+	"encoding" => nil,
+	"exceptions" => true,
+	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
+
+	"version"       => "5.0",
+	"last_modified" => "2008-06-06",
+	"type"          => "rules",
+	"authors"       => ["dimitrios_filippou"],
+	"licence"       => "LPPL",
+	# "description_s" => "Polytonic Modern Greek hyphenation patterns",
+	# #                  #.....................................................................#
+	# "description_l" => [
+	# 	#......................................................................#
+	# 	"Hyphenation patterns for Modern Greek in polytonic spelling.",
+	# 	"The pattern file used for 8-bit engines is grphyph5.tex that is",
+	# 	"not part of hyph-utf8. Patterns in UTF-8 use two code positions for",
+	# 	"each of the vowels with acute accent (a.k.a tonos, oxia), e.g.,",
+	# 	"U+03AC, U+1F71 for alpha.",
+	# ],
 },
 # ancientgreek
 {
@@ -417,6 +450,27 @@ class Languages < Hash
 		"acute accent (a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.",
 	],
 },
+# -------------------------------
+# special patterns, not converted
+# -------------------------------
+# ibycus ibyhyph.tex
+{
+	"code" => "grc-x-ibycus",
+	"name" => "ibycus",
+	"use_old_patterns" => true,
+	"use_old_loader" => true,
+	"filename_old_patterns" => "ibyhyph.tex",
+	"hyphenmin" => [2,2],
+	"encoding" => nil,
+	"exceptions" => false,
+	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding (v3.0)",
+
+	# "authors" => ["peter_heslin"],
+	"version" => 3.0,
+},
+# ---------------------------------------------------------
+# more languages using old patterns (see above gr-x-ibycus)
+# ---------------------------------------------------------
 # coptic
 {
 	"code" => "cop",
@@ -2001,6 +2055,67 @@ class Languages < Hash
 			@@list.push(language)
 			self[language.code] = language
 		end
+	end
+
+	@@collection_mapping = {
+		"en-gb"=>"english",
+		"en-us"=>"english",
+		"nb"=>"norwegian",
+		"nn"=>"norwegian",
+		"de-1901"=>"german",
+		"de-1996"=>"german",
+		"de-ch-1901"=>"german",
+		"mn-cyrl"=>"mongolian",
+		"mn-cyrl-x-lmc"=>"mongolian",
+		"el-monoton"=>"greek",
+		"el-polyton"=>"greek",
+		"grc"=>"ancientgreek",
+		"grc-x-ibycus"=>"ancientgreek",
+		"zh-latn-pinyin"=>"chinese",
+		"as"=>"indic",
+		"bn"=>"indic",
+		"gu"=>"indic",
+		"hi"=>"indic",
+		"kn"=>"indic",
+		"ml"=>"indic",
+		"mr"=>"indic",
+		"or"=>"indic",
+		"pa"=>"indic",
+		"ta"=>"indic",
+		"te"=>"indic",
+		"sh-latn"=>"serbian",
+		"sh-cyrl"=>"serbian",
+		"la"=>"latin",
+		"la-x-classic"=>"latin",
+		"la-x-liturgic"=>"latin"
+	}
+
+  def self.make_mappings
+		# The reverse of @@collection_mapping above: a hash with collection names as key,
+		# and an array of the names of languages it contains
+		@@language_collections = Hash.new
+		@@collection_mapping.each do |bcp47, collection|
+			(@@language_collections[collection] ||= []) << bcp47
+		end
+
+		# a hash with the names of TeX Live packages, either individual language names,
+		# or an array of languages as the value
+		@@texlive_packages = Hash.new
+		Languages.new.list.each do |language|
+			if groupname = @@collection_mapping[language.code]
+				# language is part of a collection
+				(@@texlive_packages[groupname] ||= []) << language
+			else
+				# language is individual, but yields to collection is there is one with the same name
+				@@texlive_packages[language.name] = [language] unless @@language_collections[language.name]
+			end
+		end
+	end
+
+	@@texlive_packages = nil
+	def self.texlive_packages
+	  make_mappings unless @@texlive_packages
+		@@texlive_packages
 	end
 
 	def list
