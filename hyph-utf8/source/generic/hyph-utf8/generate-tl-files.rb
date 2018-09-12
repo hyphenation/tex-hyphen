@@ -51,10 +51,6 @@ lgreversed.each do |bcp47, groupname|
   (language_grouping[groupname] ||= []) << bcp47
 end
 
-require 'pp'
-pp language_grouping
-language_grouping['serbian'].reverse!
-
 # a hash with language name as key and array of languages as the value
 language_groups = Hash.new
 # single languages first
@@ -203,7 +199,7 @@ language_groups.sort.each do |language_name,language_list|
 
 	files_run = write_dependencies(language_name)
 
-  puts language_name, language_list.map(&:code)
+  puts language_name, language_list.map(&:code) if language_name == "serbian"
 	language_list.reverse! if language_name == "serbian" # FIXME Better solution ;-) AR 2018-09-12
 	language_list.each do |language|
 		if language.description_s && language.description_l then
