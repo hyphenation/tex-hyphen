@@ -202,6 +202,7 @@ language_groups.sort.each do |language_name,language_list|
 
 	files_run = write_dependencies(language_name)
 
+	language_list.reverse! if language_name == "serbian"
 	language_list.each do |language|
 		if language.description_s && language.description_l then
 			$file_tlpsrc.puts "shortdesc #{language.description_s}."

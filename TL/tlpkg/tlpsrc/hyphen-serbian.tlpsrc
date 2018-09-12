@@ -1,13 +1,6 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-execute AddHyphen \
-	name=serbianc \
-	lefthyphenmin=2 \
-	righthyphenmin=2 \
-	file=loadhyph-sr-cyrl.tex \
-	file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt \
-	file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt
 shortdesc Serbian hyphenation patterns.
 longdesc Hyphenation patterns for Serbian in T1/EC, T2A and UTF-8 encodings.
 longdesc For 8-bit engines the patterns are available separately as 'serbian'
@@ -19,6 +12,13 @@ execute AddHyphen \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-sr-latn.tex \
+	file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt \
+	file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt
+execute AddHyphen \
+	name=serbianc \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-sr-cyrl.tex \
 	file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt \
 	file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-sr-cyrl.tex
