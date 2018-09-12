@@ -137,27 +137,24 @@ class Language
 	end
 
 	def pattxt
-	  if @code =~ /^sh-/
-			# TODO Warning
-			filename = 'hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt'
-		else
-			filename = sprintf 'hyph-%s.pat.txt', @code
-			filepath = File.join(@@path_txt, filename)
-			# check for existence of plain pattern file
-			raise sprintf("There is some problem with %s!!!", filepath) unless File.file? filepath
-		end
+	  filename = plain_text_file('pat')
+		raise sprintf("There is some problem with plain patterns for language [%s]!!!", @code) unless filename
 
 		filename
 	end
 
 	def hyptxt
+	  plain_text_file('hyp')
+	end
+
+	def plain_text_file(type)
 	  if @code =~ /^sh-/
 			# TODO Warning
-			filename = 'hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt'
+			filename = sprintf('hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', type, type)
 		else
-			# check for existence of plain text exceptions’ file
-			filename = sprintf 'hyph-%s.hyp.txt', @code
+			filename = sprintf 'hyph-%s.%s.txt', @code, type
 			filepath = File.join(@@path_txt, filename)
+			# check for existence of file and that it’s not empty
 			return nil unless File.file?(filepath) && File.read(filepath).length > 0
 		end
 

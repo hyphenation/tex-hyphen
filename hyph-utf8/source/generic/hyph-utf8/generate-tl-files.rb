@@ -135,12 +135,9 @@ def make_file_lists(language)
 	else
 		file = sprintf "file=%s", language.loadhyph
 		unless language.code == 'mn-cyrl-x-lmc'
-			filename_pat = language.pattxt
-			filename_hyp = language.hyptxt
-
-			file_patterns   = "file_patterns=#{filename_pat}"
-			if filename_hyp
-				file_exceptions = "file_exceptions=#{filename_hyp}"
+			file_patterns   = "file_patterns=#{language.pattxt}"
+			if language.hyptxt
+				file_exceptions = "file_exceptions=#{language.hyptxt}"
 			else
 				file_exceptions = "file_exceptions="
 			end
