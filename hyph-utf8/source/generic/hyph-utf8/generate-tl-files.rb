@@ -65,11 +65,7 @@ $l.sort.each do |language|
 		language_groups[language.name] = [language] unless language_grouping[language.name]
 	end
 
-	if language.code == 'sh-latn' then
-		language.code = 'sr-latn'
-	elsif language.code == 'sh-cyrl' then
-		language.code = 'sr-cyrl'
-	end
+	language.code.gsub! "sh", "sr" if language.code =~ /^sh-/
 end
 
 $dirlist = Hash.new
