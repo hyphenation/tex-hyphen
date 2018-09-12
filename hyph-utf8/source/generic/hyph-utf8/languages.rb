@@ -126,6 +126,30 @@ class Language
 	def description_s
 		@description_s || @message
 	end
+
+	def loadhyph
+		if @code =~ /^sh-/
+			sprintf 'loadhyph-sr-%s.tex', (@code.gsub 'sh-', '')
+		else
+			sprintf 'loadhyph-%s.tex', @code
+		end
+	end
+
+	def pattxt
+	  if @code =~ /^sh-/
+			'hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt'
+		else
+			sprintf 'hyph-%s.pat.txt', @code
+		end
+	end
+
+	def hyptxt
+	  if @code =~ /^sh-/
+			'hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt'
+		else
+			sprintf 'hyph-%s.hyp.txt', @code
+		end
+	end
 end
 
 class Authors < Hash

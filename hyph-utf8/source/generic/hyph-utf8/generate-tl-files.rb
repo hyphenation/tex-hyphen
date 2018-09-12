@@ -150,16 +150,16 @@ def make_file_lists(language)
 				puts "some problem with #{$path_txt}/#{filename_hyp}!!!"
 			end
 
-			filename_pat = "hyph-#{language.code}.pat.txt"
-			filename_hyp = "hyph-#{language.code}.hyp.txt"
+			filename_pat = language.pattxt
+			filename_hyp = language.hyptxt
 		end
 
-		file = "file=loadhyph-#{language.code}.tex"
+		file = sprintf "file=%s", language.loadhyph
 		file_patterns   = "file_patterns=#{filename_pat}" unless language.code == 'mn-cyrl-x-lmc'
 		if File::size?( "#{$path_txt}/#{filename_hyp}" ) != nil then
 			file_exceptions = "file_exceptions=#{filename_hyp}"
 		# TODO: nasty workaround
-		elsif language.code =~ /^sr-/
+		elsif language.code =~ /^sh-/
 			file_exceptions = "file_exceptions=#{filename_hyp}"
 		else
 			file_exceptions = "file_exceptions=" unless language.code == 'mn-cyrl-x-lmc'
@@ -174,7 +174,7 @@ def make_run_file_list(language, files_run)
 	return files_run if language.use_old_loader
 
 	files_path_hyph8 = "tex/generic/hyph-utf8"
-	files_run.push("#{files_path_hyph8}/loadhyph/loadhyph-#{language.code}.tex")
+	files_run.push(sprintf "%s/loadhyph/%s", files_path_hyph8, language.loadhyph)
 	if language.has_quotes then
 		files_run.push("#{files_path_hyph8}/patterns/quote/hyph-quote-#{language.code}.tex")
 	end
@@ -312,7 +312,7 @@ language_groups.sort.each do |language_name,language_list|
 		if language.use_old_loader then
 			$file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
 		else
-			$file_language_dat.puts "#{language.name}\tloadhyph-#{language.code}.tex"
+			$file_language_dat.puts sprintf("%s\t%s", language.name, language.loadhyph)
 		end
 
 		# synonyms
