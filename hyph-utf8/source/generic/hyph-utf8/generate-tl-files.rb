@@ -55,6 +55,10 @@ lgreversed.each do |bcp47, groupname|
   (language_grouping[groupname] ||= []) << bcp47
 end
 
+require 'pp'
+pp language_grouping
+language_grouping['serbian'].reverse!
+
 # a hash with language name as key and array of languages as the value
 language_groups = Hash.new
 # single languages first
