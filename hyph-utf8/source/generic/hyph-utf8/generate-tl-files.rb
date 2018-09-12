@@ -81,6 +81,96 @@ def dirlist(type)
 	end
 end
 
+def make_file_lists(language)
+	# which file to use
+	file = ""
+	file_patterns = ""
+	file_exceptions = ""
+
+	if language.use_old_loader
+		file = "file=#{language.filename_old_patterns}"
+		if language.code == 'ar' or language.code == 'fa' then
+			file = file + " \\\n\tfile_patterns="
+		elsif language.code == 'grc-x-ibycus' then
+			# TODO: fix this
+			file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
+		end
+	else
+		if language.code =~ /^sr-/
+			filename_pat = "hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt"
+			filename_hyp = "hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt"
+		else
+			# check for existance of patterns and exceptions
+			if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then
+				puts "some problem with #{$path_txt}/#{filename_pat}!!!"
+			end
+			if !File::exists?( "#{$path_txt}/#{filename_hyp}" ) then
+				puts "some problem with #{$path_txt}/#{filename_hyp}!!!"
+			end
+
+			filename_pat = "hyph-#{language.code}.pat.txt"
+			filename_hyp = "hyph-#{language.code}.hyp.txt"
+		end
+
+		file = "file=loadhyph-#{language.code}.tex"
+		file_patterns   = "file_patterns=#{filename_pat}" unless language.code == 'mn-cyrl-x-lmc'
+		if File::size?( "#{$path_txt}/#{filename_hyp}" ) != nil then
+			file_exceptions = "file_exceptions=#{filename_hyp}"
+		# TODO: nasty workaround
+		elsif language.code =~ /^sr-/
+			file_exceptions = "file_exceptions=#{filename_hyp}"
+		else
+			file_exceptions = "file_exceptions=" unless language.code == 'mn-cyrl-x-lmc'
+			# puts ">   #{filename_hyp} is empty"
+		end
+	end
+
+	{ file: file, patterns: file_patterns, exceptions: file_exceptions }
+end
+
+def make_run_file_list(language, files_run)
+	files_path_hyph8 = "tex/generic/hyph-utf8"
+	unless language.use_old_loader then
+		files_run.push("#{files_path_hyph8}/loadhyph/loadhyph-#{language.code}.tex")
+		if language.has_quotes then
+			files_run.push("#{files_path_hyph8}/patterns/quote/hyph-quote-#{language.code}.tex")
+		end
+
+		if language.code == "mn-cyrl-x-lmc" then
+			files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
+			files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
+		# we skip the mongolian language for luatex files
+		else
+			if language.code =~ /^sr-/
+				code = language.code.gsub("sr", "sh")
+
+				files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{code}.tex")
+				files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{code}.#{language.encoding}.tex")
+				# duplicate entries (will be removed later)
+				files_run.push("#{files_path_hyph8}/patterns/tex/hyph-sr-cyrl.tex")
+				['chr', 'pat', 'hyp', 'lic'].each do |t|
+					files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{code}.#{t}.txt")
+					# duplicate entries (will be removed later)
+					files_run.push("#{files_path_hyph8}/patterns/txt/hyph-sr-cyrl.#{t}.txt")
+				end
+			else
+				files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
+				if language.encoding && language.encoding != "ascii" then
+					files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
+				elsif language.code == "cop" then
+					files_run.push("#{files_path_hyph8}/patterns/tex-8bit/#{language.filename_old_patterns}")
+					# files_run.push("#{files_path_hyph8}/patterns/tex-8bit/copthyph.tex")
+				end
+				['chr', 'pat', 'hyp', 'lic'].each do |t|
+					files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{language.code}.#{t}.txt")
+				end
+			end
+		end
+	end
+
+	files_run
+end
+
 # then groups of languages
 language_grouping.each do |name,group|
 	# language_groups[name] = group.map { |code| $l[code] }
@@ -101,7 +191,6 @@ end
 # TLPSRC #
 #--------#
 language_groups.sort.each do |language_name,language_list|
-	files_path_hyph8 = "tex/generic/hyph-utf8"
 	files_run = []
 	files_doc = []
 	files_src = []
@@ -122,7 +211,7 @@ language_groups.sort.each do |language_name,language_list|
 	elsif language_name == "ukrainian" then
 		$file_tlpsrc.puts "depend ukrhyph"
 	elsif language_name == "norwegian" then
-		files_run.push("#{files_path_hyph8}/patterns/tex/hyph-no.tex")
+		files_run.push("tex/generic/hyph-utf8/patterns/tex/hyph-no.tex")
 	end
 	language_list.each do |language|
 		if language.description_s && language.description_l then
@@ -152,86 +241,13 @@ language_groups.sort.each do |language_name,language_list|
 			rmin = language.hyphenmin[1]
 		end
 		hyphenmins = "lefthyphenmin=#{lmin} \\\n\trighthyphenmin=#{rmin}"
-		# which file to use
-		file = ""
-		file_patterns = ""
-		file_exceptions = ""
 
-		if language.use_old_loader
-			file = "file=#{language.filename_old_patterns}"
-			if language.code == 'ar' or language.code == 'fa' then
-				file = file + " \\\n\tfile_patterns="
-			elsif language.code == 'grc-x-ibycus' then
-				# TODO: fix this
-				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
-			end
-		else
-			if language.code =~ /^sr-/
-				filename_pat = "hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt"
-				filename_hyp = "hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt"
-			else
-				# check for existance of patterns and exceptions
-				if !File::exists?( "#{$path_txt}/#{filename_pat}" ) then
-					puts "some problem with #{$path_txt}/#{filename_pat}!!!"
-				end
-				if !File::exists?( "#{$path_txt}/#{filename_hyp}" ) then
-					puts "some problem with #{$path_txt}/#{filename_hyp}!!!"
-				end
+		filelists = make_file_lists(language)
+		file = filelists[:file]
+		file_patterns = filelists[:patterns]
+		file_exceptions = filelists[:exceptions]
 
-				filename_pat = "hyph-#{language.code}.pat.txt"
-				filename_hyp = "hyph-#{language.code}.hyp.txt"
-			end
-
-			file = "file=loadhyph-#{language.code}.tex"
-			file_patterns   = "file_patterns=#{filename_pat}" unless language.code == 'mn-cyrl-x-lmc'
-			if File::size?( "#{$path_txt}/#{filename_hyp}" ) != nil then
-				file_exceptions = "file_exceptions=#{filename_hyp}"
-			# TODO: nasty workaround
-			elsif language.code =~ /^sr-/
-				file_exceptions = "file_exceptions=#{filename_hyp}"
-			else
-				file_exceptions = "file_exceptions=" unless language.code == 'mn-cyrl-x-lmc'
-				# puts ">   #{filename_hyp} is empty"
-			end
-		end
-
-		unless language.use_old_loader then
-			files_run.push("#{files_path_hyph8}/loadhyph/loadhyph-#{language.code}.tex")
-			if language.has_quotes then
-				files_run.push("#{files_path_hyph8}/patterns/quote/hyph-quote-#{language.code}.tex")
-			end
-
-			if language.code == "mn-cyrl-x-lmc" then
-				files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
-				files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
-			# we skip the mongolian language for luatex files
-			else
-				if language.code == "sr-latn" or language.code == "sr-cyrl" then
-					code = language.code.gsub("sr", "sh")
-
-					files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{code}.tex")
-					files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{code}.#{language.encoding}.tex")
-					# duplicate entries (will be removed later)
-					files_run.push("#{files_path_hyph8}/patterns/tex/hyph-sr-cyrl.tex")
-					['chr', 'pat', 'hyp', 'lic'].each do |t|
-						files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{code}.#{t}.txt")
-						# duplicate entries (will be removed later)
-						files_run.push("#{files_path_hyph8}/patterns/txt/hyph-sr-cyrl.#{t}.txt")
-					end
-				else
-					files_run.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
-					if language.encoding != nil and language.encoding != "ascii" then
-						files_run.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
-					elsif language.code == "cop" then
-						files_run.push("#{files_path_hyph8}/patterns/tex-8bit/#{language.filename_old_patterns}")
-						# files_run.push("#{files_path_hyph8}/patterns/tex-8bit/copthyph.tex")
-					end
-					['chr', 'pat', 'hyp', 'lic'].each do |t|
-						files_run.push("#{files_path_hyph8}/patterns/txt/hyph-#{language.code}.#{t}.txt")
-					end
-				end
-			end
-		end
+		files_run = make_run_file_list(language, files_run)
 
 		$file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"
 		$file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{file}"
