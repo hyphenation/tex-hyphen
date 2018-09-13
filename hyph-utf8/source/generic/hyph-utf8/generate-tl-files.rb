@@ -208,21 +208,21 @@ end
 #--------------#
 # language.dat #
 #--------------#
-$file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
+file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
 Languages.texlive_packages.sort.each do |language_name,language_list|
 	language_list.each do |language|
 		if language.use_old_loader then
-			$file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
+			file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
 		else
-			$file_language_dat.puts sprintf("%s\t%s", language.name, language.loadhyph)
+			file_language_dat.puts sprintf("%s\t%s", language.name, language.loadhyph)
 		end
 
 		# synonyms
-		if language.synonyms != nil then
+		if language.synonyms
 			language.synonyms.each do |synonym|
-				$file_language_dat.puts "=#{synonym}"
+				file_language_dat.puts "=#{synonym}"
 			end
 		end
 	end
 end
-$file_language_dat.close
+file_language_dat.close
