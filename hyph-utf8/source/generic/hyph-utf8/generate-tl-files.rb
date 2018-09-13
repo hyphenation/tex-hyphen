@@ -77,11 +77,11 @@ def make_file_line(language)
 	end
 end
 
-def make_full_run_file_list(collection_name, language_list)
-	files_run = []
-	files_run = ["tex/generic/hyph-utf8/patterns/tex/hyph-no.tex"] if collection_name == "norwegian"
+def make_run_file_list(collection)
+	full = []
+	full = ["tex/generic/hyph-utf8/patterns/tex/hyph-no.tex"] if collection == "norwegian"
 
-  language_list.inject(files_run) do |full, language|
+  Languages.texlive_packages[collection].inject(full) do |full, language|
 	  full + make_individual_run_file_list(language)
 	end
 end
@@ -152,7 +152,7 @@ Languages.texlive_packages.sort.each do |language_name,language_list|
 
 	write_dependencies(language_name)
 
-	files_run = make_full_run_file_list(language_name, language_list)
+	files_run = make_run_file_list(language_name)
 
 	language_list.each do |language|
 		if language.description_s && language.description_l then
