@@ -27,8 +27,6 @@ def write_dependencies(language_name)
 	$file_tlpsrc.puts "depend hyphen-base"
 	$file_tlpsrc.puts "depend hyph-utf8"
 
-	return ["tex/generic/hyph-utf8/patterns/tex/hyph-no.tex"] if language_name == "norwegian"
-
 	# external dependencies
 	if language_name == "german" then
 		$file_tlpsrc.puts "depend dehyph"
@@ -38,8 +36,6 @@ def write_dependencies(language_name)
 	elsif language_name == "ukrainian" then
 		$file_tlpsrc.puts "depend ukrhyph"
 	end
-
-	[]
 end
 
 def make_synonyms(language)
@@ -81,8 +77,11 @@ def make_file_line(language)
 	end
 end
 
-def make_run_file_list(language, files_run)
-	return files_run if language.use_old_loader
+def make_run_file_list(language)
+	return [] if language.use_old_loader
+
+	files_run = []
+	files_run = ["tex/generic/hyph-utf8/patterns/tex/hyph-no.tex"] if ['nb', 'nn'].include? language.code
 
 	files_path_hyph8 = "tex/generic/hyph-utf8"
 	files_run.push(sprintf "%s/loadhyph/%s", files_path_hyph8, language.loadhyph)
@@ -143,7 +142,7 @@ Languages.texlive_packages.sort.each do |language_name,language_list|
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
 	puts "generating #{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc"
 
-	files_run = write_dependencies(language_name)
+	write_dependencies(language_name)
 
 	language_list.each do |language|
 		if language.description_s && language.description_l then
@@ -155,7 +154,7 @@ Languages.texlive_packages.sort.each do |language_name,language_list|
 		synonyms = make_synonyms(language)
 		hyphenmins = make_hyphenmins(language)
 
-		files_run = make_run_file_list(language, files_run)
+		files_run = make_run_file_list(language)
 
 		$file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"
 		$file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{make_file_line(language)}"
