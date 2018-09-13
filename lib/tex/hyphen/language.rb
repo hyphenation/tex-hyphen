@@ -97,14 +97,13 @@ module TeX
           @hyphenation = @exceptions.split(/\s+/).inject [] do |exceptions, exception|
             exceptions << [exception.gsub('-', ''), exception]
           end.to_h
-
-          # puts @hyphenation
         end
       end
 
       def hyphenate(word)
         exceptions
-        return @hyphenation[word] if @hyphenation[word]
+        return @hyphenation[word] if @hyphenation[word] # FIXME Better name
+
         unless @hydra
           begin
             metadata = extract_metadata
@@ -113,7 +112,7 @@ module TeX
             @hydra = Hydra.new patterns.split
           end
         end
-        @hydra.showhyphens(word) # FIXME Take exceptions in account!
+        @hydra.showhyphens(word)
       end
 
       def extract_metadata

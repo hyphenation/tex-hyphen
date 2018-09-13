@@ -138,9 +138,7 @@ describe Language do
     end
 
     it "doesn’t call #extract_metadata if @righthyphenmin is already set" do
-      # puts french.righthyphenmin
       french.instance_variable_set :@righthyphenmin, 2
-      # puts french.righthyphenmin
       expect(french).not_to receive :extract_metadata
       french.righthyphenmin
     end
@@ -305,7 +303,7 @@ describe Language do
 
     it "raises an exception if @authors is nil or empty" do
 			church_slavonic = Language.new('cu')
-			pending "Needs refactoring of specs"
+			pending "Needs full YAML headers first"
 		  expect { church_slavonic.authors }.to raise_error NoAuthor
 		end
   end
