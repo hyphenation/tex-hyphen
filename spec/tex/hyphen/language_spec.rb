@@ -38,7 +38,7 @@ describe Language do
 
   describe '.all_with_licence' do
     it "returns all languages that have a non-empty licence" do
-      expect(Language.all_with_licence.count).to eq 11
+      expect(Language.all_with_licence.count).to eq 75 # 79 - [ro, cop, mn-cyrl-x-lmc, ?]
     end
 
     it "calls .all first" do
@@ -103,7 +103,11 @@ describe Language do
       church_slavonic.licences
     end
 
-    it "raises an exception if @licences is nil or empty"
+    it "raises an exception if @licences is nil or empty" do
+      nolicence = Language.new('qnl')
+      allow(File).to receive(:read).and_return("code: qnl\nauthors:\n  - me")
+      expect { nolicence.licences }.to raise_exception NoLicence
+    end
   end
 
   describe '#lefthyphenmin' do
@@ -177,16 +181,6 @@ describe Language do
 
     it "uses BCP47 codes if names are not available" do
       expect(Language.new('zh-latn-pinyin') <=> Language.new('cu')).to eq 1
-    end
-
-    it "ranks Language’s without names higher" do
-      expect(Language.new('cs') <=> Language.new('bg')).to eq -1
-    end
-
-    it "really works" do
-      grc = Language.new('grc')
-      cu = Language.new('cu')
-      expect(grc <=> cu).to eq 1
     end
   end
 
@@ -291,24 +285,31 @@ describe Language do
       expect(language.extract_metadata).to be_a Hash
     end
 
-    it "raises an exception if the metadata is invalid" do
-      language = Language.new('sl')
+    it "raises an exception if the metadata is just a string" do
+      language = Language.new('qls')
+      allow(File).to receive(:read).and_return("just a string")
       expect { language.extract_metadata }.to raise_exception InvalidMetadata
     end
 
-    it "raises an exception if the metadata is just a string" do
-      language = Language.new('cs')
+    it "raises an exception if the licence is missing" do
+      language = Language.new('qlv')
+      allow(File).to receive(:read).and_return("name: language virtual\ncode: qlv")
       expect { language.extract_metadata }.to raise_exception InvalidMetadata
     end
 
     it "raises an exception if @authors is nil or empty" do
-			church_slavonic = Language.new('cu')
-			pending "Needs full YAML headers first"
-		  expect { church_slavonic.authors }.to raise_error NoAuthor
+			not_church_slavonic = Language.new('qcu')
+      allow(File).to receive(:read).and_return "code: qcu\nlicence:\n  name:\n    MIT"
+      # pending "After the big merge, real files need fixing"
+		  expect { not_church_slavonic.authors }.to raise_exception NoAuthor
 		end
-  end
 
-  describe '#parse_tex_file' do
+    it "doesn’t crash on invalid licence entries" do
+      syntax_error = Language.new('qse')
+      allow(File).to receive(:read).and_return "foo:\nbar"
+      expect { syntax_error.extract_metadata }.not_to raise_exception Psych::SyntaxError
+    end
+
     it "sets the language name" do
       language = Language.new('th')
       language.extract_metadata
@@ -333,17 +334,14 @@ describe Language do
       expect(german.instance_variable_get :@righthyphenmin).to eq 2
     end
 
-    it "sets the 8-bit encoding"
+    pending "sets the 8-bit encoding" do
+      Language.new('sl').tex8bit
+    end
 
     it "sets the list of authors" do
       liturgical_latin = Language.new('la-x-liturgic')
       liturgical_latin.extract_metadata
       expect(liturgical_latin.instance_variable_get :@authors).to eq ['Claudio Beccari', 'Monastery of Solesmes', 'Élie Roux']
-    end
-
-    it "raises an exception if the licence is missing" do
-      croatian = Language.new('hr')
-      expect { croatian.extract_metadata }.to raise_exception InvalidMetadata
     end
   end
 end
