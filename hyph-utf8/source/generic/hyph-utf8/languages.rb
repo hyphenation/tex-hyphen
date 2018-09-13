@@ -138,36 +138,35 @@ class Language
 			sprintf 'loadhyph-%s.tex', code
 		end
 
-		def plain_text_file(type)
+		def plain_text_line(ext, fullname)
+			return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
+
 			if @code =~ /^sh-/
 				# TODO Warning AR 2018-09-12
-				filename = sprintf('hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', type, type)
+				filename = sprintf 'hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', ext, ext
 			else
-				filename = sprintf 'hyph-%s.%s.txt', @code, type
+				filename = sprintf 'hyph-%s.%s.txt', @code, ext
 				filepath = File.join(@@path_txt, filename)
 				# check for existence of file and that it’s not empty
 				unless File.file?(filepath) && File.read(filepath).length > 0
 					# if the file we were looking for was a pattern file, something’s wrong
-					raise sprintf("There is some problem with plain patterns for language [%s]!!!", @code) if type == 'pat'
-					return ''
+					if ext == 'pat'
+						raise sprintf("There is some problem with plain patterns for language [%s]!!!", @code)
+					else # the file is simply an exception file and we’re happy
+						filename = '' # And we return and empty file name after all
+					end
 				end
 			end
 
-			filename
-		end
-
-		def tlpsrc_plain_text_line(type, fulltype)
-			return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
-
-			sprintf "file_%s=%s", fulltype, plain_text_file(type)
+			sprintf "file_%s=%s", fullname, filename
 		end
 
 		def exceptions_line
-			tlpsrc_plain_text_line('hyp', 'exceptions')
+			plain_text_line('hyp', 'exceptions')
 		end
 
 		def patterns_line
-			tlpsrc_plain_text_line('pat', 'patterns')
+			plain_text_line('pat', 'patterns')
 		end
 	end
 end
@@ -2046,7 +2045,6 @@ class Languages < Hash
 				language.set_dashes()
 			end
 			@@list.push(language)
-			self[language.code] = language
 		end
 	end
 
