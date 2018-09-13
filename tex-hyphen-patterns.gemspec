@@ -6,7 +6,8 @@ Gem::Specification.new do |s|
   s.description = 'Hyphenation patterns for Ruby, as used by the TeX typesetting system.'
   s.authors = ['Arthur Reutenauer']
   s.email = "info@hyphenation.org"
-  s.files = ['lib/tex/hyphen/patterns.rb'] + Dir.glob('hyph-utf8/tex/generic/hyph-utf8/patterns/tex/*')
+  s.files = ['spec/tex/hyphen/language_spec.rb', 'lib/tex/hyphen/language.rb'] +
+    Dir.glob('hyph-utf8/tex/generic/hyph-utf8/patterns/tex/*')
   s.homepage = 'http://www.hyphenation.org/tex'
   s.add_dependency 'hydra'
 end
