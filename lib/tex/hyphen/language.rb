@@ -5,7 +5,8 @@ require 'byebug' unless ENV['RACK_ENV'] == "production"
 module TeX
   module Hyphen
     class InvalidMetadata < StandardError; end
-    class NoAuthor < StandardError; end
+    class NoAuthor < InvalidMetadata; end
+    class NoLicence < InvalidMetadata; end
 
     class Language
       @@topdir = File.expand_path('../../../../hyph-utf8/tex/generic/hyph-utf8/patterns', __FILE__)
@@ -132,19 +133,21 @@ module TeX
         @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left')
         @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right')
         licences = metadata.dig('licence')
-        raise InvalidMetadata unless licences
+        raise NoLicence unless licences
         licences = [licences] unless licences.is_a? Array
         @licences = licences.map do |licence|
+          raise bcp47 if licence.is_a? String
           next if licence.values == [nil]
           licence.dig('name') || 'custom'
         end.compact
         authors = metadata.dig('authors')
-        @authors = if authors
-          authors.map do |author|
+        if authors
+          @authors = authors.map do |author|
             author['name']
           end
         else
-          nil
+          @authors = nil
+          raise NoAuthor.new # FIXME
         end
 
         # raise NoAuthor unless @authors && @authors.count > 0 # TODO Later ;-) AR 2018-09-13
