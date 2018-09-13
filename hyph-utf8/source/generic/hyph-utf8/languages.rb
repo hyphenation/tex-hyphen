@@ -138,17 +138,6 @@ class Language
 			sprintf 'loadhyph-%s.tex', code
 		end
 
-		def pattxt
-			filename = plain_text_file('pat')
-			raise sprintf("There is some problem with plain patterns for language [%s]!!!", @code) if filename == ''
-
-			filename
-		end
-
-		def hyptxt
-			plain_text_file('hyp')
-		end
-
 		def plain_text_file(type)
 			if @code =~ /^sh-/
 				# TODO Warning AR 2018-09-12
@@ -157,24 +146,28 @@ class Language
 				filename = sprintf 'hyph-%s.%s.txt', @code, type
 				filepath = File.join(@@path_txt, filename)
 				# check for existence of file and that it’s not empty
-				return '' unless File.file?(filepath) && File.read(filepath).length > 0
+				unless File.file?(filepath) && File.read(filepath).length > 0
+					# if the file we were looking for was a pattern file, something’s wrong
+					raise sprintf("There is some problem with plain patterns for language [%s]!!!", @code) if type == 'pat'
+					return ''
+				end
 			end
 
 			filename
 		end
 
-		def tl_line(type, fulltype)
+		def tlpsrc_plain_text_line(type, fulltype)
 			return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
 
 			sprintf "file_%s=%s", fulltype, plain_text_file(type)
 		end
 
-		def texlive_exceptions_line
-			tl_line('hyp', 'exceptions')
+		def exceptions_line
+			tlpsrc_plain_text_line('hyp', 'exceptions')
 		end
 
-		def texlive_patterns_line
-			tl_line('pat', 'patterns')
+		def patterns_line
+			tlpsrc_plain_text_line('pat', 'patterns')
 		end
 	end
 end

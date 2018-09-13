@@ -159,8 +159,8 @@ Languages.texlive_packages.sort.each do |language_name,language_list|
 
 		$file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"
 		$file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{make_file_line(language)}"
-		if language.texlive_patterns_line + language.texlive_exceptions_line != ""
-			$file_tlpsrc.print " \\\n\t#{language.texlive_patterns_line} \\\n\t#{language.texlive_exceptions_line}"
+		if language.patterns_line + language.exceptions_line != ""
+			$file_tlpsrc.print " \\\n\t#{language.patterns_line} \\\n\t#{language.exceptions_line}"
 		end
 		if language.code == "mn-cyrl-x-lmc" then
 			$file_tlpsrc.print " \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
