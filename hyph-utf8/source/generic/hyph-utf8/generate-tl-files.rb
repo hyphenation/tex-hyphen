@@ -22,18 +22,18 @@ def dirlist(type)
 	end
 end
 
-def write_dependencies(language_name)
+def write_dependencies(collection)
 	$file_tlpsrc.puts "category TLCore"
 	$file_tlpsrc.puts "depend hyphen-base"
 	$file_tlpsrc.puts "depend hyph-utf8"
 
 	# external dependencies
-	if language_name == "german" then
+	if collection == "german" then
 		$file_tlpsrc.puts "depend dehyph"
 	# for Russian and Ukrainian (until we implement the new functionality at least)
-	elsif language_name == "russian" then
+	elsif collection == "russian" then
 		$file_tlpsrc.puts "depend ruhyphen"
-	elsif language_name == "ukrainian" then
+	elsif collection == "ukrainian" then
 		$file_tlpsrc.puts "depend ukrhyph"
 	end
 end
@@ -144,15 +144,15 @@ end
 # TLPSRC #
 #--------#
 
-Languages.texlive_packages.sort.each do |language_name,language_list|
+Languages.texlive_packages.sort.each do |collection, language_list|
 	files_doc = []
 	files_src = []
-	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc", 'w')
-	puts "generating #{$path_tlpsrc}/hyphen-#{language_name}.tlpsrc"
+	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{collection}.tlpsrc", 'w')
+	puts "generating #{$path_tlpsrc}/hyphen-#{collection}.tlpsrc"
 
-	write_dependencies(language_name)
+	write_dependencies(collection)
 
-	files_run = make_run_file_list(language_name)
+	files_run = make_run_file_list(collection)
 
 	language_list.each do |language|
 		if language.description_s && language.description_l then
@@ -185,7 +185,7 @@ Languages.texlive_packages.sort.each do |language_name,language_list|
 		end
 	end
 
-	if language_name != "german" and language_name != "russian" and language_name != "ukrainian" then
+	if collection != "german" and collection != "russian" and collection != "ukrainian" then
 		language_list.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.filename_old_patterns != "copthyph.tex" then
 				files_run.push("tex/generic/hyphen/#{language.filename_old_patterns}")
@@ -194,9 +194,9 @@ Languages.texlive_packages.sort.each do |language_name,language_list|
 	end
 
 	# documentation
-	if language_name == "greek" then
+	if collection == "greek" then
 		files_doc.push("doc/generic/elhyphen")
-	elsif language_name == "hungarian" then
+	elsif collection == "hungarian" then
 		files_doc.push("doc/generic/huhyphen")
 	end
 
