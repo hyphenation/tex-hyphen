@@ -1,9 +1,8 @@
 % title: Hyphenation patterns for Belarusian
-% copyright: Copyright (c) 2016 Maksim Salau <maksim.salau at gmail.com>
-% notice: >
-%     This file is part of hyph-utf8 package.
-%     See http://www.hyphenation.org for more information
-%     Original source: https://github.com/hyphenation/hyph-be
+% copyright: Copyright (C) 2016 Maksim Salau
+% notice: This file is part of the hyph-utf8 package.
+%     See http://www.hyphenation.org/tex for more information.
+% source: https://github.com/hyphenation/hyph-be
 % language:
 %     name: Belarusian
 %     tag: be
@@ -11,12 +10,12 @@
 % authors:
 %   -
 %     name: Maksim Salau
-%     contact: maksim.salau at gmail.com
+%     contact: maksim.salau (at) gmail.com
 % hyphenmins:
 %     typesetting:
 %         left: 2
 %         right: 2
-% license:
+% licence:
 %     name: MIT
 %     url: https://opensource.org/licenses/MIT
 %     text: >

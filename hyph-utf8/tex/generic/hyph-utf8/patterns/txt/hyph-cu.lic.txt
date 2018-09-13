@@ -1,9 +1,18 @@
-% copyright: Copyright (c) 2016 Aleksandr Andreev and Mike Kroutikov
 % title: Hyphenation patterns for Church Slavonic
+% copyright: Copyright (C) 2016 Aleksandr Andreev, Mike Kroutikov
+% notice: This file is part of the hyph-utf8 package.
+%     See http://www.hyphenation.org/tex for more information.
+% language:
+%     name: Church Slavonic
+%     tag: cu
 % version: 1.1
-% notice: >
-%     This file is part of the hyph-utf8 package.
-%     See http://www.hyphenation.org for more information.
+% authors:
+%   -
+%     name: Aleksandr Andreev
+%     contact: aleksandr.andreev (at) gmail.com
+%   -
+%     name: Mike Kroutikov
+%     contact: pgmmpk (at) gmail.com
 % licence:
 %     name: MIT
 %     url: https://opensource.org/licenses/MIT
