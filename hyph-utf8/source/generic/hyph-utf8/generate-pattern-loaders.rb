@@ -12,7 +12,7 @@ $path_tex_generic=File.expand_path("../../../../tex/generic", __FILE__)
 $path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
 
 # TODO: should be singleton
-languages = Languages.new.list
+languages = Language.all
 
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
 
@@ -82,7 +82,7 @@ text_patterns_quote =  "    \\input hyph-quote-#{language.code}.tex"
 ###########
 
 lccodes_common = []
-if language.has_quotes then
+if language.has_apostrophes then
 	lccodes_common.push("\\lccode`\\'=`\\'")
 end
 if language.has_dashes then
@@ -213,7 +213,7 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				file.puts(text_patterns_utf8)
-				if language.has_quotes
+				if language.has_apostrophes
 					file.puts(text_patterns_quote)
 				end
 				file.puts('\else')

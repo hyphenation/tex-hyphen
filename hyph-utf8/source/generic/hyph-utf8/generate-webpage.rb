@@ -2,10 +2,12 @@
 
 require_relative 'languages.rb'
 
+include TeXLive
+include Language::TeXLive
+
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
 $package_name="hyph-utf8"
-$ctan_url = "http://mirror.ctan.org/language/hyph-utf8/tex/generic/hyph-utf8"
 
 # TODO - make this a bit less hard-coded
 $path_tex_generic="../../../tex/generic"
@@ -24,9 +26,9 @@ language_default = Language.new({
 # add english to the list
 # $l["default"] = language_default
 # TODO: should be singleton
-languages = Languages.new.list.sort{|a,b| a.name <=> b.name}
+languages = Language.all.sort{|a,b| a.name <=> b.name}
 
-$a = Authors.new
+$a = Author
 
 language_grouping = {
 	'english' => ['default', 'en-gb', 'en-us'],
@@ -45,15 +47,15 @@ language_grouping = {
 space_leading = "            "
 space_tr      = "  "
 
-Languages.texlive_packages.sort.each do |language_name,language_list|
+Package.all.sort.each do |package|
 	first_line_printed = false
-	language_list.each do |language|
+	package.languages.each do |language|
 		if language != nil then
 			puts "#{space_leading}<tr>"
 
 			line_content = ""
 			if not first_line_printed then
-				line_content = "<b>#{language_name.capitalize}</b>"
+				line_content = "<b>#{package.name.capitalize}</b>"
 				first_line_printed = true;
 			else
 				line_content = "&nbsp;"
