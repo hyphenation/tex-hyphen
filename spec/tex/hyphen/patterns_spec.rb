@@ -64,11 +64,6 @@ describe Language do
       language = Language.new('oc')
       expect(language.bcp47).to eq 'oc'
     end
-
-    it "calls Language.all first" do
-      expect(Language).to receive(:all).and_return({ 'pl' => Language.new('pl') })
-      Language.new('pl').bcp47
-    end
   end
 
   describe '#name' do
@@ -159,7 +154,7 @@ describe Language do
     end
 
     it "calls #extract_metadata first if necessary" do
-      expect(traditional_orthography_german).to receive :extract_metadata
+      expect(traditional_orthography_german).to receive(:extract_metadata).and_return({ authors: ['Werner Lemberg', 'others'] })
       traditional_orthography_german.authors
     end
 
@@ -167,13 +162,6 @@ describe Language do
       traditional_orthography_german.instance_variable_set :@authors, ['German hyphenation patterns team']
       expect(traditional_orthography_german).not_to receive :extract_metadata
       traditional_orthography_german.authors
-    end
-
-    it "raises an exception if @authors is nil or empty"
-
-    it "replaces nil by an empty array" do
-      church_slavonic = Language.new('cu')
-      expect(church_slavonic.authors).to eq []
     end
   end
 
@@ -314,6 +302,12 @@ describe Language do
       language = Language.new('cs')
       expect { language.extract_metadata }.to raise_exception InvalidMetadata
     end
+
+    it "raises an exception if @authors is nil or empty" do
+			church_slavonic = Language.new('cu')
+			pending "Needs refactoring of specs"
+		  expect { church_slavonic.authors }.to raise_error NoAuthor
+		end
   end
 
   describe '#parse_tex_file' do

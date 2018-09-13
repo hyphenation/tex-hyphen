@@ -5,6 +5,7 @@ require 'byebug' unless ENV['RACK_ENV'] == "production"
 module TeX
   module Hyphen
     class InvalidMetadata < StandardError; end
+    class NoAuthor < StandardError; end
 
     class Language
       @@topdir = File.expand_path('../../../../hyph-utf8/tex/generic/hyph-utf8/patterns', __FILE__)
@@ -17,7 +18,7 @@ module TeX
       def self.all
         @@languages ||= Dir.glob(File.join(@@topdir, 'tex', 'hyph-*.tex')).inject [] do |languages, texfile|
           bcp47 = texfile.gsub /^.*\/hyph-(.*)\.tex$/, '\1'
-          languages << [bcp47, Language.new(bcp47)] # TODO Load names of files (patterns, exceptions)
+          languages << [bcp47, Language.new(bcp47)]
         end.to_h
       end
 
@@ -37,7 +38,6 @@ module TeX
       end
 
       def bcp47
-        self.class.all
         @bcp47
       end
 
@@ -63,7 +63,7 @@ module TeX
 
       def authors
         extract_metadata unless @authors
-        @authors || []
+        @authors
       end
 
       def github_link
@@ -86,10 +86,12 @@ module TeX
       end
 
       def patterns
+        # TODO Not that!  Parse the content of the TeX file instead
         @patterns ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.pat.txt', @bcp47))) if self.class.all[@bcp47]
       end
 
       def exceptions
+        # FIXME Same comment as for #patterns
         if self.class.all[@bcp47]
           @exceptions ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.hyp.txt', @bcp47)))
           @hyphenation = @exceptions.split(/\s+/).inject [] do |exceptions, exception|
@@ -145,6 +147,8 @@ module TeX
         else
           nil
         end
+
+        # raise NoAuthor unless @authors && @authors.count > 0 # TODO Later ;-) AR 2018-09-13
 
         metadata
       end

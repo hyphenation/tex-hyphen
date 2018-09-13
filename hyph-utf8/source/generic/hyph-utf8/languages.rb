@@ -468,9 +468,9 @@ class Languages < Hash
 	# "authors" => ["peter_heslin"],
 	"version" => 3.0,
 },
-# ---------------------------------------------------------
-# more languages using old patterns (see above gr-x-ibycus)
-# ---------------------------------------------------------
+# ----------------------------------------------------------
+# more languages using old patterns (see el-* and grc above)
+# ----------------------------------------------------------
 # coptic
 {
 	"code" => "cop",
