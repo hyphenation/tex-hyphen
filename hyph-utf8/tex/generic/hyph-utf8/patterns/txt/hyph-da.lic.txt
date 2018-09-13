@@ -1,10 +1,16 @@
-% copyright: Copyright 1994 Frank Jensen
 % title: Hyphenation patterns for Danish
+% copyright: Copyright (C) 1994 Frank Jensen
+% notice: This file is part of the hyph-utf8 package.
+%     See http://www.hyphenation.org/tex for more information.
+% language:
+%     name: Danish
+%     tag: da
 % version: 2011-01-11
-% notice: >
-%     This file is part of the hyph-utf8 package.
-%     See http://www.hyphenation.org for more information.
-% license:
+% authors:
+%   -
+%     name: Frank Jensen
+%     contact: frank.jensen (at) hugin.com
+% licence:
 %     - This file is available under any of these licences:
 %     -
 %         name: LPPL

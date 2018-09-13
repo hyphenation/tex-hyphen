@@ -1,12 +1,20 @@
-% copyright: Daniel Flipo and Bernard Gaulle 1994-2002, Arthur Reutenauer 2016
-% title: French hyphenation patterns
-% version: V2.13 2016/05/12
+% title: Hyphenation patterns for French
+% copyright: Copyright (C) 1994-2002 Daniel Flipo, Bernard Gaulle, 2016 Arthur Reutenauer
+% notice: This file is part of the hyph-utf8 package.
+%     See http://www.hyphenation.org/tex for more information.
 % language:
 %     name: French
 %     tag: fr
-% notice: >
-%     This file is part of the hyph-utf8 package.
-%     See http://www.hyphenation.org for more information.
+% version: V2.13 2016/05/12
+% authors:
+%   -
+%     name: Daniel Flipo
+%   -
+%     name: Bernard Gaulle
+%     note: deceased
+%   -
+%     name: Arthur Reutenauer
+%     contact: arthur (at) reutenauer.eu
 % licence:
 %     name: MIT
 %     url: https://opensource.org/licenses/MIT

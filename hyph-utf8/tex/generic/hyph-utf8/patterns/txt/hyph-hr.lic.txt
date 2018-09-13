@@ -1,10 +1,15 @@
+% title: Hyphenation patterns for Croatian
 % copyright: Copyright (C) 1994, 1996, 2011, 2015 Igor Marinović
-% title: Hyphenation patterns for Croatian language
-% notice: >
-%    This file is part of the hyph-utf8 package.
-%    See http://www.hyphenation.org for more information.
-%
-% license:
+% notice: This file is part of the hyph-utf8 package.
+%     See http://www.hyphenation.org/tex for more information.
+% language:
+%     name: Croatian
+%     tag: hr
+% authors:
+%   -
+%     name: Igor Marinović
+%     contact: marinowski (at) gmail.com
+% licence:
 %     - This file is available under any of these licences:
 %     -
 %         name: LPPL
