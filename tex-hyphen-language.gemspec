@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
-  s.name = 'tex-hyphen-patterns'
-  s.version = '0.0.5'
-  s.date = '2018-09-13'
+  s.name = 'tex-hyphen-language'
+  s.version = '0.0.6'
+  s.date = '2018-09-14'
   s.summary = 'TeX hyphenation patterns as a gem'
   s.description = 'Hyphenation patterns for Ruby, as used by the TeX typesetting system.'
   s.authors = ['Arthur Reutenauer']
