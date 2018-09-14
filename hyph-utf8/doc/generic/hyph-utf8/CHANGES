@@ -1,3 +1,6 @@
+2018-09-12
+- Introduced structured information at the top of every TeX pattern file, in YAML format (commit 82e5651)
+
 2018-08-03
 - Thai patterns update, by Theppitak Karoonboonyanan (commit 1e52772)
 
