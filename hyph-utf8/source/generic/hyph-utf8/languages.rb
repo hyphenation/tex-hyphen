@@ -145,6 +145,8 @@ class Language
 	# Convenience methods related to TeX Live and the .tlpsrc files
 	module TeXLive
 		def loadhyph
+			return filename_old_patterns if use_old_loader
+
 			code = @code
 			code = @code.gsub 'sh-', 'sr-' if @code =~ /^sh-/
 			sprintf 'loadhyph-%s.tex', code

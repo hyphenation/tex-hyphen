@@ -224,11 +224,8 @@ File.open(language_dat_filename, 'w') do |file_language_dat|
 	printf "Generating %s\n", language_dat_filename
 	Language.packages.sort.each do |collection, languages|
 		languages.each do |language|
-			if language.use_old_loader then
-				file_language_dat.printf "%s\t%s\n", language.name, language.filename_old_patterns
-			else
-				file_language_dat.printf "%s\t%s\n", language.name, language.loadhyph
-			end
+			# main language name
+			file_language_dat.printf "%s\t%s\n", language.name, language.loadhyph
 
 			# synonyms
 			language.synonyms.each do |synonym|
