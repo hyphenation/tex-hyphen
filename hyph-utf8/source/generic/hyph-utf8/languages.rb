@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 
 module PATH
-	TeX_GENERIC = File.expand_path("../../../../tex/generic", __FILE__)
+	ROOT = File.expand_path('../../../..', __FILE__)
+	TeX_GENERIC = File.join(ROOT, 'tex', 'generic')
 	TXT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'txt')
 	TEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'tex')
+	PTEX=File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'ptex')
+
+	TL = File.expand_path('../../../../TL', __FILE__)
 end
 
 class String
@@ -181,7 +185,8 @@ class Author
 	@@hash = { }
 
 	def self.all
-#
+		return @@list if @@list
+
 		require_relative 'author-data'
 		@@authors.each do |id, details|
 			author = Author.new(details[0], details[1], details[2], details[3], details[4])
@@ -282,6 +287,6 @@ class Language
 	end
 
 	def <=>(other)
-	  self.code <=> other.code
+	  code <=> other.code
 	end
 end

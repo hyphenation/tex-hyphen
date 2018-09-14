@@ -1,18 +1,9 @@
 #!/usr/bin/env ruby
 
-require File.expand_path(File.join(File.dirname(__FILE__), 'hyph-utf8'))
+require_relative 'hyph-utf8'
+require_relative 'languages'
 
 # this file generates patterns for pTeX out of the plain ones
-
-# use 'gem install unicode' if unicode is missing on your computer
-# require 'jcode'
-# require 'rubygems'
-# require 'unicode'
-
-require_relative 'languages.rb'
-
-$path_root=File.expand_path("../../../..", __FILE__)
-$path_ptex="#{$path_root}/tex/generic/hyph-utf8/patterns/ptex"
 
 # load encodings
 encodings_list = ["ascii", "ec", "qx", "t2a", "lmc", "il2", "il3", "l7x", "t8m", "lth"]
@@ -49,8 +40,7 @@ Language.all.sort.each do |language|
 	code = language.code
 
 	puts ">> generating #{code} (#{language.name})"
-	File.open("#{$path_ptex}/hyph-#{code}.#{language.encoding}.tex", "w") do |file_ptex|
-
+	File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', code, language.encoding)), 'w') do |file_ptex|
 		patterns   = language.get_patterns
 		exceptions = language.get_exceptions
 
