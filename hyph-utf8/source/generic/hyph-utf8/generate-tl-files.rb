@@ -41,13 +41,8 @@ end
 
 def make_hyphenmins(language)
 	# lefthyphenmin/righthyphenmin
-	if language.hyphenmin && language.hyphenmin.length > 0
-		lmin = language.hyphenmin[0]
-		rmin = language.hyphenmin[1]
-	else
-		lmin = nil
-		rmin = nil
-	end
+	lmin = (language.hyphenmin || [])[0]
+	rmin = (language.hyphenmin || [])[1]
 	sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
 end
 
