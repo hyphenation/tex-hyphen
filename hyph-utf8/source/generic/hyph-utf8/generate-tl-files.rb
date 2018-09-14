@@ -35,7 +35,7 @@ def make_synonyms(language)
 	if language.synonyms && language.synonyms.length > 0
 		synonyms=" synonyms=#{language.synonyms.join(',')}"
 	else
-		synonyms=""
+		synonyms = language.synonyms.inject('') { |syns, syn|
 	end
 end
 
