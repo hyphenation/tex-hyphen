@@ -3,9 +3,9 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Friulan hyphenation patterns.
 longdesc Hyphenation patterns for Friulan in ASCII encoding.
- longdesc They are supposed to comply with the common spelling of the
- longdesc Friulan (Furlan) language as fixed by the Regional Law N.15/96
- longdesc dated November 6, 1996 and its following amendments.
+longdesc They are supposed to comply with the common spelling of the
+longdesc Friulan (Furlan) language as fixed by the Regional Law N.15/96
+longdesc dated November 6, 1996 and its following amendments.
 execute AddHyphen \
 	name=friulan \
 	lefthyphenmin=2 \

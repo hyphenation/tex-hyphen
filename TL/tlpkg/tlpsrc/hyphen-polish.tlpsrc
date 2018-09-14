@@ -3,7 +3,7 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Polish hyphenation patterns.
 longdesc Hyphenation patterns for Polish in QX and UTF-8 encodings.
- longdesc These patterns are also used by Polish TeX formats MeX and LaMeX.
+longdesc These patterns are also used by Polish TeX formats MeX and LaMeX.
 execute AddHyphen \
 	name=polish \
 	lefthyphenmin=2 \

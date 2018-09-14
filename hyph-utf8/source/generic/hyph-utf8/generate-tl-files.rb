@@ -192,7 +192,7 @@ Language.packages.sort.each do |collection, languages|
 			file_tlpsrc.printf "shortdesc %s.\n", language.description_s
 			file_tlpsrc.print "longdesc "
 			language.description_l.each_with_index do |line, i|
-				file_tlpsrc.print "\n longdesc " unless i == 0
+				file_tlpsrc.print "\nlongdesc " unless i == 0
 				file_tlpsrc.print line
 			end
 			file_tlpsrc.puts

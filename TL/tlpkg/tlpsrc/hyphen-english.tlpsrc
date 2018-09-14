@@ -3,11 +3,11 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc English hyphenation patterns.
 longdesc Additional hyphenation patterns for American and British
- longdesc English in ASCII encoding.  The American English patterns
- longdesc (usenglishmax) greatly extend the standard patterns from Knuth
- longdesc to find many additional hyphenation points.  British English
- longdesc hyphenation is completely different from US English, so has its
- longdesc own set of patterns.
+longdesc English in ASCII encoding.  The American English patterns
+longdesc (usenglishmax) greatly extend the standard patterns from Knuth
+longdesc to find many additional hyphenation points.  British English
+longdesc hyphenation is completely different from US English, so has its
+longdesc own set of patterns.
 execute AddHyphen \
 	name=ukenglish synonyms=british,UKenglish \
 	lefthyphenmin=2 \

@@ -3,7 +3,7 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Piedmontese hyphenation patterns.
 longdesc Hyphenation patterns for Piedmontese in ASCII encoding.
- longdesc Compliant with 'Gramatica dla lengua piemonteisa' by Camillo Brero.
+longdesc Compliant with 'Gramatica dla lengua piemonteisa' by Camillo Brero.
 execute AddHyphen \
 	name=piedmontese \
 	lefthyphenmin=2 \
