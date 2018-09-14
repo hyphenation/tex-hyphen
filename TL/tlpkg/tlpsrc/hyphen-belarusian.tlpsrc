@@ -2,7 +2,7 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Belarusian hyphenation patterns.
-longdesc longdesc Belarusian hyphenation patterns in T2A and UTF-8 encodingsexecute AddHyphen \
+longdesc Belarusian hyphenation patterns in T2A and UTF-8 encodingsexecute AddHyphen \
 	name=belarusian \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
