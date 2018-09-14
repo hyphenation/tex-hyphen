@@ -136,11 +136,11 @@ def make_individual_run_file_list(language)
 			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
 		end
 	else
-		files.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
+		files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', language.code))
 		if language.encoding && language.encoding != "ascii" then
-			files.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
-		elsif language.code == "cop" then
-			files.push("#{files_path_hyph8}/patterns/tex-8bit/#{language.filename_old_patterns}")
+			files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', language.code, language.encoding))
+		elsif language.code == "cop"
+			files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', language.filename_old_patterns)
 		end
 
 		# we skip the mongolian language for luatex files
