@@ -30,7 +30,7 @@ def make_dependencies(collection)
 
 	# external dependencies
 	if dependency = Language.dependency(collection)
-		dependencies << "depend %s", dependency
+		dependencies << sprintf("depend %s", dependency)
 	end
 
 	dependencies
@@ -184,46 +184,46 @@ end
 #--------#
 
 Language.packages.sort.each do |collection, languages|
-	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{collection}.tlpsrc", 'w')
+	file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{collection}.tlpsrc", 'w')
 	puts "generating #{$path_tlpsrc}/hyphen-#{collection}.tlpsrc"
 
-	$file_tlpsrc.puts "category TLCore"
+	file_tlpsrc.puts "category TLCore"
 	make_dependencies(collection).each do |dependency|
-		$file_tlpsrc.puts dependency
+		file_tlpsrc.puts dependency
 	end
 
 	languages.each do |language|
 		if language.description_s && language.description_l then
-			$file_tlpsrc.puts "shortdesc #{language.description_s}."
-			$file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
+			file_tlpsrc.puts "shortdesc #{language.description_s}."
+			file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
 		end
 
 		name = "name=#{language.name}"
 		synonyms = make_synonyms(language)
 		hyphenmins = make_hyphenmins(language)
 
-		$file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"
-		$file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{make_file_line(language)}"
+		file_tlpsrc.puts  "execute AddHyphen \\\n\t#{name}#{synonyms} \\"
+		file_tlpsrc.print "\t#{hyphenmins} \\\n\t#{make_file_line(language)}"
 		if language.patterns_line + language.exceptions_line != ""
-			$file_tlpsrc.print " \\\n\t#{language.patterns_line} \\\n\t#{language.exceptions_line}"
+			file_tlpsrc.print " \\\n\t#{language.patterns_line} \\\n\t#{language.exceptions_line}"
 		end
 		if language.code == "mn-cyrl-x-lmc" then
-			$file_tlpsrc.print " \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
+			file_tlpsrc.print " \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
 		end
 		# end-of-line
-		$file_tlpsrc.puts
+		file_tlpsrc.puts
 	end
 
 	make_doc_file_list(collection).sort.each do |f|
-		$file_tlpsrc.puts "docpattern d texmf-dist/#{f}"
+		file_tlpsrc.puts "docpattern d texmf-dist/#{f}"
 	end
 	make_src_file_list(collection).sort.each do |f|
-		$file_tlpsrc.puts "srcpattern d texmf-dist/#{f}"
+		file_tlpsrc.puts "srcpattern d texmf-dist/#{f}"
 	end
 	make_run_file_list(collection).sort.uniq.each do |f|
-		$file_tlpsrc.puts "runpattern f texmf-dist/#{f}"
+		file_tlpsrc.puts "runpattern f texmf-dist/#{f}"
 	end
-	$file_tlpsrc.close
+	file_tlpsrc.close
 end
 
 #--------------#
