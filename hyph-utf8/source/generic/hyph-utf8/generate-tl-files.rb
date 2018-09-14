@@ -28,19 +28,20 @@ def write_dependencies(collection)
 	$file_tlpsrc.puts "depend hyph-utf8"
 
 	# external dependencies
-	if collection == "german" then
+	case collection
+	when "german"
 		$file_tlpsrc.puts "depend dehyph"
 	# for Russian and Ukrainian (until we implement the new functionality at least)
-	elsif collection == "russian" then
+	when "russian"
 		$file_tlpsrc.puts "depend ruhyphen"
-	elsif collection == "ukrainian" then
+	when "ukrainian"
 		$file_tlpsrc.puts "depend ukrhyph"
 	end
 end
 
 def make_synonyms(language)
 	# synonyms
-	if language.synonyms != nil and language.synonyms.length > 0 then
+	if language.synonyms && language.synonyms.length > 0
 		synonyms=" synonyms=#{language.synonyms.join(',')}"
 	else
 		synonyms=""
@@ -49,15 +50,15 @@ end
 
 def make_hyphenmins(language)
 	# lefthyphenmin/righthyphenmin
-	if language.hyphenmin == nil or language.hyphenmin.length == 0 then
-		lmin = ''
-		rmin = ''
+	if language.hyphenmin && language.hyphenmin.length >= 0 then
+		lmin = language.hyphenmin[0]
+		rmin = language.hyphenmin[1]
 	elsif language.filename_old_patterns == "zerohyph.tex" then
 		lmin = ''
 		rmin = ''
 	else
-		lmin = language.hyphenmin[0]
-		rmin = language.hyphenmin[1]
+		lmin = ''
+		rmin = ''
 	end
 	"lefthyphenmin=#{lmin} \\\n\trighthyphenmin=#{rmin}"
 end
