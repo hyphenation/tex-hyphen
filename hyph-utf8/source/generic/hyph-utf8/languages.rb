@@ -366,6 +366,18 @@ class Language
 			make_mappings unless @@packages
 			@@packages
 		end
+
+		def package_dependencies(collection, outstream)
+			case collection
+			when "german"
+				outstream.puts "depend dehyph"
+			# for Russian and Ukrainian (until we implement the new functionality at least)
+			when "russian"
+				outstream.puts "depend ruhyphen"
+			when "ukrainian"
+				outstream.puts "depend ukrhyph"
+			end
+		end
 	end
 
 	def <=>(other)

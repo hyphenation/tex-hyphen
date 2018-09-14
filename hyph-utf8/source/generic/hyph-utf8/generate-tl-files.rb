@@ -28,15 +28,7 @@ def write_dependencies(collection)
 	$file_tlpsrc.puts "depend hyph-utf8"
 
 	# external dependencies
-	case collection
-	when "german"
-		$file_tlpsrc.puts "depend dehyph"
-	# for Russian and Ukrainian (until we implement the new functionality at least)
-	when "russian"
-		$file_tlpsrc.puts "depend ruhyphen"
-	when "ukrainian"
-		$file_tlpsrc.puts "depend ukrhyph"
-	end
+	Language.package_dependencies(collection, $file_tlpsrc)
 end
 
 def make_synonyms(language)
