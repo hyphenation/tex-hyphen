@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
 module PATH
-	TeXROOT = File.expand_path('../../../..', __FILE__)
-	ROOT = File.join(TeXROOT, '..')
-	TeX_GENERIC = File.join(ROOT, 'tex', 'generic')
+	ROOT = File.expand_path('../../../../..', __FILE__)
+
+	TeXROOT = File.join(ROOT, 'hyph-utf8')
+	TeX_GENERIC = File.join(TeXROOT, 'tex', 'generic')
 	TXT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'txt')
 	TEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'tex')
 	PTEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'ptex')
 
-	TL = File.expand_path('../../../../TL', __FILE__)
+	TL = File.join(ROOT, 'TL')
 end
 
 class String
