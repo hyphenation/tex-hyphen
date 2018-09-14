@@ -50,12 +50,9 @@ end
 
 def make_hyphenmins(language)
 	# lefthyphenmin/righthyphenmin
-	if language.hyphenmin && language.hyphenmin.length >= 0 then
+	if language.hyphenmin && language.hyphenmin.length >= 0
 		lmin = language.hyphenmin[0]
 		rmin = language.hyphenmin[1]
-	elsif language.filename_old_patterns == "zerohyph.tex" then
-		lmin = ''
-		rmin = ''
 	else
 		lmin = ''
 		rmin = ''
