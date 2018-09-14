@@ -36,7 +36,7 @@ runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.chr.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sh-latn.pat.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.chr.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.lic.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl-chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl-hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl-lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sr-cyrl-pat.txt

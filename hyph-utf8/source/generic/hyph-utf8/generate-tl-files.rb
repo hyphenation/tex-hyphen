@@ -125,26 +125,27 @@ def make_individual_run_file_list(language)
 		files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", language.code))
 	end
 
-		# we skip the mongolian language for luatex files
-
 	if (code = language.code) =~ /^sh-/
-		files.push("#{files_path_hyph8}/patterns/tex/hyph-#{code}.tex")
-		files.push("#{files_path_hyph8}/patterns/ptex/hyph-#{code}.#{language.encoding}.tex")
+		files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', language.code))
+		files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', language.code, language.encoding))
 		# duplicate entries (will be removed later)
-		files.push("#{files_path_hyph8}/patterns/tex/hyph-sr-cyrl.tex")
+		files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
 		['chr', 'pat', 'hyp', 'lic'].each do |t|
-			files.push("#{files_path_hyph8}/patterns/txt/hyph-#{code}.#{t}.txt")
+			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', language.code, t))
 			# duplicate entries (will be removed later)
-			files.push("#{files_path_hyph8}/patterns/txt/hyph-sr-cyrl.#{t}.txt")
+			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl-%s.txt', t))
 		end
 	else
 		files.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
 		if language.encoding && language.encoding != "ascii" then
 			files.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
-			return files if language.code == "mn-cyrl-x-lmc"
 		elsif language.code == "cop" then
 			files.push("#{files_path_hyph8}/patterns/tex-8bit/#{language.filename_old_patterns}")
 		end
+
+		# we skip the mongolian language for luatex files
+		return files if language.code == "mn-cyrl-x-lmc"
+
 		['chr', 'pat', 'hyp', 'lic'].each do |t|
 			files.push("#{files_path_hyph8}/patterns/txt/hyph-#{language.code}.#{t}.txt")
 		end
