@@ -133,7 +133,7 @@ def make_individual_run_file_list(language)
 		['chr', 'pat', 'hyp', 'lic'].each do |t|
 			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', language.code, t))
 			# duplicate entries (will be removed later)
-			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl-%s.txt', t))
+			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
 		end
 	else
 		files.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
