@@ -275,8 +275,6 @@ class Authors < Hash
 			self[a[0]] = author
 		end
 	end
-end
-
 
 # "use_new_loader"
 # => true - create a new file and use that one
@@ -296,10 +294,9 @@ end
 # "message" => nil,
 
 # TODO: should be singleton
-class Languages < Hash
 	@@list = []
 
-	def initialize
+	def to_be_renamed
 		languages = [
 # --------------------------------------
 # languages with no hyphenation patterns
