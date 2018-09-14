@@ -2086,7 +2086,7 @@ class Languages < Hash
 			# a hash with the names of TeX Live packages, either individual language names,
 			# or an array of languages as the value
 			@@packages = Hash.new
-			Languages.new.list.each do |language|
+			new.list.each do |language|
 				if groupname = @@collection_mapping[language.code]
 					# language is part of a collection
 					(@@packages[groupname] ||= []) << language
