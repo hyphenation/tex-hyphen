@@ -3,10 +3,10 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Serbian hyphenation patterns.
 longdesc Hyphenation patterns for Serbian in T1/EC, T2A and UTF-8 encodings.
-longdesc For 8-bit engines the patterns are available separately as 'serbian'
-longdesc in T1/EC encoding for Latin script and 'serbianc' in T2A encoding for
-longdesc Cyrillic script. Unicode engines should only use 'serbian'
-longdesc which has patterns in both scripts combined.
+For 8-bit engines the patterns are available separately as 'serbian'
+in T1/EC encoding for Latin script and 'serbianc' in T2A encoding for
+Cyrillic script. Unicode engines should only use 'serbian'
+which has patterns in both scripts combined.
 execute AddHyphen \
 	name=serbian \
 	lefthyphenmin=2 \

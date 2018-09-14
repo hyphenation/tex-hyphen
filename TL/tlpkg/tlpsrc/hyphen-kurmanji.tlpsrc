@@ -3,8 +3,8 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Kurmanji hyphenation patterns.
 longdesc Hyphenation patterns for Kurmanji (Northern Kurdish) as spoken in
-longdesc Turkey and by the Kurdish diaspora in Europe, in T1/EC and UTF-8
-longdesc encodings.
+Turkey and by the Kurdish diaspora in Europe, in T1/EC and UTF-8
+encodings.
 execute AddHyphen \
 	name=kurmanji \
 	lefthyphenmin=2 \
