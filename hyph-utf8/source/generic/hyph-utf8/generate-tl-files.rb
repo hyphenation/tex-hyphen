@@ -147,23 +147,12 @@ def make_individual_run_file_list(language)
 		return files if language.code == "mn-cyrl-x-lmc"
 
 		['chr', 'pat', 'hyp', 'lic'].each do |t|
-			files.push("#{files_path_hyph8}/patterns/txt/hyph-#{language.code}.#{t}.txt")
+			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', language.code, t))
 		end
 	end
 
 	files
 end
-
-# languages.each do |language|
-# 	if language.hyphenmin == nil then
-# 		lmin = ''
-# 		rmin = ''
-# 	else
-# 		lmin = language.hyphenmin[0]
-# 		rmin = language.hyphenmin[1]
-# 	end
-# 	puts "#{language.name}: #{lmin} #{rmin}"
-# end
 
 #--------#
 # TLPSRC #
