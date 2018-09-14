@@ -189,8 +189,8 @@ Language.packages.sort.each do |collection, languages|
 
 	languages.each do |language|
 		if language.description_s && language.description_l then
-			file_tlpsrc.puts "shortdesc #{language.description_s}."
-			file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
+			file_tlpsrc.printf "shortdesc %s.\n", language.description_s
+			file_tlpsrc.printf "longdesc %s\n", language.description_l.join("\nlongdesc ")
 		end
 
 		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name, make_synonyms(language)
@@ -205,14 +205,16 @@ Language.packages.sort.each do |collection, languages|
 		file_tlpsrc.puts
 	end
 
-	make_doc_file_list(collection).sort.each do |f|
-		file_tlpsrc.printf "docpattern d texmf-dist/#{f}"
+	make_doc_file_list(collection).sort.each do |filename|
+		file_tlpsrc.printf "docpattern d texmf-dist/%s\n", filename
 	end
-	make_src_file_list(collection).sort.each do |f|
-		file_tlpsrc.puts "srcpattern d texmf-dist/#{f}"
+
+	make_src_file_list(collection).sort.each do |filename|
+		file_tlpsrc.printf "srcpattern d texmf-dist/%s\n", filename
 	end
-	make_run_file_list(collection).sort.uniq.each do |f|
-		file_tlpsrc.puts "runpattern f texmf-dist/#{f}"
+
+	make_run_file_list(collection).sort.uniq.each do |filename|
+		file_tlpsrc.printf "runpattern f texmf-dist/%s\n", filename
 	end
 	file_tlpsrc.close
 end
