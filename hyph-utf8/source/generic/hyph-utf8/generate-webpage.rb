@@ -27,7 +27,7 @@ language_default = Language.new({
 # TODO: should be singleton
 languages = Language.all.sort{|a,b| a.name <=> b.name}
 
-$a = Authors.new
+$a = Author
 
 language_grouping = {
 	'english' => ['default', 'en-gb', 'en-us'],

@@ -1,4 +1,21 @@
 class Language
+# "use_new_loader"
+# => true - create a new file and use that one
+# => false - use "filename_old_patterns" in language.dat
+# "filename_old_patterns"
+# => [string] - the name used in language.dat if "use_new_loader" is false
+# "eightbitfilename"
+# => [string] - if set, load another file for 8-bit engines
+# "code"
+# => [string] - used in filenames, needs to conform to the standard
+# "name"
+# => [string] -
+# "synonyms" => [],
+# "hyphenmin" => [],
+# "encoding" => nil,
+# "exceptions" => false,
+# "message" => nil,
+
 	@@languages = [
 # --------------------------------------
 # languages with no hyphenation patterns
