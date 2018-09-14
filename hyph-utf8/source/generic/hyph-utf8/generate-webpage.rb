@@ -2,6 +2,8 @@
 
 require_relative 'languages.rb'
 
+include Languages::TeXLive
+
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
 $package_name="hyph-utf8"
@@ -45,7 +47,7 @@ language_grouping = {
 space_leading = "            "
 space_tr      = "  "
 
-Languages.texlive_packages.sort.each do |language_name,language_list|
+Languages.packages.sort.each do |language_name,language_list|
 	first_line_printed = false
 	language_list.each do |language|
 		if language != nil then
