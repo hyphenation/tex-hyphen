@@ -120,17 +120,12 @@ def make_individual_run_file_list(language)
 	files = []
 
 	files_path_hyph8 = "tex/generic/hyph-utf8"
-	files << sprintf("%s/loadhyph/%s", files_path_hyph8, language.loadhyph)
+	files << File.join(PATH::HYPHU8, 'loadhyph', language.loadhyph)
 	if language.has_quotes
-		files << sprintf("%s/patterns/quote/hyph-quote-%s.tex", files_path_hyph8, language.code)
+		files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", language.code))
 	end
 
-	if language.code == "mn-cyrl-x-lmc"
-		files.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
-		files.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
 		# we skip the mongolian language for luatex files
-		return files
-	end
 
 	if (code = language.code) =~ /^sh-/
 		files.push("#{files_path_hyph8}/patterns/tex/hyph-#{code}.tex")
@@ -146,9 +141,9 @@ def make_individual_run_file_list(language)
 		files.push("#{files_path_hyph8}/patterns/tex/hyph-#{language.code}.tex")
 		if language.encoding && language.encoding != "ascii" then
 			files.push("#{files_path_hyph8}/patterns/ptex/hyph-#{language.code}.#{language.encoding}.tex")
+			return files if language.code == "mn-cyrl-x-lmc"
 		elsif language.code == "cop" then
 			files.push("#{files_path_hyph8}/patterns/tex-8bit/#{language.filename_old_patterns}")
-			# files << "#{files_path_hyph8}/patterns/tex-8bit/copthyph.tex"
 		end
 		['chr', 'pat', 'hyp', 'lic'].each do |t|
 			files.push("#{files_path_hyph8}/patterns/txt/hyph-#{language.code}.#{t}.txt")
