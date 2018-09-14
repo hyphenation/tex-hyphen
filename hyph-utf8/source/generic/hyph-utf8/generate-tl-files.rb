@@ -5,6 +5,7 @@
 
 require_relative 'languages.rb'
 include Language::TeXLive
+include Languages::TeXLive
 
 # TODO - make this a bit less hard-coded
 $path_TL=File.expand_path("../../../../../TL", __FILE__)
@@ -81,7 +82,7 @@ def make_run_file_list(collection)
 	full = []
 	full = ["tex/generic/hyph-utf8/patterns/tex/hyph-no.tex"] if collection == "norwegian"
 
-  languages = Languages.texlive_packages[collection]
+  languages = Languages.packages[collection]
 
   full = languages.inject(full) do |full, language|
 	  full + make_individual_run_file_list(language)
@@ -156,7 +157,7 @@ end
 # TLPSRC #
 #--------#
 
-Languages.texlive_packages.sort.each do |collection, language_list|
+Languages.packages.sort.each do |collection, languages|
 	files_doc = []
 	files_src = []
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{collection}.tlpsrc", 'w')
@@ -166,7 +167,7 @@ Languages.texlive_packages.sort.each do |collection, language_list|
 
 	files_run = make_run_file_list(collection)
 
-	language_list.each do |language|
+	languages.each do |language|
 		if language.description_s && language.description_l then
 			$file_tlpsrc.puts "shortdesc #{language.description_s}."
 			$file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
@@ -219,21 +220,19 @@ end
 #--------------#
 # language.dat #
 #--------------#
-file_language_dat = File.open("#{$path_language_dat}/language.dat", "w")
-Languages.texlive_packages.sort.each do |language_name,language_list|
-	language_list.each do |language|
-		if language.use_old_loader then
-			file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
-		else
-			file_language_dat.puts sprintf("%s\t%s", language.name, language.loadhyph)
-		end
+File.open("#{$path_language_dat}/language.dat", "w") do |file_language_dat|
+	Languages.packages.sort.each do |collection, languages|
+		languages.each do |language|
+			if language.use_old_loader then
+				file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
+			else
+				file_language_dat.puts sprintf("%s\t%s", language.name, language.loadhyph)
+			end
 
-		# synonyms
-		if language.synonyms
+			# synonyms
 			language.synonyms.each do |synonym|
 				file_language_dat.puts "=#{synonym}"
 			end
 		end
 	end
 end
-file_language_dat.close
