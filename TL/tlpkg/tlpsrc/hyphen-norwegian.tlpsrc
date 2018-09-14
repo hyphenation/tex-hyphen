@@ -3,7 +3,8 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Norwegian Bokmal and Nynorsk hyphenation patterns.
 longdesc Hyphenation patterns for Norwegian Bokmal and Nynorsk in T1/EC and
- longdesc UTF-8 encodings.execute AddHyphen \
+ longdesc UTF-8 encodings.
+execute AddHyphen \
 	name=bokmal synonyms=norwegian,norsk \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \

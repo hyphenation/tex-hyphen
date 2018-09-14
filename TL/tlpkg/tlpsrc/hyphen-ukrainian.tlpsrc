@@ -8,7 +8,8 @@ longdesc Hyphenation patterns for Ukrainian in T2A and UTF-8 encodings.
  longdesc different pattern sets, as well as different (8-bit) encodings, that
  longdesc can be chosen at format-generation time.  The UTF-8 version only
  longdesc provides the default pattern set.  A mechanism similar to the one used
- longdesc for 8-bit patterns may be implemented in the future.execute AddHyphen \
+ longdesc for 8-bit patterns may be implemented in the future.
+execute AddHyphen \
 	name=ukrainian \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \

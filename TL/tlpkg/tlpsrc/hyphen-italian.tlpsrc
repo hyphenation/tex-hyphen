@@ -5,7 +5,8 @@ shortdesc Italian hyphenation patterns.
 longdesc Hyphenation patterns for Italian in ASCII encoding.
  longdesc Compliant with the Recommendation UNI 6461 on hyphenation
  longdesc issued by the Italian Standards Institution
- longdesc (Ente Nazionale di Unificazione UNI).execute AddHyphen \
+ longdesc (Ente Nazionale di Unificazione UNI).
+execute AddHyphen \
 	name=italian \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \

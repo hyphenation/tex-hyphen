@@ -12,7 +12,8 @@ longdesc Hyphenation patterns for German in T1/EC and UTF-8 encodings,
  longdesc Swiss German patterns are suitable for Swiss Standard German
  longdesc (Hochdeutsch) not the Alemannic dialects spoken in Switzerland
  longdesc (Schwyzerduetsch).
- longdesc There are no known patterns for written Schwyzerduetsch.execute AddHyphen \
+ longdesc There are no known patterns for written Schwyzerduetsch.
+execute AddHyphen \
 	name=german \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \

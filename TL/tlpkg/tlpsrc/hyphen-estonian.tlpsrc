@@ -2,7 +2,8 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Estonian hyphenation patterns.
-longdesc Hyphenation patterns for Estonian in T1/EC and UTF-8 encodings.execute AddHyphen \
+longdesc Hyphenation patterns for Estonian in T1/EC and UTF-8 encodings.
+execute AddHyphen \
 	name=estonian \
 	lefthyphenmin=2 \
 	righthyphenmin=3 \

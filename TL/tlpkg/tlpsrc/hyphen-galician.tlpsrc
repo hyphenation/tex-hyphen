@@ -2,7 +2,8 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Galician hyphenation patterns.
-longdesc Hyphenation patterns for Galician in T1/EC and UTF-8 encodings.execute AddHyphen \
+longdesc Hyphenation patterns for Galician in T1/EC and UTF-8 encodings.
+execute AddHyphen \
 	name=galician \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \

@@ -195,6 +195,7 @@ Language.packages.sort.each do |collection, languages|
 				file_tlpsrc.print "\n longdesc " unless i == 0
 				file_tlpsrc.print line
 			end
+			file_tlpsrc.puts
 		end
 
 		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name, make_synonyms(language)
