@@ -45,10 +45,10 @@ def make_hyphenmins(language)
 		lmin = language.hyphenmin[0]
 		rmin = language.hyphenmin[1]
 	else
-		lmin = ''
-		rmin = ''
+		lmin = nil
+		rmin = nil
 	end
-	"lefthyphenmin=#{lmin} \\\n\trighthyphenmin=#{rmin}"
+	sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
 end
 
 def make_file_line(language)
