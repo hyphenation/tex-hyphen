@@ -141,7 +141,7 @@ class Language
 		end
 
 		# ext: 'pat' or 'hyp'
-		# fullname: 'patterns' or 'exceptions'
+		# filetype: 'patterns' or 'exceptions'
 		def plain_text_line(ext, filetype)
 			return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
 
