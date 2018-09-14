@@ -8,7 +8,7 @@ longdesc issued by the Italian Standards Institution
 longdesc (Ente Nazionale di Unificazione UNI).
 execute AddHyphen \
 	name=italian \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-it.tex \
 	file_patterns=hyph-it.pat.txt \

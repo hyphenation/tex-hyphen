@@ -8,7 +8,7 @@ longdesc Friulan (Furlan) language as fixed by the Regional Law N.15/96
 longdesc dated November 6, 1996 and its following amendments.
 execute AddHyphen \
 	name=friulan \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-fur.tex \
 	file_patterns=hyph-fur.pat.txt \

@@ -5,7 +5,7 @@ shortdesc Basque hyphenation patterns.
 longdesc Hyphenation patterns for Basque in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=basque \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-eu.tex \
 	file_patterns=hyph-eu.pat.txt \

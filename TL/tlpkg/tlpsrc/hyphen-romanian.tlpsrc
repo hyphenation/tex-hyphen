@@ -8,7 +8,7 @@ longdesc and U+021B for 't with comma accent', but we may consider using U+015F
 longdesc and U+0163 as well in the future.
 execute AddHyphen \
 	name=romanian \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-ro.tex \
 	file_patterns=hyph-ro.pat.txt \

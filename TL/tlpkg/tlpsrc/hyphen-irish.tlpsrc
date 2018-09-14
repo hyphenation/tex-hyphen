@@ -6,7 +6,7 @@ longdesc Hyphenation patterns for Irish (Gaeilge) in T1/EC and UTF-8 encodings.
 longdesc Visit http://borel.slu.edu/fleiscin/index.html for more information.
 execute AddHyphen \
 	name=irish \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=3 \
 	file=loadhyph-ga.tex \
 	file_patterns=hyph-ga.pat.txt \

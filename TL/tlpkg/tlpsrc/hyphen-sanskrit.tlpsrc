@@ -7,7 +7,7 @@ longdesc and in Devanagari, Bengali, Kannada, Malayalam and Telugu scripts
 longdesc for Unicode engines.
 execute AddHyphen \
 	name=sanskrit \
-	#lefthyphenmin=1 \
+	lefthyphenmin=1 \
 	righthyphenmin=3 \
 	file=loadhyph-sa.tex \
 	file_patterns=hyph-sa.pat.txt \

@@ -5,7 +5,7 @@ shortdesc French hyphenation patterns.
 longdesc Hyphenation patterns for French in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=french synonyms=patois,francais \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-fr.tex \
 	file_patterns=hyph-fr.pat.txt \

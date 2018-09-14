@@ -8,7 +8,7 @@ longdesc encoding, so unless you create your own font support or want to use
 longdesc MlTeX, using native Unicode engines is highly recommended.
 execute AddHyphen \
 	name=esperanto \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-eo.tex \
 	file_patterns=hyph-eo.pat.txt \

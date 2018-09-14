@@ -7,7 +7,7 @@ longdesc Turkey and by the Kurdish diaspora in Europe, in T1/EC and UTF-8
 longdesc encodings.
 execute AddHyphen \
 	name=kurmanji \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-kmr.tex \
 	file_patterns=hyph-kmr.pat.txt \

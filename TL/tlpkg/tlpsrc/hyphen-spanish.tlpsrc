@@ -5,7 +5,7 @@ shortdesc Spanish hyphenation patterns.
 longdesc Hyphenation patterns for Spanish in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=spanish synonyms=espanol \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-es.tex \
 	file_patterns=hyph-es.pat.txt \

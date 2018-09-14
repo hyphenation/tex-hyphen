@@ -194,7 +194,7 @@ Language.packages.sort.each do |collection, languages|
 		end
 
 		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name, make_synonyms(language)
-		file_tlpsrc.printf "\t#%s \\\n\t%s", make_hyphenmins(language), make_file_line(language)
+		file_tlpsrc.printf "\t%s \\\n\t%s", make_hyphenmins(language), make_file_line(language)
 		if language.patterns_line + language.exceptions_line != ""
 			file_tlpsrc.print " \\\n\t#{language.patterns_line} \\\n\t#{language.exceptions_line}"
 		end

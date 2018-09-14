@@ -7,14 +7,14 @@ longdesc LMC encoding is used in MonTeX. The package includes two sets of
 longdesc patterns that will hopefully be merged in future.
 execute AddHyphen \
 	name=mongolian \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-mn-cyrl.tex \
 	file_patterns=hyph-mn-cyrl.pat.txt \
 	file_exceptions=
 execute AddHyphen \
 	name=mongolianlmc \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-mn-cyrl-x-lmc.tex \
 	luaspecial="disabled:only for 8bit montex with lmc encoding"

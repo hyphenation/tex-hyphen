@@ -5,7 +5,7 @@ shortdesc Thai hyphenation patterns.
 longdesc Hyphenation patterns for Thai in LTH and UTF-8 encodings.
 execute AddHyphen \
 	name=thai \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=3 \
 	file=loadhyph-th.tex \
 	file_patterns=hyph-th.pat.txt \

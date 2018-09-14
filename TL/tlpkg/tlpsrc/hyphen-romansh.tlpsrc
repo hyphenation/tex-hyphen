@@ -7,7 +7,7 @@ longdesc They are supposed to comply with the rules indicated by the Lia
 longdesc Rumantscha (Romansh language society).
 execute AddHyphen \
 	name=romansh \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-rm.tex \
 	file_patterns=hyph-rm.pat.txt \

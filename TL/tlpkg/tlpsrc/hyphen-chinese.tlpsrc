@@ -6,7 +6,7 @@ longdesc Hyphenation patterns for unaccented transliterated Mandarin Chinese
 longdesc (pinyin) in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=pinyin \
-	#lefthyphenmin=1 \
+	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-zh-latn-pinyin.tex \
 	file_patterns=hyph-zh-latn-pinyin.pat.txt \

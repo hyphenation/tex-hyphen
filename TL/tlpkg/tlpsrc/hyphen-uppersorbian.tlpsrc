@@ -5,7 +5,7 @@ shortdesc Upper Sorbian hyphenation patterns.
 longdesc Hyphenation patterns for Upper Sorbian in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=uppersorbian \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-hsb.tex \
 	file_patterns=hyph-hsb.pat.txt \

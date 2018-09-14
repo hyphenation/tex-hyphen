@@ -5,7 +5,7 @@ shortdesc Finnish hyphenation patterns.
 longdesc Hyphenation patterns for Finnish in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=finnish \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-fi.tex \
 	file_patterns=hyph-fi.pat.txt \

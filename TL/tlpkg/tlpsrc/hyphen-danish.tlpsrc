@@ -5,7 +5,7 @@ shortdesc Danish hyphenation patterns.
 longdesc Hyphenation patterns for Danish in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=danish \
-	#lefthyphenmin=2 \
+	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-da.tex \
 	file_patterns=hyph-da.pat.txt \

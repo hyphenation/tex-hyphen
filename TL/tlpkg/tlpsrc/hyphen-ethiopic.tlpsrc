@@ -8,7 +8,7 @@ longdesc relevant in all cases and should, for proper typography, be replaced
 longdesc by files tailored to individual languages.
 execute AddHyphen \
 	name=ethiopic synonyms=amharic,geez \
-	#lefthyphenmin=1 \
+	lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-mul-ethi.tex \
 	file_patterns=hyph-mul-ethi.pat.txt \
