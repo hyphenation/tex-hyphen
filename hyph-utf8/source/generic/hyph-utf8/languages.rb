@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-module Path
+module PATH
 	TeX_GENERIC = File.expand_path("../../../../tex/generic", __FILE__)
 	TXT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'txt')
 	TEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'tex')
@@ -57,7 +57,7 @@ class Language
 	end
 
 	def readtexfile(code = @code)
-		filename = File.join(Path::TEX, "hyph-#{code}.tex")
+		filename = File.join(PATH::TEX, "hyph-#{code}.tex")
 		IO.readlines(filename, '.').join
 	end
 
@@ -152,7 +152,7 @@ class Language
 				filename = sprintf 'hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', ext, ext
 			else
 				filename = sprintf 'hyph-%s.%s.txt', @code, ext
-				filepath = File.join(Path::TXT, filename)
+				filepath = File.join(PATH::TXT, filename)
 				# check for existence of file and that it’s not empty
 				unless File.file?(filepath) && File.read(filepath).length > 0
 					# if the file we were looking for was a pattern file, something’s wrong
