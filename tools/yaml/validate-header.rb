@@ -173,6 +173,11 @@ class HeaderValidator
     @headings = []
     while !args.empty?
       arg = args.shift
+      unless arg
+        puts "Please give me at least one file to validate."
+        exit -1
+      end
+
       if File.file? arg
         runfile(arg)
       elsif Dir.exists? arg

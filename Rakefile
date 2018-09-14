@@ -2,7 +2,11 @@ if ENV['RACK_ENV'] == "production"
   task default: %w[build]
 else
   require 'rspec/core/rake_task'
-  task default: %w[spec build]
+  task default: %w[validate spec build]
+end
+
+task :validate do
+  ruby "tools/yaml/validate-header.rb hyph-utf8/tex/generic/hyph-utf8/patterns/tex"
 end
 
 task :spec do
