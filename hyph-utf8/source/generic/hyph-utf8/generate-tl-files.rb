@@ -50,7 +50,7 @@ end
 
 def make_hyphenmins(language)
 	# lefthyphenmin/righthyphenmin
-	if language.hyphenmin && language.hyphenmin.length >= 0
+	if language.hyphenmin && language.hyphenmin.length > 0
 		lmin = language.hyphenmin[0]
 		rmin = language.hyphenmin[1]
 	else
