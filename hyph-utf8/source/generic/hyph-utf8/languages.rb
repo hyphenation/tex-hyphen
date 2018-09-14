@@ -187,7 +187,7 @@ class Author
 	@@hash = { }
 
 	def self.all
-		return @@list if @@list
+		return @@list unless @@list == []
 
 		require_relative 'author-data'
 		@@authors.each do |id, details|
@@ -200,7 +200,7 @@ class Author
 	end
 
 	def self.[] a
-	  all unless @hash
+		all if @@hash == { }
 		@@hash[a]
 	end
 end
