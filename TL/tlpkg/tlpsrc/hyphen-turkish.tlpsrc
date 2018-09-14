@@ -2,13 +2,12 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Turkish hyphenation patterns.
-longdesc Hyphenation patterns for Turkish in T1/EC and UTF-8 encodings.
-The patterns for Turkish were first produced for the Ottoman Texts
-Project in 1987 and were suitable for both Modern Turkish and Ottoman
-Turkish in Latin script, however the required character set didn't fit
-into EC encoding, so support for Ottoman Turkish had to be dropped to
-keep compatibility with 8-bit engines.
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for Turkish in T1/EC and UTF-8 encodings.
+longdesc The patterns for Turkish were first produced for the Ottoman Texts
+longdesc Project in 1987 and were suitable for both Modern Turkish and Ottoman
+longdesc Turkish in Latin script, however the required character set didn't fit
+longdesc into EC encoding, so support for Ottoman Turkish had to be dropped to
+longdesc keep compatibility with 8-bit engines.execute AddHyphen \
 	name=turkish \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \

@@ -2,9 +2,8 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Indonesian hyphenation patterns.
-longdesc Hyphenation patterns for Indonesian (Bahasa Indonesia) in ASCII
-encoding.  They are probably also usable for Malay (Bahasa Melayu).
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for Indonesian (Bahasa Indonesia) in ASCII
+longdesc encoding.  They are probably also usable for Malay (Bahasa Melayu).execute AddHyphen \
 	name=indonesian \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \

@@ -2,8 +2,7 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Pali hyphenation patterns.
-longdesc Pali hyphenation patterns in UTF-8 encoding
-execute AddHyphen \
+longdesc longdesc Pali hyphenation patterns in UTF-8 encodingexecute AddHyphen \
 	name=pali \
 	lefthyphenmin=1 \
 	righthyphenmin=2 \

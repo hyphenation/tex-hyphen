@@ -2,11 +2,10 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Hyphenation patterns for Ethiopic scripts.
-longdesc Hyphenation patterns for languages written using the Ethiopic script
-for Unicode engines. They are not supposed to be linguistically
-relevant in all cases and should, for proper typography, be replaced
-by files tailored to individual languages.
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for languages written using the Ethiopic script
+longdesc for Unicode engines. They are not supposed to be linguistically
+longdesc relevant in all cases and should, for proper typography, be replaced
+longdesc by files tailored to individual languages.execute AddHyphen \
 	name=ethiopic synonyms=amharic,geez \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \

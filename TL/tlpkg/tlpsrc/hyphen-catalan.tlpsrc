@@ -2,8 +2,7 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Catalan hyphenation patterns.
-longdesc Hyphenation patterns for Catalan in T1/EC and UTF-8 encodings.
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for Catalan in T1/EC and UTF-8 encodings.execute AddHyphen \
 	name=catalan \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \

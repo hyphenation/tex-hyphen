@@ -2,9 +2,8 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Chinese pinyin hyphenation patterns.
-longdesc Hyphenation patterns for unaccented transliterated Mandarin Chinese
-(pinyin) in T1/EC and UTF-8 encodings.
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for unaccented transliterated Mandarin Chinese
+longdesc (pinyin) in T1/EC and UTF-8 encodings.execute AddHyphen \
 	name=pinyin \
 	lefthyphenmin=1 \
 	righthyphenmin=1 \

@@ -2,13 +2,12 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Latin hyphenation patterns.
-longdesc Hyphenation patterns for Latin in T1/EC and UTF-8 encodings,
-mainly in modern spelling (u when u is needed and v when v is needed),
-medieval spelling with the ligatures \ae and \oe and the (uncial)
-lowercase 'v' written as a 'u' is also supported.  Apparently
-there is no conflict between the patterns of modern Latin and
-those of medieval Latin.
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for Latin in T1/EC and UTF-8 encodings,
+longdesc mainly in modern spelling (u when u is needed and v when v is needed),
+longdesc medieval spelling with the ligatures \ae and \oe and the (uncial)
+longdesc lowercase 'v' written as a 'u' is also supported.  Apparently
+longdesc there is no conflict between the patterns of modern Latin and
+longdesc those of medieval Latin.execute AddHyphen \
 	name=latin \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
@@ -16,10 +15,9 @@ execute AddHyphen \
 	file_patterns=hyph-la.pat.txt \
 	file_exceptions=
 shortdesc Classical Latin hyphenation patterns.
-longdesc Hyphenation patterns for the Classical Latin in T1/EC and UTF-8
-encodings. Classical Latin hyphenation patterns are different from
-those of 'plain' Latin, the latter being more adapted to modern Latin.
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for the Classical Latin in T1/EC and UTF-8
+longdesc encodings. Classical Latin hyphenation patterns are different from
+longdesc those of 'plain' Latin, the latter being more adapted to modern Latin.execute AddHyphen \
 	name=classiclatin \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
@@ -27,9 +25,8 @@ execute AddHyphen \
 	file_patterns=hyph-la-x-classic.pat.txt \
 	file_exceptions=
 shortdesc Liturgical Latin hyphenation patterns.
-longdesc Hyphenation patterns for the Liturgical Latin in T1/EC and UTF-8
-encodings.
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for the Liturgical Latin in T1/EC and UTF-8
+longdesc encodings.execute AddHyphen \
 	name=liturgicallatin \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \

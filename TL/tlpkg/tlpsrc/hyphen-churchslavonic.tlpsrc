@@ -2,8 +2,7 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Church Slavonic hyphenation patterns.
-longdesc Hyphenation patterns for Church Slavonic in UTF-8 encoding
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for Church Slavonic in UTF-8 encodingexecute AddHyphen \
 	name=churchslavonic \
 	lefthyphenmin=1 \
 	righthyphenmin=2 \

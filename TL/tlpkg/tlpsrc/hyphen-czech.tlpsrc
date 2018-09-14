@@ -2,10 +2,9 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Czech hyphenation patterns.
-longdesc Hyphenation patterns for Czech in T1/EC and UTF-8 encodings.
-Original patterns 'czhyphen' are still distributed in the 'csplain'
-package and loaded with ISO Latin 2 encoding (IL2).
-execute AddHyphen \
+longdesc longdesc Hyphenation patterns for Czech in T1/EC and UTF-8 encodings.
+longdesc Original patterns 'czhyphen' are still distributed in the 'csplain'
+longdesc package and loaded with ISO Latin 2 encoding (IL2).execute AddHyphen \
 	name=czech \
 	lefthyphenmin=2 \
 	righthyphenmin=3 \
