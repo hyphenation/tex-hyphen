@@ -108,8 +108,6 @@ class Language
 	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
 	attr_reader :description_l, :version
 	attr_reader :licence, :authors
-	# this hack is needed for Serbian
-	attr_writer :code
 
 	def description_s
 		@description_s || @message
