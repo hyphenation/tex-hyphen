@@ -77,7 +77,7 @@ def make_run_file_list(collection)
 	  full + make_individual_run_file_list(language)
 	end
 
-	if Language.dependencies.include? collection
+	if !Language.dependencies[collection]
 		languages.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
 				full.push("tex/generic/hyphen/#{language.filename_old_patterns}")
