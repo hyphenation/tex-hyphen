@@ -81,9 +81,21 @@ def make_run_file_list(collection)
 	full = []
 	full = ["tex/generic/hyph-utf8/patterns/tex/hyph-no.tex"] if collection == "norwegian"
 
-  Languages.texlive_packages[collection].inject(full) do |full, language|
+  languages = Languages.texlive_packages[collection]
+
+  full = languages.inject(full) do |full, language|
 	  full + make_individual_run_file_list(language)
 	end
+
+	if !["german", "russian", "ukrainian"].include? collection
+		languages.each do |language|
+			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
+				full.push("tex/generic/hyphen/#{language.filename_old_patterns}")
+			end
+		end
+	end
+
+	full
 end
 
 def make_individual_run_file_list(language)
@@ -182,14 +194,6 @@ Languages.texlive_packages.sort.each do |collection, language_list|
 		# add documentation
 		if dirlist('doc').include?(language.code) then
 			files_doc.push("doc/generic/hyph-utf8/languages/#{language.code}")
-		end
-	end
-
-	if collection != "german" and collection != "russian" and collection != "ukrainian" then
-		language_list.each do |language|
-			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.filename_old_patterns != "copthyph.tex" then
-				files_run.push("tex/generic/hyphen/#{language.filename_old_patterns}")
-			end
 		end
 	end
 
