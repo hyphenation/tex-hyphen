@@ -7,7 +7,6 @@ include Languages::TeXLive
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
 $package_name="hyph-utf8"
-$ctan_url = "http://mirror.ctan.org/language/hyph-utf8/tex/generic/hyph-utf8"
 
 # TODO - make this a bit less hard-coded
 $path_tex_generic="../../../tex/generic"
