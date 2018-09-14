@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+module Path
+	TeX_GENERIC = File.expand_path("../../../../tex/generic", __FILE__)
+	TXT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'txt')
+	TEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'tex')
+end
+
 class String
 	def superstrip
 		strip.gsub /%.*$/, ''
@@ -51,9 +57,8 @@ class Language
 	end
 
 	def readtexfile(code = @code)
-		filename = File.expand_path("../../../../tex/generic/hyph-utf8/patterns/tex/hyph-#{code}.tex", __FILE__);
-		lines = IO.readlines(filename, '.').join("")
-		lines
+		filename = File.join(Path::TEX, "hyph-#{code}.tex")
+		IO.readlines(filename, '.').join
 	end
 
 	def get_exceptions
@@ -131,9 +136,6 @@ class Language
 
 	# Convenience methods related to TeX Live and the .tlpsrc files
 	module TeXLive
-		@@path_tex_generic = File.expand_path("../../../../tex/generic", __FILE__)
-		@@path_txt = File.join(@@path_tex_generic, 'hyph-utf8', 'patterns', 'txt')
-
 		def loadhyph
 			code = @code
 			code = @code.gsub 'sh-', 'sr-' if @code =~ /^sh-/
@@ -150,7 +152,7 @@ class Language
 				filename = sprintf 'hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', ext, ext
 			else
 				filename = sprintf 'hyph-%s.%s.txt', @code, ext
-				filepath = File.join(@@path_txt, filename)
+				filepath = File.join(Path::TXT, filename)
 				# check for existence of file and that it’s not empty
 				unless File.file?(filepath) && File.read(filepath).length > 0
 					# if the file we were looking for was a pattern file, something’s wrong
