@@ -10,6 +10,9 @@ module PATH
 	PTEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'ptex')
 
 	TL = File.join(ROOT, 'TL')
+	LANGUAGE_DAT = File.join(PATH::TL, 'texmf-dist', 'tex', 'generic', 'config')
+	# hyphen-foo.tlpsrc for TeX Live
+	TLPSRC = File.join(PATH::TL, 'tlpkg', 'tlpsrc')
 end
 
 class String

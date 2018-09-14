@@ -6,11 +6,6 @@
 require_relative 'languages.rb'
 include Language::TeXLive
 
-# TODO - make this a bit less hard-coded
-$path_language_dat=File.join(PATH::TL, 'texmf-dist', 'tex', 'generic', 'config')
-# hyphen-foo.tlpsrc for TeX Live
-$path_tlpsrc = File.join(PATH::TL, 'tlpkg', 'tlpsrc')
-
 
 $dirlist = Hash.new
 def dirlist(type)
@@ -183,8 +178,9 @@ end
 #--------#
 
 Language.packages.sort.each do |collection, languages|
-	file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{collection}.tlpsrc", 'w')
-	puts "generating #{$path_tlpsrc}/hyphen-#{collection}.tlpsrc"
+	tlpsrcname = File.join(PATH::TLPSRC, sprintf('hyphen-%s.tlpsrc', collection))
+	file_tlpsrc = File.open(tlpsrcname, 'w')
+	printf "generating %s\n", tlpsrcname
 
 	file_tlpsrc.puts "category TLCore"
 	make_dependencies(collection).each do |dependency|
@@ -228,7 +224,9 @@ end
 #--------------#
 # language.dat #
 #--------------#
-File.open("#{$path_language_dat}/language.dat", "w") do |file_language_dat|
+language_dat_filename = File.join PATH::LANGUAGE_DAT, 'language.dat'
+File.open(language_dat_filename, 'w') do |file_language_dat|
+	printf "Generating %s\n", language_dat_filename
 	Language.packages.sort.each do |collection, languages|
 		languages.each do |language|
 			if language.use_old_loader then
