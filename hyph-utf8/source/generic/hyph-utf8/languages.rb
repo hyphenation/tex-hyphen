@@ -47,18 +47,7 @@ class Language
 		@licence = language_hash["licence"]
 		@authors = language_hash["authors"]
 
-		@has_quotes = false
-		@has_dashes = false
-
 		if @synonyms==nil then @synonyms = [] end
-	end
-
-	def set_quotes
-		@has_quotes = true
-	end
-
-	def set_dashes
-		@has_dashes = true
 	end
 
 	def readtexfile(code = @code)
@@ -119,12 +108,27 @@ class Language
 	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
 	attr_reader :description_l, :version
 	attr_reader :licence, :authors
-	attr_reader :has_quotes, :has_dashes
 	# this hack is needed for Serbian
 	attr_writer :code
 
 	def description_s
 		@description_s || @message
+	end
+
+  def has_quotes
+		begin
+			get_patterns.any? { |p| p =~ /'/ } && !(['grc', 'el-polyton', 'el-monoton'].include?(@code))
+		rescue Errno::ENOENT
+		  false
+		end
+	end
+
+	def has_dashes
+		begin
+			get_patterns.any? { |p| p =~ /-/ }
+		rescue Errno::ENOENT
+			false
+		end
 	end
 
 	# Convenience methods related to TeX Live and the .tlpsrc files
@@ -138,7 +142,9 @@ class Language
 			sprintf 'loadhyph-%s.tex', code
 		end
 
-		def plain_text_line(ext, fullname)
+		# ext: 'pat' or 'hyp'
+		# fullname: 'patterns' or 'exceptions'
+		def plain_text_line(ext, filetype)
 			return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
 
 			if @code =~ /^sh-/
@@ -158,7 +164,7 @@ class Language
 				end
 			end
 
-			sprintf "file_%s=%s", fullname, filename
+			sprintf "file_%s=%s", filetype, filename
 		end
 
 		def exceptions_line
@@ -2032,19 +2038,8 @@ class Languages < Hash
 # =persian
 		]
 
-		# TODO: do not hardcode this list; auto-generate it instead
-		languages_with_quotes = ['af', 'be', 'fr', 'fur', 'it', 'oc', 'pms', 'rm', 'uk', 'zh-latn-pinyin']
-		languages_with_dashes = ['af', 'be', 'pt', 'ru', 'tk', 'uk']
-
 		languages.each do |l|
-			language = Language.new(l)
-			if languages_with_quotes.include?(language.code) then
-				language.set_quotes()
-			end
-			if languages_with_dashes.include?(language.code) then
-				language.set_dashes()
-			end
-			@@list.push(language)
+			@@list.push Language.new l
 		end
 	end
 
