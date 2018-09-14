@@ -368,16 +368,17 @@ class Language
 		end
 
 		def package_dependencies(collection, outstream)
-			case collection
-			when "german"
-				outstream.puts "depend dehyph"
-			# for Russian and Ukrainian (until we implement the new functionality at least)
-			when "russian"
-				outstream.puts "depend ruhyphen"
-			when "ukrainian"
-				outstream.puts "depend ukrhyph"
-			end
+			outstream.sprintf "depend %s\n", dep if dep = @@dependencies[collection]
 		end
+
+		@@dependencies = {
+			"german" => "dehyph",
+			# for Russian and Ukrainian (until we implement the new functionality at least)
+			"russian" => "ruhyphen",
+			"ukrainian" => "ukrhyph",
+		}
+
+		attr_reader :dependencies
 	end
 
 	def <=>(other)
