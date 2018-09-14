@@ -22,15 +22,18 @@ def dirlist(type)
 	end
 end
 
-def write_dependencies(collection)
-	$file_tlpsrc.puts "category TLCore"
-	$file_tlpsrc.puts "depend hyphen-base"
-	$file_tlpsrc.puts "depend hyph-utf8"
+def make_dependencies(collection)
+  dependencies = [
+		"depend hyphen-base",
+		"depend hyph-utf8",
+	]
 
 	# external dependencies
 	if dependency = Language.dependency(collection)
-		$file_tlpsrc.printf "depend %s\n", dependency
+		dependencies << "depend %s", dependency
 	end
+
+	dependencies
 end
 
 def make_synonyms(language)
@@ -67,6 +70,38 @@ def make_file_line(language)
 	else
 		file = sprintf "file=%s", language.loadhyph
 	end
+end
+
+def make_doc_file_list(collection)
+	files_doc = []
+
+	Language.packages[collection].each do |language|
+		# add documentation
+		if dirlist('doc').include?(language.code) then
+			files_doc.push("doc/generic/hyph-utf8/languages/#{language.code}")
+		end
+	end
+
+	# documentation
+	if collection == "greek" then
+		files_doc.push("doc/generic/elhyphen")
+	elsif collection == "hungarian" then
+		files_doc.push("doc/generic/huhyphen")
+	end
+
+	files_doc
+end
+
+def make_src_file_list(collection)
+	files_src = []
+	Language.packages[collection].each do |language|
+		# add sources
+		if dirlist('source').include?(language.code) then
+			files_src.push("source/generic/hyph-utf8/languages/#{language.code}")
+		end
+	end
+
+	files_src
 end
 
 def make_run_file_list(collection)
@@ -149,14 +184,13 @@ end
 #--------#
 
 Language.packages.sort.each do |collection, languages|
-	files_doc = []
-	files_src = []
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{collection}.tlpsrc", 'w')
 	puts "generating #{$path_tlpsrc}/hyphen-#{collection}.tlpsrc"
 
-	write_dependencies(collection)
-
-	files_run = make_run_file_list(collection)
+	$file_tlpsrc.puts "category TLCore"
+	make_dependencies(collection).each do |dependency|
+		$file_tlpsrc.puts dependency
+	end
 
 	languages.each do |language|
 		if language.description_s && language.description_l then
@@ -178,31 +212,15 @@ Language.packages.sort.each do |collection, languages|
 		end
 		# end-of-line
 		$file_tlpsrc.puts
-
-		# add sources
-		if dirlist('source').include?(language.code) then
-			files_src.push("source/generic/hyph-utf8/languages/#{language.code}")
-		end
-		# add documentation
-		if dirlist('doc').include?(language.code) then
-			files_doc.push("doc/generic/hyph-utf8/languages/#{language.code}")
-		end
 	end
 
-	# documentation
-	if collection == "greek" then
-		files_doc.push("doc/generic/elhyphen")
-	elsif collection == "hungarian" then
-		files_doc.push("doc/generic/huhyphen")
-	end
-
-	files_doc.sort.each do |f|
+	make_doc_file_list(collection).sort.each do |f|
 		$file_tlpsrc.puts "docpattern d texmf-dist/#{f}"
 	end
-	files_src.sort.each do |f|
+	make_src_file_list(collection).sort.each do |f|
 		$file_tlpsrc.puts "srcpattern d texmf-dist/#{f}"
 	end
-	files_run.sort.uniq.each do |f|
+	make_run_file_list(collection).sort.uniq.each do |f|
 		$file_tlpsrc.puts "runpattern f texmf-dist/#{f}"
 	end
 	$file_tlpsrc.close
