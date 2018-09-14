@@ -183,10 +183,10 @@ class Author
 	def self.all
 #
 		require_relative 'author-data'
-		@@authors.each do |a|
-			author = Author.new(a[1][0], a[1][1], a[1][2], a[1][3], a[1][4])
+		@@authors.each do |id, details|
+			author = Author.new(details[0], details[1], details[2], details[3], details[4])
 			@@list.push(author)
-			@@hash[a[0]] = author
+			@@hash[id] = author
 		end
 
 		@@list
