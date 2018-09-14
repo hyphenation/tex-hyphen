@@ -33,9 +33,9 @@ end
 def make_synonyms(language)
 	# synonyms
 	if language.synonyms && language.synonyms.length > 0
-		synonyms=" synonyms=#{language.synonyms.join(',')}"
+		sprintf " synonyms=%s", language.synonyms.join(',')
 	else
-		synonyms = language.synonyms.inject('') { |syns, syn|
+		''
 	end
 end
 
@@ -49,7 +49,7 @@ end
 def make_file_line(language)
 	# which file to use
 	if language.use_old_loader
-		file = "file=#{language.filename_old_patterns}"
+		file = sprintf "file=%s", language.filename_old_patterns
 		if ['ar', 'fa'].include? language.code
 			file = file + " \\\n\tfile_patterns="
 		elsif language.code == 'grc-x-ibycus' then
@@ -67,15 +67,15 @@ def make_doc_file_list(collection)
 	Language.packages[collection].each do |language|
 		# add documentation
 		if dirlist('doc').include?(language.code) then
-			files_doc.push("doc/generic/hyph-utf8/languages/#{language.code}")
+			files_doc << sprintf("doc/generic/hyph-utf8/languages/%s", language.code)
 		end
 	end
 
 	# documentation
 	if collection == "greek" then
-		files_doc.push("doc/generic/elhyphen")
+		files_doc << "doc/generic/elhyphen"
 	elsif collection == "hungarian" then
-		files_doc.push("doc/generic/huhyphen")
+		files_doc << "doc/generic/huhyphen"
 	end
 
 	files_doc
@@ -86,7 +86,7 @@ def make_src_file_list(collection)
 	Language.packages[collection].each do |language|
 		# add sources
 		if dirlist('source').include?(language.code) then
-			files_src.push("source/generic/hyph-utf8/languages/#{language.code}")
+			files_src << sprintf("source/generic/hyph-utf8/languages/%s", language.code)
 		end
 	end
 
@@ -106,7 +106,7 @@ def make_run_file_list(collection)
 	unless Language.dependency(collection)
 		languages.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
-				full.push("tex/generic/hyphen/#{language.filename_old_patterns}")
+				full << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
 			end
 		end
 	end
@@ -225,14 +225,14 @@ File.open(language_dat_filename, 'w') do |file_language_dat|
 	Language.packages.sort.each do |collection, languages|
 		languages.each do |language|
 			if language.use_old_loader then
-				file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"
+				file_language_dat.printf "%s\t%s\n", language.name, language.filename_old_patterns
 			else
-				file_language_dat.puts sprintf("%s\t%s", language.name, language.loadhyph)
+				file_language_dat.printf "%s\t%s\n", language.name, language.loadhyph
 			end
 
 			# synonyms
 			language.synonyms.each do |synonym|
-				file_language_dat.puts "=#{synonym}"
+				file_language_dat.printf "=%s\n", synonym
 			end
 		end
 	end
