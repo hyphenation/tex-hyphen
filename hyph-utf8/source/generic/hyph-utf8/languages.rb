@@ -368,7 +368,9 @@ class Language
 		end
 
 		def package_dependencies(collection, outstream)
-			outstream.sprintf "depend %s\n", dep if dep = @@dependencies[collection]
+			if dep = @@dependencies[collection]
+				outstream.printf "depend %s\n", dep
+			end
 		end
 
 		@@dependencies = {
@@ -378,7 +380,9 @@ class Language
 			"ukrainian" => "ukrhyph",
 		}
 
-		attr_reader :dependencies
+		def dependencies
+		  @@dependencies
+		end
 	end
 
 	def <=>(other)
