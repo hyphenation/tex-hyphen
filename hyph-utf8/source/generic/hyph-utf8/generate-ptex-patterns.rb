@@ -33,7 +33,7 @@ header = <<-HEADER
 %%
 HEADER
 
-Languages.new.sort.each do |language|
+Language.all_sorted.each do |language|
 	if language.use_old_loader
 		puts "(skipping #{language.code} # loader)"
 		next

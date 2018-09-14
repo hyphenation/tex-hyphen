@@ -5,7 +5,6 @@
 
 require_relative 'languages.rb'
 include Language::TeXLive
-include Languages::TeXLive
 
 # TODO - make this a bit less hard-coded
 $path_TL=File.expand_path("../../../../../TL", __FILE__)
@@ -82,7 +81,7 @@ def make_run_file_list(collection)
 	full = []
 	full = ["tex/generic/hyph-utf8/patterns/tex/hyph-no.tex"] if collection == "norwegian"
 
-  languages = Languages.packages[collection]
+  languages = Language.packages[collection]
 
   full = languages.inject(full) do |full, language|
 	  full + make_individual_run_file_list(language)
@@ -157,7 +156,7 @@ end
 # TLPSRC #
 #--------#
 
-Languages.packages.sort.each do |collection, languages|
+Language.packages.sort.each do |collection, languages|
 	files_doc = []
 	files_src = []
 	$file_tlpsrc = File.open("#{$path_tlpsrc}/hyphen-#{collection}.tlpsrc", 'w')
@@ -221,7 +220,7 @@ end
 # language.dat #
 #--------------#
 File.open("#{$path_language_dat}/language.dat", "w") do |file_language_dat|
-	Languages.packages.sort.each do |collection, languages|
+	Language.packages.sort.each do |collection, languages|
 		languages.each do |language|
 			if language.use_old_loader then
 				file_language_dat.puts "#{language.name}\t#{language.filename_old_patterns}"

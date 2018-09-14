@@ -275,6 +275,7 @@ class Authors < Hash
 			self[a[0]] = author
 		end
 	end
+end
 
 # "use_new_loader"
 # => true - create a new file and use that one
@@ -293,10 +294,12 @@ class Authors < Hash
 # "exceptions" => false,
 # "message" => nil,
 
-# TODO: should be singleton
-	@@list = []
+# TODO: should be singleton -- Note from when this class was Language*s* in the plural.
+class Language
+	@@list = nil
+	def self.all
+		return @@list if @@list
 
-	def to_be_renamed
 		languages = [
 # --------------------------------------
 # languages with no hyphenation patterns
@@ -2033,8 +2036,8 @@ class Authors < Hash
 # =persian
 		]
 
-		languages.each do |l|
-			@@list.push Language.new l
+		@@list = languages.map do |language_data|
+			new language_data
 		end
 	end
 
@@ -2083,7 +2086,7 @@ class Authors < Hash
 			# a hash with the names of TeX Live packages, either individual language names,
 			# or an array of languages as the value
 			@@packages = Hash.new
-			new.list.each do |language|
+			all.each do |language|
 				if groupname = @@collection_mapping[language.code]
 					# language is part of a collection
 					(@@packages[groupname] ||= []) << language
@@ -2101,11 +2104,8 @@ class Authors < Hash
 		end
 	end
 
-	def list
-		return @@list
-	end
-
-	def sort
+	def self.all_sorted
+		all unless @@list
 	  @@list.sort { |a, b| a.code <=> b.code }
 	end
 end

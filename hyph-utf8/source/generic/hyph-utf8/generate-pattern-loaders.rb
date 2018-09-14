@@ -12,7 +12,7 @@ $path_tex_generic=File.expand_path("../../../../tex/generic", __FILE__)
 $path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
 
 # TODO: should be singleton
-languages = Languages.new.list
+languages = Language.all
 
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
 

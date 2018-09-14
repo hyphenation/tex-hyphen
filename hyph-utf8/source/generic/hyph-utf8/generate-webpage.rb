@@ -2,7 +2,7 @@
 
 require_relative 'languages.rb'
 
-include Languages::TeXLive
+include Language::TeXLive
 
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
@@ -25,7 +25,7 @@ language_default = Language.new({
 # add english to the list
 # $l["default"] = language_default
 # TODO: should be singleton
-languages = Languages.new.list.sort{|a,b| a.name <=> b.name}
+languages = Language.all.sort{|a,b| a.name <=> b.name}
 
 $a = Authors.new
 
@@ -46,7 +46,7 @@ language_grouping = {
 space_leading = "            "
 space_tr      = "  "
 
-Languages.packages.sort.each do |language_name,language_list|
+Language.packages.sort.each do |language_name,language_list|
 	first_line_printed = false
 	language_list.each do |language|
 		if language != nil then
