@@ -9,6 +9,8 @@ module PATH
 	TEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'tex')
 	PTEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'ptex')
 
+  RELHU8 = File.join('tex', 'generic', 'hyph-utf8')
+
 	TL = File.join(ROOT, 'TL')
 	LANGUAGE_DAT = File.join(PATH::TL, 'texmf-dist', 'tex', 'generic', 'config')
 	# hyphen-foo.tlpsrc for TeX Live
