@@ -196,17 +196,17 @@ Language.packages.sort.each do |collection, languages|
 		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name, make_synonyms(language)
 		file_tlpsrc.printf "\t%s \\\n\t%s", make_hyphenmins(language), make_file_line(language)
 		if language.patterns_line + language.exceptions_line != ""
-			file_tlpsrc.print " \\\n\t#{language.patterns_line} \\\n\t#{language.exceptions_line}"
+			file_tlpsrc.printf " \\\n\t%s \\\n\t%s", language.patterns_line, language.exceptions_line
 		end
 		if language.code == "mn-cyrl-x-lmc" then
-			file_tlpsrc.print " \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
+			file_tlpsrc.printf " \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
 		end
 		# end-of-line
 		file_tlpsrc.puts
 	end
 
 	make_doc_file_list(collection).sort.each do |f|
-		file_tlpsrc.puts "docpattern d texmf-dist/#{f}"
+		file_tlpsrc.printf "docpattern d texmf-dist/#{f}"
 	end
 	make_src_file_list(collection).sort.each do |f|
 		file_tlpsrc.puts "srcpattern d texmf-dist/#{f}"
