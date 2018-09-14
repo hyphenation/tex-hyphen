@@ -7,10 +7,9 @@ require_relative 'languages.rb'
 include Language::TeXLive
 
 # TODO - make this a bit less hard-coded
-$path_TL=File.expand_path("../../../../../TL", __FILE__)
-$path_language_dat="#{$path_TL}/texmf-dist/tex/generic/config"
+$path_language_dat=File.join(PATH::TL, 'texmf-dist', 'tex', 'generic', 'config')
 # hyphen-foo.tlpsrc for TeX Live
-$path_tlpsrc="#{$path_TL}/tlpkg/tlpsrc"
+$path_tlpsrc = File.join(PATH::TL, 'tlpkg', 'tlpsrc')
 
 
 $dirlist = Hash.new
