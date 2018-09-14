@@ -14,7 +14,7 @@ $path_quote="#{$path_root}/tex/generic/hyph-utf8/patterns/quote"
 
 codes_to_skip = ['mn-cyrl-x-lmc']
 
-Language.all_sorted.each do |language|
+Language.all.sort.each do |language|
 	code = language.code
 
 	if language.use_old_loader || codes_to_skip.include?(code)

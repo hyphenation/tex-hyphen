@@ -2104,8 +2104,7 @@ class Language
 		end
 	end
 
-	def self.all_sorted
-		all unless @@list
-	  @@list.sort { |a, b| a.code <=> b.code }
+	def <=>(other)
+	  self.code <=> other.code
 	end
 end
