@@ -5,7 +5,7 @@ shortdesc Icelandic hyphenation patterns.
 longdesc Hyphenation patterns for Icelandic in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=icelandic \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-is.tex \
 	file_patterns=hyph-is.pat.txt \

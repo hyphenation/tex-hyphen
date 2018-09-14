@@ -8,7 +8,7 @@ longdesc and don't hyphenate words that have different hyphenations according
 longdesc to their meaning.
 execute AddHyphen \
 	name=dutch \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-nl.tex \
 	file_patterns=hyph-nl.pat.txt \

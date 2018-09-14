@@ -5,7 +5,7 @@ shortdesc Interlingua hyphenation patterns.
 longdesc Hyphenation patterns for Interlingua in ASCII encoding.
 execute AddHyphen \
 	name=interlingua \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-ia.tex \
 	file_patterns=hyph-ia.pat.txt \

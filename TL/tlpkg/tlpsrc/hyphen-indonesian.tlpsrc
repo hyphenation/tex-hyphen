@@ -6,7 +6,7 @@ longdesc Hyphenation patterns for Indonesian (Bahasa Indonesia) in ASCII
 longdesc encoding.  They are probably also usable for Malay (Bahasa Melayu).
 execute AddHyphen \
 	name=indonesian \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-id.tex \
 	file_patterns=hyph-id.pat.txt \

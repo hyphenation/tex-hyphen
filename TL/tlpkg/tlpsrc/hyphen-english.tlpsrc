@@ -10,14 +10,14 @@ longdesc hyphenation is completely different from US English, so has its
 longdesc own set of patterns.
 execute AddHyphen \
 	name=ukenglish synonyms=british,UKenglish \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=3 \
 	file=loadhyph-en-gb.tex \
 	file_patterns=hyph-en-gb.pat.txt \
 	file_exceptions=hyph-en-gb.hyp.txt
 execute AddHyphen \
 	name=usenglishmax \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=3 \
 	file=loadhyph-en-us.tex \
 	file_patterns=hyph-en-us.pat.txt \

@@ -193,8 +193,8 @@ Language.packages.sort.each do |collection, languages|
 			file_tlpsrc.puts "longdesc #{language.description_l.join("\nlongdesc ")}"
 		end
 
-		file_tlpsrc.puts  "execute AddHyphen \\\n\tname=#{language.name}#{make_synonyms(language)} \\"
-		file_tlpsrc.print "\t#{make_hyphenmins(language)} \\\n\t#{make_file_line(language)}"
+		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name, make_synonyms(language)
+		file_tlpsrc.printf "\t#%s \\\n\t%s", make_hyphenmins(language), make_file_line(language)
 		if language.patterns_line + language.exceptions_line != ""
 			file_tlpsrc.print " \\\n\t#{language.patterns_line} \\\n\t#{language.exceptions_line}"
 		end

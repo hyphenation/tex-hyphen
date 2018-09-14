@@ -8,7 +8,7 @@ longdesc The latter can only be used with special Coptic fonts (like CBcoptic).
 longdesc The patterns are considered experimental.
 execute AddHyphen \
 	name=coptic \
-	lefthyphenmin=1 \
+	#lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-cop.tex \
 	file_patterns=hyph-cop.pat.txt \

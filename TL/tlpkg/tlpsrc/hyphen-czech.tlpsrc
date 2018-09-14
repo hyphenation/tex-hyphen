@@ -7,7 +7,7 @@ longdesc Original patterns 'czhyphen' are still distributed in the 'csplain'
 longdesc package and loaded with ISO Latin 2 encoding (IL2).
 execute AddHyphen \
 	name=czech \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=3 \
 	file=loadhyph-cs.tex \
 	file_patterns=hyph-cs.pat.txt \

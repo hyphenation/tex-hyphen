@@ -5,7 +5,7 @@ shortdesc Pali hyphenation patterns.
 longdesc Pali hyphenation patterns in UTF-8 encoding
 execute AddHyphen \
 	name=pali \
-	lefthyphenmin=1 \
+	#lefthyphenmin=1 \
 	righthyphenmin=2 \
 	file=loadhyph-pi.tex \
 	file_patterns=hyph-pi.pat.txt \

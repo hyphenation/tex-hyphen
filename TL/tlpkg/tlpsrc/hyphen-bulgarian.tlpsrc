@@ -5,7 +5,7 @@ shortdesc Bulgarian hyphenation patterns.
 longdesc Hyphenation patterns for Bulgarian in T2A and UTF-8 encodings.
 execute AddHyphen \
 	name=bulgarian \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-bg.tex \
 	file_patterns=hyph-bg.pat.txt \

@@ -5,7 +5,7 @@ shortdesc Welsh hyphenation patterns.
 longdesc Hyphenation patterns for Welsh in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=welsh \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=3 \
 	file=loadhyph-cy.tex \
 	file_patterns=hyph-cy.pat.txt \

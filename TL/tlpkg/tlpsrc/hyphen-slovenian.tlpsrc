@@ -5,7 +5,7 @@ shortdesc Slovenian hyphenation patterns.
 longdesc Hyphenation patterns for Slovenian in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=slovenian synonyms=slovene \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-sl.tex \
 	file_patterns=hyph-sl.pat.txt \

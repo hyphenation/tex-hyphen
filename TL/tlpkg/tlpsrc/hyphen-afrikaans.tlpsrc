@@ -7,7 +7,7 @@ longdesc OpenOffice includes older patterns created by a different author,
 longdesc but the patterns packaged with TeX are considered superior in quality.
 execute AddHyphen \
 	name=afrikaans \
-	lefthyphenmin=1 \
+	#lefthyphenmin=1 \
 	righthyphenmin=2 \
 	file=loadhyph-af.tex \
 	file_patterns=hyph-af.pat.txt \

@@ -11,7 +11,7 @@ longdesc provides the default pattern set.  A mechanism similar to the one used
 longdesc for 8-bit patterns may be implemented in the future.
 execute AddHyphen \
 	name=russian \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-ru.tex \
 	file_patterns=hyph-ru.pat.txt \

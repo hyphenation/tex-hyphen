@@ -5,7 +5,7 @@ shortdesc Turkmen hyphenation patterns.
 longdesc Hyphenation patterns for Turkmen in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=turkmen \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-tk.tex \
 	file_patterns=hyph-tk.pat.txt \

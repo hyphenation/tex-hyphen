@@ -5,7 +5,7 @@ shortdesc Armenian hyphenation patterns.
 longdesc Hyphenation patterns for Armenian for Unicode engines.
 execute AddHyphen \
 	name=armenian \
-	lefthyphenmin=1 \
+	#lefthyphenmin=1 \
 	righthyphenmin=2 \
 	file=loadhyph-hy.tex \
 	file_patterns=hyph-hy.pat.txt \

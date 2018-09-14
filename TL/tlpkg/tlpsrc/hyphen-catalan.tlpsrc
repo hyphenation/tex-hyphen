@@ -5,7 +5,7 @@ shortdesc Catalan hyphenation patterns.
 longdesc Hyphenation patterns for Catalan in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=catalan \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-ca.tex \
 	file_patterns=hyph-ca.pat.txt \

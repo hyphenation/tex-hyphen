@@ -10,7 +10,7 @@ longdesc into EC encoding, so support for Ottoman Turkish had to be dropped to
 longdesc keep compatibility with 8-bit engines.
 execute AddHyphen \
 	name=turkish \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-tr.tex \
 	file_patterns=hyph-tr.pat.txt \

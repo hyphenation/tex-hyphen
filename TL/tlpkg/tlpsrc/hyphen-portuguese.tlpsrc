@@ -5,7 +5,7 @@ shortdesc Portuguese hyphenation patterns.
 longdesc Hyphenation patterns for Portuguese in T1/EC and UTF-8 encodings.
 execute AddHyphen \
 	name=portuguese synonyms=portuges \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=3 \
 	file=loadhyph-pt.tex \
 	file_patterns=hyph-pt.pat.txt \

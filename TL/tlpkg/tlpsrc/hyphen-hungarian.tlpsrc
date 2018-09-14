@@ -6,7 +6,7 @@ longdesc Hyphenation patterns for Hungarian in T1/EC and UTF-8 encodings.
 longdesc From https://github.com/nagybence/huhyphn/.
 execute AddHyphen \
 	name=hungarian \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-hu.tex \
 	file_patterns=hyph-hu.pat.txt \

@@ -9,7 +9,7 @@ longdesc It ranges from the Val d'Aran within Catalunya, to the South Western
 longdesc Italian Alps encompassing the southern half of the French pentagon.
 execute AddHyphen \
 	name=occitan \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-oc.tex \
 	file_patterns=hyph-oc.pat.txt \

@@ -5,7 +5,7 @@ shortdesc Latvian hyphenation patterns.
 longdesc Hyphenation patterns for Latvian in L7X and UTF-8 encodings.
 execute AddHyphen \
 	name=latvian \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-lv.tex \
 	file_patterns=hyph-lv.pat.txt \

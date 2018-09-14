@@ -5,7 +5,7 @@ shortdesc Georgian hyphenation patterns.
 longdesc Hyphenation patterns for Georgian in T8M, T8K and UTF-8 encodings.
 execute AddHyphen \
 	name=georgian \
-	lefthyphenmin=1 \
+	#lefthyphenmin=1 \
 	righthyphenmin=2 \
 	file=loadhyph-ka.tex \
 	file_patterns=hyph-ka.pat.txt \

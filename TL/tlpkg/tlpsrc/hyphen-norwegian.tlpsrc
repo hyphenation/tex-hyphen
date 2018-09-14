@@ -6,14 +6,14 @@ longdesc Hyphenation patterns for Norwegian Bokmal and Nynorsk in T1/EC and
 longdesc UTF-8 encodings.
 execute AddHyphen \
 	name=bokmal synonyms=norwegian,norsk \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-nb.tex \
 	file_patterns=hyph-nb.pat.txt \
 	file_exceptions=hyph-nb.hyp.txt
 execute AddHyphen \
 	name=nynorsk \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-nn.tex \
 	file_patterns=hyph-nn.pat.txt \

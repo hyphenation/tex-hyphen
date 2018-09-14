@@ -8,14 +8,14 @@ longdesc Patterns in UTF-8 use two code positions for each of the vowels with
 longdesc acute accent (a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.
 execute AddHyphen \
 	name=ancientgreek \
-	lefthyphenmin=1 \
+	#lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-grc.tex \
 	file_patterns=hyph-grc.pat.txt \
 	file_exceptions=
 execute AddHyphen \
 	name=ibycus \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=ibyhyph.tex \
 	luaspecial="disabled:8-bit only"

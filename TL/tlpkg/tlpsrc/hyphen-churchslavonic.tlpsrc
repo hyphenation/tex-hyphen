@@ -5,7 +5,7 @@ shortdesc Church Slavonic hyphenation patterns.
 longdesc Hyphenation patterns for Church Slavonic in UTF-8 encoding
 execute AddHyphen \
 	name=churchslavonic \
-	lefthyphenmin=1 \
+	#lefthyphenmin=1 \
 	righthyphenmin=2 \
 	file=loadhyph-cu.tex \
 	file_patterns=hyph-cu.pat.txt \

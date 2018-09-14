@@ -6,7 +6,7 @@ longdesc Hyphenation patterns for Lithuanian in L7X and UTF-8 encodings.
 longdesc \lefthyphenmin and \righthyphenmin have to be at least 2.
 execute AddHyphen \
 	name=lithuanian \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-lt.tex \
 	file_patterns=hyph-lt.pat.txt \

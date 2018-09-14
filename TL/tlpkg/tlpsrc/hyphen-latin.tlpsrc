@@ -10,7 +10,7 @@ longdesc there is no conflict between the patterns of modern Latin and
 longdesc those of medieval Latin.
 execute AddHyphen \
 	name=latin \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-la.tex \
 	file_patterns=hyph-la.pat.txt \
@@ -21,7 +21,7 @@ longdesc encodings. Classical Latin hyphenation patterns are different from
 longdesc those of 'plain' Latin, the latter being more adapted to modern Latin.
 execute AddHyphen \
 	name=classiclatin \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-la-x-classic.tex \
 	file_patterns=hyph-la-x-classic.pat.txt \
@@ -31,7 +31,7 @@ longdesc Hyphenation patterns for the Liturgical Latin in T1/EC and UTF-8
 longdesc encodings.
 execute AddHyphen \
 	name=liturgicallatin \
-	lefthyphenmin=2 \
+	#lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-la-x-liturgic.tex \
 	file_patterns=hyph-la-x-liturgic.pat.txt \

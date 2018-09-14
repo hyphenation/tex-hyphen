@@ -8,14 +8,14 @@ longdesc positions for each of the vowels with acute accent (a.k.a tonos,
 longdesc oxia), e.g., U+03AC, U+1F71 for alpha.
 execute AddHyphen \
 	name=monogreek \
-	lefthyphenmin=1 \
+	#lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-el-monoton.tex \
 	file_patterns=hyph-el-monoton.pat.txt \
 	file_exceptions=
 execute AddHyphen \
 	name=greek synonyms=polygreek \
-	lefthyphenmin=1 \
+	#lefthyphenmin=1 \
 	righthyphenmin=1 \
 	file=loadhyph-el-polyton.tex \
 	file_patterns=hyph-el-polyton.pat.txt \
