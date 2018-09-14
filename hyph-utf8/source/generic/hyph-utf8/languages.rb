@@ -367,21 +367,13 @@ class Language
 			@@packages
 		end
 
-		def package_dependencies(collection, outstream)
-			if dep = @@dependencies[collection]
-				outstream.printf "depend %s\n", dep
-			end
-		end
-
-		@@dependencies = {
-			"german" => "dehyph",
-			# for Russian and Ukrainian (until we implement the new functionality at least)
-			"russian" => "ruhyphen",
-			"ukrainian" => "ukrhyph",
-		}
-
-		def dependencies
-		  @@dependencies
+		def dependency(collection)
+			{
+				"german" => "dehyph",
+				# for Russian and Ukrainian (until we implement the new functionality at least)
+				"russian" => "ruhyphen",
+				"ukrainian" => "ukrhyph",
+			}[collection]
 		end
 	end
 

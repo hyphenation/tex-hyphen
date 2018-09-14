@@ -28,7 +28,9 @@ def write_dependencies(collection)
 	$file_tlpsrc.puts "depend hyph-utf8"
 
 	# external dependencies
-	Language.package_dependencies(collection, $file_tlpsrc)
+	if dependency = Language.dependency(collection)
+		$file_tlpsrc.printf "depend %s\n", dependency
+	end
 end
 
 def make_synonyms(language)
@@ -77,7 +79,7 @@ def make_run_file_list(collection)
 	  full + make_individual_run_file_list(language)
 	end
 
-	unless Language.dependencies[collection]
+	unless Language.dependency(collection)
 		languages.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
 				full.push("tex/generic/hyphen/#{language.filename_old_patterns}")
