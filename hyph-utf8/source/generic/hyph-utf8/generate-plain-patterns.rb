@@ -45,11 +45,8 @@ Language.all.sort.each do |language|
 	files[:hyp].puts language.get_exceptions if language.get_exceptions != ""
 
 	# characters
-	characters_indexes = language.get_patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
-	characters_indexes.each do |c|
-		ch = [c].pack('U')
-		files[:chr].puts ch + Unicode.upcase(ch)
-		files[:chr].puts "’’" if ch == "'" && !language.isgreek?
+	language.extract_characters.each do |character|
+	  files[:chr].puts character
 	end
 
 	# comments and licence

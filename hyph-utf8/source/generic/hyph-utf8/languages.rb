@@ -208,6 +208,19 @@ class Language
 
 			{ plain: plain, with_quote: if with_quote then with_quote end }
 		end
+
+		def extract_characters
+			characters = Array.new
+
+			characters_indexes = get_patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
+			characters_indexes.each do |c|
+				ch = [c].pack('U')
+				characters << ch + Unicode.upcase(ch)
+				characters << "’’" if ch == "'" && !isgreek?
+			end
+
+			characters
+		end
 	end
 end
 
