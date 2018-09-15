@@ -19,14 +19,17 @@ Language.all.sort.each do |language|
 
 	puts "generating #{code}"
 
-	files = Hash.new
-	[:pat, :hyp, :chr, :lic].each do |ext|
-		files[ext] = File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', code, ext)), 'w'
+	def outfile(ext)
+		File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', code, ext)), 'w'
 	end
 
 	# patterns
 	patterns = language.extract_apostrophes
-	patterns[:plain].each { |pattern| files[:pat].puts pattern }
+	outfile('pat') do |file|
+		patterns[:plain].each do |pattern|
+		  file.puts pattern
+		end
+	end
 
   # apostrophes if applicable
 	with_quote = patterns[:with_quote]
@@ -41,18 +44,21 @@ Language.all.sort.each do |language|
 	end
 
 	# exceptions
-	# language.write_exceptions(files[:hyp])
-	files[:hyp].puts language.get_exceptions if language.get_exceptions != ""
+	if language.get_exceptions != ""
+		outfile('hyp') do |file|
+			file.puts language.get_exceptions
+		end
+	end
 
 	# characters
-	language.extract_characters.each do |character|
-	  files[:chr].puts character
+	outfile('chr') do |file|
+		language.extract_characters.each do |character|
+			file.puts character
+		end
 	end
 
 	# comments and licence
-	files[:lic].puts language.get_comments_and_licence
-
-	files.values.each do |file|
-	  file.close
+	outfile('lic') do |file|
+		file.puts language.get_comments_and_licence
 	end
 end
