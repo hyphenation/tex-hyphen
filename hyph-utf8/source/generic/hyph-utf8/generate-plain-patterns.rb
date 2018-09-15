@@ -23,7 +23,7 @@ Language.all.sort.each do |language|
 
 	files = Hash.new
 	[:pat, :hyp, :chr, :lic].each do |ext|
-		files[ext] = File.open File.join(PATH::TXT, sprintf('hyph-%s.%s', code, ext)), 'w'
+		files[ext] = File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', code, ext)), 'w'
 	end
 
 	patterns   = language.get_patterns
