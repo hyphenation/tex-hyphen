@@ -193,6 +193,21 @@ class Language
 		def patterns_line
 			plain_text_line('pat', 'patterns')
 		end
+
+		def write_patterns(outfile)
+			patterns_with_quote = Array.new
+
+			get_patterns.each do |pattern|
+				outfile.puts pattern
+				if pattern =~ /'/ && !isgreek?
+					pattern_with_quote = pattern.gsub(/'/,"’")
+					outfile.puts pattern_with_quote
+					patterns_with_quote.push(pattern_with_quote)
+				end
+			end
+
+			patterns_with_quote if patterns_with_quote
+		end
 	end
 end
 

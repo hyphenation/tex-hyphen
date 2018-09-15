@@ -7,6 +7,7 @@
 require 'unicode'
 
 require_relative 'languages.rb'
+include Language::TeXLive
 
 Language.all.sort.each do |language|
 	code = language.code
@@ -23,19 +24,11 @@ Language.all.sort.each do |language|
 		files[ext] = File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', code, ext)), 'w'
 	end
 
-	patterns_with_quote = Array.new
-
 	# patterns
-	language.get_patterns.each do |pattern|
-		files[:pat].puts pattern
-		if pattern =~ /'/ && !language.isgreek?
-			pattern_with_quote = pattern.gsub(/'/,"’")
-			files[:pat].puts pattern_with_quote
-			patterns_with_quote.push(pattern_with_quote)
-		end
-	end
+	patterns_with_quote = language.write_patterns(files[:pat])
 
 	# exceptions
+	# language.write_exceptions(files[:hyp])
 	files[:hyp].puts language.get_exceptions if language.get_exceptions != ""
 
 	# characters
@@ -53,7 +46,7 @@ Language.all.sort.each do |language|
 	  file.close
 	end
 
-	if patterns_with_quote.length > 0
+	if patterns_with_quote
 		f = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
 		f.printf "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n"
 		patterns_with_quote.each do |pattern|
