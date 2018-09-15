@@ -8,6 +8,7 @@ module PATH
 	TXT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'txt')
 	TEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'tex')
 	PTEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'ptex')
+	QUOTE = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'quote')
 
   HYPHU8 = File.join('tex', 'generic', 'hyph-utf8')
 
@@ -128,9 +129,15 @@ class Language
 		@description_s || @message
 	end
 
+	# Strictly speaking a misnomer, because grc-x-ibycus should also return true.
+	# But useful for a number of quote-related routines
+	def isgreek?
+	  ['grc', 'el-polyton', 'el-monoton'].include? @code
+	end
+
   def has_quotes
 		begin
-			get_patterns.any? { |p| p =~ /'/ } && !(['grc', 'el-polyton', 'el-monoton'].include?(@code))
+			!isgreek? && get_patterns.any? { |p| p =~ /'/ }
 		rescue Errno::ENOENT
 		  false
 		end
