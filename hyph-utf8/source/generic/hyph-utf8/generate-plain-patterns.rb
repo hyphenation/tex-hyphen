@@ -25,10 +25,11 @@ Language.all.sort.each do |language|
 	end
 
 	# patterns
-	all_patterns = language.write_patterns
-	all_patterns[:patterns].each { |pattern| files[:pat].puts pattern }
+	patterns = language.extract_apostrophes
+	patterns[:plain].each { |pattern| files[:pat].puts pattern }
 
-	with_quote = all_patterns[:with_quote]
+  # apostrophes if applicable
+	with_quote = patterns[:with_quote]
 	if with_quote
 		f = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
 		f.printf "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n"
