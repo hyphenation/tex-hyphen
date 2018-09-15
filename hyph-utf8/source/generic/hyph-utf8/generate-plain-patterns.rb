@@ -8,9 +8,6 @@ require 'unicode'
 
 require_relative 'languages.rb'
 
-$path_root=File.expand_path("../../../..", __FILE__)
-$path_plain="#{$path_root}/tex/generic/hyph-utf8/patterns/txt"
-
 Language.all.sort.each do |language|
 	code = language.code
 
@@ -26,42 +23,40 @@ Language.all.sort.each do |language|
 		files[ext] = File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', code, ext)), 'w'
 	end
 
-	patterns   = language.get_patterns
-	exceptions = language.get_exceptions
-	patterns_quote = Array.new
+	patterns_with_quote = Array.new
 
 	# patterns
-	patterns.each do |pattern|
+	language.get_patterns.each do |pattern|
 		files[:pat].puts pattern
-		if pattern =~ /'/ then
-			if !language.isgreek?
-				pattern_with_quote = pattern.gsub(/'/,"’")
-				files[:pat].puts pattern_with_quote
-				patterns_quote.push(pattern_with_quote)
-			end
+		if pattern =~ /'/ && !language.isgreek?
+			pattern_with_quote = pattern.gsub(/'/,"’")
+			files[:pat].puts pattern_with_quote
+			patterns_with_quote.push(pattern_with_quote)
 		end
 	end
 
 	# exceptions
-	files[:hyp].puts exceptions if exceptions != ""
+	files[:hyp].puts language.get_exceptions if language.get_exceptions != ""
 
-	# letters
-	characters_indexes = patterns.join('').gsub(/[.0-9]/,'').unpack('U*').sort.uniq
+	# characters
+	characters_indexes = language.get_patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
 	characters_indexes.each do |c|
 		ch = [c].pack('U')
 		files[:chr].puts ch + Unicode.upcase(ch)
 		files[:chr].puts "’’" if ch == "'" && !language.isgreek?
 	end
+
+	# comments and licence
 	files[:lic].puts language.get_comments_and_licence
 
 	files.values.each do |file|
 	  file.close
 	end
 
-	if patterns_quote.length > 0
+	if patterns_with_quote.length > 0
 		f = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
 		f.printf "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n"
-		patterns_quote.each do |pattern|
+		patterns_with_quote.each do |pattern|
 			f.printf "%s\n", pattern
 		end
 		f.puts "}\n\\egroup\n"
