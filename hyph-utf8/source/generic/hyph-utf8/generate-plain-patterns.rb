@@ -25,7 +25,19 @@ Language.all.sort.each do |language|
 	end
 
 	# patterns
-	patterns_with_quote = language.write_patterns(files[:pat])
+	all_patterns = language.write_patterns
+	all_patterns[:patterns].each { |pattern| files[:pat].puts pattern }
+
+	with_quote = all_patterns[:with_quote]
+	if with_quote
+		f = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
+		f.printf "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n"
+		with_quote.each do |pattern|
+			f.printf "%s\n", pattern
+		end
+		f.puts "}\n\\egroup\n"
+		f.close
+	end
 
 	# exceptions
 	# language.write_exceptions(files[:hyp])
@@ -44,15 +56,5 @@ Language.all.sort.each do |language|
 
 	files.values.each do |file|
 	  file.close
-	end
-
-	if patterns_with_quote
-		f = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
-		f.printf "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n"
-		patterns_with_quote.each do |pattern|
-			f.printf "%s\n", pattern
-		end
-		f.puts "}\n\\egroup\n"
-		f.close
 	end
 end
