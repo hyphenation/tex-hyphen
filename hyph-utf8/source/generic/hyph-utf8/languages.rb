@@ -195,18 +195,18 @@ class Language
 		end
 
 		def extract_apostrophes
-			plain, with_quote = Array.new, nil
+			plain, with_apostrophe = Array.new, nil
 
 			get_patterns.each do |pattern|
 				plain << pattern
 				if pattern =~ /'/ && !isgreek?
-					pattern_with_quote = pattern.gsub(/'/,"’")
-					plain << pattern_with_quote
-					(with_quote ||= []) << pattern_with_quote
+					pattern_with_apostrophe = pattern.gsub(/'/,"’")
+					plain << pattern_with_apostrophe
+					(with_apostrophe ||= []) << pattern_with_apostrophe
 				end
 			end
 
-			{ plain: plain, with_quote: if with_quote then with_quote end }
+			{ plain: plain, with_apostrophe: if with_apostrophe then with_apostrophe end }
 		end
 
 		def extract_characters

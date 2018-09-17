@@ -9,6 +9,7 @@ require 'unicode'
 require_relative 'languages.rb'
 include Language::TeXLive
 
+# FIXME sr-cyrl?
 Language.all.sort.each do |language|
 	code = language.code
 
@@ -19,46 +20,48 @@ Language.all.sort.each do |language|
 
 	puts "generating #{code}"
 
-	def outfile(ext)
+	outfile = Proc.new do |ext|
 		File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', code, ext)), 'w'
 	end
 
 	# patterns
 	patterns = language.extract_apostrophes
-	outfile('pat') do |file|
-		patterns[:plain].each do |pattern|
+	file = outfile.call('pat')
+	patterns[:plain].each do |pattern|
+		file.puts pattern
+	end
+
+	# apostrophes if applicable
+	with_apostrophe = patterns[:with_apostrophe]
+	if with_apostrophe
+		patterns = Array.new
+		patterns << "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{"
+		with_apostrophe.each do |pattern|
+			patterns << sprintf("%s", pattern)
+		end
+		patterns << "}\n\\egroup"
+
+		file = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
+		patterns.each do |pattern|
 		  file.puts pattern
 		end
 	end
 
-  # apostrophes if applicable
-	with_quote = patterns[:with_quote]
-	if with_quote
-		f = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
-		f.printf "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n"
-		with_quote.each do |pattern|
-			f.printf "%s\n", pattern
-		end
-		f.puts "}\n\\egroup\n"
-		f.close
-	end
-
 	# exceptions
+	file = outfile.call('hyp') # This ensure a file is created, even if it may be empty
 	if language.get_exceptions != ""
-		outfile('hyp') do |file|
-			file.puts language.get_exceptions
-		end
+		file.puts language.get_exceptions
 	end
 
 	# characters
-	outfile('chr') do |file|
-		language.extract_characters.each do |character|
-			file.puts character
-		end
+	file = outfile.call('chr')
+	language.extract_characters.each do |character|
+		file.puts character
 	end
 
 	# comments and licence
-	outfile('lic') do |file|
-		file.puts language.get_comments_and_licence
-	end
+	file = outfile.call('lic')
+	file.puts language.get_comments_and_licence
+
+	file.close
 end
