@@ -314,14 +314,11 @@ module TeXLive
 					@@packages[language.name] = [language] unless @@language_collections[language.name]
 				end
 			end
-
-			require 'byebug'; byebug
 		end
 
 		@@packages = nil
 		def self.packages
 			make_mappings unless @@packages
-			puts @@packages
 			@@packages
 		end
 
