@@ -257,9 +257,11 @@ class Language
 			new language_data
 		end
 	end
+end
 
-	module TeXLive
-		@@collection_mapping = {
+module TeXLive
+	class Package
+		@@packages = {
 			"en-gb"=>"english",
 			"en-us"=>"english",
 			"nb"=>"norwegian",
@@ -293,22 +295,22 @@ class Language
 		}
 
 		def make_mappings
-			# The reverse of @@collection_mapping above: a hash with collection names as key,
+			# The reverse of @@packages above: a hash with package names as key,
 			# and an array of the names of languages it contains
 			@@language_collections = Hash.new
-			@@collection_mapping.each do |bcp47, collection|
-				(@@language_collections[collection] ||= []) << bcp47
+			@@packages.each do |bcp47, package|
+				(@@language_collections[package] ||= []) << bcp47
 			end
 
 			# a hash with the names of TeX Live packages, either individual language names,
 			# or an array of languages as the value
 			@@packages = Hash.new
 			all.each do |language|
-				if groupname = @@collection_mapping[language.code]
-					# language is part of a collection
+				if groupname = @@packages[language.code]
+					# language is part of a package
 					(@@packages[groupname] ||= []) << language
 				else
-					# language is individual, but yields to collection if there is one with the same name
+					# language is individual, but yields to package if there is one with the same name
 					@@packages[language.name] = [language] unless @@language_collections[language.name]
 				end
 			end
