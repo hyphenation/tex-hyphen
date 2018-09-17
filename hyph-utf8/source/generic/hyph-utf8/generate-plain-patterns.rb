@@ -26,7 +26,7 @@ Language.all.sort.each do |language|
 
 	# patterns
 	patterns = language.extract_apostrophes
-	file = outfile.call('pat')
+	file = outfile.('pat')
 	patterns[:plain].each do |pattern|
 		file.puts pattern
 	end
@@ -43,19 +43,19 @@ Language.all.sort.each do |language|
 	end
 
 	# exceptions
-	file = outfile.call('hyp') # This ensure a file is created, even if it may be empty
+	file = outfile.('hyp') # This ensure a file is created, even if it may be empty
 	if language.get_exceptions != ""
 		file.puts language.get_exceptions
 	end
 
 	# characters
-	file = outfile.call('chr')
+	file = outfile.('chr')
 	language.extract_characters.each do |character|
 		file.puts character
 	end
 
 	# comments and licence
-	file = outfile.call('lic')
+	file = outfile.('lic')
 	file.puts language.get_comments_and_licence
 
 	file.close
