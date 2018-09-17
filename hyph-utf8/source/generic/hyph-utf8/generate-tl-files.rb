@@ -119,35 +119,31 @@ def make_individual_run_file_list(language)
 
 	files = []
 
-	files_path_hyph8 = "tex/generic/hyph-utf8"
 	files << File.join(PATH::HYPHU8, 'loadhyph', language.loadhyph)
 	if language.has_apostrophes
 		files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", language.code))
 	end
 
-	if (code = language.code) =~ /^sh-/
-		files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', language.code))
+	files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', language.code))
+	if language.encoding && language.encoding != "ascii" then
 		files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', language.code, language.encoding))
+	elsif language.code == "cop"
+		files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', language.filename_old_patterns)
+	end
+
+	# we skip the mongolian language for luatex files
+	return files if language.code == "mn-cyrl-x-lmc"
+
+	['chr', 'pat', 'hyp', 'lic'].each do |t|
+		files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', language.code, t))
+	end
+
+	if language.code =~ /^sh-/
 		# duplicate entries (will be removed later)
 		files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
 		['chr', 'pat', 'hyp', 'lic'].each do |t|
-			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', language.code, t))
 			# duplicate entries (will be removed later)
 			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
-		end
-	else
-		files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', language.code))
-		if language.encoding && language.encoding != "ascii" then
-			files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', language.code, language.encoding))
-		elsif language.code == "cop"
-			files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', language.filename_old_patterns)
-		end
-
-		# we skip the mongolian language for luatex files
-		return files if language.code == "mn-cyrl-x-lmc"
-
-		['chr', 'pat', 'hyp', 'lic'].each do |t|
-			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', language.code, t))
 		end
 	end
 
