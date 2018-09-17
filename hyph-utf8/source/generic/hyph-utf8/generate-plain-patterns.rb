@@ -34,17 +34,12 @@ Language.all.sort.each do |language|
 	# apostrophes if applicable
 	with_apostrophe = patterns[:with_apostrophe]
 	if with_apostrophe
-		patterns = Array.new
-		patterns << "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{"
-		with_apostrophe.each do |pattern|
-			patterns << sprintf("%s", pattern)
-		end
-		patterns << "}\n\\egroup"
-
 		file = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
-		patterns.each do |pattern|
-		  file.puts pattern
+		file.printf "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n"
+		with_apostrophe.each do |pattern|
+			file.printf "%s\n", pattern
 		end
+		file.puts "}\n\\egroup\n"
 	end
 
 	# exceptions
