@@ -222,6 +222,42 @@ class Language
 			characters
 		end
 	end
+
+	def list_run_files
+		return [] if use_old_loader
+
+		files = []
+
+		files << File.join(PATH::HYPHU8, 'loadhyph', loadhyph)
+		if has_apostrophes
+			files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", code))
+		end
+
+		files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', code))
+		if encoding && encoding != "ascii" then
+			files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', code, encoding))
+		elsif code == "cop"
+			files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', filename_old_patterns)
+		end
+
+		# we skip the mongolian language for luatex files
+		return files if code == "mn-cyrl-x-lmc"
+
+		['chr', 'pat', 'hyp', 'lic'].each do |t|
+			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', code, t))
+		end
+
+		if code =~ /^sh-/
+			# duplicate entries (will be removed later)
+			files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
+			['chr', 'pat', 'hyp', 'lic'].each do |t|
+				# duplicate entries (will be removed later)
+				files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
+			end
+		end
+
+		files
+	end
 end
 
 class Author
