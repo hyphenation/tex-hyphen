@@ -121,7 +121,7 @@ def make_individual_run_file_list(language)
 
 	files_path_hyph8 = "tex/generic/hyph-utf8"
 	files << File.join(PATH::HYPHU8, 'loadhyph', language.loadhyph)
-	if language.has_quotes
+	if language.has_apostrophes
 		files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", language.code))
 	end
 

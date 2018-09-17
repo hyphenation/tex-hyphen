@@ -130,12 +130,12 @@ class Language
 	end
 
 	# Strictly speaking a misnomer, because grc-x-ibycus should also return true.
-	# But useful for a number of quote-related routines
+	# But useful for a number of apostrophe-related routines
 	def isgreek?
 	  ['grc', 'el-polyton', 'el-monoton'].include? @code
 	end
 
-  def has_quotes
+  def has_apostrophes
 		begin
 			!isgreek? && get_patterns.any? { |p| p =~ /'/ }
 		rescue Errno::ENOENT
