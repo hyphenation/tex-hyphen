@@ -261,7 +261,7 @@ end
 
 module TeXLive
 	class Package
-		@@packages = {
+		@@package_mappings = {
 			"en-gb"=>"english",
 			"en-us"=>"english",
 			"nb"=>"norwegian",
@@ -294,18 +294,18 @@ module TeXLive
 			"la-x-liturgic"=>"latin"
 		}
 
-		def make_mappings
-			# The reverse of @@packages above: a hash with package names as key,
+		def self.make_mappings
+			# The reverse of @@package_mappings above: a hash with package names as key,
 			# and an array of the names of languages it contains
 			@@language_collections = Hash.new
-			@@packages.each do |bcp47, package|
+			@@package_mappings.each do |bcp47, package|
 				(@@language_collections[package] ||= []) << bcp47
 			end
 
 			# a hash with the names of TeX Live packages, either individual language names,
 			# or an array of languages as the value
 			@@packages = Hash.new
-			all.each do |language|
+			Language.all.each do |language|
 				if groupname = @@packages[language.code]
 					# language is part of a package
 					(@@packages[groupname] ||= []) << language
@@ -314,15 +314,18 @@ module TeXLive
 					@@packages[language.name] = [language] unless @@language_collections[language.name]
 				end
 			end
+
+			require 'byebug'; byebug
 		end
 
 		@@packages = nil
-		def packages
+		def self.packages
 			make_mappings unless @@packages
+			puts @@packages
 			@@packages
 		end
 
-		def dependency(collection)
+		def self.has_dependency?(collection)
 			{
 				"german" => "dehyph",
 				# for Russian and Ukrainian (until we implement the new functionality at least)

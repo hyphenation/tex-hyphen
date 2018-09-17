@@ -5,7 +5,7 @@
 
 require_relative 'languages.rb'
 include Language::TeXLive
-
+include TeXLive
 
 $dirlist = Hash.new
 def dirlist(type)
@@ -23,7 +23,7 @@ def make_dependencies(collection)
 	]
 
 	# external dependencies
-	if dependency = Language.dependency(collection)
+	if dependency = Package.has_dependency?(collection)
 		dependencies << sprintf("depend %s", dependency)
 	end
 
@@ -64,7 +64,7 @@ end
 def make_doc_file_list(collection)
 	files_doc = []
 
-	Language.packages[collection].each do |language|
+	Package.packages[collection].each do |language|
 		# add documentation
 		if dirlist('doc').include?(language.code) then
 			files_doc << sprintf("doc/generic/hyph-utf8/languages/%s", language.code)
@@ -83,7 +83,7 @@ end
 
 def make_src_file_list(collection)
 	files_src = []
-	Language.packages[collection].each do |language|
+	Package.packages[collection].each do |language|
 		# add sources
 		if dirlist('source').include?(language.code) then
 			files_src << sprintf("source/generic/hyph-utf8/languages/%s", language.code)
@@ -97,13 +97,13 @@ def make_run_file_list(collection)
 	files = []
 	files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if collection == "norwegian"
 
-  languages = Language.packages[collection]
+  languages = Package.packages[collection]
 
   files = languages.inject(files) do |files, language|
 	  files + make_individual_run_file_list(language)
 	end
 
-	unless Language.dependency(collection)
+	unless Package.has_dependency?(collection)
 		languages.each do |language|
 			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
 				files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
@@ -154,7 +154,7 @@ end
 # TLPSRC #
 #--------#
 
-Language.packages.sort.each do |collection, languages|
+Package.packages.sort.each do |collection, languages|
 	tlpsrcname = File.join(PATH::TLPSRC, sprintf('hyphen-%s.tlpsrc', collection))
 	file_tlpsrc = File.open(tlpsrcname, 'w')
 	printf "generating %s\n", tlpsrcname
@@ -204,7 +204,7 @@ end
 language_dat_filename = File.join PATH::LANGUAGE_DAT, 'language.dat'
 File.open(language_dat_filename, 'w') do |file_language_dat|
 	printf "Generating %s\n", language_dat_filename
-	Language.packages.sort.each do |collection, languages|
+	Package.packages.sort.each do |collection, languages|
 		languages.each do |language|
 			# main language name
 			file_language_dat.printf "%s\t%s\n", language.name, language.loadhyph
