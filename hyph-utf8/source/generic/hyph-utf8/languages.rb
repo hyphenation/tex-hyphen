@@ -317,7 +317,7 @@ module TeXLive
 		end
 
 		@@packages = nil
-		def self.packages
+		def self.all
 			make_mappings unless @@packages
 			@@packages
 		end
@@ -331,7 +331,9 @@ module TeXLive
 			}[collection]
 		end
 	end
+end
 
+class Language
 	def <=>(other)
 	  code <=> other.code
 	end

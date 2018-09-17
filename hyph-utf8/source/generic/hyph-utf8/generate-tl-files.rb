@@ -64,7 +64,7 @@ end
 def make_doc_file_list(collection)
 	files_doc = []
 
-	Package.packages[collection].each do |language|
+	Package.all[collection].each do |language|
 		# add documentation
 		if dirlist('doc').include?(language.code) then
 			files_doc << sprintf("doc/generic/hyph-utf8/languages/%s", language.code)
@@ -83,7 +83,7 @@ end
 
 def make_src_file_list(collection)
 	files_src = []
-	Package.packages[collection].each do |language|
+	Package.all[collection].each do |language|
 		# add sources
 		if dirlist('source').include?(language.code) then
 			files_src << sprintf("source/generic/hyph-utf8/languages/%s", language.code)
@@ -97,7 +97,7 @@ def make_run_file_list(collection)
 	files = []
 	files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if collection == "norwegian"
 
-  languages = Package.packages[collection]
+  languages = Package.all[collection]
 
   files = languages.inject(files) do |files, language|
 	  files + make_individual_run_file_list(language)
@@ -154,7 +154,7 @@ end
 # TLPSRC #
 #--------#
 
-Package.packages.sort.each do |collection, languages|
+Package.all.sort.each do |collection, languages|
 	tlpsrcname = File.join(PATH::TLPSRC, sprintf('hyphen-%s.tlpsrc', collection))
 	file_tlpsrc = File.open(tlpsrcname, 'w')
 	printf "generating %s\n", tlpsrcname
@@ -204,7 +204,7 @@ end
 language_dat_filename = File.join PATH::LANGUAGE_DAT, 'language.dat'
 File.open(language_dat_filename, 'w') do |file_language_dat|
 	printf "Generating %s\n", language_dat_filename
-	Package.packages.sort.each do |collection, languages|
+	Package.all.sort.each do |collection, languages|
 		languages.each do |language|
 			# main language name
 			file_language_dat.printf "%s\t%s\n", language.name, language.loadhyph
