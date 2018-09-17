@@ -306,7 +306,7 @@ module TeXLive
 			# or an array of languages as the value
 			@@packages = Hash.new
 			Language.all.each do |language|
-				if groupname = @@packages[language.code]
+				if groupname = @@package_mappings[language.code]
 					# language is part of a package
 					(@@packages[groupname] ||= []) << language
 				else
