@@ -379,62 +379,62 @@ module TeXLive
 			}[collection]
 		end
 
-	def list_doc_files(collection)
-		files_doc = []
+		def list_doc_files(collection)
+			files_doc = []
 
-		Package.all[collection].each do |language|
-			# add documentation
-			if dirlist('doc').include?(language.code) then
-				files_doc << sprintf("doc/generic/hyph-utf8/languages/%s", language.code)
-			end
-		end
-
-		# documentation
-		if collection == "greek" then
-			files_doc << "doc/generic/elhyphen"
-		elsif collection == "hungarian" then
-			files_doc << "doc/generic/huhyphen"
-		end
-
-		files_doc
-	end
-
-	def list_src_files
-		files_src = []
-		Package.all[collection].each do |language|
-			# add sources
-			if dirlist('source').include?(language.code) then
-				files_src << sprintf("source/generic/hyph-utf8/languages/%s", language.code)
-			end
-		end
-
-		files_src
-	end
-
-	def list_run_files
-		files = []
-		files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if collection == "norwegian"
-
-		languages = Package.all[collection]
-
-		files = languages.inject(files) do |files, language|
-			files + language.list_run_files
-		end
-
-		unless Package.has_dependency?(collection)
-			languages.each do |language|
-				if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
-					files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
+			Package.all[collection].each do |language|
+				# add documentation
+				if dirlist('doc').include?(language.code) then
+					files_doc << sprintf("doc/generic/hyph-utf8/languages/%s", language.code)
 				end
 			end
+
+			# documentation
+			if collection == "greek" then
+				files_doc << "doc/generic/elhyphen"
+			elsif collection == "hungarian" then
+				files_doc << "doc/generic/huhyphen"
+			end
+
+			files_doc
 		end
 
-		files
-	end
+		def list_src_files
+			files_src = []
+			Package.all[collection].each do |language|
+				# add sources
+				if dirlist('source').include?(language.code) then
+					files_src << sprintf("source/generic/hyph-utf8/languages/%s", language.code)
+				end
+			end
 
-	def <=>(other)
-	  name <=> other.name
-	end
+			files_src
+		end
+
+		def list_run_files
+			files = []
+			files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if collection == "norwegian"
+
+			languages = Package.all[collection]
+
+			files = languages.inject(files) do |files, language|
+				files + language.list_run_files
+			end
+
+			unless Package.has_dependency?(collection)
+				languages.each do |language|
+					if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
+						files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
+					end
+				end
+			end
+
+			files
+		end
+
+		def <=>(other)
+			name <=> other.name
+		end
 	end
 end
 
