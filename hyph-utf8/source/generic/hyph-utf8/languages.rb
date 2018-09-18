@@ -349,9 +349,9 @@ module TeXLive
 			@@packages
 		end
 
-		@@packages = nil
+		@@packages = make_mappings
 		def self.all
-			@@packages ||= make_mappings 
+			@@packages
 		end
 
 		def self.has_dependency?(collection)
