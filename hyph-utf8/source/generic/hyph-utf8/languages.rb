@@ -347,17 +347,10 @@ module TeXLive
 			# or an array of languages as the value
 			@@packages = Hash.new
 			Language.all.each do |language|
-				if package_name = @@package_mappings[language.code]
-					# language is part of a package
-					package = package_names[package_name] || Package.new(package_name)
-				else
-					# language is individual, but yields to package if there is one with the same name
-					if package_names.include? language.name
-						next
-					else
-						package = Package.new language.name
-					end
-				end
+				package_name = @@package_mappings[language.code]
+				next if !package_name && package_names.include?(language.name)
+				package_name ||= language.name
+				package = package_names[package_name] || Package.new(package_name)
 
 				(@@packages[package] ||= []) << language
 			end
