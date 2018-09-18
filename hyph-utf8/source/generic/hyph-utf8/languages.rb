@@ -352,14 +352,15 @@ module TeXLive
 				end
 			end
 
-			@@package_mappings.map do |package_name, languages|
-			  Package.new package_name
-			end
+      @@package_names
 		end
 
-		@@packages = make_mappings
+		@@package_names = make_mappings
+		@@packages = nil
 		def self.all
-			@@packages
+			@@packages ||= @@package_mappings.map do |package_name, languages|
+			  Package.new package_name
+			end
 		end
 
 		def languages
