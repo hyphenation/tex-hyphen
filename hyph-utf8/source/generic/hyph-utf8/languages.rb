@@ -339,15 +339,18 @@ module TeXLive
 		}
 
 		def self.make_mappings
-			package_names = @@package_mappings.values.uniq
+			package_names = @@package_mappings.values.uniq.map do |package_name|
+				[package_name, Package.new package_name]
+			end.to_h
 
 			# a hash with the names of TeX Live packages, either individual language names,
 			# or an array of languages as the value
 			@@package_names = Hash.new
 			Language.all.each do |language|
+				next unless ['as', 'bn', 'gu'].include? language.code
 				if package_name = @@package_mappings[language.code]
 					# language is part of a package
-					package = @@package_names[package_name] || Package.new(package_name)
+					package = package_names[package_name] || Package.new(package_name)
 				else
 					# language is individual, but yields to package if there is one with the same name
 					if package_names.include? language.name
@@ -360,7 +363,8 @@ module TeXLive
 				(@@package_names[package] ||= []) << [language]
 			end
 
-      @@package_names
+			require 'byebug'; byebug
+			@@package_names
 		end
 
 		@@package_names = make_mappings
