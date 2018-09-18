@@ -61,75 +61,21 @@ def make_file_line(language)
 	end
 end
 
-def make_doc_file_list(collection)
-	files_doc = []
-
-	Package.all[collection].each do |language|
-		# add documentation
-		if dirlist('doc').include?(language.code) then
-			files_doc << sprintf("doc/generic/hyph-utf8/languages/%s", language.code)
-		end
-	end
-
-	# documentation
-	if collection == "greek" then
-		files_doc << "doc/generic/elhyphen"
-	elsif collection == "hungarian" then
-		files_doc << "doc/generic/huhyphen"
-	end
-
-	files_doc
-end
-
-def make_src_file_list(collection)
-	files_src = []
-	Package.all[collection].each do |language|
-		# add sources
-		if dirlist('source').include?(language.code) then
-			files_src << sprintf("source/generic/hyph-utf8/languages/%s", language.code)
-		end
-	end
-
-	files_src
-end
-
-def make_run_file_list(collection)
-	files = []
-	files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if collection == "norwegian"
-
-  languages = Package.all[collection]
-
-  files = languages.inject(files) do |files, language|
-	  files + language.list_run_files
-	end
-
-	unless Package.has_dependency?(collection)
-		languages.each do |language|
-			if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
-				files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
-			end
-		end
-	end
-
-	files
-end
-
-
 #--------#
 # TLPSRC #
 #--------#
 
-Package.all.sort.each do |collection, languages|
-	tlpsrcname = File.join(PATH::TLPSRC, sprintf('hyphen-%s.tlpsrc', collection))
+Package.all.sort.each do |package|
+	tlpsrcname = File.join(PATH::TLPSRC, sprintf('hyphen-%s.tlpsrc', package.name))
 	file_tlpsrc = File.open(tlpsrcname, 'w')
 	printf "generating %s\n", tlpsrcname
 
 	file_tlpsrc.puts "category TLCore"
-	make_dependencies(collection).each do |dependency|
+	make_dependencies(package.name).each do |dependency|
 		file_tlpsrc.puts dependency
 	end
 
-	languages.each do |language|
+	package.languages.each do |language|
 		if language.description_s && language.description_l then
 			file_tlpsrc.printf "shortdesc %s.\n", language.description_s
 			language.description_l.each do |line|
@@ -149,15 +95,15 @@ Package.all.sort.each do |collection, languages|
 		file_tlpsrc.puts
 	end
 
-	make_doc_file_list(collection).sort.each do |filename|
+	package.make_doc_file_list.sort.each do |filename|
 		file_tlpsrc.printf "docpattern d texmf-dist/%s\n", filename
 	end
 
-	make_src_file_list(collection).sort.each do |filename|
+	package.make_src_file_list.sort.each do |filename|
 		file_tlpsrc.printf "srcpattern d texmf-dist/%s\n", filename
 	end
 
-	make_run_file_list(collection).sort.uniq.each do |filename|
+	package.make_run_file_list.sort.uniq.each do |filename|
 		file_tlpsrc.printf "runpattern f texmf-dist/%s\n", filename
 	end
 	file_tlpsrc.close
@@ -169,8 +115,8 @@ end
 language_dat_filename = File.join PATH::LANGUAGE_DAT, 'language.dat'
 File.open(language_dat_filename, 'w') do |file_language_dat|
 	printf "Generating %s\n", language_dat_filename
-	Package.all.sort.each do |collection, languages|
-		languages.each do |language|
+	Package.all.sort.each do |package|
+		package.languages.each do |language|
 			# main language name
 			file_language_dat.printf "%s\t%s\n", language.name, language.loadhyph
 
