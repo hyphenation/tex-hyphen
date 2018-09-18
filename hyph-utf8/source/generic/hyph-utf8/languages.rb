@@ -345,12 +345,13 @@ module TeXLive
 					@@packages[language.name] = [language] unless package_names.include? language.name
 				end
 			end
+
+			@@packages
 		end
 
 		@@packages = nil
 		def self.all
-			make_mappings unless @@packages
-			@@packages
+			@@packages ||= make_mappings 
 		end
 
 		def self.has_dependency?(collection)
