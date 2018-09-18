@@ -95,15 +95,15 @@ Package.all.sort.each do |package|
 		file_tlpsrc.puts
 	end
 
-	package.make_doc_file_list.sort.each do |filename|
+	package.list_doc_files.sort.each do |filename|
 		file_tlpsrc.printf "docpattern d texmf-dist/%s\n", filename
 	end
 
-	package.make_src_file_list.sort.each do |filename|
+	package.list_src_files.sort.each do |filename|
 		file_tlpsrc.printf "srcpattern d texmf-dist/%s\n", filename
 	end
 
-	package.make_run_file_list.sort.uniq.each do |filename|
+	package.list_run_files.sort.uniq.each do |filename|
 		file_tlpsrc.printf "runpattern f texmf-dist/%s\n", filename
 	end
 	file_tlpsrc.close
