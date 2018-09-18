@@ -339,7 +339,7 @@ module TeXLive
 		}
 
 		def self.make_mappings
-			package_names = @@package_mappings.values.uniq.map do |package_name|
+			@@package_names = @@package_mappings.values.uniq.map do |package_name|
 				[package_name, new(package_name)]
 			end.to_h
 
@@ -348,9 +348,9 @@ module TeXLive
 			@@packages = Hash.new
 			Language.all.each do |language|
 				package_name = @@package_mappings[language.code]
-				next if !package_name && package_names.include?(language.name)
+				next if !package_name && @@package_names.include?(language.name)
 				package_name ||= language.name
-				package = package_names[package_name] || new(package_name)
+				package = @@package_names[package_name] || new(package_name)
 
 				(@@packages[package] ||= []) << language
 			end
@@ -429,6 +429,11 @@ module TeXLive
 
 		def <=>(other)
 			name <=> other.name
+		end
+
+		# FIXME Change later
+		def find(name)
+		  @@package_names[self]
 		end
 	end
 end

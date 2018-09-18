@@ -47,15 +47,15 @@ language_grouping = {
 space_leading = "            "
 space_tr      = "  "
 
-Package.all.sort.each do |language_name,language_list|
+Package.all.sort.each do |package|
 	first_line_printed = false
-	language_list.each do |language|
+	package.languages.each do |language|
 		if language != nil then
 			puts "#{space_leading}<tr>"
 
 			line_content = ""
 			if not first_line_printed then
-				line_content = "<b>#{language_name.capitalize}</b>"
+				line_content = "<b>#{package.name.capitalize}</b>"
 				first_line_printed = true;
 			else
 				line_content = "&nbsp;"
