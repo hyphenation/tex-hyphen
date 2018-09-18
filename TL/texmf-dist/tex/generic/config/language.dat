@@ -1,16 +1,45 @@
+afrikaans	loadhyph-af.tex
 ancientgreek	loadhyph-grc.tex
 ibycus	ibyhyph.tex
+arabic	zerohyph.tex
+armenian	loadhyph-hy.tex
+basque	loadhyph-eu.tex
+belarusian	loadhyph-be.tex
+bulgarian	loadhyph-bg.tex
+catalan	loadhyph-ca.tex
 pinyin	loadhyph-zh-latn-pinyin.tex
+churchslavonic	loadhyph-cu.tex
+coptic	loadhyph-cop.tex
+croatian	loadhyph-hr.tex
+czech	loadhyph-cs.tex
+danish	loadhyph-da.tex
+dutch	loadhyph-nl.tex
 ukenglish	loadhyph-en-gb.tex
 =british
 =UKenglish
 usenglishmax	loadhyph-en-us.tex
+esperanto	loadhyph-eo.tex
+estonian	loadhyph-et.tex
+ethiopic	loadhyph-mul-ethi.tex
+=amharic
+=geez
+farsi	zerohyph.tex
+=persian
+finnish	loadhyph-fi.tex
+french	loadhyph-fr.tex
+=patois
+=francais
+friulan	loadhyph-fur.tex
+galician	loadhyph-gl.tex
+georgian	loadhyph-ka.tex
 german	loadhyph-de-1901.tex
 ngerman	loadhyph-de-1996.tex
 swissgerman	loadhyph-de-ch-1901.tex
 monogreek	loadhyph-el-monoton.tex
 greek	loadhyph-el-polyton.tex
 =polygreek
+hungarian	loadhyph-hu.tex
+icelandic	loadhyph-is.tex
 assamese	loadhyph-as.tex
 bengali	loadhyph-bn.tex
 gujarati	loadhyph-gu.tex
@@ -22,14 +51,43 @@ oriya	loadhyph-or.tex
 panjabi	loadhyph-pa.tex
 tamil	loadhyph-ta.tex
 telugu	loadhyph-te.tex
+indonesian	loadhyph-id.tex
+interlingua	loadhyph-ia.tex
+irish	loadhyph-ga.tex
+italian	loadhyph-it.tex
+kurmanji	loadhyph-kmr.tex
 latin	loadhyph-la.tex
 classiclatin	loadhyph-la-x-classic.tex
 liturgicallatin	loadhyph-la-x-liturgic.tex
+latvian	loadhyph-lv.tex
+lithuanian	loadhyph-lt.tex
 mongolian	loadhyph-mn-cyrl.tex
 mongolianlmc	loadhyph-mn-cyrl-x-lmc.tex
 bokmal	loadhyph-nb.tex
 =norwegian
 =norsk
 nynorsk	loadhyph-nn.tex
+occitan	loadhyph-oc.tex
+pali	loadhyph-pi.tex
+piedmontese	loadhyph-pms.tex
+polish	loadhyph-pl.tex
+portuguese	loadhyph-pt.tex
+=portuges
+romanian	loadhyph-ro.tex
+romansh	loadhyph-rm.tex
+russian	loadhyph-ru.tex
+sanskrit	loadhyph-sa.tex
 serbian	loadhyph-sr-latn.tex
 serbianc	loadhyph-sr-cyrl.tex
+slovak	loadhyph-sk.tex
+slovenian	loadhyph-sl.tex
+=slovene
+spanish	loadhyph-es.tex
+=espanol
+swedish	loadhyph-sv.tex
+thai	loadhyph-th.tex
+turkish	loadhyph-tr.tex
+turkmen	loadhyph-tk.tex
+ukrainian	loadhyph-uk.tex
+uppersorbian	loadhyph-hsb.tex
+welsh	loadhyph-cy.tex

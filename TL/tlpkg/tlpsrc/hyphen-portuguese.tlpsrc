@@ -1,3 +1,19 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Portuguese hyphenation patterns.
+longdesc Hyphenation patterns for Portuguese in T1/EC and UTF-8 encodings.
+execute AddHyphen \
+	name=portuguese synonyms=portuges \
+	lefthyphenmin=2 \
+	righthyphenmin=3 \
+	file=loadhyph-pt.tex \
+	file_patterns=hyph-pt.pat.txt \
+	file_exceptions=hyph-pt.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-pt.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-pt.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-pt.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-pt.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-pt.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-pt.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-pt.pat.txt

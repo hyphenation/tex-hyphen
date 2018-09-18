@@ -1,3 +1,20 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Galician hyphenation patterns.
+longdesc Hyphenation patterns for Galician in T1/EC and UTF-8 encodings.
+execute AddHyphen \
+	name=galician \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-gl.tex \
+	file_patterns=hyph-gl.pat.txt \
+	file_exceptions=
+srcpattern d texmf-dist/source/generic/hyph-utf8/languages/gl
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-gl.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-gl.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-gl.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-gl.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-gl.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-gl.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-gl.pat.txt

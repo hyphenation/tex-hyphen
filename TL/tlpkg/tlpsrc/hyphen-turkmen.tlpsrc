@@ -1,3 +1,20 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Turkmen hyphenation patterns.
+longdesc Hyphenation patterns for Turkmen in T1/EC and UTF-8 encodings.
+execute AddHyphen \
+	name=turkmen \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-tk.tex \
+	file_patterns=hyph-tk.pat.txt \
+	file_exceptions=
+srcpattern d texmf-dist/source/generic/hyph-utf8/languages/tk
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-tk.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-tk.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-tk.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-tk.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-tk.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-tk.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-tk.pat.txt

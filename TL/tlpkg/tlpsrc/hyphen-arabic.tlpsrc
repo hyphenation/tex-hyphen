@@ -1,3 +1,11 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc (No) Arabic hyphenation patterns.
+longdesc Prevent hyphenation in Arabic.
+execute AddHyphen \
+	name=arabic \
+	lefthyphenmin= \
+	righthyphenmin= \
+	file=zerohyph.tex \
+	file_patterns=

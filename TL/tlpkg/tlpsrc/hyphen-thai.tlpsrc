@@ -1,3 +1,19 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Thai hyphenation patterns.
+longdesc Hyphenation patterns for Thai in LTH and UTF-8 encodings.
+execute AddHyphen \
+	name=thai \
+	lefthyphenmin=2 \
+	righthyphenmin=3 \
+	file=loadhyph-th.tex \
+	file_patterns=hyph-th.pat.txt \
+	file_exceptions=
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-th.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-th.lth.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-th.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-th.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-th.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-th.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-th.pat.txt

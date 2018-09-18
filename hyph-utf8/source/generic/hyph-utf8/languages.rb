@@ -373,7 +373,7 @@ module TeXLive
 		end
 
 		def languages
-		  @languages ||= @@package_names[@name]
+		  @languages ||= @@packages[self]
 			require 'byebug'; byebug unless @languages
 			@languages
 		end

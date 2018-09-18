@@ -1,3 +1,22 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Dutch hyphenation patterns.
+longdesc Hyphenation patterns for Dutch in T1/EC and UTF-8 encodings.
+longdesc These patterns don't handle cases like 'menuutje' > 'menu-tje',
+longdesc and don't hyphenate words that have different hyphenations according
+longdesc to their meaning.
+execute AddHyphen \
+	name=dutch \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-nl.tex \
+	file_patterns=hyph-nl.pat.txt \
+	file_exceptions=hyph-nl.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-nl.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-nl.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-nl.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-nl.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-nl.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-nl.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-nl.pat.txt

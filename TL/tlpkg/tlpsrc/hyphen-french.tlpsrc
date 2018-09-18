@@ -1,3 +1,20 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc French hyphenation patterns.
+longdesc Hyphenation patterns for French in T1/EC and UTF-8 encodings.
+execute AddHyphen \
+	name=french synonyms=patois,francais \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-fr.tex \
+	file_patterns=hyph-fr.pat.txt \
+	file_exceptions=
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-fr.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-fr.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/quote/hyph-quote-fr.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-fr.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fr.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fr.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fr.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fr.pat.txt

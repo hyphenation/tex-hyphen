@@ -1,3 +1,22 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Romanian hyphenation patterns.
+longdesc Hyphenation patterns for Romanian in T1/EC and UTF-8 encodings.
+longdesc The UTF-8 patterns use U+0219 for the character 's with comma accent'
+longdesc and U+021B for 't with comma accent', but we may consider using U+015F
+longdesc and U+0163 as well in the future.
+execute AddHyphen \
+	name=romanian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-ro.tex \
+	file_patterns=hyph-ro.pat.txt \
+	file_exceptions=
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-ro.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-ro.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-ro.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ro.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ro.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ro.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ro.pat.txt

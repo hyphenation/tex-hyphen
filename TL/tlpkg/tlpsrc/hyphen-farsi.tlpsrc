@@ -1,3 +1,11 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc (No) Persian hyphenation patterns.
+longdesc Prevent hyphenation in Persian.
+execute AddHyphen \
+	name=farsi synonyms=persian \
+	lefthyphenmin= \
+	righthyphenmin= \
+	file=zerohyph.tex \
+	file_patterns=

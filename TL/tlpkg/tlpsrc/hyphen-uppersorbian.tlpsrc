@@ -1,3 +1,19 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Upper Sorbian hyphenation patterns.
+longdesc Hyphenation patterns for Upper Sorbian in T1/EC and UTF-8 encodings.
+execute AddHyphen \
+	name=uppersorbian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-hsb.tex \
+	file_patterns=hyph-hsb.pat.txt \
+	file_exceptions=hyph-hsb.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-hsb.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-hsb.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-hsb.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hsb.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hsb.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hsb.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hsb.pat.txt

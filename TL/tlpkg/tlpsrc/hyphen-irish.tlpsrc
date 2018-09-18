@@ -1,3 +1,20 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
+shortdesc Irish hyphenation patterns.
+longdesc Hyphenation patterns for Irish (Gaeilge) in T1/EC and UTF-8 encodings.
+longdesc Visit http://borel.slu.edu/fleiscin/index.html for more information.
+execute AddHyphen \
+	name=irish \
+	lefthyphenmin=2 \
+	righthyphenmin=3 \
+	file=loadhyph-ga.tex \
+	file_patterns=hyph-ga.pat.txt \
+	file_exceptions=hyph-ga.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-ga.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-ga.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-ga.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ga.chr.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ga.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ga.lic.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ga.pat.txt
