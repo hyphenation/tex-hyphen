@@ -331,11 +331,10 @@ module TeXLive
 		}
 
 		def self.make_mappings
-			# The reverse of @@package_mappings above: a hash with package names as key,
-			# and an array of the names of languages it contains
-			@@language_collections = Hash.new
+			# Array that olds the list of names of package (that name can be used for an individual language too)
+			package_names = Array.new
 			@@package_mappings.each do |bcp47, package|
-				(@@language_collections[package] ||= []) << bcp47
+				package_names << package
 			end
 
 			# a hash with the names of TeX Live packages, either individual language names,
@@ -347,7 +346,7 @@ module TeXLive
 					(@@packages[groupname] ||= []) << language
 				else
 					# language is individual, but yields to package if there is one with the same name
-					@@packages[language.name] = [language] unless @@language_collections[language.name]
+					@@packages[language.name] = [language] unless package_names.include? language.name
 				end
 			end
 		end
