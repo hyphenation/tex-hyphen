@@ -276,18 +276,16 @@ class Language
 		sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
 	end
 
-	def list_files
-		# which file to use
-		if use_old_loader
-			file = sprintf "file=%s", filename_old_patterns
-			if ['ar', 'fa'].include? code
-				file = file + " \\\n\tfile_patterns="
-			elsif code == 'grc-x-ibycus' then
-				# TODO: fix this
-				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
-			end
-		else
-			file = sprintf "file=%s", loadhyph
+	def list_loader
+		# which loader to use
+		file = sprintf "file=%s", loadhyph
+		return file unless use_old_loader
+
+		if ['ar', 'fa'].include? code
+			file = file + " \\\n\tfile_patterns="
+		elsif code == 'grc-x-ibycus'
+			# TODO: fix this
+			file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
 		end
 	end
 

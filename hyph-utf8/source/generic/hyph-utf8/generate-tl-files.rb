@@ -39,7 +39,7 @@ Package.all.sort.each do |package|
 		end
 
 		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name, language.list_synonyms
-		file_tlpsrc.printf "\t%s \\\n\t%s", language.list_hyphenmins, language.list_files
+		file_tlpsrc.printf "\t%s \\\n\t%s", language.list_hyphenmins, language.list_loader
 		if language.patterns_line + language.exceptions_line != ""
 			file_tlpsrc.printf " \\\n\t%s \\\n\t%s", language.patterns_line, language.exceptions_line
 		end
