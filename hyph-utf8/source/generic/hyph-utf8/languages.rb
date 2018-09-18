@@ -352,7 +352,6 @@ module TeXLive
 			  Package.new package_name
 			end.keys
 		end
-	end
 
 		@@packages = make_mappings
 		def self.all
@@ -435,6 +434,7 @@ module TeXLive
 
 	def <=>(other)
 	  name <=> other.name
+	end
 	end
 end
 
