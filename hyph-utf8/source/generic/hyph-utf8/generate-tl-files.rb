@@ -65,6 +65,7 @@ end
 # TLPSRC #
 #--------#
 
+# require 'byebug'; byebug
 Package.all.sort.each do |package|
 	tlpsrcname = File.join(PATH::TLPSRC, sprintf('hyphen-%s.tlpsrc', package.name))
 	file_tlpsrc = File.open(tlpsrcname, 'w')
