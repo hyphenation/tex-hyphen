@@ -347,26 +347,25 @@ module TeXLive
 			Language.all.each do |language|
 				if package_name = @@package_mappings[language.code]
 					# language is part of a package
-					(@@package_names[package_name] ||= []) << language
+					package = Package.new package_name
 				else
 					# language is individual, but yields to package if there is one with the same name
-					@@package_names[language.name] = [language] unless package_names.include? language.name
+					if package_names.include? language.name
+						next
+					else
+						package = Package.new language.name
+					end
 				end
+
+				(@@package_names[package] ||= []) << [language]
 			end
 
       @@package_names
 		end
 
 		@@package_names = make_mappings
-		@@packages = nil
 		def self.all
-			@@packages ||= @@package_names.map do |package_name, languages|
-			  Package.new package_name
-			end
-
-			# require 'byebug'; byebug
-
-			@@packages
+			@@package_names.keys
 		end
 
 		def languages
