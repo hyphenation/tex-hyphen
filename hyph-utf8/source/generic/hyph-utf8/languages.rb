@@ -331,10 +331,7 @@ module TeXLive
 		}
 
 		def self.make_mappings
-			# Array that holds the list of names of package (that name can be used for an individual language too)
-			package_names = @@package_mappings.map do |bcp47, package|
-				package
-			end.uniq
+			package_names = @@package_mappings.values.uniq
 
 			# a hash with the names of TeX Live packages, either individual language names,
 			# or an array of languages as the value
