@@ -331,7 +331,7 @@ module TeXLive
 		}
 
 		def self.make_mappings
-			# Array that olds the list of names of package (that name can be used for an individual language too)
+			# Array that holds the list of names of package (that name can be used for an individual language too)
 			package_names = @@package_mappings.map do |bcp47, package|
 				package
 			end.uniq
@@ -340,9 +340,9 @@ module TeXLive
 			# or an array of languages as the value
 			@@packages = Hash.new
 			Language.all.each do |language|
-				if groupname = @@package_mappings[language.code]
+				if package_name = @@package_mappings[language.code]
 					# language is part of a package
-					(@@packages[groupname] ||= []) << language
+					(@@packages[package_name] ||= []) << language
 				else
 					# language is individual, but yields to package if there is one with the same name
 					@@packages[language.name] = [language] unless package_names.include? language.name
