@@ -356,7 +356,7 @@ module TeXLive
 						next
 					else
 						package = Package.new language.name
-						@@package_names[language.name] = package
+						@@package_names[language.name] = [language]
 					end
 				end
 
