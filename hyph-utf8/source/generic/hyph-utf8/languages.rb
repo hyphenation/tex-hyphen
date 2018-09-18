@@ -339,7 +339,7 @@ module TeXLive
 		}
 
 		def self.make_mappings
-			@@package_names = @@package_mappings.values.uniq.map do |package_name|
+			package_names = @@package_mappings.values.uniq.map do |package_name|
 				[package_name, Package.new(package_name)]
 			end.to_h
 
@@ -349,21 +349,19 @@ module TeXLive
 			Language.all.each do |language|
 				if package_name = @@package_mappings[language.code]
 					# language is part of a package
-					package = @@package_names[package_name] || Package.new(package_name)
+					package = package_names[package_name] || Package.new(package_name)
 				else
 					# language is individual, but yields to package if there is one with the same name
-					if @@package_names.include? language.name
+					if package_names.include? language.name
 						next
 					else
 						package = Package.new language.name
-						@@package_names[language.name] = [language]
 					end
 				end
 
 				(@@packages[package] ||= []) << language
 			end
 
-			# require 'byebug'; byebug
 			@@packages
 		end
 
@@ -374,8 +372,6 @@ module TeXLive
 
 		def languages
 		  @languages ||= @@packages[self]
-			require 'byebug'; byebug unless @languages
-			@languages
 		end
 
 		def self.has_dependency?(collection)
