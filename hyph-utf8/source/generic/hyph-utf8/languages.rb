@@ -340,7 +340,7 @@ module TeXLive
 
 		def self.make_mappings
 			package_names = @@package_mappings.values.uniq.map do |package_name|
-				[package_name, Package.new(package_name)]
+				[package_name, new(package_name)]
 			end.to_h
 
 			# a hash with the names of TeX Live packages, either individual language names,
@@ -350,7 +350,7 @@ module TeXLive
 				package_name = @@package_mappings[language.code]
 				next if !package_name && package_names.include?(language.name)
 				package_name ||= language.name
-				package = package_names[package_name] || Package.new(package_name)
+				package = package_names[package_name] || new(package_name)
 
 				(@@packages[package] ||= []) << language
 			end
@@ -367,13 +367,13 @@ module TeXLive
 		  @languages ||= @@packages[self]
 		end
 
-		def self.has_dependency?(collection)
+		def has_dependency?
 			{
 				"german" => "dehyph",
 				# for Russian and Ukrainian (until we implement the new functionality at least)
 				"russian" => "ruhyphen",
 				"ukrainian" => "ukrhyph",
-			}[collection]
+			}[name]
 		end
 
 		def list_doc_files
@@ -416,7 +416,7 @@ module TeXLive
 				files + language.list_run_files
 			end
 
-			unless Package.has_dependency?(name)
+			unless has_dependency?
 				languages.each do |language|
 					if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
 						files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)

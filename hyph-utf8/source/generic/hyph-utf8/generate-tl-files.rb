@@ -16,18 +16,20 @@ def dirlist(type)
 	end
 end
 
-def make_dependencies(collection)
-  dependencies = [
-		"depend hyphen-base",
-		"depend hyph-utf8",
-	]
+class Package
+	def make_dependencies
+		dependencies = [
+			"depend hyphen-base",
+			"depend hyph-utf8",
+		]
 
-	# external dependencies
-	if dependency = Package.has_dependency?(collection)
-		dependencies << sprintf("depend %s", dependency)
+		# external dependencies
+		if dependency = has_dependency?
+			dependencies << sprintf("depend %s", dependency)
+		end
+
+		dependencies
 	end
-
-	dependencies
 end
 
 def make_synonyms(language)
@@ -71,7 +73,7 @@ Package.all.sort.each do |package|
 	printf "generating %s\n", tlpsrcname
 
 	file_tlpsrc.puts "category TLCore"
-	make_dependencies(package.name).each do |dependency|
+	package.make_dependencies.each do |dependency|
 		file_tlpsrc.puts dependency
 	end
 
