@@ -297,7 +297,7 @@ end
 
 module TeXLive
 	class Package
-		attr_read :name
+		attr_reader :name
 
 		@@package_mappings = {
 			"en-gb"=>"english",
@@ -349,9 +349,10 @@ module TeXLive
 			end
 
 			@@package_names.map do |package_name, languages|
-			  Package.new(package_name)
+			  Package.new package_name
 			end.keys
 		end
+	end
 
 		@@packages = make_mappings
 		def self.all
@@ -366,7 +367,7 @@ module TeXLive
 		  @languages ||= @@package_mappings.select do |bcp47, some_package_name|
 			  some_package_name == @name
 			end.keys.map do |language_name|
-			  Language.new(language_name
+			  Language.new language_name
 			end
 		end
 
@@ -378,7 +379,6 @@ module TeXLive
 				"ukrainian" => "ukrhyph",
 			}[collection]
 		end
-	end
 
 	def list_doc_files(collection)
 		files_doc = []
