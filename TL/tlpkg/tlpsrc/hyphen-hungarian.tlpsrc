@@ -1,22 +1,4 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-shortdesc Hungarian hyphenation patterns.
-longdesc Hyphenation patterns for Hungarian in T1/EC and UTF-8 encodings.
-longdesc From https://github.com/nagybence/huhyphn/.
-execute AddHyphen \
-	name=hungarian \
-	lefthyphenmin=2 \
-	righthyphenmin=2 \
-	file=loadhyph-hu.tex \
-	file_patterns=hyph-hu.pat.txt \
-	file_exceptions=
 docpattern d texmf-dist/doc/generic/huhyphen
-docpattern d texmf-dist/doc/generic/hyph-utf8/languages/hu
-runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-hu.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-hu.ec.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-hu.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hu.chr.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hu.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hu.lic.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hu.pat.txt

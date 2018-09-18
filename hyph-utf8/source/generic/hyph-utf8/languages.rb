@@ -293,6 +293,8 @@ class Language
 			new language_data
 		end
 	end
+
+	# TODO self.find
 end
 
 module TeXLive
@@ -358,16 +360,24 @@ module TeXLive
 		@@package_names = make_mappings
 		@@packages = nil
 		def self.all
-			@@packages ||= @@package_mappings.map do |package_name, languages|
+			@@packages ||= @@package_names.map do |package_name, languages|
 			  Package.new package_name
 			end
+
+			# require 'byebug'; byebug
+
+			@@packages
 		end
 
 		def languages
 		  @languages ||= @@package_mappings.select do |bcp47, some_package_name|
 			  some_package_name == @name
-			end.map do |language_name|
-			  Language.new language_name
+			end.map do |bcp47, package_name|
+				# require 'byebug'; byebug
+			  Language.all.select do |language|
+					# require 'byebug'; byebug
+				  language.code == bcp47
+				end.first
 			end
 		end
 

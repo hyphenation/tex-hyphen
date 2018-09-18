@@ -1,20 +1,3 @@
 category TLCore
 depend hyphen-base
 depend hyph-utf8
-shortdesc Basque hyphenation patterns.
-longdesc Hyphenation patterns for Basque in T1/EC and UTF-8 encodings.
-execute AddHyphen \
-	name=basque \
-	lefthyphenmin=2 \
-	righthyphenmin=2 \
-	file=loadhyph-eu.tex \
-	file_patterns=hyph-eu.pat.txt \
-	file_exceptions=
-srcpattern d texmf-dist/source/generic/hyph-utf8/languages/eu
-runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-eu.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-eu.ec.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-eu.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-eu.chr.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-eu.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-eu.lic.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-eu.pat.txt

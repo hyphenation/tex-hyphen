@@ -1,0 +1,35 @@
+ancientgreek	loadhyph-grc.tex
+ibycus	ibyhyph.tex
+pinyin	loadhyph-zh-latn-pinyin.tex
+ukenglish	loadhyph-en-gb.tex
+=british
+=UKenglish
+usenglishmax	loadhyph-en-us.tex
+german	loadhyph-de-1901.tex
+ngerman	loadhyph-de-1996.tex
+swissgerman	loadhyph-de-ch-1901.tex
+monogreek	loadhyph-el-monoton.tex
+greek	loadhyph-el-polyton.tex
+=polygreek
+assamese	loadhyph-as.tex
+bengali	loadhyph-bn.tex
+gujarati	loadhyph-gu.tex
+hindi	loadhyph-hi.tex
+kannada	loadhyph-kn.tex
+malayalam	loadhyph-ml.tex
+marathi	loadhyph-mr.tex
+oriya	loadhyph-or.tex
+panjabi	loadhyph-pa.tex
+tamil	loadhyph-ta.tex
+telugu	loadhyph-te.tex
+latin	loadhyph-la.tex
+classiclatin	loadhyph-la-x-classic.tex
+liturgicallatin	loadhyph-la-x-liturgic.tex
+mongolian	loadhyph-mn-cyrl.tex
+mongolianlmc	loadhyph-mn-cyrl-x-lmc.tex
+bokmal	loadhyph-nb.tex
+=norwegian
+=norsk
+nynorsk	loadhyph-nn.tex
+serbian	loadhyph-sr-latn.tex
+serbianc	loadhyph-sr-cyrl.tex
