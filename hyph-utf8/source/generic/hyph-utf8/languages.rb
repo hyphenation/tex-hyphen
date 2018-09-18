@@ -41,6 +41,27 @@ class Author
 	end
 
 	attr_reader :name, :surname, :email
+
+	@@list = []
+	@@hash = { }
+
+	def self.all
+		return @@list unless @@list == []
+
+		require_relative 'author-data'
+		@@authors.each do |id, details|
+			author = Author.new(details[0], details[1], details[2], details[3], details[4])
+			@@list.push(author)
+			@@hash[id] = author
+		end
+
+		@@list
+	end
+
+	def self.[] a
+		all if @@hash == { }
+		@@hash[a]
+	end
 end
 
 class Language
@@ -67,6 +88,22 @@ class Language
 
 		if @synonyms==nil then @synonyms = [] end
 	end
+
+	def <=>(other)
+	  code <=> other.code
+	end
+
+	@@list = nil
+	def self.all
+		return @@list if @@list
+
+		require_relative 'language-data'
+		@@list = @@languages.map do |language_data|
+			new language_data
+		end
+	end
+
+	# TODO self.find
 
 	def readtexfile(code = @code)
 		IO.readlines(File.join PATH::TEX, sprintf('hyph-%s.tex', code)).join
@@ -292,43 +329,6 @@ class Language
 	end
 end
 
-class Author
-	@@list = []
-	@@hash = { }
-
-	def self.all
-		return @@list unless @@list == []
-
-		require_relative 'author-data'
-		@@authors.each do |id, details|
-			author = Author.new(details[0], details[1], details[2], details[3], details[4])
-			@@list.push(author)
-			@@hash[id] = author
-		end
-
-		@@list
-	end
-
-	def self.[] a
-		all if @@hash == { }
-		@@hash[a]
-	end
-end
-
-class Language
-	@@list = nil
-	def self.all
-		return @@list if @@list
-
-		require_relative 'language-data'
-		@@list = @@languages.map do |language_data|
-			new language_data
-		end
-	end
-
-	# TODO self.find
-end
-
 module TeXLive
 	class Package
 		attr_reader :name
@@ -481,11 +481,5 @@ module TeXLive
 		def find(name)
 		  @@package_names[self]
 		end
-	end
-end
-
-class Language
-	def <=>(other)
-	  code <=> other.code
 	end
 end
