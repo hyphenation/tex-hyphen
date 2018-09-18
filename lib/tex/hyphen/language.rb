@@ -47,6 +47,18 @@ module TeX
         @name
       end
 
+      @@displaynames = {
+        'el' => 'Greek',
+        'nb' => 'Norwegian',
+        'nn' => 'Norwegian',
+        'sh' => 'Serbian',
+      }
+
+      def displayname
+        extract_metadata unless @name
+        @@displaynames[@bcp47.gsub(/-.*$/, '')] || @name
+      end
+
       def licences
         extract_metadata unless @licences
         @licences
