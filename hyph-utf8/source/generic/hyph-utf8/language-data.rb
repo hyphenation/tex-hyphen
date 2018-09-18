@@ -175,7 +175,7 @@ class Language
 	"hyphenmin" => [2,2],
 	"encoding" => nil,
 	"exceptions" => false,
-	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding (v3.0)",
+	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding",
 
 	# "authors" => ["peter_heslin"],
 	"version" => 3.0,
@@ -405,7 +405,7 @@ class Language
 	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Czech hyphenation patterns (Pavel Sevecek, v3, 1995)",
+	"message" => "Czech hyphenation patterns",
 
 	"version"       => "3",
 	# guessing based on CTAN/macros/cstex/base/csplain.tar.gz:
@@ -435,7 +435,7 @@ class Language
 	"hyphenmin" => [2,3],
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Slovak hyphenation patterns (Jana Chlebikova, 1992)",
+	"message" => "Slovak hyphenation patterns",
 
 	"version"       => "2",
 	"last_modified" => "1992-04-24",
@@ -673,9 +673,9 @@ class Language
 	"hyphenmin" => [2,2], # polyglossia
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Hungarian hyphenation patterns (v20110815)",
+	"message" => "Hungarian hyphenation patterns",
 
-	# https://github.com/nagybence/huhyphn/
+	"source" => "https://github.com/nagybence/huhyphn/", # FIXME Check and remove from desc below
 	"version"       => "v20110815",
 	"last_modified" => "2011-08-15", # actually, it is "2009-06-12" or older for contents; we probably want to check/fix this
 	"type"          => "dictionary",
@@ -726,7 +726,7 @@ class Language
 	"type"          => "dictionary",
 	"authors"       => ["peter_kleiweg"],
 	"licence"       => "LPPL", # TODO Status maintained
-	"description_s" => "Interlingua hyphenation patterns",
+	"description_s" => "Interlingua hyphenation patterns", # FIXME Inconsistent
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Interlingua in ASCII encoding.",
@@ -896,7 +896,7 @@ class Language
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Kurmanji hyphenation patterns (v. 1.0 2009/06/29 JKn and MSh)",
+	"message" => "Kurmanji hyphenation patterns",
 
 	"version"       => "1.0",
 	"last_modified" => "2009-06-29",
@@ -1120,7 +1120,7 @@ class Language
 	"hyphenmin" => [1,1],
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Hyphenation patterns for unaccented pinyin syllables (CJK 4.8.0)",
+	"message" => "Hyphenation patterns for unaccented pinyin syllables",
 
 	"version"       => "4.8.0",
 	"last_modified" => "2008-05-22",
@@ -1186,7 +1186,7 @@ class Language
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
 	"exceptions" => true,
-	"message" => "Upper Sorbian hyphenation patterns (E. Werner)",
+	"message" => "Upper Sorbian hyphenation patterns",
 #	\message{Hyphenation patterns for Upper Sorbian, E. Werner}
 #	\message{Completely new revision 1997, March 22}
 
@@ -1209,7 +1209,7 @@ class Language
 	"hyphenmin" => [2,2], # patters say it could be 1,2; babel says 2,2 - double check
 	"encoding" => "ec",
 	"exceptions" => false,
-	"message" => "Swedish hyphenation patterns (Jan Michael Rynning, 1994-03-03)",
+	"message" => "Swedish hyphenation patterns",
 
 	# "version"       => "1994-03-03", # that is what author used in message
 	"version"       => nil,
@@ -1281,7 +1281,7 @@ class Language
 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
 	"encoding" => "ascii",
 	"exceptions" => true,
-	"message" => "Hyphenation patterns for British English",
+	"message" => "Hyphenation patterns for British English", # FIXME Inconsistent
 
 	"version"       => "1.0a", # FIXME a much older comment says 2.0?
 	"last_modified" => "2005-10-18",
@@ -1314,7 +1314,7 @@ class Language
 	"hyphenmin" => [2,3], # confirmed, same as what Knuth says
 	"encoding" => "ascii",
 	"exceptions" => true,
-	"message" => "Hyphenation patterns for American English",
+	"message" => "Hyphenation patterns for American English", # FIXME Consistent
 
 	"version"       => nil,
 	"last_modified" => "1990-03-01", # 8-bit file also has version 2005-05-30.
@@ -1443,7 +1443,7 @@ class Language
 	"hyphenmin" => [1,3], # polyglossia
 	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
-	"message" => "Sanskrit hyphenation patterns (v0.6, 2011/09/14)",
+	"message" => "Sanskrit hyphenation patterns",
 
 	"version"       => "0.6",
 	"last_modified" => "2011-09-14",
