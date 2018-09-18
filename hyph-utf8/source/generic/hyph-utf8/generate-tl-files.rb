@@ -16,52 +16,6 @@ def dirlist(type)
 	end
 end
 
-class Package
-	def make_dependencies
-		dependencies = [
-			"depend hyphen-base",
-			"depend hyph-utf8",
-		]
-
-		# external dependencies
-		if dependency = has_dependency?
-			dependencies << sprintf("depend %s", dependency)
-		end
-
-		dependencies
-	end
-end
-
-def make_synonyms(language)
-	# synonyms
-	if language.synonyms && language.synonyms.length > 0
-		sprintf " synonyms=%s", language.synonyms.join(',')
-	else
-		''
-	end
-end
-
-def make_hyphenmins(language)
-	# lefthyphenmin/righthyphenmin
-	lmin = (language.hyphenmin || [])[0]
-	rmin = (language.hyphenmin || [])[1]
-	sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
-end
-
-def make_file_line(language)
-	# which file to use
-	if language.use_old_loader
-		file = sprintf "file=%s", language.filename_old_patterns
-		if ['ar', 'fa'].include? language.code
-			file = file + " \\\n\tfile_patterns="
-		elsif language.code == 'grc-x-ibycus' then
-			# TODO: fix this
-			file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
-		end
-	else
-		file = sprintf "file=%s", language.loadhyph
-	end
-end
 
 #--------#
 # TLPSRC #
@@ -73,7 +27,7 @@ Package.all.sort.each do |package|
 	printf "generating %s\n", tlpsrcname
 
 	file_tlpsrc.puts "category TLCore"
-	package.make_dependencies.each do |dependency|
+	package.list_dependencies.each do |dependency|
 		file_tlpsrc.puts dependency
 	end
 
@@ -85,8 +39,8 @@ Package.all.sort.each do |package|
 			end
 		end
 
-		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name, make_synonyms(language)
-		file_tlpsrc.printf "\t%s \\\n\t%s", make_hyphenmins(language), make_file_line(language)
+		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name, language.list_synonyms
+		file_tlpsrc.printf "\t%s \\\n\t%s", language.list_hyphenmins, language.list_files
 		if language.patterns_line + language.exceptions_line != ""
 			file_tlpsrc.printf " \\\n\t%s \\\n\t%s", language.patterns_line, language.exceptions_line
 		end

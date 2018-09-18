@@ -223,6 +223,38 @@ class Language
 		end
 	end
 
+	def list_synonyms
+		# synonyms
+		if synonyms && synonyms.length > 0
+			sprintf " synonyms=%s", synonyms.join(',')
+		else
+			''
+		end
+	end
+
+	def list_hyphenmins
+		# lefthyphenmin/righthyphenmin
+		lmin = (hyphenmin || [])[0]
+		rmin = (hyphenmin || [])[1]
+		sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
+	end
+
+	def list_files
+		# which file to use
+		if use_old_loader
+			file = sprintf "file=%s", filename_old_patterns
+			if ['ar', 'fa'].include? code
+				file = file + " \\\n\tfile_patterns="
+			elsif code == 'grc-x-ibycus' then
+				# TODO: fix this
+				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
+			end
+		else
+			file = sprintf "file=%s", loadhyph
+		end
+	end
+
+
 	def list_run_files
 		return [] if use_old_loader
 
@@ -374,6 +406,20 @@ module TeXLive
 				"russian" => "ruhyphen",
 				"ukrainian" => "ukrhyph",
 			}[name]
+		end
+
+		def list_dependencies
+			dependencies = [
+				"depend hyphen-base",
+				"depend hyph-utf8",
+			]
+
+			# external dependencies
+			if dependency = has_dependency?
+				dependencies << sprintf("depend %s", dependency)
+			end
+
+			dependencies
 		end
 
 		def list_doc_files
