@@ -347,7 +347,7 @@ module TeXLive
 			Language.all.each do |language|
 				if package_name = @@package_mappings[language.code]
 					# language is part of a package
-					package = package_names[package_name] || Package.new(package_name)
+					package = @@package_names[package_name] || Package.new(package_name)
 				else
 					# language is individual, but yields to package if there is one with the same name
 					if package_names.include? language.name
