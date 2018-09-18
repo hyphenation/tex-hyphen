@@ -339,48 +339,43 @@ module TeXLive
 		}
 
 		def self.make_mappings
-			package_names = @@package_mappings.values.uniq.map do |package_name|
+			@@package_names = @@package_mappings.values.uniq.map do |package_name|
 				[package_name, Package.new(package_name)]
 			end.to_h
 
 			# a hash with the names of TeX Live packages, either individual language names,
 			# or an array of languages as the value
-			@@package_names = Hash.new
+			@@packages = Hash.new
 			Language.all.each do |language|
 				if package_name = @@package_mappings[language.code]
 					# language is part of a package
-					package = package_names[package_name] || Package.new(package_name)
+					package = @@package_names[package_name] || Package.new(package_name)
 				else
 					# language is individual, but yields to package if there is one with the same name
-					if package_names.include? language.name
+					if @@package_names.include? language.name
 						next
 					else
 						package = Package.new language.name
+						@@package_names[language.name] = package
 					end
 				end
 
-				(@@package_names[package] ||= []) << [language]
+				(@@packages[package] ||= []) << language
 			end
 
 			# require 'byebug'; byebug
-			@@package_names
+			@@packages
 		end
 
-		@@package_names = make_mappings
+		@@packages = make_mappings
 		def self.all
-			@@package_names.keys
+			@@packages.keys
 		end
 
 		def languages
-		  @languages ||= @@package_mappings.select do |bcp47, some_package_name|
-			  some_package_name == @name
-			end.map do |bcp47, package_name|
-				# require 'byebug'; byebug
-			  Language.all.select do |language|
-					# require 'byebug'; byebug
-				  language.code == bcp47
-				end.first
-			end
+		  @languages ||= @@package_names[@name]
+			require 'byebug'; byebug unless @languages
+			@languages
 		end
 
 		def self.has_dependency?(collection)
