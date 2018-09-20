@@ -20,16 +20,16 @@
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
-    \message{UTF-8 Upper Sorbian hyphenation patterns (E. Werner)}
+    \message{UTF-8 Upper Sorbian hyphenation patterns}
     \input hyph-hsb.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{EC Upper Sorbian hyphenation patterns (E. Werner)}
+    \message{EC Upper Sorbian hyphenation patterns}
     \input conv-utf8-ec.tex
     \input hyph-hsb.tex
 \fi\else
     % pTeX
-    \message{EC Upper Sorbian hyphenation patterns (E. Werner)}
+    \message{EC Upper Sorbian hyphenation patterns}
     \input hyph-hsb.ec.tex
 \fi
 \endgroup
