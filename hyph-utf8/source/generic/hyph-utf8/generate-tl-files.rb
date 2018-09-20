@@ -7,15 +7,6 @@ require_relative 'languages.rb'
 include Language::TeXLive
 include TeXLive
 
-$dirlist = Hash.new
-def dirlist(type)
-	$dirlist[type] ||= Dir.glob(File.expand_path(sprintf('../../../../%s/generic/hyph-utf8/languages/*', type), __FILE__)).select do |file|
-		File.directory?(file)
-	end.map do |dir|
-		dir.gsub /^.*\//, ''
-	end
-end
-
 #--------#
 # TLPSRC #
 #--------#
@@ -50,11 +41,13 @@ Package.all.sort.each do |package|
 		file_tlpsrc.puts
 	end
 
-	package.list_doc_files.sort.each do |filename|
+	# documentation
+	package.list_support_files('doc').sort.each do |filename|
 		file_tlpsrc.printf "docpattern d texmf-dist/%s\n", filename
 	end
 
-	package.list_src_files.sort.each do |filename|
+	# sources
+	package.list_support_files('source').sort.each do |filename|
 		file_tlpsrc.printf "srcpattern d texmf-dist/%s\n", filename
 	end
 

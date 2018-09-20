@@ -420,36 +420,30 @@ module TeXLive
 			dependencies
 		end
 
-		def list_doc_files
-			files_doc = []
+    @@special_support = {
+			'doc' => {
+				'greek' => 'doc/generic/elhyphen',
+				'hungarian' => 'doc/generic/huhyphen',
+			}
+		}
 
-			languages.each do |language|
-				# add documentation
-				if dirlist('doc').include?(language.code) then
-					files_doc << sprintf("doc/generic/hyph-utf8/languages/%s", language.code)
-				end
+		def list_support_files(type)
+			# Cache directory contents
+			(@dirlist ||= { })[type] ||= Dir.glob(File.expand_path(sprintf('../../../../%s/generic/hyph-utf8/languages/*', type), __FILE__)).select do |file|
+				File.directory?(file)
+			end.map do |dir|
+				dir.gsub /^.*\//, ''
 			end
 
-			# documentation
-			if name == "greek" then
-				files_doc << "doc/generic/elhyphen"
-			elsif name == "hungarian" then
-				files_doc << "doc/generic/huhyphen"
+			files = (languages.map(&:code) & @dirlist[type]).map do |code|
+				sprintf("%s/generic/hyph-utf8/languages/%s", type, code)
 			end
 
-			files_doc
-		end
-
-		def list_src_files
-			files_src = []
-			languages.each do |language|
-				# add sources
-				if dirlist('source').include?(language.code) then
-					files_src << sprintf("source/generic/hyph-utf8/languages/%s", language.code)
-				end
+			if special = @@special_support.dig(type, name)
+				files << special
 			end
 
-			files_src
+			files
 		end
 
 		def list_run_files
