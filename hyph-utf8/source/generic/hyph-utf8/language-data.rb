@@ -1181,7 +1181,7 @@ class Language
 # uppersorbian
 {
 	"code" => "hsb",
-	"name" => "uppersorbian",
+	"name" => "upper sorbian",
 	"filename_old_patterns" => "sorhyph.tex",
 	"hyphenmin" => [2,2],
 	"encoding" => "ec",
@@ -1697,7 +1697,7 @@ class Language
 # Church Slavonic
 {
 	"code" => "cu",
-	"name" => "churchslavonic",
+	"name" => "church slavonic",
 	"hyphenmin" => [1, 2],
 	"encoding" => nil,
 	"exceptions" => true,

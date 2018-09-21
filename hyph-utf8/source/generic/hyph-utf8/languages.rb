@@ -26,6 +26,10 @@ class String
 	def supersplit
 		strip.gsub(/\s+/m,"\n").split("\n")
 	end
+
+	def safe
+		gsub /[\s-]/, ''
+	end
 end
 
 class Author
@@ -347,8 +351,8 @@ module TeXLive
 			"mn-cyrl-x-lmc"=>"mongolian",
 			"el-monoton"=>"greek",
 			"el-polyton"=>"greek",
-			"grc"=>"ancientgreek",
-			"grc-x-ibycus"=>"ancientgreek",
+			"grc"=>"ancient greek",
+			"grc-x-ibycus"=>"ancient greek",
 			"zh-latn-pinyin"=>"chinese",
 			"as"=>"indic",
 			"bn"=>"indic",
@@ -391,6 +395,31 @@ module TeXLive
 		@@packages = make_mappings
 		def self.all
 			@@packages.keys
+		end
+
+		# FIXME That’s oh-so-awful
+		def description_s
+			return 'Hyphenation patterns for Ethiopic scripts' if @name == 'ethiopic'
+
+			if @name == 'arabic'
+				leader = '(No) Arabic'
+			elsif @name == 'farsi'
+				leader = '(No) Persian'
+			elsif @name == 'greek'
+				leader = 'Modern Greek'
+			elsif @name == 'chinese'
+				leader = 'Chinese pinyin'
+			elsif @name == 'norwegian'
+			  leader = 'Norwegian Bokmal and Nynorsk'
+			else
+				leader = @name.split.map(&:capitalize).join(' ')
+			end
+
+			shortdesc = sprintf '%s hyphenation patterns', leader
+
+			shortdesc += ' in Cyrillic script' if @name == 'mongolian'
+
+			shortdesc
 		end
 
 		def languages
