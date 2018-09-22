@@ -422,6 +422,12 @@ module TeXLive
 			shortdesc
 		end
 
+		def description_l
+		  languages.map do |language|
+				 if language.description_l then language.description_l else [] end
+			end.flatten
+		end
+
 		def languages
 		  @languages ||= @@packages[self]
 		end

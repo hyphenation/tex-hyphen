@@ -23,12 +23,15 @@ Package.all.sort.each do |package|
 
 	# FIXME Still doesn’t work well for Latin
 	file_tlpsrc.printf "shortdesc %s.\n", package.description_s
+	package.description_l do |line|
+		file_tlpsrc.printf "longdesc %s\n", line
+	end
 	package.languages.each do |language|
 		if language.description_s && language.description_l then
 			# file_tlpsrc.printf "shortdesc %s.\n", language.description_s
-			language.description_l.each do |line|
-				file_tlpsrc.printf "longdesc %s\n", line
-			end
+			# language.description_l.each do |line|
+			# 	file_tlpsrc.printf "longdesc %s\n", line
+			# end
 		end
 
 		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name.safe, language.list_synonyms
