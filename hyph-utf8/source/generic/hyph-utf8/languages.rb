@@ -30,6 +30,10 @@ class String
 	def safe
 		gsub /[\s-]/, ''
 	end
+
+	def titlecase
+		split.map(&:capitalize).join(' ')
+	end
 end
 
 class Author
@@ -165,8 +169,12 @@ class Language
 	attr_reader :description_l, :version
 	attr_reader :licence, :authors
 
+	# def message
+	# 	@name.titlecase + ' hyphenation patterns'
+	# end
+
 	def description_s
-		@description_s || @message
+		@message
 	end
 
 	# Strictly speaking a misnomer, because grc-x-ibycus should also return true.
@@ -175,7 +183,7 @@ class Language
 	  ['grc', 'el-polyton', 'el-monoton'].include? @code
 	end
 
-  def has_apostrophes
+	def has_apostrophes
 		begin
 			!isgreek? && get_patterns.any? { |p| p =~ /'/ }
 		rescue Errno::ENOENT
@@ -246,7 +254,7 @@ class Language
 				end
 			end
 
-			{ plain: plain, with_apostrophe: if with_apostrophe then with_apostrophe end }
+			{ plain: plain, with_apostrophe: with_apostrophe }
 		end
 
 		def extract_characters
@@ -411,7 +419,7 @@ module TeXLive
 			elsif @name == 'norwegian'
 			  leader = 'Norwegian Bokmal and Nynorsk'
 			else
-				leader = @name.split.map(&:capitalize).join(' ')
+				leader = @name.titlecase
 			end
 
 			shortdesc = sprintf '%s hyphenation patterns', leader
