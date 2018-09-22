@@ -16,7 +16,7 @@ class Language
 # "exceptions" => false,
 # "message" => nil,
 
-	@@languages = [
+	@@language_data = [
 # --------------------------------------
 # languages with no hyphenation patterns
 # --------------------------------------

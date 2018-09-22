@@ -52,8 +52,6 @@ class Author
 
 	attr_reader :name, :surname, :email
 
-	@@authors = nil
-
 	def self.authors
 		@@authors ||= @@author_data.map do |id, details|
 			author = Author.new(details[0], details[1], details[2], details[3], details[4])
@@ -97,11 +95,8 @@ class Language
 	  code <=> other.code
 	end
 
-	@@list = nil
 	def self.all
-		return @@list if @@list
-
-		@@list = @@languages.map do |language_data|
+		@@languages ||= @@language_data.map do |language_data|
 			new language_data
 		end
 	end
