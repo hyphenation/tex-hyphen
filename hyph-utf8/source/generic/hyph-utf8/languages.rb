@@ -83,7 +83,6 @@ class Language
 		@exceptions = language_hash["exceptions"]
 		@message = language_hash["message"]
 
-		@description_s = language_hash["description_s"]
 		@description_l = language_hash["description_l"]
 		@version       = language_hash["version"]
 

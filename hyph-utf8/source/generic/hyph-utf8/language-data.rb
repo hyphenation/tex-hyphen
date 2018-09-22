@@ -32,7 +32,6 @@ class Language
 	"message" => nil,
 
 	# TODO
-	"description_s" => "(No) Arabic hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Prevent hyphenation in Arabic.",
@@ -51,7 +50,6 @@ class Language
 	"message" => nil,
 
 	# TODO
-	"description_s" => "(No) Persian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Prevent hyphenation in Persian.",
@@ -88,7 +86,6 @@ class Language
 	# 	"Patterns in UTF-8 use two code positions for each of the vowels with acute accent",
 	# 	"(a.k.a tonos, oxia), e.g., U+03AD, U+1F73 for epsilon.",
 	# ],
-	"description_s" => "Modern Greek hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Modern Greek in monotonic and polytonic",
@@ -153,7 +150,6 @@ class Language
 	# 	"Patterns in UTF-8 use two code positions for each of the vowels with acute accent",
 	# 	"(a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.",
 	# ],
-	"description_s" => "Ancient Greek hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Ancient Greek in LGR and UTF-8 encodings,",
@@ -231,7 +227,6 @@ class Language
 	# 	"Patterns encoded in UTF-8 are provided by a separate package.",
 	# ],
 
-	"description_s" => "German hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for German in T1/EC and UTF-8 encodings,",
@@ -416,7 +411,6 @@ class Language
 	"type"          => "dictionary",
 	"authors"       => [ "pavel_sevecek" ],
 	"licence"       => "GPL",
-	"description_s" => "Czech hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Czech in T1/EC and UTF-8 encodings.",
@@ -442,7 +436,6 @@ class Language
 	"type"          => "dictionary",
 	"authors"       => [ "jana_chlebikova" ],
 	"licence"       => "GPL",
-	"description_s" => "Slovak hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Slovak in T1/EC and UTF-8 encodings.",
@@ -681,7 +674,6 @@ class Language
 	"type"          => "dictionary",
 	"authors"       => ["bence_nagy"],
 	"licence"       => "MPL 1.1/GPL 2.0/LGPL 2.1", # TODO
-	"description_s" => "Hungarian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Hungarian in T1/EC and UTF-8 encodings.",
@@ -726,7 +718,6 @@ class Language
 	"type"          => "dictionary",
 	"authors"       => ["peter_kleiweg"],
 	"licence"       => "LPPL", # TODO Status maintained
-	"description_s" => "Interlingua hyphenation patterns", # FIXME Inconsistent
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Interlingua in ASCII encoding.",
@@ -903,7 +894,6 @@ class Language
 	"type"          => "dictionary",
 	"authors"       => ["joerg_knappen", "medeni_shemde"],
 	"licence"       => "LPPL", # Status: maintained!
-	"description_s" => "Kurmanji hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Kurmanji (Northern Kurdish) as spoken in",
@@ -1127,7 +1117,6 @@ class Language
 	"type"          => "rules", # TODO: we could create a generating script
 	"authors"       => ["werner_lemberg"],
 	"licence"       => "GPL",
-	"description_s" => "Chinese pinyin hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for unaccented transliterated Mandarin Chinese",
@@ -1195,7 +1184,6 @@ class Language
 	"authors"       => ["eduard_werner"],
 	"type"          => "dictionary",
 	"licence"       => "LPPL",
-	"description_s" => "Upper Sorbian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Upper Sorbian in T1/EC and UTF-8 encodings.",
@@ -1217,7 +1205,6 @@ class Language
 	"type"          => "dictionary",
 	"authors"       => ["jan_michael_rynning"],
 	"licence"       => "LPPL",
-	"description_s" => "Swedish hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Swedish in T1/EC and UTF-8 encodings.",
@@ -1294,7 +1281,6 @@ class Language
 	# 	"Hyphenation patterns for British English in ASCII encoding.",
 	# ],
 
-	"description_s" => "English hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Additional hyphenation patterns for American and British",
@@ -1361,7 +1347,6 @@ class Language
 	"authors"       => [ "dejan_muhamedagic" ],
 	"licence"       => "LPPL",
 	# for both scripts
-	"description_s" => "Serbian hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Serbian in T1/EC, T2A and UTF-8 encodings.",
@@ -1398,7 +1383,6 @@ class Language
 	"authors"       => [ "dorjgotov_batmunkh" ],
 	"licence"       => "LPPL",
 	# for both
-	"description_s" => "Mongolian hyphenation patterns in Cyrillic script",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Mongolian in T2A, LMC and UTF-8 encodings.",
@@ -1450,7 +1434,6 @@ class Language
 	"type"          => "rules",
 	"authors"       => ["yves_codet"],
 	"licence"       => "free", # You may freely use, copy, modify and/or distribute this file.
-	"description_s" => "Sanskrit hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Sanskrit and Prakrit in transliteration,",
@@ -1482,7 +1465,6 @@ class Language
 	"type"          => "dictionary",
 	"authors"       => [ "rune_kleveland", "ole_michael_selberg" ],
 	"licence"       => "free", # TODO
-	"description_s" => "Norwegian Bokmal and Nynorsk hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Norwegian Bokmal and Nynorsk in T1/EC and",
@@ -1514,7 +1496,6 @@ class Language
 	"type"          => "rules",
 	"authors"       => ["santhosh_thottingal"],
 	"licence"       => "MIT",
-	"description_s" => "Indic hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for Assamese, Bengali, Gujarati, Hindi, Kannada,",
@@ -1666,7 +1647,6 @@ class Language
 	"encoding" => nil, # no patterns for 8-bit engines
 	"exceptions" => false,
 	"message" => "Pan-Ethiopic hyphenation patterns",
-	"description_s" => "Hyphenation patterns for Ethiopic scripts",
 	"description_l" => [
 		#......................................................................#
 		"Hyphenation patterns for languages written using the Ethiopic script",
