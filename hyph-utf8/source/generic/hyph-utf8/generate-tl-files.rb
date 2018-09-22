@@ -23,7 +23,7 @@ Package.all.sort.each do |package|
 
 	# FIXME Still doesn’t work well for Latin
 	file_tlpsrc.printf "shortdesc %s.\n", package.description_s
-	package.description_l do |line|
+	package.description_l.each do |line|
 		file_tlpsrc.printf "longdesc %s\n", line
 	end
 	package.languages.each do |language|

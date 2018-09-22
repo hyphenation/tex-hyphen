@@ -422,10 +422,11 @@ module TeXLive
 			shortdesc
 		end
 
+		#	FIXME This should be at package level from the start
 		def description_l
-		  languages.map do |language|
-				 if language.description_l then language.description_l else [] end
-			end.flatten
+		  languages.inject([]) do |description, language|
+				 description + if language.description_l then language.description_l else [] end
+			end
 		end
 
 		def languages
