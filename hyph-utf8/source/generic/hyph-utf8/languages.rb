@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require_relative 'author-data'
+require_relative 'language-data'
 
 module PATH
 	ROOT = File.expand_path('../../../../..', __FILE__)
@@ -50,25 +52,21 @@ class Author
 
 	attr_reader :name, :surname, :email
 
-	@@list = []
-	@@hash = { }
+	@@authors = nil
+
+	def self.authors
+		@@authors ||= @@author_data.map do |id, details|
+			author = Author.new(details[0], details[1], details[2], details[3], details[4])
+			[id, author]
+		end.to_h
+	end
 
 	def self.all
-		return @@list unless @@list == []
-
-		require_relative 'author-data'
-		@@authors.each do |id, details|
-			author = Author.new(details[0], details[1], details[2], details[3], details[4])
-			@@list.push(author)
-			@@hash[id] = author
-		end
-
-		@@list
+		authors.values
 	end
 
 	def self.[] a
-		all if @@hash == { }
-		@@hash[a]
+		authors[a]
 	end
 end
 
@@ -84,7 +82,6 @@ class Language
 		@synonyms = language_hash["synonyms"]
 		@hyphenmin = language_hash["hyphenmin"]
 		@encoding = language_hash["encoding"]
-		@exceptions = language_hash["exceptions"]
 		@message = language_hash["message"]
 
 		@description_l = language_hash["description_l"]
@@ -93,7 +90,7 @@ class Language
 		@licence = language_hash["licence"]
 		@authors = language_hash["authors"]
 
-		if @synonyms==nil then @synonyms = [] end
+		@synonyms = [] unless @synonyms
 	end
 
 	def <=>(other)
@@ -104,7 +101,6 @@ class Language
 	def self.all
 		return @@list if @@list
 
-		require_relative 'language-data'
 		@@list = @@languages.map do |language_data|
 			new language_data
 		end
@@ -117,8 +113,8 @@ class Language
 		@@texfile[code] ||= File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', code)))
 	end
 
-	def get_exceptions
-		@exceptions1 ||= if readtexfile.superstrip.index('\hyphenation')
+	def exceptions
+		@exceptions ||= if readtexfile.superstrip.index('\hyphenation')
 		readtexfile.superstrip.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
 		else
 			""
@@ -157,7 +153,7 @@ class Language
 	# end
 
 	attr_reader :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns
-	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
+	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :message
 	attr_reader :description_l, :version
 	attr_reader :licence, :authors
 

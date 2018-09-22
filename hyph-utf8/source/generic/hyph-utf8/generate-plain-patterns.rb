@@ -44,9 +44,7 @@ Language.all.sort.each do |language|
 
 	# exceptions
 	file = outfile.('hyp') # This ensure a file is created, even if it may be empty
-	if language.get_exceptions != ""
-		file.puts language.get_exceptions
-	end
+	file.puts language.exceptions if language.exceptions != ""
 
 	# characters
 	file = outfile.('chr')
