@@ -112,42 +112,34 @@ class Language
 
 	# TODO self.find
 
+  @@texfile = Hash.new
 	def readtexfile(code = @code)
-		IO.readlines(File.join PATH::TEX, sprintf('hyph-%s.tex', code)).join
+		@@texfile[code] ||= File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', code)))
 	end
 
 	def get_exceptions
-		exceptions = readtexfile.superstrip
-		unless @exceptions1
-			if (exceptions.index('\hyphenation') != nil)
-				@exceptions1 = exceptions.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
-			else
-				@exceptions1 = ""
-			end
+		@exceptions1 ||= if readtexfile.superstrip.index('\hyphenation')
+		readtexfile.superstrip.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
+		else
+			""
 		end
-
-		@exceptions1
 	end
 
-	def get_patterns
-		unless @patterns
-			if @code == 'eo' then
-				@patterns = readtexfile.superstrip.
-					gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
-					#
-					gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
-					gsub(/\\nom\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e. \1o. \1oj. \1ojn. \1on.').
-					gsub(/\\ver\{(.*?)\}/m,'\1as. \1i. \1is. \1os. \1u. \1us.').
-					#
-					supersplit
-			else
-				@patterns = readtexfile(if ['nb', 'nn'].include? @code then 'no' else @code end).superstrip.
-					gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
-					supersplit
-			end
+	def patterns
+		@patterns ||= if @code == 'eo' then
+			readtexfile.superstrip.
+				gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
+				#
+				gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
+				gsub(/\\nom\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e. \1o. \1oj. \1ojn. \1on.').
+				gsub(/\\ver\{(.*?)\}/m,'\1as. \1i. \1is. \1os. \1u. \1us.').
+				#
+				supersplit
+		else
+			readtexfile(if ['nb', 'nn'].include? @code then 'no' else @code end).superstrip.
+				gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
+				supersplit
 		end
-
-		@patterns
 	end
 
 	def get_comments_and_licence
@@ -185,7 +177,7 @@ class Language
 
 	def has_apostrophes
 		begin
-			!isgreek? && get_patterns.any? { |p| p =~ /'/ }
+			!isgreek? && patterns.any? { |p| p =~ /'/ }
 		rescue Errno::ENOENT
 		  false
 		end
@@ -193,7 +185,7 @@ class Language
 
 	def has_dashes
 		begin
-			get_patterns.any? { |p| p =~ /-/ }
+			patterns.any? { |p| p =~ /-/ }
 		rescue Errno::ENOENT
 			false
 		end
@@ -245,7 +237,7 @@ class Language
 		def extract_apostrophes
 			plain, with_apostrophe = Array.new, nil
 
-			get_patterns.each do |pattern|
+			patterns.each do |pattern|
 				plain << pattern
 				if pattern =~ /'/ && !isgreek?
 					pattern_with_apostrophe = pattern.gsub(/'/,"’")
@@ -260,7 +252,7 @@ class Language
 		def extract_characters
 			characters = Array.new
 
-			characters_indexes = get_patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
+			characters_indexes = patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
 			characters_indexes.each do |c|
 				ch = [c].pack('U')
 				characters << ch + Unicode.upcase(ch)

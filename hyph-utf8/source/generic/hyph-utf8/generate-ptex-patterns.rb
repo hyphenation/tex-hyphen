@@ -41,7 +41,7 @@ Language.all.sort.each do |language|
 
 	puts ">> generating #{code} (#{language.name.safe})"
 	File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', code, language.encoding)), 'w') do |file_ptex|
-		patterns   = language.get_patterns
+		patterns   = language.patterns
 		exceptions = language.get_exceptions
 
 		characters = patterns.join('').gsub(/[.0-9]/,'').unpack('U*').sort.uniq
