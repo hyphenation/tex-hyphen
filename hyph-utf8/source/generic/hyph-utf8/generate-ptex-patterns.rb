@@ -39,10 +39,10 @@ Language.all.sort.each do |language|
 
 	code = language.code
 
-	puts ">> generating #{code} (#{language.name})"
+	puts ">> generating #{code} (#{language.name.safe})"
 	File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', code, language.encoding)), 'w') do |file_ptex|
-		patterns   = language.get_patterns
-		exceptions = language.get_exceptions
+		patterns   = language.patterns
+		exceptions = language.exceptions
 
 		characters = patterns.join('').gsub(/[.0-9]/,'').unpack('U*').sort.uniq
 
@@ -51,7 +51,7 @@ Language.all.sort.each do |language|
 			exceptions = encoding.convert_to_escaped_characters(exceptions)
 		end
 
-		file_ptex.printf(header, language.name, language.code, language.encoding, language.code)
+		file_ptex.printf(header, language.name.safe, language.code, language.encoding, language.code)
 
 		file_ptex.puts("\\bgroup")
 		# setting lccodes for letters

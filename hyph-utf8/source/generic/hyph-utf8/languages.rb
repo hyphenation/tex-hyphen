@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require_relative 'author-data'
+require_relative 'language-data'
 
 module PATH
 	ROOT = File.expand_path('../../../../..', __FILE__)
@@ -26,6 +28,14 @@ class String
 	def supersplit
 		strip.gsub(/\s+/m,"\n").split("\n")
 	end
+
+	def safe
+		gsub /[\s-]/, ''
+	end
+
+	def titlecase
+		split.map(&:capitalize).join(' ')
+	end
 end
 
 class Author
@@ -42,25 +52,19 @@ class Author
 
 	attr_reader :name, :surname, :email
 
-	@@list = []
-	@@hash = { }
+	def self.authors
+		@@authors ||= @@author_data.map do |id, details|
+			author = Author.new(details[0], details[1], details[2], details[3], details[4])
+			[id, author]
+		end.to_h
+	end
 
 	def self.all
-		return @@list unless @@list == []
-
-		require_relative 'author-data'
-		@@authors.each do |id, details|
-			author = Author.new(details[0], details[1], details[2], details[3], details[4])
-			@@list.push(author)
-			@@hash[id] = author
-		end
-
-		@@list
+		authors.values
 	end
 
 	def self.[] a
-		all if @@hash == { }
-		@@hash[a]
+		authors[a]
 	end
 end
 
@@ -76,71 +80,57 @@ class Language
 		@synonyms = language_hash["synonyms"]
 		@hyphenmin = language_hash["hyphenmin"]
 		@encoding = language_hash["encoding"]
-		@exceptions = language_hash["exceptions"]
 		@message = language_hash["message"]
 
-		@description_s = language_hash["description_s"]
 		@description_l = language_hash["description_l"]
 		@version       = language_hash["version"]
 
 		@licence = language_hash["licence"]
 		@authors = language_hash["authors"]
 
-		if @synonyms==nil then @synonyms = [] end
+		@synonyms = [] unless @synonyms
 	end
 
 	def <=>(other)
 	  code <=> other.code
 	end
 
-	@@list = nil
 	def self.all
-		return @@list if @@list
-
-		require_relative 'language-data'
-		@@list = @@languages.map do |language_data|
+		@@languages ||= @@language_data.map do |language_data|
 			new language_data
 		end
 	end
 
 	# TODO self.find
 
+  @@texfile = Hash.new
 	def readtexfile(code = @code)
-		IO.readlines(File.join PATH::TEX, sprintf('hyph-%s.tex', code)).join
+		@@texfile[code] ||= File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', code)))
 	end
 
-	def get_exceptions
-		exceptions = readtexfile.superstrip
-		unless @exceptions1
-			if (exceptions.index('\hyphenation') != nil)
-				@exceptions1 = exceptions.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
-			else
-				@exceptions1 = ""
-			end
+	def exceptions
+		@exceptions ||= if readtexfile.superstrip.index('\hyphenation')
+		readtexfile.superstrip.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
+		else
+			""
 		end
-
-		@exceptions1
 	end
 
-	def get_patterns
-		unless @patterns
-			if @code == 'eo' then
-				@patterns = readtexfile.superstrip.
-					gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
-					#
-					gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
-					gsub(/\\nom\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e. \1o. \1oj. \1ojn. \1on.').
-					gsub(/\\ver\{(.*?)\}/m,'\1as. \1i. \1is. \1os. \1u. \1us.').
-					#
-					supersplit
-			else
-				@patterns = readtexfile(if ['nb', 'nn'].include? @code then 'no' else @code end).superstrip.
-					gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
-					supersplit
-			end
+	def patterns
+		@patterns ||= if @code == 'eo' then
+			readtexfile.superstrip.
+				gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
+				#
+				gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
+				gsub(/\\nom\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e. \1o. \1oj. \1ojn. \1on.').
+				gsub(/\\ver\{(.*?)\}/m,'\1as. \1i. \1is. \1os. \1u. \1us.').
+				#
+				supersplit
+		else
+			readtexfile(if ['nb', 'nn'].include? @code then 'no' else @code end).superstrip.
+				gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
+				supersplit
 		end
-
-		@patterns
 	end
 
 	def get_comments_and_licence
@@ -158,12 +148,16 @@ class Language
 	# end
 
 	attr_reader :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns
-	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :exceptions, :message
+	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :message
 	attr_reader :description_l, :version
 	attr_reader :licence, :authors
 
+	# def message
+	# 	@name.titlecase + ' hyphenation patterns'
+	# end
+
 	def description_s
-		@description_s || @message
+		@message
 	end
 
 	# Strictly speaking a misnomer, because grc-x-ibycus should also return true.
@@ -172,9 +166,9 @@ class Language
 	  ['grc', 'el-polyton', 'el-monoton'].include? @code
 	end
 
-  def has_apostrophes
+	def has_apostrophes
 		begin
-			!isgreek? && get_patterns.any? { |p| p =~ /'/ }
+			!isgreek? && patterns.any? { |p| p =~ /'/ }
 		rescue Errno::ENOENT
 		  false
 		end
@@ -182,7 +176,7 @@ class Language
 
 	def has_dashes
 		begin
-			get_patterns.any? { |p| p =~ /-/ }
+			patterns.any? { |p| p =~ /-/ }
 		rescue Errno::ENOENT
 			false
 		end
@@ -234,7 +228,7 @@ class Language
 		def extract_apostrophes
 			plain, with_apostrophe = Array.new, nil
 
-			get_patterns.each do |pattern|
+			patterns.each do |pattern|
 				plain << pattern
 				if pattern =~ /'/ && !isgreek?
 					pattern_with_apostrophe = pattern.gsub(/'/,"’")
@@ -243,13 +237,13 @@ class Language
 				end
 			end
 
-			{ plain: plain, with_apostrophe: if with_apostrophe then with_apostrophe end }
+			{ plain: plain, with_apostrophe: with_apostrophe }
 		end
 
 		def extract_characters
 			characters = Array.new
 
-			characters_indexes = get_patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
+			characters_indexes = patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
 			characters_indexes.each do |c|
 				ch = [c].pack('U')
 				characters << ch + Unicode.upcase(ch)
@@ -347,8 +341,8 @@ module TeXLive
 			"mn-cyrl-x-lmc"=>"mongolian",
 			"el-monoton"=>"greek",
 			"el-polyton"=>"greek",
-			"grc"=>"ancientgreek",
-			"grc-x-ibycus"=>"ancientgreek",
+			"grc"=>"ancient greek",
+			"grc-x-ibycus"=>"ancient greek",
 			"zh-latn-pinyin"=>"chinese",
 			"as"=>"indic",
 			"bn"=>"indic",
@@ -391,6 +385,38 @@ module TeXLive
 		@@packages = make_mappings
 		def self.all
 			@@packages.keys
+		end
+
+		# FIXME That’s oh-so-awful
+		def description_s
+			return 'Hyphenation patterns for Ethiopic scripts' if @name == 'ethiopic'
+
+			if @name == 'arabic'
+				leader = '(No) Arabic'
+			elsif @name == 'farsi'
+				leader = '(No) Persian'
+			elsif @name == 'greek'
+				leader = 'Modern Greek'
+			elsif @name == 'chinese'
+				leader = 'Chinese pinyin'
+			elsif @name == 'norwegian'
+			  leader = 'Norwegian Bokmal and Nynorsk'
+			else
+				leader = @name.titlecase
+			end
+
+			shortdesc = sprintf '%s hyphenation patterns', leader
+
+			shortdesc += ' in Cyrillic script' if @name == 'mongolian'
+
+			shortdesc
+		end
+
+		#	FIXME This should be at package level from the start
+		def description_l
+		  languages.inject([]) do |description, language|
+				 description + if language.description_l then language.description_l else [] end
+			end
 		end
 
 		def languages

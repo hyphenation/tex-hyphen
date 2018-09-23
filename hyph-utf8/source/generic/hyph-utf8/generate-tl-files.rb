@@ -12,7 +12,7 @@ include TeXLive
 #--------#
 
 Package.all.sort.each do |package|
-	tlpsrcname = File.join(PATH::TLPSRC, sprintf('hyphen-%s.tlpsrc', package.name))
+	tlpsrcname = File.join(PATH::TLPSRC, sprintf('hyphen-%s.tlpsrc', package.name.safe))
 	file_tlpsrc = File.open(tlpsrcname, 'w')
 	printf "generating %s\n", tlpsrcname
 
@@ -21,15 +21,20 @@ Package.all.sort.each do |package|
 		file_tlpsrc.puts dependency
 	end
 
+	# FIXME Still doesn’t work well for Latin
+	file_tlpsrc.printf "shortdesc %s.\n", package.description_s
+	package.description_l.each do |line|
+		file_tlpsrc.printf "longdesc %s\n", line
+	end
 	package.languages.each do |language|
 		if language.description_s && language.description_l then
-			file_tlpsrc.printf "shortdesc %s.\n", language.description_s
-			language.description_l.each do |line|
-				file_tlpsrc.printf "longdesc %s\n", line
-			end
+			# file_tlpsrc.printf "shortdesc %s.\n", language.description_s
+			# language.description_l.each do |line|
+			# 	file_tlpsrc.printf "longdesc %s\n", line
+			# end
 		end
 
-		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name, language.list_synonyms
+		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name.safe, language.list_synonyms
 		file_tlpsrc.printf "\t%s \\\n\t%s", language.list_hyphenmins, language.list_loader
 		if language.patterns_line + language.exceptions_line != ""
 			file_tlpsrc.printf " \\\n\t%s \\\n\t%s", language.patterns_line, language.exceptions_line
@@ -66,7 +71,7 @@ File.open(language_dat_filename, 'w') do |file_language_dat|
 	Package.all.sort.each do |package|
 		package.languages.each do |language|
 			# main language name
-			file_language_dat.printf "%s\t%s\n", language.name, language.loadhyph
+			file_language_dat.printf "%s\t%s\n", language.name.safe, language.loadhyph
 
 			# synonyms
 			language.synonyms.each do |synonym|

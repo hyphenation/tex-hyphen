@@ -1,5 +1,5 @@
 class Author
-	@@authors = {
+	@@author_data = {
 #authors = {
 	"donald_knuth"        => ["Donald", "Knuth", nil, false, false],
 	"peter_heslin"        => ["Peter", "Heslin", nil, false, false],
