@@ -44,6 +44,50 @@ describe String do
   end
 end
 
+describe Author do
+  describe 'Class methods' do
+    describe '.authors' do
+      it "returns a hash of authors" do
+        expect(Author.authors).to be_a Hash
+      end
+    end
+
+    describe '.all' do
+      it "returns the array of authors" do
+        expect(Author.all).to be_an Array
+      end
+    end
+
+    describe '.[]' do
+      it "returns the author for the key" do
+        expect(Author['donald_knuth']).to be_an Author
+      end
+    end
+  end
+
+  describe 'Instance methods' do
+    let(:dek) { Author['donald_knuth'] }
+
+    describe '#name' do
+      it "returns the author’s name" do
+        expect(dek.name).to eq 'Donald'
+      end
+    end
+
+    describe '#surname' do
+      it "returns the author’s surname" do
+        expect(dek.surname).to eq 'Knuth'
+      end
+    end
+
+    describe '#email' do
+      it "returns the email" do
+        expect(dek.email).to be_nil
+      end
+    end
+  end
+end
+
 describe Language do
   describe 'class variables' do
     it "sets the path to the pattern files" do

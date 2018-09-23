@@ -1,3 +1,5 @@
+module TeX
+module Hyphen
 class Author
 	@@author_data = {
 #authors = {
@@ -89,4 +91,6 @@ class Author
 	"wie_ming_ang"        => ["Wie-Ming", "Cittānurakkho Bhikkhu", "wiemingang{at}gmail{dot}com", true, true]
 }
 #
+end
+end
 end

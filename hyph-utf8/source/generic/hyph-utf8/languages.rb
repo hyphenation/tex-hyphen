@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-require_relative 'author-data'
 require_relative 'language-data'
 require_relative '../../../../lib/tex/hyphen/language'
 
@@ -19,36 +18,6 @@ module PATH
 	LANGUAGE_DAT = File.join(PATH::TL, 'texmf-dist', 'tex', 'generic', 'config')
 	# hyphen-foo.tlpsrc for TeX Live
 	TLPSRC = File.join(PATH::TL, 'tlpkg', 'tlpsrc')
-end
-
-class Author
-	def initialize(name,surname,email,contacted1,contacted2)
-		@name       = name
-		@surname    = surname
-		@email      = email
-		# this mostly means if email has been recently checked
-		@contacted1 = contacted1
-		# this means if we made more cooperation with author,
-		# exchanging patches etc.
-		@contacted2 = contacted2
-	end
-
-	attr_reader :name, :surname, :email
-
-	def self.authors
-		@@authors ||= @@author_data.map do |id, details|
-			author = Author.new(details[0], details[1], details[2], details[3], details[4])
-			[id, author]
-		end.to_h
-	end
-
-	def self.all
-		authors.values
-	end
-
-	def self.[] a
-		authors[a]
-	end
 end
 
 class Language
