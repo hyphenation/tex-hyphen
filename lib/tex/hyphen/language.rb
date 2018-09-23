@@ -2,6 +2,24 @@ require 'yaml'
 require 'hydra'
 require 'byebug' unless ENV['RACK_ENV'] == "production"
 
+class String
+	def superstrip
+		strip.gsub /%.*$/, ''
+	end
+
+	def supersplit
+		strip.gsub(/\s+/m,"\n").split("\n")
+	end
+
+	def safe
+		gsub /[\s-]/, ''
+	end
+
+	def titlecase
+		split.map(&:capitalize).join(' ')
+	end
+end
+
 module TeX
   module Hyphen
     class InvalidMetadata < StandardError; end

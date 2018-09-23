@@ -21,24 +21,6 @@ module PATH
 	TLPSRC = File.join(PATH::TL, 'tlpkg', 'tlpsrc')
 end
 
-class String
-	def superstrip
-		strip.gsub /%.*$/, ''
-	end
-
-	def supersplit
-		strip.gsub(/\s+/m,"\n").split("\n")
-	end
-
-	def safe
-		gsub /[\s-]/, ''
-	end
-
-	def titlecase
-		split.map(&:capitalize).join(' ')
-	end
-end
-
 class Author
 	def initialize(name,surname,email,contacted1,contacted2)
 		@name       = name

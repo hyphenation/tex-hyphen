@@ -4,34 +4,44 @@ include TeX::Hyphen
 
 describe String do
   describe '#superstrip' do
-	  it "calls String#strip" do
-			str = " foo bar "
-			expect(str).to receive :strip
-			str.superstrip
-		end
+    it "calls String#strip" do
+      str = " foo bar "
+      expect(str).to receive(:strip).and_return "foo bar"
+      str.superstrip
+    end
 
-		it "strips TeX comments" do
-		  expect("foo % bar".superstrip).to eq "foo "
-		end
-	end
+    it "strips TeX comments" do
+      expect("foo % bar".superstrip).to eq "foo "
+    end
+  end
 
-	describe '#supersplit' do
-	  it "calls String#split" do
-			str = "foo  bar"
-			expect(str).to receive :split
-			str.supersplit
-		end
+  describe '#supersplit' do
+    it "calls String#strip" do
+      str = "foo  bar "
+      expect(str).to receive(:strip).and_return "foo  bar"
+      str.supersplit
+    end
 
-		it "splits across whitespace ranges" do
-		  expect("foo  bar".supersplit).to ["foo", "bar"]
-		end
-	end
+    it "splits across whitespace ranges" do
+      expect("foo  bar".supersplit).to eq ["foo", "bar"]
+    end
+  end
 
-	describe '#safe' do
-	  it "returns a safe version of the string
-	end
+  describe '#safe' do
+    it "strips hyphens" do
+      expect("foo-bar".safe).to eq "foobar"
+    end
 
-	describe '#titlecase'
+    it "strips spaces" do
+      expect("ancient greek".safe).to eq "ancientgreek"
+    end
+  end
+
+  describe '#titlecase' do
+    it "capitalises each word" do
+      expect("modern greek".titlecase).to eq "Modern Greek"
+    end
+  end
 end
 
 describe Language do
@@ -359,11 +369,11 @@ describe Language do
     end
 
     it "raises an exception if @authors is nil or empty" do
-			not_church_slavonic = Language.new('qcu')
+      not_church_slavonic = Language.new('qcu')
       allow(File).to receive(:read).and_return "code: qcu\nlicence:\n  name:\n    MIT"
       # pending "After the big merge, real files need fixing"
-		  expect { not_church_slavonic.authors }.to raise_exception NoAuthor
-		end
+      expect { not_church_slavonic.authors }.to raise_exception NoAuthor
+    end
 
     it "doesn’t crash on invalid licence entries" do
       syntax_error = Language.new('qse')
