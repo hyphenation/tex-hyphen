@@ -2,6 +2,38 @@ require 'spec_helper'
 
 include TeX::Hyphen
 
+describe String do
+  describe '#superstrip' do
+	  it "calls String#strip" do
+			str = " foo bar "
+			expect(str).to receive :strip
+			str.superstrip
+		end
+
+		it "strips TeX comments" do
+		  expect("foo % bar".superstrip).to eq "foo "
+		end
+	end
+
+	describe '#supersplit' do
+	  it "calls String#split" do
+			str = "foo  bar"
+			expect(str).to receive :split
+			str.supersplit
+		end
+
+		it "splits across whitespace ranges" do
+		  expect("foo  bar".supersplit).to ["foo", "bar"]
+		end
+	end
+
+	describe '#safe' do
+	  it "returns a safe version of the string
+	end
+
+	describe '#titlecase'
+end
+
 describe Language do
   describe 'class variables' do
     it "sets the path to the pattern files" do

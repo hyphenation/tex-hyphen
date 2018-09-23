@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 require_relative 'author-data'
 require_relative 'language-data'
+require_relative '../../../../lib/tex/hyphen/language'
 
 module PATH
 	ROOT = File.expand_path('../../../../..', __FILE__)
