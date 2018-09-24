@@ -6,7 +6,7 @@
 # use 'gem install unicode' if unicode is missing on your computer
 require 'unicode'
 
-require_relative 'languages.rb'
+require_relative '../../../../lib/tex/hyphen/language.rb'
 include OldLanguage::TeXLive
 
 # FIXME sr-cyrl?

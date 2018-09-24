@@ -505,7 +505,7 @@ describe Language do
 
     describe "#list_support_files" do # FIXME? list_non_run_files
       it "lists doc and source files" do
-        expect(hungarian.list_support_files('doc')).to eq ['doc/generic/huhyphen']
+        expect(hungarian.list_support_files('doc')).to eq ['doc/generic/hyph-utf8/languages/hu', 'doc/generic/huhyphen']
         # FIXME Should return ['texmf-dist/doc/generic/huhyphen', 'texmf-dist/doc/generic/hyph-utf8/languages/hu'] or nothing
       end
     end

@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative 'hyph-utf8'
-require_relative 'languages'
+require_relative '../../../../lib/tex/hyphen/language'
 
 # this file generates patterns for pTeX out of the plain ones
 

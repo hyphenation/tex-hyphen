@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
-require_relative 'languages.rb'
+require_relative '../../../../lib/tex/hyphen/language.rb'
 
-include TeXLive
+# include TeXLive
 include OldLanguage::TeXLive
+include TeX::Hyphen
 
 # this file auto-generates loaders for hyphenation patterns - to be improved
 

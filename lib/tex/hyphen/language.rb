@@ -357,7 +357,7 @@ module TeX
 
       def list_support_files(type)
         # Cache directory contents
-        (@dirlist ||= { })[type] ||= Dir.glob(File.expand_path(sprintf('../../../../%s/generic/hyph-utf8/languages/*', type), __FILE__)).select do |file|
+        (@dirlist ||= { })[type] ||= Dir.glob(File.expand_path(sprintf('../../../../hyph-utf8/%s/generic/hyph-utf8/languages/*', type), __FILE__)).select do |file|
           File.directory?(file)
         end.map do |dir|
           dir.gsub /^.*\//, ''

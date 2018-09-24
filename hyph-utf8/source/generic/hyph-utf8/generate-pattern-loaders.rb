@@ -3,7 +3,7 @@
 
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
-require_relative 'languages.rb'
+require_relative '../../../../lib/tex/hyphen/language.rb'
 
 $package_name="hyph-utf8"
 
@@ -12,7 +12,7 @@ $path_tex_generic=File.expand_path("../../../../tex/generic", __FILE__)
 $path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
 
 # TODO: should be singleton
-languages = Language.all
+languages = OldLanguage.all
 
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
 
