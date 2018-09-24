@@ -127,7 +127,7 @@ class OldLanguage
 
 		# ext: 'pat' or 'hyp'
 		# filetype: 'patterns' or 'exceptions'
-		def plain_text_line(ext, filetype)
+		def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
 			return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
 
 			if @code =~ /^sh-/
