@@ -20,6 +20,8 @@ class HeaderValidator
   class InternalError < StandardError
   end
 
+  @@exemptions = ['ar', 'fa', 'grc-x-ibycus']
+
   @@format = {
     title: {
       mandatory: true,
@@ -119,7 +121,12 @@ class HeaderValidator
 
     puts header unless @mode == 'mojca'
     begin
+      # byebug if filename =~ /hyph-grc-x-ibycus\.tex$/
+      # puts 'foo'
       @metadata = YAML::load(header)
+      # byebug unless @metatada
+      # puts 'bar'
+      # raise ValidationError.new("Empty metadata set")
     rescue Psych::SyntaxError => err
       raise WellFormednessError.new(err.message)
     end
@@ -128,6 +135,7 @@ class HeaderValidator
   def check_mandatory(hash, validator)
     validator.each do |key, validator|
       # byebug if validator[:mandatory] && !hash[key.to_s]
+      # byebug unless validator && hash
       raise ValidationError.new("Key #{key} missing") if validator[:mandatory] && !hash[key.to_s]
       check_mandatory(hash[key.to_s], validator[:type]) if hash[key.to_s] && validator[:type].respond_to?(:keys)
     end
