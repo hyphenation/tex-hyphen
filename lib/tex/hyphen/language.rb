@@ -3,6 +3,8 @@ require 'hydra'
 require 'byebug' unless ENV['RACK_ENV'] == "production"
 
 require_relative '../../../hyph-utf8/source/generic/hyph-utf8/author-data'
+require_relative '../../../hyph-utf8/source/generic/hyph-utf8/languages'
+require_relative '../../../hyph-utf8/source/generic/hyph-utf8/language-data'
 
 class String
   def superstrip
@@ -218,6 +220,7 @@ module TeX
       end
     end
 
+    include OldLanguage::TeXLive # FIXME Remove later
     class Package
       attr_reader :name
 
@@ -266,11 +269,14 @@ module TeX
         # a hash with the names of TeX Live packages, either individual language names,
         # or an array of languages as the value
         @@packages = Hash.new
-        Language.all.each do |language|
+        OldLanguage.all.each do |language|
           package_name = @@package_mappings[language.code]
           next if !package_name && @@package_names.include?(language.name)
           package_name ||= language.name
-          package = @@package_names[package_name] || new(package_name)
+          unless package = @@package_names[package_name]
+            package = new(package_name) # TODO Remove later
+            @@package_names[package_name] = package
+          end
 
           (@@packages[package] ||= []) << language
         end
@@ -392,8 +398,8 @@ module TeX
       end
 
       # FIXME Change later
-      def find(name)
-        @@package_names[self]
+      def self.find(name)
+        @@package_names[name]
       end
     end
   end

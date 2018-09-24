@@ -7,10 +7,10 @@
 require 'unicode'
 
 require_relative 'languages.rb'
-include Language::TeXLive
+include OldLanguage::TeXLive
 
 # FIXME sr-cyrl?
-Language.all.sort.each do |language|
+OldLanguage.all.sort.each do |language|
 	code = language.code
 
 	if language.use_old_loader || code == 'mn-cyrl-x-lmc'

@@ -20,7 +20,7 @@ module PATH
 	TLPSRC = File.join(PATH::TL, 'tlpkg', 'tlpsrc')
 end
 
-class Language
+class OldLanguage
 	def initialize(language_hash)
 		@use_old_patterns = language_hash["use_old_patterns"]
 		@use_old_patterns_comment = language_hash["use_old_patterns_comment"]
@@ -271,7 +271,4 @@ class Language
 
 		files
 	end
-end
-
-module TeXLive
 end

@@ -1,4 +1,4 @@
-class Language
+class OldLanguage
 # "use_new_loader"
 # => true - create a new file and use that one
 # => false - use "filename_old_patterns" in language.dat

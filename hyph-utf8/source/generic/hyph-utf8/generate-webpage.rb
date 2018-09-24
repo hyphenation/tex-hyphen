@@ -3,7 +3,7 @@
 require_relative 'languages.rb'
 
 include TeXLive
-include Language::TeXLive
+include OldLanguage::TeXLive
 
 # this file auto-generates loaders for hyphenation patterns - to be improved
 
@@ -12,7 +12,7 @@ $package_name="hyph-utf8"
 # TODO - make this a bit less hard-coded
 $path_tex_generic="../../../tex/generic"
 
-language_default = Language.new({
+language_default = OldLanguage.new({
 	"code"      => "(default)",
 	"name"      => "english", "synonyms" => ["usenglish", "USenglish", "american"],
 	"hyphenmin" => [2,3],
@@ -26,7 +26,7 @@ language_default = Language.new({
 # add english to the list
 # $l["default"] = language_default
 # TODO: should be singleton
-languages = Language.all.sort{|a,b| a.name <=> b.name}
+languages = OldLanguage.all.sort{|a,b| a.name <=> b.name}
 
 $a = Author
 

@@ -24,7 +24,7 @@ header = <<-HEADER
 %%
 HEADER
 
-Language.all.sort.each do |language|
+OldLanguage.all.sort.each do |language|
 	if language.use_old_loader
 		puts "(skipping #{language.code} # loader)"
 		next
