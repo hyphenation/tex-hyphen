@@ -11,10 +11,11 @@ module PATH
 
   TeXROOT = File.join(ROOT, 'hyph-utf8')
   TeX_GENERIC = File.join(TeXROOT, 'tex', 'generic')
-  TXT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'txt')
-  TEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'tex')
-  PTEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'ptex')
-  QUOTE = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'quote')
+  PAT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns')
+  TXT = File.join(PAT, 'txt')
+  TEX = File.join(PAT, 'tex')
+  PTEX = File.join(PAT, 'ptex')
+  QUOTE = File.join(PAT, 'quote')
 
   SUPPORT = File.join(TeXROOT, '%s', 'generic', 'hyph-utf8', 'languages', '*')
 
@@ -25,7 +26,6 @@ module PATH
   # hyphen-foo.tlpsrc for TeX Live
   TLPSRC = File.join(PATH::TL, 'tlpkg', 'tlpsrc')
 end
-
 
 class String
   def superstrip
@@ -82,7 +82,6 @@ module TeX
     end
 
     class Language
-      @@topdir = File.expand_path('../../../../hyph-utf8/tex/generic/hyph-utf8/patterns', __FILE__)
       @@eohmarker = '=' * 42
 
       def initialize(bcp47 = nil)
@@ -90,7 +89,7 @@ module TeX
       end
 
       def self.all
-        @@languages ||= Dir.glob(File.join(@@topdir, 'tex', 'hyph-*.tex')).inject [] do |languages, texfile|
+        @@languages ||= Dir.glob(File.join(PATH::TEX, 'hyph-*.tex')).inject [] do |languages, texfile|
           bcp47 = texfile.gsub /^.*\/hyph-(.*)\.tex$/, '\1'
           languages << [bcp47, Language.new(bcp47)]
         end.to_h
@@ -173,13 +172,13 @@ module TeX
 
       def patterns
         # TODO Not that!  Parse the content of the TeX file instead
-        @patterns ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.pat.txt', @bcp47))) if self.class.all[@bcp47]
+        @patterns ||= File.read(File.join(PATH::TXT, sprintf('hyph-%s.pat.txt', @bcp47))) if self.class.all[@bcp47]
       end
 
       def exceptions
         # FIXME Same comment as for #patterns
         if self.class.all[@bcp47]
-          @exceptions ||= File.read(File.join(@@topdir, 'txt', sprintf('hyph-%s.hyp.txt', @bcp47)))
+          @exceptions ||= File.read(File.join(PATH::TXT, sprintf('hyph-%s.hyp.txt', @bcp47)))
           @hyphenation = @exceptions.split(/\s+/).inject [] do |exceptions, exception|
             exceptions << [exception.gsub('-', ''), exception]
           end.to_h
@@ -203,7 +202,7 @@ module TeX
 
       def extract_metadata
         header = ""
-        File.read(File.join(@@topdir, 'tex', sprintf('hyph-%s.tex', @bcp47))).each_line do |line|
+        File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', @bcp47))).each_line do |line|
           break if line =~ /\\patterns|#{@@eohmarker}/
           header += line.gsub(/^% /, '').gsub(/%.*/, '')
         end

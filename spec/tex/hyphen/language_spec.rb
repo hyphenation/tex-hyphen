@@ -44,6 +44,8 @@ describe String do
   end
 end
 
+# TODO?  Spec out PATH module
+
 describe Author do
   describe 'Class methods' do
     describe '.authors' do
@@ -89,11 +91,7 @@ describe Author do
 end
 
 describe Language do
-  describe 'class variables' do
-    it "sets the path to the pattern files" do
-      expect(Language.class_variable_get :@@topdir).to match /tex\/generic\/hyph-utf8\/patterns$/
-    end
-
+  describe 'Class variables' do
     it "has an end-of-header marker" do
       expect(Language.class_variable_get :@@eohmarker).to match /^\={42}$/
     end
