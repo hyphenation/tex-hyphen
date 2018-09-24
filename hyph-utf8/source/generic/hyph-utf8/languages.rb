@@ -119,10 +119,11 @@ class OldLanguage
 	# Convenience methods related to TeX Live and the .tlpsrc files
 	module TeXLive
 		def loadhyph
-			return filename_old_patterns if use_old_loader
-
-			code = @code.gsub /^sh-/, 'sr-'
-			sprintf 'loadhyph-%s.tex', code
+			if use_old_loader
+				filename_old_patterns
+			else
+				sprintf 'loadhyph-%s.tex', @code.gsub(/^sh-/, 'sr-')
+			end
 		end
 
 		# ext: 'pat' or 'hyp'
