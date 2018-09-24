@@ -217,5 +217,184 @@ module TeX
         metadata
       end
     end
+
+    class Package
+      attr_reader :name
+
+      def initialize(name)
+        @name = name
+      end
+
+      @@package_mappings = {
+        "en-gb"=>"english",
+        "en-us"=>"english",
+        "nb"=>"norwegian",
+        "nn"=>"norwegian",
+        "de-1901"=>"german",
+        "de-1996"=>"german",
+        "de-ch-1901"=>"german",
+        "mn-cyrl"=>"mongolian",
+        "mn-cyrl-x-lmc"=>"mongolian",
+        "el-monoton"=>"greek",
+        "el-polyton"=>"greek",
+        "grc"=>"ancient greek",
+        "grc-x-ibycus"=>"ancient greek",
+        "zh-latn-pinyin"=>"chinese",
+        "as"=>"indic",
+        "bn"=>"indic",
+        "gu"=>"indic",
+        "hi"=>"indic",
+        "kn"=>"indic",
+        "ml"=>"indic",
+        "mr"=>"indic",
+        "or"=>"indic",
+        "pa"=>"indic",
+        "ta"=>"indic",
+        "te"=>"indic",
+        "sh-latn"=>"serbian",
+        "sh-cyrl"=>"serbian",
+        "la"=>"latin",
+        "la-x-classic"=>"latin",
+        "la-x-liturgic"=>"latin"
+      }
+
+      def self.make_mappings
+        @@package_names = @@package_mappings.values.uniq.map do |package_name|
+          [package_name, new(package_name)]
+        end.to_h
+
+        # a hash with the names of TeX Live packages, either individual language names,
+        # or an array of languages as the value
+        @@packages = Hash.new
+        Language.all.each do |language|
+          package_name = @@package_mappings[language.code]
+          next if !package_name && @@package_names.include?(language.name)
+          package_name ||= language.name
+          package = @@package_names[package_name] || new(package_name)
+
+          (@@packages[package] ||= []) << language
+        end
+
+        @@packages
+      end
+
+      @@packages = make_mappings
+      def self.all
+        @@packages.keys
+      end
+
+      # FIXME That’s oh-so-awful
+      def description_s
+        return 'Hyphenation patterns for Ethiopic scripts' if @name == 'ethiopic'
+
+        if @name == 'arabic'
+          leader = '(No) Arabic'
+        elsif @name == 'farsi'
+          leader = '(No) Persian'
+        elsif @name == 'greek'
+          leader = 'Modern Greek'
+        elsif @name == 'chinese'
+          leader = 'Chinese pinyin'
+        elsif @name == 'norwegian'
+          leader = 'Norwegian Bokmal and Nynorsk'
+        else
+          leader = @name.titlecase
+        end
+
+        shortdesc = sprintf '%s hyphenation patterns', leader
+
+        shortdesc += ' in Cyrillic script' if @name == 'mongolian'
+
+        shortdesc
+      end
+
+      #  FIXME This should be at package level from the start
+      def description_l
+        languages.inject([]) do |description, language|
+           description + if language.description_l then language.description_l else [] end
+        end
+      end
+
+      def languages
+        @languages ||= @@packages[self]
+      end
+
+      def has_dependency?
+        {
+          "german" => "dehyph",
+          # for Russian and Ukrainian (until we implement the new functionality at least)
+          "russian" => "ruhyphen",
+          "ukrainian" => "ukrhyph",
+        }[name]
+      end
+
+      def list_dependencies
+        dependencies = [
+          "depend hyphen-base",
+          "depend hyph-utf8",
+        ]
+
+        # external dependencies
+        if dependency = has_dependency?
+          dependencies << sprintf("depend %s", dependency)
+        end
+
+        dependencies
+      end
+
+      @@special_support = {
+        'doc' => {
+          'greek' => 'doc/generic/elhyphen',
+          'hungarian' => 'doc/generic/huhyphen',
+        }
+      }
+
+      def list_support_files(type)
+        # Cache directory contents
+        (@dirlist ||= { })[type] ||= Dir.glob(File.expand_path(sprintf('../../../../%s/generic/hyph-utf8/languages/*', type), __FILE__)).select do |file|
+          File.directory?(file)
+        end.map do |dir|
+          dir.gsub /^.*\//, ''
+        end
+
+        files = (languages.map(&:code) & @dirlist[type]).map do |code|
+          sprintf("%s/generic/hyph-utf8/languages/%s", type, code)
+        end
+
+        if special = @@special_support.dig(type, name)
+          files << special
+        end
+
+        files
+      end
+
+      def list_run_files
+        files = []
+        files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if name == "norwegian"
+
+        files = languages.inject(files) do |files, language|
+          files + language.list_run_files
+        end
+
+        unless has_dependency?
+          languages.each do |language|
+            if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
+              files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
+            end
+          end
+        end
+
+        files
+      end
+
+      def <=>(other)
+        name <=> other.name
+      end
+
+      # FIXME Change later
+      def find(name)
+        @@package_names[self]
+      end
+    end
   end
 end
