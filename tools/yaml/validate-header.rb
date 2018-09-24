@@ -126,7 +126,8 @@ class HeaderValidator
       @metadata = YAML::load(header)
       # byebug unless @metatada
       # puts 'bar'
-      # raise ValidationError.new("Empty metadata set")
+      bcp47 = filename.gsub(/.*hyph-/, '').gsub(/\.tex$/, '')
+      raise ValidationError.new("Empty metadata set for language [#{bcp47}]") unless @metadata
     rescue Psych::SyntaxError => err
       raise WellFormednessError.new(err.message)
     end
@@ -200,19 +201,26 @@ class HeaderValidator
 
     unless @mode == 'mojca'
       puts "\nReport on #{arg}:" # FIXME Incorrect if multiple input files given.
+      summary = []
       if @errors.inject(0) { |errs, klass| errs + klass.last.count } > 0
-        puts "There were the following errors with some files:"
-        summary = []
         @errors.each do |klass, files|
           next if files.count == 0
           files.each do |file|
             filename = file.first
             message = file.last
-            summary << "#{filename}: #{klass.name} #{message}"
+            exemption_regexp = Regexp.new '(' + @@exemptions.join('|') + ')'
+            # byebug
+            skip = klass == ValidationError && message =~ /^Empty metadata set for language \[#{exemption_regexp}\]$/
+            # skip = false
+            summary << "#{filename}: #{klass.name} #{message}" unless skip
           end
         end
+      end
 
+      if (exitcode = summary.count) > 0
+        puts "There were the following errors with some files:"
         puts summary.join "\n"
+        exit exitcode
       else
         puts "No errors were found."
       end
