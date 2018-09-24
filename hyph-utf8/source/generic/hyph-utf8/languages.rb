@@ -121,8 +121,7 @@ class OldLanguage
 		def loadhyph
 			return filename_old_patterns if use_old_loader
 
-			code = @code
-			code = @code.gsub 'sh-', 'sr-' if @code =~ /^sh-/
+			code = @code.gsub /^sh-/, 'sr-'
 			sprintf 'loadhyph-%s.tex', code
 		end
 
