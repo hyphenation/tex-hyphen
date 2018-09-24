@@ -2,24 +2,6 @@
 require_relative 'language-data'
 require_relative '../../../../lib/tex/hyphen/language'
 
-module PATH
-	ROOT = File.expand_path('../../../../..', __FILE__)
-
-	TeXROOT = File.join(ROOT, 'hyph-utf8')
-	TeX_GENERIC = File.join(TeXROOT, 'tex', 'generic')
-	TXT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'txt')
-	TEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'tex')
-	PTEX = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'ptex')
-	QUOTE = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns', 'quote')
-
-  HYPHU8 = File.join('tex', 'generic', 'hyph-utf8')
-
-	TL = File.join(ROOT, 'TL')
-	LANGUAGE_DAT = File.join(PATH::TL, 'texmf-dist', 'tex', 'generic', 'config')
-	# hyphen-foo.tlpsrc for TeX Live
-	TLPSRC = File.join(PATH::TL, 'tlpkg', 'tlpsrc')
-end
-
 class OldLanguage
 	def initialize(language_hash)
 		@use_old_patterns = language_hash["use_old_patterns"]
