@@ -100,7 +100,7 @@ class OldLanguage
 	  ['grc', 'el-polyton', 'el-monoton'].include? @code
 	end
 
-	def has_apostrophes
+	def has_apostrophes?
 		begin
 			!isgreek? && patterns.any? { |p| p =~ /'/ }
 		rescue Errno::ENOENT
@@ -108,12 +108,40 @@ class OldLanguage
 		end
 	end
 
-	def has_dashes
+	def has_dashes?
 		begin
 			patterns.any? { |p| p =~ /-/ }
 		rescue Errno::ENOENT
 			false
 		end
+	end
+
+	def extract_apostrophes
+		plain, with_apostrophe = Array.new, nil
+
+		patterns.each do |pattern|
+			plain << pattern
+			if pattern =~ /'/ && !isgreek?
+				pattern_with_apostrophe = pattern.gsub(/'/,"’")
+				plain << pattern_with_apostrophe
+				(with_apostrophe ||= []) << pattern_with_apostrophe
+			end
+		end
+
+		{ plain: plain, with_apostrophe: with_apostrophe }
+	end
+
+	def extract_characters
+		characters = Array.new
+
+		characters_indexes = patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
+		characters_indexes.each do |c|
+			ch = [c].pack('U')
+			characters << ch + Unicode.upcase(ch)
+			characters << "’’" if ch == "'" && !isgreek?
+		end
+
+		characters
 	end
 
 	# Convenience methods related to TeX Live and the .tlpsrc files
@@ -159,98 +187,69 @@ class OldLanguage
 			plain_text_line('pat', 'patterns')
 		end
 
-		def extract_apostrophes
-			plain, with_apostrophe = Array.new, nil
+		def list_synonyms
+			# synonyms
+			if synonyms && synonyms.length > 0
+				sprintf " synonyms=%s", synonyms.join(',')
+			else
+				''
+			end
+		end
 
-			patterns.each do |pattern|
-				plain << pattern
-				if pattern =~ /'/ && !isgreek?
-					pattern_with_apostrophe = pattern.gsub(/'/,"’")
-					plain << pattern_with_apostrophe
-					(with_apostrophe ||= []) << pattern_with_apostrophe
+		def list_hyphenmins
+			# lefthyphenmin/righthyphenmin
+			lmin = (hyphenmin || [])[0]
+			rmin = (hyphenmin || [])[1]
+			sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
+		end
+
+		def list_loader
+			# which loader to use
+			file = sprintf "file=%s", loadhyph
+			return file unless use_old_loader
+
+			if ['ar', 'fa'].include? code
+				file = file + " \\\n\tfile_patterns="
+			elsif code == 'grc-x-ibycus'
+				# TODO: fix this
+				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
+			end
+		end
+
+		def list_run_files
+			return [] if use_old_loader
+
+			files = []
+
+			files << File.join(PATH::HYPHU8, 'loadhyph', loadhyph)
+			if has_apostrophes?
+				files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", code))
+			end
+
+			files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', code))
+			if encoding && encoding != "ascii" then
+				files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', code, encoding))
+			elsif code == "cop"
+				files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', filename_old_patterns)
+			end
+
+			# we skip the mongolian language for luatex files
+			return files if code == "mn-cyrl-x-lmc"
+
+			['chr', 'pat', 'hyp', 'lic'].each do |t|
+				files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', code, t))
+			end
+
+			if code =~ /^sh-/
+				# duplicate entries (will be removed later)
+				files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
+				['chr', 'pat', 'hyp', 'lic'].each do |t|
+					# duplicate entries (will be removed later)
+					files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
 				end
 			end
 
-			{ plain: plain, with_apostrophe: with_apostrophe }
+			files
 		end
-
-		def extract_characters
-			characters = Array.new
-
-			characters_indexes = patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
-			characters_indexes.each do |c|
-				ch = [c].pack('U')
-				characters << ch + Unicode.upcase(ch)
-				characters << "’’" if ch == "'" && !isgreek?
-			end
-
-			characters
-		end
-	end
-
-	def list_synonyms
-		# synonyms
-		if synonyms && synonyms.length > 0
-			sprintf " synonyms=%s", synonyms.join(',')
-		else
-			''
-		end
-	end
-
-	def list_hyphenmins
-		# lefthyphenmin/righthyphenmin
-		lmin = (hyphenmin || [])[0]
-		rmin = (hyphenmin || [])[1]
-		sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
-	end
-
-	def list_loader
-		# which loader to use
-		file = sprintf "file=%s", loadhyph
-		return file unless use_old_loader
-
-		if ['ar', 'fa'].include? code
-			file = file + " \\\n\tfile_patterns="
-		elsif code == 'grc-x-ibycus'
-			# TODO: fix this
-			file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
-		end
-	end
-
-
-	def list_run_files
-		return [] if use_old_loader
-
-		files = []
-
-		files << File.join(PATH::HYPHU8, 'loadhyph', loadhyph)
-		if has_apostrophes
-			files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", code))
-		end
-
-		files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', code))
-		if encoding && encoding != "ascii" then
-			files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', code, encoding))
-		elsif code == "cop"
-			files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', filename_old_patterns)
-		end
-
-		# we skip the mongolian language for luatex files
-		return files if code == "mn-cyrl-x-lmc"
-
-		['chr', 'pat', 'hyp', 'lic'].each do |t|
-			files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', code, t))
-		end
-
-		if code =~ /^sh-/
-			# duplicate entries (will be removed later)
-			files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
-			['chr', 'pat', 'hyp', 'lic'].each do |t|
-				# duplicate entries (will be removed later)
-				files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
-			end
-		end
-
-		files
 	end
 end
