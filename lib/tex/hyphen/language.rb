@@ -170,19 +170,58 @@ module TeX
         end
       end
 
-      def patterns
-        # TODO Not that!  Parse the content of the TeX file instead
-        @patterns ||= File.read(File.join(PATH::TXT, sprintf('hyph-%s.pat.txt', @bcp47))) if self.class.all[@bcp47]
+      @@texfile = Hash.new
+      def readtexfile(bcp47 = @bcp47)
+        begin
+          @@texfile[bcp47] ||= File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', bcp47)))
+        rescue Errno::ENOENT
+          @@texfile[bcp47] = ""
+        end
       end
 
-      def exceptions
+      def patterns
+        @patterns ||= if @bcp47 == 'eo' then
+          readtexfile.superstrip.
+            gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
+            #
+            gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
+            gsub(/\\nom\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e. \1o. \1oj. \1ojn. \1on.').
+            gsub(/\\ver\{(.*?)\}/m,'\1as. \1i. \1is. \1os. \1u. \1us.').
+            #
+            supersplit
+        else
+          readtexfile(if ['nb', 'nn'].include? @bcp47 then 'no' else @bcp47 end).superstrip.
+            gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
+            supersplit
+        end
+      end
+
+      def exceptions_old
         # FIXME Same comment as for #patterns
         if self.class.all[@bcp47]
           @exceptions ||= File.read(File.join(PATH::TXT, sprintf('hyph-%s.hyp.txt', @bcp47)))
-          @hyphenation = @exceptions.split(/\s+/).inject [] do |exceptions, exception|
-            exceptions << [exception.gsub('-', ''), exception]
-          end.to_h
         end
+      end
+
+      def exceptions
+        unless @exceptions
+          if readtexfile.superstrip.index('\hyphenation')
+            @exceptions = readtexfile.superstrip.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
+            if @exceptions != ""
+              @hyphenation = @exceptions.inject [] do |exceptions, exception|
+                # byebug unless exception
+                exceptions << [exception.gsub('-', ''), exception]
+              end.to_h
+            else
+              @hyphenation = { }
+            end
+          else
+            @exceptions = ""
+            @hyphenation = { }
+          end
+        end
+
+        @exceptions
       end
 
       def hyphenate(word)
@@ -191,10 +230,11 @@ module TeX
 
         unless @hydra
           begin
+            # byebug
             metadata = extract_metadata
-            @hydra = Hydra.new patterns.split, :lax, '', metadata
+            @hydra = Hydra.new patterns, :lax, '', metadata
           rescue InvalidMetadata
-            @hydra = Hydra.new patterns.split
+            @hydra = Hydra.new patterns
           end
         end
         @hydra.showhyphens(word)

@@ -37,11 +37,13 @@ class OldLanguage
 
 	# TODO self.find
 
+  # TODO Scheduled for removal
   @@texfile = Hash.new
 	def readtexfile(code = @code)
 		@@texfile[code] ||= File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', code)))
 	end
 
+  # TODO Scheduled for removal
 	def exceptions
 		@exceptions ||= if readtexfile.superstrip.index('\hyphenation')
 		readtexfile.superstrip.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
@@ -50,6 +52,7 @@ class OldLanguage
 		end
 	end
 
+	# TODO Scheduled for removal
 	def patterns
 		@patterns ||= if @code == 'eo' then
 			readtexfile.superstrip.
