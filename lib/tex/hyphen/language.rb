@@ -86,6 +86,12 @@ module TeX
 
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
+        unless @bcp47
+          @old = OldLanguage.all.select do |language|
+            language.code == @bcp47
+          end.first
+          raise unless @old || !@bcp47
+        end
       end
 
       def self.all
