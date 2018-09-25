@@ -152,6 +152,7 @@ class HeaderValidator
 
   def run!(pattfile)
     unless File.file?(pattfile)
+      # byebug
       raise InternalError.new("Argument “#{pattfile}” is not a file; this shouldn’t have happened.")
     end
     parse(pattfile)
@@ -187,12 +188,14 @@ class HeaderValidator
         exit -1
       end
 
+      # byebug
       if File.file? arg
         runfile(arg)
       elsif Dir.exists? arg
         Dir.foreach(arg) do |filename|
           next if filename == '.' || filename == '..'
-          @headings << [filename, runfile(File.join(arg, filename))]
+          f = File.join(arg, filename)
+          @headings << [filename, runfile(f)] unless Dir.exists? f
         end
       else
         puts "Argument #{arg} is neither an existing file nor an existing directory; proceeding." unless @mode == 'mojca'
