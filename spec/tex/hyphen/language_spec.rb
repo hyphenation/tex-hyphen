@@ -297,6 +297,18 @@ describe Language do
     end
   end
 
+  describe '#readtexfile' do
+    it "reads the TeX file" do
+      expect(File).to receive(:read)
+      basque.readtexfile
+    end
+
+    it "stores the contents into the @texfile Hash" do
+      basque.readtexfile
+      expect(basque.
+    end
+  end
+
   describe '#patterns' do
     it "returns the patterns" do
       language = Language.new('da')
@@ -322,6 +334,15 @@ describe Language do
       language = Language.new('ru')
       language.patterns
       expect(language.instance_variable_get :@patterns).to match /\.аб1р\n\.аг1ро\n\.ади2/
+    end
+
+    it "uses the [no] patterns for [nb]" do
+      expect(Language.new('nb').patterns).to eq Language.new('no').patterns
+    end
+
+    it "expands the Esperanto patterns" do
+      esperanto = Language.new('eo')
+      expect(esperanto.patterns).to match /\.di3s2a\.\n\.di3s2aj\.\n\.di3s2ajn\.\n\.di3s2an\.\n\.di3s2e\./
     end
   end
 
