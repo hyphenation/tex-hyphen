@@ -133,7 +133,7 @@ module TeX
             rescue InvalidMetadata
               # next
               # next unless ['nb', 'nn'].include? bcp47
-              next unless ['grc-x-ibycus', 'ar', 'mul-ethi', 'fa'].include? @bpc47
+              next unless ['grc-x-ibycus', 'ar', 'mul-ethi', 'fa'].include? @bcp47
             end
           end
 
