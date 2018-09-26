@@ -499,6 +499,40 @@ describe Language do
       expect(liturgical_latin.instance_variable_get :@authors).to eq ['Claudio Beccari', 'Monastery of Solesmes', 'Élie Roux']
     end
   end
+
+  describe '#has_apostrophes?' do
+    it "returns if patterns have apostrophes" do
+      expect(Language.new('be').has_apostrophes?).to be_truthy
+    end
+
+    it "returns false otherwise" do
+      expect(Language.new('bn').has_apostrophes?).to be_falsey
+    end
+  end
+
+  describe '#has_hyphens?' do
+    it "returns true if patterns have dashes" do
+      expect(Language.new('uk').has_hyphens?).to be_truthy
+    end
+
+    it "returns false otherwise" do
+      expect(Language.new('tr').has_hyphens?).to be_falsey
+    end
+  end
+
+  describe '#isgreek?' do
+    it "returns true if language is Greek (sort of)" do
+      expect(Language.new('grc').isgreek?).to be_truthy
+    end
+
+    it "returns false if not" do
+      expect(Language.new('la').isgreek?).to be_falsey
+    end
+
+    it "exceptionally returns false for Ibycus" do
+      expect(Language.new('grc-x-ibycus').isgreek?).to be_falsey
+    end
+  end
 end
 
 describe Package do

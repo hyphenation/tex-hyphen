@@ -84,7 +84,7 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :has_apostrophes?, :has_dashes?, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters]
+      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters]
 
       def method_missing(method, *args)
         if DELEGATE.include? method
@@ -201,6 +201,28 @@ module TeX
       def righthyphenmin
         extract_metadata unless @righthyphenmin
         @righthyphenmin
+      end
+
+      # Strictly speaking a misnomer, because grc-x-ibycus should also return true.
+      # But useful for a number of apostrophe-related routines
+      def isgreek?
+        ['grc', 'el-polyton', 'el-monoton'].include? @bcp47
+      end
+
+      def has_apostrophes?
+        begin
+          !isgreek? && patterns.any? { |p| p =~ /'/ }
+        rescue Errno::ENOENT
+          false
+        end
+      end
+
+      def has_hyphens?
+        begin
+          patterns.any? { |p| p =~ /-/ }
+        rescue Errno::ENOENT
+          false
+        end
       end
 
       def authors

@@ -98,28 +98,6 @@ class OldLanguage
 		@message
 	end
 
-	# Strictly speaking a misnomer, because grc-x-ibycus should also return true.
-	# But useful for a number of apostrophe-related routines
-	def isgreek?
-	  ['grc', 'el-polyton', 'el-monoton'].include? @code
-	end
-
-	def has_apostrophes?
-		begin
-			!isgreek? && patterns.any? { |p| p =~ /'/ }
-		rescue Errno::ENOENT
-		  false
-		end
-	end
-
-	def has_dashes?
-		begin
-			patterns.any? { |p| p =~ /-/ }
-		rescue Errno::ENOENT
-			false
-		end
-	end
-
 	def extract_apostrophes
 		plain, with_apostrophe = Array.new, nil
 
