@@ -2,6 +2,7 @@
 
 require_relative 'hyph-utf8'
 require_relative '../../../../lib/tex/hyphen/language'
+include TeX::Hyphen
 
 # this file generates patterns for pTeX out of the plain ones
 
@@ -24,23 +25,23 @@ header = <<-HEADER
 %%
 HEADER
 
-OldLanguage.all.sort.each do |language|
+Language.all.sort.each do |language|
 	if language.use_old_loader
-		puts "(skipping #{language.code} # loader)"
+		puts "(skipping #{language.bcp47} # loader)"
 		next
 	end
 
 	if language.encoding == nil || language.encoding == 'ascii'
-		puts "(skipping #{language.code} # #{if language.encoding then 'ascii' else 'encoding' end})"
+		puts "(skipping #{language.bcp47} # #{if language.encoding then 'ascii' else 'encoding' end})"
 		next
 	else
 		encoding = encodings[language.encoding]
 	end
 
-	code = language.code
+	bcp47 = language.bcp47
 
-	puts ">> generating #{code} (#{language.name.safe})"
-	File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', code, language.encoding)), 'w') do |file_ptex|
+	puts ">> generating #{bcp47} (#{language.name_for_ptex})"
+	File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', bcp47, language.encoding)), 'w') do |file_ptex|
 		patterns   = language.patterns
 		exceptions = language.exceptions
 
@@ -51,12 +52,12 @@ OldLanguage.all.sort.each do |language|
 			exceptions = encoding.convert_to_escaped_characters(exceptions)
 		end
 
-		file_ptex.printf(header, language.name.safe, language.code, language.encoding, language.code)
+		file_ptex.printf(header, language.name_for_ptex, language.bcp47, language.encoding, language.bcp47)
 
 		file_ptex.puts("\\bgroup")
 		# setting lccodes for letters
 		characters.each do |c|
-			if (c == 0x01FD or c == 0x0301) and language.code == 'la-x-liturgic'
+			if (c == 0x01FD or c == 0x0301) and language.bcp47 == 'la-x-liturgic'
 				# skip
 			elsif c >= 128 then
 				code = encoding.unicode_characters[c].code_enc

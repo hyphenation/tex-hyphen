@@ -172,6 +172,10 @@ module TeX
         @old.name.safe
       end
 
+      def name_for_ptex
+        name_for_loader
+      end
+
       @@displaynames = {
         'el' => 'Greek',
         'nb' => 'Norwegian',
