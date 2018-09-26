@@ -514,8 +514,8 @@ module TeX
       end
 
       def languages
-        puts name unless @@packages[self]
-        puts @@packages.keys.map(&:name).sort
+        # puts name unless @@packages[self]
+        # puts @@packages.keys.map(&:name).sort
         @languages ||= @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
       end
 
