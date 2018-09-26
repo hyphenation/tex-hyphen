@@ -555,13 +555,13 @@ describe Package do
 
   describe "#description_l" do
     it "returns the long description" do
-      expect(latin.description_l.join).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/
+      expect(latin.description_l.join "\n").to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/m
     end
   end
 
   describe "#languages" do
     it "returns the list of languages" do
-      expect(latin.languages.map(&:code)).to eq ['la', 'la-x-classic', 'la-x-liturgic']
+      expect(latin.languages.map(&:bcp47)).to eq ['la', 'la-x-classic', 'la-x-liturgic']
     end
   end
 
@@ -598,7 +598,8 @@ describe Package do
 
   describe '#<=>' do
     it "compares two Package’s" do
-      expect(hungarian <=> german).to eq 1
+      # puts hungarian.class, german.class
+      expect(hungarian.<=> german).to eq 1
     end
   end
 

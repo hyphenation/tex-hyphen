@@ -84,7 +84,7 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters]
+      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters, :description_l, :list_run_files]
 
       def method_missing(method, *args)
         if DELEGATE.include? method
@@ -132,6 +132,7 @@ module TeX
               l.extract_metadata # FIXME Remove later!
             rescue InvalidMetadata
               next
+              # next unless ['nb', 'nn'].include? bcp47
             end
           end
 
@@ -174,6 +175,10 @@ module TeX
 
       def name_for_ptex
         name_for_loader
+      end
+
+      def oldname
+        @old.name
       end
 
       @@displaynames = {
@@ -360,7 +365,7 @@ module TeX
       end
     end
 
-    include OldLanguage::TeXLive # FIXME Remove later
+    # include OldLanguage::TeXLive # FIXME Remove later
     class Package
       attr_reader :name
 
@@ -409,10 +414,11 @@ module TeX
         # a hash with the names of TeX Live packages, either individual language names,
         # or an array of languages as the value
         @@packages = Hash.new
-        OldLanguage.all.each do |language|
-          package_name = @@package_mappings[language.code]
-          next if !package_name && @@package_names.include?(language.name)
-          package_name ||= language.name
+        Language.all.each do |language|
+          # puts language.bcp47
+          package_name = @@package_mappings[language.bcp47]
+          next if !package_name && @@package_names.include?(language.oldname)
+          package_name ||= language.oldname
           unless package = @@package_names[package_name]
             package = new(package_name) # TODO Remove later
             @@package_names[package_name] = package
@@ -462,7 +468,9 @@ module TeX
       end
 
       def languages
-        @languages ||= @@packages[self]
+        puts name unless @@packages[self]
+        puts @@packages.keys.map(&:name).sort
+        @languages ||= @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
       end
 
       def has_dependency?
@@ -503,8 +511,8 @@ module TeX
           dir.gsub /^.*\//, ''
         end
 
-        files = (languages.map(&:code) & @dirlist[type]).map do |code|
-          sprintf("%s/generic/hyph-utf8/languages/%s", type, code)
+        files = (languages.map(&:bcp47) & @dirlist[type]).map do |bcp47|
+          sprintf("%s/generic/hyph-utf8/languages/%s", type, bcp47)
         end
 
         if special = @@special_support.dig(type, name)
@@ -524,7 +532,7 @@ module TeX
 
         unless has_dependency?
           languages.each do |language|
-            if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.code != 'cop'
+            if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.bcp47 != 'cop'
               files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
             end
           end
@@ -534,11 +542,15 @@ module TeX
       end
 
       def <=>(other)
+        # puts 'HELLO'
+        # puts name, other.name
         name <=> other.name
       end
 
       # FIXME Change later
       def self.find(name)
+        # puts @@package_names.keys
+        # puts @@package_names.values.map(&:name)
         @@package_names[name]
       end
     end

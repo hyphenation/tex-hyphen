@@ -132,6 +132,7 @@ class OldLanguage
 			if use_old_loader
 				filename_old_patterns
 			else
+				# byebug
 				sprintf 'loadhyph-%s.tex', @code.gsub(/^sh-/, 'sr-')
 			end
 		end
@@ -234,4 +235,6 @@ class OldLanguage
 			files
 		end
 	end
+
+	include TeXLive
 end
