@@ -38,39 +38,6 @@ class OldLanguage
 
 	# TODO self.find
 
-  # TODO Scheduled for removal
-  @@texfile = Hash.new
-	def readtexfile(code = @code)
-		@@texfile[code] ||= File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', code)))
-	end
-
-  # TODO Scheduled for removal
-	def exceptions
-		@exceptions ||= if readtexfile.superstrip.index('\hyphenation')
-		readtexfile.superstrip.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
-		else
-			""
-		end
-	end
-
-	# TODO Scheduled for removal
-	def patterns
-		@patterns ||= if @code == 'eo' then
-			readtexfile.superstrip.
-				gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
-				#
-				gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
-				gsub(/\\nom\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e. \1o. \1oj. \1ojn. \1on.').
-				gsub(/\\ver\{(.*?)\}/m,'\1as. \1i. \1is. \1os. \1u. \1us.').
-				#
-				supersplit
-		else
-			readtexfile(if ['nb', 'nn'].include? @code then 'no' else @code end).superstrip.
-				gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
-				supersplit
-		end
-	end
-
 	def get_comments_and_licence
 		@comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1')
 	end
