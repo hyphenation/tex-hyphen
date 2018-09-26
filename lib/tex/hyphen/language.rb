@@ -84,7 +84,7 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :has_apostrophes?, :has_dashes?, :use_old_loader, :use_old_patterns, :use_old_patterns_comment]
+      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :has_apostrophes?, :has_dashes?, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters]
 
       def method_missing(method, *args)
         if DELEGATE.include? method

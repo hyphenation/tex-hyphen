@@ -7,21 +7,22 @@
 require 'unicode'
 
 require_relative '../../../../lib/tex/hyphen/language.rb'
-include OldLanguage::TeXLive
+# include OldLanguage::TeXLive
+include TeX::Hyphen
 
 # FIXME sr-cyrl?
-OldLanguage.all.sort.each do |language|
-	code = language.code
+Language.all.sort.each do |language|
+	bcp47 = language.bcp47
 
-	if language.use_old_loader || code == 'mn-cyrl-x-lmc'
-		puts "(skipping #{language.code})"
+	if language.use_old_loader || bcp47 == 'mn-cyrl-x-lmc'
+		puts "(skipping #{language.bcp47})"
 		next
 	end
 
-	puts "generating #{code}"
+	puts "generating #{bcp47}"
 
 	outfile = Proc.new do |ext|
-		File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', code, ext)), 'w'
+		File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', bcp47, ext)), 'w'
 	end
 
 	# patterns
@@ -34,7 +35,7 @@ OldLanguage.all.sort.each do |language|
 	# apostrophes if applicable
 	with_apostrophe = patterns[:with_apostrophe]
 	if with_apostrophe
-		file = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
+		file = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', bcp47)), 'w'
 		file.printf "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n"
 		with_apostrophe.each do |pattern|
 			file.printf "%s\n", pattern
