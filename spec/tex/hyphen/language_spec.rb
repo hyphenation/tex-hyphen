@@ -133,7 +133,7 @@ describe Language do
 
   describe '.all_with_licence' do
     it "returns all languages that have a non-empty licence" do
-      expect(Language.all_with_licence.count).to eq 75 # 79 - [ro, cop, mn-cyrl-x-lmc, ?]
+      expect(Language.all_with_licence.count).to eq 77 # 79 - [ro, cop, mn-cyrl-x-lmc, ?] + [nb, nn]
     end
 
     it "calls .languages first" do
@@ -193,7 +193,6 @@ describe Language do
 
     it "returns Norwegian for [nb] and [no]" do
       bokmål = Language.new('nb')
-      pending "Need to add authors everywhere"
       expect(bokmål.displayname).to eq 'Norwegian'
     end
 
@@ -531,6 +530,33 @@ describe Language do
 
     it "exceptionally returns false for Ibycus" do
       expect(Language.new('grc-x-ibycus').isgreek?).to be_falsey
+    end
+  end
+
+  describe '#loadhyph' do
+    it "returns the name of the pattern loader file" do
+      expect(Language.new('cy').loadhyph).to eq 'loadhyph-cy.tex'
+    end
+
+    it "replaces the main sh subtag by sr" do
+      expect(Language.new('sh-latn').loadhyph).to eq 'loadhyph-sr-latn.tex'
+    end
+
+    it "returns the old loader name if applicable" do
+      expect(Language.new('cop').loadhyph).to eq 'copthyph.tex'
+    end
+  end
+
+  describe '#list_run_files' do
+    it "returns the list of TeX file" do
+      # puts Language.new('ka').list_run_files
+      expect(Language.new('ka').list_run_files).to eq ['tex/generic/hyph-utf8/loadhyph/loadhyph-ka.tex',
+        'tex/generic/hyph-utf8/patterns/tex/hyph-ka.tex',
+        'tex/generic/hyph-utf8/patterns/ptex/hyph-ka.t8m.tex',
+        'tex/generic/hyph-utf8/patterns/txt/hyph-ka.chr.txt',
+        'tex/generic/hyph-utf8/patterns/txt/hyph-ka.pat.txt',
+        'tex/generic/hyph-utf8/patterns/txt/hyph-ka.hyp.txt',
+        'tex/generic/hyph-utf8/patterns/txt/hyph-ka.lic.txt']
     end
   end
 end

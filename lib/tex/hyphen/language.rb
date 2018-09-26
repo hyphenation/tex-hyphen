@@ -84,7 +84,7 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters, :description_l, :list_run_files]
+      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters, :description_l]
 
       def method_missing(method, *args)
         if DELEGATE.include? method
@@ -362,6 +362,52 @@ module TeX
         # raise NoAuthor unless @authors && @authors.count > 0 # TODO Later ;-) AR 2018-09-13
 
         metadata
+      end
+
+      def loadhyph
+        if use_old_loader
+          filename_old_patterns
+        else
+          # byebug
+          sprintf 'loadhyph-%s.tex', @bcp47.gsub(/^sh-/, 'sr-')
+        end
+      end
+
+
+      def list_run_files
+        return [] if use_old_loader
+
+        files = []
+
+        files << File.join(PATH::HYPHU8, 'loadhyph', loadhyph)
+        if has_apostrophes?
+          files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", bcp47))
+        end
+
+        files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', bcp47))
+        if encoding && encoding != "ascii" then
+          files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
+        elsif bcp47 == "cop"
+          files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', filename_old_patterns)
+        end
+
+        # we skip the mongolian language for luatex files
+        return files if bcp47 == "mn-cyrl-x-lmc"
+
+        ['chr', 'pat', 'hyp', 'lic'].each do |t|
+          files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', bcp47, t))
+        end
+
+        if bcp47 =~ /^sh-/
+          # duplicate entries (will be removed later)
+          files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
+          ['chr', 'pat', 'hyp', 'lic'].each do |t|
+            # duplicate entries (will be removed later)
+            files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
+          end
+        end
+
+        files
       end
     end
 

@@ -128,15 +128,6 @@ class OldLanguage
 
 	# Convenience methods related to TeX Live and the .tlpsrc files
 	module TeXLive
-		def loadhyph
-			if use_old_loader
-				filename_old_patterns
-			else
-				# byebug
-				sprintf 'loadhyph-%s.tex', @code.gsub(/^sh-/, 'sr-')
-			end
-		end
-
 		# ext: 'pat' or 'hyp'
 		# filetype: 'patterns' or 'exceptions'
 		def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
@@ -197,42 +188,6 @@ class OldLanguage
 				# TODO: fix this
 				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
 			end
-		end
-
-		def list_run_files
-			return [] if use_old_loader
-
-			files = []
-
-			files << File.join(PATH::HYPHU8, 'loadhyph', loadhyph)
-			if has_apostrophes?
-				files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", code))
-			end
-
-			files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', code))
-			if encoding && encoding != "ascii" then
-				files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', code, encoding))
-			elsif code == "cop"
-				files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', filename_old_patterns)
-			end
-
-			# we skip the mongolian language for luatex files
-			return files if code == "mn-cyrl-x-lmc"
-
-			['chr', 'pat', 'hyp', 'lic'].each do |t|
-				files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', code, t))
-			end
-
-			if code =~ /^sh-/
-				# duplicate entries (will be removed later)
-				files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
-				['chr', 'pat', 'hyp', 'lic'].each do |t|
-					# duplicate entries (will be removed later)
-					files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
-				end
-			end
-
-			files
 		end
 	end
 
