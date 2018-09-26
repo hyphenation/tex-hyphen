@@ -55,7 +55,7 @@ Language.all.sort.each do |language|
 
 	# comments and licence
 	file = outfile.('lic')
-	file.puts language.get_comments_and_licence
+	file.puts language.comments_and_licence
 
 	file.close
 end

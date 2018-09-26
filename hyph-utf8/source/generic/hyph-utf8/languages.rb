@@ -38,10 +38,6 @@ class OldLanguage
 
 	# TODO self.find
 
-	def get_comments_and_licence
-		@comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1')
-	end
-
 	# def lc_characters
 	# 	if @lc_characters == nil
 	# 		lc_characters = Hash.new
@@ -57,69 +53,8 @@ class OldLanguage
 	attr_reader :description_l, :version
 	attr_reader :licence, :authors
 
-	def extract_apostrophes
-		plain, with_apostrophe = Array.new, nil
-
-		patterns.each do |pattern|
-			plain << pattern
-			if pattern =~ /'/ && !isgreek?
-				pattern_with_apostrophe = pattern.gsub(/'/,"’")
-				plain << pattern_with_apostrophe
-				(with_apostrophe ||= []) << pattern_with_apostrophe
-			end
-		end
-
-		{ plain: plain, with_apostrophe: with_apostrophe }
-	end
-
-	def extract_characters
-		characters = Array.new
-
-		characters_indexes = patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
-		characters_indexes.each do |c|
-			ch = [c].pack('U')
-			characters << ch + Unicode.upcase(ch)
-			characters << "’’" if ch == "'" && !isgreek?
-		end
-
-		characters
-	end
-
 	# Convenience methods related to TeX Live and the .tlpsrc files
 	module TeXLive
-		# ext: 'pat' or 'hyp'
-		# filetype: 'patterns' or 'exceptions'
-		def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
-			return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @code
-
-			if @code =~ /^sh-/
-				# TODO Warning AR 2018-09-12
-				filename = sprintf 'hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', ext, ext
-			else
-				filename = sprintf 'hyph-%s.%s.txt', @code, ext
-				filepath = File.join(PATH::TXT, filename)
-				# check for existence of file and that it’s not empty
-				unless File.file?(filepath) && File.read(filepath).length > 0
-					# if the file we were looking for was a pattern file, something’s wrong
-					if ext == 'pat'
-						raise sprintf("There is some problem with plain patterns for language [%s]!!!", @code)
-					else # the file is simply an exception file and we’re happy
-						filename = '' # And we return and empty file name after all
-					end
-				end
-			end
-
-			sprintf "file_%s=%s", filetype, filename
-		end
-
-		def exceptions_line
-			plain_text_line('hyp', 'exceptions')
-		end
-
-		def patterns_line
-			plain_text_line('pat', 'patterns')
-		end
-
 		def list_synonyms
 			# synonyms
 			if synonyms && synonyms.length > 0

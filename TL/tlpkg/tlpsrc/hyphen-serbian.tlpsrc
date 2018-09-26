@@ -8,17 +8,17 @@ longdesc in T1/EC encoding for Latin script and 'serbianc' in T2A encoding for
 longdesc Cyrillic script. Unicode engines should only use 'serbian'
 longdesc which has patterns in both scripts combined.
 execute AddHyphen \
-	name=serbian \
-	lefthyphenmin=2 \
-	righthyphenmin=2 \
-	file=loadhyph-sr-latn.tex \
-	file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt \
-	file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt
-execute AddHyphen \
 	name=serbianc \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-sr-cyrl.tex \
+	file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt \
+	file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt
+execute AddHyphen \
+	name=serbian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-sr-latn.tex \
 	file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt \
 	file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-sr-cyrl.tex

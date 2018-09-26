@@ -579,6 +579,20 @@ describe Language do
         'tex/generic/hyph-utf8/patterns/txt/hyph-ka.lic.txt']
     end
   end
+
+  describe '#patterns_line' do # TODO Spec out the Serbian business
+    it "returns the patterns line for TLPSRC" do
+      expect(Language.new('tk').patterns_line).to eq "file_patterns=hyph-tk.pat.txt"
+    end
+  end
+
+  describe '#exceptions_line' do
+    it "returns the exceptions line for TLPSRC" do
+      expect(Language.new('nn').exceptions_line).to eq "file_exceptions=hyph-nn.hyp.txt"
+    end
+  end
+
+# TODO Spec out #extract_apostrophes and #extract_characters; #comments_and_licence
 end
 
 describe Package do

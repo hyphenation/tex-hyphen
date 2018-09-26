@@ -84,7 +84,7 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters, :description_l, :list_synonyms, :list_hyphenmins]
+      DELEGATE = [:message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :description_l, :list_synonyms, :list_hyphenmins, :synonyms]
 
       def method_missing(method, *args)
         if DELEGATE.include? method
@@ -131,8 +131,9 @@ module TeX
               l = Language.new bcp47
               l.extract_metadata # FIXME Remove later!
             rescue InvalidMetadata
-              next
+              # next
               # next unless ['nb', 'nn'].include? bcp47
+              next unless ['grc-x-ibycus', 'ar', 'mul-ethi', 'fa'].include? @bpc47
             end
           end
 
@@ -174,6 +175,10 @@ module TeX
       end
 
       def name_for_ptex
+        name_for_loader
+      end
+
+      def name_for_texlive
         name_for_loader
       end
 
@@ -232,6 +237,38 @@ module TeX
         rescue Errno::ENOENT
           false
         end
+      end
+
+      def extract_apostrophes
+        plain, with_apostrophe = Array.new, nil
+
+        patterns.each do |pattern|
+          plain << pattern
+          if pattern =~ /'/ && !isgreek?
+            pattern_with_apostrophe = pattern.gsub(/'/,"’")
+            plain << pattern_with_apostrophe
+            (with_apostrophe ||= []) << pattern_with_apostrophe
+          end
+        end
+
+        { plain: plain, with_apostrophe: with_apostrophe }
+      end
+
+      def extract_characters
+        characters = Array.new
+
+        characters_indexes = patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
+        characters_indexes.each do |c|
+          ch = [c].pack('U')
+          characters << ch + Unicode.upcase(ch)
+          characters << "’’" if ch == "'" && !isgreek?
+        end
+
+        characters
+      end
+
+      def comments_and_licence
+        @comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1')
       end
 
       def authors
@@ -367,6 +404,40 @@ module TeX
 
         metadata
       end
+
+      # ext: 'pat' or 'hyp'
+      # filetype: 'patterns' or 'exceptions'
+      def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
+        return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @bcp47
+
+        if @bcp47 =~ /^sh-/
+          # TODO Warning AR 2018-09-12
+          filename = sprintf 'hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', ext, ext
+        else
+          filename = sprintf 'hyph-%s.%s.txt', @bcp47, ext
+          filepath = File.join(PATH::TXT, filename)
+          # check for existence of file and that it’s not empty
+          unless File.file?(filepath) && File.read(filepath).length > 0
+            # if the file we were looking for was a pattern file, something’s wrong
+            if ext == 'pat'
+              raise sprintf("There is some problem with plain patterns for language [%s]!!!", @bcp47)
+            else # the file is simply an exception file and we’re happy
+              filename = '' # And we return and empty file name after all
+            end
+          end
+        end
+
+        sprintf "file_%s=%s", filetype, filename
+      end
+
+      def exceptions_line
+        plain_text_line('hyp', 'exceptions')
+      end
+
+      def patterns_line
+        plain_text_line('pat', 'patterns')
+      end
+
 
       def loadhyph
         if use_old_loader

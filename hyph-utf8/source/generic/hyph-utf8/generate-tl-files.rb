@@ -35,12 +35,12 @@ Package.all.sort.each do |package|
 			# end
 		end
 
-		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name.safe, language.list_synonyms
+		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.name_for_texlive, language.list_synonyms
 		file_tlpsrc.printf "\t%s \\\n\t%s", language.list_hyphenmins, language.list_loader
 		if language.patterns_line + language.exceptions_line != ""
 			file_tlpsrc.printf " \\\n\t%s \\\n\t%s", language.patterns_line, language.exceptions_line
 		end
-		if language.code == "mn-cyrl-x-lmc" then
+		if language.bcp47 == "mn-cyrl-x-lmc" then
 			file_tlpsrc.printf " \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
 		end
 		# end-of-line
@@ -72,7 +72,7 @@ File.open(language_dat_filename, 'w') do |file_language_dat|
 	Package.all.sort.each do |package|
 		package.languages.each do |language|
 			# main language name
-			file_language_dat.printf "%s\t%s\n", language.name.safe, language.loadhyph
+			file_language_dat.printf "%s\t%s\n", language.name_for_texlive, language.loadhyph
 
 			# synonyms
 			language.synonyms.each do |synonym|

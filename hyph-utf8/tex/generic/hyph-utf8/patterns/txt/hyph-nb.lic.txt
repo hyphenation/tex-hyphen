@@ -5,6 +5,10 @@
 % language:
 %     name: Norwegian Bokmål, bokmål, norsk bokmål
 %     tag: nb
+% authors:
+%     - name: Rune Kleveland
+%     - name: Ole Michael Selberg
+%     - name: Karl Ove HuftHammer
 % version: 2007-02-10
 % licence:
 %     text: >

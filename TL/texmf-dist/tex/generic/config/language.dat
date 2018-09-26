@@ -1,7 +1,5 @@
 afrikaans	loadhyph-af.tex
 ancientgreek	loadhyph-grc.tex
-ibycus	ibyhyph.tex
-arabic	zerohyph.tex
 armenian	loadhyph-hy.tex
 basque	loadhyph-eu.tex
 belarusian	loadhyph-be.tex
@@ -20,11 +18,6 @@ ukenglish	loadhyph-en-gb.tex
 usenglishmax	loadhyph-en-us.tex
 esperanto	loadhyph-eo.tex
 estonian	loadhyph-et.tex
-ethiopic	loadhyph-mul-ethi.tex
-=amharic
-=geez
-farsi	zerohyph.tex
-=persian
 finnish	loadhyph-fi.tex
 french	loadhyph-fr.tex
 =patois
@@ -77,8 +70,8 @@ romanian	loadhyph-ro.tex
 romansh	loadhyph-rm.tex
 russian	loadhyph-ru.tex
 sanskrit	loadhyph-sa.tex
-serbian	loadhyph-sr-latn.tex
 serbianc	loadhyph-sr-cyrl.tex
+serbian	loadhyph-sr-latn.tex
 slovak	loadhyph-sk.tex
 slovenian	loadhyph-sl.tex
 =slovene
