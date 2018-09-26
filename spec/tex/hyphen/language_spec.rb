@@ -543,7 +543,7 @@ describe Language do
     end
 
     it "returns the old loader name if applicable" do
-      expect(Language.new('cop').loadhyph).to eq 'copthyph.tex'
+      expect(Language.new('grc-x-ibycus').loadhyph).to eq 'ibyhyph.tex'
     end
   end
 
