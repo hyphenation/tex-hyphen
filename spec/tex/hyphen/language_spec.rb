@@ -107,21 +107,27 @@ describe Language do
       expect(language.instance_variable_get :@bcp47).to eq 'ro'
     end
 
-    it "calls .all" do
-      expect(Language).to receive(:all).and_return({ 'pa' => nil })
+    it "calls .languages" do
+      expect(Language).to receive(:languages).and_return({ 'pa' => nil })
       Language.new('pa')
     end
   end
 
-  describe '.all' do
+  describe '.languages' do
     it "sets the @@languages class variable" do
-      Language.all
+      Language.languages
       expect(Language.class_variable_get :@@languages).to be_a Hash
     end
 
     it "lists all languages" do
       # All the TeX files.  Note [no] and [mn-cyrl-x-lmc] don’t have corresponding plain text files.
-      expect(Language.all.count).to eq 82 # Was 79; 3 more “TeX Live dummies” [ar] [fa] [grc-x-ibycus] TODO Maybe remove
+      expect(Language.languages.count).to eq 82 # Was 79; 3 more “TeX Live dummies” [ar] [fa] [grc-x-ibycus] TODO Maybe remove
+    end
+  end
+
+  describe '.all' do
+    it "returns the list of languages as an array" do
+      expect(Language.all).to be_an Array
     end
   end
 
@@ -130,8 +136,8 @@ describe Language do
       expect(Language.all_with_licence.count).to eq 75 # 79 - [ro, cop, mn-cyrl-x-lmc, ?]
     end
 
-    it "calls .all first" do
-      expect(Language).to receive(:all).and_return({ 'pl' => Language.new('pl') })
+    it "calls .languages first" do
+      expect(Language).to receive(:languages).and_return({ 'pl' => Language.new('pl') })
       Language.all_with_licence
     end
   end
@@ -142,8 +148,8 @@ describe Language do
       expect(language).to be_a Language
     end
 
-    it "calls .all first" do
-      expect(Language).to receive(:all).and_return({ 'cy' => Language.new('cy') })
+    it "calls .languages first" do
+      expect(Language).to receive(:languages).and_return({ 'cy' => Language.new('cy') })
       Language.find_by_bcp47('cy')
     end
   end
@@ -326,9 +332,9 @@ describe Language do
       expect(['.ae3', '.an3k', '.an1s'].all? { |p| danish.patterns.include? p }).to be_truthy
     end
 
-    it "calls .all first" do
+    it "calls .languages first" do
       language = Language.new('eu')
-      expect(Language).to receive(:all).and_return({ 'eu' => Language.new('eu') })
+      expect(Language).to receive(:languages).and_return({ 'eu' => Language.new('eu') })
       pending "Needs pondering"
       language.patterns
     end
@@ -366,7 +372,7 @@ describe Language do
       expect(language.exceptions[0..2]).to eq ['bhrachtaí', 'mbrachtaí', 'cháintí']
     end
 
-    it "calls .all first" do
+    it "calls .languages first" do
       language = Language.new('hu')
       pending "Needs examining"
       expect(Language).to receive(:all).and_return({ 'hu' => Language.new('hu') })
@@ -484,7 +490,7 @@ describe Language do
     end
 
     pending "sets the 8-bit encoding" do
-      Language.new('sl').tex8bit
+      expect(Language.new('sl').tex8bit).to eq 'ec'
     end
 
     it "sets the list of authors" do

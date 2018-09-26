@@ -84,9 +84,17 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
+      DELEGATE = [:get_comments_and_licence]
+
+      def method_missing(method, *args)
+        if DELEGATE.include? method
+          @old.send(method, *args)
+        end
+      end
+
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
-        if @bcp47 && self.class.all[@bcp47] && !(@bcp47[0] == 'q' && ('a'..'t').include?(@bcp47[1])) # TODO Method for that
+        if @bcp47 && self.class.languages[@bcp47] && !(@bcp47[0] == 'q' && ('a'..'t').include?(@bcp47[1])) # TODO Method for that
           # puts @bcp47
           @old = OldLanguage.all.select do |language|
             # puts language.code
@@ -96,17 +104,22 @@ module TeX
         end
       end
 
-      def self.all
+      # TODO self.all
+      def self.languages
         @@languages ||= Dir.glob(File.join(PATH::TEX, 'hyph-*.tex')).inject [] do |languages, texfile|
           bcp47 = texfile.gsub /^.*\/hyph-(.*)\.tex$/, '\1'
           # languages << [bcp47, Language.new(bcp47)]
           languages << [bcp47, nil]
         end.to_h
       end
-      @@languages = Language.all
+      @@languages = Language.languages
+
+      def self.all
+        languages.values
+      end
 
       def self.all_with_licence
-        all.select do |bcp47, language|
+        languages.select do |bcp47, language|
           language ||= (@@languages[bcp47] = Language.new bcp47) unless language
           begin
             licences = language.licences
@@ -118,7 +131,7 @@ module TeX
       end
 
       def self.find_by_bcp47(bcp47)
-        all[bcp47]
+        languages[bcp47]
       end
 
       def bcp47
@@ -209,7 +222,7 @@ module TeX
 
       def exceptions_old
         # FIXME Same comment as for #patterns
-        if self.class.all[@bcp47]
+        if self.class.languag[@bcp47]
           @exceptions ||= File.read(File.join(PATH::TXT, sprintf('hyph-%s.hyp.txt', @bcp47)))
         end
       end
