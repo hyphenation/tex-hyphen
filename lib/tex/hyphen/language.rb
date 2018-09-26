@@ -105,7 +105,7 @@ module TeX
             # puts language.code
             language.code == @bcp47
           end.first
-          raise "No OldLanguage for #{@bcp47}" unless @old
+          raise "No OldLanguage for #{@bcp47}" unless @old || @bcp47 == 'sr-cyrl'
         end
       end
 
