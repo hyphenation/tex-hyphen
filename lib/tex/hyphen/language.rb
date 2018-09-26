@@ -86,23 +86,28 @@ module TeX
 
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
-        unless @bcp47
+        if @bcp47 && self.class.all[@bcp47] && !(@bcp47[0] == 'q' && ('a'..'t').include?(@bcp47[1])) # TODO Method for that
+          # puts @bcp47
           @old = OldLanguage.all.select do |language|
+            # puts language.code
             language.code == @bcp47
           end.first
-          raise unless @old || !@bcp47
+          raise "No OldLanguage for #{@bcp47}" unless @old
         end
       end
 
       def self.all
         @@languages ||= Dir.glob(File.join(PATH::TEX, 'hyph-*.tex')).inject [] do |languages, texfile|
           bcp47 = texfile.gsub /^.*\/hyph-(.*)\.tex$/, '\1'
-          languages << [bcp47, Language.new(bcp47)]
+          # languages << [bcp47, Language.new(bcp47)]
+          languages << [bcp47, nil]
         end.to_h
       end
+      @@languages = Language.all
 
       def self.all_with_licence
         all.select do |bcp47, language|
+          language ||= (@@languages[bcp47] = Language.new bcp47) unless language
           begin
             licences = language.licences
           rescue InvalidMetadata

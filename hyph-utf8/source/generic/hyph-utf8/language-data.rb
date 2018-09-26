@@ -1366,6 +1366,10 @@ class OldLanguage
 	"exceptions" => true,
 	"message" => "Serbian hyphenation patterns in Cyrillic script",
 },
+# FIXME Remove later
+{
+	"code" => "sr-cyrl",
+},
 # mongolian (used to be mongolian2a)
 {
 	"code" => "mn-cyrl",

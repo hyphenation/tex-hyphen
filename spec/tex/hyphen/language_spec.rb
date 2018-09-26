@@ -106,12 +106,17 @@ describe Language do
       language = Language.new('ro')
       expect(language.instance_variable_get :@bcp47).to eq 'ro'
     end
+
+    it "calls .all" do
+      expect(Language).to receive(:all).and_return({ 'pa' => nil })
+      Language.new('pa')
+    end
   end
 
   describe '.all' do
     it "sets the @@languages class variable" do
       Language.all
-      expect(Language.class_variable_get :@@languages).to be_an Hash
+      expect(Language.class_variable_get :@@languages).to be_a Hash
     end
 
     it "lists all languages" do
