@@ -4,7 +4,7 @@
 # this file auto-generates tlpsrc files for hyphenation patterns - to be improved
 
 require_relative '../../../../lib/tex/hyphen/language.rb'
-include OldLanguage::TeXLive
+# include OldLanguage::TeXLive
 # include TeXLive # TODO Restore when migration is over
 include TeX::Hyphen
 
