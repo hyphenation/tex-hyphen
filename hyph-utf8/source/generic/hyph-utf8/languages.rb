@@ -31,8 +31,9 @@ class OldLanguage
 
 	def self.all
 		@@languages ||= @@language_data.map do |language_data|
+			next if language_data['code'] == 'sr-cyrl'
 			new language_data
-		end
+		end.compact
 	end
 
 	# TODO self.find

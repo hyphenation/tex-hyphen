@@ -1369,6 +1369,7 @@ class OldLanguage
 # FIXME Remove later
 {
 	"code" => "sr-cyrl",
+	"name" => "serbiancalt",
 },
 # mongolian (used to be mongolian2a)
 {
