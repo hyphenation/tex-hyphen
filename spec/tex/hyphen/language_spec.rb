@@ -499,77 +499,78 @@ describe Language do
       expect(liturgical_latin.instance_variable_get :@authors).to eq ['Claudio Beccari', 'Monastery of Solesmes', 'Élie Roux']
     end
   end
+end
 
-  describe Package do
-    let(:latin) { Package.find('latin') }
-    let(:german) { Package.find('german') }
-    let(:hungarian) { Package.find('hungarian') }
-    let(:norwegian) { Package.find('norwegian') }
+describe Package do
+  let(:latin) { Package.find('latin') }
+  let(:german) { Package.find('german') }
+  let(:hungarian) { Package.find('hungarian') }
+  let(:norwegian) { Package.find('norwegian') }
 
-    describe "Instance variables" do
-      it "has a @name" do
-        expect(latin.name).to eq 'latin'
-      end
+  describe "Instance variables" do
+    it "has a @name" do
+      expect(latin.name).to eq 'latin'
     end
+  end
 
-    describe "#description_s" do
-      it "returns the short description" do
-        expect(latin.description_s).to eq 'Latin hyphenation patterns'
-      end
+  describe "#description_s" do
+    it "returns the short description" do
+      expect(latin.description_s).to eq 'Latin hyphenation patterns'
     end
+  end
 
-    describe "#description_l" do
-      it "returns the long description" do
-        expect(latin.description_l.join).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/
-      end
+  describe "#description_l" do
+    it "returns the long description" do
+      expect(latin.description_l.join).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/
     end
+  end
 
-    describe "#languages" do
-      it "returns the list of languages" do
-        expect(latin.languages.map(&:code)).to eq ['la', 'la-x-classic', 'la-x-liturgic']
-      end
+  describe "#languages" do
+    it "returns the list of languages" do
+      expect(latin.languages.map(&:code)).to eq ['la', 'la-x-classic', 'la-x-liturgic']
     end
+  end
 
-    describe "#has_dependency?" do
-      it "returns the external dependencies" do
-        expect(german.has_dependency?).to eq "dehyph"
-      end
+  describe "#has_dependency?" do
+    it "returns the external dependencies" do
+      expect(german.has_dependency?).to eq "dehyph"
     end
+  end
 
-    describe "#list_dependencies" do
-      it "lists the dependencies" do
-        # FIXME Should return ['depend hyphen-base', 'depend hyph-utf8', 'depend dehyph'] or nothing
-        expect(german.has_dependency?).to eq 'dehyph'
-      end
+  describe "#list_dependencies" do
+    it "lists the dependencies" do
+      # FIXME Should return ['depend hyphen-base', 'depend hyph-utf8', 'depend dehyph'] or nothing
+      expect(german.has_dependency?).to eq 'dehyph'
     end
+  end
 
-    describe "#list_support_files" do # FIXME? list_non_run_files
-      it "lists doc and source files" do
-        expect(hungarian.list_support_files('doc')).to eq ['doc/generic/hyph-utf8/languages/hu', 'doc/generic/huhyphen']
-        # FIXME Should return ['texmf-dist/doc/generic/huhyphen', 'texmf-dist/doc/generic/hyph-utf8/languages/hu'] or nothing
-      end
+  describe "#list_support_files" do # FIXME? list_non_run_files
+    it "lists doc and source files" do
+      expect(hungarian.list_support_files('doc')).to eq ['doc/generic/hyph-utf8/languages/hu', 'doc/generic/huhyphen']
+      # FIXME Should return ['texmf-dist/doc/generic/huhyphen', 'texmf-dist/doc/generic/hyph-utf8/languages/hu'] or nothing
     end
+  end
 
-    describe "#list_run_files" do
-      it "lists the run-time files" do
-        norwegian_run = norwegian.list_run_files
-        expect(norwegian_run.count).to eq 15
-        expect(norwegian_run.select { |f| f =~ /tex\/hyph-[^\.]*\.tex$/ }).to eq ['tex/generic/hyph-utf8/patterns/tex/hyph-no.tex',
-          'tex/generic/hyph-utf8/patterns/tex/hyph-nb.tex',
-          'tex/generic/hyph-utf8/patterns/tex/hyph-nn.tex']
-      end
+  describe "#list_run_files" do
+    it "lists the run-time files" do
+      # pending "it crashes ;-)"
+      norwegian_run = norwegian.list_run_files
+      expect(norwegian_run.count).to eq 15
+      expect(norwegian_run.select { |f| f =~ /tex\/hyph-[^\.]*\.tex$/ }).to eq ['tex/generic/hyph-utf8/patterns/tex/hyph-no.tex',
+        'tex/generic/hyph-utf8/patterns/tex/hyph-nb.tex',
+        'tex/generic/hyph-utf8/patterns/tex/hyph-nn.tex']
     end
+  end
 
-    describe '#<=>' do
-      it "compares two Package’s" do
-        expect(hungarian <=> german).to eq 1
-      end
+  describe '#<=>' do
+    it "compares two Package’s" do
+      expect(hungarian <=> german).to eq 1
     end
+  end
 
-    describe '#find' do
-      it "returns the package with that name" do
-        expect(Package.find('norwegian')).to eq norwegian
-      end
+  describe '#find' do
+    it "returns the package with that name" do
+      expect(Package.find('norwegian')).to eq norwegian
     end
   end
 end
