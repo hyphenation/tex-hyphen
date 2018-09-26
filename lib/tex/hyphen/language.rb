@@ -84,17 +84,22 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      DELEGATE = [:get_comments_and_licence]
+      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :has_apostrophes?, :has_dashes?, :use_old_loader, :use_old_patterns, :use_old_patterns_comment]
 
       def method_missing(method, *args)
         if DELEGATE.include? method
+          # puts @bcp47 unless @old
+          # byebug unless @old
           @old.send(method, *args)
+        else
+          raise NoMethodError.new(method)
         end
       end
 
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
-        if @bcp47 && self.class.languages[@bcp47] && !(@bcp47[0] == 'q' && ('a'..'t').include?(@bcp47[1])) # TODO Method for that
+        # byebug if @bcp47 == 'id'
+        if @bcp47 && self.class.languages.include?(@bcp47) && !(@bcp47[0] == 'q' && ('a'..'t').include?(@bcp47[1])) # TODO Method for that
           # puts @bcp47
           @old = OldLanguage.all.select do |language|
             # puts language.code
@@ -104,7 +109,6 @@ module TeX
         end
       end
 
-      # TODO self.all
       def self.languages
         @@languages ||= Dir.glob(File.join(PATH::TEX, 'hyph-*.tex')).inject [] do |languages, texfile|
           bcp47 = texfile.gsub /^.*\/hyph-(.*)\.tex$/, '\1'
@@ -114,8 +118,27 @@ module TeX
       end
       @@languages = Language.languages
 
+      # FIXME This is getting messy as hell
       def self.all
-        languages.values
+        @@all ||= languages.map do |bcp47, language|
+          next if bcp47 == 'sr-cyrl' # FIXME Remove later
+          # puts bcp47
+          # puts bcp47, language
+          if language
+            l = language
+          else
+            begin
+              l = Language.new bcp47
+              l.extract_metadata # FIXME Remove later!
+            rescue InvalidMetadata
+              next
+            end
+          end
+
+          # puts bcp47, l
+          # puts bcp47
+          @@languages[bcp47] = l
+        end.compact
       end
 
       def self.all_with_licence
@@ -139,8 +162,14 @@ module TeX
       end
 
       def name
+        # puts @bcp47 unless @name
         extract_metadata unless @name
         @name
+      end
+
+      def name_for_loader
+        # name.downcase.safe
+        @old.name.safe
       end
 
       @@displaynames = {
@@ -272,6 +301,7 @@ module TeX
         end
         begin
           metadata = YAML::load header
+          # puts metadata
           raise InvalidMetadata unless metadata.is_a? Hash
         rescue Psych::SyntaxError
           raise InvalidMetadata
