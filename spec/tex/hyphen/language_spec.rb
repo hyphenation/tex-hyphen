@@ -533,6 +533,12 @@ describe Language do
     end
   end
 
+  describe '#message' do
+    it "returns the message to be displayed on the terminal" do
+      expect(Language.new('af').message).to eq 'Afrikaans hyphenation patterns'
+    end
+  end
+
   describe '#loadhyph' do
     it "returns the name of the pattern loader file" do
       expect(Language.new('cy').loadhyph).to eq 'loadhyph-cy.tex'
@@ -544,6 +550,20 @@ describe Language do
 
     it "returns the old loader name if applicable" do
       expect(Language.new('grc-x-ibycus').loadhyph).to eq 'ibyhyph.tex'
+    end
+  end
+
+  describe '#list_loader' do
+    it "returns the tlpsrc line with the loader" do
+      expect(Language.new('hr').list_loader).to eq 'file=loadhyph-hr.tex'
+    end
+
+    it "includes an empty line for Arabic and Farsi" do
+      expect(Language.new('ar').list_loader).to eq "file=zerohyph.tex \\\n\tfile_patterns="
+    end
+
+    it "includes a Lua special line for Ibycus" do
+      expect(Language.new('grc-x-ibycus').list_loader).to eq "file=ibyhyph.tex \\\n\tluaspecial=\"disabled:8-bit only\""
     end
   end
 

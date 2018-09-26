@@ -84,7 +84,7 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters, :description_l]
+      DELEGATE = [:get_comments_and_licence, :message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :extract_apostrophes, :extract_characters, :description_l, :list_synonyms, :list_hyphenmins]
 
       def method_missing(method, *args)
         if DELEGATE.include? method
@@ -191,6 +191,10 @@ module TeX
       def displayname
         extract_metadata unless @name
         @@displaynames[@bcp47.gsub(/-.*$/, '')] || @name
+      end
+
+      def description_s
+        message
       end
 
       def licences
@@ -373,6 +377,18 @@ module TeX
         end
       end
 
+      def list_loader
+        # which loader to use
+        file = sprintf "file=%s", loadhyph
+        return file unless use_old_loader
+
+        if ['ar', 'fa'].include? @bcp47
+          file = file + " \\\n\tfile_patterns="
+        elsif @bcp47 == 'grc-x-ibycus'
+          # TODO: fix this
+          file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
+        end
+      end
 
       def list_run_files
         return [] if use_old_loader

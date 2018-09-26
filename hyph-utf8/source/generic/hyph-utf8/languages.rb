@@ -57,14 +57,6 @@ class OldLanguage
 	attr_reader :description_l, :version
 	attr_reader :licence, :authors
 
-	# def message
-	# 	@name.titlecase + ' hyphenation patterns'
-	# end
-
-	def description_s
-		@message
-	end
-
 	def extract_apostrophes
 		plain, with_apostrophe = Array.new, nil
 
@@ -142,19 +134,6 @@ class OldLanguage
 			lmin = (hyphenmin || [])[0]
 			rmin = (hyphenmin || [])[1]
 			sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
-		end
-
-		def list_loader
-			# which loader to use
-			file = sprintf "file=%s", loadhyph
-			return file unless use_old_loader
-
-			if ['ar', 'fa'].include? code
-				file = file + " \\\n\tfile_patterns="
-			elsif code == 'grc-x-ibycus'
-				# TODO: fix this
-				file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
-			end
 		end
 	end
 

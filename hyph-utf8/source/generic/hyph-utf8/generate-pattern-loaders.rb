@@ -87,7 +87,7 @@ lccodes_common = []
 if language.has_apostrophes? then
 	lccodes_common.push("\\lccode`\\'=`\\'")
 end
-if language.has_dashes? then
+if language.has_hyphens? then
 	lccodes_common.push("\\lccode`\\-=`\\-")
 end
 
