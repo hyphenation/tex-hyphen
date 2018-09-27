@@ -674,6 +674,48 @@ describe Language do
         expect(Language.new('gl').list_hyphenmins).to eq "lefthyphenmin=2 \\\n\trighthyphenmin=2"
       end
     end
+
+    describe '#message' do
+      it "returns the message to be displayed to TeX users" do
+        expect(Language.new('de-1996').message).to eq 'German hyphenation patterns (reformed orthography)'
+      end
+    end
+
+    describe '#legacy_patterns' do
+      it "returns the file name of the legacy patterns" do
+        expect(Language.new('de-1996').legacy_patterns).to eq 'dehyphn.tex'
+      end
+    end
+
+    describe '#use_old_loader' do
+      it "says whether to use old loader or not" do
+        expect(Language.new('de-1996').use_old_loader).to be_nil
+      end
+
+      it "returns true if applicable" do
+        expect(Language.new('no').use_old_loader).to be_truthy
+      end
+    end
+
+    describe '#use_old_patterns' do
+      it "returns true if language uses old patterns" do
+        expect(Language.new('de-1996').use_old_patterns).to be_truthy
+      end
+
+      it "returns nil otherwise" do
+        expect(Language.new('no').use_old_patterns).to be_nil
+      end
+    end
+
+    describe '#description' do
+      it "returns the long description" do
+        expect(Language.new('de-1901').description).to eq "Hyphenation patterns for German in T1/EC and UTF-8 encodings,\nfor traditional and reformed spelling, including Swiss German.\nThe package includes the latest patterns from dehyph-exptl\n(known to TeX under names 'german', 'ngerman' and 'swissgerman'),\nhowever 8-bit engines still load old versions of patterns\nfor 'german' and 'ngerman' for backward-compatibility reasons.\nSwiss German patterns are suitable for Swiss Standard German\n(Hochdeutsch) not the Alemannic dialects spoken in Switzerland\n(Schwyzerduetsch).\nThere are no known patterns for written Schwyzerduetsch."
+      end
+
+      it "returns nil for new spelling German, for some reason" do
+        expect(Language.new('de-1996').description).to be_nil
+      end
+    end
   end
 end
 

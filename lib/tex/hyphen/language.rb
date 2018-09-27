@@ -429,6 +429,14 @@ module TeX
           @encoding
         end
 
+        def legacy_patterns
+          filename_old_patterns
+        end
+
+        def description
+          description_l.join "\n" if description_l
+        end
+
         def list_synonyms
           # synonyms
           if synonyms && synonyms.length > 0
