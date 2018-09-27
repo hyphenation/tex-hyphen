@@ -165,7 +165,7 @@ class OldLanguage
 {
 	"code" => "grc-x-ibycus",
 	"name" => "ibycus",
-	"use_old_patterns" => true,
+	"use_old_patterns_comment" => true,
 	"use_old_loader" => true,
 	"filename_old_patterns" => "ibyhyph.tex",
 	"hyphenmin" => [2,2],

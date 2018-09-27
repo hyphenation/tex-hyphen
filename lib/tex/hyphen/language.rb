@@ -85,7 +85,11 @@ module TeX
       @@eohmarker = '=' * 42
 
       # TODO Delete from OldLanguage and language-data.rb: hyphenmin, synonyms, encoding
-      DELEGATE = [:message, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :description_l]
+      DELEGATE = [:message, :filename_old_patterns, :use_old_loader, :use_old_patterns_comment, :description_l]
+
+      def use_old_patterns
+        use_old_patterns_comment
+      end
 
       def method_missing(method)
         if DELEGATE.include? method
