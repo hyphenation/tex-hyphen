@@ -55,21 +55,6 @@ class OldLanguage
 
 	# Convenience methods related to TeX Live and the .tlpsrc files
 	module TeXLive
-		def list_synonyms
-			# synonyms
-			if synonyms && synonyms.length > 0
-				sprintf " synonyms=%s", synonyms.join(',')
-			else
-				''
-			end
-		end
-
-		def list_hyphenmins
-			# lefthyphenmin/righthyphenmin
-			lmin = (hyphenmin || [])[0]
-			rmin = (hyphenmin || [])[1]
-			sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
-		end
 	end
 
 	include TeXLive

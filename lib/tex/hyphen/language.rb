@@ -84,7 +84,7 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      DELEGATE = [:message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :description_l, :list_synonyms, :list_hyphenmins, :synonyms]
+      DELEGATE = [:message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :description_l, :synonyms, :hyphenmin]
 
       def method_missing(method, *args)
         if DELEGATE.include? method
@@ -414,6 +414,22 @@ module TeX
       end
 
       module TeXLive
+        def list_synonyms
+          # synonyms
+          if synonyms && synonyms.length > 0
+            sprintf " synonyms=%s", synonyms.join(',')
+          else
+            ''
+          end
+        end
+
+        def list_hyphenmins
+          # lefthyphenmin/righthyphenmin
+          lmin = (hyphenmin || [])[0]
+          rmin = (hyphenmin || [])[1]
+          sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
+        end
+
         # ext: 'pat' or 'hyp'
         # filetype: 'patterns' or 'exceptions'
         def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
