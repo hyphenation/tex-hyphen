@@ -133,14 +133,14 @@ module TeX
           if language
             l = language
           else
-            begin
+            # begin
               l = Language.new bcp47
-              l.extract_metadata # FIXME Remove later!
-            rescue InvalidMetadata
+              # l.extract_metadata # FIXME Remove later!
+            # rescue InvalidMetadata
               # next
               # next unless ['nb', 'nn'].include? bcp47
-              next unless ['grc-x-ibycus', 'ar', 'mul-ethi', 'fa'].include? bcp47
-            end
+              # next
+            # end
           end
 
           # byebug if bcp47 == 'ar'
