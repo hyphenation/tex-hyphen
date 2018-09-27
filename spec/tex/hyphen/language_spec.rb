@@ -133,13 +133,13 @@ describe Language do
     end
 
     it "returns 80 languages" do
-      expect(Language.all.count).to eq 80
+      expect(Language.all.count).to eq 81
     end
   end
 
   describe '.all_with_licence' do
     it "returns all languages that have a non-empty licence" do
-      expect(Language.all_with_licence.count).to eq 78 # 79 - [ro, cop, mn-cyrl-x-lmc, ?] + [nb, nn] + ?
+      expect(Language.all_with_licence.count).to eq 82 # 79 - [ro, cop, mn-cyrl-x-lmc, ?] + [nb, nn] + ? + grc-x-ibycus + ar + fa + mul-ethi (I think)
     end
 
     it "calls .languages first" do
@@ -256,6 +256,11 @@ describe Language do
       expect(swiss_spelling_german).not_to receive :extract_metadata
       swiss_spelling_german.lefthyphenmin
     end
+
+    it "uses the generation value if typesetting is missing" do
+      ethiopic = Language.new('mul-ethi')
+      expect(ethiopic.lefthyphenmin).to eq 1
+    end
   end
 
   describe '#righthyphenmin' do
@@ -274,6 +279,11 @@ describe Language do
       french.instance_variable_set :@righthyphenmin, 2
       expect(french).not_to receive :extract_metadata
       french.righthyphenmin
+    end
+
+    it "uses the generation value if typesetting is missing" do
+      ethiopic = Language.new('mul-ethi')
+      expect(ethiopic.righthyphenmin).to eq 1
     end
   end
 

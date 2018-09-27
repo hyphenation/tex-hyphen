@@ -66,10 +66,10 @@ class HeaderValidator
       type: String,
     },
     hyphenmins: {
-      mandatory: false,
+      mandatory: true,
       type: {
         generation: {
-          mandatory: false,
+          mandatory: false, # TODO Find way to describe that it *is* mandatory if typesetting absent
           type: {
             left: {
               mandatory: true,
@@ -82,7 +82,7 @@ class HeaderValidator
           },
         },
         typesetting: {
-          mandatory: true,
+          mandatory: false,
           type: {
             left: {
               mandatory: true,

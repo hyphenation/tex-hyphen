@@ -388,8 +388,8 @@ module TeX
         end
 
         @name = metadata.dig('language', 'name')
-        @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left')
-        @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right')
+        @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left') || metadata.dig('hyphenmins', 'generation', 'left')
+        @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right') || metadata.dig('hyphenmins', 'generation', 'right')
         licences = metadata.dig('licence')
         raise NoLicence unless licences
         licences = [licences] unless licences.is_a? Array
@@ -425,8 +425,10 @@ module TeX
 
         def list_hyphenmins
           # lefthyphenmin/righthyphenmin
-          lmin = (hyphenmin || [])[0]
-          rmin = (hyphenmin || [])[1]
+          # lmin = (hyphenmin || [])[0]
+          # rmin = (hyphenmin || [])[1]
+          lmin = lefthyphenmin
+          rmin = righthyphenmin
           sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
         end
 
