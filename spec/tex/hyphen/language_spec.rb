@@ -131,11 +131,15 @@ describe Language do
     it "returns the list of languages as an array" do
       expect(Language.all).to be_an Array
     end
+
+    it "returns 80 languages" do
+      expect(Language.all.count).to eq 80
+    end
   end
 
   describe '.all_with_licence' do
     it "returns all languages that have a non-empty licence" do
-      expect(Language.all_with_licence.count).to eq 77 # 79 - [ro, cop, mn-cyrl-x-lmc, ?] + [nb, nn]
+      expect(Language.all_with_licence.count).to eq 78 # 79 - [ro, cop, mn-cyrl-x-lmc, ?] + [nb, nn] + ?
     end
 
     it "calls .languages first" do

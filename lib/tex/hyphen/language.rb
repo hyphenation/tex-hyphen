@@ -124,6 +124,7 @@ module TeX
           next if bcp47 == 'sr-cyrl' # FIXME Remove later
           # puts bcp47
           # puts bcp47, language
+          # byebug if @bcp47 == 'ar'
           if language
             l = language
           else
@@ -133,10 +134,11 @@ module TeX
             rescue InvalidMetadata
               # next
               # next unless ['nb', 'nn'].include? bcp47
-              next unless ['grc-x-ibycus', 'ar', 'mul-ethi', 'fa'].include? @bcp47
+              next unless ['grc-x-ibycus', 'ar', 'mul-ethi', 'fa'].include? bcp47
             end
           end
 
+          # byebug if bcp47 == 'ar'
           # puts bcp47, l
           # puts bcp47
           @@languages[bcp47] = l
@@ -287,6 +289,12 @@ module TeX
 
         b = other.name rescue InvalidMetadata
         b = '' if [nil, InvalidMetadata].include? b
+
+        if a == 'serbian' && b == 'serbianc'
+          return -1
+        elsif a == 'serbianc' && b == 'serbian'
+          return 1
+        end
 
         if a == b
           self.bcp47 <=> other.bcp47
@@ -605,7 +613,11 @@ module TeX
         def languages
           # puts name unless @@packages[self]
           # puts @@packages.keys.map(&:name).sort
-          @languages ||= @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
+          unless @languages
+            @languages = @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
+            @languages.reverse! if name == 'serbian' # FIXME Remove this ad hoc nonense later
+          end
+          @languages
         end
 
         def has_dependency?
