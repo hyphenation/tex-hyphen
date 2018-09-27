@@ -84,7 +84,8 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      DELEGATE = [:message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :description_l, :synonyms, :hyphenmin]
+      # TODO Delete from OldLanguage and language-data.rb: hyphenmin
+      DELEGATE = [:message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :description_l, :synonyms]
 
       def method_missing(method)
         if DELEGATE.include? method
