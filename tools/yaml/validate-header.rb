@@ -32,8 +32,8 @@ class HeaderValidator
       type: String,
     },
     authors: {
-       mandatory: false,
-       type: "...", # TODO Define
+       mandatory: true,
+       type: Array,
     },
     language: {
       mandatory: true,
@@ -82,7 +82,7 @@ class HeaderValidator
           },
         },
         typesetting: {
-          mandatory: false,
+          mandatory: true,
           type: {
             left: {
               mandatory: true,
@@ -137,7 +137,11 @@ class HeaderValidator
     validator.each do |key, validator|
       # byebug if validator[:mandatory] && !hash[key.to_s]
       # byebug unless validator && hash
-      raise ValidationError.new("Key #{key} missing") if validator[:mandatory] && !hash[key.to_s]
+      if validator[:mandatory]
+        if !hash.include? key.to_s # Subtle difference between key not present and value is nil :-)
+          raise ValidationError.new("Key #{key} missing")
+        end
+      end
       check_mandatory(hash[key.to_s], validator[:type]) if hash[key.to_s] && validator[:type].respond_to?(:keys)
     end
   end
