@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 include TeX::Hyphen
+include Language::TeXLive
+include TeXLive
 
 describe String do
   describe '#superstrip' do

@@ -405,286 +405,289 @@ module TeX
         metadata
       end
 
-      # ext: 'pat' or 'hyp'
-      # filetype: 'patterns' or 'exceptions'
-      def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
-        return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @bcp47
+      module TeXLive
+        # ext: 'pat' or 'hyp'
+        # filetype: 'patterns' or 'exceptions'
+        def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
+          return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @bcp47
 
-        if @bcp47 =~ /^sh-/
-          # TODO Warning AR 2018-09-12
-          filename = sprintf 'hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', ext, ext
-        else
-          filename = sprintf 'hyph-%s.%s.txt', @bcp47, ext
-          filepath = File.join(PATH::TXT, filename)
-          # check for existence of file and that it’s not empty
-          unless File.file?(filepath) && File.read(filepath).length > 0
-            # if the file we were looking for was a pattern file, something’s wrong
-            if ext == 'pat'
-              raise sprintf("There is some problem with plain patterns for language [%s]!!!", @bcp47)
-            else # the file is simply an exception file and we’re happy
-              filename = '' # And we return and empty file name after all
+          if @bcp47 =~ /^sh-/
+            # TODO Warning AR 2018-09-12
+            filename = sprintf 'hyph-sh-latn.%s.txt,hyph-sh-cyrl.%s.txt', ext, ext
+          else
+            filename = sprintf 'hyph-%s.%s.txt', @bcp47, ext
+            filepath = File.join(PATH::TXT, filename)
+            # check for existence of file and that it’s not empty
+            unless File.file?(filepath) && File.read(filepath).length > 0
+              # if the file we were looking for was a pattern file, something’s wrong
+              if ext == 'pat'
+                raise sprintf("There is some problem with plain patterns for language [%s]!!!", @bcp47)
+              else # the file is simply an exception file and we’re happy
+                filename = '' # And we return and empty file name after all
+              end
             end
           end
+
+          sprintf "file_%s=%s", filetype, filename
         end
 
-        sprintf "file_%s=%s", filetype, filename
-      end
-
-      def exceptions_line
-        plain_text_line('hyp', 'exceptions')
-      end
-
-      def patterns_line
-        plain_text_line('pat', 'patterns')
-      end
-
-
-      def loadhyph
-        if use_old_loader
-          filename_old_patterns
-        else
-          # byebug
-          sprintf 'loadhyph-%s.tex', @bcp47.gsub(/^sh-/, 'sr-')
-        end
-      end
-
-      def list_loader
-        # which loader to use
-        file = sprintf "file=%s", loadhyph
-        return file unless use_old_loader
-
-        if ['ar', 'fa'].include? @bcp47
-          file = file + " \\\n\tfile_patterns="
-        elsif @bcp47 == 'grc-x-ibycus'
-          # TODO: fix this
-          file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
-        end
-      end
-
-      def list_run_files
-        return [] if use_old_loader
-
-        files = []
-
-        files << File.join(PATH::HYPHU8, 'loadhyph', loadhyph)
-        if has_apostrophes?
-          files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", bcp47))
+        def exceptions_line
+          plain_text_line('hyp', 'exceptions')
         end
 
-        files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', bcp47))
-        if encoding && encoding != "ascii" then
-          files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
-        elsif bcp47 == "cop"
-          files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', filename_old_patterns)
+        def patterns_line
+          plain_text_line('pat', 'patterns')
         end
 
-        # we skip the mongolian language for luatex files
-        return files if bcp47 == "mn-cyrl-x-lmc"
 
-        ['chr', 'pat', 'hyp', 'lic'].each do |t|
-          files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', bcp47, t))
-        end
-
-        if bcp47 =~ /^sh-/
-          # duplicate entries (will be removed later)
-          files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
-          ['chr', 'pat', 'hyp', 'lic'].each do |t|
-            # duplicate entries (will be removed later)
-            files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
+        def loadhyph
+          if use_old_loader
+            filename_old_patterns
+          else
+            # byebug
+            sprintf 'loadhyph-%s.tex', @bcp47.gsub(/^sh-/, 'sr-')
           end
         end
 
-        files
+        def list_loader
+          # which loader to use
+          file = sprintf "file=%s", loadhyph
+          return file unless use_old_loader
+
+          if ['ar', 'fa'].include? @bcp47
+            file = file + " \\\n\tfile_patterns="
+          elsif @bcp47 == 'grc-x-ibycus'
+            # TODO: fix this
+            file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
+          end
+        end
+
+        def list_run_files
+          return [] if use_old_loader
+
+          files = []
+
+          files << File.join(PATH::HYPHU8, 'loadhyph', loadhyph)
+          if has_apostrophes?
+            files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", bcp47))
+          end
+
+          files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', bcp47))
+          if encoding && encoding != "ascii" then
+            files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
+          elsif bcp47 == "cop"
+            files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', filename_old_patterns)
+          end
+
+          # we skip the mongolian language for luatex files
+          return files if bcp47 == "mn-cyrl-x-lmc"
+
+          ['chr', 'pat', 'hyp', 'lic'].each do |t|
+            files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', bcp47, t))
+          end
+
+          if bcp47 =~ /^sh-/
+            # duplicate entries (will be removed later)
+            files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
+            ['chr', 'pat', 'hyp', 'lic'].each do |t|
+              # duplicate entries (will be removed later)
+              files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
+            end
+          end
+
+          files
+        end
       end
     end
 
-    # include OldLanguage::TeXLive # FIXME Remove later
-    class Package
-      attr_reader :name
+    module TeXLive
+      class Package
+        attr_reader :name
 
-      def initialize(name)
-        @name = name
-      end
+        def initialize(name)
+          @name = name
+        end
 
-      @@package_mappings = {
-        "en-gb"=>"english",
-        "en-us"=>"english",
-        "nb"=>"norwegian",
-        "nn"=>"norwegian",
-        "de-1901"=>"german",
-        "de-1996"=>"german",
-        "de-ch-1901"=>"german",
-        "mn-cyrl"=>"mongolian",
-        "mn-cyrl-x-lmc"=>"mongolian",
-        "el-monoton"=>"greek",
-        "el-polyton"=>"greek",
-        "grc"=>"ancient greek",
-        "grc-x-ibycus"=>"ancient greek",
-        "zh-latn-pinyin"=>"chinese",
-        "as"=>"indic",
-        "bn"=>"indic",
-        "gu"=>"indic",
-        "hi"=>"indic",
-        "kn"=>"indic",
-        "ml"=>"indic",
-        "mr"=>"indic",
-        "or"=>"indic",
-        "pa"=>"indic",
-        "ta"=>"indic",
-        "te"=>"indic",
-        "sh-latn"=>"serbian",
-        "sh-cyrl"=>"serbian",
-        "la"=>"latin",
-        "la-x-classic"=>"latin",
-        "la-x-liturgic"=>"latin"
-      }
+        @@package_mappings = {
+          "en-gb"=>"english",
+          "en-us"=>"english",
+          "nb"=>"norwegian",
+          "nn"=>"norwegian",
+          "de-1901"=>"german",
+          "de-1996"=>"german",
+          "de-ch-1901"=>"german",
+          "mn-cyrl"=>"mongolian",
+          "mn-cyrl-x-lmc"=>"mongolian",
+          "el-monoton"=>"greek",
+          "el-polyton"=>"greek",
+          "grc"=>"ancient greek",
+          "grc-x-ibycus"=>"ancient greek",
+          "zh-latn-pinyin"=>"chinese",
+          "as"=>"indic",
+          "bn"=>"indic",
+          "gu"=>"indic",
+          "hi"=>"indic",
+          "kn"=>"indic",
+          "ml"=>"indic",
+          "mr"=>"indic",
+          "or"=>"indic",
+          "pa"=>"indic",
+          "ta"=>"indic",
+          "te"=>"indic",
+          "sh-latn"=>"serbian",
+          "sh-cyrl"=>"serbian",
+          "la"=>"latin",
+          "la-x-classic"=>"latin",
+          "la-x-liturgic"=>"latin"
+        }
 
-      def self.make_mappings
-        @@package_names = @@package_mappings.values.uniq.map do |package_name|
-          [package_name, new(package_name)]
-        end.to_h
+        def self.make_mappings
+          @@package_names = @@package_mappings.values.uniq.map do |package_name|
+            [package_name, new(package_name)]
+          end.to_h
 
-        # a hash with the names of TeX Live packages, either individual language names,
-        # or an array of languages as the value
-        @@packages = Hash.new
-        Language.all.each do |language|
-          # puts language.bcp47
-          package_name = @@package_mappings[language.bcp47]
-          next if !package_name && @@package_names.include?(language.oldname)
-          package_name ||= language.oldname
-          unless package = @@package_names[package_name]
-            package = new(package_name) # TODO Remove later
-            @@package_names[package_name] = package
+          # a hash with the names of TeX Live packages, either individual language names,
+          # or an array of languages as the value
+          @@packages = Hash.new
+          Language.all.each do |language|
+            # puts language.bcp47
+            package_name = @@package_mappings[language.bcp47]
+            next if !package_name && @@package_names.include?(language.oldname)
+            package_name ||= language.oldname
+            unless package = @@package_names[package_name]
+              package = new(package_name) # TODO Remove later
+              @@package_names[package_name] = package
+            end
+
+            (@@packages[package] ||= []) << language
           end
 
-          (@@packages[package] ||= []) << language
+          @@packages
         end
 
-        @@packages
-      end
-
-      @@packages = make_mappings
-      def self.all
-        @@packages.keys
-      end
-
-      # FIXME That’s oh-so-awful
-      def description_s
-        return 'Hyphenation patterns for Ethiopic scripts' if @name == 'ethiopic'
-
-        if @name == 'arabic'
-          leader = '(No) Arabic'
-        elsif @name == 'farsi'
-          leader = '(No) Persian'
-        elsif @name == 'greek'
-          leader = 'Modern Greek'
-        elsif @name == 'chinese'
-          leader = 'Chinese pinyin'
-        elsif @name == 'norwegian'
-          leader = 'Norwegian Bokmal and Nynorsk'
-        else
-          leader = @name.titlecase
+        @@packages = make_mappings
+        def self.all
+          @@packages.keys
         end
 
-        shortdesc = sprintf '%s hyphenation patterns', leader
+        # FIXME That’s oh-so-awful
+        def description_s
+          return 'Hyphenation patterns for Ethiopic scripts' if @name == 'ethiopic'
 
-        shortdesc += ' in Cyrillic script' if @name == 'mongolian'
+          if @name == 'arabic'
+            leader = '(No) Arabic'
+          elsif @name == 'farsi'
+            leader = '(No) Persian'
+          elsif @name == 'greek'
+            leader = 'Modern Greek'
+          elsif @name == 'chinese'
+            leader = 'Chinese pinyin'
+          elsif @name == 'norwegian'
+            leader = 'Norwegian Bokmal and Nynorsk'
+          else
+            leader = @name.titlecase
+          end
 
-        shortdesc
-      end
+          shortdesc = sprintf '%s hyphenation patterns', leader
 
-      #  FIXME This should be at package level from the start
-      def description_l
-        languages.inject([]) do |description, language|
-           description + if language.description_l then language.description_l else [] end
-        end
-      end
+          shortdesc += ' in Cyrillic script' if @name == 'mongolian'
 
-      def languages
-        # puts name unless @@packages[self]
-        # puts @@packages.keys.map(&:name).sort
-        @languages ||= @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
-      end
-
-      def has_dependency?
-        {
-          "german" => "dehyph",
-          # for Russian and Ukrainian (until we implement the new functionality at least)
-          "russian" => "ruhyphen",
-          "ukrainian" => "ukrhyph",
-        }[name]
-      end
-
-      def list_dependencies
-        dependencies = [
-          "depend hyphen-base",
-          "depend hyph-utf8",
-        ]
-
-        # external dependencies
-        if dependency = has_dependency?
-          dependencies << sprintf("depend %s", dependency)
+          shortdesc
         end
 
-        dependencies
-      end
+        #  FIXME This should be at package level from the start
+        def description_l
+          languages.inject([]) do |description, language|
+             description + if language.description_l then language.description_l else [] end
+          end
+        end
 
-      @@special_support = {
-        'doc' => {
-          'greek' => 'doc/generic/elhyphen',
-          'hungarian' => 'doc/generic/huhyphen',
+        def languages
+          # puts name unless @@packages[self]
+          # puts @@packages.keys.map(&:name).sort
+          @languages ||= @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
+        end
+
+        def has_dependency?
+          {
+            "german" => "dehyph",
+            # for Russian and Ukrainian (until we implement the new functionality at least)
+            "russian" => "ruhyphen",
+            "ukrainian" => "ukrhyph",
+          }[name]
+        end
+
+        def list_dependencies
+          dependencies = [
+            "depend hyphen-base",
+            "depend hyph-utf8",
+          ]
+
+          # external dependencies
+          if dependency = has_dependency?
+            dependencies << sprintf("depend %s", dependency)
+          end
+
+          dependencies
+        end
+
+        @@special_support = {
+          'doc' => {
+            'greek' => 'doc/generic/elhyphen',
+            'hungarian' => 'doc/generic/huhyphen',
+          }
         }
-      }
 
-      def list_support_files(type)
-        # Cache directory contents
-        (@dirlist ||= { })[type] ||= Dir.glob(sprintf(PATH::SUPPORT, type)).select do |file|
-          File.directory?(file)
-        end.map do |dir|
-          dir.gsub /^.*\//, ''
+        def list_support_files(type)
+          # Cache directory contents
+          (@dirlist ||= { })[type] ||= Dir.glob(sprintf(PATH::SUPPORT, type)).select do |file|
+            File.directory?(file)
+          end.map do |dir|
+            dir.gsub /^.*\//, ''
+          end
+
+          files = (languages.map(&:bcp47) & @dirlist[type]).map do |bcp47|
+            sprintf("%s/generic/hyph-utf8/languages/%s", type, bcp47)
+          end
+
+          if special = @@special_support.dig(type, name)
+            files << special
+          end
+
+          files
         end
 
-        files = (languages.map(&:bcp47) & @dirlist[type]).map do |bcp47|
-          sprintf("%s/generic/hyph-utf8/languages/%s", type, bcp47)
-        end
+        def list_run_files
+          files = []
+          files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if name == "norwegian"
 
-        if special = @@special_support.dig(type, name)
-          files << special
-        end
+          files = languages.inject(files) do |files, language|
+            files + language.list_run_files
+          end
 
-        files
-      end
-
-      def list_run_files
-        files = []
-        files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if name == "norwegian"
-
-        files = languages.inject(files) do |files, language|
-          files + language.list_run_files
-        end
-
-        unless has_dependency?
-          languages.each do |language|
-            if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.bcp47 != 'cop'
-              files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
+          unless has_dependency?
+            languages.each do |language|
+              if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.bcp47 != 'cop'
+                files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
+              end
             end
           end
+
+          files
         end
 
-        files
-      end
+        def <=>(other)
+          # puts 'HELLO'
+          # puts name, other.name
+          name <=> other.name
+        end
 
-      def <=>(other)
-        # puts 'HELLO'
-        # puts name, other.name
-        name <=> other.name
-      end
-
-      # FIXME Change later
-      def self.find(name)
-        # puts @@package_names.keys
-        # puts @@package_names.values.map(&:name)
-        @@package_names[name]
+        # FIXME Change later
+        def self.find(name)
+          # puts @@package_names.keys
+          # puts @@package_names.values.map(&:name)
+          @@package_names[name]
+        end
       end
     end
   end
