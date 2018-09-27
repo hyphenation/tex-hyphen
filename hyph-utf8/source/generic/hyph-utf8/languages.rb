@@ -48,10 +48,9 @@ class OldLanguage
 	# 	return @lc_characters
 	# end
 
-	attr_reader :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :filename_old_patterns
-	attr_reader :code, :name, :synonyms, :hyphenmin, :encoding, :message
-	attr_reader :description_l, :version
-	attr_reader :licence, :authors
+	attr_reader :use_old_loader, :use_old_patterns_comment, :filename_old_patterns
+	attr_reader :code, :name, :message
+	attr_reader :description_l
 
 	# Convenience methods related to TeX Live and the .tlpsrc files
 	module TeXLive
