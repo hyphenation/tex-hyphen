@@ -48,6 +48,8 @@
 %         right: 2
 % changes:
 %     - 2013-02-14 - First release 1.0
+% texlive:
+%     encoding: ascii
 % ==========================================
 % These hyphenation patterns for the Piedmontese language are supposed to comply
 % with the common spelling of the Piedmontese language as fixed by the

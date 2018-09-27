@@ -316,6 +316,20 @@ describe Language do
     end
   end
 
+  describe '#encoding' do
+    it "returns the encoding" do
+      expect(Language.new('sh-cyrl').encoding).to eq 't2a'
+    end
+
+    it "returns “ascii” if applicable" do
+      expect(Language.new('rm').encoding).to eq 'ascii'
+    end
+
+    it "returns nil if patterns are Unicode-only" do
+      expect(Language.new('sa').encoding).to be_nil
+    end
+  end
+
   describe '#github_link' do
     it "returns the GitHub link" do
       upper_sorbian = Language.new('hsb')

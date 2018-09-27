@@ -25,6 +25,8 @@
 %     - 2013-03-01, version 0.2 Hyphenation patterns are regenerated from new wordlist
 %           (bigger wordlist, 150K words total, some words are fixed)
 %     - 2013-02-25, version 0.1 First release
+% texlive:
+%     encoding: t8m
 % ==========================================
 % Generated using patgen2.
 %

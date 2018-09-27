@@ -28,4 +28,6 @@
 %     typesetting:
 %         left: 2
 %         right: 2
+% texlive:
+%     encoding: l7x
 %

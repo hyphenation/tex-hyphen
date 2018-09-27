@@ -20,6 +20,8 @@
 %     typesetting:
 %         left: 2
 %         right: 3
+% texlive:
+%     encoding: lth
 % ==========================================
 % https://linux.thai.net/projects/thailatex
 % https://github.com/tlwg/thailatex

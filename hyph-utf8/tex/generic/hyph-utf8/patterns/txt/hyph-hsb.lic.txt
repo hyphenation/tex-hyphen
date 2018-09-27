@@ -21,6 +21,8 @@
 %         right: 2
 % changes:
 %     - Completely new revision 1997, March 22
+% texlive:
+%     encoding: ec
 % ==========================================
 % č - ccaron
 % ć - cacute

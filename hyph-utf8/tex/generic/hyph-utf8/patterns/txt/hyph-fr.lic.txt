@@ -46,6 +46,7 @@
 %     synonyms:
 %         - patois
 %         - francais
+%     encoding: ec
 % ==========================================
 %%%%%%%% The most famous good guys who worked hard to obtain something usable.
 % Jacques Desarmenien, Universite de Strasbourg :

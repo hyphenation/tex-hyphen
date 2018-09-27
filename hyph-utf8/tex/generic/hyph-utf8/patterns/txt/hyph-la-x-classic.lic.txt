@@ -45,6 +45,8 @@
 %     typesetting:
 %         left: 2
 %         right: 2
+% texlive:
+%     encoding: ascii
 % ==========================================
 % Aknowledgements: This file has been substantially upgraded with
 % the contributions of Francisco Gracia. 

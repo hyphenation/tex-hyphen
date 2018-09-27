@@ -45,6 +45,8 @@
 %     typesetting:
 %         left: 2
 %         right: 3
+% texlive:
+%     encoding: ec
 %
 % ==========================================
 % The patterns were generated long ago by applying patgen to

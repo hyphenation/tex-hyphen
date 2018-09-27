@@ -26,6 +26,8 @@
 %         left: 2
 %         right: 2
 % changes: See below
+% texlive:
+%     encoding: t2a
 % ==========================================
 % Copyright (C) 2000,2004,2017 by Anton Zinoviev <anton@lml.bas.bg>
 %

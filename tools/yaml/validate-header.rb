@@ -103,6 +103,10 @@ class HeaderValidator
           mandatory: false,
           type: Array
         },
+        encoding: {
+          mandatory: false,
+          type: String
+        }
       },
     },
     source: {

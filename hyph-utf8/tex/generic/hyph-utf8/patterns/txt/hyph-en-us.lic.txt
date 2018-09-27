@@ -21,6 +21,8 @@
 % changes:
 %     March 1, 1990 Initial release
 %     May 30, 2005 Added copyright notice, no patterns change.
+% texlive:
+%     encoding: ascii
 % ==========================================
 %
 % ushyphmax.tex -- patterns for more hyphenation pattern memory (12000+).

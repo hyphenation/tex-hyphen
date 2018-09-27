@@ -22,6 +22,8 @@
 %     typesetting:
 %         left: 2 # But 1 is also possible
 %         right: 2
+% texlive:
+%     encoding: t2a
 % ==========================================
 % Osnovni skup paterna dobijen je na osnovu fonoloških osobina
 % srpskohrvatskog jezika.  Pravila i preporuke sam preuzeo iz:

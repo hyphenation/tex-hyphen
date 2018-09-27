@@ -17,4 +17,6 @@
 %     typesetting:
 %         left: 2
 %         right: 2
+% texlive:
+%     encoding: t2a
 %

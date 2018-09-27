@@ -50,6 +50,8 @@
 % changes:
 % - 2012-01-14 - First release 1.0
 % - 2012-02-10 - Version 1.1. Fix inconsistencies.
+% texlive:
+%     encoding: ec
 %
 % ==========================================
 % These hyphenation patterns for the Friulan language are supposed to comply

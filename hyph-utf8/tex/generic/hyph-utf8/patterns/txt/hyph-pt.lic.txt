@@ -54,5 +54,6 @@
 %     - Version 1.0 Release date: 02/13/1987 Pedro J. de Rezende
 % texlive:
 %     synonyms:
-%       - portuges
+%         - portuges
+%     encoding: ec
 %

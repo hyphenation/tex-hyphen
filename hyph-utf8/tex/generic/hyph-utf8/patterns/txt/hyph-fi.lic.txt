@@ -25,4 +25,6 @@
 %         by Professor Fred Karlsson is also referred
 %     - 1989-03-08 (vers. 2.2), some vowel triples by Fred Karlsson added.
 %     - 1995-01-09: added \uccode and \lccode by Thomas Esser
+% texlive:
+%     encoding: ec
 %

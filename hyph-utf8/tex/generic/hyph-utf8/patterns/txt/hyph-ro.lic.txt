@@ -19,6 +19,8 @@
 % changes:
 %     - ROHYPHEN.TEX 1.0 <10.02.1995>: Plain TeX and LaTeX 2.09.
 %     - ROHYPHEN.TEX 1.1 <29.10.1996>: Plain TeX and LaTeX2e.
+% texlive:
+%     encoding: ec
 % ==========================================
 % Contents: 647 Romanian hyphen patterns, with diacritics.
 % NB Romanian has STRUCTURAL HYPHEN-AMBIGUA:

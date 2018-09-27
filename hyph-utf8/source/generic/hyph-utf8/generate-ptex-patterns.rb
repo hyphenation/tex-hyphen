@@ -3,6 +3,7 @@
 require_relative 'hyph-utf8'
 require_relative '../../../../lib/tex/hyphen/language'
 include TeX::Hyphen
+include Language::TeXLive
 
 # this file generates patterns for pTeX out of the plain ones
 

@@ -23,6 +23,7 @@
 %     synonyms:
 %         - norwegian
 %         - norsk
+%     encoding: ec
 % ==========================================
 % This file contains hyphenation patterns for Norwegian Bokmål.
 % It uses the Norwegian hyphenation patterns from hyph-no.tex,

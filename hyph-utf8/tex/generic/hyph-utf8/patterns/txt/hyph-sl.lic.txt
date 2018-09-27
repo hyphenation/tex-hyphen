@@ -66,4 +66,5 @@
 % texlive:
 %     synonyms:
 %         - slovene
+%     encoding: ec
 %

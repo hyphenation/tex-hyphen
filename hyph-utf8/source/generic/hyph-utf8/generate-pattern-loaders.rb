@@ -5,6 +5,7 @@
 
 require_relative '../../../../lib/tex/hyphen/language.rb'
 include TeX::Hyphen
+include Language::TeXLive
 
 $package_name="hyph-utf8"
 

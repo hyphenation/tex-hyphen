@@ -38,6 +38,7 @@
 % texlive:
 %     synonyms:
 %         - espanol
+%     encoding: ec
 % ==========================================
 %
 % For further info, bug reports and comments:
