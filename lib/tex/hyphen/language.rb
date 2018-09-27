@@ -84,8 +84,8 @@ module TeX
     class Language
       @@eohmarker = '=' * 42
 
-      # TODO Delete from OldLanguage and language-data.rb: hyphenmin
-      DELEGATE = [:message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :description_l, :synonyms]
+      # TODO Delete from OldLanguage and language-data.rb: hyphenmin, synonyms
+      DELEGATE = [:message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :description_l]
 
       def method_missing(method)
         if DELEGATE.include? method
@@ -218,6 +218,11 @@ module TeX
       def righthyphenmin
         extract_metadata unless @righthyphenmin
         @righthyphenmin
+      end
+
+      def synonyms
+        extract_metadata unless @synonyms
+        @synonyms
       end
 
       # Strictly speaking a misnomer, because grc-x-ibycus should also return true.
@@ -391,6 +396,8 @@ module TeX
         @name = metadata.dig('language', 'name')
         @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left') || metadata.dig('hyphenmins', 'generation', 'left')
         @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right') || metadata.dig('hyphenmins', 'generation', 'right')
+        # byebug
+        @synonyms = metadata.dig('texlive', 'synonyms') || []
         licences = metadata.dig('licence')
         raise NoLicence unless licences
         licences = [licences] unless licences.is_a? Array

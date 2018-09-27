@@ -63,4 +63,7 @@
 %     - 2007-01-20 >
 %             `sihyph23.tex' renamed to `slhyph.tex'
 %             (sl is the proper language code for Slovenian)
+% texlive:
+%     synonyms:
+%         - slovene
 %

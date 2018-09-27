@@ -19,6 +19,10 @@
 %     typesetting:
 %         left: 2
 %         right: 2
+% texlive:
+%     synonyms:
+%         - norwegian
+%         - norsk
 % ==========================================
 % This file contains hyphenation patterns for Norwegian Bokmål.
 % It uses the Norwegian hyphenation patterns from hyph-no.tex,

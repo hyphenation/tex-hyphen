@@ -96,6 +96,15 @@ class HeaderValidator
         },
       },
     },
+    texlive: {
+      mandatory: false,
+      type: {
+        synonyms: {
+          mandatory: false,
+          type: Array
+        },
+      },
+    },
     source: {
       mandatory: false,
       type: String
@@ -149,6 +158,7 @@ class HeaderValidator
   def validate(hash, validator)
     hash.each do |key, value|
       # byebug if validator[key.to_sym] == nil
+      # byebug unless validator
       raise ValidationError.new("Invalid key #{key} found") if validator[key.to_sym] == nil
       validate(value, validator[key.to_sym][:type]) if value.respond_to?(:keys) && !validator[key.to_sym][:one_or_more]
     end

@@ -306,6 +306,16 @@ describe Language do
     end
   end
 
+  describe '#synonyms' do
+    it "returns the synonyms as an array" do
+      expect(Language.new('sl').synonyms).to eq ['slovene']
+    end
+
+    it "returns an empty array instead of nil if there are no synonyms" do
+      expect(Language.new('sk').synonyms).to eq []
+    end
+  end
+
   describe '#github_link' do
     it "returns the GitHub link" do
       upper_sorbian = Language.new('hsb')
