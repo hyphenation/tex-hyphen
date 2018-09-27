@@ -541,86 +541,88 @@ describe Language do
     end
   end
 
-  describe '#loadhyph' do
-    it "returns the name of the pattern loader file" do
-      expect(Language.new('cy').loadhyph).to eq 'loadhyph-cy.tex'
+  describe TeXLive do
+    describe '#loadhyph' do
+      it "returns the name of the pattern loader file" do
+        expect(Language.new('cy').loadhyph).to eq 'loadhyph-cy.tex'
+      end
+
+      it "replaces the main sh subtag by sr" do
+        expect(Language.new('sh-latn').loadhyph).to eq 'loadhyph-sr-latn.tex'
+      end
+
+      it "returns the old loader name if applicable" do
+        expect(Language.new('grc-x-ibycus').loadhyph).to eq 'ibyhyph.tex'
+      end
     end
 
-    it "replaces the main sh subtag by sr" do
-      expect(Language.new('sh-latn').loadhyph).to eq 'loadhyph-sr-latn.tex'
+    describe '#list_loader' do
+      it "returns the tlpsrc line with the loader" do
+        expect(Language.new('hr').list_loader).to eq 'file=loadhyph-hr.tex'
+      end
+
+      it "includes an empty line for Arabic and Farsi" do
+        expect(Language.new('ar').list_loader).to eq "file=zerohyph.tex \\\n\tfile_patterns="
+      end
+
+      it "includes a Lua special line for Ibycus" do
+        expect(Language.new('grc-x-ibycus').list_loader).to eq "file=ibyhyph.tex \\\n\tluaspecial=\"disabled:8-bit only\""
+      end
     end
 
-    it "returns the old loader name if applicable" do
-      expect(Language.new('grc-x-ibycus').loadhyph).to eq 'ibyhyph.tex'
-    end
-  end
-
-  describe '#list_loader' do
-    it "returns the tlpsrc line with the loader" do
-      expect(Language.new('hr').list_loader).to eq 'file=loadhyph-hr.tex'
-    end
-
-    it "includes an empty line for Arabic and Farsi" do
-      expect(Language.new('ar').list_loader).to eq "file=zerohyph.tex \\\n\tfile_patterns="
-    end
-
-    it "includes a Lua special line for Ibycus" do
-      expect(Language.new('grc-x-ibycus').list_loader).to eq "file=ibyhyph.tex \\\n\tluaspecial=\"disabled:8-bit only\""
-    end
-  end
-
-  describe '#list_run_files' do
-    it "returns the list of TeX file" do
-      # puts Language.new('ka').list_run_files
-      expect(Language.new('ka').list_run_files).to eq ['tex/generic/hyph-utf8/loadhyph/loadhyph-ka.tex',
-        'tex/generic/hyph-utf8/patterns/tex/hyph-ka.tex',
-        'tex/generic/hyph-utf8/patterns/ptex/hyph-ka.t8m.tex',
-        'tex/generic/hyph-utf8/patterns/txt/hyph-ka.chr.txt',
-        'tex/generic/hyph-utf8/patterns/txt/hyph-ka.pat.txt',
-        'tex/generic/hyph-utf8/patterns/txt/hyph-ka.hyp.txt',
-        'tex/generic/hyph-utf8/patterns/txt/hyph-ka.lic.txt']
-    end
-  end
-
-  describe '#patterns_line' do
-    it "returns the patterns line for TLPSRC" do
-      expect(Language.new('tk').patterns_line).to eq "file_patterns=hyph-tk.pat.txt"
+    describe '#list_run_files' do
+      it "returns the list of TeX file" do
+        # puts Language.new('ka').list_run_files
+        expect(Language.new('ka').list_run_files).to eq ['tex/generic/hyph-utf8/loadhyph/loadhyph-ka.tex',
+          'tex/generic/hyph-utf8/patterns/tex/hyph-ka.tex',
+          'tex/generic/hyph-utf8/patterns/ptex/hyph-ka.t8m.tex',
+          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.chr.txt',
+          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.pat.txt',
+          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.hyp.txt',
+          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.lic.txt']
+      end
     end
 
-    it "returns two files for Serbian" do
-      expect(Language.new('sh-cyrl').patterns_line).to eq "file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt"
-    end
-  end
+    describe '#patterns_line' do
+      it "returns the patterns line for TLPSRC" do
+        expect(Language.new('tk').patterns_line).to eq "file_patterns=hyph-tk.pat.txt"
+      end
 
-  describe '#exceptions_line' do
-    it "returns the exceptions line for TLPSRC" do
-      expect(Language.new('nn').exceptions_line).to eq "file_exceptions=hyph-nn.hyp.txt"
-    end
-
-    it "returns two files for Serbian" do
-      expect(Language.new('sh-latn').exceptions_line).to eq "file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt"
-    end
-  end
-
-  describe '#extract_apostrophes' do
-    it "returns the list of patterns with apostrophes" do
-      expect(Language.new('af').extract_apostrophes[:with_apostrophe]).to eq ['.af6ro’', '.a7fro’s', '.l’7etji', '.m’7etji', '.r’7etji', 's’9ie.', 'x’9ie.']
+      it "returns two files for Serbian" do
+        expect(Language.new('sh-cyrl').patterns_line).to eq "file_patterns=hyph-sh-latn.pat.txt,hyph-sh-cyrl.pat.txt"
+      end
     end
 
-    it "returns nil otherwise" do
-      expect(Language.new('nl').extract_apostrophes[:with_apostrophe]).to be_nil
-    end
-  end
+    describe '#exceptions_line' do
+      it "returns the exceptions line for TLPSRC" do
+        expect(Language.new('nn').exceptions_line).to eq "file_exceptions=hyph-nn.hyp.txt"
+      end
 
-  describe '#extract_characters' do
-    it "extracts the list of characters with in lowercase and uppercase" do
-      expect(Language.new('id').extract_characters).to eq (('a'..'z').to_a - ['x']).map { |c| c + c.upcase }
+      it "returns two files for Serbian" do
+        expect(Language.new('sh-latn').exceptions_line).to eq "file_exceptions=hyph-sh-latn.hyp.txt,hyph-sh-cyrl.hyp.txt"
+      end
     end
-  end
 
-  describe '#comments_and_licence' do
-    it "extracts the header" do
-      expect(Language.new('kmr').comments_and_licence).to match /^% title: Hyphenation patterns for Kurmanji \(Northern Kurdish\).*The patterns are generated by patgen from a word list of approx\. 2500\n% hyphenated words provided by Medeni Shemdê$/m
+    describe '#extract_apostrophes' do
+      it "returns the list of patterns with apostrophes" do
+        expect(Language.new('af').extract_apostrophes[:with_apostrophe]).to eq ['.af6ro’', '.a7fro’s', '.l’7etji', '.m’7etji', '.r’7etji', 's’9ie.', 'x’9ie.']
+      end
+
+      it "returns nil otherwise" do
+        expect(Language.new('nl').extract_apostrophes[:with_apostrophe]).to be_nil
+      end
+    end
+
+    describe '#extract_characters' do
+      it "extracts the list of characters with in lowercase and uppercase" do
+        expect(Language.new('id').extract_characters).to eq (('a'..'z').to_a - ['x']).map { |c| c + c.upcase }
+      end
+    end
+
+    describe '#comments_and_licence' do
+      it "extracts the header" do
+        expect(Language.new('kmr').comments_and_licence).to match /^% title: Hyphenation patterns for Kurmanji \(Northern Kurdish\).*The patterns are generated by patgen from a word list of approx\. 2500\n% hyphenated words provided by Medeni Shemdê$/m
+      end
     end
   end
 end
