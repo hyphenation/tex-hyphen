@@ -254,20 +254,20 @@ module TeX
         { plain: plain, with_apostrophe: with_apostrophe }
       end
 
-      def extract_characters
+      def extract_characters # FIXME Turkish and others iİ
         characters = Array.new
 
         characters_indexes = patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
         characters_indexes.each do |c|
           ch = [c].pack('U')
-          characters << ch + Unicode.upcase(ch)
+          characters << ch + ch.upcase
           characters << "’’" if ch == "'" && !isgreek?
         end
 
         characters
       end
 
-      def comments_and_licence
+      def comments_and_licence # Major TODO extract everything into YAML, and write .yml
         @comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1')
       end
 
