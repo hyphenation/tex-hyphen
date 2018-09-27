@@ -86,11 +86,11 @@ module TeX
 
       DELEGATE = [:message, :encoding, :filename_old_patterns, :use_old_loader, :use_old_patterns, :use_old_patterns_comment, :description_l, :synonyms, :hyphenmin]
 
-      def method_missing(method, *args)
+      def method_missing(method)
         if DELEGATE.include? method
           # puts @bcp47 unless @old
           # byebug unless @old
-          @old.send(method, *args)
+          @old.send(method)
         else
           raise NoMethodError.new(method)
         end
