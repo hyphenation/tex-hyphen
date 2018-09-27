@@ -82,6 +82,8 @@ module TeX
     end
 
     class Language
+      attr_reader :bcp47
+
       @@eohmarker = '=' * 42
 
       # TODO Delete from OldLanguage and language-data.rb: hyphenmin, synonyms, encoding
@@ -104,7 +106,7 @@ module TeX
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
         # byebug if @bcp47 == 'id'
-        if @bcp47 && self.class.languages.include?(@bcp47) && !(@bcp47[0] == 'q' && ('a'..'t').include?(@bcp47[1])) # TODO Method for that
+        if @bcp47 and self.class.languages.include? @bcp47 and !private_use?
           # puts @bcp47
           @old = OldLanguage.all.select do |language|
             # puts language.code
@@ -123,51 +125,23 @@ module TeX
       end
       @@languages = Language.languages
 
-      # FIXME This is getting messy as hell
       def self.all
         @@all ||= languages.map do |bcp47, language|
           next if bcp47 == 'sr-cyrl' # FIXME Remove later
-          # puts bcp47
-          # puts bcp47, language
-          # byebug if @bcp47 == 'ar'
           if language
-            l = language
+            language
           else
-            # begin
-              l = Language.new bcp47
-              # l.extract_metadata # FIXME Remove later!
-            # rescue InvalidMetadata
-              # next
-              # next unless ['nb', 'nn'].include? bcp47
-              # next
-            # end
+            @@languages[bcp47]  = Language.new bcp47
           end
-
-          # byebug if bcp47 == 'ar'
-          # puts bcp47, l
-          # puts bcp47
-          @@languages[bcp47] = l
         end.compact
-      end
-
-      def self.all_with_licence
-        languages.select do |bcp47, language|
-          language ||= (@@languages[bcp47] = Language.new bcp47) unless language
-          begin
-            licences = language.licences
-          rescue InvalidMetadata
-            next
-          end
-          licences.count > 0
-        end
       end
 
       def self.find_by_bcp47(bcp47)
         languages[bcp47]
       end
 
-      def bcp47
-        @bcp47
+      def private_use?
+        @bcp47.length == 3 and @bcp47[0] == 'q' and ('a'..'t').include? @bcp47[1]
       end
 
       def name

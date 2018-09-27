@@ -132,19 +132,8 @@ describe Language do
       expect(Language.all).to be_an Array
     end
 
-    it "returns 80 languages" do
+    it "returns 81 languages" do # That’s all of them except for [sr-cyrl]
       expect(Language.all.count).to eq 81
-    end
-  end
-
-  describe '.all_with_licence' do
-    it "returns all languages that have a non-empty licence" do
-      expect(Language.all_with_licence.count).to eq 82 # 79 - [ro, cop, mn-cyrl-x-lmc, ?] + [nb, nn] + ? + grc-x-ibycus + ar + fa + mul-ethi (I think)
-    end
-
-    it "calls .languages first" do
-      expect(Language).to receive(:languages).and_return({ 'pl' => Language.new('pl') })
-      Language.all_with_licence
     end
   end
 
@@ -470,6 +459,28 @@ describe Language do
       expect(esperanto).to receive(:exceptions)
       esperanto.instance_variable_set :@hyphenation, { 'ŝtatregosciencon' => 'ŝta-tre-go-scien-con' }
       esperanto.hyphenate('ŝtatregosciencon')
+    end
+  end
+
+  describe '#private_use?' do
+    it "returns true for languages with private use BCP 47 tags" do
+      expect(Language.new('qls').private_use?).to be_truthy
+    end
+
+    it "returns true otherwise" do
+      expect(Language.new('qyz').private_use?).to be_falsey
+    end
+
+    it "doesn’t crash on two-letter tags" do
+      expect { Language.new('qa').private_use? }.not_to raise_exception
+    end
+
+    it "returns false on two-letter tags" do
+      expect(Language.new('qt').private_use?).to be_falsey
+    end
+
+    it "works correctly on four-letter tags" do
+      expect(Language.new('qaaa').private_use?).to be_falsey
     end
   end
 
