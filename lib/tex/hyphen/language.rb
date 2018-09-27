@@ -254,7 +254,7 @@ module TeX
         { plain: plain, with_apostrophe: with_apostrophe }
       end
 
-      def extract_characters # FIXME Turkish and others iİ
+      def extract_characters # FIXME Turkish and others iİ; check Church Slavonic
         characters = Array.new
 
         characters_indexes = patterns.join.gsub(/[.0-9]/,'').unpack('U*').sort.uniq
