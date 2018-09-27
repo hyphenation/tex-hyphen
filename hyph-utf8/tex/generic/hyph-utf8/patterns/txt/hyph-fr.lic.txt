@@ -38,6 +38,10 @@
 %         ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 %         CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 %         SOFTWARE.
+% hyphenmins:
+%     typesetting:
+%         left: 2
+%         right: 2
 % ==========================================
 %%%%%%%% The most famous good guys who worked hard to obtain something usable.
 % Jacques Desarmenien, Universite de Strasbourg :

@@ -42,8 +42,12 @@
 %         or_later: true
 %         url: http://www.gnu.org/licenses/lgpl.html
 %     -
-%        name: GPL
-%        version: 3
-%        or_later: true
-%        url: http://www.gnu.org/licenses/gpl.html
+%         name: GPL
+%         version: 3
+%         or_later: true
+%         url: http://www.gnu.org/licenses/gpl.html
+% hyphenmins:
+%     generation:
+%         left: 1
+%         right: 1
 %

@@ -45,7 +45,7 @@
 % hyphenmins:
 %     typesetting:
 %         left: 2
-%         right: 3
+%         right: 2
 % changes:
 %     - 1990       First version of `hyphen.si' (Matjaž Vrečko, TeXCeX)
 %

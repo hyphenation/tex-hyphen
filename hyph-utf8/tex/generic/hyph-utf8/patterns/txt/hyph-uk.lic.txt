@@ -13,4 +13,8 @@
 % licence:
 %     name: LPPL
 %     url: https://latex-project.org/lppl/
+% hyphenmins:
+%     typesetting:
+%         left: 2
+%         right: 2
 %

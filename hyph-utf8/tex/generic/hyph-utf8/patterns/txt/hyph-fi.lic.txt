@@ -12,6 +12,10 @@
 %     affiliation: Computing Centre, University of Jyväskylä, Finland
 % licence:
 %     - text: Patterns may be freely distributed
+% hyphenmins:
+%     typesetting:
+%         left: 2
+%         right: 2
 % changes:
 %     - First release 1986-01 by Kauko Saarinen,
 %     - >

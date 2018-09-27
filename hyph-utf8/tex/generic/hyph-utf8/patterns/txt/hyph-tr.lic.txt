@@ -19,6 +19,10 @@
 %     version: 1
 %     or_later: true
 %     url: https://latex-project.org/lppl/lppl-1-0.html
+% hyphenmins:
+%     typesetting:
+%         left: 2
+%         right: 2
 % changes:
 %     - 2008-06-25/27/28 - create this file by adapting Ottoman rules for modern Turkish
 %     - 2011-08-10 - add LPPL licence with permission of Pierre A. MacKay

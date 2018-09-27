@@ -267,7 +267,7 @@ describe Language do
     let(:french) { Language.new('fr') }
 
     it "returns the right hyphenmin value for typesetting" do
-      expect(french.righthyphenmin).to eq nil
+      expect(french.righthyphenmin).to eq 2
     end
 
     it "call #extract_metadata first if necessary" do

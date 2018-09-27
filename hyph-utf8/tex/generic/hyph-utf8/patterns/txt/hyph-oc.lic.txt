@@ -41,6 +41,10 @@
 %         version: 1
 %         or_later: true
 %         url: https://latex-project.org/lppl/
+% hyphenmins:
+%     typesetting:
+%         left: 2
+%         right: 2
 % ==========================================
 % Patterns for the Occitan language; they are supposed to be valid
 % for all the Occitan variants spoken and written in the wide area

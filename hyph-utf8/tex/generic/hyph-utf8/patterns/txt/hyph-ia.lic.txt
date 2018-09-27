@@ -16,6 +16,10 @@
 %     status: maintained
 %     maintainer: Peter Kleiweg
 %     url: https://latex-project.org/lppl/
+% hyphenmins:
+%     typesetting:
+%         left: 2
+%         right: 2
 % changes:
 %     - Version 0.2b. Released 3 July 2001.
 %     - Version 0.2c. Released 28 June 2005 (added LPPL header)

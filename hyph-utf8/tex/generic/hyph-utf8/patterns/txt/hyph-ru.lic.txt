@@ -16,6 +16,10 @@
 %     version: 1.2
 %     or_later: true
 %     url: https://latex-project.org/lppl/
+% hyphenmins:
+%     typesetting:
+%         left: 2
+%         right: 2
 % ==========================================
 % Patterns were generated with patgen from a 990,000-word list and then
 % manually corrected.

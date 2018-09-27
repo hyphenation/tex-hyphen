@@ -16,6 +16,10 @@
 %     status: maintained
 %     maintainer: Theppitak Karoonboonyanan
 %     url: https://latex-project.org/lppl/
+% hyphenmins:
+%     typesetting:
+%         left: 2
+%         right: 3
 % ==========================================
 % https://linux.thai.net/projects/thailatex
 % https://github.com/tlwg/thailatex

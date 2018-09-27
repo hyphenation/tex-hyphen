@@ -15,4 +15,8 @@
 %     version: 2
 %     or_later: true
 %     url: http://www.gnu.org/licenses/gpl.html
+% hyphenmins:
+%     typesetting:
+%        left: 1
+%        right: 1
 %
