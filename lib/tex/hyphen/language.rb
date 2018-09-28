@@ -469,7 +469,7 @@ module TeX
 
         def loadhyph
           if use_old_loader
-            filename_old_patterns
+            legacy_patterns
           else
             # byebug
             sprintf 'loadhyph-%s.tex', @bcp47.gsub(/^sh-/, 'sr-')
@@ -503,7 +503,7 @@ module TeX
           if encoding && encoding != "ascii" then
             files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
           elsif bcp47 == "cop"
-            files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', filename_old_patterns)
+            files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', legacy_patterns)
           end
 
           # we skip the mongolian language for luatex files
@@ -698,8 +698,8 @@ module TeX
 
           unless has_dependency?
             languages.each do |language|
-              if language.use_old_patterns and language.filename_old_patterns != "zerohyph.tex" and language.bcp47 != 'cop'
-                files << sprintf("tex/generic/hyphen/%s", language.filename_old_patterns)
+              if language.use_old_patterns and language.legacy_patterns != "zerohyph.tex" and language.bcp47 != 'cop'
+                files << sprintf("tex/generic/hyphen/%s", language.legacy_patterns)
               end
             end
           end
