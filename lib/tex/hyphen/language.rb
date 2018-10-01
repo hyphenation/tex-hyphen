@@ -150,23 +150,11 @@ module TeX
         @name
       end
 
-      def name_for_loader
-        # name.downcase.safe
+      def babelname
         @old.name.safe
       end
 
-      def name_for_ptex
-        name_for_loader
-      end
-
-      def name_for_texlive
-        name_for_loader
-      end
-
-      def oldname
-        @old.name
-      end
-
+      # This should probably become “macrolanguage name” or something similar
       @@displaynames = {
         'el' => 'Greek',
         'nb' => 'Norwegian',
@@ -579,8 +567,8 @@ module TeX
           Language.all.each do |language|
             # puts language.bcp47
             package_name = @@package_mappings[language.bcp47]
-            next if !package_name && @@package_names.include?(language.oldname)
-            package_name ||= language.oldname
+            next if !package_name && @@package_names.include?(language.babelname)
+            package_name ||= language.babelname
             unless package = @@package_names[package_name]
               package = new(package_name) # TODO Remove later
               @@package_names[package_name] = package
@@ -611,6 +599,10 @@ module TeX
             leader = 'Chinese pinyin'
           elsif @name == 'norwegian'
             leader = 'Norwegian Bokmal and Nynorsk'
+          elsif @name == 'churchslavonic'
+            leader = 'Church Slavonic'
+          elsif @name == 'uppersorbian'
+            leader == 'Upper Sorbian'
           else
             leader = @name.titlecase
           end

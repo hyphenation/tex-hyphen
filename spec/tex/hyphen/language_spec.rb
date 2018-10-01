@@ -203,6 +203,22 @@ describe Language do
     end
   end
 
+  describe '#babelname' do
+    it "returns the Babel name" do
+      expect(Language.new('de-1996').babelname).to eq 'ngerman'
+    end
+  end
+
+  # describe '#packagename' do
+  #   it "returns the package name for TeX Live" do
+  #     expect(Language.new('gu').packagename).to eq 'indic'
+  #   end
+
+  #   it "uses some questionable choices" do
+  #     expect(Language.new('grc').packagename).to eq 'ancient greek'
+  #   end
+  # end
+
   describe '#licences' do
     let(:church_slavonic) { Language.new('cu') }
 

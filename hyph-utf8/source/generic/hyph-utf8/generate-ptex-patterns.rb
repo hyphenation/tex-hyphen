@@ -41,7 +41,7 @@ Language.all.sort.each do |language|
 
 	bcp47 = language.bcp47
 
-	puts ">> generating #{bcp47} (#{language.name_for_ptex})"
+	puts ">> generating #{bcp47} (#{language.babelname})"
 	File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', bcp47, language.encoding)), 'w') do |file_ptex|
 		patterns   = language.patterns
 		exceptions = language.exceptions
@@ -53,7 +53,7 @@ Language.all.sort.each do |language|
 			exceptions = encoding.convert_to_escaped_characters(exceptions)
 		end
 
-		file_ptex.printf(header, language.name_for_ptex, language.bcp47, language.encoding, language.bcp47)
+		file_ptex.printf(header, language.babelname, language.bcp47, language.encoding, language.bcp47)
 
 		file_ptex.puts("\\bgroup")
 		# setting lccodes for letters
