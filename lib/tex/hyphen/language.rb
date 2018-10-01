@@ -87,7 +87,7 @@ module TeX
       @@eohmarker = '=' * 42
 
       # TODO Delete from OldLanguage and language-data.rb: hyphenmin, synonyms, encoding
-      DELEGATE = [:message, :filename_old_patterns, :use_old_loader, :use_old_patterns_comment, :description_l]
+      DELEGATE = [:message, :filename_old_patterns, :use_old_loader, :use_old_patterns_comment, :description_l, :name]
 
       def use_old_patterns
         use_old_patterns_comment
@@ -151,7 +151,8 @@ module TeX
 #       end
 
       def babelname
-        @old.name.safe
+        # @old.name.safe
+        name
       end
 
       # This should probably become “macrolanguage name” or something similar

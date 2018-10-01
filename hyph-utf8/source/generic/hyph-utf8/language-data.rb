@@ -1017,7 +1017,7 @@ class OldLanguage
 # uppersorbian
 {
 	"code" => "hsb",
-	"name" => "upper sorbian",
+	"name" => "uppersorbian",
 	"filename_old_patterns" => "sorhyph.tex",
 	"message" => "Upper Sorbian hyphenation patterns",
 #	\message{Hyphenation patterns for Upper Sorbian, E. Werner}
@@ -1442,7 +1442,7 @@ class OldLanguage
 # Church Slavonic
 {
 	"code" => "cu",
-	"name" => "church slavonic",
+	"name" => "churchslavonic",
 	"message" => "Church Slavonic hyphenation patterns",
 
 	"version" => nil,
