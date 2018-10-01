@@ -62,7 +62,6 @@ class OldLanguage
 {
 	"code" => "el-monoton",
 	"name" => "monogreek",
-	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grmhyph5.tex",
 	"encoding" => nil,
@@ -93,7 +92,6 @@ class OldLanguage
 {
 	"code" => "el-polyton",
 	"name" => "greek", "synonyms" => ["polygreek"],
-	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grphyph5.tex",
 	# left/right hyphen min for Greek can be as low as one (1),
@@ -122,7 +120,6 @@ class OldLanguage
 {
 	"code" => "grc",
 	"name" => "ancientgreek",
-	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grahyph5.tex",
 	"encoding" => nil,
@@ -173,7 +170,6 @@ class OldLanguage
 {
 	"code" => "cop",
 	"name" => "coptic",
-	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "TODO: automatic conversion could be done, but was too complicated; leave for later.",
 	"filename_old_patterns" => "copthyph.tex",
 	"encoding" => nil,
@@ -196,7 +192,6 @@ class OldLanguage
 {
 	"code" => "de-1901",
 	"name" => "german",
-	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
 	"filename_old_patterns" => "dehypht.tex",
 	"encoding" => "ec",
@@ -231,7 +226,6 @@ class OldLanguage
 {
 	"code" => "de-1996",
 	"name" => "ngerman",
-	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
 	"filename_old_patterns" => "dehyphn.tex",
 	"encoding" => "ec",
@@ -272,7 +266,6 @@ class OldLanguage
 {
 	"code" => "ru",
 	"name" => "russian",
-	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
 	"filename_old_patterns" => "ruhyphen.tex",
 	"encoding" => "t2a",
@@ -297,7 +290,6 @@ class OldLanguage
 {
 	"code" => "uk",
 	"name" => "ukrainian",
-	"use_old_patterns" => true,
 	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
 	"filename_old_patterns" => "ukrhyph.tex",
 	"encoding" => "t2a",
