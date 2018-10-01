@@ -27,7 +27,6 @@ class OldLanguage
 	"use_old_loader" => true,
 	"filename_old_patterns" => "zerohyph.tex",
 #	"hyphenmin" => [], # not needed
-	"encoding" => nil,
 	"message" => nil,
 
 	# TODO
@@ -44,7 +43,6 @@ class OldLanguage
 	"use_old_loader" => true,
 	"filename_old_patterns" => "zerohyph.tex",
 #	"hyphenmin" => [], # not needed
-	"encoding" => nil,
 	"message" => nil,
 
 	# TODO
@@ -64,7 +62,6 @@ class OldLanguage
 	"name" => "monogreek",
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grmhyph5.tex",
-	"encoding" => nil,
 	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek",
 
 	"version"       => "5.0",
@@ -97,7 +94,6 @@ class OldLanguage
 	# left/right hyphen min for Greek can be as low as one (1),
 	# but for aesthetic reasons keep them at 2/2.
 	# Dimitrios Filippou
-	"encoding" => nil,
 	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
 
 	"version"       => "5.0",
@@ -122,7 +118,6 @@ class OldLanguage
 	"name" => "ancientgreek",
 	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
 	"filename_old_patterns" => "grahyph5.tex",
-	"encoding" => nil,
 	"message" => "Hyphenation patterns for Ancient Greek",
 
 	"version"       => "5.0",
@@ -157,7 +152,6 @@ class OldLanguage
 	"use_old_patterns_comment" => true,
 	"use_old_loader" => true,
 	"filename_old_patterns" => "ibyhyph.tex",
-	"encoding" => nil,
 	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding",
 
 	# "authors" => ["peter_heslin"],
@@ -172,7 +166,6 @@ class OldLanguage
 	"name" => "coptic",
 	"use_old_patterns_comment" => "TODO: automatic conversion could be done, but was too complicated; leave for later.",
 	"filename_old_patterns" => "copthyph.tex",
-	"encoding" => nil,
 	"message" => "Coptic hyphenation patterns",
 
 	"version"       => nil,
@@ -194,7 +187,6 @@ class OldLanguage
 	"name" => "german",
 	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
 	"filename_old_patterns" => "dehypht.tex",
-	"encoding" => "ec",
 	"message" => "German hyphenation patterns (traditional orthography)",
 
 	"version"       => "0.40",
@@ -228,7 +220,6 @@ class OldLanguage
 	"name" => "ngerman",
 	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
 	"filename_old_patterns" => "dehyphn.tex",
-	"encoding" => "ec",
 	"message" => "German hyphenation patterns (reformed orthography)",
 
 	"version"       => "0.40",
@@ -246,7 +237,6 @@ class OldLanguage
 {
 	"code" => "de-ch-1901",
 	"name" => "swissgerman",
-	"encoding" => "ec",
 	"message" => "Swiss-German hyphenation patterns (traditional orthography)",
 
 	"version"       => "0.40",
@@ -268,7 +258,6 @@ class OldLanguage
 	"name" => "russian",
 	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
 	"filename_old_patterns" => "ruhyphen.tex",
-	"encoding" => "t2a",
 	"message" => "Russian hyphenation patterns",
 
 	"version"       => nil,
@@ -292,7 +281,6 @@ class OldLanguage
 	"name" => "ukrainian",
 	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
 	"filename_old_patterns" => "ukrhyph.tex",
-	"encoding" => "t2a",
 	"message" => "Ukrainian hyphenation patterns",
 
 	"version"       => nil,
@@ -318,7 +306,6 @@ class OldLanguage
 	"code" => "af",
 	"name" => "afrikaans",
 	"filename_old_patterns" => nil,
-	"encoding" => "ec",
 	"message" => "Afrikaans hyphenation patterns",
 
 	"version"       => "1.0",
@@ -340,7 +327,6 @@ class OldLanguage
 	"code" => "ca",
 	"name" => "catalan",
 	"filename_old_patterns" => "cahyph.tex",
-	"encoding" => "ec",
 	"message" => "Catalan hyphenation patterns",
 
 	"version"       => "1.11",
@@ -363,7 +349,6 @@ class OldLanguage
 	# Typographical rules allow \righthyphenmin=2 when typesetting in a
 	# narrow column (newspapers etc.).
 	# (used to be 2,2)
-	"encoding" => "ec",
 	"message" => "Czech hyphenation patterns",
 
 	"version"       => "3",
@@ -390,7 +375,6 @@ class OldLanguage
 	"filename_old_patterns" => "skhyph.tex",
 	"filename_old_patterns_other" => ["skhyphen.tex","skhyphen.ex"],
 	# see czech
-	"encoding" => "ec",
 	"message" => "Slovak hyphenation patterns",
 
 	"version"       => "2",
@@ -411,7 +395,6 @@ class OldLanguage
 	"code" => "cy",
 	"name" => "welsh",
 	"filename_old_patterns" => "cyhyph.tex",
-	"encoding" => "ec",
 	"message" => "Welsh hyphenation patterns",
 
 	"version"       => nil,
@@ -430,7 +413,6 @@ class OldLanguage
 	"name" => "danish",
 	"filename_old_patterns" => "dkhyph.tex",
 	"filename_old_patterns_other" => ["dkcommon.tex", "dkspecial.tex"],
-	"encoding" => "ec",
 	"message" => "Danish hyphenation patterns",
 
 	"version"       => nil,
@@ -448,7 +430,6 @@ class OldLanguage
 	"code" => "eo",
 	"name" => "esperanto",
 	"filename_old_patterns" => "eohyph.tex",
-	"encoding" => "il3", # TODO
 	"message" => "Esperanto hyphenation patterns",
 
 	"version"       => nil,
@@ -474,7 +455,6 @@ class OldLanguage
 	"code" => "es",
 	"name" => "spanish", "synonyms" => ["espanol"],
 	"filename_old_patterns" => "eshyph.tex",
-	"encoding" => "ec",
 	"message" => "Spanish hyphenation patterns",
 
 	"version"       => "4.7",
@@ -492,7 +472,6 @@ class OldLanguage
 	"code" => "eu",
 	"name" => "basque",
 	"filename_old_patterns" => "bahyph.tex",
-	"encoding" => "ec",
 	"message" => "Basque hyphenation patterns",
 
 	"version"       => nil,
@@ -513,7 +492,6 @@ class OldLanguage
 	"code" => "fr",
 	"name" => "french", "synonyms" => ["patois","francais"],
 	"filename_old_patterns" => "frhyph.tex",
-	"encoding" => "ec",
 	"message" => "French hyphenation patterns",
 
 	"version"       => "2.13",
@@ -532,7 +510,6 @@ class OldLanguage
 	"code" => "gl",
 	"name" => "galician",
 	"filename_old_patterns" => "glhyph.tex",
-	"encoding" => "ec",
 	"message" => "Galician hyphenation patterns",
 
 	"version"       => "2.4",
@@ -551,7 +528,6 @@ class OldLanguage
 	"code" => "et",
 	"name" => "estonian",
 	"filename_old_patterns" => "ethyph.tex",
-	"encoding" => "ec",
 	"message" => "Estonian hyphenation patterns",
 
 	"version"       => nil,
@@ -569,7 +545,6 @@ class OldLanguage
 	"code" => "fi",
 	"name" => "finnish",
 	"filename_old_patterns" => "fihyph.tex",
-	"encoding" => "ec",
 	"message" => "Finnish hyphenation patterns",
 
 	"version"       => "2.2",
@@ -587,7 +562,6 @@ class OldLanguage
 	"code" => "hr",
 	"name" => "croatian",
 	"filename_old_patterns" => "hrhyph.tex",
-	"encoding" => "ec",
 	"message" => "Croatian hyphenation patterns",
 
 	"version"       => nil,
@@ -605,7 +579,6 @@ class OldLanguage
 	"code" => "hu",
 	"name" => "hungarian",
 	"filename_old_patterns" => "huhyphn.tex",
-	"encoding" => "ec",
 	"message" => "Hungarian hyphenation patterns",
 
 	"source" => "https://github.com/nagybence/huhyphn/", # FIXME Check and remove from desc below
@@ -627,7 +600,6 @@ class OldLanguage
 	"code" => "hy",
 	"name" => "armenian",
 	"filename_old_patterns" => nil,
-	"encoding" => nil,
 	"message" => "Armenian hyphenation patterns",
 
 	"version"       => nil,
@@ -646,7 +618,6 @@ class OldLanguage
 	"code" => "ia",
 	"name" => "interlingua",
 	"filename_old_patterns" => "iahyphen.tex",
-	"encoding" => "ascii",
 	"message" => "Hyphenation patterns for Interlingua",
 
 	"version"       => "0.2c",
@@ -664,7 +635,6 @@ class OldLanguage
 	"code" => "id",
 	"name" => "indonesian",
 	"filename_old_patterns" => "inhyph.tex",
-	"encoding" => "ascii",
 	"message" => "Indonesian hyphenation patterns",
 
 	"version"       => "1.3",
@@ -683,7 +653,6 @@ class OldLanguage
 	"code" => "is",
 	"name" => "icelandic",
 	"filename_old_patterns" => "icehyph.tex",
-	"encoding" => "ec",
 	"message" => "Icelandic hyphenation patterns",
 
 	"version"       => nil,
@@ -702,7 +671,6 @@ class OldLanguage
 	"code" => "ga",
 	"name" => "irish",
 	"filename_old_patterns" => "gahyph.tex",
-	"encoding" => "ec",
 	"message" => "Irish hyphenation patterns",
 
 	"version"       => "1.0",
@@ -722,7 +690,6 @@ class OldLanguage
 	"code" => "it",
 	"name" => "italian",
 	"filename_old_patterns" => "ithyph.tex",
-	"encoding" => "ascii",
 	"message" => "Italian hyphenation patterns",
 
 	"version"       => "4.9",
@@ -746,7 +713,6 @@ class OldLanguage
 	"code" => "rm",
 	"name" => "romansh",
 	"filename_old_patterns" => nil,
-	"encoding" => "ascii",
 	"message" => "Romansh hyphenation patterns",
 
 	"version"       => "1.1",
@@ -766,7 +732,6 @@ class OldLanguage
 	"code" => "fur",
 	"name" => "friulan", "synonyms" => [],
 	"filename_old_patterns" => nil,
-	"encoding" => "ec",
 	"message" => "Friulan hyphenation patterns",
 
 	"version"       => "1.1",
@@ -787,7 +752,6 @@ class OldLanguage
 	"code" => "pms",
 	"name" => "piedmontese",
 	"filename_old_patterns" => nil,
-	"encoding" => "ascii",
 	"message" => "Piedmontese hyphenation patterns",
 
 	"version"       => "1.0",
@@ -806,7 +770,6 @@ class OldLanguage
 	"code" => "kmr",
 	"name" => "kurmanji",
 	"filename_old_patterns" => "kmrhyph.tex",
-	"encoding" => "ec",
 	"message" => "Kurmanji hyphenation patterns",
 
 	"version"       => "1.0",
@@ -826,7 +789,6 @@ class OldLanguage
 	"code" => "la",
 	"name" => "latin",
 	"filename_old_patterns" => "lahyph.tex",
-	"encoding" => "ec",
 	"message" => "Latin hyphenation patterns",
 
 	"version"       => "3.2a",
@@ -849,7 +811,6 @@ class OldLanguage
 	"code" => "la-x-classic",
 	"name" => "classiclatin",
 	"filename_old_patterns" => nil,
-	"encoding" => "ascii",
 	"message" => "Classical Latin hyphenation patterns",
 
 	"version"       => "1.2",
@@ -869,7 +830,6 @@ class OldLanguage
 	"code" => "la-x-liturgic",
 	"name" => "liturgicallatin",
 	"filename_old_patterns" => nil,
-	"encoding" => "ec",
 	"message" => "Liturgical Latin hyphenation patterns",
 
 	"version"       => "1.040",
@@ -887,7 +847,6 @@ class OldLanguage
 {
 	"code" => "lt",
 	"name" => "lithuanian",
-	"encoding" => "l7x",
 	"message" => "Lithuanian hyphenation patterns",
 
 	"version"       => nil,
@@ -907,7 +866,6 @@ class OldLanguage
 {
 	"code" => "lv",
 	"name" => "latvian",
-	"encoding" => "l7x",
 	"message" => "Latvian hyphenation patterns",
 
 	"version"       => "0.3",
@@ -927,7 +885,6 @@ class OldLanguage
 	"filename_old_patterns" => "nehyph96.tex",
 	# quoting Hans Hagen:
 	# patterns generated with 2,2 (so don't go less) but use prefered values 2,3 (educational publishers want 4,5 -)
-	"encoding" => "ec",
 	"message" => "Dutch hyphenation patterns",
 
 	"version"       => "1.1",
@@ -948,7 +905,6 @@ class OldLanguage
 {
 	"code" => "oc",
 	"name" => "occitan",
-	"encoding" => "ec",
 	"message" => "Occitan hyphenation patterns",
 
 	"version"       => "0.1",
@@ -971,7 +927,6 @@ class OldLanguage
 	"name" => "polish",
 	"filename_old_patterns" => "plhyph.tex",
 	#{}"hyphenmin" => [1,1],
-	"encoding" => "qx",
 	"message" => "Polish hyphenation patterns",
 
 	"version"       => "3.0a",
@@ -991,7 +946,6 @@ class OldLanguage
 	"code" => "pt",
 	"name" => "portuguese", "synonyms" => ["portuges"],
 	"filename_old_patterns" => "pthyph.tex",
-	"encoding" => "ec",
 	"message" => "Portuguese hyphenation patterns",
 
 	"version"       => "1.0",
@@ -1009,7 +963,6 @@ class OldLanguage
 	"code" => "zh-latn-pinyin",
 	"name" => "pinyin",
 	"filename_old_patterns" => "pyhyph.tex",
-	"encoding" => "ec",
 	"message" => "Hyphenation patterns for unaccented pinyin syllables",
 
 	"version"       => "4.8.0",
@@ -1028,7 +981,6 @@ class OldLanguage
 	"code" => "ro",
 	"name" => "romanian",
 	"filename_old_patterns" => "rohyphen.tex",
-	"encoding" => "ec",
 	"message" => "Romanian hyphenation patterns", # : `rohyphen' 1.1 <29.10.1996>
 
 	"version"       => "1.1R",
@@ -1050,7 +1002,6 @@ class OldLanguage
 	"code" => "sl",
 	"name" => "slovenian", "synonyms" => ["slovene"],
 	"filename_old_patterns" => "sihyph.tex",
-	"encoding" => "ec",
 	"message" => "Slovenian hyphenation patterns",
 
 	"version"       => "2.3",
@@ -1068,7 +1019,6 @@ class OldLanguage
 	"code" => "hsb",
 	"name" => "upper sorbian",
 	"filename_old_patterns" => "sorhyph.tex",
-	"encoding" => "ec",
 	"message" => "Upper Sorbian hyphenation patterns",
 #	\message{Hyphenation patterns for Upper Sorbian, E. Werner}
 #	\message{Completely new revision 1997, March 22}
@@ -1088,7 +1038,6 @@ class OldLanguage
 	"code" => "sv",
 	"name" => "swedish",
 	"filename_old_patterns" => "svhyph.tex",
-	"encoding" => "ec",
 	"message" => "Swedish hyphenation patterns",
 
 	# "version"       => "1994-03-03", # that is what author used in message
@@ -1107,7 +1056,6 @@ class OldLanguage
 	"code" => "tk",
 	"name" => "turkmen",
 	"filename_old_patterns" => nil,
-	"encoding" => "ec",
 	"message" => "Turkmen hyphenation patterns",
 
 	"version"       => "0.1",
@@ -1125,7 +1073,6 @@ class OldLanguage
 	"code" => "tr",
 	"name" => "turkish",
 	"filename_old_patterns" => "tkhyph.tex",
-	"encoding" => "ec",
 	"message" => "Turkish hyphenation patterns",
 
 	"version" => nil,
@@ -1153,7 +1100,6 @@ class OldLanguage
 	"code" => "en-gb",
 	"name" => "ukenglish", "synonyms" => ["british", "UKenglish"],
 	"filename_old_patterns" => "ukhyphen.tex",
-	"encoding" => "ascii",
 	"message" => "Hyphenation patterns for British English", # FIXME Inconsistent
 
 	"version"       => "1.0a", # FIXME a much older comment says 2.0?
@@ -1183,7 +1129,6 @@ class OldLanguage
 	"code" => "en-us",
 	"name" => "usenglishmax",
 	"filename_old_patterns" => "ushyphmax.tex",
-	"encoding" => "ascii",
 	"message" => "Hyphenation patterns for American English", # FIXME Consistent
 
 	"version"       => nil,
@@ -1219,7 +1164,6 @@ class OldLanguage
 	# However, if you think that it is graphicaly not very
 	# pleasant these patterns will work well with \lefthyphenmin=2.
 	# \lefthyphenmin=1 \righthyphenmin=2
-	"encoding" => "ec",
 	"message" => "Serbian hyphenation patterns in Latin script",
 
 	# only for serbian
@@ -1243,7 +1187,6 @@ class OldLanguage
 	"code" => "sh-cyrl",
 	"name" => "serbianc",
 	# "filename_old_patterns" => "srhyphc.tex",
-	"encoding" => "t2a",
 	"message" => "Serbian hyphenation patterns in Cyrillic script",
 },
 # FIXME Remove later
@@ -1256,7 +1199,6 @@ class OldLanguage
 	"code" => "mn-cyrl",
 	"name" => "mongolian",
 	"filename_old_patterns" => "mnhyphn.tex",
-	"encoding" => "t2a",
 	"message" => "(New) Mongolian hyphenation patterns",
 
 	# only for this one
@@ -1278,7 +1220,6 @@ class OldLanguage
 	"code" => "mn-cyrl-x-lmc",
 	"name" => "mongolianlmc",
 	"filename_old_patterns" => "mnhyph.tex",
-	"encoding" => "lmc",
 	"message" => "Mongolian hyphenation patterns",
 },
 # bulgarian
@@ -1286,7 +1227,6 @@ class OldLanguage
 	"code" => "bg",
 	"name" => "bulgarian",
 	"filename_old_patterns" => "bghyphen.tex",
-	"encoding" => "t2a",
 	"message" => "Bulgarian hyphenation patterns",
 
 	"version"       => "1.7",
@@ -1303,7 +1243,6 @@ class OldLanguage
 {
 	"code" => "sa",
 	"name" => "sanskrit",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Sanskrit hyphenation patterns",
 
 	"version"       => "0.6",
@@ -1323,14 +1262,12 @@ class OldLanguage
 	"code" => "no",
 	"name" => "norwegian", # TODO: fixme
 	"use_old_loader" => true,
-	"encoding" => "ec",
 	"message" => "Norwegian hyphenation patterns",
 },
 # norsk
 {
 	"code" => "nb",
 	"name" => "bokmal", "synonyms" => ["norwegian", "norsk"],
-	"encoding" => "ec",
 	"message" => "Norwegian Bokmal hyphenation patterns",
 
 	"version"       => nil,
@@ -1348,7 +1285,6 @@ class OldLanguage
 {
 	"code" => "nn",
 	"name" => "nynorsk",
-	"encoding" => "ec",
 	"message" => "Norwegian Nynorsk hyphenation patterns",
 },
 #####
@@ -1356,7 +1292,6 @@ class OldLanguage
 {
 	"code" => "as",
 	"name" => "assamese",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Assamese hyphenation patterns",
 
 	# this is true for all Indic patterns
@@ -1376,77 +1311,66 @@ class OldLanguage
 {
 	"code" => "bn",
 	"name" => "bengali",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Bengali hyphenation patterns",
 },
 # gujarati
 {
 	"code" => "gu",
 	"name" => "gujarati",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Gujarati hyphenation patterns",
 },
 # hindi
 {
 	"code" => "hi",
 	"name" => "hindi",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Hindi hyphenation patterns",
 },
 # kannada
 {
 	"code" => "kn",
 	"name" => "kannada",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Kannada hyphenation patterns",
 },
 # malayalam
 {
 	"code" => "ml",
 	"name" => "malayalam",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Malayalam hyphenation patterns",
 },
 # marathi
 {
 	"code" => "mr",
 	"name" => "marathi",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Marathi hyphenation patterns",
 },
 # oriya
 {
 	"code" => "or",
 	"name" => "oriya",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Oriya hyphenation patterns",
 },
 # panjabi
 {
 	"code" => "pa",
 	"name" => "panjabi",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Panjabi hyphenation patterns",
 },
 # tamil
 {
 	"code" => "ta",
 	"name" => "tamil",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Tamil hyphenation patterns",
 },
 # telugu
 {
 	"code" => "te",
 	"name" => "telugu",
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Telugu hyphenation patterns",
 },
 # thai
 {
 	"code" => "th",
 	"name" => "thai",
-	"encoding" => "lth",
 	"message" => "Thai hyphenation patterns",
 
 	"version"       => nil,
@@ -1490,7 +1414,6 @@ class OldLanguage
 	"last_modified" => "2011-01-10",
 	"authors" => ["arthur_reutenauer", "mojca_miklavec"],
 	"licence" => "public-ask", # TODO
-	"encoding" => nil, # no patterns for 8-bit engines
 	"message" => "Pan-Ethiopic hyphenation patterns",
 	"description_l" => [
 		#......................................................................#
@@ -1504,7 +1427,6 @@ class OldLanguage
 {
 	"code" => "ka",
 	"name" => "georgian",
-	"encoding" => "t8m",
 	"message" => "Georgian hyphenation patterns",
 
 	"version"       => "0.3",
@@ -1521,7 +1443,6 @@ class OldLanguage
 {
 	"code" => "cu",
 	"name" => "church slavonic",
-	"encoding" => nil,
 	"message" => "Church Slavonic hyphenation patterns",
 
 	"version" => nil,
@@ -1537,7 +1458,6 @@ class OldLanguage
 {
 	"code" => "be",
 	"name" => "belarusian",
-	"encoding" => "t2a",
 	"message" => "Belarusian hyphenation patterns",
 
 	"version"       => nil,
