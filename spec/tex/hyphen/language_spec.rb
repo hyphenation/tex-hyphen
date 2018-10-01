@@ -175,33 +175,33 @@ describe Language do
     end
   end
 
-  describe '#displayname' do
-    it "returns @name most of the name" do
-      romansh = Language.new('rm')
-      expect(romansh.displayname).to eq 'Romansh'
-    end
+  # describe '#displayname' do
+  #   it "returns @name most of the name" do
+  #     romansh = Language.new('rm')
+  #     expect(romansh.displayname).to eq 'Romansh'
+  #   end
 
-    it "strips to the language subtag part" do
-      polytonic_greek = Language.new('el-polyton')
-      expect(polytonic_greek.displayname).to eq 'Greek'
-    end
+  #   it "strips to the language subtag part" do
+  #     polytonic_greek = Language.new('el-polyton')
+  #     expect(polytonic_greek.displayname).to eq 'Greek'
+  #   end
 
-    it "returns Norwegian for [nb] and [no]" do
-      bokmål = Language.new('nb')
-      expect(bokmål.displayname).to eq 'Norwegian'
-    end
+  #   it "returns Norwegian for [nb] and [no]" do
+  #     bokmål = Language.new('nb')
+  #     expect(bokmål.displayname).to eq 'Norwegian'
+  #   end
 
-    it "returns Serbian for [sh]" do
-      serbocroatian_cyrillic = Language.new('sh-cyrl')
-      expect(serbocroatian_cyrillic.displayname).to eq 'Serbian'
-    end
+  #   it "returns Serbian for [sh]" do
+  #     serbocroatian_cyrillic = Language.new('sh-cyrl')
+  #     expect(serbocroatian_cyrillic.displayname).to eq 'Serbian'
+  #   end
 
-    it "calls #extract_metadata if needed" do
-      friulan = Language.new('fur')
-      expect(friulan).to receive :extract_metadata
-      friulan.displayname
-    end
-  end
+  #   it "calls #extract_metadata if needed" do
+  #     friulan = Language.new('fur')
+  #     expect(friulan).to receive :extract_metadata
+  #     friulan.displayname
+  #   end
+  # end
 
   describe '#babelname' do
     it "returns the Babel name" do

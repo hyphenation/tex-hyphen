@@ -155,17 +155,17 @@ module TeX
       end
 
       # This should probably become “macrolanguage name” or something similar
-      @@displaynames = {
-        'el' => 'Greek',
-        'nb' => 'Norwegian',
-        'nn' => 'Norwegian',
-        'sh' => 'Serbian',
-      }
+      # @@displaynames = {
+      #   'el' => 'Greek',
+      #   'nb' => 'Norwegian',
+      #   'nn' => 'Norwegian',
+      #   'sh' => 'Serbian',
+      # }
 
-      def displayname
-        extract_metadata unless @name
-        @@displaynames[@bcp47.gsub(/-.*$/, '')] || @name
-      end
+      # def displayname
+      #   extract_metadata unless @name
+      #   @@displaynames[@bcp47.gsub(/-.*$/, '')] || @name
+      # end
 
       def description_s
         message
@@ -589,26 +589,26 @@ module TeX
         def description_s
           return 'Hyphenation patterns for Ethiopic scripts' if @name == 'ethiopic'
 
-          if @name == 'arabic'
-            leader = '(No) Arabic'
-          elsif @name == 'farsi'
-            leader = '(No) Persian'
-          elsif @name == 'greek'
-            leader = 'Modern Greek'
-          elsif @name == 'chinese'
-            leader = 'Chinese pinyin'
-          elsif @name == 'norwegian'
-            leader = 'Norwegian Bokmal and Nynorsk'
-          elsif @name == 'churchslavonic'
-            leader = 'Church Slavonic'
-          elsif @name == 'uppersorbian'
-            leader == 'Upper Sorbian'
+          leader = case @name
+          when 'arabic'
+            '(No) Arabic'
+          when 'farsi'
+            '(No) Persian'
+          when 'greek'
+            'Modern Greek'
+          when 'chinese'
+            'Chinese pinyin'
+          when 'norwegian'
+            'Norwegian Bokmal and Nynorsk'
+          when 'churchslavonic'
+            'Church Slavonic'
+          when 'uppersorbian'
+            'Upper Sorbian'
           else
-            leader = @name.titlecase
+            @name.titlecase
           end
 
           shortdesc = sprintf '%s hyphenation patterns', leader
-
           shortdesc += ' in Cyrillic script' if @name == 'mongolian'
 
           shortdesc
