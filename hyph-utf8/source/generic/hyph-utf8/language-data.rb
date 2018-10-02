@@ -311,45 +311,17 @@ class OldLanguage
 	"code" => "ka",
         "type"          => "dictionary",
 },
-# Church Slavonic
 {
 	"code" => "cu",
         "type" => "machine learning",
 },
-# Belarusian
 {
 	"code" => "be",
-	"name" => "belarusian",
-	"message" => "Belarusian hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2016-09-29",
-	"type"          => "rules",
-	"authors"       => ["maksim_salau"],
-	"licence"       => "MIT",
-	"description_l" => [
-		"Belarusian hyphenation patterns in T2A and UTF-8 encodings"
-	],
+        "type"          => "rules",
 },
-# Pali
 {
 	"code" => "pi",
-	"name" => "pali",
-	# no encoding
-	"message" => "Pali hyphenation patterns",
-	# no version number
-	"last_modified" => "2018-06-29",
 	"type" => "rules",
-	"authors" => ["wie_ming_ang"],
-	"licence" => "MIT",
-	"description_l" => [
-		"Pali hyphenation patterns in UTF-8 encoding",
-	],
 },
-# dumylang -> dumyhyph.tex
-# nohyphenation -> zerohyph.tex
-# arabic -> zerohyph.tex
-# farsi zerohyph.tex
-# =persian
 	]
 end
