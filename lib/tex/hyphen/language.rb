@@ -93,11 +93,25 @@ module TeX
         use_old_patterns_comment
       end
 
+#       def method_missing(method)
+#         if DELEGATE.include? method
+#           # puts @bcp47 unless @old
+#           # byebug unless @old
+#           @old.send(method)
+#         else
+#           raise NoMethodError.new(method)
+#         end
+#       end
+
+      # attr_reader :message, :legacy_patterns, :use_old_loader, :use_old_patterns_comment, :description, :babelname
+      def description_l
+        description
+      end
+
       def method_missing(method)
-        if DELEGATE.include? method
-          # puts @bcp47 unless @old
-          # byebug unless @old
-          @old.send(method)
+        if [:message, :legacy_patterns, :use_old_loader, :use_old_patterns_comment, :description, :babelname].include? method
+          extract_metadata
+          instance_variable_get "@#{method}"
         else
           raise NoMethodError.new(method)
         end
@@ -106,14 +120,14 @@ module TeX
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
         # byebug if @bcp47 == 'id'
-        if @bcp47 and self.class.languages.include? @bcp47 and !private_use?
-          # puts @bcp47
-          @old = OldLanguage.all.select do |language|
-            # puts language.code
-            language.code == @bcp47
-          end.first
-          raise "No OldLanguage for #{@bcp47}" unless @old || @bcp47 == 'sr-cyrl'
-        end
+#         if @bcp47 and self.class.languages.include? @bcp47 and !private_use?
+#           # puts @bcp47
+#           @old = OldLanguage.all.select do |language|
+#             # puts language.code
+#             language.code == @bcp47
+#           end.first
+#           raise "No OldLanguage for #{@bcp47}" unless @old || @bcp47 == 'sr-cyrl'
+#         end
       end
 
       def self.languages
@@ -150,10 +164,10 @@ module TeX
 #         @name
 #       end
 
-      def babelname
-        # @old.name.safe
-        name
-      end
+#       def babelname
+#         # @old.name.safe
+#         name
+#       end
 
       # This should probably become “macrolanguage name” or something similar
       # @@displaynames = {
@@ -402,13 +416,13 @@ module TeX
           @encoding
         end
 
-        def legacy_patterns
-          filename_old_patterns
-        end
+#         def legacy_patterns
+#           filename_old_patterns
+#         end
 
-        def description
-          description_l.join "\n" if description_l
-        end
+#         def description
+#           description_l.join "\n" if description_l
+#         end
 
         def list_synonyms
           # synonyms
@@ -623,8 +637,8 @@ module TeX
 
         #  FIXME This should be at package level from the start
         def description_l
-          languages.inject([]) do |description, language|
-             description + if language.description_l then language.description_l else [] end
+          languages.inject('') do |description, language|
+             description + if language.description_l then language.description_l else '' end
           end
         end
 

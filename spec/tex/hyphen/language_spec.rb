@@ -109,10 +109,10 @@ describe Language do
       expect(language.instance_variable_get :@bcp47).to eq 'ro'
     end
 
-    it "calls .languages" do
-      expect(Language).to receive(:languages).and_return({ 'pa' => nil })
-      Language.new('pa')
-    end
+#     it "calls .languages" do
+#       expect(Language).to receive(:languages).and_return({ 'pa' => nil })
+#       Language.new('pa')
+#     end
   end
 
   describe '.languages' do
@@ -205,7 +205,7 @@ describe Language do
 
   describe '#babelname' do
     it "returns the Babel name" do
-      pending "Refactoring in progress"
+      # pending "Refactoring in progress"
       expect(Language.new('de-1996').babelname).to eq 'ngerman'
     end
   end
@@ -773,7 +773,7 @@ describe Language do
       end
 
       it "returns true if applicable" do
-        pending "Refactor in progress"
+        # pending "Refactor in progress"
         expect(Language.new('no').use_old_loader).to be_truthy
       end
     end
@@ -790,7 +790,7 @@ describe Language do
 
     describe '#description' do
       it "returns the long description" do
-        expect(Language.new('de-1901').description).to eq "Hyphenation patterns for German in T1/EC and UTF-8 encodings,\nfor traditional and reformed spelling, including Swiss German.\nThe package includes the latest patterns from dehyph-exptl\n(known to TeX under names 'german', 'ngerman' and 'swissgerman'),\nhowever 8-bit engines still load old versions of patterns\nfor 'german' and 'ngerman' for backward-compatibility reasons.\nSwiss German patterns are suitable for Swiss Standard German\n(Hochdeutsch) not the Alemannic dialects spoken in Switzerland\n(Schwyzerduetsch).\nThere are no known patterns for written Schwyzerduetsch."
+        expect(Language.new('de-1901').description).to eq "Hyphenation patterns for German in T1/EC and UTF-8 encodings, for traditional and reformed spelling, including Swiss German. The package includes the latest patterns from dehyph-exptl (known to TeX under names 'german', 'ngerman' and 'swissgerman'), however 8-bit engines still load old versions of patterns for 'german' and 'ngerman' for backward-compatibility reasons. Swiss German patterns are suitable for Swiss Standard German (Hochdeutsch) not the Alemannic dialects spoken in Switzerland (Schwyzerduetsch). There are no known patterns for written Schwyzerduetsch.\n"
       end
 
       it "returns nil for new spelling German, for some reason" do
@@ -820,7 +820,7 @@ describe Package do
 
   describe "#description_l" do
     it "returns the long description" do
-      expect(latin.description_l.join "\n").to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/m
+      expect(latin.description_l).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/m
     end
   end
 
