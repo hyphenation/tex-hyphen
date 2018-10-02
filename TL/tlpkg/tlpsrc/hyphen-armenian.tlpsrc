@@ -3,6 +3,7 @@ depend hyphen-base
 depend hyph-utf8
 shortdesc Armenian hyphenation patterns.
 longdesc Hyphenation patterns for Armenian for Unicode engines.
+longdesc Auto-generated from a script included in hyph-utf8.
 execute AddHyphen \
 	name=armenian \
 	lefthyphenmin=1 \

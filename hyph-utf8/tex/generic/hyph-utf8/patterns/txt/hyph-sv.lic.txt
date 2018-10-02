@@ -40,6 +40,10 @@
 %           Patgen parameters 1 2 20, 2 1 8, 1 4 7, 3 2 1, 1 10000 4.
 % texlive:
 %     encoding: ec
+%     message: Swedish hyphenation patterns
+%     legacy_patterns: svhyph.tex
+%     description: Hyphenation patterns for Swedish in T1/EC and UTF-8 encodings.
+%     babelname: swedish
 % ==========================================
 % These hyphenation patterns work quite well for simple words, but not
 % quite as well for compound words.  I'm working on improving the quality,

@@ -21,6 +21,8 @@
 %         right: 2
 % texlive:
 %     encoding: ec
+%     babelname: nynorsk
+%     message: Norwegian Nynorsk hyphenation patterns
 % ==========================================
 % This file contains hyphenation patterns for Norwegian Nynorsk.
 % It uses the Norwegian hyphenation patterns from hyph-no.tex,

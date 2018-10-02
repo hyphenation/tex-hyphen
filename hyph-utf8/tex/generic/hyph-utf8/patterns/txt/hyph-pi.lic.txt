@@ -42,4 +42,8 @@
 % changes:
 %     - 2018-06-29 Initial release
 % source: Generated manually
+% texlive:
+%     babelname: pali
+%     message: Pali hyphenation patterns
+%     description: Pali hyphenation patterns in UTF-8 encoding
 % ==========================================

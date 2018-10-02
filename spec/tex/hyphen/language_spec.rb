@@ -790,7 +790,10 @@ describe Language do
 
     describe '#description' do
       it "returns the long description" do
-        expect(Language.new('de-1901').description).to eq "Hyphenation patterns for German in T1/EC and UTF-8 encodings, for traditional and reformed spelling, including Swiss German. The package includes the latest patterns from dehyph-exptl (known to TeX under names 'german', 'ngerman' and 'swissgerman'), however 8-bit engines still load old versions of patterns for 'german' and 'ngerman' for backward-compatibility reasons. Swiss German patterns are suitable for Swiss Standard German (Hochdeutsch) not the Alemannic dialects spoken in Switzerland (Schwyzerduetsch). There are no known patterns for written Schwyzerduetsch.\n"
+        exp = "Hyphenation patterns for German in T1/EC and UTF-8 encodings,\nfor traditional and reformed spelling, including Swiss German.\nThe package includes the latest patterns from dehyph-exptl\n(known to TeX under names 'german', 'ngerman' and 'swissgerman'),\nhowever 8-bit engines still load old versions of patterns\nfor 'german' and 'ngerman' for backward-compatibility reasons.\nSwiss German patterns are suitable for Swiss Standard German\n(Hochdeutsch) not the Alemannic dialects spoken in Switzerland\n(Schwyzerduetsch).\nThere are no known patterns for written Schwyzerduetsch."
+        act = Language.new('de-1901').description
+        # byebug
+        expect(act).to eq exp
       end
 
       it "returns nil for new spelling German, for some reason" do

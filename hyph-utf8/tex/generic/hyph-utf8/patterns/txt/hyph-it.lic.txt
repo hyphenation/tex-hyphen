@@ -55,6 +55,14 @@
 %     - 2008-03-08 - (last change in ithyph.tex)
 % texlive:
 %     encoding: ascii
+%     babelname: italian
+%     legacy_patterns: ithyph.tex
+%     message: Italian hyphenation patterns
+%     description: |-
+%         Hyphenation patterns for Italian in ASCII encoding.
+%         Compliant with the Recommendation UNI 6461 on hyphenation
+%         issued by the Italian Standards Institution
+%         (Ente Nazionale di Unificazione UNI).
 % ==========================================
 %
 % These hyphenation patterns for the Italian language are supposed to comply

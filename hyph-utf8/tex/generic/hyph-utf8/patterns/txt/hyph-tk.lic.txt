@@ -37,4 +37,7 @@
 %         right: 2
 % texlive:
 %     encoding: ec
+%     babelname: turkmen
+%     message: Turkmen hyphenation patterns
+%     description: Hyphenation patterns for Turkmen in T1/EC and UTF-8 encodings.
 %

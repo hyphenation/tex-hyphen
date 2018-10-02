@@ -27,6 +27,9 @@
 %     - 2013-02-25, version 0.1 First release
 % texlive:
 %     encoding: t8m
+%     babelname: georgian
+%     message: Georgian hyphenation patterns
+%     description: Hyphenation patterns for Georgian in T8M, T8K and UTF-8 encodings.
 % ==========================================
 % Generated using patgen2.
 %

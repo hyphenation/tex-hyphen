@@ -25,6 +25,10 @@
 %     - Version 0.2c. Released 28 June 2005 (added LPPL header)
 % texlive:
 %     encoding: ascii
+%     babelname: interlingua
+%     legacy_patterns: iahyphen.tex
+%     message: Hyphenation patterns for Interlingua
+%     description: Hyphenation patterns for Interlingua in ASCII encoding.
 % ==========================================
 % About Interlingua: http://www.interlingua.com/
 %

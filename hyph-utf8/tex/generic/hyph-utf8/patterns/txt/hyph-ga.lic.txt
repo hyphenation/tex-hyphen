@@ -58,4 +58,8 @@
 %         right: 3
 % texlive:
 %     encoding: ec
+%     babelname: irish
+%     legacy_patterns: gahyph.tex
+%     message: Irish hyphenation patterns
+%     description: Hyphenation patterns for Irish (Gaeilge) in T1/EC and UTF-8 encodings.
 %

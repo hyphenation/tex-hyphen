@@ -39,6 +39,10 @@
 %     synonyms:
 %         - espanol
 %     encoding: ec
+%     babelname: spanish
+%     legacy_patterns: eshyph.tex
+%     message: Spanish hyphenation patterns
+%     description: Hyphenation patterns for Spanish in T1/EC and UTF-8 encodings.
 % ==========================================
 %
 % For further info, bug reports and comments:

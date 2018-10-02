@@ -6,6 +6,7 @@
 % language:
 %     name: Assamese
 %     tag: as
+% version: 0.9.0 2016-01-16
 % authors:
 %   -
 %     name: Santhosh Thottingal
@@ -50,4 +51,11 @@
 %     generation:
 %         left: 1
 %         right: 1
+% texlive:
+%     babelname: assamese
+%     message: Assamese hyphenation patterns
+%     description: |-
+%         Hyphenation patterns for Assamese, Bengali, Gujarati, Hindi, Kannada,
+%         Malayalam, Marathi, Oriya, Panjabi, Tamil and Telugu for Unicode
+%         engines.
 %

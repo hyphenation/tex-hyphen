@@ -49,6 +49,13 @@
 %     - 2015/12/05 Patterns released under the MIT license
 % texlive:
 %     encoding: t2a
+%     babelname: mongolian
+%     legacy_patterns: mnhyphn.tex
+%     message: (New) Mongolian hyphenation patterns
+%     description: |-
+%         Hyphenation patterns for Mongolian in T2A, LMC and UTF-8 encodings.
+%         LMC encoding is used in MonTeX. The package includes two sets of
+%         patterns that will hopefully be merged in future.
 % ==========================================
 % Special thanks to: Jim Hefferon and Robin Fairbairns
 %

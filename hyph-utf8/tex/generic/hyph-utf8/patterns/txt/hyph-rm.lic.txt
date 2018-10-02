@@ -5,7 +5,7 @@
 % language:
 %     name: Romansh
 %     tag: rm
-% version: 1.1 2011/04/10
+% version: 1.1 2012/04/10
 % authors:
 %   -
 %     name: Claudio Beccari
@@ -48,9 +48,15 @@
 %         right: 2
 % changes:
 %     - 2012-01-14 - First release 1.0
-%     - 2012-02-10 - Version 1.1. Fix inconsistencies.
+%     - 2012-04-10 - Version 1.1. Fix inconsistencies.
 % texlive:
 %     encoding: ascii
+%     babelname: romansh
+%     message: Romansh hyphenation patterns
+%     description: |-
+%         Hyphenation patterns for Romansh in ASCII encoding.
+%         They are supposed to comply with the rules indicated by the Lia
+%         Rumantscha (Romansh language society).
 % ==========================================
 % These hyphenation patterns for the Romansh language are supposed to comply
 % with the rules indicated by the Lia Rumantscha (Romansh language society).

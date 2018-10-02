@@ -56,4 +56,8 @@
 %     synonyms:
 %         - portuges
 %     encoding: ec
+%     babelname: portuguese
+%     legacy_patterns: pthyph.tex
+%     message: Portuguese hyphenation patterns
+%     description: Hyphenation patterns for Portuguese in T1/EC and UTF-8 encodings.
 %
