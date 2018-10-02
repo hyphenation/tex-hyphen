@@ -256,205 +256,33 @@ class OldLanguage
 	"code" => "sh-latn",
         "type"          => "dictionary",
 },
-# serbianc
 {
 	"code" => "sh-cyrl",
-	"name" => "serbianc",
-	# "filename_old_patterns" => "srhyphc.tex",
-	"message" => "Serbian hyphenation patterns in Cyrillic script",
 },
-# FIXME Remove later
-{
-	"code" => "sr-cyrl",
-	"name" => "serbiancalt",
-},
-# mongolian (used to be mongolian2a)
 {
 	"code" => "mn-cyrl",
-	"name" => "mongolian",
-	"filename_old_patterns" => "mnhyphn.tex",
-	"message" => "(New) Mongolian hyphenation patterns",
-
-	# only for this one
-	"version"       => "1.2",
-	"last_modified" => "2010-04-03",
-	"type"          => "dictionary",
-	"authors"       => [ "dorjgotov_batmunkh" ],
-	"licence"       => "LPPL",
-	# for both
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Mongolian in T2A, LMC and UTF-8 encodings.",
-		"LMC encoding is used in MonTeX. The package includes two sets of",
-		"patterns that will hopefully be merged in future.",
-	],
+        "type"          => "dictionary",
+	"last_modified" => "2010-04-03", # FIXME: ?
 },
-# mongolianlmc	xu-mnhyph.tex (used to be mongolian)
-{
-	"code" => "mn-cyrl-x-lmc",
-	"name" => "mongolianlmc",
-	"filename_old_patterns" => "mnhyph.tex",
-	"message" => "Mongolian hyphenation patterns",
-},
-# bulgarian
-{
-	"code" => "bg",
-	"name" => "bulgarian",
-	"filename_old_patterns" => "bghyphen.tex",
-	"message" => "Bulgarian hyphenation patterns",
-
-	"version"       => "1.7",
-	"last_modified" => "2008-06",
-	"type"          => "pattern",
-	"authors"       => [ "georgi_boshnakov" ],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Bulgarian in T2A and UTF-8 encodings.",
-	],
-},
-# sanskrit
 {
 	"code" => "sa",
-	"name" => "sanskrit",
-	"message" => "Sanskrit hyphenation patterns",
-
-	"version"       => "0.6",
-	"last_modified" => "2011-09-14",
-	"type"          => "rules",
-	"authors"       => ["yves_codet"],
-	"licence"       => "free", # You may freely use, copy, modify and/or distribute this file.
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Sanskrit and Prakrit in transliteration,",
-		"and in Devanagari, Bengali, Kannada, Malayalam and Telugu scripts",
-		"for Unicode engines.",
-	],
+        "type"          => "rules",
 },
-# norwegian
-{
-	"code" => "no",
-	"name" => "norwegian", # TODO: fixme
-	"message" => "Norwegian hyphenation patterns",
-},
-# norsk
 {
 	"code" => "nb",
-	"name" => "bokmal", "synonyms" => ["norwegian", "norsk"],
-	"message" => "Norwegian Bokmal hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2012-05-18",
-	"type"          => "dictionary",
-	"authors"       => [ "rune_kleveland", "ole_michael_selberg" ],
-	"licence"       => "free", # TODO
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Norwegian Bokmal and Nynorsk in T1/EC and",
-		"UTF-8 encodings.",
-	],
+        "type"          => "dictionary",
+        "last_modified" => "2012-05-18", # FIXME: ?
 },
-# nynorsk
-{
-	"code" => "nn",
-	"name" => "nynorsk",
-	"message" => "Norwegian Nynorsk hyphenation patterns",
-},
-#####
-# assamese
 {
 	"code" => "as",
-	"name" => "assamese",
-	"message" => "Assamese hyphenation patterns",
-
 	# this is true for all Indic patterns
-	"version"       => "0.9.0",
-	"last_modified" => "2016-01-16",
 	"type"          => "rules",
-	"authors"       => ["santhosh_thottingal"],
-	"licence"       => "MIT",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Assamese, Bengali, Gujarati, Hindi, Kannada,",
-		"Malayalam, Marathi, Oriya, Panjabi, Tamil and Telugu for Unicode",
-		"engines.",
-	],
-},
-# bengali
-{
-	"code" => "bn",
-	"name" => "bengali",
-	"message" => "Bengali hyphenation patterns",
-},
-# gujarati
-{
-	"code" => "gu",
-	"name" => "gujarati",
-	"message" => "Gujarati hyphenation patterns",
-},
-# hindi
-{
-	"code" => "hi",
-	"name" => "hindi",
-	"message" => "Hindi hyphenation patterns",
-},
-# kannada
-{
-	"code" => "kn",
-	"name" => "kannada",
-	"message" => "Kannada hyphenation patterns",
-},
-# malayalam
-{
-	"code" => "ml",
-	"name" => "malayalam",
-	"message" => "Malayalam hyphenation patterns",
-},
-# marathi
-{
-	"code" => "mr",
-	"name" => "marathi",
-	"message" => "Marathi hyphenation patterns",
-},
-# oriya
-{
-	"code" => "or",
-	"name" => "oriya",
-	"message" => "Oriya hyphenation patterns",
-},
-# panjabi
-{
-	"code" => "pa",
-	"name" => "panjabi",
-	"message" => "Panjabi hyphenation patterns",
-},
-# tamil
-{
-	"code" => "ta",
-	"name" => "tamil",
-	"message" => "Tamil hyphenation patterns",
-},
-# telugu
-{
-	"code" => "te",
-	"name" => "telugu",
-	"message" => "Telugu hyphenation patterns",
 },
 # thai
 {
 	"code" => "th",
-	"name" => "thai",
-	"message" => "Thai hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2015-05-07",
-	"type"          => "dictionary",
-	"authors"       => [ "theppitak_karoonboonyanan" ],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Thai in LTH and UTF-8 encodings.",
-	],
+        "type"          => "dictionary",
+        "last_modified" => "2015-05-07", # FIXME: ?
 },
 # lao
 #{
@@ -479,53 +307,14 @@ class OldLanguage
 #		"Current version is experimental and gives bad results.",
 #	],
 #},
-# pan-Ethiopic
-{
-	"code" => "mul-ethi",
-	"name" => "ethiopic", "synonyms" => ["amharic", "geez"],
-	"version" => nil,
-	"last_modified" => "2011-01-10",
-	"authors" => ["arthur_reutenauer", "mojca_miklavec"],
-	"licence" => "public-ask", # TODO
-	"message" => "Pan-Ethiopic hyphenation patterns",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for languages written using the Ethiopic script",
-		"for Unicode engines. They are not supposed to be linguistically",
-		"relevant in all cases and should, for proper typography, be replaced",
-		"by files tailored to individual languages.",
-	],
-},
-# georgian
 {
 	"code" => "ka",
-	"name" => "georgian",
-	"message" => "Georgian hyphenation patterns",
-
-	"version"       => "0.3",
-	"last_modified" => "2013-04-15",
-	"type"          => "dictionary",
-	"authors"       => [ "levan_shoshiashvili" ],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Georgian in T8M, T8K and UTF-8 encodings.",
-	],
+        "type"          => "dictionary",
 },
 # Church Slavonic
 {
 	"code" => "cu",
-	"name" => "churchslavonic",
-	"message" => "Church Slavonic hyphenation patterns",
-
-	"version" => nil,
-	"last_modified" => "2016-04-16",
-	"type" => "machine learning",
-	"authors" => ["mike_kroutikov", "aleksandr_andreev"],
-	"licence" => "MIT",
-	"description_l" => [
-		"Hyphenation patterns for Church Slavonic in UTF-8 encoding",
-	],
+        "type" => "machine learning",
 },
 # Belarusian
 {
