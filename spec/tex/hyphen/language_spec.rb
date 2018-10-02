@@ -818,9 +818,9 @@ describe Package do
     end
   end
 
-  describe "#description_l" do
+  describe "#description" do
     it "returns the long description" do
-      expect(latin.description_l).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/m
+      expect(latin.description).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/m
     end
   end
 

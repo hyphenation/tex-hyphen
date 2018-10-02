@@ -541,6 +541,7 @@ module TeX
         attr_reader :name
 
         def initialize(name)
+          byebug unless name
           @name = name
         end
 
@@ -586,6 +587,7 @@ module TeX
           # or an array of languages as the value
           @@packages = Hash.new
           Language.all.each do |language|
+            next unless language.babelname
             # puts language.bcp47
             package_name = @@package_mappings[language.bcp47]
             next if !package_name && @@package_names.include?(language.babelname)
@@ -636,9 +638,9 @@ module TeX
         end
 
         #  FIXME This should be at package level from the start
-        def description_l
+        def description
           languages.inject('') do |description, language|
-             description + if language.description_l then language.description_l else '' end
+             description + if language.description then language.description else '' end
           end
         end
 
@@ -723,6 +725,7 @@ module TeX
         def <=>(other)
           # puts 'HELLO'
           # puts name, other.name
+          byebug unless name && other.name
           name <=> other.name
         end
 

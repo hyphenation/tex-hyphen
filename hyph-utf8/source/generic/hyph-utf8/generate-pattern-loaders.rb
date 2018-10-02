@@ -74,7 +74,7 @@ text_engine_ptex_no = ["    #{comment_engine_ptex}",
                        "    %\\input zerohyph.tex"]
 text_patterns       =  "    \\input hyph-#{language.bcp47}.tex"
 text_patterns_ptex  =  "    \\input hyph-#{language.bcp47}.#{language.encoding}.tex"
-text_patterns_old   =  "    \\input #{language.filename_old_patterns}"
+text_patterns_old   =  "    \\input #{language.legacy_patterns}"
 text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
 text_patterns_utf8  =  text_patterns
 
