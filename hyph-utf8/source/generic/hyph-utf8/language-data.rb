@@ -17,526 +17,103 @@ class OldLanguage
 # "message" => nil,
 
 	@@language_data = [
-# --------------------------------------
-# languages with no hyphenation patterns
-# --------------------------------------
-# arabic
-{
-	"code" => "ar",
-	"name" => "arabic",
-	"use_old_loader" => true,
-	"filename_old_patterns" => "zerohyph.tex",
-#	"hyphenmin" => [], # not needed
-	"message" => nil,
-
-	# TODO
-	"description_l" => [
-		#......................................................................#
-		"Prevent hyphenation in Arabic.",
-	],
-},
-# farsi
-# =persian
-{
-	"code" => "fa",
-	"name" => "farsi", "synonyms" => ["persian"],
-	"use_old_loader" => true,
-	"filename_old_patterns" => "zerohyph.tex",
-#	"hyphenmin" => [], # not needed
-	"message" => nil,
-
-	# TODO
-	"description_l" => [
-		#......................................................................#
-		"Prevent hyphenation in Persian.",
-	],
-},
-# ----------------------------
-# languages using old patterns
-# ----------------------------
-# greek
-# =polygreek
-# monogreek
 {
 	"code" => "el-monoton",
-	"name" => "monogreek",
-	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
-	"filename_old_patterns" => "grmhyph5.tex",
-	"message" => "Hyphenation patterns for uni-accent (monotonic) Modern Greek",
-
-	"version"       => "5.0",
-	"last_modified" => "2008-06-06",
 	"type"          => "rules",
-	"authors"       => ["dimitrios_filippou"],
-	"licence"       => "LPPL",
-	# "description_s" => "Monotonic Modern Greek hyphenation patterns",
-	# "description_l" => [
-	# 	#......................................................................#
-	# 	"Hyphenation patterns for Modern Greek in monotonic spelling.",
-	# 	"The pattern file used for 8-bit engines is grmhyph5.tex, in Babel's LGR encoding,",
-	# 	"that is not part of hyph-utf8.",
-	# 	"Patterns in UTF-8 use two code positions for each of the vowels with acute accent",
-	# 	"(a.k.a tonos, oxia), e.g., U+03AD, U+1F73 for epsilon.",
-	# ],
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Modern Greek in monotonic and polytonic",
-		"spelling in LGR and UTF-8 encodings.  Patterns in UTF-8 use two code",
-		"positions for each of the vowels with acute accent (a.k.a tonos,",
-		"oxia), e.g., U+03AC, U+1F71 for alpha.",
-	],
 },
 {
 	"code" => "el-polyton",
-	"name" => "greek", "synonyms" => ["polygreek"],
-	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
-	"filename_old_patterns" => "grphyph5.tex",
-	# left/right hyphen min for Greek can be as low as one (1),
-	# but for aesthetic reasons keep them at 2/2.
-	# Dimitrios Filippou
-	"message" => "Hyphenation patterns for multi-accent (polytonic) Modern Greek",
-
-	"version"       => "5.0",
-	"last_modified" => "2008-06-06",
 	"type"          => "rules",
-	"authors"       => ["dimitrios_filippou"],
-	"licence"       => "LPPL",
-	# "description_s" => "Polytonic Modern Greek hyphenation patterns",
-	# #                  #.....................................................................#
-	# "description_l" => [
-	# 	#......................................................................#
-	# 	"Hyphenation patterns for Modern Greek in polytonic spelling.",
-	# 	"The pattern file used for 8-bit engines is grphyph5.tex that is",
-	# 	"not part of hyph-utf8. Patterns in UTF-8 use two code positions for",
-	# 	"each of the vowels with acute accent (a.k.a tonos, oxia), e.g.,",
-	# 	"U+03AC, U+1F71 for alpha.",
-	# ],
 },
-# ancientgreek
 {
 	"code" => "grc",
-	"name" => "ancientgreek",
-	"use_old_patterns_comment" => "Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.",
-	"filename_old_patterns" => "grahyph5.tex",
-	"message" => "Hyphenation patterns for Ancient Greek",
-
-	"version"       => "5.0",
-	"last_modified" => "2016-05-12",
 	"type"          => "rules",
-	"authors"       => ["dimitrios_filippou"],
-	"licence"       => "LPPL",
-	# "description_s" => "Ancient Greek hyphenation patterns",
-	# "description_l" => [
-	# 	#......................................................................#
-	# 	"Hyphenation patterns for Ancient Greek.",
-	# 	"The pattern file used for 8-bit engines is grahyph5.tex, in Babel's LGR encoding,",
-	# 	"that is not part of hyph-utf8.",
-	# 	"Patterns in UTF-8 use two code positions for each of the vowels with acute accent",
-	# 	"(a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.",
-	# ],
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Ancient Greek in LGR and UTF-8 encodings,",
-		"including support for (obsolete) Ibycus font encoding.",
-		"Patterns in UTF-8 use two code positions for each of the vowels with",
-		"acute accent (a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.",
-	],
 },
-# -------------------------------
-# special patterns, not converted
-# -------------------------------
-# ibycus ibyhyph.tex
-{
-	"code" => "grc-x-ibycus",
-	"name" => "ibycus",
-	"use_old_patterns_comment" => true,
-	"use_old_loader" => true,
-	"filename_old_patterns" => "ibyhyph.tex",
-	"message" => "Ancient Greek hyphenation patterns for Ibycus encoding",
-
-	# "authors" => ["peter_heslin"],
-	"version" => 3.0,
-},
-# ----------------------------------------------------------
-# more languages using old patterns (see el-* and grc above)
-# ----------------------------------------------------------
-# coptic
 {
 	"code" => "cop",
-	"name" => "coptic",
-	"use_old_patterns_comment" => "TODO: automatic conversion could be done, but was too complicated; leave for later.",
-	"filename_old_patterns" => "copthyph.tex",
-	"message" => "Coptic hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2004-10-03",
 	"type"          => "rules",
-	"authors"       => [ "claudio_beccari" ],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Coptic in UTF-8 encoding",
-		"as well as in ASCII-based encoding for 8-bit engines.",
-		"The latter can only be used with special Coptic fonts (like CBcoptic).",
-		"The patterns are considered experimental.",
-	],
 },
-# german
 {
 	"code" => "de-1901",
-	"name" => "german",
-	"filename_old_patterns" => "dehypht.tex",
-	"message" => "German hyphenation patterns (traditional orthography)",
-
-	"version"       => "0.40",
-	"last_modified" => "2014-05-21", # For the active project
-	"type"          => "dictionary",
-	"authors"       => ["werner_lemberg"],
-	"licence"       => "LPPL",
-	# "description_s" => "German hyphenation patterns in traditional spelling",
-	# "description_l" => [
-	# 	"Hyphenation patterns for German in traditional spelling, in T1/EC and UTF-8 encoding.",
-	# 	"Patterns encoded in UTF-8 are provided by a separate package.",
-	# ],
-
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for German in T1/EC and UTF-8 encodings,",
-		"for traditional and reformed spelling, including Swiss German.",
-		"The package includes the latest patterns from dehyph-exptl",
-		"(known to TeX under names 'german', 'ngerman' and 'swissgerman'),",
-		"however 8-bit engines still load old versions of patterns",
-		"for 'german' and 'ngerman' for backward-compatibility reasons.",
-		"Swiss German patterns are suitable for Swiss Standard German",
-		"(Hochdeutsch) not the Alemannic dialects spoken in Switzerland",
-		"(Schwyzerduetsch).",
-		"There are no known patterns for written Schwyzerduetsch.",
-	]
+        "type"          => "dictionary",
 },
-# ngerman
 {
 	"code" => "de-1996",
-	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
-	"filename_old_patterns" => "dehyphn.tex",
-	"message" => "German hyphenation patterns (reformed orthography)",
-
-	"version"       => "0.40",
-	"last_modified" => "2014-05-21", # For the active project
 	"type"          => "dictionary",
-	"authors"       => ["werner_lemberg"],
-	"licence"       => "LPPL",
-	# "description_s" => "German hyphenation patterns in reformed spelling",
-	# "description_l" => [
-	# 	"Hyphenation patterns for German in reformed spelling, in T1/EC and UTF-8 encoding.",
-	# 	"Patterns encoded in UTF-8 are provided by a separate package.",
-	# ],
 },
-# swissgerman
 {
 	"code" => "de-ch-1901",
-	"name" => "swissgerman",
-	"message" => "Swiss-German hyphenation patterns (traditional orthography)",
-
-	"version"       => "0.40",
-	"last_modified" => "2014-05-21", # For the active project
-	"type"          => "dictionary",
-	"authors"       => ["werner_lemberg"],
-	"licence"       => "LPPL",
-	# "description_l" => "German hyphenation patterns, traditional spelling in Switzerland.",
-	# "description_s" => [
-	# 	"Hyphenation patterns for German in traditional spelling as used in Switzerland, in T1/EC and UTF-8.",
-	# 	"These patterns are suitable for Standard German (Hochdeutsch), not the Alemannic dialects",
-	# 	"spoken in Switzerland (Schwyzerdütsch).  There are no patterns for written Schwyzerdütsch",
-	# 	"we know of.",
-	# ],
+        "type"          => "dictionary",
 },
-# russian
 {
 	"code" => "ru",
-	"name" => "russian",
-	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
-	"filename_old_patterns" => "ruhyphen.tex",
-	"message" => "Russian hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2003-03-10", # Date of the patterns proper, not the support files
-	"type"          => "dictionary",
-	"authors"       => ["alexander_i_lebedev", "werner_lemberg", "vladimir_volovich"],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Russian in T2A and UTF-8 encodings.",
-		"For 8-bit engines, the 'ruhyphen' package provides a number of",
-		"different pattern sets, as well as different (8-bit) encodings, that",
-		"can be chosen at format-generation time.  The UTF-8 version only",
-		"provides the default pattern set.  A mechanism similar to the one used",
-		"for 8-bit patterns may be implemented in the future.",
-	],
+        "type"          => "dictionary",
 },
-# ukrainian
 {
 	"code" => "uk",
-	"name" => "ukrainian",
-	"use_old_patterns_comment" => "The old system allows choosing patterns and encodings manually. That mechanism needs to be implemented first in this package, so we still fall back on old system.",
-	"filename_old_patterns" => "ukrhyph.tex",
-	"message" => "Ukrainian hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2001-05-10", # Date of the patterns proper
 	# "type"          => "rules", # TODO: it is not really clear
-	"authors"       => ["maksym_polyakov", "werner_lemberg", "vladimir_volovich"],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Ukrainian in T2A and UTF-8 encodings.",
-		"For 8-bit engines, the 'ukrhyph' package provides a number of",
-		"different pattern sets, as well as different (8-bit) encodings, that",
-		"can be chosen at format-generation time.  The UTF-8 version only",
-		"provides the default pattern set.  A mechanism similar to the one used",
-		"for 8-bit patterns may be implemented in the future.",
-	],
 },
-# ----------------------------
-# languages using new patterns
-# ----------------------------
-# afrikaans
 {
 	"code" => "af",
-	"name" => "afrikaans",
-	"filename_old_patterns" => nil,
-	"message" => "Afrikaans hyphenation patterns",
-
-	"version"       => "1.0",
-	"last_modified" => "2013-10-08",
-	"type"          => "dictionary",
-	"authors"       => [ "tilla_fick", "chris_swanepoel" ],
-	"email"         => [ "hyphen{at}rekenaar{dot}net" ],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Afrikaans in T1/EC and UTF-8 encodings.",
-		"OpenOffice includes older patterns created by a different author,",
-		"but the patterns packaged with TeX are considered superior in quality.",
-		# "Word list used to generate patterns with opatgen might be released in future.",
-	],
+        "type"          => "dictionary",
 },
-# catalan
 {
 	"code" => "ca",
-	"name" => "catalan",
-	"filename_old_patterns" => "cahyph.tex",
-	"message" => "Catalan hyphenation patterns",
-
-	"version"       => "1.11",
-	"last_modified" => "2003-07-15",
-	"type"          => "rules", # not only rules, also patgen, but it is a good approximation
-	"authors"       => [ "goncal_badenes" ],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Catalan in T1/EC and UTF-8 encodings.",
-	],
+        "type"          => "rules", # not only rules, also patgen, but it is a good approximation
 },
-# czech
 {
 	"code" => "cs",
-	"name" => "czech",
-	"filename_old_patterns" => "czhyph.tex",
 	"filename_old_patterns_other" => ["czhyphen.tex","czhyphen.ex"],
+	"type"          => "dictionary",
 	# Both Czech and Slovak: \lefthyphenmin=2, \righthyphenmin=3
 	# Typographical rules allow \righthyphenmin=2 when typesetting in a
 	# narrow column (newspapers etc.).
 	# (used to be 2,2)
-	"message" => "Czech hyphenation patterns",
 
-	"version"       => "3",
 	# guessing based on CTAN/macros/cstex/base/csplain.tar.gz:
 	# 1998-12-17 (patterns)
 	# 1995-08-23 (exceptions)
 	# but patterns claim 1995
-	"last_modified" => "1995", # todo: no date
-	"type"          => "dictionary",
-	"authors"       => [ "pavel_sevecek" ],
-	"licence"       => "GPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Czech in T1/EC and UTF-8 encodings.",
-		"Original patterns 'czhyphen' are still distributed in the 'csplain'",
-		"package and loaded with ISO Latin 2 encoding (IL2).",
-		# however hyph-utf8 could also be used for that
-	],
 },
-# slovak
 {
 	"code" => "sk",
-	"name" => "slovak",
-	"filename_old_patterns" => "skhyph.tex",
-	"filename_old_patterns_other" => ["skhyphen.tex","skhyphen.ex"],
-	# see czech
-	"message" => "Slovak hyphenation patterns",
-
-	"version"       => "2",
-	"last_modified" => "1992-04-24",
 	"type"          => "dictionary",
-	"authors"       => [ "jana_chlebikova" ],
-	"licence"       => "GPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Slovak in T1/EC and UTF-8 encodings.",
-		"Original patterns 'skhyphen' are still distributed in the 'csplain'",
-		"package and loaded with ISO Latin 2 encoding (IL2).",
-		# however hyph-utf8 could also be used for that
-	],
+	"filename_old_patterns_other" => ["skhyphen.tex","skhyphen.ex"],
 },
-# welsh
 {
 	"code" => "cy",
-	"name" => "welsh",
-	"filename_old_patterns" => "cyhyph.tex",
-	"message" => "Welsh hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "1996",
-	"type"          => "dictionary",
-	"authors"       => [ "yannis_haralambous" ],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Welsh in T1/EC and UTF-8 encodings.",
-	],
+        "type"          => "dictionary",
 },
-# danish
 {
 	"code" => "da",
-	"name" => "danish",
-	"filename_old_patterns" => "dkhyph.tex",
-	"filename_old_patterns_other" => ["dkcommon.tex", "dkspecial.tex"],
-	"message" => "Danish hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2011-01-11",
 	"type"          => "dictionary",
-	"authors"       => [ "frank_jensen" ],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Danish in T1/EC and UTF-8 encodings.",
-	],
+        "filename_old_patterns_other" => ["dkcommon.tex", "dkspecial.tex"],
 },
-# esperanto
 {
 	"code" => "eo",
-	"name" => "esperanto",
-	"filename_old_patterns" => "eohyph.tex",
-	"message" => "Esperanto hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "1999-08-10",
-	"type"          => "rules",
-	"authors"       => [ "sergei_pokrovsky" ],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Esperanto ISO Latin 3 and UTF-8 encodings.",
-		"Note that TeX distributions don't ship any suitable fonts in Latin 3",
-		"encoding, so unless you create your own font support or want to use",
-		"MlTeX, using native Unicode engines is highly recommended.",
-		# "Hyphenation patterns for Esperanto ISO Latin 3 and UTF-8 encodings.",
-		# "Note that TeX distributions usually don't ship any suitable fonts in",
-		# "Latin 3 encoding, so unless you create your own font support or want",
-		# "to use MlTeX, using native UTF-8 engines is highly recommended.",
-	],
+        "type"          => "rules",
 },
-# spanish
-# =espanol
 {
 	"code" => "es",
-	"name" => "spanish", "synonyms" => ["espanol"],
-	"filename_old_patterns" => "eshyph.tex",
-	"message" => "Spanish hyphenation patterns",
-
-	"version"       => "4.7",
-	"last_modified" => "2015-11-12",
-	"type"          => "dictionary",
-	"authors"       => [ "javier_bezos" ],
-	"licence"       => "MIT/X11",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Spanish in T1/EC and UTF-8 encodings.",
-	],
+        "type"          => "dictionary",
 },
-# basque
 {
 	"code" => "eu",
-	"name" => "basque",
-	"filename_old_patterns" => "bahyph.tex",
-	"message" => "Basque hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2008-06-26",
-	"type"          => "rules",
-	"authors"       => [ "juan_aguirregabiria" ],
-	"licence"       => "other-free", # "public-check",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Basque in T1/EC and UTF-8 encodings.",
-		# "Generating scripts for these rule-based patterns is included in hyph-utf8."
-	],
+        "type"          => "rules",
 },
-# french
-# =patois
-# =francais
 {
 	"code" => "fr",
-	"name" => "french", "synonyms" => ["patois","francais"],
-	"filename_old_patterns" => "frhyph.tex",
-	"message" => "French hyphenation patterns",
-
-	"version"       => "2.13",
-	"last_modified" => "2016-05-12",
-	"type"          => "rules",
-	"authors"       => ["daniel_flipo", "bernard_gaulle", "arthur_reutenauer"],
-	"email"         => ["cesure-l{at}gutenberg{dot}eu{dot}org"],
-	"licence"       => "MIT",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for French in T1/EC and UTF-8 encodings.",
-	]
+        "type"          => "rules",
 },
 # galician
 {
 	"code" => "gl",
-	"name" => "galician",
-	"filename_old_patterns" => "glhyph.tex",
-	"message" => "Galician hyphenation patterns",
-
-	"version"       => "2.4",
-	"last_modified" => "2010-04-23",
 	"type"          => "rules",
-	"authors"       => ["javier_mugica"],
-	"licence"       => "LPPL", # Status maintained
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Galician in T1/EC and UTF-8 encodings.",
-		# "Generated automatically from the mkpattern utility.",
-	]
 },
 # estonian
 {
 	"code" => "et",
-	"name" => "estonian",
-	"filename_old_patterns" => "ethyph.tex",
-	"message" => "Estonian hyphenation patterns",
-
-	"version"       => nil,
-	"last_modified" => "2004-04-13",
-	"type"          => "dictionary",
-	"authors"       => [ "een_saar" ],
-	"licence"       => "LPPL|MIT", # Dual MIT-LPPL
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Estonian in T1/EC and UTF-8 encodings.",
-	],
+        "type"          => "dictionary",
 },
 # finnish
 {
