@@ -24,7 +24,9 @@ Package.all.sort.each do |package|
 
 	# FIXME Still doesn’t work well for Latin
 	file_tlpsrc.printf "shortdesc %s.\n", package.description_s
-  file_tlpsrc.printf "longdesc %s\n", package.description
+	package.description.split("\n").each do |line|
+    file_tlpsrc.printf "longdesc %s\n", line
+  end
 	package.languages.each do |language|
 		if language.description_s && language.description then
 			# file_tlpsrc.printf "shortdesc %s.\n", language.description_s
