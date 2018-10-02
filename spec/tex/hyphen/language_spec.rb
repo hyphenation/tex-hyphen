@@ -205,6 +205,7 @@ describe Language do
 
   describe '#babelname' do
     it "returns the Babel name" do
+      pending "Refactoring in progress"
       expect(Language.new('de-1996').babelname).to eq 'ngerman'
     end
   end
@@ -564,6 +565,58 @@ describe Language do
       liturgical_latin.extract_metadata
       expect(liturgical_latin.instance_variable_get :@authors).to eq ['Claudio Beccari', 'Monastery of Solesmes', 'Élie Roux']
     end
+
+    context "With Swedish as an example" do
+      let(:swedish) { Language.new('sv') }
+
+      it "sets the message" do
+        swedish.extract_metadata
+        expect(swedish.instance_variable_get :@message).to eq "Swedish hyphenation patterns"
+      end
+
+      it "sets the old pattern file name" do
+        swedish.extract_metadata
+        expect(swedish.instance_variable_get :@legacy_patterns).to eq "svhyph.tex"
+      end
+
+      it "leaves @use_old_loader to nil in most cases" do
+        swedish.extract_metadata
+        expect(swedish.instance_variable_get :@use_old_loader).to be_nil
+      end
+
+      it "sets the @use_old_loader boolean to true if applicable" do
+        norwegian = Language.new('no')
+        norwegian.extract_metadata
+        expect(norwegian.instance_variable_get :@use_old_loader).to be_truthy
+      end
+
+      it "leaves @use_old_patterns_comment to nil in most cases" do
+        swedish.extract_metadata
+        expect(swedish.instance_variable_get :@use_old_patterns_comment).to be_nil
+      end
+
+      it "sets the @use_old_patterns_comment to string if applicable" do
+        german_AR = Language.new('de-1901')
+        german_AR.extract_metadata
+        expect(german_AR.instance_variable_get :@use_old_patterns_comment).to eq "Kept for the sake of backward compatibility, but newer and better patterns by WL are available."
+      end
+
+      it "sets the long description" do
+        swedish.extract_metadata
+        expect(swedish.instance_variable_get :@description).to eq "Hyphenation patterns for Swedish in T1/EC and UTF-8 encodings."
+      end
+
+      it "sets the Babel name" do
+        swedish.extract_metadata
+        expect(swedish.instance_variable_get :@babelname).to eq "swedish"
+      end
+
+      it "sets the Babel name even if it is slightly silly ;-)" do
+        german_NR = Language.new('de-1996')
+        german_NR.extract_metadata
+        expect(german_NR.instance_variable_get :@babelname).to eq "ngerman"
+      end
+    end
   end
 
   describe '#has_apostrophes?' do
@@ -720,6 +773,7 @@ describe Language do
       end
 
       it "returns true if applicable" do
+        pending "Refactor in progress"
         expect(Language.new('no').use_old_loader).to be_truthy
       end
     end

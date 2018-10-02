@@ -362,6 +362,12 @@ module TeX
         # TODO Something about being in the right module
         @synonyms = metadata.dig('texlive', 'synonyms') || []
         @encoding = metadata.dig('texlive', 'encoding')
+        @message = metadata.dig('texlive', 'message')
+        @legacy_patterns = metadata.dig('texlive', 'legacy_patterns')
+        @use_old_loader = metadata.dig('texlive', 'use_old_loader')
+        @use_old_patterns_comment = metadata.dig('texlive', 'use_old_patterns_comment')
+        @description = metadata.dig('texlive', 'description')
+        @babelname = metadata.dig('texlive', 'babelname')
         licences = metadata.dig('licence')
         raise NoLicence unless licences
         licences = [licences] unless licences.is_a? Array

@@ -106,6 +106,30 @@ class HeaderValidator
         encoding: {
           mandatory: false,
           type: String
+        },
+        message: {
+          mandatory: false,
+          type: String
+        },
+        legacy_patterns: {
+          mandatory: false,
+          type: String
+        },
+        use_old_loader: {
+          mandatory: false,
+          # type: Bool # FIXME
+        },
+        use_old_patterns_comment: {
+          mandatory: false,
+          type: String
+        },
+        description: {
+          mandatory: false,
+          type: String
+        },
+        babelname: {
+          mandatory: false,
+          type: String
         }
       },
     },

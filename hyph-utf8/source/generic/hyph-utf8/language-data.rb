@@ -185,7 +185,6 @@ class OldLanguage
 {
 	"code" => "de-1901",
 	"name" => "german",
-	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
 	"filename_old_patterns" => "dehypht.tex",
 	"message" => "German hyphenation patterns (traditional orthography)",
 
@@ -217,7 +216,6 @@ class OldLanguage
 # ngerman
 {
 	"code" => "de-1996",
-	"name" => "ngerman",
 	"use_old_patterns_comment" => "Kept for the sake of backward compatibility, but newer and better patterns by WL are available.",
 	"filename_old_patterns" => "dehyphn.tex",
 	"message" => "German hyphenation patterns (reformed orthography)",
@@ -1036,20 +1034,7 @@ class OldLanguage
 # swedish
 {
 	"code" => "sv",
-	"name" => "swedish",
-	"filename_old_patterns" => "svhyph.tex",
-	"message" => "Swedish hyphenation patterns",
-
-	# "version"       => "1994-03-03", # that is what author used in message
-	"version"       => nil,
-	"last_modified" => "1994-03-03",
 	"type"          => "dictionary",
-	"authors"       => ["jan_michael_rynning"],
-	"licence"       => "LPPL",
-	"description_l" => [
-		#......................................................................#
-		"Hyphenation patterns for Swedish in T1/EC and UTF-8 encodings.",
-	],
 },
 # turkmen
 {
@@ -1261,7 +1246,6 @@ class OldLanguage
 {
 	"code" => "no",
 	"name" => "norwegian", # TODO: fixme
-	"use_old_loader" => true,
 	"message" => "Norwegian hyphenation patterns",
 },
 # norsk
