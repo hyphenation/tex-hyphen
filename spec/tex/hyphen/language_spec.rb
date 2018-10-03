@@ -804,6 +804,16 @@ describe Language do
         expect(Language.new('de-1996').description).to be_nil
       end
     end
+
+    describe '#package_name' do
+      it "returns the package name if applicable" do
+        expect(Language.new('bn').package_name).to eq 'indic'
+      end
+
+      it "returns nil in most cases" do
+        expect(Language.new('bg').package_name).to be_nil
+      end
+    end
   end
 end
 

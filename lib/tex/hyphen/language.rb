@@ -533,6 +533,10 @@ module TeX
 
           files
         end
+
+        def package_name
+          Package.class_variable_get(:@@package_mappings)[@bcp47]
+        end
       end
     end
 
@@ -588,17 +592,24 @@ module TeX
           # or an array of languages as the value
           @@packages = Hash.new
           Language.all.each do |language|
-            next unless language.babelname
-            # puts language.bcp47
-            package_name = @@package_mappings[language.bcp47]
-            next if !package_name && @@package_names.include?(language.babelname)
-            package_name ||= language.babelname
-            unless package = @@package_names[package_name]
-              package = new(package_name) # TODO Remove later
-              @@package_names[package_name] = package
+#             next unless language.babelname
+#             # puts language.bcp47
+#             package_name = @@package_mappings[language.bcp47]
+#             next if !package_name && @@package_names.include?(language.babelname)
+#             package_name ||= language.babelname
+#             unless package = @@package_names[package_name]
+#               package = new(package_name) # TODO Remove later
+#               @@package_names[package_name] = package
+#             end
+#
+#             (@@packages[package] ||= []) << language
+            if package_name = language.package_name
+              package ||= Package.new(package_name)
+              package.add_language language
+            elsif babelname = language.babelname
+              package = Package.new(babelname)
+              package.add_language language
             end
-
-            (@@packages[package] ||= []) << language
           end
 
           @@packages
