@@ -543,6 +543,7 @@ module TeX
         def initialize(name)
           byebug unless name
           @name = name
+          @languages = []
         end
 
         @@package_mappings = {
@@ -644,10 +645,14 @@ module TeX
           end
         end
 
+        def add_language(language)
+          @languages << language
+        end
+
         def languages
           # puts name unless @@packages[self]
           # puts @@packages.keys.map(&:name).sort
-          unless @languages
+          if @languages == []
             @languages = @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
             @languages.reverse! if name == 'serbian' # FIXME Remove this ad hoc nonense later
           end

@@ -819,6 +819,13 @@ describe Package do
     end
   end
 
+  describe '.new' do
+    it "initialises @languages to an empty array" do
+      package = Package.new('mongolian')
+      expect(package.instance_variable_get :@languages).to eq []
+    end
+  end
+
   describe "#description_s" do
     it "returns the short description" do
       expect(latin.description_s).to eq 'Latin hyphenation patterns'
@@ -828,6 +835,15 @@ describe Package do
   describe "#description" do
     it "returns the long description" do
       expect(latin.description).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/m
+    end
+  end
+
+  describe '#add_language' do
+    it "adds a language to the package" do
+      package = Package.new('indic')
+      assamese = Language.new('as')
+      package.add_language(assamese)
+      expect(package.instance_variable_get(:@languages).first).to eq assamese
     end
   end
 
