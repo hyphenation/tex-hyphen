@@ -28,13 +28,6 @@ Package.all.sort.each do |package|
     file_tlpsrc.printf "longdesc %s\n", line
   end
 	package.languages.each do |language|
-		if language.description_s && language.description then
-			# file_tlpsrc.printf "shortdesc %s.\n", language.description_s
-			# language.description_l.each do |line|
-			# 	file_tlpsrc.printf "longdesc %s\n", line
-			# end
-		end
-
 		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.babelname, language.list_synonyms
 		file_tlpsrc.printf "\t%s \\\n\t%s", language.list_hyphenmins, language.list_loader
 		if language.patterns_line + language.exceptions_line != ""
