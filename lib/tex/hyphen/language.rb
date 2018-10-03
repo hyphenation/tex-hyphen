@@ -539,10 +539,9 @@ module TeX
           @@packages ||= Language.all.inject(Hash.new) do |packages, language|
             # include Language::TeXLive
             if name = language.package || language.babelname
-              if package = packages[name] || Package.new(name)
-                package.add_language language
-                packages[name] = package
-              end
+              package = packages[name] || Package.new(name)
+              package.add_language language
+              packages[name] = package
             end
 
             packages
