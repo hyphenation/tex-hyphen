@@ -841,6 +841,10 @@ describe Package do
     it "returns the external dependencies" do
       expect(german.has_dependency?).to eq "dehyph"
     end
+
+    it "returns nil for most packages" do
+      expect(hungarian.has_dependency?).to be_nil
+    end
   end
 
   describe "#list_dependencies" do
