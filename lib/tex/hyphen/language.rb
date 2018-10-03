@@ -487,7 +487,6 @@ module TeX
         attr_reader :name
 
         def initialize(name)
-          byebug unless name
           @name = name
           @languages = []
         end
