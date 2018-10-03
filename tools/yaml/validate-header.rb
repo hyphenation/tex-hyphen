@@ -160,7 +160,7 @@ class HeaderValidator
       header += line
     end
 
-    puts header unless @mode == 'mojca'
+    # puts header unless @mode == 'mojca'
     begin
       # byebug if filename =~ /hyph-grc-x-ibycus\.tex$/
       # puts 'foo'
@@ -204,7 +204,7 @@ class HeaderValidator
     parse(pattfile)
     check_mandatory(@metadata, @@format)
     validate(@metadata, @@format)
-    puts @metadata.inspect unless @mode == 'mojca'
+    # puts @metadata.inspect unless @mode == 'mojca'
     { title: @metadata['title'], copyright: @metadata['copyright'], notice: @metadata['notice'] }
   end
 
@@ -218,6 +218,7 @@ class HeaderValidator
   end
 
   def main(args)
+    print 'Validating '
     # TODO Sort input file list in alphabetical order of names!
     @mode = 'default'
     arg = args.shift
@@ -236,16 +237,21 @@ class HeaderValidator
 
       # byebug
       if File.file? arg
+        print 'file ', arg
         runfile(arg)
       elsif Dir.exists? arg
+        print 'files in ', arg, ': '
         Dir.foreach(arg) do |filename|
           next if filename == '.' || filename == '..'
           f = File.join(arg, filename)
+          print filename.gsub(/.*\/hyph-/, '').gsub(/\.tex$/, ''), ' '
           @headings << [filename, runfile(f)] unless Dir.exists? f
         end
       else
         puts "Argument #{arg} is neither an existing file nor an existing directory; proceeding." unless @mode == 'mojca'
       end
+
+      puts
     end
 
     unless @mode == 'mojca'
