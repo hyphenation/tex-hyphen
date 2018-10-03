@@ -476,10 +476,10 @@ module TeX
           files
         end
 
-      end
         def package
           TeX::Hyphen::TeXLive::Package.class_variable_get(:@@package_mappings)[@bcp47]
         end
+      end
     end
 
     module TeXLive
