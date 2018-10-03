@@ -43,6 +43,7 @@
 %         including support for (obsolete) Ibycus font encoding.
 %         Patterns in UTF-8 use two code positions for each of the vowels with
 %         acute accent (a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.
+%     package: ancient greek
 %
 % ==========================================
 % This file was first created by mechanical translation from

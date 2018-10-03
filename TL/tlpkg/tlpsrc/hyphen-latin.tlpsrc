@@ -7,9 +7,11 @@ longdesc mainly in modern spelling (u when u is needed and v when v is needed),
 longdesc medieval spelling with the ligatures \ae and \oe and the (uncial)
 longdesc lowercase 'v' written as a 'u' is also supported.  Apparently
 longdesc there is no conflict between the patterns of modern Latin and
-longdesc those of medieval Latin.Hyphenation patterns for the Classical Latin in T1/EC and UTF-8
+longdesc those of medieval Latin.
+longdesc Hyphenation patterns for the Classical Latin in T1/EC and UTF-8
 longdesc encodings. Classical Latin hyphenation patterns are different from
-longdesc those of 'plain' Latin, the latter being more adapted to modern Latin.Hyphenation patterns for the Liturgical Latin in T1/EC and UTF-8
+longdesc those of 'plain' Latin, the latter being more adapted to modern Latin.
+longdesc Hyphenation patterns for the Liturgical Latin in T1/EC and UTF-8
 longdesc encodings.
 execute AddHyphen \
 	name=latin \

@@ -54,4 +54,5 @@
 % texlive:
 %     babelname: hindi
 %     message: Hindi hyphenation patterns
+%     package: indic
 %

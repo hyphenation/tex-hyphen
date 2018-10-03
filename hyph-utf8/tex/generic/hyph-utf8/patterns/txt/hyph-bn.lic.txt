@@ -54,4 +54,5 @@
 % texlive:
 %     babelname: bengali
 %     message: Bengali hyphenation patterns
+%     package: indic
 %

@@ -63,6 +63,7 @@
 %         to find many additional hyphenation points.  British English
 %         hyphenation is completely different from US English, so has its
 %         own set of patterns.
+%     package: english
 % ==========================================
 % This file has been renamed from ukhyphen.tex to hyph-en-gb.tex in June 2008
 % for consistency with other files with hyphenation patterns in hyph-utf8 package.

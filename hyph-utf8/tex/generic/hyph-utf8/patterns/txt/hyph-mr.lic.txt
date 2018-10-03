@@ -54,4 +54,5 @@
 % texlive:
 %     babelname: marathi
 %     message: Marathi hyphenation patterns
+%     package: indic
 %

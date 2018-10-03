@@ -27,4 +27,5 @@
 %     description: |-
 %         Hyphenation patterns for unaccented transliterated Mandarin Chinese
 %         (pinyin) in T1/EC and UTF-8 encodings.
+%     package: chinese
 %

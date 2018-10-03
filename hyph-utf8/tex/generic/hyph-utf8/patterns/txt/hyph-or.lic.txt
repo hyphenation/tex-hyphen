@@ -54,4 +54,5 @@
 % texlive:
 %     babelname: oriya
 %     message: Oriya hyphenation patterns
+%     package: indic
 %
