@@ -805,13 +805,13 @@ describe Language do
       end
     end
 
-    describe '#package_name' do
+    describe '#package' do
       it "returns the package name if applicable" do
-        expect(Language.new('bn').package_name).to eq 'indic'
+        expect(Language.new('bn').package).to eq 'indic'
       end
 
       it "returns nil in most cases" do
-        expect(Language.new('bg').package_name).to be_nil
+        expect(Language.new('bg').package).to be_nil
       end
     end
   end

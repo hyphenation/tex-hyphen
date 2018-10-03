@@ -266,10 +266,10 @@ module TeX
 
       def <=>(other)
         # FIXME Move that to #name
-        a = self.name rescue InvalidMetadata
+        a = self.babelname rescue InvalidMetadata
         a = '' if [nil, InvalidMetadata].include? a
 
-        b = other.name rescue InvalidMetadata
+        b = other.babelname rescue InvalidMetadata
         b = '' if [nil, InvalidMetadata].include? b
 
         if a == 'serbian' && b == 'serbianc'
@@ -278,11 +278,11 @@ module TeX
           return 1
         end
 
-        if a == b
+        # if a == b
           self.bcp47 <=> other.bcp47
-        else
-          a <=> b || -1
-        end
+        # else
+          # a <=> b || -1
+        # end
       end
 
       @@texfile = Hash.new
@@ -535,7 +535,7 @@ module TeX
         end
 
       end
-        def package_name
+        def package
           TeX::Hyphen::TeXLive::Package.class_variable_get(:@@package_mappings)[@bcp47]
         end
     end
@@ -595,7 +595,7 @@ module TeX
 #             @languages.reverse! if name == 'serbian' # FIXME Remove this ad hoc nonense later
 #           end
           puts 'DEBUG @languages:', @languages
-          @languages
+          @languages.sort
         end
 
         def self.make_mappings
@@ -620,7 +620,7 @@ module TeX
 #
 #             (@@packages[package] ||= []) << language
             include Language::TeXLive
-            if package_name = language.package_name
+            if package_name = language.package
               unless package = @@all_packages[package_name]
                 package = Package.new(package_name)
                 @@all_packages[package_name] = package
