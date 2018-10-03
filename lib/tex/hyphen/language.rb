@@ -538,10 +538,8 @@ module TeX
           # or an array of languages as the value
           @@packages ||= Language.all.inject(Hash.new) do |packages, language|
             # include Language::TeXLive
-            name = language.package || language.babelname
-            if name
-              package = packages[name] || Package.new(name)
-              if package
+            if name = language.package || language.babelname
+              if package = packages[name] || Package.new(name)
                 package.add_language language
                 packages[name] = package
               end
