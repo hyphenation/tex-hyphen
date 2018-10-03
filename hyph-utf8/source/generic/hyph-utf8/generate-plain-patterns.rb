@@ -11,15 +11,16 @@ require_relative '../../../../lib/tex/hyphen/language.rb'
 include TeX::Hyphen
 
 # FIXME sr-cyrl?
+print 'Generating plain files for (parenthesised tags are skipped) '
 Language.all.sort.each do |language|
 	bcp47 = language.bcp47
 
 	if language.use_old_loader || bcp47 == 'mn-cyrl-x-lmc'
-		puts "(skipping #{language.bcp47})"
+		print '(', language.bcp47, ') '
 		next
+	else
+		print bcp47, ' '
 	end
-
-	puts "generating #{bcp47}"
 
 	outfile = Proc.new do |ext|
 		File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', bcp47, ext)), 'w'
@@ -59,3 +60,4 @@ Language.all.sort.each do |language|
 
 	file.close
 end
+puts

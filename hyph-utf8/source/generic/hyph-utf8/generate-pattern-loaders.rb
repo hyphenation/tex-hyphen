@@ -18,6 +18,7 @@ languages = Language.all
 
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
 
+print 'Generating loaders for '
 languages.each do |language|
 
 # puts language.bcp47
@@ -109,7 +110,7 @@ end
 		else
 			filename = "#{$path_loadhyph}/loadhyph-#{language.bcp47}.tex"
 		end
-		puts "generating '#{filename}'"
+		print language.bcp47, ' '
 
 		File.open(filename, "w") do |file|
 			# puts language.bcp47
@@ -239,3 +240,5 @@ end
 			file.puts('\endgroup')
 		end
 end
+
+puts

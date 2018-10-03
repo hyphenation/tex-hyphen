@@ -12,10 +12,11 @@ include TeXLive
 # TLPSRC #
 #--------#
 
+print 'Generating .tlpsrc files for packages: '
 Package.all.sort.each do |package|
 	tlpsrcname = File.join(PATH::TLPSRC, sprintf('hyphen-%s.tlpsrc', package.name.safe))
 	file_tlpsrc = File.open(tlpsrcname, 'w')
-	printf "generating %s\n", tlpsrcname
+	print package.name.safe, ' '
 
 	file_tlpsrc.puts "category TLCore"
 	package.list_dependencies.each do |dependency|
@@ -55,13 +56,14 @@ Package.all.sort.each do |package|
 	end
 	file_tlpsrc.close
 end
+puts
 
 #--------------#
 # language.dat #
 #--------------#
 language_dat_filename = File.join PATH::LANGUAGE_DAT, 'language.dat'
 File.open(language_dat_filename, 'w') do |file_language_dat|
-	printf "Generating %s\n", language_dat_filename
+	puts 'Generating language.dat'
 	Package.all.sort.each do |package|
 		package.languages.each do |language|
 			# main language name

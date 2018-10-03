@@ -26,14 +26,15 @@ header = <<-HEADER
 %%
 HEADER
 
+print 'Generating pTeX patterns for (skipped # reason) '
 Language.all.sort.each do |language|
 	if language.use_old_loader
-		puts "(skipping #{language.bcp47} # loader)"
+		print '(', language.bcp47, ' # loader) '
 		next
 	end
 
 	if language.encoding == nil || language.encoding == 'ascii'
-		puts "(skipping #{language.bcp47} # #{if language.encoding then 'ascii' else 'encoding' end})"
+		print '(', language.bcp47, ' # ', if language.encoding then 'ascii' else 'encoding' end, ') '
 		next
 	else
 		encoding = encodings[language.encoding]
@@ -41,7 +42,7 @@ Language.all.sort.each do |language|
 
 	bcp47 = language.bcp47
 
-	puts ">> generating #{bcp47} (#{language.babelname})"
+	print bcp47,  ' (', language.babelname, ') '
 	File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', bcp47, language.encoding)), 'w') do |file_ptex|
 		patterns   = language.patterns
 		exceptions = language.exceptions
@@ -76,3 +77,4 @@ Language.all.sort.each do |language|
 		file_ptex.puts("\\egroup")
 	end
 end
+puts
