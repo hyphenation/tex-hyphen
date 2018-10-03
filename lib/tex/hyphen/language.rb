@@ -534,10 +534,10 @@ module TeX
           files
         end
 
-        def package_name
-          Package.class_variable_get(:@@package_mappings)[@bcp47]
-        end
       end
+        def package_name
+          TeX::Hyphen::TeXLive::Package.class_variable_get(:@@package_mappings)[@bcp47]
+        end
     end
 
     module TeXLive
@@ -583,6 +583,21 @@ module TeX
           "la-x-liturgic"=>"latin"
         }
 
+        def add_language(language)
+          @languages << language
+        end
+
+        def languages
+          # puts name unless @@packages[self]
+          # puts @@packages.keys.map(&:name).sort
+#           if @languages == []
+#             @languages = @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
+#             @languages.reverse! if name == 'serbian' # FIXME Remove this ad hoc nonense later
+#           end
+          puts 'DEBUG @languages:', @languages
+          @languages
+        end
+
         def self.make_mappings
           @@package_names = @@package_mappings.values.uniq.map do |package_name|
             [package_name, new(package_name)]
@@ -591,6 +606,7 @@ module TeX
           # a hash with the names of TeX Live packages, either individual language names,
           # or an array of languages as the value
           @@packages = Hash.new
+          @@all_packages = Hash.new
           Language.all.each do |language|
 #             next unless language.babelname
 #             # puts language.bcp47
@@ -603,21 +619,32 @@ module TeX
 #             end
 #
 #             (@@packages[package] ||= []) << language
+            include Language::TeXLive
             if package_name = language.package_name
-              package ||= Package.new(package_name)
+              unless package = @@all_packages[package_name]
+                package = Package.new(package_name)
+                @@all_packages[package_name] = package
+              end
               package.add_language language
             elsif babelname = language.babelname
+              puts babelname
+              # byebug if babelname == 'hungarian'
               package = Package.new(babelname)
+              @@all_packages[babelname] = package
               package.add_language language
             end
           end
 
+          puts 'DEBUG @@all_packages', @@all_packages
+          puts "@all_packages['latin'].languages", @@all_packages['latin'].languages, '-- @all_p...'
+          puts "@all_packages['hungarian'].languages", @@all_packages['hungarian'].languages, '-- @...'
           @@packages
         end
 
         @@packages = make_mappings
         def self.all
           @@packages.keys
+          @@all_packages.values
         end
 
         # FIXME That’s oh-so-awful
@@ -651,23 +678,10 @@ module TeX
 
         #  FIXME This should be at package level from the start
         def description
+          puts 'DEBUG languages', languages
           languages.inject('') do |description, language|
              description + if language.description then language.description else '' end
           end
-        end
-
-        def add_language(language)
-          @languages << language
-        end
-
-        def languages
-          # puts name unless @@packages[self]
-          # puts @@packages.keys.map(&:name).sort
-          if @languages == []
-            @languages = @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
-            @languages.reverse! if name == 'serbian' # FIXME Remove this ad hoc nonense later
-          end
-          @languages
         end
 
         def has_dependency?
@@ -750,6 +764,7 @@ module TeX
           # puts @@package_names.keys
           # puts @@package_names.values.map(&:name)
           @@package_names[name]
+          @@all_packages[name]
         end
       end
     end

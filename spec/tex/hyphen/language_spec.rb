@@ -844,7 +844,9 @@ describe Package do
 
   describe "#description" do
     it "returns the long description" do
-      expect(latin.description).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling.*Classical Latin.*Liturgical Latin/m
+      expect(latin.description).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling/m
+      expect(latin.description).to match /Classical Latin/
+      expect(latin.description).to match /Liturgical Latin/
     end
   end
 
@@ -859,7 +861,7 @@ describe Package do
 
   describe "#languages" do
     it "returns the list of languages" do
-      expect(latin.languages.map(&:bcp47)).to eq ['la', 'la-x-classic', 'la-x-liturgic']
+      expect(latin.languages.map(&:bcp47).sort).to eq ['la', 'la-x-classic', 'la-x-liturgic']
     end
   end
 
