@@ -337,6 +337,7 @@ module TeX
         @use_old_patterns_comment = metadata.dig('texlive', 'use_old_patterns_comment')
         @description = metadata.dig('texlive', 'description')
         @babelname = metadata.dig('texlive', 'babelname')
+        @package = metadata.dig('texlive', 'package')
         licences = metadata.dig('licence')
         raise NoLicence unless licences
         licences = [licences] unless licences.is_a? Array
@@ -477,7 +478,8 @@ module TeX
         end
 
         def package
-          TeX::Hyphen::TeXLive::Package.class_variable_get(:@@package_mappings)[@bcp47]
+          extract_metadata
+          @package
         end
       end
     end
@@ -490,39 +492,6 @@ module TeX
           @name = name
           @languages = []
         end
-
-        @@package_mappings = {
-          "en-gb"=>"english",
-          "en-us"=>"english",
-          "nb"=>"norwegian",
-          "nn"=>"norwegian",
-          "de-1901"=>"german",
-          "de-1996"=>"german",
-          "de-ch-1901"=>"german",
-          "mn-cyrl"=>"mongolian",
-          "mn-cyrl-x-lmc"=>"mongolian",
-          "el-monoton"=>"greek",
-          "el-polyton"=>"greek",
-          "grc"=>"ancient greek",
-          "grc-x-ibycus"=>"ancient greek",
-          "zh-latn-pinyin"=>"chinese",
-          "as"=>"indic",
-          "bn"=>"indic",
-          "gu"=>"indic",
-          "hi"=>"indic",
-          "kn"=>"indic",
-          "ml"=>"indic",
-          "mr"=>"indic",
-          "or"=>"indic",
-          "pa"=>"indic",
-          "ta"=>"indic",
-          "te"=>"indic",
-          "sh-latn"=>"serbian",
-          "sh-cyrl"=>"serbian",
-          "la"=>"latin",
-          "la-x-classic"=>"latin",
-          "la-x-liturgic"=>"latin"
-        }
 
         def add_language(language)
           @languages << language
@@ -582,9 +551,9 @@ module TeX
 
         #  FIXME This should be at package level from the start
         def description
-          languages.inject('') do |description, language|
-             description + if language.description then language.description else '' end
-          end
+          languages.map do |language|
+             language.description || ''
+          end.join "\n"
         end
 
         def has_dependency?

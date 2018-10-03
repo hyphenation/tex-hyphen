@@ -610,6 +610,16 @@ describe Language do
         german_NR.extract_metadata
         expect(german_NR.instance_variable_get :@babelname).to eq "ngerman"
       end
+
+      it "sets @package to nil in most cases" do
+        expect(swedish.instance_variable_get :@package).to be_nil
+      end
+
+      it "sets @package for a few languages" do
+        gujarati = Language.new('gu')
+        gujarati.extract_metadata
+        expect(gujarati.instance_variable_get :@package).to eq 'indic'
+      end
     end
   end
 
@@ -812,6 +822,12 @@ describe Language do
 
       it "returns nil in most cases" do
         expect(Language.new('bg').package).to be_nil
+      end
+
+      it "calls #extract_metadata first" do
+        hindi = Language.new('hi')
+        expect(hindi).to receive :extract_metadata
+        hindi.package
       end
     end
   end

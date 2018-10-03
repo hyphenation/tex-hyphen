@@ -130,6 +130,10 @@ class HeaderValidator
         babelname: {
           mandatory: false,
           type: String
+        },
+        package: {
+          mandatory: false,
+          type: String
         }
       },
     },
