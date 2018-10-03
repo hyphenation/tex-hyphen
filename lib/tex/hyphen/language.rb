@@ -541,17 +541,12 @@ module TeX
             @@all_packages = Hash.new
             Language.all.each do |language|
               # include Language::TeXLive
-              if name = language.package
-                unless package = @@all_packages[name]
-                  package = Package.new(name)
-                  @@all_packages[name] = package
-                end
-              elsif name = language.babelname
-                package = Package.new(name)
+              name = language.package || language.babelname
+              package = @@all_packages[name] || Package.new(name) if name
+              if package
+                package.add_language language
                 @@all_packages[name] = package
               end
-
-              package.add_language language if package
             end
           end
 
