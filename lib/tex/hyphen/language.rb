@@ -93,17 +93,6 @@ module TeX
         use_old_patterns_comment
       end
 
-#       def method_missing(method)
-#         if DELEGATE.include? method
-#           # puts @bcp47 unless @old
-#           # byebug unless @old
-#           @old.send(method)
-#         else
-#           raise NoMethodError.new(method)
-#         end
-#       end
-
-      # attr_reader :message, :legacy_patterns, :use_old_loader, :use_old_patterns_comment, :description, :babelname
       def description_l
         description
       end
@@ -119,15 +108,6 @@ module TeX
 
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
-        # byebug if @bcp47 == 'id'
-#         if @bcp47 and self.class.languages.include? @bcp47 and !private_use?
-#           # puts @bcp47
-#           @old = OldLanguage.all.select do |language|
-#             # puts language.code
-#             language.code == @bcp47
-#           end.first
-#           raise "No OldLanguage for #{@bcp47}" unless @old || @bcp47 == 'sr-cyrl'
-#         end
       end
 
       def self.languages
@@ -158,17 +138,6 @@ module TeX
         @bcp47.length == 3 and @bcp47[0] == 'q' and ('a'..'t').include? @bcp47[1]
       end
 
-#       def name
-#         # puts @bcp47 unless @name
-#         extract_metadata unless @name
-#         @name
-#       end
-
-#       def babelname
-#         # @old.name.safe
-#         name
-#       end
-
       # This should probably become “macrolanguage name” or something similar
       # @@displaynames = {
       #   'el' => 'Greek',
@@ -176,11 +145,6 @@ module TeX
       #   'nn' => 'Norwegian',
       #   'sh' => 'Serbian',
       # }
-
-      # def displayname
-      #   extract_metadata unless @name
-      #   @@displaynames[@bcp47.gsub(/-.*$/, '')] || @name
-      # end
 
       def description_s
         message
@@ -311,13 +275,6 @@ module TeX
         end
       end
 
-      def exceptions_old
-        # FIXME Same comment as for #patterns
-        if self.class.languag[@bcp47]
-          @exceptions ||= File.read(File.join(PATH::TXT, sprintf('hyph-%s.hyp.txt', @bcp47)))
-        end
-      end
-
       def exceptions
         unless @exceptions
           if readtexfile.superstrip.index('\hyphenation')
@@ -363,7 +320,6 @@ module TeX
         end
         begin
           metadata = YAML::load header
-          # puts metadata
           raise InvalidMetadata unless metadata.is_a? Hash
         rescue Psych::SyntaxError
           raise InvalidMetadata
@@ -372,7 +328,6 @@ module TeX
         @name = metadata.dig('language', 'name')
         @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left') || metadata.dig('hyphenmins', 'generation', 'left')
         @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right') || metadata.dig('hyphenmins', 'generation', 'right')
-        # byebug
         # TODO Something about being in the right module
         @synonyms = metadata.dig('texlive', 'synonyms') || []
         @encoding = metadata.dig('texlive', 'encoding')
@@ -416,16 +371,7 @@ module TeX
           @encoding
         end
 
-#         def legacy_patterns
-#           filename_old_patterns
-#         end
-
-#         def description
-#           description_l.join "\n" if description_l
-#         end
-
         def list_synonyms
-          # synonyms
           if synonyms && synonyms.length > 0
             sprintf " synonyms=%s", synonyms.join(',')
           else
@@ -434,9 +380,6 @@ module TeX
         end
 
         def list_hyphenmins
-          # lefthyphenmin/righthyphenmin
-          # lmin = (hyphenmin || [])[0]
-          # rmin = (hyphenmin || [])[1]
           lmin = lefthyphenmin
           rmin = righthyphenmin
           sprintf "lefthyphenmin=%s \\\n\trighthyphenmin=%s", lmin, rmin
@@ -480,7 +423,6 @@ module TeX
           if use_old_loader
             legacy_patterns
           else
-            # byebug
             sprintf 'loadhyph-%s.tex', @bcp47.gsub(/^sh-/, 'sr-')
           end
         end
@@ -588,63 +530,36 @@ module TeX
         end
 
         def languages
-          # puts name unless @@packages[self]
-          # puts @@packages.keys.map(&:name).sort
-#           if @languages == []
-#             @languages = @@packages[self].sort { |a, b| a.bcp47 <=> b.bcp47 } # FIXME Sorting
-#             @languages.reverse! if name == 'serbian' # FIXME Remove this ad hoc nonense later
-#           end
-          puts 'DEBUG @languages:', @languages
           @languages.sort
         end
 
-        def self.make_mappings
-          @@package_names = @@package_mappings.values.uniq.map do |package_name|
-            [package_name, new(package_name)]
-          end.to_h
-
+        @@all_packages = nil
+        def self.packages
           # a hash with the names of TeX Live packages, either individual language names,
           # or an array of languages as the value
-          @@packages = Hash.new
-          @@all_packages = Hash.new
-          Language.all.each do |language|
-#             next unless language.babelname
-#             # puts language.bcp47
-#             package_name = @@package_mappings[language.bcp47]
-#             next if !package_name && @@package_names.include?(language.babelname)
-#             package_name ||= language.babelname
-#             unless package = @@package_names[package_name]
-#               package = new(package_name) # TODO Remove later
-#               @@package_names[package_name] = package
-#             end
-#
-#             (@@packages[package] ||= []) << language
-            include Language::TeXLive
-            if package_name = language.package
-              unless package = @@all_packages[package_name]
-                package = Package.new(package_name)
-                @@all_packages[package_name] = package
+          unless @@all_packages
+            @@all_packages = Hash.new
+            Language.all.each do |language|
+              # include Language::TeXLive
+              if name = language.package
+                unless package = @@all_packages[name]
+                  package = Package.new(name)
+                  @@all_packages[name] = package
+                end
+              elsif name = language.babelname
+                package = Package.new(name)
+                @@all_packages[name] = package
               end
-              package.add_language language
-            elsif babelname = language.babelname
-              puts babelname
-              # byebug if babelname == 'hungarian'
-              package = Package.new(babelname)
-              @@all_packages[babelname] = package
-              package.add_language language
+
+              package.add_language language if package
             end
           end
 
-          puts 'DEBUG @@all_packages', @@all_packages
-          puts "@all_packages['latin'].languages", @@all_packages['latin'].languages, '-- @all_p...'
-          puts "@all_packages['hungarian'].languages", @@all_packages['hungarian'].languages, '-- @...'
-          @@packages
+          @@all_packages
         end
 
-        @@packages = make_mappings
         def self.all
-          @@packages.keys
-          @@all_packages.values
+          packages.values
         end
 
         # FIXME That’s oh-so-awful
@@ -678,7 +593,6 @@ module TeX
 
         #  FIXME This should be at package level from the start
         def description
-          puts 'DEBUG languages', languages
           languages.inject('') do |description, language|
              description + if language.description then language.description else '' end
           end
@@ -753,18 +667,12 @@ module TeX
         end
 
         def <=>(other)
-          # puts 'HELLO'
-          # puts name, other.name
-          byebug unless name && other.name
           name <=> other.name
         end
 
-        # FIXME Change later
+        # TODO Spec out
         def self.find(name)
-          # puts @@package_names.keys
-          # puts @@package_names.values.map(&:name)
-          @@package_names[name]
-          @@all_packages[name]
+          packages[name]
         end
       end
     end
