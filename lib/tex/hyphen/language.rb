@@ -533,24 +533,20 @@ module TeX
           @languages.sort
         end
 
-        @@all_packages = nil
         def self.packages
           # a hash with the names of TeX Live packages, either individual language names,
           # or an array of languages as the value
-          unless @@all_packages
-            @@all_packages = Hash.new
-            Language.all.each do |language|
-              # include Language::TeXLive
-              name = language.package || language.babelname
-              package = @@all_packages[name] || Package.new(name) if name
-              if package
-                package.add_language language
-                @@all_packages[name] = package
-              end
+          @@all_packages ||= Language.all.inject(Hash.new) do |all_packages, language|
+            # include Language::TeXLive
+            name = language.package || language.babelname
+            package = all_packages[name] || Package.new(name) if name
+            if package
+              package.add_language language
+              all_packages[name] = package
             end
-          end
 
-          @@all_packages
+            all_packages
+          end
         end
 
         def self.all
