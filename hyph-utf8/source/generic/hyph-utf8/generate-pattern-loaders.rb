@@ -181,7 +181,7 @@ end
 # GROUP nr. 3 - different patterns #
 ####################################
 			# when lanugage uses old patterns for 8-bit engines, load two different patterns rather than using the converter
-			elsif language.use_old_patterns then
+			elsif language.use_old_patterns_comment then
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				# some catcodes for XeTeX

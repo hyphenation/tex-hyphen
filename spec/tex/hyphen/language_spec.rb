@@ -207,6 +207,12 @@ describe Language do
     it "returns the Babel name" do
       expect(Language.new('de-1996').babelname).to eq 'ngerman'
     end
+
+    it "calls #extract_metadata first" do
+      german_CH = Language.new('de-ch-1901')
+      expect(german_CH).to receive :extract_metadata
+      german_CH.babelname
+    end
   end
 
   # describe '#packagename' do
@@ -782,13 +788,17 @@ describe Language do
       end
     end
 
-    describe '#use_old_patterns' do
+    describe '#use_old_patterns_comment' do
       it "returns true if language uses old patterns" do
-        expect(Language.new('de-1996').use_old_patterns).to be_truthy
+        expect(Language.new('de-1996').use_old_patterns_comment).to be_truthy
       end
 
       it "returns nil otherwise" do
-        expect(Language.new('no').use_old_patterns).to be_nil
+        expect(Language.new('no').use_old_patterns_comment).to be_nil
+      end
+
+      it "is a string" do
+        expect(Language.new('cop').use_old_patterns_comment).to be_a String
       end
     end
 

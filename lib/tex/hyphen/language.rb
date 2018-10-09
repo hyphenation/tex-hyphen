@@ -3,8 +3,6 @@ require 'hydra'
 require 'byebug' unless ENV['RACK_ENV'] == "production"
 
 require_relative '../../../hyph-utf8/source/generic/hyph-utf8/author-data'
-require_relative '../../../hyph-utf8/source/generic/hyph-utf8/languages'
-require_relative '../../../hyph-utf8/source/generic/hyph-utf8/language-data'
 
 module PATH
   ROOT = File.expand_path('../../../..', __FILE__)
@@ -86,24 +84,34 @@ module TeX
 
       @@eohmarker = '=' * 42
 
-      # TODO Delete from OldLanguage and language-data.rb: hyphenmin, synonyms, encoding
-      DELEGATE = [:message, :filename_old_patterns, :use_old_loader, :use_old_patterns_comment, :description_l, :name]
-
-      def use_old_patterns
-        use_old_patterns_comment
+      def babelname
+        extract_metadata
+        @babelname
       end
 
-      def description_l
-        description
+      def description
+        extract_metadata
+        @description
       end
 
-      def method_missing(method)
-        if [:message, :legacy_patterns, :use_old_loader, :use_old_patterns_comment, :description, :babelname].include? method
-          extract_metadata
-          instance_variable_get "@#{method}"
-        else
-          raise NoMethodError.new(method)
-        end
+      def use_old_loader
+        extract_metadata
+        @use_old_loader
+      end
+
+      def use_old_patterns_comment
+        extract_metadata
+        @use_old_patterns_comment
+      end
+
+      def legacy_patterns
+        extract_metadata
+        @legacy_patterns
+      end
+
+      def message
+        extract_metadata
+        @message
       end
 
       def initialize(bcp47 = nil)
@@ -122,11 +130,7 @@ module TeX
       def self.all
         @@all ||= languages.map do |bcp47, language|
           next if bcp47 == 'sr-cyrl' # FIXME Remove later
-          if language
-            language
-          else
-            @@languages[bcp47]  = Language.new bcp47
-          end
+          @@languages[bcp47] ||= Language.new(bcp47)
         end.compact
       end
 
@@ -138,17 +142,13 @@ module TeX
         @bcp47.length == 3 and @bcp47[0] == 'q' and ('a'..'t').include? @bcp47[1]
       end
 
-      # This should probably become “macrolanguage name” or something similar
+      # TODO This should probably become “macrolanguage name” or something similar
       # @@displaynames = {
       #   'el' => 'Greek',
       #   'nb' => 'Norwegian',
       #   'nn' => 'Norwegian',
       #   'sh' => 'Serbian',
       # }
-
-      def description_s
-        message
-      end
 
       def licences
         extract_metadata unless @licences
@@ -615,7 +615,7 @@ module TeX
 
           unless has_dependency?
             languages.each do |language|
-              if language.use_old_patterns and language.legacy_patterns != "zerohyph.tex" and language.bcp47 != 'cop'
+              if language.use_old_patterns_comment and language.legacy_patterns != "zerohyph.tex" and language.bcp47 != 'cop'
                 files << sprintf("tex/generic/hyphen/%s", language.legacy_patterns)
               end
             end
