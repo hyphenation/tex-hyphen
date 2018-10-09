@@ -229,12 +229,9 @@ module TeX
       end
 
       def <=>(other)
-        # FIXME Move that to #name
-        a = self.babelname rescue InvalidMetadata
-        a = '' if [nil, InvalidMetadata].include? a
-
-        b = other.babelname rescue InvalidMetadata
-        b = '' if [nil, InvalidMetadata].include? b
+        # TODO Remove when practical
+        a = self.babelname
+        b = other.babelname
 
         if a == 'serbian' && b == 'serbianc'
           return -1
@@ -242,11 +239,7 @@ module TeX
           return 1
         end
 
-        # if a == b
-          self.bcp47 <=> other.bcp47
-        # else
-          # a <=> b || -1
-        # end
+        self.bcp47 <=> other.bcp47
       end
 
       @@texfile = Hash.new
