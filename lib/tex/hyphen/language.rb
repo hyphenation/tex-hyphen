@@ -423,14 +423,13 @@ module TeX
 
         def list_loader
           # which loader to use
-          file = sprintf "file=%s", loadhyph
-          return file unless use_old_loader
-
           if ['ar', 'fa'].include? @bcp47
-            file = file + " \\\n\tfile_patterns="
+            sprintf "file=%s \\\n\tfile_patterns=", loadhyph
           elsif @bcp47 == 'grc-x-ibycus'
             # TODO: fix this
-            file = file + " \\\n\tluaspecial=\"disabled:8-bit only\""
+            sprintf "file=%s \\\n\tluaspecial=\"disabled:8-bit only\"", loadhyph
+          else
+            sprintf "file=%s", loadhyph
           end
         end
 
