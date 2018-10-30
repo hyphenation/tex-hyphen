@@ -253,7 +253,7 @@ module TeX
 
       def patterns
         @patterns ||= if @bcp47 == 'eo' then
-          readtexfile(bcp47).superstrip.
+          readtexfile.superstrip.
             gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
             #
             gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
