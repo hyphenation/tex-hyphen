@@ -252,8 +252,9 @@ module TeX
       end
 
       def patterns
-        @patterns ||= if @bcp47 == 'eo' then
-          readtexfile.superstrip.
+        bcp47 = if ['nb', 'nn'].include? @bcp47 then 'no' else @bcp47 end
+        @patterns ||= if bcp47 == 'eo' then
+          readtexfile(bcp47).superstrip.
             gsub(/.*\\patterns\s*\{(.*)\}.*/m,'\1').
             #
             gsub(/\\adj\{(.*?)\}/m,'\1a. \1aj. \1ajn. \1an. \1e.').
@@ -262,7 +263,7 @@ module TeX
             #
             supersplit
         else
-          readtexfile(if ['nb', 'nn'].include? @bcp47 then 'no' else @bcp47 end).superstrip.
+          readtexfile(bcp47).superstrip.
             gsub(/.*\\patterns\s*\{(.*?)\}.*/m,'\1').
             supersplit
         end
