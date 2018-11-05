@@ -1,3 +1,6 @@
+2018-11-04
+- Changed licence of British English [en-gb] patterns to MIT (commit c76c797)
+
 2018-09-12
 - Introduced structured information at the top of every TeX pattern file, in YAML format (commit 82e5651)
 
