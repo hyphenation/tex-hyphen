@@ -3,7 +3,7 @@
 
 # this file auto-generates tlpsrc files for hyphenation patterns - to be improved
 
-require_relative '../../../../lib/tex/hyphen/language.rb'
+require_relative 'lib/tex/hyphen/language.rb'
 include TeX::Hyphen
 include Language::TeXLive
 include TeXLive
