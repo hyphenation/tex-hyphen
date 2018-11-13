@@ -10,7 +10,8 @@ task :validate do
 end
 
 task :spec do
-  RSpec::Core::RakeTask.new
+  task = RSpec::Core::RakeTask.new
+  task.pattern = File.join(File.expand_path('../hyph-utf8/source/generic/hyph-utf8', __FILE__), RSpec::Core::RakeTask::DEFAULT_PATTERN)
 end
 
 # TODO: Rubocop

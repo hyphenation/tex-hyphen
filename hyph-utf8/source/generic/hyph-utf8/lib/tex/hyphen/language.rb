@@ -5,7 +5,7 @@ require 'byebug' unless ENV['RACK_ENV'] == "production"
 require_relative 'author-data'
 
 module PATH
-  ROOT = File.expand_path('../../../..', __FILE__)
+  ROOT = File.expand_path('../../../../../../../..', __FILE__)
 
   TeXROOT = File.join(ROOT, 'hyph-utf8')
   TeX_GENERIC = File.join(TeXROOT, 'tex', 'generic')
