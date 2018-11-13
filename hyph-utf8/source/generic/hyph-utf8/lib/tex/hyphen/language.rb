@@ -2,7 +2,7 @@ require 'yaml'
 require 'hydra'
 require 'byebug' unless ENV['RACK_ENV'] == "production"
 
-require_relative '../../../hyph-utf8/source/generic/hyph-utf8/author-data'
+require_relative 'author-data'
 
 module PATH
   ROOT = File.expand_path('../../../..', __FILE__)
