@@ -166,7 +166,7 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				file.puts(text_patterns)
-				file.puts(text_patterns_quote)
+				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				file.puts(text_patterns)
@@ -189,16 +189,14 @@ end
 					file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
 				end
 				file.puts(text_patterns)
-				if language.bcp47 == 'uk' then
-					file.puts(text_patterns_quote)
-				end
+				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				# explain why we are still using the old patterns
-				if language.use_old_patterns_comment != nil then
+				if language.use_old_patterns_comment
 					file.puts("    % #{language.use_old_patterns_comment}")
 				else
-					puts "Missing comment for #{language.name}"
+					raise "Missing comment for #{language.name}"
 					file.puts('    % we still load old patterns for 8-bit TeX')
 				end
 				file.puts(text_patterns_old)
@@ -218,9 +216,7 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				file.puts(text_patterns_utf8)
-				if language.has_apostrophes?
-					file.puts(text_patterns_quote)
-				end
+				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				if ['la-x-liturgic'].include?(language.bcp47) then
