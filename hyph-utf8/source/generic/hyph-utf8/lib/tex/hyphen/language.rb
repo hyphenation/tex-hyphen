@@ -119,6 +119,14 @@ module TeX
         ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include? @bcp47
       end
 
+      def lcchars
+        case @bcp47 == 'mul-ethi'
+        when 'cu'
+        when 'sa'
+        else
+          if @bcp == 'lo'
+      end
+
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
       end

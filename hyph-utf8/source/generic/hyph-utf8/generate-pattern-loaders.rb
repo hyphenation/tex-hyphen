@@ -200,7 +200,7 @@ end
 				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
-				if ['la-x-liturgic'].include?(language.bcp47) then
+				if language.bcp47 == 'la-x-liturgic'
 					file.puts(text_patterns_ptex)
 				else
 					file.puts(text_patterns_conv)
