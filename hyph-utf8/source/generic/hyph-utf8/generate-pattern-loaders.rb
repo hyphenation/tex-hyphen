@@ -119,29 +119,12 @@ end
 				file.puts(text_engine_utf8)
 				# lccodes
 				lcchars = language.lcchars
-				if language.bcp47 == 'mul-ethi' then
-					file.printf "    %% %s\n", lcchars.delete(:comment)
-					lcchars.each do |code, comment|
-						file.print '    '
-						file.printf '\lccode"%04X="%04X', code, code
-						file.printf ' %% %s', comment if comment
-						file.puts
-					end
-				elsif language.bcp47 == "cu" then
-					file.puts('    % fix lccodes for some characters (they were recently included in Unicode)')
-					file.puts('    \lccode"1C82="1C82 % sharp o in lowercase "uk"')
-					['1DF6', '1DF7', '1DF8', '1DF9', 'A69E', '1C86', 'A67E', 'FE2E', 'FE2F'].each do |l|
-						file.puts("    \\lccode\"#{l}=\"#{l}")
-					end
-				else
-					file.puts('    % Set \lccode for ZWNJ and ZWJ.')
-					file.puts('    \lccode"200C="200C')
-					file.puts('    \lccode"200D="200D')
-					if language.bcp47 == 'sa' then
-						file.puts('    % Set \lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.')
-						file.puts('    \lccode"0CF1="0CF1')
-						file.puts('    \lccode"0CF2="0CF2')
-					end
+				file.printf "    %% %s\n", lcchars.delete(:comment)
+				lcchars.each do |code, comment|
+					file.print '    '
+					file.printf '\lccode"%04X="%04X', code, code
+					file.printf ' %% %s', comment if comment
+					file.puts
 				end
 				file.puts(text_patterns)
 				file.puts('\else')

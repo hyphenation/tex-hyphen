@@ -130,11 +130,33 @@ module TeX
             0x1362 => false,
           }
         when 'cu'
-          { }
+          {
+            comment: 'fix lccodes for some characters (they were recently included in Unicode)',
+            0x1C82 => 'sharp o in lowercase "uk"',
+            0x1DF6 => false,
+            0x1DF7 => false,
+            0x1DF8 => false,
+            0x1DF9 => false,
+            0xA69E => false,
+            0x1C86 => false,
+            0xA67E => false,
+            0xFE2E => false,
+            0xFE2F => false,
+          }
         when 'sa'
-          { }
+          {
+            comment: 'Set \lccode for ZWNJ and ZWJ.',
+            0x200C => false,
+            0x200D => "\n    % Set \\lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.",
+            0x0CF1 => false,
+            0x0CF2 => false,
+          }
         else
-          { }
+          {
+            comment: 'Set \lccode for ZWNJ and ZWJ.',
+            0x200C => false,
+            0x200D => false,
+          }
         end
       end
 
