@@ -120,11 +120,21 @@ module TeX
       end
 
       def lcchars
+        return { } unless unicode_only?
+
         case @bcp47
         when 'mul-ethi'
+          {
+            comment: 'Set \lccode for Ethiopian word space.',
+            0x1361 => false,
+            0x1362 => false,
+          }
         when 'cu'
+          { }
         when 'sa'
+          { }
         else
+          { }
         end
       end
 

@@ -118,10 +118,15 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				# lccodes
+				lcchars = language.lcchars
 				if language.bcp47 == 'mul-ethi' then
-					file.puts('    % Set \lccode for Ethiopian word space.')
-					file.puts('    \lccode"1361="1361')
-					file.puts('    \lccode"1362="1362')
+					file.printf "    %% %s\n", lcchars.delete(:comment)
+					lcchars.each do |code, comment|
+						file.print '    '
+						file.printf '\lccode"%04X="%04X', code, code
+						file.printf ' %% %s', comment if comment
+						file.puts
+					end
 				elsif language.bcp47 == "cu" then
 					file.puts('    % fix lccodes for some characters (they were recently included in Unicode)')
 					file.puts('    \lccode"1C82="1C82 % sharp o in lowercase "uk"')
