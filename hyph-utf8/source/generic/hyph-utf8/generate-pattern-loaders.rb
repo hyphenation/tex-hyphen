@@ -7,13 +7,6 @@ require_relative 'lib/tex/hyphen/language.rb'
 include TeX::Hyphen
 include Language::TeXLive
 
-$package_name="hyph-utf8"
-
-# TODO - make this a bit less hard-coded
-$path_tex_generic=File.expand_path("../../../../tex/generic", __FILE__)
-$path_loadhyph="#{$path_tex_generic}/#{$package_name}/loadhyph"
-
-# TODO: should be singleton
 languages = Language.all
 
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
@@ -102,10 +95,9 @@ if ['sh-latn', 'sh-cyrl'].include?(language.bcp47) then
 end
 
 	next if language.use_old_loader
-
-		filename = sprintf '%s/%s', $path_loadhyph, language.loadhyph
 		print language.bcp47, ' '
 
+		filename = File.join(PATH::LOADER, language.loadhyph)
 		File.open(filename, "w") do |file|
 			# puts language.bcp47
 			file.puts text_header

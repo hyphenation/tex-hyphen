@@ -14,6 +14,7 @@ module PATH
   TEX = File.join(PAT, 'tex')
   PTEX = File.join(PAT, 'ptex')
   QUOTE = File.join(PAT, 'quote')
+  LOADER = File.join(TeX_GENERIC, 'hyph-utf8', 'loadhyph')
 
   SUPPORT = File.join(TeXROOT, '%s', 'generic', 'hyph-utf8', 'languages', '*')
 
