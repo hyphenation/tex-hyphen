@@ -120,6 +120,8 @@ module TeX
       end
 
       def lcchars
+        return { } if @bcp == 'lo'
+
         case @bcp47 == 'mul-ethi'
         when 'cu'
         when 'sa'
