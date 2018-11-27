@@ -38,7 +38,7 @@ text_header =
 %     source/generic/hyph-utf8/generate-pattern-loaders.rb
 % See also http://tug.org/tex-hyphen
 %
-% Copyright 2008-2016 TeX Users Group.
+% Copyright 2008-#{Time.now.year} TeX Users Group.
 % You may freely use, modify and/or distribute this file.
 % (But consider adapting the scripts if you need modifications.)
 %
