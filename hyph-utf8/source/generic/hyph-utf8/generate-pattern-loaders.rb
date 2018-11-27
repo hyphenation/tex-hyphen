@@ -103,13 +103,7 @@ end
 
 	next if language.use_old_loader
 
-		if language.bcp47 == 'sh-latn' then
-			filename = "#{$path_loadhyph}/loadhyph-sr-latn.tex"
-		elsif language.bcp47 == 'sh-cyrl' then
-			filename = "#{$path_loadhyph}/loadhyph-sr-cyrl.tex"
-		else
-			filename = "#{$path_loadhyph}/loadhyph-#{language.bcp47}.tex"
-		end
+		filename = sprintf '%s/%s', $path_loadhyph, language.loadhyph
 		print language.bcp47, ' '
 
 		File.open(filename, "w") do |file|
