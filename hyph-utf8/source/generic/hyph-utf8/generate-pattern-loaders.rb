@@ -128,7 +128,7 @@ end
 					['1DF6', '1DF7', '1DF8', '1DF9', 'A69E', '1C86', 'A67E', 'FE2E', 'FE2F'].each do |l|
 						file.puts("    \\lccode\"#{l}=\"#{l}")
 					end
-				elsif language.bcp47 != 'lo' then
+				else
 					file.puts('    % Set \lccode for ZWNJ and ZWJ.')
 					file.puts('    \lccode"200C="200C')
 					file.puts('    \lccode"200D="200D')

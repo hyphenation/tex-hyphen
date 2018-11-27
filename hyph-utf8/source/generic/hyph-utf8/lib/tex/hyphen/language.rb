@@ -120,13 +120,12 @@ module TeX
       end
 
       def lcchars
-        return { } if @bcp == 'lo'
-
-        case @bcp47 == 'mul-ethi'
+        case @bcp47
+        when 'mul-ethi'
         when 'cu'
         when 'sa'
         else
-          if @bcp == 'lo'
+        end
       end
 
       def initialize(bcp47 = nil)
