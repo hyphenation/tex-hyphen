@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-# this file auto-generates loaders for hyphenation patterns - to be improved
+# this file auto-generates loaders for hyphenation patterns - to be improved # No shit, Sherlock -- AR 2018-11-27
 
 require_relative 'lib/tex/hyphen/language.rb'
 include TeX::Hyphen
@@ -128,7 +128,7 @@ end
 			#
 			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
 			# TODO - maybe consider doing something similar for ibycus
-			if ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include?(language.bcp47) then
+			if language.unicode_only?
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				# lccodes
@@ -193,12 +193,7 @@ end
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				# explain why we are still using the old patterns
-				if language.use_old_patterns_comment
-					file.puts("    % #{language.use_old_patterns_comment}")
-				else
-					raise "Missing comment for #{language.name}"
-					file.puts('    % we still load old patterns for 8-bit TeX')
-				end
+				file.puts("    % #{language.use_old_patterns_comment}")
 				file.puts(text_patterns_old)
 				file.puts('\fi\else')
 				file.puts(text_engine_ptex)

@@ -114,6 +114,10 @@ module TeX
         @message
       end
 
+			def unicode_only? # TODO Spec out
+			  ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include? @bcp47
+			end
+
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
       end
