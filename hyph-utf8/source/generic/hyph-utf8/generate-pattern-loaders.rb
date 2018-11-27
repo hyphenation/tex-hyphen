@@ -185,7 +185,7 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				# some catcodes for XeTeX
-				if language.bcp47 == 'grc' or language.bcp47.slice(0,2) == 'el' then
+				if language.isgreek?
 					file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
 				end
 				file.puts(text_patterns)
