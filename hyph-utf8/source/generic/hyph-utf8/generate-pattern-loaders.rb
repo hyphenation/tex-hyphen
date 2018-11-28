@@ -49,9 +49,6 @@ text_engine_8bit    = ["    #{comment_engine_8bit}",
                        "    \\message{#{string_enc}#{language.message}}"]
 text_engine_ptex    = ["    #{comment_engine_ptex}",
                        "    \\message{#{string_enc}#{language.message}}"]
-text_engine_8bit_no = ["    #{comment_engine_8bit}",
-                       "    \\message{No #{language.message} - only for Unicode engines}",
-                       "    %\\input zerohyph.tex"]
 text_engine_ptex_no = ["    #{comment_engine_ptex}",
                        "    \\message{No #{language.message} - only for Unicode engines}",
                        "    %\\input zerohyph.tex"]
@@ -94,7 +91,7 @@ end
 			if language.unicode_only?
 				language.print_stuff(file, true)
 				file.puts('\else')
-				file.puts(text_engine_8bit_no)
+				language.print_stuff(file, false)
 				file.puts('\fi\else')
 				file.puts(text_engine_ptex_no)
 				file.puts('\fi')
