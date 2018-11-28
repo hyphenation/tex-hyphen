@@ -185,8 +185,9 @@ module TeX
 
       def print_engine_message(file, engine = '8-bit')
         unless engine == 'UTF-8'
-          file.puts "    % #{if engine == 'pTeX' then engine else }"
-          8-bit engine (such as TeX or pdfTeX)'
+          file.print "    % #{engine}"
+          file.print ' engine (such as TeX or pdfTeX)' if engine == '8-bit'
+          file.puts
           if unicode_only?
             file.puts "    \\message{No #{message} - only for Unicode engines}"
             file.puts "    %\\input zerohyph.tex"
