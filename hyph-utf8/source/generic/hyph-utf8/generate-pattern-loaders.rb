@@ -41,9 +41,7 @@ text_header =
 text_engine_ascii   = ["% ASCII patterns - no additional support is needed",
                        "\\message{ASCII #{language.message}}",
                        "\\input hyph-#{language.bcp47}.tex"]
-text_patterns_ptex  =  "    \\input hyph-#{language.bcp47}.#{language.encoding}.tex"
 text_patterns_old   =  "    \\input #{language.legacy_patterns}"
-text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
 
 ###########
 # lccodes #
@@ -113,11 +111,7 @@ end
 				file.puts('\fi\else')
 				language.print_engine_message(file, 'pTeX')
 				# greek, coptic
-				if language.encoding == nil then
-					file.puts(text_patterns_old)
-				else
-					file.puts(text_patterns_ptex)
-				end
+				language.print_input_line(file, 'pTeX')
 				file.puts('\fi')
 #########################
 # GROUP nr. 4 - regular #
@@ -126,15 +120,11 @@ end
 				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
 				language.print_engine_message(file, '8-bit')
-				if language.bcp47 == 'la-x-liturgic'
-					file.puts(text_patterns_ptex)
-				else
-					file.puts(text_patterns_conv)
-					language.print_input_line(file)
-				end
+				language.print_input_line(file, '8-bit')
+				language.print_input_line(file)
 				file.puts('\fi\else')
 				language.print_engine_message(file, 'pTeX')
-				file.puts(text_patterns_ptex)
+				language.print_input_line(file, 'pTeX')
 				file.puts('\fi')
 			end
 #######

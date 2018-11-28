@@ -221,12 +221,18 @@ module TeX
       end
 
       def print_input_line(file, engine = '8-bit')
+        if engine == '8-bit'
+          if @bcp47 == 'la-x-liturgic'
+            file.puts "    \\input #{pTeX_patterns}"
+            return
+          else
+            file.puts "    \\input conv-utf8-#{encoding}.tex" # It then proceeds to the end FIXME Awful!
+          end
+        end
+
         if engine == 'pTeX'
           if use_old_patterns_comment
-            if language.encoding
-              file.puts "    \\input #{pTeX_patterns}"
-            else
-            end
+            file.puts "    \\input #{pTeX_patterns}"
           end
           return
         end
@@ -570,7 +576,11 @@ module TeX
         end
 
         def pTeX_patterns
-          sprintf 'hyph-%s.%s.tex', @bcp47, encoding
+          if encoding
+            sprintf 'hyph-%s.%s.tex', @bcp47, encoding
+          else
+            legacy_patterns
+          end
         end
 
         def list_loader
