@@ -116,7 +116,7 @@ end
 				# lccodes
 				language.print_lcchars(file)
 				file.puts(text_patterns_quote) if language.has_apostrophes?
-				language.print_input_line(file)
+				language.print_input_line(file, true)
 				file.puts('\else')
 				file.puts(text_engine_8bit_no)
 				file.puts('\fi\else')
@@ -130,7 +130,7 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				language.print_lcchars(file)
-				language.print_input_line(file)
+				language.print_input_line(file, true)
 				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
@@ -150,7 +150,7 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				language.print_lcchars(file)
-				language.print_input_line(file)
+				language.print_input_line(file, true)
 				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
