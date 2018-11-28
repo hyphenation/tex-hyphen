@@ -225,6 +225,11 @@ module TeX
           if @bcp47 == 'la-x-liturgic'
             file.puts "    \\input #{pTeX_patterns}"
             return
+          elsif use_old_patterns_comment
+            # explain why we are still using the old patterns
+            file.puts "    % #{use_old_patterns_comment}"
+            file.puts "    \\input #{legacy_patterns}"
+            return
           elsif !['it', 'pms', 'rm'].include?(@bcp47)
             file.puts "    \\input conv-utf8-#{encoding}.tex" # It then proceeds to the end FIXME Awful!
           end

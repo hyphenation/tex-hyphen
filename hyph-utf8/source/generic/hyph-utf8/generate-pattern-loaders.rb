@@ -41,7 +41,6 @@ text_header =
 text_engine_ascii   = ["% ASCII patterns - no additional support is needed",
                        "\\message{ASCII #{language.message}}",
                        "\\input hyph-#{language.bcp47}.tex"]
-text_patterns_old   =  "    \\input #{language.legacy_patterns}"
 
 ###########
 # lccodes #
@@ -105,13 +104,10 @@ end
 				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
 				language.print_engine_message(file, '8-bit')
-				# explain why we are still using the old patterns
-				file.puts("    % #{language.use_old_patterns_comment}")
-				file.puts(text_patterns_old)
+				language.print_input_line(file, '8-bit')
 				file.puts('\fi\else')
-				language.print_engine_message(file, 'pTeX')
 				# greek, coptic
-				language.print_input_line(file, 'pTeX')
+				language.print_stuff(file, 'pTeX')
 				file.puts('\fi')
 #########################
 # GROUP nr. 4 - regular #
@@ -119,11 +115,9 @@ end
 			else
 				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
-				language.print_engine_message(file, '8-bit')
-				language.print_input_line(file, '8-bit')
+				language.print_stuff(file, '8-bit')
 				file.puts('\fi\else')
-				language.print_engine_message(file, 'pTeX')
-				language.print_input_line(file, 'pTeX')
+				language.print_stuff(file, 'pTeX')
 				file.puts('\fi')
 			end
 #######
