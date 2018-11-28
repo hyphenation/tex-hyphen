@@ -216,6 +216,8 @@ module TeX
           elsif !italic?
             file.puts "    \\input conv-utf8-#{encoding}.tex" # It then proceeds to the end FIXME Awful!
             file.puts "    \\input hyph-#{@bcp47}.tex"
+          else
+            file.puts "    \\input hyph-#{@bcp47}.tex"
           end
         elsif engine == 'pTeX'
           file.puts "    \\input #{pTeX_patterns}"
