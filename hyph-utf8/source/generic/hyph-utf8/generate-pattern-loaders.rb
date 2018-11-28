@@ -38,14 +38,11 @@ text_header =
 % these lines may be moved to a separate file.
 %"
 
-comment_engine_8bit = "% 8-bit engine (such as TeX or pdfTeX)"
 comment_engine_ptex = "% pTeX"
 
 text_engine_ascii   = ["% ASCII patterns - no additional support is needed",
                        "\\message{ASCII #{language.message}}",
                        "\\input hyph-#{language.bcp47}.tex"]
-text_engine_8bit    = ["    #{comment_engine_8bit}",
-                       "    \\message{#{language.string_enc}#{language.message}}"]
 text_engine_ptex    = ["    #{comment_engine_ptex}",
                        "    \\message{#{language.string_enc}#{language.message}}"]
 text_patterns_ptex  =  "    \\input hyph-#{language.bcp47}.#{language.encoding}.tex"
@@ -98,7 +95,7 @@ end
 			elsif ['it', 'pms', 'rm'].include?(language.bcp47)
 				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
-				file.puts(text_engine_8bit)
+				language.print_engine_message(file, '8-bit')
 				language.print_input_line(file)
 				file.puts('\fi\else')
 				file.puts(text_engine_ptex)
@@ -114,7 +111,7 @@ end
 			elsif language.use_old_patterns_comment then
 				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
-				file.puts(text_engine_8bit)
+				language.print_engine_message(file, '8-bit')
 				# explain why we are still using the old patterns
 				file.puts("    % #{language.use_old_patterns_comment}")
 				file.puts(text_patterns_old)
@@ -133,7 +130,7 @@ end
 			else
 				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
-				file.puts(text_engine_8bit)
+				language.print_engine_message(file, '8-bit')
 				if language.bcp47 == 'la-x-liturgic'
 					file.puts(text_patterns_ptex)
 				else

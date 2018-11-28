@@ -184,7 +184,6 @@ module TeX
       end
 
       def print_engine_message(file, engine = '8-bit')
-        comment = '% 8-bit engine (such as TeX or pdfTeX)' # FIXME Remove!
         if engine == 'pTeX'
           file.puts "    % pTeX"
           file.puts "    \\message{No #{message} - only for Unicode engines}"
@@ -192,10 +191,16 @@ module TeX
           return
         end
 
-        if unicode_only? && engine == '8-bit'
-          file.puts "    #{comment}"
-          file.puts "    \\message{No #{message} - only for Unicode engines}"
-          file.puts "    %\\input zerohyph.tex"
+        if engine == '8-bit'
+          comment = '% 8-bit engine (such as TeX or pdfTeX)'
+          if unicode_only?
+            file.puts "    #{comment}"
+            file.puts "    \\message{No #{message} - only for Unicode engines}"
+            file.puts "    %\\input zerohyph.tex"
+          else
+            file.puts "    #{comment}"
+            file.puts "    \\message{#{string_enc}#{message}}"
+          end
           return
         end
 
