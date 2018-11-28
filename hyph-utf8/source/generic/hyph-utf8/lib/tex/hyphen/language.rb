@@ -192,10 +192,7 @@ module TeX
           else
             file.puts "    \\message{#{string_enc}#{message}}"
           end
-          return
-        end
-
-        if engine == '8-bit'
+        elsif engine == '8-bit'
           file.puts '    % 8-bit engine (such as TeX or pdfTeX)'
           if unicode_only?
             file.puts "    \\message{No #{message} - only for Unicode engines}"
@@ -203,15 +200,14 @@ module TeX
           else
             file.puts "    \\message{#{string_enc}#{message}}"
           end
-          return
-        end
-
-        file.puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
-        if engine == 'UTF-8' && serbian?
-          file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
-          file.puts "    % We load both scripts at the same time to simplify usage"
-        else
-          file.puts "    \\message{UTF-8 #{message}}"
+        elsif engine == 'UTF-8'
+          file.puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
+          if serbian?
+            file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
+            file.puts "    % We load both scripts at the same time to simplify usage"
+          else
+            file.puts "    \\message{UTF-8 #{message}}"
+          end
         end
       end
 
