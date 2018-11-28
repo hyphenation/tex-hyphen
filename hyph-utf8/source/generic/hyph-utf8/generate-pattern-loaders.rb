@@ -44,24 +44,24 @@ text_header =
 
 lccodes_common = []
 if language.has_apostrophes? then
-	lccodes_common.push("\\lccode`\\'=`\\'")
+  lccodes_common.push("\\lccode`\\'=`\\'")
 end
 if language.has_hyphens? then
-	lccodes_common.push("\\lccode`\\-=`\\-")
+  lccodes_common.push("\\lccode`\\-=`\\-")
 end
 
-	next if language.use_old_loader
-		print language.bcp47, ' '
+  next if language.use_old_loader
+    print language.bcp47, ' '
 
-		filename = File.join(PATH::LOADER, language.loadhyph)
-		File.open(filename, "w") do |file|
-			# puts language.bcp47
-			file.puts text_header
-			file.puts('\begingroup')
+    filename = File.join(PATH::LOADER, language.loadhyph)
+    File.open(filename, "w") do |file|
+      # puts language.bcp47
+      file.puts text_header
+      file.puts('\begingroup')
 
-			if lccodes_common.length > 0 then
-				file.puts lccodes_common.join("\n")
-			end
+      if lccodes_common.length > 0 then
+        file.puts lccodes_common.join("\n")
+      end
 
 # for ASCII encoding, we don't load any special support files, but simply load everything
 if language.encoding == 'ascii' && !language.italic?
@@ -75,10 +75,10 @@ end
 ########################################
 # GROUP nr. 1 - ONLY USABLE WITH UTF-8 #
 ########################################
-			# some special cases first
-			#
-			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
-			# TODO - maybe consider doing something similar for ibycus
+      # some special cases first
+      #
+      # some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
+      # TODO - maybe consider doing something similar for ibycus
 
 #######################
 # GROUP nr. 2 - ASCII #
@@ -87,16 +87,16 @@ end
 ####################################
 # GROUP nr. 3 - different patterns #
 ####################################
-			# when lanugage uses old patterns for 8-bit engines, load two different patterns rather than using the converter
-				# greek, coptic
+      # when lanugage uses old patterns for 8-bit engines, load two different patterns rather than using the converter
+        # greek, coptic
 #########################
 # GROUP nr. 4 - regular #
 #########################
 #######
 # end #
 #######
-			file.puts('\endgroup')
-		end
+      file.puts('\endgroup')
+    end
 end
 
 puts

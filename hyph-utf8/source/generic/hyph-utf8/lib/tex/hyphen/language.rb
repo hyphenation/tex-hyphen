@@ -267,12 +267,12 @@ module TeX
       end
 
       def output_loader(file)
-				print_chunk(file, 'UTF-8')
-				file.puts('\else')
-				print_chunk(file, '8-bit')
-				file.puts('\fi\else')
-				print_chunk(file, 'pTeX')
-				file.puts('\fi')
+        print_chunk(file, 'UTF-8')
+        file.puts('\else')
+        print_chunk(file, '8-bit')
+        file.puts('\fi\else')
+        print_chunk(file, 'pTeX')
+        file.puts('\fi')
       end
 
       def initialize(bcp47 = nil)
