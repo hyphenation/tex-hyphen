@@ -181,7 +181,14 @@ module TeX
 
       def print_engine_message(file, utf8 = false)
         comment = '% 8-bit engine (such as TeX or pdfTeX)' # FIXME Remove!
-        if unicode_only? && utf8 == false
+        if utf8 == 'pTeX'
+          file.puts "    % pTeX"
+          file.puts "    \\message{No #{message} - only for Unicode engines}"
+          file.puts "    %\\input zerohyph.tex"
+          return
+        end
+
+        if unicode_only? && !utf8
           file.puts "    #{comment}"
           file.puts "    \\message{No #{message} - only for Unicode engines}"
           file.puts "    %\\input zerohyph.tex"
@@ -219,11 +226,11 @@ module TeX
 
         text_patterns_quote =  "    \\input hyph-quote-#{bcp47}.tex"
 
-        file.puts(text_if_native_utf) if utf8
+        file.puts(text_if_native_utf) if utf8 == true
         print_engine_message(file, utf8)
         # lccodes
-        print_lcchars(file) if utf8
-        print_input_line(file, utf8) unless unicode_only? && !utf8
+        print_lcchars(file) if utf8 == true
+        print_input_line(file, utf8) unless unicode_only? && utf8 != true
         file.puts(text_patterns_quote) if has_apostrophes?
       end
 
