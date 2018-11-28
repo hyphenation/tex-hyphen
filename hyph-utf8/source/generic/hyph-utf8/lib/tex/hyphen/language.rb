@@ -206,7 +206,7 @@ module TeX
           return
         end
 
-        puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
+        file.puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
         if engine == 'UTF-8' && serbian?
           file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
           file.puts "    % We load both scripts at the same time to simplify usage"

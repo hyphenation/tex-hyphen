@@ -19,6 +19,7 @@
 % That's Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
+    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
     \message{UTF-8 Norwegian Nynorsk hyphenation patterns}
     \input hyph-nn.tex
 \else
