@@ -115,6 +115,7 @@ end
 				file.puts(text_engine_utf8)
 				# lccodes
 				language.print_lcchars(file)
+				file.puts(text_patterns_quote) if language.has_apostrophes?
 				language.print_input_line(file)
 				file.puts('\else')
 				file.puts(text_engine_8bit_no)
