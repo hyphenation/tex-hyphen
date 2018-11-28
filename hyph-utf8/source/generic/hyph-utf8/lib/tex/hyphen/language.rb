@@ -173,12 +173,12 @@ module TeX
         end
       end
 
-      def print_input_line(utf8 = true)
-        if serbian?
-          ["    \\input hyph-sh-latn.tex",
-           "    \\input hyph-sh-cyrl.tex"]
+      def print_input_line(file, utf8 = true)
+        if utf8 && serbian?
+          file.puts "    \\input hyph-sh-latn.tex"
+          file.puts "    \\input hyph-sh-cyrl.tex"
         else
-          "    \\input hyph-#{language.bcp47}.tex"
+          file.puts "    \\input hyph-#{@bcp47}.tex"
         end
       end
 
