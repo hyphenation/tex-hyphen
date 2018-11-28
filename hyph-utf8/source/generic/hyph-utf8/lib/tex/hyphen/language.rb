@@ -211,7 +211,7 @@ module TeX
 
         text_patterns_quote =  "    \\input hyph-quote-#{bcp47}.tex"
 
-        file.puts(text_if_native_utf)
+        file.puts(text_if_native_utf) if utf8
         print_engine_message(file, true)
         # lccodes
         print_lcchars(file)
