@@ -38,10 +38,6 @@ text_header =
 % these lines may be moved to a separate file.
 %"
 
-text_engine_ascii   = ["% ASCII patterns - no additional support is needed",
-                       "\\message{ASCII #{language.message}}",
-                       "\\input hyph-#{language.bcp47}.tex"]
-
 ###########
 # lccodes #
 ###########
@@ -67,6 +63,15 @@ end
 				file.puts lccodes_common.join("\n")
 			end
 
+# for ASCII encoding, we don't load any special support files, but simply load everything
+if language.encoding == 'ascii' && !italic!
+  file.puts "% ASCII patterns - no additional support is needed"
+  file.puts "\\message{ASCII #{language.message}}"
+  file.puts "\\input hyph-#{language.bcp47}.tex"
+else
+  language.output_loader(file)
+end
+
 ########################################
 # GROUP nr. 1 - ONLY USABLE WITH UTF-8 #
 ########################################
@@ -74,50 +79,19 @@ end
 			#
 			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
 			# TODO - maybe consider doing something similar for ibycus
-			if language.unicode_only?
-				language.print_stuff(file, 'UTF-8')
-				file.puts('\else')
-				language.print_stuff(file, '8-bit')
-				file.puts('\fi\else')
-				language.print_stuff(file, 'pTeX')
-				file.puts('\fi')
 
 #######################
 # GROUP nr. 2 - ASCII #
 #######################
-			elsif ['it', 'pms', 'rm'].include?(language.bcp47)
-				language.print_stuff(file, 'UTF-8')
-				file.puts('\else')
-				language.print_stuff(file, '8-bit')
-				file.puts('\fi\else')
-				language.print_stuff(file, 'pTeX')
-				file.puts('\fi')
-			# for ASCII encoding, we don't load any special support files, but simply load everything
-			elsif language.encoding == 'ascii' then
-				file.puts(text_engine_ascii)
+
 ####################################
 # GROUP nr. 3 - different patterns #
 ####################################
 			# when lanugage uses old patterns for 8-bit engines, load two different patterns rather than using the converter
-			elsif language.use_old_patterns_comment then
-				language.print_stuff(file, 'UTF-8')
-				file.puts('\else')
-				language.print_stuff(file, '8-bit')
-				file.puts('\fi\else')
 				# greek, coptic
-				language.print_stuff(file, 'pTeX')
-				file.puts('\fi')
 #########################
 # GROUP nr. 4 - regular #
 #########################
-			else
-				language.print_stuff(file, 'UTF-8')
-				file.puts('\else')
-				language.print_stuff(file, '8-bit')
-				file.puts('\fi\else')
-				language.print_stuff(file, 'pTeX')
-				file.puts('\fi')
-			end
 #######
 # end #
 #######
