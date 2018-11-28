@@ -173,6 +173,15 @@ module TeX
         end
       end
 
+      def print_input_line(utf8 = true)
+        if serbian?
+          ["    \\input hyph-sh-latn.tex",
+           "    \\input hyph-sh-cyrl.tex"]
+        else
+          "    \\input hyph-#{language.bcp47}.tex"
+        end
+      end
+
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
       end
@@ -228,6 +237,10 @@ module TeX
       # But useful for a number of apostrophe-related routines
       def isgreek?
         ['grc', 'el-polyton', 'el-monoton'].include? @bcp47
+      end
+
+      def serbian?
+        @bcp47 =~ /^sh-/
       end
 
       def has_apostrophes?

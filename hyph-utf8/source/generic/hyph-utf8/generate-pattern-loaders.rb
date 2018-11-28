@@ -66,11 +66,9 @@ text_engine_8bit_no = ["    #{comment_engine_8bit}",
 text_engine_ptex_no = ["    #{comment_engine_ptex}",
                        "    \\message{No #{language.message} - only for Unicode engines}",
                        "    %\\input zerohyph.tex"]
-text_patterns       =  "    \\input hyph-#{language.bcp47}.tex"
 text_patterns_ptex  =  "    \\input hyph-#{language.bcp47}.#{language.encoding}.tex"
 text_patterns_old   =  "    \\input #{language.legacy_patterns}"
 text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
-text_patterns_utf8  =  text_patterns
 
 text_patterns_quote =  "    \\input hyph-quote-#{language.bcp47}.tex"
 
@@ -87,8 +85,6 @@ if language.has_hyphens? then
 end
 
 if ['sh-latn', 'sh-cyrl'].include?(language.bcp47) then
-	text_patterns_utf8 = ["    \\input hyph-sh-latn.tex",
-	                      "    \\input hyph-sh-cyrl.tex"]
 	text_engine_utf8   = ["    #{comment_engine_utf8}",
 	                      "    \\message{UTF-8 Serbian hyphenation patterns}",
 	                      "    % We load both scripts at the same time to simplify usage"]
@@ -132,6 +128,7 @@ end
 			elsif ['it', 'pms', 'rm'].include?(language.bcp47)
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
+				language.print_lcchars(file)
 				file.puts(text_patterns)
 				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
@@ -155,6 +152,7 @@ end
 				if language.isgreek?
 					file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
 				end
+				language.print_lcchars(file)
 				file.puts(text_patterns)
 				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
@@ -177,7 +175,7 @@ end
 			else
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
-				file.puts(text_patterns_utf8)
+				file.puts(language.print_input_line(true))
 				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
