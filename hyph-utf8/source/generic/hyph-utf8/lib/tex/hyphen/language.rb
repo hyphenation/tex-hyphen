@@ -231,7 +231,11 @@ module TeX
         end
 
         if engine == 'pTeX'
-          file.puts "    \\input #{pTeX_patterns}"
+          if italic?
+            file.printf "    \\input hyph-%s.tex\n", @bcp47
+          else
+            file.puts "    \\input #{pTeX_patterns}"
+          end
           return
         end
 

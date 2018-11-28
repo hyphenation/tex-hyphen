@@ -90,8 +90,7 @@ end
 				file.puts('\else')
 				language.print_stuff(file, '8-bit')
 				file.puts('\fi\else')
-				language.print_engine_message(file, 'pTeX')
-				language.print_input_line(file)
+				language.print_stuff(file, 'pTeX')
 				file.puts('\fi')
 			# for ASCII encoding, we don't load any special support files, but simply load everything
 			elsif language.encoding == 'ascii' then
