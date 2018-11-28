@@ -102,8 +102,7 @@ end
 			elsif language.use_old_patterns_comment then
 				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
-				language.print_engine_message(file, '8-bit')
-				language.print_input_line(file, '8-bit')
+				language.print_stuff(file, '8-bit')
 				file.puts('\fi\else')
 				# greek, coptic
 				language.print_stuff(file, 'pTeX')
