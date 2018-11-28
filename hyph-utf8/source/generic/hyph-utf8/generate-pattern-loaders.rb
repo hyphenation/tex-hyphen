@@ -115,7 +115,7 @@ end
 				file.puts(text_engine_utf8)
 				# lccodes
 				language.print_lcchars(file)
-				language.print_input_line(file, false)
+				language.print_input_line(file)
 				file.puts('\else')
 				file.puts(text_engine_8bit_no)
 				file.puts('\fi\else')
@@ -129,14 +129,14 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				language.print_lcchars(file)
-				language.print_input_line(file, false)
+				language.print_input_line(file)
 				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
-				language.print_input_line(file, false)
+				language.print_input_line(file)
 				file.puts('\fi\else')
 				file.puts(text_engine_ptex)
-				language.print_input_line(file, false)
+				language.print_input_line(file)
 				file.puts('\fi')
 			# for ASCII encoding, we don't load any special support files, but simply load everything
 			elsif language.encoding == 'ascii' then
@@ -153,7 +153,7 @@ end
 					file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
 				end
 				language.print_lcchars(file)
-				language.print_input_line(file, false)
+				language.print_input_line(file)
 				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
@@ -175,7 +175,7 @@ end
 			else
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
-				language.print_input_line(file)
+				language.print_input_line(file, true)
 				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit)
@@ -183,7 +183,7 @@ end
 					file.puts(text_patterns_ptex)
 				else
 					file.puts(text_patterns_conv)
-					language.print_input_line(file, false)
+					language.print_input_line(file)
 				end
 				file.puts('\fi\else')
 				file.puts(text_engine_ptex)
