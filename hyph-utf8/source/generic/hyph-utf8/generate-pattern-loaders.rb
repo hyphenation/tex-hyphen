@@ -7,12 +7,19 @@ require_relative 'lib/tex/hyphen/language.rb'
 include TeX::Hyphen
 include Language::TeXLive
 
-languages = Language.all
-
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
 
+def output(file, string, indent = 0)
+  if string.is_a? Enumerable
+    string.each { |line| output(file, line, indent) }
+  else
+    indent.times { file.print '  ' }
+    file.puts(string)
+  end
+end
+
 print 'Generating loaders for '
-languages.each do |language|
+Language.all.each do |language|
 
 # puts language.bcp47
 
@@ -75,7 +82,7 @@ else
 % That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
 \\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
 \\ifx\\secondarg\\empty'
-  language.output_loader(file)
+  output(language.generate_loader(file))
 end
 
 ########################################

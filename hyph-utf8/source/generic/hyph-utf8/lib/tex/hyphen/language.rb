@@ -164,7 +164,7 @@ module TeX
         end
       end
 
-      def print_lcchars(file)
+      def format_lcchars(file)
         # some catcodes for XeTeX
         if isgreek?
           file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
@@ -183,7 +183,7 @@ module TeX
         end
       end
 
-      def print_engine_message(file, engine = '8-bit')
+      def engine_message(file, engine = '8-bit')
         if engine == 'UTF-8'
           file.puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
           if serbian?
@@ -205,7 +205,7 @@ module TeX
         end
       end
 
-      def print_input_line(file, engine = '8-bit')
+      def input_line(file, engine = '8-bit')
         if engine == '8-bit'
           if @bcp47 == 'la-x-liturgic'
             file.puts "    \\input #{pTeX_patterns}"
@@ -232,28 +232,26 @@ module TeX
         end
       end
 
-      def print_utf8_chunk(file)
-        text_patterns_quote =  "    \\input hyph-quote-#{bcp47}.tex"
-
-        print_engine_message(file, 'UTF-8')
+      def utf8_chunk
+        engine_message('UTF-8') +
         # lccodes
-        print_lcchars(file)
-        print_input_line(file, 'UTF-8')
-        file.puts(text_patterns_quote) if has_apostrophes?
+          format_lcchars +
+          input_line('UTF-8') +
+          if has_apostrophes? then "\\input hyph-quote-#{bcp47}.tex" else '' end
       end
 
-      def print_nonutf8_chunk(file, engine = '8-bit')
-        print_engine_message(file, engine)
-        print_input_line(file, engine) unless unicode_only?
+      def nonutf8_chunk(engine = '8-bit')
+        engine_message(engine) +
+          unless unicode_only? then input_line(engine) else '' end
       end
 
-      def output_loader(file)
-        print_utf8_chunk(file)
-        file.puts('\else')
-        print_nonutf8_chunk(file, '8-bit')
-        file.puts('\fi\else')
-        print_nonutf8_chunk(file, 'pTeX')
-        file.puts('\fi')
+      def generate_loader
+        utf8_chunk +
+          "\\else\n" +
+          nonutf8_chunk('8-bit') + 
+          "\\fi\\else\n" +
+          nonutf8_chunk('pTeX') +
+          "\\fi\n"
       end
 
       def initialize(bcp47 = nil)
