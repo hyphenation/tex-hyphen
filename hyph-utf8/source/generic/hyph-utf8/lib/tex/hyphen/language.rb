@@ -179,6 +179,18 @@ module TeX
         end
       end
 
+      def print_engine_message(file, utf8 = false)
+        comment_engine_utf8 = "% Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
+        if utf8 && serbian?
+          file.puts "    #{comment_engine_utf8}"
+          file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
+          file.puts "    % We load both scripts at the same time to simplify usage"
+        else
+          file.puts "    #{comment_engine_utf8}"
+          file.puts "    \\message{UTF-8 #{message}}"
+        end
+      end
+
       def print_input_line(file, utf8 = false)
         if utf8 && serbian?
           file.puts "    \\input hyph-sh-latn.tex"

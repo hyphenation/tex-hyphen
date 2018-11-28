@@ -39,23 +39,12 @@ text_header =
 % these lines may be moved to a separate file.
 %"
 
-text_if_native_utf =
-'% Test for pTeX
-\\ifx\\kanjiskip\\undefined
-% Test for native UTF-8 (which gets only a single argument)
-% That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
-\\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
-\\ifx\\secondarg\\empty'
-
-comment_engine_utf8 = "% Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
 comment_engine_8bit = "% 8-bit engine (such as TeX or pdfTeX)"
 comment_engine_ptex = "% pTeX"
 
 text_engine_ascii   = ["% ASCII patterns - no additional support is needed",
                        "\\message{ASCII #{language.message}}",
                        "\\input hyph-#{language.bcp47}.tex"]
-text_engine_utf8    = ["    #{comment_engine_utf8}",
-                       "    \\message{UTF-8 #{language.message}}"]
 text_engine_8bit    = ["    #{comment_engine_8bit}",
                        "    \\message{#{string_enc}#{language.message}}"]
 text_engine_ptex    = ["    #{comment_engine_ptex}",
@@ -70,9 +59,23 @@ text_patterns_ptex  =  "    \\input hyph-#{language.bcp47}.#{language.encoding}.
 text_patterns_old   =  "    \\input #{language.legacy_patterns}"
 text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
 
-text_patterns_quote =  "    \\input hyph-quote-#{language.bcp47}.tex"
+def print_stuff(language, file, utf8 = false)
+	text_if_native_utf =
+		'% Test for pTeX
+\\ifx\\kanjiskip\\undefined
+% Test for native UTF-8 (which gets only a single argument)
+% That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
+\\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
+\\ifx\\secondarg\\empty'
 
-def print_stuff(file, utf8 = false)
+	text_patterns_quote =  "    \\input hyph-quote-#{language.bcp47}.tex"
+
+	file.puts(text_if_native_utf)
+	language.print_engine_message(file, true)
+	# lccodes
+	language.print_lcchars(file)
+	language.print_input_line(file, true)
+	file.puts(text_patterns_quote) if language.has_apostrophes?
 end
 
 ###########
@@ -88,9 +91,6 @@ if language.has_hyphens? then
 end
 
 if ['sh-latn', 'sh-cyrl'].include?(language.bcp47) then
-	text_engine_utf8   = ["    #{comment_engine_utf8}",
-	                      "    \\message{UTF-8 Serbian hyphenation patterns}",
-	                      "    % We load both scripts at the same time to simplify usage"]
 end
 
 	next if language.use_old_loader
@@ -114,12 +114,7 @@ end
 			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
 			# TODO - maybe consider doing something similar for ibycus
 			if language.unicode_only?
-				file.puts(text_if_native_utf)
-				file.puts(text_engine_utf8)
-				# lccodes
-				language.print_lcchars(file)
-				language.print_input_line(file, true)
-				file.puts(text_patterns_quote) if language.has_apostrophes?
+				print_stuff(language, file, true)
 				file.puts('\else')
 				file.puts(text_engine_8bit_no)
 				file.puts('\fi\else')
@@ -130,11 +125,7 @@ end
 # GROUP nr. 2 - ASCII #
 #######################
 			elsif ['it', 'pms', 'rm'].include?(language.bcp47)
-				file.puts(text_if_native_utf)
-				file.puts(text_engine_utf8)
-				language.print_lcchars(file)
-				language.print_input_line(file, true)
-				file.puts(text_patterns_quote) if language.has_apostrophes?
+				print_stuff(language, file, true)
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				language.print_input_line(file)
@@ -150,11 +141,7 @@ end
 ####################################
 			# when lanugage uses old patterns for 8-bit engines, load two different patterns rather than using the converter
 			elsif language.use_old_patterns_comment then
-				file.puts(text_if_native_utf)
-				file.puts(text_engine_utf8)
-				language.print_lcchars(file)
-				language.print_input_line(file, true)
-				file.puts(text_patterns_quote) if language.has_apostrophes?
+				print_stuff(language, file, true)
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				# explain why we are still using the old patterns
@@ -173,11 +160,7 @@ end
 # GROUP nr. 4 - regular #
 #########################
 			else
-				file.puts(text_if_native_utf)
-				file.puts(text_engine_utf8)
-				language.print_lcchars(file)
-				language.print_input_line(file, true)
-				file.puts(text_patterns_quote) if language.has_apostrophes?
+				print_stuff(language, file, true)
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				if language.bcp47 == 'la-x-liturgic'
