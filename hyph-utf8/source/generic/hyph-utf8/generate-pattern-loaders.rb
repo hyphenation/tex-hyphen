@@ -72,6 +72,9 @@ text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
 
 text_patterns_quote =  "    \\input hyph-quote-#{language.bcp47}.tex"
 
+def print_stuff(file, utf8 = false)
+end
+
 ###########
 # lccodes #
 ###########
@@ -115,8 +118,8 @@ end
 				file.puts(text_engine_utf8)
 				# lccodes
 				language.print_lcchars(file)
-				file.puts(text_patterns_quote) if language.has_apostrophes?
 				language.print_input_line(file, true)
+				file.puts(text_patterns_quote) if language.has_apostrophes?
 				file.puts('\else')
 				file.puts(text_engine_8bit_no)
 				file.puts('\fi\else')
