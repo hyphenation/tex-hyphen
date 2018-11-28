@@ -231,11 +231,7 @@ module TeX
         end
 
         if engine == 'pTeX'
-          if italic?
-            file.printf "    \\input hyph-%s.tex\n", @bcp47
-          else
-            file.puts "    \\input #{pTeX_patterns}"
-          end
+          file.puts "    \\input #{pTeX_patterns}"
           return
         end
 
@@ -247,8 +243,8 @@ module TeX
         end
       end
 
-      def print_chunk(file, engine = '8-bit')
-        text_if_native_utf =
+      def print_utf8_chunk(file)
+        text_if_native_utf8 =
           '% Test for pTeX
 \\ifx\\kanjiskip\\undefined
 % Test for native UTF-8 (which gets only a single argument)
@@ -258,20 +254,25 @@ module TeX
 
         text_patterns_quote =  "    \\input hyph-quote-#{bcp47}.tex"
 
-        file.puts(text_if_native_utf) if engine == 'UTF-8'
+        file.puts(text_if_native_utf8)
         print_engine_message(file, engine)
         # lccodes
-        print_lcchars(file) if engine == 'UTF-8'
-        print_input_line(file, engine) if engine == 'UTF-8' || !unicode_only?
-        file.puts(text_patterns_quote) if engine == 'UTF-8' && has_apostrophes?
+        print_lcchars(file)
+        print_input_line(file, engine)
+        file.puts(text_patterns_quote) if has_apostrophes?
+      end
+
+      def print_nonutf8_chunk(file, engine = '8-bit')
+        print_engine_message(file, engine)
+        print_input_line(file, engine) unless unicode_only?
       end
 
       def output_loader(file)
-        print_chunk(file, 'UTF-8')
+        print_utf8_chunk(file)
         file.puts('\else')
-        print_chunk(file, '8-bit')
+        print_nonutf8_chunk(file, '8-bit')
         file.puts('\fi\else')
-        print_chunk(file, 'pTeX')
+        print_nonutf8_chunk(file, 'pTeX')
         file.puts('\fi')
       end
 
@@ -591,7 +592,9 @@ module TeX
         end
 
         def pTeX_patterns
-          if encoding
+          if italic?
+            sprintf 'hyph-%s.tex\n', @bcp47
+          elsif encoding
             sprintf 'hyph-%s.%s.tex', @bcp47, encoding
           else
             legacy_patterns
