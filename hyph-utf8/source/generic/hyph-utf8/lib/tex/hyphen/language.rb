@@ -233,6 +233,8 @@ module TeX
         if engine == 'pTeX'
           if use_old_patterns_comment
             file.puts "    \\input #{pTeX_patterns}"
+          else
+            file.puts "    \\input #{pTeX_patterns}"
           end
           return
         end

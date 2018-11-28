@@ -121,7 +121,6 @@ end
 				file.puts('\else')
 				language.print_engine_message(file, '8-bit')
 				language.print_input_line(file, '8-bit')
-				language.print_input_line(file)
 				file.puts('\fi\else')
 				language.print_engine_message(file, 'pTeX')
 				language.print_input_line(file, 'pTeX')
