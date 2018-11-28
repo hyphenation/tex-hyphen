@@ -149,10 +149,6 @@ end
 			elsif language.use_old_patterns_comment then
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
-				# some catcodes for XeTeX
-				if language.isgreek?
-					file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
-				end
 				language.print_lcchars(file)
 				language.print_input_line(file)
 				file.puts(text_patterns_quote) if language.has_apostrophes?

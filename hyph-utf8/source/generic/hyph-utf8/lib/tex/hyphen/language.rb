@@ -161,6 +161,12 @@ module TeX
       end
 
       def print_lcchars(file)
+        # some catcodes for XeTeX
+        if isgreek?
+          file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
+          return
+        end
+
         chars = lcchars
         if chars.count > 0
           file.printf "    %% %s\n", chars.delete(:comment)
