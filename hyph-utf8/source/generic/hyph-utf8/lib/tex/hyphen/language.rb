@@ -225,7 +225,7 @@ module TeX
             file.puts "    % #{use_old_patterns_comment}"
             file.puts "    \\input #{legacy_patterns}"
             return
-          elsif !['it', 'pms', 'rm'].include?(@bcp47)
+          elsif !italic?
             file.puts "    \\input conv-utf8-#{encoding}.tex" # It then proceeds to the end FIXME Awful!
           end
         end
@@ -321,6 +321,10 @@ module TeX
 
       def serbian?
         @bcp47 =~ /^sh-/
+      end
+
+      def italic?
+        ['it', 'pms', 'rm'].include? @bcp47
       end
 
       def has_apostrophes?
