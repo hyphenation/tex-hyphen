@@ -184,7 +184,15 @@ module TeX
       end
 
       def print_engine_message(file, engine = '8-bit')
-        unless engine == 'UTF-8'
+        if engine == 'UTF-8'
+          file.puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
+          if serbian?
+            file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
+            file.puts "    % We load both scripts at the same time to simplify usage"
+          else
+            file.puts "    \\message{UTF-8 #{message}}"
+          end
+        else # engine is 8-bit or pTeX
           file.print "    % #{engine}"
           file.print ' engine (such as TeX or pdfTeX)' if engine == '8-bit'
           file.puts
@@ -194,14 +202,6 @@ module TeX
           else
             file.puts "    \\message{#{string_enc}#{message}}"
           end
-        else # engine == 'UTF-8'
-          file.puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
-          if serbian?
-            file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
-            file.puts "    % We load both scripts at the same time to simplify usage"
-          else
-            file.puts "    \\message{UTF-8 #{message}}"
-          end
         end
       end
 
@@ -209,27 +209,24 @@ module TeX
         if engine == '8-bit'
           if @bcp47 == 'la-x-liturgic'
             file.puts "    \\input #{pTeX_patterns}"
-            return
           elsif use_old_patterns_comment
             # explain why we are still using the old patterns
             file.puts "    % #{use_old_patterns_comment}"
             file.puts "    \\input #{legacy_patterns}"
-            return
           elsif !italic?
             file.puts "    \\input conv-utf8-#{encoding}.tex" # It then proceeds to the end FIXME Awful!
+            file.puts "    \\input hyph-#{@bcp47}.tex"
           end
-        end
-
-        if engine == 'pTeX'
+        elsif engine == 'pTeX'
           file.puts "    \\input #{pTeX_patterns}"
           return
-        end
-
-        if engine == 'UTF-8' && serbian?
-          file.puts "    \\input hyph-sh-latn.tex"
-          file.puts "    \\input hyph-sh-cyrl.tex"
-        else
-          file.puts "    \\input hyph-#{@bcp47}.tex"
+        elsif # engine == 'UTF-8'
+          if serbian?
+            file.puts "    \\input hyph-sh-latn.tex"
+            file.puts "    \\input hyph-sh-cyrl.tex"
+          else
+            file.puts "    \\input hyph-#{@bcp47}.tex"
+          end
         end
       end
 
