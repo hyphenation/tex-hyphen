@@ -215,7 +215,7 @@ module TeX
         print_engine_message(file, true)
         # lccodes
         print_lcchars(file)
-        print_input_line(file, true)
+        print_input_line(file, true) unless unicode_only?
         file.puts(text_patterns_quote) if has_apostrophes?
       end
 
