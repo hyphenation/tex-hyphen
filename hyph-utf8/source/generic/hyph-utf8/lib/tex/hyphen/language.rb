@@ -179,16 +179,16 @@ module TeX
         end
       end
 
-      def print_engine_message(file, utf8 = false)
+      def print_engine_message(file, engine = '8-bit')
         comment = '% 8-bit engine (such as TeX or pdfTeX)' # FIXME Remove!
-        if utf8 == 'pTeX'
+        if engine == 'pTeX'
           file.puts "    % pTeX"
           file.puts "    \\message{No #{message} - only for Unicode engines}"
           file.puts "    %\\input zerohyph.tex"
           return
         end
 
-        if unicode_only? && !utf8
+        if unicode_only? && engine == '8-bit'
           file.puts "    #{comment}"
           file.puts "    \\message{No #{message} - only for Unicode engines}"
           file.puts "    %\\input zerohyph.tex"
@@ -196,7 +196,7 @@ module TeX
         end
 
         comment_engine_utf8 = "% Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
-        if utf8 && serbian?
+        if engine == 'UTF-8' && serbian?
           file.puts "    #{comment_engine_utf8}"
           file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
           file.puts "    % We load both scripts at the same time to simplify usage"
@@ -206,8 +206,8 @@ module TeX
         end
       end
 
-      def print_input_line(file, utf8 = false)
-        if utf8 && serbian?
+      def print_input_line(file, engine = '8-bit')
+        if engine == 'UTF-8' && serbian?
           file.puts "    \\input hyph-sh-latn.tex"
           file.puts "    \\input hyph-sh-cyrl.tex"
         else
@@ -215,7 +215,7 @@ module TeX
         end
       end
 
-      def print_stuff(file, utf8 = false)
+      def print_stuff(file, engine = '8-bit')
         text_if_native_utf =
           '% Test for pTeX
 \\ifx\\kanjiskip\\undefined
@@ -226,11 +226,11 @@ module TeX
 
         text_patterns_quote =  "    \\input hyph-quote-#{bcp47}.tex"
 
-        file.puts(text_if_native_utf) if utf8 == true
-        print_engine_message(file, utf8)
+        file.puts(text_if_native_utf) if engine == 'UTF-8'
+        print_engine_message(file, engine)
         # lccodes
-        print_lcchars(file) if utf8 == true
-        print_input_line(file, utf8) unless unicode_only? && utf8 != true
+        print_lcchars(file) if engine == 'UTF-8'
+        print_input_line(file, engine) if engine == 'UTF-8' || !unicode_only?
         file.puts(text_patterns_quote) if has_apostrophes?
       end
 

@@ -86,9 +86,9 @@ end
 			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
 			# TODO - maybe consider doing something similar for ibycus
 			if language.unicode_only?
-				language.print_stuff(file, true)
+				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
-				language.print_stuff(file, false)
+				language.print_stuff(file, '8-bit')
 				file.puts('\fi\else')
 				language.print_stuff(file, 'pTeX')
 				file.puts('\fi')
@@ -97,7 +97,7 @@ end
 # GROUP nr. 2 - ASCII #
 #######################
 			elsif ['it', 'pms', 'rm'].include?(language.bcp47)
-				language.print_stuff(file, true)
+				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				language.print_input_line(file)
@@ -113,7 +113,7 @@ end
 ####################################
 			# when lanugage uses old patterns for 8-bit engines, load two different patterns rather than using the converter
 			elsif language.use_old_patterns_comment then
-				language.print_stuff(file, true)
+				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				# explain why we are still using the old patterns
@@ -132,7 +132,7 @@ end
 # GROUP nr. 4 - regular #
 #########################
 			else
-				language.print_stuff(file, true)
+				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				if language.bcp47 == 'la-x-liturgic'
