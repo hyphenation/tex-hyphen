@@ -247,7 +247,7 @@ module TeX
         end
       end
 
-      def print_stuff(file, engine = '8-bit')
+      def print_chunk(file, engine = '8-bit')
         text_if_native_utf =
           '% Test for pTeX
 \\ifx\\kanjiskip\\undefined
@@ -264,6 +264,15 @@ module TeX
         print_lcchars(file) if engine == 'UTF-8'
         print_input_line(file, engine) if engine == 'UTF-8' || !unicode_only?
         file.puts(text_patterns_quote) if engine == 'UTF-8' && has_apostrophes?
+      end
+
+      def output_loader(file)
+				print_chunk(file, 'UTF-8')
+				file.puts('\else')
+				print_chunk(file, '8-bit')
+				file.puts('\fi\else')
+				print_chunk(file, 'pTeX')
+				file.puts('\fi')
       end
 
       def initialize(bcp47 = nil)

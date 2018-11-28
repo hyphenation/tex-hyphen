@@ -64,7 +64,7 @@ end
 			end
 
 # for ASCII encoding, we don't load any special support files, but simply load everything
-if language.encoding == 'ascii' && !italic!
+if language.encoding == 'ascii' && !language.italic?
   file.puts "% ASCII patterns - no additional support is needed"
   file.puts "\\message{ASCII #{language.message}}"
   file.puts "\\input hyph-#{language.bcp47}.tex"
