@@ -38,13 +38,9 @@ text_header =
 % these lines may be moved to a separate file.
 %"
 
-comment_engine_ptex = "% pTeX"
-
 text_engine_ascii   = ["% ASCII patterns - no additional support is needed",
                        "\\message{ASCII #{language.message}}",
                        "\\input hyph-#{language.bcp47}.tex"]
-text_engine_ptex    = ["    #{comment_engine_ptex}",
-                       "    \\message{#{language.string_enc}#{language.message}}"]
 text_patterns_ptex  =  "    \\input hyph-#{language.bcp47}.#{language.encoding}.tex"
 text_patterns_old   =  "    \\input #{language.legacy_patterns}"
 text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
@@ -95,10 +91,9 @@ end
 			elsif ['it', 'pms', 'rm'].include?(language.bcp47)
 				language.print_stuff(file, 'UTF-8')
 				file.puts('\else')
-				language.print_engine_message(file, '8-bit')
-				language.print_input_line(file)
+				language.print_stuff(file, '8-bit')
 				file.puts('\fi\else')
-				file.puts(text_engine_ptex)
+				language.print_engine_message(file, 'pTeX')
 				language.print_input_line(file)
 				file.puts('\fi')
 			# for ASCII encoding, we don't load any special support files, but simply load everything
@@ -116,7 +111,7 @@ end
 				file.puts("    % #{language.use_old_patterns_comment}")
 				file.puts(text_patterns_old)
 				file.puts('\fi\else')
-				file.puts(text_engine_ptex)
+				language.print_engine_message(file, 'pTeX')
 				# greek, coptic
 				if language.encoding == nil then
 					file.puts(text_patterns_old)
@@ -138,7 +133,7 @@ end
 					language.print_input_line(file)
 				end
 				file.puts('\fi\else')
-				file.puts(text_engine_ptex)
+				language.print_engine_message(file, 'pTeX')
 				file.puts(text_patterns_ptex)
 				file.puts('\fi')
 			end

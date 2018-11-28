@@ -185,9 +185,14 @@ module TeX
 
       def print_engine_message(file, engine = '8-bit')
         if engine == 'pTeX'
-          file.puts "    % pTeX"
-          file.puts "    \\message{No #{message} - only for Unicode engines}"
-          file.puts "    %\\input zerohyph.tex"
+          if unicode_only?
+            file.puts "    % pTeX"
+            file.puts "    \\message{No #{message} - only for Unicode engines}"
+            file.puts "    %\\input zerohyph.tex"
+          else
+            file.puts "    % pTeX"
+            file.puts "    \\message{#{string_enc}#{message}}"
+          end
           return
         end
 
@@ -240,7 +245,7 @@ module TeX
         # lccodes
         print_lcchars(file) if engine == 'UTF-8'
         print_input_line(file, engine) if engine == 'UTF-8' || !unicode_only?
-        file.puts(text_patterns_quote) if has_apostrophes?
+        file.puts(text_patterns_quote) if engine == 'UTF-8' && has_apostrophes?
       end
 
       def initialize(bcp47 = nil)
