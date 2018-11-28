@@ -15,7 +15,6 @@ print 'Generating loaders for '
 languages.each do |language|
 
 # puts language.bcp47
-string_enc = (language.encoding == nil) ? "" : language.encoding.upcase + " "
 
 ################
 # Header texts #
@@ -46,9 +45,9 @@ text_engine_ascii   = ["% ASCII patterns - no additional support is needed",
                        "\\message{ASCII #{language.message}}",
                        "\\input hyph-#{language.bcp47}.tex"]
 text_engine_8bit    = ["    #{comment_engine_8bit}",
-                       "    \\message{#{string_enc}#{language.message}}"]
+                       "    \\message{#{language.string_enc}#{language.message}}"]
 text_engine_ptex    = ["    #{comment_engine_ptex}",
-                       "    \\message{#{string_enc}#{language.message}}"]
+                       "    \\message{#{language.string_enc}#{language.message}}"]
 text_patterns_ptex  =  "    \\input hyph-#{language.bcp47}.#{language.encoding}.tex"
 text_patterns_old   =  "    \\input #{language.legacy_patterns}"
 text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"

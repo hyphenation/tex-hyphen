@@ -119,6 +119,10 @@ module TeX
         ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include? @bcp47
       end
 
+      def string_enc
+        (encoding == nil) ? "" : encoding.upcase + " "
+      end
+
       def lcchars
         return { } unless unicode_only?
 
