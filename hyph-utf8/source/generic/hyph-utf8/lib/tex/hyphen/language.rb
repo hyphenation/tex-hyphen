@@ -160,6 +160,17 @@ module TeX
         end
       end
 
+      def print_lcchars(file)
+        chars = lcchars
+				file.printf "    %% %s\n", chars.delete(:comment)
+				chars.each do |code, comment|
+					file.print '    '
+					file.printf '\lccode"%04X="%04X', code, code
+					file.printf ' %% %s', comment if comment
+					file.puts
+				end
+      end
+
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
       end

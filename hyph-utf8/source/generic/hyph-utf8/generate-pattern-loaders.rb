@@ -118,14 +118,7 @@ end
 				file.puts(text_if_native_utf)
 				file.puts(text_engine_utf8)
 				# lccodes
-				lcchars = language.lcchars
-				file.printf "    %% %s\n", lcchars.delete(:comment)
-				lcchars.each do |code, comment|
-					file.print '    '
-					file.printf '\lccode"%04X="%04X', code, code
-					file.printf ' %% %s', comment if comment
-					file.puts
-				end
+				language.print_lcchars(file)
 				file.puts(text_patterns)
 				file.puts('\else')
 				file.puts(text_engine_8bit_no)
