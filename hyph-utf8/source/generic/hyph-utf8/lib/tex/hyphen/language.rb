@@ -200,6 +200,25 @@ module TeX
         end
       end
 
+      def print_stuff(file, utf8 = false)
+        text_if_native_utf =
+          '% Test for pTeX
+\\ifx\\kanjiskip\\undefined
+% Test for native UTF-8 (which gets only a single argument)
+% That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
+\\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
+\\ifx\\secondarg\\empty'
+
+        text_patterns_quote =  "    \\input hyph-quote-#{bcp47}.tex"
+
+        file.puts(text_if_native_utf)
+        print_engine_message(file, true)
+        # lccodes
+        print_lcchars(file)
+        print_input_line(file, true)
+        file.puts(text_patterns_quote) if has_apostrophes?
+      end
+
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
       end

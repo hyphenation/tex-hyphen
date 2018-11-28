@@ -59,25 +59,6 @@ text_patterns_ptex  =  "    \\input hyph-#{language.bcp47}.#{language.encoding}.
 text_patterns_old   =  "    \\input #{language.legacy_patterns}"
 text_patterns_conv  =  "    \\input conv-utf8-#{language.encoding}.tex"
 
-def print_stuff(language, file, utf8 = false)
-	text_if_native_utf =
-		'% Test for pTeX
-\\ifx\\kanjiskip\\undefined
-% Test for native UTF-8 (which gets only a single argument)
-% That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
-\\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
-\\ifx\\secondarg\\empty'
-
-	text_patterns_quote =  "    \\input hyph-quote-#{language.bcp47}.tex"
-
-	file.puts(text_if_native_utf)
-	language.print_engine_message(file, true)
-	# lccodes
-	language.print_lcchars(file)
-	language.print_input_line(file, true)
-	file.puts(text_patterns_quote) if language.has_apostrophes?
-end
-
 ###########
 # lccodes #
 ###########
@@ -114,7 +95,7 @@ end
 			# some languages (sanskrit) are useless in 8-bit engines; we only want to load them for UTF engines
 			# TODO - maybe consider doing something similar for ibycus
 			if language.unicode_only?
-				print_stuff(language, file, true)
+				language.print_stuff(file, true)
 				file.puts('\else')
 				file.puts(text_engine_8bit_no)
 				file.puts('\fi\else')
@@ -125,7 +106,7 @@ end
 # GROUP nr. 2 - ASCII #
 #######################
 			elsif ['it', 'pms', 'rm'].include?(language.bcp47)
-				print_stuff(language, file, true)
+				language.print_stuff(file, true)
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				language.print_input_line(file)
@@ -141,7 +122,7 @@ end
 ####################################
 			# when lanugage uses old patterns for 8-bit engines, load two different patterns rather than using the converter
 			elsif language.use_old_patterns_comment then
-				print_stuff(language, file, true)
+				language.print_stuff(file, true)
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				# explain why we are still using the old patterns
@@ -160,7 +141,7 @@ end
 # GROUP nr. 4 - regular #
 #########################
 			else
-				print_stuff(language, file, true)
+				language.print_stuff(file, true)
 				file.puts('\else')
 				file.puts(text_engine_8bit)
 				if language.bcp47 == 'la-x-liturgic'
