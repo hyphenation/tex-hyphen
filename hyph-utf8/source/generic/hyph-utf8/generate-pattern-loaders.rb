@@ -71,9 +71,6 @@ if language.has_hyphens? then
 	lccodes_common.push("\\lccode`\\-=`\\-")
 end
 
-if ['sh-latn', 'sh-cyrl'].include?(language.bcp47) then
-end
-
 	next if language.use_old_loader
 		print language.bcp47, ' '
 
