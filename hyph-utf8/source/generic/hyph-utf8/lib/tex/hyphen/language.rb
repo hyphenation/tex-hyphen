@@ -221,6 +221,16 @@ module TeX
       end
 
       def print_input_line(file, engine = '8-bit')
+        if engine == 'pTeX'
+          if use_old_patterns_comment
+            if language.encoding
+              file.puts "    \\input #{pTeX_patterns}"
+            else
+            end
+          end
+          return
+        end
+
         if engine == 'UTF-8' && serbian?
           file.puts "    \\input hyph-sh-latn.tex"
           file.puts "    \\input hyph-sh-cyrl.tex"
@@ -557,6 +567,10 @@ module TeX
           else
             sprintf 'loadhyph-%s.tex', @bcp47.gsub(/^sh-/, 'sr-')
           end
+        end
+
+        def pTeX_patterns
+          sprintf 'hyph-%s.%s.tex', @bcp47, encoding
         end
 
         def list_loader
