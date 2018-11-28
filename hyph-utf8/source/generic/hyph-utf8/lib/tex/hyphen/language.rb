@@ -225,7 +225,7 @@ module TeX
           if @bcp47 == 'la-x-liturgic'
             file.puts "    \\input #{pTeX_patterns}"
             return
-          else
+          elsif !['it', 'pms', 'rm'].include?(@bcp47)
             file.puts "    \\input conv-utf8-#{encoding}.tex" # It then proceeds to the end FIXME Awful!
           end
         end
