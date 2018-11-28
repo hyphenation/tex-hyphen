@@ -184,23 +184,16 @@ module TeX
       end
 
       def print_engine_message(file, engine = '8-bit')
-        if engine == 'pTeX'
-          file.puts "    % pTeX"
+        unless engine == 'UTF-8'
+          file.puts "    % #{if engine == 'pTeX' then engine else }"
+          8-bit engine (such as TeX or pdfTeX)'
           if unicode_only?
             file.puts "    \\message{No #{message} - only for Unicode engines}"
             file.puts "    %\\input zerohyph.tex"
           else
             file.puts "    \\message{#{string_enc}#{message}}"
           end
-        elsif engine == '8-bit'
-          file.puts '    % 8-bit engine (such as TeX or pdfTeX)'
-          if unicode_only?
-            file.puts "    \\message{No #{message} - only for Unicode engines}"
-            file.puts "    %\\input zerohyph.tex"
-          else
-            file.puts "    \\message{#{string_enc}#{message}}"
-          end
-        elsif engine == 'UTF-8'
+        else # engine == 'UTF-8'
           file.puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
           if serbian?
             file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
