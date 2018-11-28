@@ -185,37 +185,32 @@ module TeX
 
       def print_engine_message(file, engine = '8-bit')
         if engine == 'pTeX'
+          file.puts "    % pTeX"
           if unicode_only?
-            file.puts "    % pTeX"
             file.puts "    \\message{No #{message} - only for Unicode engines}"
             file.puts "    %\\input zerohyph.tex"
           else
-            file.puts "    % pTeX"
             file.puts "    \\message{#{string_enc}#{message}}"
           end
           return
         end
 
         if engine == '8-bit'
-          comment = '% 8-bit engine (such as TeX or pdfTeX)'
+          file.puts '    % 8-bit engine (such as TeX or pdfTeX)'
           if unicode_only?
-            file.puts "    #{comment}"
             file.puts "    \\message{No #{message} - only for Unicode engines}"
             file.puts "    %\\input zerohyph.tex"
           else
-            file.puts "    #{comment}"
             file.puts "    \\message{#{string_enc}#{message}}"
           end
           return
         end
 
-        comment_engine_utf8 = "% Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
+        puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
         if engine == 'UTF-8' && serbian?
-          file.puts "    #{comment_engine_utf8}"
           file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
           file.puts "    % We load both scripts at the same time to simplify usage"
         else
-          file.puts "    #{comment_engine_utf8}"
           file.puts "    \\message{UTF-8 #{message}}"
         end
       end
@@ -236,11 +231,7 @@ module TeX
         end
 
         if engine == 'pTeX'
-          if use_old_patterns_comment
-            file.puts "    \\input #{pTeX_patterns}"
-          else
-            file.puts "    \\input #{pTeX_patterns}"
-          end
+          file.puts "    \\input #{pTeX_patterns}"
           return
         end
 
