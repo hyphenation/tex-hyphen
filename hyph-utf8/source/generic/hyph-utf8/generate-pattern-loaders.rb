@@ -69,6 +69,12 @@ if language.encoding == 'ascii' && !language.italic?
   file.puts "\\message{ASCII #{language.message}}"
   file.puts "\\input hyph-#{language.bcp47}.tex"
 else
+  file.puts '% Test for pTeX
+\\ifx\\kanjiskip\\undefined
+% Test for native UTF-8 (which gets only a single argument)
+% That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
+\\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
+\\ifx\\secondarg\\empty'
   language.output_loader(file)
 end
 

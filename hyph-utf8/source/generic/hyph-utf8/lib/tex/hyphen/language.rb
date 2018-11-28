@@ -244,21 +244,12 @@ module TeX
       end
 
       def print_utf8_chunk(file)
-        text_if_native_utf8 =
-          '% Test for pTeX
-\\ifx\\kanjiskip\\undefined
-% Test for native UTF-8 (which gets only a single argument)
-% That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
-\\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
-\\ifx\\secondarg\\empty'
-
         text_patterns_quote =  "    \\input hyph-quote-#{bcp47}.tex"
 
-        file.puts(text_if_native_utf8)
-        print_engine_message(file, engine)
+        print_engine_message(file, 'UTF-8')
         # lccodes
         print_lcchars(file)
-        print_input_line(file, engine)
+        print_input_line(file, 'UTF-8')
         file.puts(text_patterns_quote) if has_apostrophes?
       end
 
@@ -593,7 +584,7 @@ module TeX
 
         def pTeX_patterns
           if italic?
-            sprintf 'hyph-%s.tex\n', @bcp47
+            sprintf 'hyph-%s.tex', @bcp47
           elsif encoding
             sprintf 'hyph-%s.%s.tex', @bcp47, encoding
           else
