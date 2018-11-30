@@ -174,7 +174,7 @@ module TeX
         if chars.count == 0
           ""
         else
-          sprintf "    %% %s\n", chars.delete(:comment)
+          sprintf("    %% %s\n", chars.delete(:comment)) +
           chars.inject('') do |retvalue, entry|
             code = entry.first
             comment = entry.last
@@ -240,7 +240,7 @@ module TeX
         # lccodes
           format_lcchars +
           input_line('UTF-8') +
-          if has_apostrophes? then "    \\input hyph-quote-#{bcp47}.tex\n" else "\n" end
+          if has_apostrophes? then "    \\input hyph-quote-#{bcp47}.tex\n" else '' end
       end
 
       def nonutf8_chunk(engine = '8-bit')
