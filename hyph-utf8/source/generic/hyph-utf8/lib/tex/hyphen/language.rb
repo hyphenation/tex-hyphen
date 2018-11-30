@@ -244,15 +244,13 @@ module TeX
         end
       end
 
-      def input_line(engine = '8-bit')
+      def input_line(engine)
         if engine == '8-bit'
           format_inputs input_8bit_file
         elsif engine == 'pTeX'
           format_inputs input: [pTeX_patterns]
         elsif engine == 'UTF-8'
           format_inputs input_utf8_line
-        else
-          []
         end
       end
 
@@ -264,7 +262,7 @@ module TeX
           if has_apostrophes? then ["\\input hyph-quote-#{bcp47}.tex"] else [] end
       end
 
-      def nonutf8_chunk(engine = '8-bit')
+      def nonutf8_chunk(engine)
         engine_message(engine) +
           unless unicode_only? then input_line(engine) else [] end
       end
