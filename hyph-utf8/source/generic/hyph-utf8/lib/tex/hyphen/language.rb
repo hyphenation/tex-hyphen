@@ -164,71 +164,73 @@ module TeX
         end
       end
 
-      def format_lcchars(file)
+      def format_lcchars
         # some catcodes for XeTeX
         if isgreek?
-          file.puts("    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿")
-          return
+          return "    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿"
         end
 
         chars = lcchars
-        if chars.count > 0
-          file.printf "    %% %s\n", chars.delete(:comment)
-          chars.each do |code, comment|
-            file.print '    '
-            file.printf '\lccode"%04X="%04X', code, code
-            file.printf ' %% %s', comment if comment
-            file.puts
+        if chars.count == 0
+          ""
+        else
+          sprintf "    %% %s\n", chars.delete(:comment)
+          chars.inject('') do |retvalue, entry|
+            code = entry.first
+            comment = entry.last
+            retvalue + '    ' +
+              sprintf('\lccode"%04X="%04X', code, code) +
+              if comment then sprintf " %% %s\n", comment else "\n" end
           end
         end
       end
 
-      def engine_message(file, engine = '8-bit')
+      def engine_message(engine = '8-bit')
         if engine == 'UTF-8'
-          file.puts "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"
+          "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument\n" +
           if serbian?
-            file.puts "    \\message{UTF-8 Serbian hyphenation patterns}"
-            file.puts "    % We load both scripts at the same time to simplify usage"
+            "    \\message{UTF-8 Serbian hyphenation patterns}\n" +
+              "    % We load both scripts at the same time to simplify usage\n"
           else
-            file.puts "    \\message{UTF-8 #{message}}"
+            "    \\message{UTF-8 #{message}}\n"
           end
         else # engine is 8-bit or pTeX
-          file.print "    % #{engine}"
-          file.print ' engine (such as TeX or pdfTeX)' if engine == '8-bit'
-          file.puts
+          "    % #{engine}" +
+            if engine == '8-bit' then "\n engine (such as TeX or pdfTeX)\n" else "\n" end
           if unicode_only?
-            file.puts "    \\message{No #{message} - only for Unicode engines}"
-            file.puts "    %\\input zerohyph.tex"
+            "    \\message{No #{message} - only for Unicode engines}\n" +
+              "    %\\input zerohyph.tex\n"
           else
-            file.puts "    \\message{#{string_enc}#{message}}"
+            "    \\message{#{string_enc}#{message}}\n"
           end
         end
       end
 
-      def input_line(file, engine = '8-bit')
+      def input_line(engine = '8-bit')
         if engine == '8-bit'
           if @bcp47 == 'la-x-liturgic'
-            file.puts "    \\input #{pTeX_patterns}"
+            "    \\input #{pTeX_patterns}\n"
           elsif use_old_patterns_comment
             # explain why we are still using the old patterns
-            file.puts "    % #{use_old_patterns_comment}"
-            file.puts "    \\input #{legacy_patterns}"
+            "    % #{use_old_patterns_comment}\n" +
+              "    \\input #{legacy_patterns}\n"
           elsif !italic?
-            file.puts "    \\input conv-utf8-#{encoding}.tex" # It then proceeds to the end FIXME Awful!
-            file.puts "    \\input hyph-#{@bcp47}.tex"
+            "    \\input conv-utf8-#{encoding}.tex\n" +
+              "    \\input hyph-#{@bcp47}.tex"
           else
-            file.puts "    \\input hyph-#{@bcp47}.tex"
+            "    \\input hyph-#{@bcp47}.tex\n"
           end
         elsif engine == 'pTeX'
-          file.puts "    \\input #{pTeX_patterns}"
-          return
+          "    \\input #{pTeX_patterns}\n"
         elsif # engine == 'UTF-8'
           if serbian?
-            file.puts "    \\input hyph-sh-latn.tex"
-            file.puts "    \\input hyph-sh-cyrl.tex"
+            "    \\input hyph-sh-latn.tex\n" +
+              "    \\input hyph-sh-cyrl.tex"
           else
-            file.puts "    \\input hyph-#{@bcp47}.tex"
+            "    \\input hyph-#{@bcp47}.tex\n"
           end
+        else
+          ""
         end
       end
 
