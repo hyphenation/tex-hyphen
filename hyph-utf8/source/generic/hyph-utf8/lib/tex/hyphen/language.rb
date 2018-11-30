@@ -261,6 +261,7 @@ module TeX
           end
         end
 
+        byebug unless specification.is_a? Hash
         comment = specification[:comment]
         message = specification[:message]
         if message then [sprintf('\\message{%s}', message)] else [] end +
@@ -284,16 +285,16 @@ module TeX
       end
 
       def utf8_chunk
-        format_inputs(engine_message('UTF-8')) +
+        engine_message('UTF-8') +
         # lccodes
-          format_inputs(lcchars) +
-          format_inputs(input_line('UTF-8')) +
-          if has_apostrophes? then format_inputs(input: [sprintf('hyph-quote-%s.tex', bcp47)]) else [] end
+        [lcchars,
+         input_line('UTF-8'),
+         if has_apostrophes? then { input: [sprintf('hyph-quote-%s.tex', bcp47)] } end].compact
       end
 
       def nonutf8_chunk(engine)
-        format_inputs(engine_message(engine)) +
-          unless unicode_only? then format_inputs(input_line(engine)) else [] end
+        engine_message(engine) +
+        [unless unicode_only? then input_line(engine) end].compact
       end
 
       def initialize(bcp47 = nil)
