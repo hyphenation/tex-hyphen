@@ -167,7 +167,7 @@ module TeX
       def format_lcchars
         # some catcodes for XeTeX
         if isgreek?
-          return "    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿"
+          return "    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿\n"
         end
 
         chars = lcchars
