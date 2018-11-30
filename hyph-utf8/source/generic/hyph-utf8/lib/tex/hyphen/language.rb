@@ -196,14 +196,13 @@ module TeX
           end
         else # engine is 8-bit or pTeX
           r = "    % #{engine}" +
-            if engine == '8-bit' then "\n engine (such as TeX or pdfTeX)\n" else "\n" end
+            if engine == '8-bit' then " engine (such as TeX or pdfTeX)\n" else "\n" end +
           if unicode_only?
             "    \\message{No #{message} - only for Unicode engines}\n" +
               "    %\\input zerohyph.tex\n"
           else
             "    \\message{#{string_enc}#{message}}\n"
           end
-          byebug if @bcp47 == 'cop'
           r
         end
       end
@@ -253,7 +252,6 @@ module TeX
         a = utf8_chunk
         b = nonutf8_chunk('8-bit')
         c = nonutf8_chunk('pTeX')
-        byebug if @bpc47 == 'cop'
         a + "\\else\n" + b + "\\fi\\else\n" + c + "\\fi\n"
       end
 
