@@ -200,6 +200,28 @@ module TeX
         end
       end
 
+      def input_8bit_file
+        if @bcp47 == 'la-x-liturgic'
+          pTeX_patterns
+        elsif use_old_patterns_comment
+          {
+            comment: use_old_patterns_comment,
+            input: [legacy_patterns]
+          }
+        elsif !italic?
+          {
+            input: [sprintf('conv-utf8-%s.tex', encoding), sprintf('hyph-%s.tex', @bcp47)]
+          }
+        else
+          {
+            input: [sprintf('hyph-%s.tex', @bcp47)]
+          }
+        end
+      end
+
+      def format_inputs(specification)
+
+
       def input_line(engine = '8-bit')
         if engine == '8-bit'
           if @bcp47 == 'la-x-liturgic'
