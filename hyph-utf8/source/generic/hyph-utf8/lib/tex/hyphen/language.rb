@@ -167,71 +167,64 @@ module TeX
       def format_lcchars
         # some catcodes for XeTeX
         if isgreek?
-          return "\\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿\n"
+          return ["\\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿"]
         end
 
         chars = lcchars
         if chars.count == 0
-          ""
+          [nil]
         else
-          sprintf("%% %s\n", chars.delete(:comment)) +
-          chars.inject('') do |retvalue, entry|
-            code = entry.first
-            comment = entry.last
-            retvalue +
-              sprintf('\lccode"%04X="%04X', code, code) +
-              if comment then sprintf " %% %s\n", comment else "\n" end
+          [sprintf("%% %s", chars.delete(:comment))] +
+          chars.map do |code, comment|
+            sprintf('\lccode"%04X="%04X', code, code) +
+            if comment then sprintf " %% %s", comment else "" end
           end
         end
       end
 
       def engine_message(engine = '8-bit')
         if engine == 'UTF-8'
-          "% Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument\n" +
+          ["% Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"] +
           if serbian?
-            "\\message{UTF-8 Serbian hyphenation patterns}\n" +
-              "% We load both scripts at the same time to simplify usage\n"
+            ["\\message{UTF-8 Serbian hyphenation patterns}",
+             "% We load both scripts at the same time to simplify usage"]
           else
-            "\\message{UTF-8 #{message}}\n"
+            ["\\message{UTF-8 #{message}}"]
           end
         else # engine is 8-bit or pTeX
-          r = "% #{engine}" +
-            if engine == '8-bit' then " engine (such as TeX or pdfTeX)\n" else "\n" end +
+          ["% #{engine}" +
+            if engine == '8-bit' then " engine (such as TeX or pdfTeX)" else "" end] +
           if unicode_only?
-            "\\message{No #{message} - only for Unicode engines}\n" +
-              "%\\input zerohyph.tex\n"
+            ["\\message{No #{message} - only for Unicode engines}",
+             "%\\input zerohyph.tex"]
           else
-            "\\message{#{string_enc}#{message}}\n"
+            ["\\message{#{string_enc}#{message}}"]
           end
-          r
         end
       end
 
       def input_line(engine = '8-bit')
         if engine == '8-bit'
           if @bcp47 == 'la-x-liturgic'
-            "\\input #{pTeX_patterns}\n"
+            ["\\input #{pTeX_patterns}"]
           elsif use_old_patterns_comment
             # explain why we are still using the old patterns
-            "% #{use_old_patterns_comment}\n" +
-              "\\input #{legacy_patterns}\n"
+            ["% #{use_old_patterns_comment}", "\\input #{legacy_patterns}"]
           elsif !italic?
-            "\\input conv-utf8-#{encoding}.tex\n" +
-              "\\input hyph-#{@bcp47}.tex\n"
+            ["\\input conv-utf8-#{encoding}.tex", "\\input hyph-#{@bcp47}.tex"]
           else
-            "\\input hyph-#{@bcp47}.tex\n"
+            ["\\input hyph-#{@bcp47}.tex"]
           end
         elsif engine == 'pTeX'
-          "\\input #{pTeX_patterns}\n"
+          ["\\input #{pTeX_patterns}"]
         elsif engine == 'UTF-8'
           if serbian?
-            "\\input hyph-sh-latn.tex\n" +
-              "\\input hyph-sh-cyrl.tex\n"
+            ["\\input hyph-sh-latn.tex", "\\input hyph-sh-cyrl.tex"]
           else
-            "\\input hyph-#{@bcp47}.tex\n"
+            ["\\input hyph-#{@bcp47}.tex"]
           end
         else
-          ""
+          [nil]
         end
       end
 
@@ -240,12 +233,12 @@ module TeX
         # lccodes
           format_lcchars +
           input_line('UTF-8') +
-          if has_apostrophes? then "\\input hyph-quote-#{bcp47}.tex\n" else '' end
+          if has_apostrophes? then ["\\input hyph-quote-#{bcp47}.tex"] else [nil] end
       end
 
       def nonutf8_chunk(engine = '8-bit')
         engine_message(engine) +
-          unless unicode_only? then input_line(engine) else '' end
+          unless unicode_only? then input_line(engine) else [nil] end
       end
 
       def initialize(bcp47 = nil)
