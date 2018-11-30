@@ -222,11 +222,22 @@ module TeX
         end
       end
 
+      def input_utf8_line
+        if serbian?
+          {
+            input: ['hyph-sh-latn.tex', 'hyph-sh-cyrl.tex']
+          }
+        else
+          {
+            input: [sprintf('hyph-%s.tex', @bcp47)]
+          }
+        end
+      end
+
       def format_inputs(specification)
         comment = specification[:comment]
-        inputs = specification[:input]
         if comment then [sprintf('%% %s', comment)] else [] end +
-        inputs.map do |input|
+        specification[:input].map do |input|
           sprintf '\\input %s', input
         end
       end
@@ -235,13 +246,9 @@ module TeX
         if engine == '8-bit'
           format_inputs input_8bit_file
         elsif engine == 'pTeX'
-          ["\\input #{pTeX_patterns}"]
+          format_inputs input: [pTeX_patterns]
         elsif engine == 'UTF-8'
-          if serbian?
-            ["\\input hyph-sh-latn.tex", "\\input hyph-sh-cyrl.tex"]
-          else
-            ["\\input hyph-#{@bcp47}.tex"]
-          end
+          format_inputs input_utf8_line
         else
           []
         end
