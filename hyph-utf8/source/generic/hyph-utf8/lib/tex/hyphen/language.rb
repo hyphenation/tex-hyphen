@@ -124,6 +124,19 @@ module TeX
       end
 
       def lcchars
+        if isgreek?
+          # some catcodes for XeTeX
+          return {
+            lccode: {
+              0x0027 => '\'',
+              0x2019 => '’',
+              0x02BC => 'ʼ',
+              0x1FBD => '᾽',
+              0x1FBF => '᾿',
+            }
+          }
+        end
+
         return { } unless unicode_only?
 
         default = {
@@ -167,15 +180,6 @@ module TeX
             }
           },
       }[@bcp47] || default
-      end
-
-      def format_lcchars
-        # some catcodes for XeTeX
-        if isgreek?
-          return ["\\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿"]
-        end
-
-        format_inputs(lcchars)
       end
 
       def engine_message(engine = '8-bit')
@@ -257,7 +261,7 @@ module TeX
       def utf8_chunk
         engine_message('UTF-8') +
         # lccodes
-          format_lcchars +
+          format_inputs(lcchars) +
           format_inputs(input_line('UTF-8')) +
           if has_apostrophes? then format_inputs(input: [sprintf('hyph-quote-%s.tex', bcp47)]) else [] end
       end
