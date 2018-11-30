@@ -13,10 +13,8 @@ def output(file, string, indent = 2)
   if string.is_a? Enumerable
     string.each { |line| output(file, line, indent) }
   else
-    string.split("\n").each do |line|
-      file.print '  ' * indent
-      file.puts(line)
-    end
+    file.print '  ' * indent
+    file.puts(string)
   end
 end
 
