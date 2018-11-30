@@ -9,12 +9,14 @@ include Language::TeXLive
 
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
 
-def output(file, string, indent = 0)
+def output(file, string, indent = 2)
   if string.is_a? Enumerable
     string.each { |line| output(file, line, indent) }
   else
-    indent.times { file.print '  ' }
-    file.puts(string)
+    string.split("\n").each do |line|
+      file.print '  ' * indent
+      file.puts(line)
+    end
   end
 end
 

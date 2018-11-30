@@ -151,7 +151,7 @@ module TeX
           {
             comment: 'Set \lccode for ZWNJ and ZWJ.',
             0x200C => false,
-            0x200D => "\n    % Set \\lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.",
+            0x200D => "\n% Set \\lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.",
             0x0CF1 => false,
             0x0CF2 => false,
           }
@@ -167,18 +167,18 @@ module TeX
       def format_lcchars
         # some catcodes for XeTeX
         if isgreek?
-          return "    \\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿\n"
+          return "\\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿\n"
         end
 
         chars = lcchars
         if chars.count == 0
           ""
         else
-          sprintf("    %% %s\n", chars.delete(:comment)) +
+          sprintf("%% %s\n", chars.delete(:comment)) +
           chars.inject('') do |retvalue, entry|
             code = entry.first
             comment = entry.last
-            retvalue + '    ' +
+            retvalue +
               sprintf('\lccode"%04X="%04X', code, code) +
               if comment then sprintf " %% %s\n", comment else "\n" end
           end
@@ -187,21 +187,21 @@ module TeX
 
       def engine_message(engine = '8-bit')
         if engine == 'UTF-8'
-          "    % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument\n" +
+          "% Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument\n" +
           if serbian?
-            "    \\message{UTF-8 Serbian hyphenation patterns}\n" +
-              "    % We load both scripts at the same time to simplify usage\n"
+            "\\message{UTF-8 Serbian hyphenation patterns}\n" +
+              "% We load both scripts at the same time to simplify usage\n"
           else
-            "    \\message{UTF-8 #{message}}\n"
+            "\\message{UTF-8 #{message}}\n"
           end
         else # engine is 8-bit or pTeX
-          r = "    % #{engine}" +
+          r = "% #{engine}" +
             if engine == '8-bit' then " engine (such as TeX or pdfTeX)\n" else "\n" end +
           if unicode_only?
-            "    \\message{No #{message} - only for Unicode engines}\n" +
-              "    %\\input zerohyph.tex\n"
+            "\\message{No #{message} - only for Unicode engines}\n" +
+              "%\\input zerohyph.tex\n"
           else
-            "    \\message{#{string_enc}#{message}}\n"
+            "\\message{#{string_enc}#{message}}\n"
           end
           r
         end
@@ -210,25 +210,25 @@ module TeX
       def input_line(engine = '8-bit')
         if engine == '8-bit'
           if @bcp47 == 'la-x-liturgic'
-            "    \\input #{pTeX_patterns}\n"
+            "\\input #{pTeX_patterns}\n"
           elsif use_old_patterns_comment
             # explain why we are still using the old patterns
-            "    % #{use_old_patterns_comment}\n" +
-              "    \\input #{legacy_patterns}\n"
+            "% #{use_old_patterns_comment}\n" +
+              "\\input #{legacy_patterns}\n"
           elsif !italic?
-            "    \\input conv-utf8-#{encoding}.tex\n" +
-              "    \\input hyph-#{@bcp47}.tex\n"
+            "\\input conv-utf8-#{encoding}.tex\n" +
+              "\\input hyph-#{@bcp47}.tex\n"
           else
-            "    \\input hyph-#{@bcp47}.tex\n"
+            "\\input hyph-#{@bcp47}.tex\n"
           end
         elsif engine == 'pTeX'
-          "    \\input #{pTeX_patterns}\n"
+          "\\input #{pTeX_patterns}\n"
         elsif engine == 'UTF-8'
           if serbian?
-            "    \\input hyph-sh-latn.tex\n" +
-              "    \\input hyph-sh-cyrl.tex\n"
+            "\\input hyph-sh-latn.tex\n" +
+              "\\input hyph-sh-cyrl.tex\n"
           else
-            "    \\input hyph-#{@bcp47}.tex\n"
+            "\\input hyph-#{@bcp47}.tex\n"
           end
         else
           ""
@@ -240,19 +240,12 @@ module TeX
         # lccodes
           format_lcchars +
           input_line('UTF-8') +
-          if has_apostrophes? then "    \\input hyph-quote-#{bcp47}.tex\n" else '' end
+          if has_apostrophes? then "\\input hyph-quote-#{bcp47}.tex\n" else '' end
       end
 
       def nonutf8_chunk(engine = '8-bit')
         engine_message(engine) +
           unless unicode_only? then input_line(engine) else '' end
-      end
-
-      def generate_loader
-        a = utf8_chunk
-        b = nonutf8_chunk('8-bit')
-        c = nonutf8_chunk('pTeX')
-        a + "\\else\n" + b + "\\fi\\else\n" + c + "\\fi\n"
       end
 
       def initialize(bcp47 = nil)
