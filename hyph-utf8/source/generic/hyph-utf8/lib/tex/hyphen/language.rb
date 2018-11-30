@@ -195,7 +195,7 @@ module TeX
             "    \\message{UTF-8 #{message}}\n"
           end
         else # engine is 8-bit or pTeX
-          "    % #{engine}" +
+          r = "    % #{engine}" +
             if engine == '8-bit' then "\n engine (such as TeX or pdfTeX)\n" else "\n" end
           if unicode_only?
             "    \\message{No #{message} - only for Unicode engines}\n" +
@@ -203,6 +203,8 @@ module TeX
           else
             "    \\message{#{string_enc}#{message}}\n"
           end
+          byebug if @bcp47 == 'cop'
+          r
         end
       end
 
@@ -222,7 +224,7 @@ module TeX
           end
         elsif engine == 'pTeX'
           "    \\input #{pTeX_patterns}\n"
-        elsif # engine == 'UTF-8'
+        elsif engine == 'UTF-8'
           if serbian?
             "    \\input hyph-sh-latn.tex\n" +
               "    \\input hyph-sh-cyrl.tex"
@@ -248,12 +250,11 @@ module TeX
       end
 
       def generate_loader
-        utf8_chunk +
-          "\\else\n" +
-          nonutf8_chunk('8-bit') + 
-          "\\fi\\else\n" +
-          nonutf8_chunk('pTeX') +
-          "\\fi\n"
+        a = utf8_chunk
+        b = nonutf8_chunk('8-bit')
+        c = nonutf8_chunk('pTeX')
+        byebug if @bpc47 == 'cop'
+        a + "\\else\n" + b + "\\fi\\else\n" + c + "\\fi\n"
       end
 
       def initialize(bcp47 = nil)
