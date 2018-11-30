@@ -124,10 +124,13 @@ module TeX
       end
 
       def lcchars
-        return nil unicode_only?
+        return { } unless unicode_only?
 
-        ['as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include? @bcp47
-        if ['as', 'bn', 'gu', 'hi', 'hy', 'kn', 'ml', 'mr'
+        default = {
+          comment: 'Set \lccode for ZWNJ and ZWJ.',
+          0x200C => false,
+          0x200D => false,
+        }
 
         {
           'mul-ethi' => {
@@ -155,14 +158,7 @@ module TeX
             0x0CF1 => false,
             0x0CF2 => false,
           },
-        else
-          {
-            comment: 'Set \lccode for ZWNJ and ZWJ.',
-            0x200C => false,
-            0x200D => false,
-          }
-        case @bcp47
-        end
+      }[@bcp47] || default
       end
 
       def format_lcchars
