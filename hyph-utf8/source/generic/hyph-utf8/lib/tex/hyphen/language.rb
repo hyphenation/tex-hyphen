@@ -217,7 +217,7 @@ module TeX
               "    \\input #{legacy_patterns}\n"
           elsif !italic?
             "    \\input conv-utf8-#{encoding}.tex\n" +
-              "    \\input hyph-#{@bcp47}.tex"
+              "    \\input hyph-#{@bcp47}.tex\n"
           else
             "    \\input hyph-#{@bcp47}.tex\n"
           end
@@ -226,7 +226,7 @@ module TeX
         elsif engine == 'UTF-8'
           if serbian?
             "    \\input hyph-sh-latn.tex\n" +
-              "    \\input hyph-sh-cyrl.tex"
+              "    \\input hyph-sh-cyrl.tex\n"
           else
             "    \\input hyph-#{@bcp47}.tex\n"
           end
@@ -240,7 +240,7 @@ module TeX
         # lccodes
           format_lcchars +
           input_line('UTF-8') +
-          if has_apostrophes? then "\\input hyph-quote-#{bcp47}.tex" else '' end
+          if has_apostrophes? then "    \\input hyph-quote-#{bcp47}.tex\n" else "\n" end
       end
 
       def nonutf8_chunk(engine = '8-bit')
