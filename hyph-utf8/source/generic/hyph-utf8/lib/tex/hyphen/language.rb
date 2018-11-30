@@ -128,35 +128,43 @@ module TeX
 
         default = {
           comment: 'Set \lccode for ZWNJ and ZWJ.',
-          0x200C => false,
-          0x200D => false,
+          lccode: {
+            0x200C => false,
+            0x200D => false,
+          }
         }
 
         {
           'mul-ethi' => {
             comment: 'Set \lccode for Ethiopian word space.',
-            0x1361 => false,
-            0x1362 => false,
+            lccode: {
+              0x1361 => false,
+              0x1362 => false,
+            }
           },
           'cu' => {
             comment: 'fix lccodes for some characters (they were recently included in Unicode)',
-            0x1C82 => 'sharp o in lowercase "uk"',
-            0x1DF6 => false,
-            0x1DF7 => false,
-            0x1DF8 => false,
-            0x1DF9 => false,
-            0xA69E => false,
-            0x1C86 => false,
-            0xA67E => false,
-            0xFE2E => false,
-            0xFE2F => false,
+            lccode: {
+              0x1C82 => 'sharp o in lowercase "uk"',
+              0x1DF6 => false,
+              0x1DF7 => false,
+              0x1DF8 => false,
+              0x1DF9 => false,
+              0xA69E => false,
+              0x1C86 => false,
+              0xA67E => false,
+              0xFE2E => false,
+              0xFE2F => false,
+            }
           },
           'sa' => {
             comment: 'Set \lccode for ZWNJ and ZWJ.',
-            0x200C => false,
-            0x200D => "\n% Set \\lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.",
-            0x0CF1 => false,
-            0x0CF2 => false,
+            lccode: {
+              0x200C => false,
+              0x200D => "\n% Set \\lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.",
+              0x0CF1 => false,
+              0x0CF2 => false,
+            }
           },
       }[@bcp47] || default
       end
@@ -172,7 +180,7 @@ module TeX
           []
         else
           [sprintf("%% %s", chars.delete(:comment))] +
-          chars.map do |code, comment|
+          chars[:lccode].map do |code, comment|
             sprintf('\lccode"%04X="%04X', code, code) +
             if comment then sprintf " %% %s", comment else "" end
           end
