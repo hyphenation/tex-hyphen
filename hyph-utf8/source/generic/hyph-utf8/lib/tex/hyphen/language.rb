@@ -175,12 +175,7 @@ module TeX
           return ["\\lccode`'=`'\\lccode`’=`’\\lccode`ʼ=`ʼ\\lccode`᾽=`᾽\\lccode`᾿=`᾿"]
         end
 
-        chars = lcchars
-        if chars.count == 0
-          []
-        else
-          format_inputs(chars)
-        end
+        format_inputs(lcchars)
       end
 
       def engine_message(engine = '8-bit')
