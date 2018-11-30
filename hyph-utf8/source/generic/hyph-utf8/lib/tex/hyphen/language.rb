@@ -172,7 +172,7 @@ module TeX
 
         chars = lcchars
         if chars.count == 0
-          [nil]
+          []
         else
           [sprintf("%% %s", chars.delete(:comment))] +
           chars.map do |code, comment|
@@ -224,7 +224,7 @@ module TeX
             ["\\input hyph-#{@bcp47}.tex"]
           end
         else
-          [nil]
+          []
         end
       end
 
@@ -233,12 +233,12 @@ module TeX
         # lccodes
           format_lcchars +
           input_line('UTF-8') +
-          if has_apostrophes? then ["\\input hyph-quote-#{bcp47}.tex"] else [nil] end
+          if has_apostrophes? then ["\\input hyph-quote-#{bcp47}.tex"] else [] end
       end
 
       def nonutf8_chunk(engine = '8-bit')
         engine_message(engine) +
-          unless unicode_only? then input_line(engine) else [nil] end
+          unless unicode_only? then input_line(engine) else [] end
       end
 
       def initialize(bcp47 = nil)
