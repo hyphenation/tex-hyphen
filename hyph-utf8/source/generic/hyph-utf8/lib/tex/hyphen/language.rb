@@ -182,24 +182,41 @@ module TeX
       }[@bcp47] || default
       end
 
-      def engine_message(engine = '8-bit')
+      def utf8_engine_message
+        if serbian?
+          {
+            message: 'UTF-8 Serbian hyphenation patterns',
+            comment: 'We load both scripts at the same time to simplify usage',
+          }
+        else
+          {
+            message: sprintf('UTF-8 %s', message),
+          }
+        end
+      end
+
+      def non_utf8_engine_message
+        if unicode_only?
+          {
+            message: sprintf('No %s - only for Unicode engines', message)
+          }
+        else
+          {
+            message: sprintf('%s%s', string_enc, message)
+          }
+        end
+      end
+
+      def engine_message(engine)
         if engine == 'UTF-8'
-          ["% Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument"] +
-          if serbian?
-            ["\\message{UTF-8 Serbian hyphenation patterns}",
-             "% We load both scripts at the same time to simplify usage"]
-          else
-            ["\\message{UTF-8 #{message}}"]
-          end
+          [{ comment: 'Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument' },
+          utf8_engine_message]
         else # engine is 8-bit or pTeX
-          ["% #{engine}" +
-            if engine == '8-bit' then " engine (such as TeX or pdfTeX)" else "" end] +
-          if unicode_only?
-            ["\\message{No #{message} - only for Unicode engines}",
-             "%\\input zerohyph.tex"]
-          else
-            ["\\message{#{string_enc}#{message}}"]
-          end
+          [{
+            comment: engine +
+              if engine == '8-bit' then " engine (such as TeX or pdfTeX)" else "" end
+           },
+           non_utf8_engine_message]
         end
       end
 
@@ -238,7 +255,15 @@ module TeX
       end
 
       def format_inputs(specification)
+        if specification.is_a? Array
+          return specification.map do |hash|
+            format_inputs(hash)
+          end
+        end
+
         comment = specification[:comment]
+        message = specification[:message]
+        if message then [sprintf('\\message{%s}', message)] else [] end +
         if comment then [sprintf('%% %s', comment)] else [] end +
         (specification[:lccode] || []).map do |code, comment|
           sprintf '\\lccode"%04X="%04X%s', code, code, if comment then sprintf ' %% %s', comment else '' end
@@ -259,7 +284,7 @@ module TeX
       end
 
       def utf8_chunk
-        engine_message('UTF-8') +
+        format_inputs(engine_message('UTF-8')) +
         # lccodes
           format_inputs(lcchars) +
           format_inputs(input_line('UTF-8')) +
@@ -267,7 +292,7 @@ module TeX
       end
 
       def nonutf8_chunk(engine)
-        engine_message(engine) +
+        format_inputs(engine_message(engine)) +
           unless unicode_only? then format_inputs(input_line(engine)) else [] end
       end
 
