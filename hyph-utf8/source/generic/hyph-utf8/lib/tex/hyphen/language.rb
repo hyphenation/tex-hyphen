@@ -202,8 +202,11 @@ module TeX
 
       def input_8bit_file
         if @bcp47 == 'la-x-liturgic'
-          pTeX_patterns
+          {
+            input: [pTeX_patterns]
+          }
         elsif use_old_patterns_comment
+          # explain why we are still using the old patterns
           {
             comment: use_old_patterns_comment,
             input: [legacy_patterns]
@@ -220,20 +223,17 @@ module TeX
       end
 
       def format_inputs(specification)
-
+        comment = specification[:comment]
+        inputs = specification[:input]
+        if comment then [sprintf('%% %s', comment)] else [] end +
+        inputs.map do |input|
+          sprintf '\\input %s', input
+        end
+      end
 
       def input_line(engine = '8-bit')
         if engine == '8-bit'
-          if @bcp47 == 'la-x-liturgic'
-            ["\\input #{pTeX_patterns}"]
-          elsif use_old_patterns_comment
-            # explain why we are still using the old patterns
-            ["% #{use_old_patterns_comment}", "\\input #{legacy_patterns}"]
-          elsif !italic?
-            ["\\input conv-utf8-#{encoding}.tex", "\\input hyph-#{@bcp47}.tex"]
-          else
-            ["\\input hyph-#{@bcp47}.tex"]
-          end
+          format_inputs input_8bit_file
         elsif engine == 'pTeX'
           ["\\input #{pTeX_patterns}"]
         elsif engine == 'UTF-8'
