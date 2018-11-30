@@ -179,11 +179,7 @@ module TeX
         if chars.count == 0
           []
         else
-          [sprintf("%% %s", chars.delete(:comment))] +
-          chars[:lccode].map do |code, comment|
-            sprintf('\lccode"%04X="%04X', code, code) +
-            if comment then sprintf " %% %s", comment else "" end
-          end
+          format_inputs(chars)
         end
       end
 
@@ -245,7 +241,10 @@ module TeX
       def format_inputs(specification)
         comment = specification[:comment]
         if comment then [sprintf('%% %s', comment)] else [] end +
-        specification[:input].map do |input|
+        (specification[:lccode] || []).map do |code, comment|
+          sprintf '\\lccode"%04X="%04X%s', code, code, if comment then sprintf ' %% %s', comment else '' end
+        end +
+        (specification[:input] || []).map do |input|
           sprintf '\\input %s', input
         end
       end
