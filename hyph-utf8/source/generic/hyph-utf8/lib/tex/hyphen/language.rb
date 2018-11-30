@@ -249,6 +249,8 @@ module TeX
       end
 
       def format_inputs(specification)
+        return '' unless specification
+
         if specification.is_a? Array
           return specification.map do |hash|
             format_inputs(hash)
@@ -285,11 +287,11 @@ module TeX
           lcchars,
           input_line('UTF-8'),
           if has_apostrophes? then { input: [sprintf('hyph-quote-%s.tex', bcp47)] } end
-        ].compact
+        ]
       end
 
       def nonutf8_chunk(engine)
-        [engine_message(engine), unless unicode_only? then input_line(engine) end].compact
+        [engine_message(engine), unless unicode_only? then input_line(engine) end]
       end
 
       def initialize(bcp47 = nil)
