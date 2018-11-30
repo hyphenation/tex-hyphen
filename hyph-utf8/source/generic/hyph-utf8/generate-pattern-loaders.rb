@@ -82,7 +82,12 @@ else
 % That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
 \\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
 \\ifx\\secondarg\\empty'
-  output(file, language.generate_loader)
+  output(file, language.utf8_chunk)
+  file.puts("\\else\n")
+  output(file, language.nonutf8_chunk('8-bit'))
+  file.puts("\\fi\\else\n")
+  output(file, language.nonutf8_chunk('pTeX'))
+  file.puts("\\fi\n")
 end
 
 ########################################
