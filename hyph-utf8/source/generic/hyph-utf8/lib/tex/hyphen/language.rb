@@ -184,38 +184,32 @@ module TeX
 
       def utf8_engine_message
         if serbian?
-          {
-            message: 'UTF-8 Serbian hyphenation patterns',
-          }
+          'UTF-8 Serbian hyphenation patterns'
         else
-          {
-            message: sprintf('UTF-8 %s', message),
-          }
+          sprintf('UTF-8 %s', message)
         end
       end
 
       def non_utf8_engine_message
         if unicode_only?
-          {
-            message: sprintf('No %s - only for Unicode engines', message)
-          }
+          sprintf('No %s - only for Unicode engines', message)
         else
-          {
-            message: sprintf('%s%s', string_enc, message)
-          }
+          sprintf('%s%s', string_enc, message)
         end
       end
 
       def engine_message(engine)
         if engine == 'UTF-8'
-          [{ comment: 'Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument' },
-          utf8_engine_message]
+          {
+            comment: 'Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument',
+            message: utf8_engine_message
+          }
         else # engine is 8-bit or pTeX
-          [{
+          {
             comment: engine +
-              if engine == '8-bit' then " engine (such as TeX or pdfTeX)" else "" end
-           },
-           non_utf8_engine_message]
+              if engine == '8-bit' then " engine (such as TeX or pdfTeX)" else "" end,
+            message: non_utf8_engine_message
+          }
         end
       end
 
@@ -264,8 +258,8 @@ module TeX
         byebug unless specification.is_a? Hash
         comment = specification[:comment]
         message = specification[:message]
-        if message then [sprintf('\\message{%s}', message)] else [] end +
         if comment then [sprintf('%% %s', comment)] else [] end +
+        if message then [sprintf('\\message{%s}', message)] else [] end +
         (specification[:lccode] || []).map do |code, comment|
           sprintf '\\lccode"%04X="%04X%s', code, code, if comment then sprintf ' %% %s', comment else '' end
         end +
@@ -285,16 +279,17 @@ module TeX
       end
 
       def utf8_chunk
-        engine_message('UTF-8') +
-        # lccodes
-        [lcchars,
-         input_line('UTF-8'),
-         if has_apostrophes? then { input: [sprintf('hyph-quote-%s.tex', bcp47)] } end].compact
+        [
+          engine_message('UTF-8'),
+          # lccodes
+          lcchars,
+          input_line('UTF-8'),
+          if has_apostrophes? then { input: [sprintf('hyph-quote-%s.tex', bcp47)] } end
+        ].compact
       end
 
       def nonutf8_chunk(engine)
-        engine_message(engine) +
-        [unless unicode_only? then input_line(engine) end].compact
+        [engine_message(engine), unless unicode_only? then input_line(engine) end].compact
       end
 
       def initialize(bcp47 = nil)
