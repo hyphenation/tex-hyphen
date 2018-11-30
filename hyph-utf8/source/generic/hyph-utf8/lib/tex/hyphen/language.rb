@@ -124,17 +124,18 @@ module TeX
       end
 
       def lcchars
-        return { } unless unicode_only?
+        return nil unicode_only?
 
-        case @bcp47
-        when 'mul-ethi'
-          {
+        ['as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include? @bcp47
+        if ['as', 'bn', 'gu', 'hi', 'hy', 'kn', 'ml', 'mr'
+
+        {
+          'mul-ethi' => {
             comment: 'Set \lccode for Ethiopian word space.',
             0x1361 => false,
             0x1362 => false,
-          }
-        when 'cu'
-          {
+          },
+          'cu' => {
             comment: 'fix lccodes for some characters (they were recently included in Unicode)',
             0x1C82 => 'sharp o in lowercase "uk"',
             0x1DF6 => false,
@@ -146,21 +147,21 @@ module TeX
             0xA67E => false,
             0xFE2E => false,
             0xFE2F => false,
-          }
-        when 'sa'
-          {
+          },
+          'sa' => {
             comment: 'Set \lccode for ZWNJ and ZWJ.',
             0x200C => false,
             0x200D => "\n% Set \\lccode for KANNADA SIGN JIHVAMULIYA and KANNADA SIGN UPADHMANIYA.",
             0x0CF1 => false,
             0x0CF2 => false,
-          }
+          },
         else
           {
             comment: 'Set \lccode for ZWNJ and ZWJ.',
             0x200C => false,
             0x200D => false,
           }
+        case @bcp47
         end
       end
 
