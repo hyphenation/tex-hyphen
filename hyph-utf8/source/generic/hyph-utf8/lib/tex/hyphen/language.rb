@@ -186,7 +186,6 @@ module TeX
         if serbian?
           {
             message: 'UTF-8 Serbian hyphenation patterns',
-            comment: 'We load both scripts at the same time to simplify usage',
           }
         else
           {
@@ -245,6 +244,7 @@ module TeX
       def input_utf8_line
         if serbian?
           {
+            comment: 'We load both scripts at the same time to simplify usage',
             input: ['hyph-sh-latn.tex', 'hyph-sh-cyrl.tex']
           }
         else
