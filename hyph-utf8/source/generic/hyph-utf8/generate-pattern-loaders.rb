@@ -9,7 +9,7 @@ include Language::TeXLive
 
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
 
-def output(file, string, indent = 2)
+def output(file, string, indent = 0)
   if string.is_a? Enumerable
     string.each { |line| output(file, line, indent) }
   else
@@ -82,11 +82,11 @@ else
 % That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
 \\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
 \\ifx\\secondarg\\empty'
-  output(file, language.format_inputs(language.utf8_chunk))
+  output(file, language.format_inputs(language.utf8_chunk), 2)
   file.puts("\\else\n")
-  output(file, language.format_inputs(language.nonutf8_chunk('8-bit')))
+  output(file, language.format_inputs(language.nonutf8_chunk('8-bit')), 2)
   file.puts("\\fi\\else\n")
-  output(file, language.format_inputs(language.nonutf8_chunk('pTeX')))
+  output(file, language.format_inputs(language.nonutf8_chunk('pTeX')), 2)
   file.puts("\\fi\n")
 end
 
