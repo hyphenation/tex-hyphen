@@ -4,8 +4,10 @@
 # this file auto-generates loaders for hyphenation patterns - to be improved # No shit, Sherlock -- AR 2018-11-27
 
 require_relative 'lib/tex/hyphen/language.rb'
+require_relative 'lib/tex/hyphen/texlive/loader.rb'
 include TeX::Hyphen
 include Language::TeXLive
+include TeXLive::Loader
 
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
 
