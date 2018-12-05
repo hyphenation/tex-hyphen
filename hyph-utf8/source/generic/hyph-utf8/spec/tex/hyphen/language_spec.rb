@@ -3,6 +3,7 @@ require_relative '../../spec_helper'
 include TeX::Hyphen
 include Language::TeXLive
 include TeXLive
+include Loader
 
 describe String do
   describe '#superstrip' do
