@@ -421,15 +421,6 @@ module TeX
           plain_text_line('pat', 'patterns')
         end
 
-
-        def loadhyph
-          if use_old_loader
-            legacy_patterns
-          else
-            sprintf 'loadhyph-%s.tex', @bcp47.gsub(/^sh-/, 'sr-')
-          end
-        end
-
         def pTeX_patterns
           if italic?
             sprintf 'hyph-%s.tex', @bcp47

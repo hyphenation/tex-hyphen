@@ -178,6 +178,14 @@ module TeX
         def nonutf8_chunk(engine)
           [engine_message(engine), unless unicode_only? then input_line(engine) end].compact
         end
+
+        def loadhyph
+          if use_old_loader
+            legacy_patterns
+          else
+            sprintf 'loadhyph-%s.tex', @bcp47.gsub(/^sh-/, 'sr-')
+          end
+        end
       end
     end
   end
