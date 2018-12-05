@@ -29,6 +29,8 @@ module TeX
     class NoAuthor < InvalidMetadata; end
     class NoLicence < InvalidMetadata; end
 
+    @@authors = nil
+
     include PATH
 
     class Author
@@ -46,10 +48,14 @@ module TeX
       attr_reader :name, :surname, :email
 
       def self.authors
-        @@authors ||= @@author_data.map do |id, details|
-          author = Author.new(details[0], details[1], details[2], details[3], details[4])
-          [id, author]
-        end.to_h
+        unless @@authors
+          all_authors = YAML::load File.read File.expand_dir 'authors.yml', __FILE__
+          @@authors = all_author.map do |author|
+            [author.id, author]
+          end.to_h
+        end
+
+        @@authors
       end
 
       def self.all
