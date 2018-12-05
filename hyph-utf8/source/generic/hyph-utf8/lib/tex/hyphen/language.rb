@@ -50,8 +50,8 @@ module TeX
       def self.authors
         unless @@authors
           all_authors = YAML::load File.read File.expand_path 'authors.yml', __dir__
-          @@authors = all_author.map do |author|
-            [author.id, author]
+          @@authors = all_authors.map do |author|
+            [author.name, author]
           end.to_h
         end
 
