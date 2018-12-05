@@ -3,28 +3,7 @@ require 'hydra'
 require 'byebug' unless ENV['RACK_ENV'] == "production"
 
 require_relative 'author-data'
-
-module PATH
-  ROOT = File.expand_path('../../../../../../../..', __FILE__)
-
-  TeXROOT = File.join(ROOT, 'hyph-utf8')
-  TeX_GENERIC = File.join(TeXROOT, 'tex', 'generic')
-  PAT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns')
-  TXT = File.join(PAT, 'txt')
-  TEX = File.join(PAT, 'tex')
-  PTEX = File.join(PAT, 'ptex')
-  QUOTE = File.join(PAT, 'quote')
-  LOADER = File.join(TeX_GENERIC, 'hyph-utf8', 'loadhyph')
-
-  SUPPORT = File.join(TeXROOT, '%s', 'generic', 'hyph-utf8', 'languages', '*')
-
-  HYPHU8 = File.join('tex', 'generic', 'hyph-utf8')
-
-  TL = File.join(ROOT, 'TL')
-  LANGUAGE_DAT = File.join(PATH::TL, 'texmf-dist', 'tex', 'generic', 'config')
-  # hyphen-foo.tlpsrc for TeX Live
-  TLPSRC = File.join(PATH::TL, 'tlpkg', 'tlpsrc')
-end
+require_relative 'path'
 
 class String
   def superstrip
@@ -49,6 +28,8 @@ module TeX
     class InvalidMetadata < StandardError; end
     class NoAuthor < InvalidMetadata; end
     class NoLicence < InvalidMetadata; end
+
+    include PATH
 
     class Author
       def initialize(name,surname,email,contacted1,contacted2)
