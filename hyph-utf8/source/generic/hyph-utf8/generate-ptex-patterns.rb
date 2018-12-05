@@ -2,6 +2,7 @@
 
 require_relative 'hyph-utf8'
 require_relative 'lib/tex/hyphen/language'
+require_relative 'lib/tex/hyphen/texlive'
 include TeX::Hyphen
 include Language::TeXLive
 
