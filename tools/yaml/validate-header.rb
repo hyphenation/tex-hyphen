@@ -244,7 +244,7 @@ class HeaderValidator
         Dir.foreach(arg) do |filename|
           next if filename == '.' || filename == '..'
           f = File.join(arg, filename)
-          print filename.gsub(/.*\/hyph-/, '').gsub(/\.tex$/, ''), ' '
+          print filename.gsub(/^hyph-/, '').gsub(/\.tex$/, ''), ' '
           @headings << [filename, runfile(f)] unless Dir.exists? f
         end
       else
