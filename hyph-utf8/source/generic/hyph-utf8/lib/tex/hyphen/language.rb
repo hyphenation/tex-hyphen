@@ -49,7 +49,7 @@ module TeX
 
       def self.authors
         unless @@authors
-          all_authors = YAML::load File.read File.expand_dir 'authors.yml', __FILE__
+          all_authors = YAML::load File.read File.expand_path 'authors.yml', __dir__
           @@authors = all_author.map do |author|
             [author.id, author]
           end.to_h
