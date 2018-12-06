@@ -65,6 +65,7 @@ pavel_sevecek: !ruby/object:TeX::Hyphen::Author
   email: pavel{at}lingea{dot}cz
   contacted1: false
   contacted2: false
+# email doesn't work
 jana_chlebikova: !ruby/object:TeX::Hyphen::Author
   name: Jana
   surname: Chlebíková
@@ -131,6 +132,7 @@ santhosh_thottingal: !ruby/object:TeX::Hyphen::Author
   email: santhosh{dot}thottingal{at}gmail{dot}com>
   contacted1: true
   contacted2: true
+# email doesn't work
 yves_codet: !ruby/object:TeX::Hyphen::Author
   name: Yves
   surname: Codet
@@ -143,6 +145,7 @@ rune_kleveland: !ruby/object:TeX::Hyphen::Author
   email: 
   contacted1: false
   contacted2: false
+# email doesn't work
 ole_michael_selberg: !ruby/object:TeX::Hyphen::Author
   name: Ole Michael
   surname: Selberg
@@ -179,6 +182,7 @@ werner_lemberg: !ruby/object:TeX::Hyphen::Author
   email: wl{at}gnu{dot}org
   contacted1: true
   contacted2: true
+# email doesn't work
 pedro_j_de_rezende: !ruby/object:TeX::Hyphen::Author
   name: Pedro J.
   surname: de Rezende
@@ -191,6 +195,7 @@ j_joao_dias_almeida: !ruby/object:TeX::Hyphen::Author
   email: jj{at}di{dot}uminho{dot}pt
   contacted1: 
   contacted2: 
+# email doesn't work
 piet_tutelaers: !ruby/object:TeX::Hyphen::Author
   name: Piet
   surname: Tutelaers
@@ -233,6 +238,7 @@ terry_mart: !ruby/object:TeX::Hyphen::Author
   email: mart{at}kph{dot}uni-mainz{dot}de
   contacted1: false
   contacted2: false
+# email doesn't work
 jorgen_pind: !ruby/object:TeX::Hyphen::Author
   name: Jorgen
   surname: Pind
@@ -245,18 +251,21 @@ marteinn_sverrisson: !ruby/object:TeX::Hyphen::Author
   email: 
   contacted1: false
   contacted2: false
+# email doesn't work
 kristinn_gylfason: !ruby/object:TeX::Hyphen::Author
   name: Kristinn
   surname: Gylfason
   email: kristgy{at}ieee{dot}org
   contacted1: false
   contacted2: false
+# email doesn't work
 kevin_p_scannell: !ruby/object:TeX::Hyphen::Author
   name: Kevin P.
   surname: Scannell
   email: scanell{at}slu{dot}edu
   contacted1: false
   contacted2: false
+# email doesn't work
 peter_kleiweg: !ruby/object:TeX::Hyphen::Author
   name: Peter
   surname: Kleiweg
@@ -284,19 +293,20 @@ marek_rycko: !ruby/object:TeX::Hyphen::Author
 vladimir_volovich: !ruby/object:TeX::Hyphen::Author
   name: Vladimir
   surname: Volovich
-  email: 
+  email: # TODO add e-mail address
   contacted1: true
   contacted2: true
 alexander_i_lebedev: !ruby/object:TeX::Hyphen::Author
-  name: Alexander I.
+  name: Alexander I. # Not sure were 'I' belongs
   surname: Lebedev
   email: swan{at}scon155{dot}phys{dot}msu{dot}su
   contacted1: false
   contacted2: false
+# first email doesn't work
 maksym_polyakov: !ruby/object:TeX::Hyphen::Author
   name: Maksym
   surname: Polyakov
-  email: polyama{at}auburn{dot}edu
+  email: polyama{at}auburn{dot}edu # Second e-mail address in ukrhypmp.tex: mpoliak@i.com.ua
   contacted1: false
   contacted2: false
 adrian_rezus: !ruby/object:TeX::Hyphen::Author
@@ -305,12 +315,13 @@ adrian_rezus: !ruby/object:TeX::Hyphen::Author
   email: adriaan{at}{sci,cs}{dot}kun{dot}nl
   contacted1: false
   contacted2: false
+# email doesn't work
 sahak_petrosyan: !ruby/object:TeX::Hyphen::Author
   name: Sahak
   surname: Petrosyan
   email: sahak{at}mit{dot}edu
   contacted1: true
-  contacted2: true
+  contacted2: true # I think "true, true" is right.  Arthur
 dominik_wujastyk: !ruby/object:TeX::Hyphen::Author
   name: Dominik
   surname: Wujastyk
@@ -326,7 +337,7 @@ graham_toal: !ruby/object:TeX::Hyphen::Author
 donald_e_knuth: !ruby/object:TeX::Hyphen::Author
   name: Donald E.
   surname: Knuth
-  email: 
+  email: # Don doesn't use e-mail ;-)
   contacted1: false
   contacted2: false
 gerard_d_c_kuiken: !ruby/object:TeX::Hyphen::Author
@@ -347,6 +358,7 @@ h_turgut_uyar: !ruby/object:TeX::Hyphen::Author
   email: uyar{at}itu{dot}edu{tr}
   contacted1: true
   contacted2: true
+# email doesn't work
 s_ekin_kocabas: !ruby/object:TeX::Hyphen::Author
   name: S. Ekin
   surname: Kocabas
@@ -371,19 +383,19 @@ fred_karlsson: !ruby/object:TeX::Hyphen::Author
   email: 
   contacted1: false
   contacted2: false
-rene_bastian: !ruby/object:TeX::Hyphen::Author
+rene_bastian: !ruby/object:TeX::Hyphen::Author # TODO make contact
   name: René
   surname: Bastian
   email: 
   contacted1: false
   contacted2: false
-daniel_flipo: !ruby/object:TeX::Hyphen::Author
+daniel_flipo: !ruby/object:TeX::Hyphen::Author # TODO make contact
   name: Daniel
   surname: Flipo
   email: 
   contacted1: false
   contacted2: false
-bernard_gaulle: !ruby/object:TeX::Hyphen::Author
+bernard_gaulle: !ruby/object:TeX::Hyphen::Author # Deceased...
   name: Bernard
   surname: Gaulle
   email: 
@@ -401,6 +413,7 @@ levan_shoshiashvili: !ruby/object:TeX::Hyphen::Author
   email: shoshia{at}hotmail{dot}com
   contacted1: true
   contacted2: true
+# email doesn't work
 javier_mugica: !ruby/object:TeX::Hyphen::Author
   name: Javier
   surname: Múgica
