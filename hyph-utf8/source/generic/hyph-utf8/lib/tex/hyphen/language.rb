@@ -117,7 +117,8 @@ module TeX
       end
 
       def private_use?
-        @bcp47.length == 3 and @bcp47[0] == 'q' and ('a'..'t').include? @bcp47[1]
+        @bcp47.length == 3 and @bcp47[0] == 'q' and ('a'..'t').include? @bcp47[1] or
+          @bcp47[3] == '-'
       end
 
       # TODO This should probably become “macrolanguage name” or something similar

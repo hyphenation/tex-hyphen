@@ -505,6 +505,10 @@ describe Language do
     it "works correctly on four-letter tags" do
       expect(Language.new('qaaa').private_use?).to be_falsey
     end
+
+    it "works correctly in the presence of subtags" do
+      expect(Language.new('qtz-GB').private_use?).to be_truthy
+    end
   end
 
   describe '#extract_metadata' do
