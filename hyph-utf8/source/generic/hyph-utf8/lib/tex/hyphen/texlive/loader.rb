@@ -2,6 +2,8 @@ module TeX
   module Hyphen
     module TeXLive
       module Loader
+        include TeXLive
+
         def unicode_only? # TODO Spec out
           ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include? @bcp47
         end
