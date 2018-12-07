@@ -4,7 +4,7 @@ module TeX
       class Package
         attr_reader :name
 
-        @@metadata = YAML::load File.expand_path '../../packages.yml'
+        @@metadata = YAML::load File.read File.expand_path '../packages.yml', __dir__
 
         def initialize(name)
           @name = name
@@ -74,13 +74,7 @@ module TeX
         end
 
         def has_dependency?
-          @@metadata[name]
-          {
-            "german" => "dehyph",
-            # for Russian and Ukrainian (until we implement the new functionality at least)
-            "russian" => "ruhyphen",
-            "ukrainian" => "ukrhyph",
-          }[name]
+          @@metadata.dig(name, 'dependency')
         end
 
         def list_dependencies

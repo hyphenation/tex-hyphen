@@ -1,0 +1,7 @@
+german:
+  dependency: dehyph
+# for Russian and Ukrainian (until we implement the new functionality at least)
+russian:
+  dependency: ruhyphen
+ukrainian:
+  dependency: ukrhyph
