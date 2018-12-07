@@ -21,7 +21,6 @@ module TeX
           # a hash with the names of TeX Live packages, either individual language names,
           # or an array of languages as the value
           @@packages ||= Language.all.inject(Hash.new) do |packages, language|
-            # include Language::TeXLive
             if name = language.package || language.babelname
               package = packages[name] || Package.new(name)
               package.add_language language

@@ -4,7 +4,7 @@ require_relative 'hyph-utf8'
 require_relative 'lib/tex/hyphen/language'
 require_relative 'lib/tex/hyphen/texlive'
 include TeX::Hyphen
-include Language::TeXLive
+include TeXLive
 
 # this file generates patterns for pTeX out of the plain ones
 

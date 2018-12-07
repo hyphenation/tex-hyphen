@@ -340,8 +340,5 @@ module TeX
         metadata
       end
     end
-
-    module TeXLive
-    end
   end
 end

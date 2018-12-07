@@ -8,9 +8,7 @@ require_relative 'lib/tex/hyphen/texlive/package.rb'
 require_relative 'lib/tex/hyphen/texlive.rb'
 require_relative 'lib/tex/hyphen/texlive/loader.rb'
 include TeX::Hyphen
-include Language::TeXLive
 include TeXLive
-include Loader
 
 #--------#
 # TLPSRC #
