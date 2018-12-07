@@ -11,6 +11,8 @@ module TeX
         @encoding
       end
 
+      include TLPSRC
+
       def list_synonyms
         if synonyms && synonyms.length > 0
           sprintf " synonyms=%s", synonyms.join(',')
