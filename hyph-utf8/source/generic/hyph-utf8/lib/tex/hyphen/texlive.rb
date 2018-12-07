@@ -1,4 +1,5 @@
 require_relative 'texlive/source'
+require_relative 'texlive/loader'
 
 module TeX
   module Hyphen
@@ -14,6 +15,7 @@ module TeX
       end
 
       include Source
+      include Loader
     end
   end
 end
