@@ -5,3 +5,7 @@ russian:
   dependency: ruhyphen
 ukrainian:
   dependency: ukrhyph
+greek:
+  doc: doc/generic/elhyphen
+hungarian:
+  doc: doc/generic/huhyphen

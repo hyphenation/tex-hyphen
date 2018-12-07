@@ -91,13 +91,6 @@ module TeX
           dependencies
         end
 
-        @@special_support = {
-          'doc' => {
-            'greek' => 'doc/generic/elhyphen',
-            'hungarian' => 'doc/generic/huhyphen',
-          }
-        }
-
         def list_support_files(type)
           # Cache directory contents
           (@dirlist ||= { })[type] ||= Dir.glob(sprintf(PATH::SUPPORT, type)).select do |file|
@@ -110,7 +103,7 @@ module TeX
             sprintf("%s/generic/hyph-utf8/languages/%s", type, bcp47)
           end
 
-          if special = @@special_support.dig(type, name)
+          if special = @@metadata.dig(name, type)
             files << special
           end
 
