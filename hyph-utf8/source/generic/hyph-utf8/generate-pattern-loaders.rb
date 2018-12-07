@@ -8,6 +8,7 @@ require_relative 'lib/tex/hyphen/texlive/loader.rb'
 require_relative 'lib/tex/hyphen/texlive.rb'
 include TeX::Hyphen
 include TeXLive::Loader
+include TeXLive
 
 #text_if_native_utf = "\input pattern-loader.tex\n\\ifNativeUtfEightPatterns"
 
