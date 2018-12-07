@@ -1,5 +1,6 @@
 require_relative 'texlive/source'
 require_relative 'texlive/loader'
+require_relative 'texlive/package'
 
 module TeX
   module Hyphen

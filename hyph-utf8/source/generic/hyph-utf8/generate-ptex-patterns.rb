@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative 'hyph-utf8'
-require_relative 'lib/tex/hyphen/language'
+require_relative 'lib/tex/hyphen'
 require_relative 'lib/tex/hyphen/texlive'
 include TeX::Hyphen
 include TeXLive

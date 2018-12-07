@@ -3,9 +3,8 @@
 
 # this file auto-generates loaders for hyphenation patterns - to be improved # No shit, Sherlock -- AR 2018-11-27
 
-require_relative 'lib/tex/hyphen/language.rb'
-require_relative 'lib/tex/hyphen/texlive/loader.rb'
-require_relative 'lib/tex/hyphen/texlive.rb'
+require_relative 'lib/tex/hyphen'
+require_relative 'lib/tex/hyphen/texlive'
 include TeX::Hyphen
 include TeXLive
 
