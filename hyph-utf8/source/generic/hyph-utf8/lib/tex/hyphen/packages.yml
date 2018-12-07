@@ -7,5 +7,20 @@ ukrainian:
   dependency: ukrhyph
 greek:
   doc: doc/generic/elhyphen
+shortdesc: Modern Greek
 hungarian:
   doc: doc/generic/huhyphen
+
+          leader = case @name
+arabic:
+  shortdesc: (No) Arabic
+farsi:
+  shortdesc: (No) Persian
+chinese:
+  shortdesc: Chinese pinyin
+norwegian:
+  shortdesc: Norwegian Bokmal and Nynorsk
+churchslavonic:
+  shortdesc: Church Slavonic
+uppersorbian:
+  shortdesc: Upper Sorbian

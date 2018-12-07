@@ -41,25 +41,7 @@ module TeX
         def description_s
           return 'Hyphenation patterns for Ethiopic scripts' if @name == 'ethiopic'
 
-          leader = case @name
-          when 'arabic'
-            '(No) Arabic'
-          when 'farsi'
-            '(No) Persian'
-          when 'greek'
-            'Modern Greek'
-          when 'chinese'
-            'Chinese pinyin'
-          when 'norwegian'
-            'Norwegian Bokmal and Nynorsk'
-          when 'churchslavonic'
-            'Church Slavonic'
-          when 'uppersorbian'
-            'Upper Sorbian'
-          else
-            @name.titlecase
-          end
-
+          leader = @@metadata.dig(@name, 'shortdesc') || @name.titlecase
           shortdesc = sprintf '%s hyphenation patterns', leader
           shortdesc += ' in Cyrillic script' if @name == 'mongolian'
 
