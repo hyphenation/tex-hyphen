@@ -4,6 +4,8 @@ module TeX
       class Package
         attr_reader :name
 
+        @@metadata = YAML::load File.expand_path '../../packages.yml'
+
         def initialize(name)
           @name = name
           @languages = []
@@ -72,6 +74,7 @@ module TeX
         end
 
         def has_dependency?
+          @@metadata[name]
           {
             "german" => "dehyph",
             # for Russian and Ukrainian (until we implement the new functionality at least)
