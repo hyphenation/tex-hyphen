@@ -30,7 +30,7 @@ Language.all.each do |language|
 
 # a message about auto-generation
 # TODO: write a more comprehensive one
-text_header = <<-EOHEADER
+  text_header = <<-EOHEADER
 % filename: loadhyph-#{language.bcp47}.tex
 % language: #{language.babelname}
 %
@@ -45,19 +45,19 @@ text_header = <<-EOHEADER
 % Once it turns out that more than a simple definition is needed,
 % these lines may be moved to a separate file.
 %
-EOHEADER
+  EOHEADER
 
 ###########
 # lccodes #
 ###########
 
-lccodes_common = []
-if language.has_apostrophes? then
-  lccodes_common.push("\\lccode`\\'=`\\'")
-end
-if language.has_hyphens? then
-  lccodes_common.push("\\lccode`\\-=`\\-")
-end
+  lccodes_common = []
+  if language.has_apostrophes? then
+    lccodes_common.push("\\lccode`\\'=`\\'")
+  end
+  if language.has_hyphens? then
+    lccodes_common.push("\\lccode`\\-=`\\-")
+  end
 
   next if language.use_old_loader
     print language.bcp47, ' '
@@ -72,25 +72,25 @@ end
         file.puts lccodes_common.join("\n")
       end
 
-# for ASCII encoding, we don't load any special support files, but simply load everything
-if language.encoding == 'ascii' && !language.italic?
-  file.puts "% ASCII patterns - no additional support is needed"
-  file.puts "\\message{ASCII #{language.message}}"
-  file.puts "\\input hyph-#{language.bcp47}.tex"
-else
-  file.puts '% Test for pTeX
+      # for ASCII encoding, we don't load any special support files, but simply load everything
+      if language.encoding == 'ascii' && !language.italic?
+        file.puts "% ASCII patterns - no additional support is needed"
+        file.puts "\\message{ASCII #{language.message}}"
+        file.puts "\\input hyph-#{language.bcp47}.tex"
+      else
+        file.puts '% Test for pTeX
 \\ifx\\kanjiskip\\undefined
 % Test for native UTF-8 (which gets only a single argument)
 % That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
 \\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
 \\ifx\\secondarg\\empty'
-  output(file, language.format_inputs(language.utf8_chunk), 2)
-  file.puts("\\else\n")
-  output(file, language.format_inputs(language.nonutf8_chunk('8-bit')), 2)
-  file.puts("\\fi\\else\n")
-  output(file, language.format_inputs(language.nonutf8_chunk('pTeX')), 2)
-  file.puts("\\fi\n")
-end
+        output(file, language.format_inputs(language.utf8_chunk), 2)
+        file.puts("\\else\n")
+        output(file, language.format_inputs(language.nonutf8_chunk('8-bit')), 2)
+        file.puts("\\fi\\else\n")
+        output(file, language.format_inputs(language.nonutf8_chunk('pTeX')), 2)
+        file.puts("\\fi\n")
+      end
 
 ########################################
 # GROUP nr. 1 - ONLY USABLE WITH UTF-8 #
