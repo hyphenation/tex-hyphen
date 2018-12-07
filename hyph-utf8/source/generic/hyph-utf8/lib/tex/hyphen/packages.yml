@@ -7,11 +7,9 @@ ukrainian:
   dependency: ukrhyph
 greek:
   doc: doc/generic/elhyphen
-shortdesc: Modern Greek
+  shortdesc: Modern Greek
 hungarian:
   doc: doc/generic/huhyphen
-
-          leader = case @name
 arabic:
   shortdesc: (No) Arabic
 farsi:
@@ -24,3 +22,7 @@ churchslavonic:
   shortdesc: Church Slavonic
 uppersorbian:
   shortdesc: Upper Sorbian
+ethiopic:
+  shortdesc_override: Hyphenation patterns for Ethiopic scripts
+mongolian:
+  shortdesc_override: Mongolian hyphenation patterns in Cyrillic script

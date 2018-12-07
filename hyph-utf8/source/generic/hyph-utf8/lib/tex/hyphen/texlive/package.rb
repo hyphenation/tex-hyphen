@@ -39,13 +39,11 @@ module TeX
 
         # FIXME That’s oh-so-awful
         def description_s
-          return 'Hyphenation patterns for Ethiopic scripts' if @name == 'ethiopic'
+          override = @@metadata.dig(@name, 'shortdesc_override')
+          return override if override
 
           leader = @@metadata.dig(@name, 'shortdesc') || @name.titlecase
-          shortdesc = sprintf '%s hyphenation patterns', leader
-          shortdesc += ' in Cyrillic script' if @name == 'mongolian'
-
-          shortdesc
+          sprintf '%s hyphenation patterns', leader
         end
 
         #  FIXME This should be at package level from the start
