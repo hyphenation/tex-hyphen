@@ -307,9 +307,11 @@ module TeX
         @name = metadata.dig('language', 'name')
         @lefthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'left') || metadata.dig('hyphenmins', 'generation', 'left')
         @righthyphenmin = metadata.dig('hyphenmins', 'typesetting', 'right') || metadata.dig('hyphenmins', 'generation', 'right')
-        # TODO Something about being in the right module
-        @synonyms = metadata.dig('texlive', 'synonyms') || []
-        @encoding = metadata.dig('texlive', 'encoding')
+        # FIXME That’s not nice
+        if respond_to? :synonyms
+          @synonyms = metadata.dig('texlive', 'synonyms') || []
+          @encoding = metadata.dig('texlive', 'encoding')
+        end
         @message = metadata.dig('texlive', 'message')
         @legacy_patterns = metadata.dig('texlive', 'legacy_patterns')
         @use_old_loader = metadata.dig('texlive', 'use_old_loader')
