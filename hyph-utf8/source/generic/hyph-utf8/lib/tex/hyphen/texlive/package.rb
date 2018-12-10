@@ -47,7 +47,7 @@ module TeX
 
         #  FIXME This should be at package level from the start
         def description
-          @@metadata.dig(@name, description) || ''
+          @@metadata.dig(@name, 'description') || ''
         end
 
         def has_dependency?
