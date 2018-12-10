@@ -192,6 +192,7 @@ class HeaderValidator
       # byebug if validator[key.to_sym] == nil
       # byebug unless validator
       raise ValidationError.new("Invalid key #{key} found") if validator[key.to_sym] == nil
+      raise ValidationError if key.to_sum == :texlive && hash['
       validate(value, validator[key.to_sym][:type]) if value.respond_to?(:keys) && !validator[key.to_sym][:one_or_more]
     end
   end
