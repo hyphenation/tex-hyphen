@@ -45,9 +45,13 @@ module TeX
           sprintf '%s hyphenation patterns', leader
         end
 
-        #  FIXME This should be at package level from the start
         def description
-          @@metadata.dig(@name, 'description') || ''
+          byebug if @name == 'chinese'
+          if @languages.count == 1
+            @languages.first.description
+          else
+            @@metadata.dig(@name, 'description')
+          end || ''
         end
 
         def has_dependency?
