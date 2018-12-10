@@ -25,7 +25,7 @@ module TeX
           # or an array of languages as the value
           @@packages ||= Language.all.inject(Hash.new) do |packages, language|
             if name = language.package || language.babelname # Package name, otherwise single language
-              packages[name] = Package.new(name) unless packages[name] # Create new if necessary
+              packages[name] ||= Package.new(name) # Create new package if necessary
               packages[name].add_language language
             end
 
