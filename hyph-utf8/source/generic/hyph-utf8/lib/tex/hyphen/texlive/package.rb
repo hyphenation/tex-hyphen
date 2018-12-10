@@ -37,9 +37,8 @@ module TeX
           packages.values
         end
 
-        # FIXME That’s oh-so-awful
         def description_s
-          override = @@metadata.dig(@name, 'shortdesc_override')
+          override = @@metadata.dig(@name, 'shortdesc_full')
           return override if override
 
           leader = @@metadata.dig(@name, 'shortdesc') || @name.titlecase

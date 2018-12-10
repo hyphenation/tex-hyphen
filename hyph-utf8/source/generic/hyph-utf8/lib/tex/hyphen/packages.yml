@@ -23,6 +23,6 @@ churchslavonic:
 uppersorbian:
   shortdesc: Upper Sorbian
 ethiopic:
-  shortdesc_override: Hyphenation patterns for Ethiopic scripts
+  shortdesc_full: Hyphenation patterns for Ethiopic scripts
 mongolian:
-  shortdesc_override: Mongolian hyphenation patterns in Cyrillic script
+  shortdesc_full: Mongolian hyphenation patterns in Cyrillic script
