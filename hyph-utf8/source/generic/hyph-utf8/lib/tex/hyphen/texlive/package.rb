@@ -13,20 +13,20 @@ module TeX
 
         def add_language(language)
           @languages << language
+          @languages.sort!
         end
 
         def languages
-          @languages.sort
+          @languages
         end
 
         def self.packages
           # a hash with the names of TeX Live packages, either individual language names,
           # or an array of languages as the value
           @@packages ||= Language.all.inject(Hash.new) do |packages, language|
-            if name = language.package || language.babelname
-              package = packages[name] || Package.new(name)
+            if name = language.package || language.babelname # Package name, otherwise single language
+              packages[name] = (package = packages[name] || Package.new(name)) # Use package if exists, otherwise create new
               package.add_language language
-              packages[name] = package
             end
 
             packages
@@ -70,7 +70,7 @@ module TeX
           dependencies
         end
 
-        def list_support_files(type)
+        def list_support_files(type) # type is ‘doc’ or ‘source’
           # Cache directory contents
           (@dirlist ||= { })[type] ||= Dir.glob(sprintf(PATH::SUPPORT, type)).select do |file|
             File.directory?(file)
