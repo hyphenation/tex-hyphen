@@ -810,19 +810,13 @@ describe Language do
     describe '#description' do
       it "returns the long description" do
         text = <<-EOD
-          Hyphenation patterns for German in T1/EC and UTF-8 encodings,
-          for traditional and reformed spelling, including Swiss German.
-          The package includes the latest patterns from dehyph-exptl
-          (known to TeX under names 'german', 'ngerman' and 'swissgerman'),
-          however 8-bit engines still load old versions of patterns
-          for 'german' and 'ngerman' for backward-compatibility reasons.
-          Swiss German patterns are suitable for Swiss Standard German
-          (Hochdeutsch) not the Alemannic dialects spoken in Switzerland
-          (Schwyzerduetsch).
-          There are no known patterns for written Schwyzerduetsch.
+          Hyphenation patterns for Dutch in T1/EC and UTF-8 encodings.
+          These patterns don't handle cases like 'menuutje' > 'menu-tje',
+          and don't hyphenate words that have different hyphenations according
+          to their meaning.
         EOD
         description = text.split("\n").map(&:strip).join("\n")
-        expect(Language.new('de-1901').description).to eq description
+        expect(Language.new('nl').description).to eq description
       end
 
       it "returns nil for new spelling German, for some reason" do
@@ -878,6 +872,23 @@ describe Package do
       expect(latin.description).to match /^Hyphenation patterns for.*modern spelling.*medieval spelling/m
       expect(latin.description).to match /Classical Latin/
       expect(latin.description).to match /Liturgical Latin/
+    end
+
+    it "returns the long package description" do
+      text = <<-EOD
+        Hyphenation patterns for German in T1/EC and UTF-8 encodings,
+        for traditional and reformed spelling, including Swiss German.
+        The package includes the latest patterns from dehyph-exptl
+        (known to TeX under names 'german', 'ngerman' and 'swissgerman'),
+        however 8-bit engines still load old versions of patterns
+        for 'german' and 'ngerman' for backward-compatibility reasons.
+        Swiss German patterns are suitable for Swiss Standard German
+        (Hochdeutsch) not the Alemannic dialects spoken in Switzerland
+        (Schwyzerduetsch).
+        There are no known patterns for written Schwyzerduetsch.
+      EOD
+      description = text.split("\n").map(&:strip).join("\n")
+      expect(Package.find('german').description).to match description
     end
   end
 
