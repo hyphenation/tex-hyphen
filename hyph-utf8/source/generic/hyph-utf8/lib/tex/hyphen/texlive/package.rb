@@ -46,12 +46,14 @@ module TeX
         end
 
         def description
-          byebug if @name == 'chinese'
-          if @languages.count == 1
+          description = @@metadata.dig(@name, 'description')
+          if description
+            description
+          elsif @languages.count == 1
             @languages.first.description
           else
-            @@metadata.dig(@name, 'description')
-          end || ''
+            ''
+          end
         end
 
         def has_dependency?

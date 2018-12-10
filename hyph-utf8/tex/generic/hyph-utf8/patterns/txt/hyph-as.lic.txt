@@ -54,9 +54,5 @@
 % texlive:
 %     babelname: assamese
 %     message: Assamese hyphenation patterns
-%     description: |-
-%         Hyphenation patterns for Assamese, Bengali, Gujarati, Hindi, Kannada,
-%         Malayalam, Marathi, Oriya, Panjabi, Tamil and Telugu for Unicode
-%         engines.
 %     package: indic
 %

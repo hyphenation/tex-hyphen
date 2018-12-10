@@ -78,7 +78,7 @@ indic:
     Hyphenation patterns for Assamese, Bengali, Gujarati, Hindi, Kannada,
     Malayalam, Marathi, Oriya, Panjabi, Tamil and Telugu for Unicode
     engines.
-ancientgreek:
+"ancient greek":
   description: |-
     Hyphenation patterns for Ancient Greek in LGR and UTF-8 encodings,
     including support for (obsolete) Ibycus font encoding.

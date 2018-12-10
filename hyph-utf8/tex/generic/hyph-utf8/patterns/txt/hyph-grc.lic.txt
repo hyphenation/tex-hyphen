@@ -38,11 +38,6 @@
 %     use_old_patterns_comment: Old patterns work in a different way, one-to-one conversion from UTF-8 is not possible.
 %     legacy_patterns: grahyph5.tex
 %     message: Hyphenation patterns for Ancient Greek
-%     description: |-
-%         Hyphenation patterns for Ancient Greek in LGR and UTF-8 encodings,
-%         including support for (obsolete) Ibycus font encoding.
-%         Patterns in UTF-8 use two code positions for each of the vowels with
-%         acute accent (a.k.a tonos, oxia), e.g., U+03AE, U+1F75 for eta.
 %     package: ancient greek
 %
 % ==========================================
