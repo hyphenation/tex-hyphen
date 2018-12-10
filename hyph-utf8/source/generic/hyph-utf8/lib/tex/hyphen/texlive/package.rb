@@ -47,9 +47,7 @@ module TeX
 
         #  FIXME This should be at package level from the start
         def description
-          languages.map do |language|
-             language.description || ''
-          end.join "\n"
+          @@metadata.dig(@name, description) || ''
         end
 
         def has_dependency?
