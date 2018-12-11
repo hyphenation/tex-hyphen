@@ -62,6 +62,10 @@ module TeX
 
       @@eohmarker = '=' * 42
 
+      def iso639
+        @bcp47.split('-').first
+      end
+
       def babelname
         extract_metadata
         @babelname

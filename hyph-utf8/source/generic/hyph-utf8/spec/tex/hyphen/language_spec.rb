@@ -157,6 +157,16 @@ describe Language do
     end
   end
 
+  describe '#iso639' do
+    it "returns the ISO 639 primary tag" do
+      expect(Language.new('en-gb').iso639).to eq 'en'
+    end
+
+    it "works on 3-character tags" do
+      expect(Language.new('grc-x-ibycus').iso639).to eq 'grc'
+    end
+  end
+
 #   describe '#name' do
 #     let(:new_orthography_german) { Language.new('de-1996') }
 #
