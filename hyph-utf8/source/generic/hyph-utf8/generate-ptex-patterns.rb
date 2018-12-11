@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 
 require_relative 'hyph-utf8'
-require_relative 'languages'
+require_relative 'lib/tex/hyphen'
+require_relative 'lib/tex/hyphen/texlive'
+include TeX::Hyphen
+include TeXLive
 
 # this file generates patterns for pTeX out of the plain ones
 
@@ -24,23 +27,27 @@ header = <<-HEADER
 %%
 HEADER
 
+print 'Generating pTeX patterns for (skipped # reason): '
 Language.all.sort.each do |language|
-	if language.use_old_loader
-		puts "(skipping #{language.code} # loader)"
-		next
-	end
+	if language.use_old_loader or ['ascii', nil].include? language.encoding
+		if language.use_old_loader
+			reason = 'loader'
+		elsif !language.encoding
+		  reason = 'encoding'
+		elsif language.encoding == 'ascii'
+		  reason = 'ascii'
+		end
+		print '(', language.bcp47, ' # ', reason, ') '
 
-	if language.encoding == nil || language.encoding == 'ascii'
-		puts "(skipping #{language.code} # #{if language.encoding then 'ascii' else 'encoding' end})"
 		next
 	else
 		encoding = encodings[language.encoding]
 	end
 
-	code = language.code
+	bcp47 = language.bcp47
 
-	puts ">> generating #{code} (#{language.name.safe})"
-	File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', code, language.encoding)), 'w') do |file_ptex|
+	print bcp47,  ' '
+	File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', bcp47, language.encoding)), 'w') do |file_ptex|
 		patterns   = language.patterns
 		exceptions = language.exceptions
 
@@ -51,12 +58,12 @@ Language.all.sort.each do |language|
 			exceptions = encoding.convert_to_escaped_characters(exceptions)
 		end
 
-		file_ptex.printf(header, language.name.safe, language.code, language.encoding, language.code)
+		file_ptex.printf(header, language.babelname, language.bcp47, language.encoding, language.bcp47)
 
 		file_ptex.puts("\\bgroup")
 		# setting lccodes for letters
 		characters.each do |c|
-			if (c == 0x01FD or c == 0x0301) and language.code == 'la-x-liturgic'
+			if (c == 0x01FD or c == 0x0301) and language.bcp47 == 'la-x-liturgic'
 				# skip
 			elsif c >= 128 then
 				code = encoding.unicode_characters[c].code_enc
@@ -74,3 +81,4 @@ Language.all.sort.each do |language|
 		file_ptex.puts("\\egroup")
 	end
 end
+puts

@@ -15,4 +15,14 @@
 %     version: 2
 %     or_later: true
 %     url: http://www.gnu.org/licenses/gpl.html
+% hyphenmins:
+%     typesetting:
+%        left: 1
+%        right: 1
+% texlive:
+%     encoding: ec
+%     babelname: pinyin
+%     legacy_patterns: pyhyph.tex
+%     message: Hyphenation patterns for unaccented pinyin syllables
+%     package: chinese
 %

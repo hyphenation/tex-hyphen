@@ -10,7 +10,8 @@ task :validate do
 end
 
 task :spec do
-  RSpec::Core::RakeTask.new
+  task = RSpec::Core::RakeTask.new
+  task.pattern = File.join(File.expand_path('../hyph-utf8/source/generic/hyph-utf8', __FILE__), RSpec::Core::RakeTask::DEFAULT_PATTERN)
 end
 
 # TODO: Rubocop
@@ -20,6 +21,5 @@ task :build do
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-ptex-patterns.rb"
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-tl-files.rb"
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-plain-patterns.rb"
-  ruby "hyph-utf8/source/generic/hyph-utf8/generate-webpage.rb"
   system "tools/make_CTAN_zip.sh"
 end

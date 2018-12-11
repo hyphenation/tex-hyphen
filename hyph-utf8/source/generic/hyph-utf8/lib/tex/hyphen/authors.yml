@@ -1,0 +1,452 @@
+---
+donald_knuth: !ruby/object:TeX::Hyphen::Author
+  name: Donald
+  surname: Knuth
+  email: 
+  contacted1: false
+  contacted2: false
+peter_heslin: !ruby/object:TeX::Hyphen::Author
+  name: Peter
+  surname: Heslin
+  email: 
+  contacted1: false
+  contacted2: false
+dimitrios_filippou: !ruby/object:TeX::Hyphen::Author
+  name: Dimitrios
+  surname: Filippou
+  email: dimitrios{dot}filippou{at}riotinto{dot}com
+  contacted1: true
+  contacted2: true
+claudio_beccari: !ruby/object:TeX::Hyphen::Author
+  name: Claudio
+  surname: Beccari
+  email: claudio{dot}beccari{at}gmail{dot}com
+  contacted1: true
+  contacted2: true
+juan_aguirregabiria: !ruby/object:TeX::Hyphen::Author
+  name: Juan M.
+  surname: Aguirregabiria
+  email: juanmari{dot}aguirregabiria{at}ehu.es
+  contacted1: true
+  contacted2: true
+igor_marinovic: !ruby/object:TeX::Hyphen::Author
+  name: Igor
+  surname: Marinović
+  email: marinowski{at}gmail.com
+  contacted1: true
+  contacted2: true
+tilla_fick: !ruby/object:TeX::Hyphen::Author
+  name: Tilla
+  surname: Fick
+  email: fick{dot}tilla{at}gmail{dot}com
+  contacted1: true
+  contacted2: true
+chris_swanepoel: !ruby/object:TeX::Hyphen::Author
+  name: Chris
+  surname: Swanepoel
+  email: cj{at}swanepoel{dot}net
+  contacted1: true
+  contacted2: true
+matjaz_vrecko: !ruby/object:TeX::Hyphen::Author
+  name: Matjaž
+  surname: Vrečko
+  email: matjaz{at}mg-soft{dot}si
+  contacted1: true
+  contacted2: true
+goncal_badenes: !ruby/object:TeX::Hyphen::Author
+  name: Gonçal
+  surname: Badenes
+  email: g{dot}badenes{at}ieee.org
+  contacted1: false
+  contacted2: false
+pavel_sevecek: !ruby/object:TeX::Hyphen::Author
+  name: Pavel
+  surname: Ševeček
+  email: pavel{at}lingea{dot}cz
+  contacted1: false
+  contacted2: false
+# email doesn't work
+jana_chlebikova: !ruby/object:TeX::Hyphen::Author
+  name: Jana
+  surname: Chlebíková
+  email: chlebikj{at}dcs{dot}fmph{dot}uniba{dot}sk
+  contacted1: false
+  contacted2: false
+yannis_haralambous: !ruby/object:TeX::Hyphen::Author
+  name: Yannis
+  surname: Haralambous
+  email: yannis{dot}haralambous{at}telecom-bretagne{dot}eu
+  contacted1: true
+  contacted2: false
+frank_jensen: !ruby/object:TeX::Hyphen::Author
+  name: Frank
+  surname: Jensen
+  email: frank{dot}jensen{at}hugin{dot}com
+  contacted1: true
+  contacted2: true
+sergei_pokrovsky: !ruby/object:TeX::Hyphen::Author
+  name: Sergei
+  surname: Pokrovsky
+  email: sergio{dot}pokrovskij{at}gmail{dot}com
+  contacted1: true
+  contacted2: true
+javier_bezos: !ruby/object:TeX::Hyphen::Author
+  name: Javier
+  surname: Bezos
+  email: jbezos{at}tex-tipografia{dot}com
+  contacted1: true
+  contacted2: true
+een_saar: !ruby/object:TeX::Hyphen::Author
+  name: Enn
+  surname: Saar
+  email: saar{at}aai{dot}ee
+  contacted1: false
+  contacted2: false
+dejan_muhamedagic: !ruby/object:TeX::Hyphen::Author
+  name: Dejan
+  surname: Muhamedagić
+  email: dejan{at}hello-penguin{dot}com
+  contacted1: true
+  contacted2: true
+brian_wilson: !ruby/object:TeX::Hyphen::Author
+  name: Brian
+  surname: Wilson
+  email: bountonw{at}gmail{dot}com
+  contacted1: true
+  contacted2: true
+arthur_reutenauer: !ruby/object:TeX::Hyphen::Author
+  name: Arthur
+  surname: Reutenauer
+  email: arthur{dot}reutenauer{at}normalesup{dot}org
+  contacted1: true
+  contacted2: true
+mojca_miklavec: !ruby/object:TeX::Hyphen::Author
+  name: Mojca
+  surname: Miklavec
+  email: mojca{dot}miklavec{dot}lists{at}gmail{dot}com
+  contacted1: true
+  contacted2: true
+santhosh_thottingal: !ruby/object:TeX::Hyphen::Author
+  name: Santhosh
+  surname: Thottingal
+  email: santhosh{dot}thottingal{at}gmail{dot}com>
+  contacted1: true
+  contacted2: true
+# email doesn't work
+yves_codet: !ruby/object:TeX::Hyphen::Author
+  name: Yves
+  surname: Codet
+  email: ycodet{at}club-internet{dot}fr
+  contacted1: true
+  contacted2: true
+rune_kleveland: !ruby/object:TeX::Hyphen::Author
+  name: Rune
+  surname: Kleveland
+  email: 
+  contacted1: false
+  contacted2: false
+# email doesn't work
+ole_michael_selberg: !ruby/object:TeX::Hyphen::Author
+  name: Ole Michael
+  surname: Selberg
+  email: o{dot}m{dot}selberg{at}c2i{dot}net
+  contacted1: true
+  contacted2: true
+dorjgotov_batmunkh: !ruby/object:TeX::Hyphen::Author
+  name: Dorjgotov
+  surname: Batmunkh
+  email: bataak{at}gmail{dot}com
+  contacted1: true
+  contacted2: true
+nazar_annagurban: !ruby/object:TeX::Hyphen::Author
+  name: Nazar
+  surname: Annagurban
+  email: nazartm{at}gmail{dot}com
+  contacted1: false
+  contacted2: false
+jan_michael_rynning: !ruby/object:TeX::Hyphen::Author
+  name: Jan Michael
+  surname: Rynning
+  email: 
+  contacted1: false
+  contacted2: false
+eduard_werner: !ruby/object:TeX::Hyphen::Author
+  name: Eduard
+  surname: Werner
+  email: edi{dot}werner{at}gmx{dot}de
+  contacted1: false
+  contacted2: false
+werner_lemberg: !ruby/object:TeX::Hyphen::Author
+  name: Werner
+  surname: Lemberg
+  email: wl{at}gnu{dot}org
+  contacted1: true
+  contacted2: true
+# email doesn't work
+pedro_j_de_rezende: !ruby/object:TeX::Hyphen::Author
+  name: Pedro J.
+  surname: de Rezende
+  email: rezende{at}ddc{dot}unicamp{dot}br
+  contacted1: false
+  contacted2: false
+j_joao_dias_almeida: !ruby/object:TeX::Hyphen::Author
+  name: J. Joao
+  surname: Dias Almeida
+  email: jj{at}di{dot}uminho{dot}pt
+  contacted1: 
+  contacted2: 
+# email doesn't work
+piet_tutelaers: !ruby/object:TeX::Hyphen::Author
+  name: Piet
+  surname: Tutelaers
+  email: p{dot}t{dot}h{dot}tutelaers{at}tue{dot}nl
+  contacted1: false
+  contacted2: false
+vytas_statulevicius: !ruby/object:TeX::Hyphen::Author
+  name: Vytas
+  surname: Statulevičius
+  email: vytas{at}vtex{dot}nl
+  contacted1: false
+  contacted2: false
+sigitas_tolusis: !ruby/object:TeX::Hyphen::Author
+  name: Sigitas
+  surname: Tolušis
+  email: sigitas{at}vtex{dot}lt
+  contacted1: false
+  contacted2: false
+janis_vilims: !ruby/object:TeX::Hyphen::Author
+  name: Janis
+  surname: Vilims
+  email: jvilims{at}apollo{dot}lv
+  contacted1: false
+  contacted2: false
+joerg_knappen: !ruby/object:TeX::Hyphen::Author
+  name: Jörg
+  surname: Knappen
+  email: jknappen{at}web{dot}de
+  contacted1: true
+  contacted2: true
+medeni_shemde: !ruby/object:TeX::Hyphen::Author
+  name: Medeni
+  surname: Shemdê
+  email: 
+  contacted1: false
+  contacted2: false
+terry_mart: !ruby/object:TeX::Hyphen::Author
+  name: Terry
+  surname: Mart
+  email: mart{at}kph{dot}uni-mainz{dot}de
+  contacted1: false
+  contacted2: false
+# email doesn't work
+jorgen_pind: !ruby/object:TeX::Hyphen::Author
+  name: Jorgen
+  surname: Pind
+  email: jorgen{at}lexis{dot}hi{dot}is
+  contacted1: false
+  contacted2: false
+marteinn_sverrisson: !ruby/object:TeX::Hyphen::Author
+  name: Marteinn
+  surname: Sverrisson
+  email: 
+  contacted1: false
+  contacted2: false
+# email doesn't work
+kristinn_gylfason: !ruby/object:TeX::Hyphen::Author
+  name: Kristinn
+  surname: Gylfason
+  email: kristgy{at}ieee{dot}org
+  contacted1: false
+  contacted2: false
+# email doesn't work
+kevin_p_scannell: !ruby/object:TeX::Hyphen::Author
+  name: Kevin P.
+  surname: Scannell
+  email: scanell{at}slu{dot}edu
+  contacted1: false
+  contacted2: false
+# email doesn't work
+peter_kleiweg: !ruby/object:TeX::Hyphen::Author
+  name: Peter
+  surname: Kleiweg
+  email: p{dot}c{dot}c{dot}kleiweg{at}rug{dot}nl
+  contacted1: false
+  contacted2: false
+hanna_kolodziejska: !ruby/object:TeX::Hyphen::Author
+  name: Hanna
+  surname: Kołodziejska
+  email: 
+  contacted1: false
+  contacted2: false
+boguslaw_jackowski: !ruby/object:TeX::Hyphen::Author
+  name: Bogusław
+  surname: Jackowski
+  email: 
+  contacted1: true
+  contacted2: true
+marek_rycko: !ruby/object:TeX::Hyphen::Author
+  name: Marek
+  surname: Ryćko
+  email: 
+  contacted1: false
+  contacted2: false
+vladimir_volovich: !ruby/object:TeX::Hyphen::Author
+  name: Vladimir
+  surname: Volovich
+  email: # TODO add e-mail address
+  contacted1: true
+  contacted2: true
+alexander_i_lebedev: !ruby/object:TeX::Hyphen::Author
+  name: Alexander I. # Not sure were 'I' belongs
+  surname: Lebedev
+  email: swan{at}scon155{dot}phys{dot}msu{dot}su
+  contacted1: false
+  contacted2: false
+# first email doesn't work
+maksym_polyakov: !ruby/object:TeX::Hyphen::Author
+  name: Maksym
+  surname: Polyakov
+  email: polyama{at}auburn{dot}edu # Second e-mail address in ukrhypmp.tex: mpoliak@i.com.ua
+  contacted1: false
+  contacted2: false
+adrian_rezus: !ruby/object:TeX::Hyphen::Author
+  name: Adrian
+  surname: Rezus
+  email: adriaan{at}{sci,cs}{dot}kun{dot}nl
+  contacted1: false
+  contacted2: false
+# email doesn't work
+sahak_petrosyan: !ruby/object:TeX::Hyphen::Author
+  name: Sahak
+  surname: Petrosyan
+  email: sahak{at}mit{dot}edu
+  contacted1: true
+  contacted2: true # I think "true, true" is right.  Arthur
+dominik_wujastyk: !ruby/object:TeX::Hyphen::Author
+  name: Dominik
+  surname: Wujastyk
+  email: wujastyk{at}gmail{dot}com
+  contacted1: false
+  contacted2: false
+graham_toal: !ruby/object:TeX::Hyphen::Author
+  name: Graham
+  surname: Toal
+  email: 
+  contacted1: false
+  contacted2: false
+donald_e_knuth: !ruby/object:TeX::Hyphen::Author
+  name: Donald E.
+  surname: Knuth
+  email: # Don doesn't use e-mail ;-)
+  contacted1: false
+  contacted2: false
+gerard_d_c_kuiken: !ruby/object:TeX::Hyphen::Author
+  name: Gerard D.C.
+  surname: Kuiken
+  email: 
+  contacted1: false
+  contacted2: false
+pierre_mackay: !ruby/object:TeX::Hyphen::Author
+  name: P. A.
+  surname: MacKay
+  email: 
+  contacted1: true
+  contacted2: true
+h_turgut_uyar: !ruby/object:TeX::Hyphen::Author
+  name: H. Turgut
+  surname: Uyar
+  email: uyar{at}itu{dot}edu{tr}
+  contacted1: true
+  contacted2: true
+# email doesn't work
+s_ekin_kocabas: !ruby/object:TeX::Hyphen::Author
+  name: S. Ekin
+  surname: Kocabas
+  email: kocabas{at}stanford{dot}edu
+  contacted1: true
+  contacted2: true
+bence_nagy: !ruby/object:TeX::Hyphen::Author
+  name: Bence
+  surname: Nagy
+  email: nagybence{at}tipogral{dot}hu
+  contacted1: true
+  contacted2: true
+kauko_saarinen: !ruby/object:TeX::Hyphen::Author
+  name: Kauko
+  surname: Saarinen
+  email: 
+  contacted1: false
+  contacted2: false
+fred_karlsson: !ruby/object:TeX::Hyphen::Author
+  name: Fred
+  surname: Karlsson
+  email: 
+  contacted1: false
+  contacted2: false
+rene_bastian: !ruby/object:TeX::Hyphen::Author # TODO make contact
+  name: René
+  surname: Bastian
+  email: 
+  contacted1: false
+  contacted2: false
+daniel_flipo: !ruby/object:TeX::Hyphen::Author # TODO make contact
+  name: Daniel
+  surname: Flipo
+  email: 
+  contacted1: false
+  contacted2: false
+bernard_gaulle: !ruby/object:TeX::Hyphen::Author # Deceased...
+  name: Bernard
+  surname: Gaulle
+  email: 
+  contacted1: false
+  contacted2: false
+theppitak_karoonboonyanan: !ruby/object:TeX::Hyphen::Author
+  name: Theppitak
+  surname: Karoonboonyanan
+  email: theppitak{at}gmail{dot}com
+  contacted1: true
+  contacted2: true
+levan_shoshiashvili: !ruby/object:TeX::Hyphen::Author
+  name: Levan
+  surname: Shoshiashvili
+  email: shoshia{at}hotmail{dot}com
+  contacted1: true
+  contacted2: true
+# email doesn't work
+javier_mugica: !ruby/object:TeX::Hyphen::Author
+  name: Javier
+  surname: Múgica
+  email: javier{at}digi21{dot}eu
+  contacted1: true
+  contacted2: true
+georgi_boshnakov: !ruby/object:TeX::Hyphen::Author
+  name: Georgi
+  surname: Boshnakov
+  email: georgi{dot}boshnakov{at}manchester{dot}ac{dot}uk
+  contacted1: true
+  contacted2: true
+mike_kroutikov: !ruby/object:TeX::Hyphen::Author
+  name: Mike
+  surname: Kroutikov
+  email: pgmmpk{at}gmail{dot}com
+  contacted1: true
+  contacted2: true
+aleksandr_andreev: !ruby/object:TeX::Hyphen::Author
+  name: Aleksandr
+  surname: Andreev
+  email: ''
+  contacted1: true
+  contacted2: true
+maksim_salau: !ruby/object:TeX::Hyphen::Author
+  name: Maksim
+  surname: Salau
+  email: maksim{dot}salau{at}gmail{dot}com
+  contacted1: true
+  contacted2: false
+wie_ming_ang: !ruby/object:TeX::Hyphen::Author
+  name: Wie-Ming
+  surname: Cittānurakkho Bhikkhu
+  email: wiemingang{at}gmail{dot}com
+  contacted1: true
+  contacted2: true

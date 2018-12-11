@@ -55,6 +55,12 @@
 %         left:  2
 %         right: 2
 %
+% texlive:
+%     encoding: ec
+%     babelname: swissgerman
+%     message: Swiss-German hyphenation patterns (traditional orthography)
+%     package: german
+%
 % ===========================================================================
 
 \message{Swiss-German Hyphenation Patterns (Traditional Orthography) `dehyphts-x' 2018-03-31 (WL)}

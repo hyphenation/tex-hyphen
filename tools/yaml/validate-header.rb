@@ -20,6 +20,8 @@ class HeaderValidator
   class InternalError < StandardError
   end
 
+  @@exemptions = ['ar', 'fa', 'grc-x-ibycus']
+
   @@format = {
     title: {
       mandatory: true,
@@ -30,8 +32,8 @@ class HeaderValidator
       type: String,
     },
     authors: {
-       mandatory: false,
-       type: "...", # TODO Define
+       mandatory: true,
+       type: Array,
     },
     language: {
       mandatory: true,
@@ -64,10 +66,10 @@ class HeaderValidator
       type: String,
     },
     hyphenmins: {
-      mandatory: false,
+      mandatory: true,
       type: {
         generation: {
-          mandatory: false,
+          mandatory: false, # TODO Find way to describe that it *is* mandatory if typesetting absent
           type: {
             left: {
               mandatory: true,
@@ -94,6 +96,47 @@ class HeaderValidator
         },
       },
     },
+    texlive: {
+      mandatory: false,
+      type: {
+        synonyms: {
+          mandatory: false,
+          type: Array
+        },
+        encoding: {
+          mandatory: false,
+          type: String
+        },
+        message: {
+          mandatory: false,
+          type: String
+        },
+        legacy_patterns: {
+          mandatory: false,
+          type: String
+        },
+        use_old_loader: {
+          mandatory: false,
+          # type: Bool # FIXME
+        },
+        use_old_patterns_comment: {
+          mandatory: false,
+          type: String
+        },
+        description: {
+          mandatory: false,
+          type: String
+        },
+        babelname: {
+          mandatory: false,
+          type: String
+        },
+        package: {
+          mandatory: false,
+          type: String
+        }
+      },
+    },
     source: {
       mandatory: false,
       type: String
@@ -117,9 +160,15 @@ class HeaderValidator
       header += line
     end
 
-    puts header unless @mode == 'mojca'
+    # puts header unless @mode == 'mojca'
     begin
+      # byebug if filename =~ /hyph-grc-x-ibycus\.tex$/
+      # puts 'foo'
       @metadata = YAML::load(header)
+      # byebug unless @metatada
+      # puts 'bar'
+      bcp47 = filename.gsub(/.*hyph-/, '').gsub(/\.tex$/, '')
+      raise ValidationError.new("Empty metadata set for language [#{bcp47}]") unless @metadata
     rescue Psych::SyntaxError => err
       raise WellFormednessError.new(err.message)
     end
@@ -128,7 +177,12 @@ class HeaderValidator
   def check_mandatory(hash, validator)
     validator.each do |key, validator|
       # byebug if validator[:mandatory] && !hash[key.to_s]
-      raise ValidationError.new("Key #{key} missing") if validator[:mandatory] && !hash[key.to_s]
+      # byebug unless validator && hash
+      if validator[:mandatory]
+        if !hash.include? key.to_s # Subtle difference between key not present and value is nil :-)
+          raise ValidationError.new("Key #{key} missing")
+        end
+      end
       check_mandatory(hash[key.to_s], validator[:type]) if hash[key.to_s] && validator[:type].respond_to?(:keys)
     end
   end
@@ -136,19 +190,23 @@ class HeaderValidator
   def validate(hash, validator)
     hash.each do |key, value|
       # byebug if validator[key.to_sym] == nil
+      # byebug unless validator
       raise ValidationError.new("Invalid key #{key} found") if validator[key.to_sym] == nil
+      # byebug if key == 'texlive'
+      raise ValidationError.new("P & S") if key == 'texlive' && hash['texlive']['package'] && hash['texlive']['description']
       validate(value, validator[key.to_sym][:type]) if value.respond_to?(:keys) && !validator[key.to_sym][:one_or_more]
     end
   end
 
   def run!(pattfile)
     unless File.file?(pattfile)
+      # byebug
       raise InternalError.new("Argument “#{pattfile}” is not a file; this shouldn’t have happened.")
     end
     parse(pattfile)
     check_mandatory(@metadata, @@format)
     validate(@metadata, @@format)
-    puts @metadata.inspect unless @mode == 'mojca'
+    # puts @metadata.inspect unless @mode == 'mojca'
     { title: @metadata['title'], copyright: @metadata['copyright'], notice: @metadata['notice'] }
   end
 
@@ -162,6 +220,7 @@ class HeaderValidator
   end
 
   def main(args)
+    print 'Validating '
     # TODO Sort input file list in alphabetical order of names!
     @mode = 'default'
     arg = args.shift
@@ -178,33 +237,47 @@ class HeaderValidator
         exit -1
       end
 
+      # byebug
       if File.file? arg
+        print 'file ', arg
         runfile(arg)
       elsif Dir.exists? arg
+        print 'files in ', arg, ': '
         Dir.foreach(arg) do |filename|
           next if filename == '.' || filename == '..'
-          @headings << [filename, runfile(File.join(arg, filename))]
+          f = File.join(arg, filename)
+          print filename.gsub(/^hyph-/, '').gsub(/\.tex$/, ''), ' '
+          @headings << [filename, runfile(f)] unless Dir.exists? f
         end
       else
         puts "Argument #{arg} is neither an existing file nor an existing directory; proceeding." unless @mode == 'mojca'
       end
+
+      puts
     end
 
     unless @mode == 'mojca'
       puts "\nReport on #{arg}:" # FIXME Incorrect if multiple input files given.
+      summary = []
       if @errors.inject(0) { |errs, klass| errs + klass.last.count } > 0
-        puts "There were the following errors with some files:"
-        summary = []
         @errors.each do |klass, files|
           next if files.count == 0
           files.each do |file|
             filename = file.first
             message = file.last
-            summary << "#{filename}: #{klass.name} #{message}"
+            exemption_regexp = Regexp.new '(' + @@exemptions.join('|') + ')'
+            # byebug
+            skip = klass == ValidationError && message =~ /^Empty metadata set for language \[#{exemption_regexp}\]$/
+            # skip = false
+            summary << "#{filename}: #{klass.name} #{message}" unless skip
           end
         end
+      end
 
+      if (exitcode = summary.count) > 0
+        puts "There were the following errors with some files:"
         puts summary.join "\n"
+        exit exitcode
       else
         puts "No errors were found."
       end

@@ -6,22 +6,24 @@
 # use 'gem install unicode' if unicode is missing on your computer
 require 'unicode'
 
-require_relative 'languages.rb'
-include Language::TeXLive
+require_relative 'lib/tex/hyphen/language.rb'
+# include OldLanguage::TeXLive
+include TeX::Hyphen
 
 # FIXME sr-cyrl?
+print 'Generating plain files for (parenthesised tags are skipped) '
 Language.all.sort.each do |language|
-	code = language.code
+	bcp47 = language.bcp47
 
-	if language.use_old_loader || code == 'mn-cyrl-x-lmc'
-		puts "(skipping #{language.code})"
+	if language.use_old_loader || bcp47 == 'mn-cyrl-x-lmc'
+		print '(', language.bcp47, ') '
 		next
+	else
+		print bcp47, ' '
 	end
 
-	puts "generating #{code}"
-
 	outfile = Proc.new do |ext|
-		File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', code, ext)), 'w'
+		File.open File.join(PATH::TXT, sprintf('hyph-%s.%s.txt', bcp47, ext)), 'w'
 	end
 
 	# patterns
@@ -34,7 +36,7 @@ Language.all.sort.each do |language|
 	# apostrophes if applicable
 	with_apostrophe = patterns[:with_apostrophe]
 	if with_apostrophe
-		file = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', code)), 'w'
+		file = File.open File.join(PATH::QUOTE, sprintf('hyph-quote-%s.tex', bcp47)), 'w'
 		file.printf "\\bgroup\n\\lccode`\\’=`\\’\n\\patterns{\n"
 		with_apostrophe.each do |pattern|
 			file.printf "%s\n", pattern
@@ -54,7 +56,8 @@ Language.all.sort.each do |language|
 
 	# comments and licence
 	file = outfile.('lic')
-	file.puts language.get_comments_and_licence
+	file.puts language.comments_and_licence
 
 	file.close
 end
+puts
