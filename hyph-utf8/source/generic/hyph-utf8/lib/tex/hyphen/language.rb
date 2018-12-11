@@ -116,6 +116,13 @@ module TeX
         end.compact
       end
 
+      def self.all_by_iso639
+        all.inject(Hash.new) do |maintags, language|
+          (maintags[language.iso639] ||= Array.new) << language
+          maintags
+        end
+      end
+
       def self.find_by_bcp47(bcp47)
         languages[bcp47]
       end

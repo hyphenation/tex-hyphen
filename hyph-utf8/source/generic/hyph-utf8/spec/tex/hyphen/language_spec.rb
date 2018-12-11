@@ -139,13 +139,14 @@ describe Language do
   end
 
   describe '.all_by_iso639' do
-    it "returns an array of arrays" do
-      expect(Language.all_by_iso639).to be_an array
-      expect(Language.all_by_iso639.map(&:class).uniq).to eq [Array]
+    it "returns a hash of arrays" do
+      expect(Language.all_by_iso639).to be_a Hash
+      expect(Language.all_by_iso639.values.map(&:class).uniq).to eq [Array]
     end
 
     it "groups languages by ISO 639 code elements" do
-      expect(Language.all_by_iso639['
+      expect(Language.all_by_iso639['en'].count).to eq 2
+    end
   end
 
   describe '.find_by_bcp47' do
