@@ -138,6 +138,16 @@ describe Language do
     end
   end
 
+  describe '.all_by_iso639' do
+    it "returns an array of arrays" do
+      expect(Language.all_by_iso639).to be_an array
+      expect(Language.all_by_iso639.map(&:class).uniq).to eq [Array]
+    end
+
+    it "groups languages by ISO 639 code elements" do
+      expect(Language.all_by_iso639['
+  end
+
   describe '.find_by_bcp47' do
     it "finds the language for that BCP47 tag" do
       language = Language.find_by_bcp47 'bn'
