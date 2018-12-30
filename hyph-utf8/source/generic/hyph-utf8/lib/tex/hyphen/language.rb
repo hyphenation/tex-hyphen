@@ -66,38 +66,39 @@ module TeX
         @bcp47.split('-').first
       end
 
+      # FIXME Find something better than all that extract_metadata unless @blah nonsens
       def babelname
-        extract_metadata
+        extract_metadata unless @babelname
         @babelname
       end
 
       def description
-        extract_metadata
+        extract_metadata unless @description
         @description
       end
 
       def use_old_loader
-        extract_metadata
+        extract_metadata unless @use_old_loader
         @use_old_loader
       end
 
       def use_old_patterns_comment
-        extract_metadata
+        extract_metadata unless @use_old_patterns_comment
         @use_old_patterns_comment
       end
 
       def legacy_patterns
-        extract_metadata
+        extract_metadata unless @legacy_patterns
         @legacy_patterns
       end
 
       def message
-        extract_metadata
+        extract_metadata unless @message
         @message
       end
 
       def known_bugs
-        extract_metadata
+        extract_metadata unless @known_bugs
         @known_bugs
       end
 
