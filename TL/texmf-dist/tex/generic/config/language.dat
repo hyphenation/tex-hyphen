@@ -49,6 +49,7 @@ malayalam	loadhyph-ml.tex
 marathi	loadhyph-mr.tex
 oriya	loadhyph-or.tex
 panjabi	loadhyph-pa.tex
+pali	loadhyph-pi.tex
 tamil	loadhyph-ta.tex
 telugu	loadhyph-te.tex
 indonesian	loadhyph-id.tex
@@ -68,7 +69,6 @@ bokmal	loadhyph-nb.tex
 =norsk
 nynorsk	loadhyph-nn.tex
 occitan	loadhyph-oc.tex
-pali	loadhyph-pi.tex
 piedmontese	loadhyph-pms.tex
 polish	loadhyph-pl.tex
 portuguese	loadhyph-pt.tex

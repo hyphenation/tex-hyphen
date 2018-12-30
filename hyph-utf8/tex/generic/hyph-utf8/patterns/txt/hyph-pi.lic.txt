@@ -45,5 +45,5 @@
 % texlive:
 %     babelname: pali
 %     message: Pali hyphenation patterns
-%     description: Pali hyphenation patterns in UTF-8 encoding
+%     package: indic
 % ==========================================
