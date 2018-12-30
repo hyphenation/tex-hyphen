@@ -140,6 +140,10 @@ class HeaderValidator
     source: {
       mandatory: false,
       type: String
+    },
+    known_bugs: {
+      mandatory: false,
+      type: Array # of strings!
     }
   }
 

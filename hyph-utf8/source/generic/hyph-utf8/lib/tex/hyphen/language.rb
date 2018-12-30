@@ -96,6 +96,11 @@ module TeX
         @message
       end
 
+      def known_bugs
+        extract_metadata
+        @known_bugs
+      end
+
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
       end
@@ -347,6 +352,7 @@ module TeX
           @authors = nil
           raise NoAuthor.new # FIXME
         end
+        @known_bugs = metadata.dig('known_bugs')
 
         # raise NoAuthor unless @authors && @authors.count > 0 # TODO Later ;-) AR 2018-09-13
 

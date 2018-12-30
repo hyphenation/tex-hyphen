@@ -695,6 +695,13 @@ describe Language do
     end
   end
 
+  describe '#known_bugs' do
+    it "returns the known bugs" do
+      american_english = Language.new('en-us')
+      expect(american_english.known_bugs.keys).to eq ['de-mo-c-rat']
+    end
+  end
+
   describe TeXLive do
     describe '#loadhyph' do
       it "returns the name of the pattern loader file" do
