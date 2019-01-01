@@ -1,33 +1,62 @@
-% This is the file pyhyph.tex of the CJK package
-%   for hyphenating Chinese pinyin syllables.
+% title: Hyphenation patterns for Chinese pinyin (Mandarin), without tone
+%        markers
 %
-% We use the latin-1 character code for `umlaut u' (0xfc).  Additionally,
-% the quote character "'" is used in its standard sense (resolving syllabic
-% ambiguities).
+% version: 2018-11-25
 %
-% created by Werner Lemberg <wl@gnu.org>
+% authors:
+%   -
+%     name:    Werner Lemberg
+%     contact: wl (at) gnu.org
 %
-% Version 4.8.0 (22-May-2008)
+% copyright: Copyright (C) 1994-2018 Werner Lemberg
+%
+% licence:
+%     name: MIT
+%     url:  http://opensource.org/licenses/mit-license.php
+%     text: >
+%           Permission is hereby granted, free of charge, to any person
+%           obtaining a copy of this software and associated documentation
+%           files (the ‚ÄúSoftware‚Äù), to deal in the Software without
+%           restriction, including without limitation the rights to use,
+%           copy, modify, merge, publish, distribute, sublicense, and/or
+%           sell copies of the Software, and to permit persons to whom the
+%           Software is furnished to do so, subject to the following
+%           conditions:
+%
+%           The above copyright notice and this permission notice shall be
+%           included in all copies or substantial portions of the Software.
+%
+%           THE SOFTWARE IS PROVIDED ‚ÄúAS IS‚Äù, WITHOUT WARRANTY OF ANY KIND,
+%           EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%           OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%           NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%           HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%           WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%           FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%           OTHER DEALINGS IN THE SOFTWARE.
+%
+% source: http://git.savannah.gnu.org/gitweb/?p=cjk.git;a=commit;h=e058ceae5561a89e33828f593b094c8b57f6a72e
+%
+% language:
+%     name: Mandarin Chinese, pinyin transliteration (without tone markers)
+%     tag:  zh-latn-pinyin
+%
+% hyphenmins:
+%     generation:
+%         left:  1
+%         right: 2
+%     typesetting:
+%         left:  1
+%         right: 2
 
-% Copyright (C) 1994-2008  Werner Lemberg <wl@gnu.org>
+\message{Pinyin Hyphenation Patterns (without tone markers) 2018-11-25 (WL)}
+
 %
-% Permission is hereby granted, free of charge, to any person obtaining a copy
-% of this software and associated documentation files (the øSoftwareø), to deal
-% in the Software without restriction, including without limitation the rights
-% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-% copies of the Software, and to permit persons to whom the Software is
-% furnished to do so, subject to the following conditions:
+% The used patgen parameters are
 %
-% The above copyright notice and this permission notice shall be included in
-% all copies or substantial portions of the Software.
+%   1 1 | 2 5 | 1 1 1
+%   2 2 | 2 5 | 1 2 1
 %
-% THE SOFTWARE IS PROVIDED øAS ISø, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
-% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-% SOFTWARE.
 
 \patterns{
 a1b
@@ -61,6 +90,7 @@ e1l
 e1m
 e1p
 e1q
+e1r
 e1s
 e1t
 e1w
@@ -130,7 +160,7 @@ n1r
 n1s
 n1t
 1nu
-1n¸
+1n√º
 n1w
 n1x
 n1y
@@ -154,31 +184,26 @@ o1w
 o1x
 o1y
 o1z
-1ra
-r1b
-r1c
-r1d
-1re
-r1f
-r1g
-r1h
-1ri
-r1j
-r1k
-r1l
-r1m
-r1n
-1ro
-r1p
-r1q
-r1r
-r1s
-r1t
-1ru
-r1w
-r1x
-r1y
-r1z
+2r1b
+2r1c
+2r1d
+2r1f
+2r1g
+2r1h
+2r1j
+2r1k
+2r1l
+2r1m
+2r1n
+2r1p
+2r1q
+2r1r
+2r1s
+2r1t
+2r1w
+2r1x
+2r1y
+2r1z
 u1b
 u1c
 u1d
@@ -198,27 +223,31 @@ u1w
 u1x
 u1y
 u1z
-¸1b
-¸1c
-¸1d
-¸1f
-¸1g
-¸1h
-¸1j
-¸1k
-¸1l
-¸1m
-¸1n
-¸1p
-¸1q
-¸1r
-¸1s
-¸1t
-¸1w
-¸1x
-¸1y
-¸1z
-'1a
-'1e
-'1o
+√º1b
+√º1c
+√º1d
+√º1f
+√º1g
+√º1h
+√º1j
+√º1k
+√º1l
+√º1m
+√º1n
+√º1p
+√º1q
+√º1r
+√º1s
+√º1t
+√º1w
+√º1x
+√º1y
+√º1z
 }
+
+\endinput
+
+%%% Local Variables:
+%%% mode: tex
+%%% coding: utf-8
+%%% End:
