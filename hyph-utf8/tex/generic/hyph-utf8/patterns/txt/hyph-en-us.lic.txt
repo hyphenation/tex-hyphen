@@ -28,7 +28,7 @@
 %     message: Hyphenation patterns for American English
 %     package: english
 % known_bugs:
-%     de-mo-c-rat: instead of dem-o-crat (see GitHub issue #15)
+%     de-mo-c-rat: 'instead of dem-o-crat (see GitHub issue #15)'
 % ==========================================
 %
 % ushyphmax.tex -- patterns for more hyphenation pattern memory (12000+).
