@@ -29,11 +29,11 @@ HEADER
 
 print 'Generating pTeX patterns for (skipped # reason): '
 Language.all.sort.each do |language|
-	if language.use_old_loader or ['ascii', nil].include? language.encoding or language.use_old_patterns_comment
-		if language.use_old_loader
-			reason = 'loader'
+	if ['ascii', nil].include? language.encoding or language.use_old_patterns_comment
+		if language.use_old_patterns_comment
+			reason = 'legacy patterns'
 		elsif !language.encoding
-		  reason = 'encoding'
+		  reason = 'no encoding'
 		elsif language.encoding == 'ascii'
 		  reason = 'ascii'
 		end
