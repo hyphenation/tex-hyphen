@@ -29,7 +29,7 @@ HEADER
 
 print 'Generating pTeX patterns for (skipped # reason): '
 Language.all.sort.each do |language|
-	if language.use_old_loader or ['ascii', nil].include? language.encoding
+	if language.use_old_loader or ['ascii', nil].include? language.encoding or language.use_old_patterns_comment
 		if language.use_old_loader
 			reason = 'loader'
 		elsif !language.encoding

@@ -34,7 +34,8 @@ chinese:
   shortdesc: Chinese pinyin
   description: |-
     Hyphenation patterns for unaccented transliterated Mandarin Chinese
-    (pinyin) in T1/EC and UTF-8 encodings.
+    (pinyin) in T1/EC and UTF-8 encodings.  The latter can hyphenate pinyin
+    with or without tone markers; the former only without.
 norwegian:
   shortdesc: Norwegian Bokmal and Nynorsk
   description: |-
