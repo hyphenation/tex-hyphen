@@ -209,7 +209,6 @@ class HeaderValidator
     check_mandatory(@metadata, @@format)
     validate(@metadata, @@format)
     # puts @metadata.inspect unless @mode == 'mojca'
-    { title: @metadata['title'], copyright: @metadata['copyright'], notice: @metadata['notice'] }
   end
 
   def runfile(filename)
