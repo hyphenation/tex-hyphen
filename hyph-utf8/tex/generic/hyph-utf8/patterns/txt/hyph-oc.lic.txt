@@ -37,7 +37,7 @@
 %             FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 %             OTHER DEALINGS IN THE SOFTWARE.
 %     -
-%         name: LPL
+%         name: LPPL
 %         version: 1
 %         or_later: true
 %         url: https://latex-project.org/lppl/

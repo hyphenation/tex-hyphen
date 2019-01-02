@@ -29,13 +29,11 @@ HEADER
 
 print 'Generating pTeX patterns for (skipped # reason): '
 Language.all.sort.each do |language|
-  if ['ascii', nil].include? language.encoding or language.use_old_patterns_comment
+  if language.use_old_patterns_comment || !language.encoding || language.encoding == 'ascii'
     if language.use_old_patterns_comment
       reason = 'legacy patterns'
-    elsif !language.encoding
-      reason = 'no encoding'
-    elsif language.encoding == 'ascii'
-      reason = 'ascii'
+    else
+      reason = sprintf 'encoding: %s', language.encoding.inspect
     end
     print '(', language.bcp47, ' # ', reason, ') '
 
