@@ -2,9 +2,7 @@
 
 # Validation program for the new YAML headers at the top of TeX hyphenation files.
 # Run on an individual file or a directory to get a report of all the errors on the terminal.
-# Copyright (c) 2016–2017 Arthur Reutenauer.  MIT licence (https://opensource.org/licenses/MIT)
-
-# TODO Add the optional “source” top-level entry
+# Copyright (c) 2016–2018 Arthur Reutenauer.  MIT licence (https://opensource.org/licenses/MIT)
 
 require 'yaml'
 require 'pp'
