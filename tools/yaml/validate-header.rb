@@ -234,6 +234,7 @@ class HeaderValidator
           next if filename == '.' || filename == '..'
           f = File.join(arg, filename)
           print filename.gsub(/^hyph-/, '').gsub(/\.tex$/, ''), ' '
+          runfile(f) unless Dir.exists? f
         end
       else
         puts "Argument #{arg} is neither an existing file nor an existing directory; proceeding." unless @mode == 'mojca'
