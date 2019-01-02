@@ -58,21 +58,12 @@ Package.all.sort.each do |package|
 end
 puts
 
-#--------------#
-# language.dat #
-#--------------#
-language_dat_filename = File.join PATH::LANGUAGE_DAT, 'language.dat'
-File.open(language_dat_filename, 'w') do |file_language_dat|
-	puts 'Generating language.dat'
-	Package.all.sort.each do |package|
-		package.languages.each do |language|
-			# main language name
-			file_language_dat.printf "%s\t%s\n", language.babelname, language.loadhyph
+#--------------------------#
+# language.dat and friends #
+#--------------------------#
+system sprintf "tlmgr generate --dest %s language.dat", File.join(PATH::LANGUAGE_DAT, 'language.dat')
+system sprintf "tlmgr generate --dest %s language.dat.lua", File.join(PATH::LANGUAGE_DAT, 'language.dat.lua')
 
-			# synonyms
-			language.synonyms.each do |synonym|
-				file_language_dat.printf "=%s\n", synonym
-			end
-		end
-	end
-end
+# Revert changes if only line with date was changed
+diff_lines = `git diff #{PATH::LANGUAGE_DAT}/language.dat* | egrep '^[+-](%|--) Generated' | wc -l`.strip
+`git checkout HEAD -- #{PATH::LANGUAGE_DAT}/language.dat*` if diff_lines == '4'
