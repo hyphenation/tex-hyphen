@@ -284,10 +284,12 @@ class HeaderValidator
         puts "No errors were found."
       end
     else
-      @headings.sort! { |a, b| a.first <=> b.first }
-      [:title, :copyright, :notice].each do |heading|
+      headings = [:title, :copyright, :notice]
+      require './lib/tex/hyphen/language'
+      @headings = TeX::Hyphen::Language.all.map { |language| [language, headings.map { |heading| [heading, language.send(heading)] }.to_h] }.to_h
+      headings.sort { |a, b| a <=> b }.each do |heading|
         puts heading.capitalize
-        puts @headings.map { |filedata| "#{filedata.first}: #{filedata.last[heading]}" }.join("\n")
+        puts TeX::Hyphen::Language.all.map { |language| "hyph-#{language.bcp47}.tex: #{@headings[language][heading]}" }.join("\n")
         puts ""
       end
     end
