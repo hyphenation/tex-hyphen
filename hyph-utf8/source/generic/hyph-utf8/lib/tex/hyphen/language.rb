@@ -318,6 +318,11 @@ module TeX
         @copyright
       end
 
+      def title
+        extract_metadata unless @title
+        @title
+      end
+
       def extract_metadata
         header = ""
         File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', @bcp47))).each_line do |line|
@@ -366,6 +371,7 @@ module TeX
         @known_bugs = metadata.dig('known_bugs')
         @notice = metadata.dig('notice')
         @copyright = metadata.dig('copyright')
+        @title = metadata.dig('title')
 
         # raise NoAuthor unless @authors && @authors.count > 0 # TODO Later ;-) AR 2018-09-13
 
