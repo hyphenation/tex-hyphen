@@ -162,13 +162,8 @@ class HeaderValidator
       header += line
     end
 
-    # puts header unless @mode == 'mojca'
     begin
-      # byebug if filename =~ /hyph-grc-x-ibycus\.tex$/
-      # puts 'foo'
       @metadata = YAML::load(header)
-      # byebug unless @metatada
-      # puts 'bar'
       bcp47 = filename.gsub(/.*hyph-/, '').gsub(/\.tex$/, '')
       raise ValidationError.new("Empty metadata set for language [#{bcp47}]") unless @metadata
     rescue Psych::SyntaxError => err
@@ -178,8 +173,6 @@ class HeaderValidator
 
   def check_mandatory(hash, validator)
     validator.each do |key, validator|
-      # byebug if validator[:mandatory] && !hash[key.to_s]
-      # byebug unless validator && hash
       if validator[:mandatory]
         if !hash.include? key.to_s # Subtle difference between key not present and value is nil :-)
           raise ValidationError.new("Key #{key} missing")
@@ -191,10 +184,7 @@ class HeaderValidator
 
   def validate(hash, validator)
     hash.each do |key, value|
-      # byebug if validator[key.to_sym] == nil
-      # byebug unless validator
       raise ValidationError.new("Invalid key #{key} found") if validator[key.to_sym] == nil
-      # byebug if key == 'texlive'
       raise ValidationError.new("P & S") if key == 'texlive' && hash['texlive']['package'] && hash['texlive']['description']
       validate(value, validator[key.to_sym][:type]) if value.respond_to?(:keys) && !validator[key.to_sym][:one_or_more]
     end
@@ -202,20 +192,17 @@ class HeaderValidator
 
   def run!(pattfile)
     unless File.file?(pattfile)
-      # byebug
       raise InternalError.new("Argument “#{pattfile}” is not a file; this shouldn’t have happened.")
     end
     parse(pattfile)
     check_mandatory(@metadata, @@format)
     validate(@metadata, @@format)
-    # puts @metadata.inspect unless @mode == 'mojca'
   end
 
   def runfile(filename)
     begin
       run! filename
     rescue InternalError, WellFormednessError, ValidationError => err
-      # byebug
       @errors[err.class] << [filename, err.message]
     end
   end
@@ -265,9 +252,7 @@ class HeaderValidator
             filename = file.first
             message = file.last
             exemption_regexp = Regexp.new '(' + @@exemptions.join('|') + ')'
-            # byebug
             skip = klass == ValidationError && message =~ /^Empty metadata set for language \[#{exemption_regexp}\]$/
-            # skip = false
             summary << "#{filename}: #{klass.name} #{message}" unless skip
           end
         end
