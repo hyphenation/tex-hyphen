@@ -18,8 +18,6 @@ class HeaderValidator
   class InternalError < StandardError
   end
 
-  @@exemptions = ['ar', 'fa', 'grc-x-ibycus']
-
   @@format = {
     title: {
       mandatory: true,
@@ -252,9 +250,7 @@ class HeaderValidator
           files.each do |file|
             filename = file.first
             message = file.last
-            exemption_regexp = Regexp.new '(' + @@exemptions.join('|') + ')'
-            skip = klass == ValidationError && message =~ /^Empty metadata set for language \[#{exemption_regexp}\]$/
-            summary << "#{filename}: #{klass.name} #{message}" unless skip
+            summary << "#{filename}: #{klass.name} #{message}"
           end
         end
       end
