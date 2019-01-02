@@ -231,7 +231,6 @@ class HeaderValidator
     else
       args = [arg] + args
     end
-    @headings = []
     while !args.empty?
       arg = args.shift
       unless arg
@@ -249,7 +248,6 @@ class HeaderValidator
           next if filename == '.' || filename == '..'
           f = File.join(arg, filename)
           print filename.gsub(/^hyph-/, '').gsub(/\.tex$/, ''), ' '
-          @headings << [filename, runfile(f)] unless Dir.exists? f
         end
       else
         puts "Argument #{arg} is neither an existing file nor an existing directory; proceeding." unless @mode == 'mojca'
@@ -287,9 +285,9 @@ class HeaderValidator
       headings = [:title, :copyright, :notice]
       require './lib/tex/hyphen/language'
       @headings = TeX::Hyphen::Language.all.map { |language| [language, headings.map { |heading| [heading, language.send(heading)] }.to_h] }.to_h
-      headings.sort { |a, b| a <=> b }.each do |heading|
+      headings.sort.each do |heading|
         puts heading.capitalize
-        puts TeX::Hyphen::Language.all.map { |language| "hyph-#{language.bcp47}.tex: #{@headings[language][heading]}" }.join("\n")
+        puts TeX::Hyphen::Language.all.sort.map { |language| "hyph-#{language.bcp47}.tex: #{@headings[language][heading]}" }.join("\n")
         puts ""
       end
     end
