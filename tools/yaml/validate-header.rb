@@ -18,6 +18,8 @@ class HeaderValidator
   class InternalError < StandardError
   end
 
+  HEADINGS = [:title, :copyright, :notice]
+
   @@format = {
     title: {
       mandatory: true,
@@ -151,13 +153,9 @@ class HeaderValidator
     header = ''
     eohmarker = '=' * 42
     File.read(filename).each_line do |line|
-      if line =~ /\\patterns|#{eohmarker}/
-        break
-      end
+      break if line =~ /\\patterns|#{eohmarker}/
 
-      line.gsub!(/^% /, '')
-      line.gsub!(/%/, '')
-      header += line
+      header += line.gsub(/^% /, '').gsub(/%/, '')
     end
 
     begin
@@ -263,10 +261,9 @@ class HeaderValidator
         puts "No errors were found."
       end
     else
-      headings = [:title, :copyright, :notice]
       require './lib/tex/hyphen/language'
-      @headings = TeX::Hyphen::Language.all.map { |language| [language, headings.map { |heading| [heading, language.send(heading)] }.to_h] }.to_h
-      headings.sort.each do |heading|
+      @headings = TeX::Hyphen::Language.all.map { |language| [language, HEADINGS.map { |heading| [heading, language.send(heading)] }.to_h] }.to_h
+      HEADINGS.sort.each do |heading|
         puts heading.capitalize
         puts TeX::Hyphen::Language.all.sort.map { |language| "hyph-#{language.bcp47}.tex: #{@headings[language][heading]}" }.join("\n")
         puts ""
