@@ -308,6 +308,16 @@ module TeX
         @hydra.showhyphens(word)
       end
 
+      def notice
+        extract_metadata unless @notice
+        @notice
+      end
+
+      def copyright
+        extract_metadata unless @copyright
+        @copyright
+      end
+
       def extract_metadata
         header = ""
         File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', @bcp47))).each_line do |line|
@@ -354,6 +364,8 @@ module TeX
           raise NoAuthor.new # FIXME
         end
         @known_bugs = metadata.dig('known_bugs')
+        @notice = metadata.dig('notice')
+        @copyright = metadata.dig('copyright')
 
         # raise NoAuthor unless @authors && @authors.count > 0 # TODO Later ;-) AR 2018-09-13
 
