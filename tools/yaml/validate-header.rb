@@ -185,7 +185,7 @@ class HeaderValidator
   def validate(hash, validator)
     hash.each do |key, value|
       raise ValidationError.new("Invalid key #{key} found") if validator[key.to_sym] == nil
-      raise ValidationError.new("P & S") if key == 'texlive' && hash['texlive']['package'] && hash['texlive']['description']
+      raise ValidationError.new("TeX Live entries: mutually exclusive “package” and “description”") if key == 'texlive' && hash['texlive']['package'] && hash['texlive']['description']
       validate(value, validator[key.to_sym][:type]) if value.respond_to?(:keys) && !validator[key.to_sym][:one_or_more]
     end
   end
