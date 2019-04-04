@@ -3,7 +3,7 @@
 % notice: TeX-Trennmuster für die traditionelle deutsch-schweizerische
 %         Rechtschreibung
 %
-% version: 2018-03-31
+% version: 2019-04-04
 %
 % authors:
 %   -
@@ -41,7 +41,7 @@
 %           FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 %           OTHER DEALINGS IN THE SOFTWARE.
 %
-% source: http://repo.or.cz/w/wortliste.git?a=commit;h=8b9a428c271e064f0047a364c532308f0fd4051f
+% source: http://repo.or.cz/w/wortliste.git?a=commit;h=33b65bf6af8a2009ecce1a43d6670f4595b79084
 %
 % language:
 %     name: German, traditional Swiss spelling
@@ -63,17 +63,17 @@
 %
 % ===========================================================================
 
-\message{Swiss-German Hyphenation Patterns (Traditional Orthography) `dehyphts-x' 2018-03-31 (WL)}
+\message{Swiss-German Hyphenation Patterns (Traditional Orthography) `dehyphts-x' 2019-04-04 (WL)}
 
 %
 % The used patgen parameters are
 %
-%   1 1 | 2 5 | 1 1 1
-%   2 2 | 2 5 | 1 2 1
-%   3 3 | 2 6 | 1 1 1
-%   4 4 | 2 6 | 1 4 1
-%   5 5 | 2 7 | 1 1 1
-%   6 6 | 2 7 | 1 6 1
-%   7 7 | 2 13 | 1 4 1
-%   8 8 | 2 13 | 1 8 1
+%   1 1 | 1 5 | 1 1 1
+%   2 2 | 2 6 | 1 2 1
+%   3 3 | 3 7 | 1 1 1
+%   4 4 | 4 8 | 1 4 1
+%   5 5 | 5 9 | 1 1 1
+%   6 6 | 6 10 | 1 6 1
+%   7 7 | 7 11 | 1 4 1
+%   8 8 | 8 12 | 1 8 1
 
