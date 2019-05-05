@@ -10,6 +10,7 @@ require_relative 'lib/tex/hyphen/language.rb'
 # include OldLanguage::TeXLive
 include TeX::Hyphen
 
+# FIXME Close files!
 # FIXME sr-cyrl?
 print 'Generating plain files for (parenthesised tags are skipped) '
 Language.all.sort.each do |language|
@@ -45,19 +46,23 @@ Language.all.sort.each do |language|
 	end
 
 	# exceptions
-	file = outfile.('hyp') # This ensure a file is created, even if it may be empty
-	file.puts language.exceptions if language.exceptions != ""
+	unless language.exceptions == ""
+		file = outfile.('hyp') # This ensure a file is created, even if it may be empty
+		file.puts language.exceptions
+        end
 
-	# characters
-	file = outfile.('chr')
-	language.extract_characters.each do |character|
-		file.puts character
-	end
+        ### FIXME Do issue #33 instead
+	### # characters
+	### file = outfile.('chr')
+	### language.extract_characters.each do |character|
+	### 	file.puts character
+	### end
 
-	# comments and licence
-	file = outfile.('lic')
-	file.puts language.comments_and_licence
+        ### FIXME Do something else instead
+	### # comments and licence
+	### file = outfile.('lic')
+	### file.puts language.comments_and_licence
 
-	file.close
+	### file.close
 end
 puts

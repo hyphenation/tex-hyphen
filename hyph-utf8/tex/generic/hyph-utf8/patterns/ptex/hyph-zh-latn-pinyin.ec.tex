@@ -1,19 +1,14 @@
-% title: Hyphenation patterns for German, reformed orthography (2006)
+% title: Hyphenation patterns for Chinese pinyin (Mandarin), without tone
+%        markers
 %
-% notice: TeX-Trennmuster für die reformierte (2006) deutsche Rechtschreibung
-%
-% version: 2019-04-04
+% version: 2018-11-25
 %
 % authors:
 %   -
-%     name:    Deutschsprachige Trennmustermannschaft
-%     contact: trennmuster@dante.de
+%     name:    Werner Lemberg
+%     contact: wl (at) gnu.org
 %
-% copyright: >
-%     Copyright (C) 2013-2018
-%     Stephan Hennig, Werner Lemberg, Günter Milde,
-%     Sander van Geloven, Georg Pfeiffer, Gisbert W. Selke,
-%     Tobias Wendorf
+% copyright: Copyright (C) 1994-2018 Werner Lemberg
 %
 % licence:
 %     name: MIT
@@ -40,41 +35,221 @@
 %           FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 %           OTHER DEALINGS IN THE SOFTWARE.
 %
-% source: http://repo.or.cz/w/wortliste.git?a=commit;h=33b65bf6af8a2009ecce1a43d6670f4595b79084
+% source: http://git.savannah.gnu.org/gitweb/?p=cjk.git;a=commit;h=e058ceae5561a89e33828f593b094c8b57f6a72e
 %
 % language:
-%     name: German, reformed spelling
-%     tag:  de-1996
+%     name: Mandarin Chinese, pinyin transliteration
+%     tag:  zh-latn-pinyin
 %
 % hyphenmins:
 %     generation:
-%         left:  2
+%         left:  1
 %         right: 2
 %     typesetting:
-%         left:  2
+%         left:  1
 %         right: 2
-%
-% texlive:
-%     encoding: ec
-%     babelname: ngerman
-%     use_old_patterns_comment: Kept for the sake of backward compatibility, but newer and better patterns by WL are available.
-%     legacy_patterns: dehyphn.tex
-%     message: German hyphenation patterns (reformed orthography)
-%     package: german
-%
-% ===========================================================================
 
-\message{German Hyphenation Patterns (Reformed Orthography, 2006) `dehyphn-x' 2019-04-04 (WL)}
+% ==========================================
 
 %
 % The used patgen parameters are
 %
-%   1 1 | 1 5 | 1 1 1
-%   2 2 | 2 6 | 1 2 1
-%   3 3 | 3 7 | 1 1 1
-%   4 4 | 4 8 | 1 4 1
-%   5 5 | 5 9 | 1 1 1
-%   6 6 | 6 10 | 1 6 1
-%   7 7 | 7 11 | 1 4 1
-%   8 8 | 8 12 | 1 8 1
+%   1 1 | 2 5 | 1 1 1
+%   2 2 | 2 5 | 1 2 1
+%
 
+\lccode"FC="FC
+
+\patterns{
+a1b
+a1c
+a1d
+a1f
+a1g
+a1h
+a1j
+a1k
+a1l
+a1m
+a1p
+a1q
+a1r
+a1s
+a1t
+a1w
+a1x
+a1y
+a1z
+e1b
+e1c
+e1d
+e1f
+e1g
+e1h
+e1j
+e1k
+e1l
+e1m
+e1p
+e1q
+e1r
+e1s
+e1t
+e1w
+e1x
+e1y
+e1z
+1ga
+g1b
+g1c
+g1d
+1ge
+g1f
+g1g
+g1h
+g1j
+g1k
+g1l
+g1m
+g1n
+1go
+g1p
+g1q
+g1r
+g1s
+g1t
+1gu
+g1w
+g1x
+g1y
+g1z
+i1b
+i1c
+i1d
+i1f
+i1g
+i1h
+i1j
+i1k
+i1l
+i1m
+i1p
+i1q
+i1r
+i1s
+i1t
+i1w
+i1x
+i1y
+i1z
+1na
+n1b
+n1c
+n1d
+1ne
+n1f
+n1h
+1ni
+n1j
+n1k
+n1l
+n1m
+n1n
+1no
+n1p
+n1q
+n1r
+n1s
+n1t
+1nu
+1n^^fc
+n1w
+n1x
+n1y
+n1z
+o1b
+o1c
+o1d
+o1f
+o1g
+o1h
+o1j
+o1k
+o1l
+o1m
+o1p
+o1q
+o1r
+o1s
+o1t
+o1w
+o1x
+o1y
+o1z
+2r1b
+2r1c
+2r1d
+2r1f
+2r1g
+2r1h
+2r1j
+2r1k
+2r1l
+2r1m
+2r1n
+2r1p
+2r1q
+2r1r
+2r1s
+2r1t
+2r1w
+2r1x
+2r1y
+2r1z
+u1b
+u1c
+u1d
+u1f
+u1g
+u1h
+u1j
+u1k
+u1l
+u1m
+u1p
+u1q
+u1r
+u1s
+u1t
+u1w
+u1x
+u1y
+u1z
+^^fc1b
+^^fc1c
+^^fc1d
+^^fc1f
+^^fc1g
+^^fc1h
+^^fc1j
+^^fc1k
+^^fc1l
+^^fc1m
+^^fc1n
+^^fc1p
+^^fc1q
+^^fc1r
+^^fc1s
+^^fc1t
+^^fc1w
+^^fc1x
+^^fc1y
+^^fc1z
+}
+
+\endinput
+
+%%% Local Variables:
+%%% mode: tex
+%%% coding: utf-8
+%%% End:
