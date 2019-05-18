@@ -1,3 +1,7 @@
+2019-05-18
+- Fixed Chinese Pinyin [zh-latn-pinyin]
+- Removed plain text files .chr.txt and .lic.txt
+
 2019-04-04
 - Updated German patterns [de-1901], [de-1996], and [de-ch-1901]
 
