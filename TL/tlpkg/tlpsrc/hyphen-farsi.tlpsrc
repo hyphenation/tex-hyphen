@@ -9,3 +9,4 @@ execute AddHyphen \
 	righthyphenmin= \
 	file=zerohyph.tex \
 	file_patterns=
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-fa.tex
