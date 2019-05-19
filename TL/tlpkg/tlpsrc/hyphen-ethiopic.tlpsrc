@@ -16,7 +16,4 @@ execute AddHyphen \
 srcpattern d texmf-dist/source/generic/hyph-utf8/languages/mul-ethi
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-mul-ethi.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-mul-ethi.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-mul-ethi.chr.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-mul-ethi.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-mul-ethi.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-mul-ethi.pat.txt

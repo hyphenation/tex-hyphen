@@ -17,7 +17,4 @@ runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-fur.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-fur.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/quote/hyph-quote-fur.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-fur.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fur.chr.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fur.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fur.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fur.pat.txt

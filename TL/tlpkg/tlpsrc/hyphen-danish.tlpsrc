@@ -13,7 +13,4 @@ execute AddHyphen \
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-da.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-da.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-da.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-da.chr.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-da.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-da.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-da.pat.txt

@@ -12,7 +12,5 @@ execute AddHyphen \
 	file_exceptions=hyph-cu.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-cu.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-cu.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cu.chr.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cu.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cu.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cu.pat.txt
