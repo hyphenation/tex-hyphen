@@ -1,4 +1,4 @@
-ruby '2.4.1'
+ruby '2.6.3'
 source 'https://rubygems.org'
 group :development do
   group :test do
