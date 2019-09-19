@@ -61,22 +61,9 @@ puts
 #--------------------------#
 # language.dat and friends #
 #--------------------------#
-if `which tlmgr` == ""
-  puts "ERROR: tlmgr not found.  Please install tlmgr in order to proceed."
-  exit -1
-end
-
-# Make minimal .tlpdb
-tlpdb = File.open(File.join(PATH::TLPSRC, 'texlive.tlpdb'), 'w')
-Dir.glob(File.join(PATH::TLPSRC, '*.tlpsrc')).each do |tlpsrc|
-  tlpdb.puts sprintf 'name %s', File.basename(tlpsrc, '.tlpsrc')
-  tlpdb.puts File.read(tlpsrc)
-  tlpdb.puts
-end
-tlpdb.close
-
-system sprintf "tlmgr generate --dest %s language.dat", File.join(PATH::LANGUAGE_DAT, 'language.dat')
-system sprintf "tlmgr generate --dest %s language.dat.lua", File.join(PATH::LANGUAGE_DAT, 'language.dat.lua')
+# TODO
+# system sprintf "tlmgr generate --dest %s language.dat", File.join(PATH::LANGUAGE_DAT, 'language.dat')
+# system sprintf "tlmgr generate --dest %s language.dat.lua", File.join(PATH::LANGUAGE_DAT, 'language.dat.lua')
 
 # Revert changes if only line with date was changed
 diff_lines = `git diff #{PATH::LANGUAGE_DAT}/language.dat* | egrep '^[+-](%|--) Generated' | wc -l`.strip
