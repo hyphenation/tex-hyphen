@@ -993,7 +993,7 @@ describe Converter do
     end
   end
 
-  describe '#convert', focus: true do
+  describe '#convert' do
     it "runs one pass through the file" do
       converter = Converter.new
       converter.read(File.join(File.expand_path(__dir__), '..', '..', '..', 'data', 'encodings', 'macedonian.dat'))
