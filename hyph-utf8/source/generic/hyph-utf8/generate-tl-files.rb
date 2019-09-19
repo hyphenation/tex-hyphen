@@ -61,6 +61,11 @@ puts
 #--------------------------#
 # language.dat and friends #
 #--------------------------#
+if `which tlmgr` == ""
+  puts "ERROR: tlmgr not found.  Please install tlmgr in order to proceed."
+  exit -1
+end
+
 system sprintf "tlmgr generate --dest %s language.dat", File.join(PATH::LANGUAGE_DAT, 'language.dat')
 system sprintf "tlmgr generate --dest %s language.dat.lua", File.join(PATH::LANGUAGE_DAT, 'language.dat.lua')
 
