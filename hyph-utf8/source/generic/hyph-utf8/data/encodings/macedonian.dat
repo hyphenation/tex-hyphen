@@ -9,9 +9,11 @@
 0x37	U+0037		seven
 0x38	U+0038		eight
 0x39	U+0039		nine
+0x83	U+0453		cyrgj
 0x9A	U+0459		cyrlje
 0x9C	U+045A		cyrnje
 0x9D	U+045C		cyrkje
+0x9F	U+045F		cyrdzh
 0xBC	U+0458		cyrj
 0xBE	U+0455		cyrdze
 0xE0	U+0430		cyra
