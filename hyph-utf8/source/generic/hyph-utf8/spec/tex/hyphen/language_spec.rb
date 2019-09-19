@@ -983,3 +983,21 @@ describe Package do
     end
   end
 end
+
+describe Converter do
+  describe '#read' do
+    it "reads the conversion data" do
+      converter = Converter.new
+      converter.read(File.join(File.expand_path(__dir__), '..', '..', '..', 'data', 'encodings', 't2a.dat'))
+      puts converter.instance_variable_get(:@mapping)
+    end
+  end
+
+  describe '#convert', focus: true do
+    it "runs one pass through the file" do
+      converter = Converter.new
+      converter.read(File.join(File.expand_path(__dir__), '..', '..', '..', 'data', 'encodings', 't2a.dat'))
+      converter.convert(File.join(File.expand_path(__dir__), '..', '..', '..', '..', '..', '..', '..', '..', 'lang', 'mk', 'exp', 'texmf', 'tex', 'generic', 'hyphen', 'mkhyphen.tex'))
+    end
+  end
+end
