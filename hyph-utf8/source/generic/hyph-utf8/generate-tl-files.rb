@@ -66,6 +66,15 @@ if `which tlmgr` == ""
   exit -1
 end
 
+# Make minimal .tlpdb
+tlpdb = File.open(File.join(PATH::TLPSRC, 'texlive.tlpdb'), 'w')
+Dir.glob(File.join(PATH::TLPSRC, '*.tlpsrc')).each do |tlpsrc|
+  tlpdb.puts sprintf 'name %s', File.basename(tlpsrc, '.tlpsrc')
+  tlpdb.puts File.read(tlpsrc)
+  tlpdb.puts
+end
+tlpdb.close
+
 system sprintf "tlmgr generate --dest %s language.dat", File.join(PATH::LANGUAGE_DAT, 'language.dat')
 system sprintf "tlmgr generate --dest %s language.dat.lua", File.join(PATH::LANGUAGE_DAT, 'language.dat.lua')
 
