@@ -18,3 +18,7 @@ If you are an author of hyphenation patterns and want to add or update them,
 please contact the maintainers through the mailing list: tex-hyphen@tug.org
 You can also visit the [TeX hyphenation page](http://www.hyphenation.org/tex) for more
 information and technical details.
+
+# Running
+`bundle` (or `bundle install`)
+`bundle exec rake` runs the default task in the Rakefile.
