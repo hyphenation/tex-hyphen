@@ -91,14 +91,14 @@ module TeX
           # we skip the mongolian language for luatex files
           return files if bcp47 == "mn-cyrl-x-lmc"
 
-          ['chr', 'pat', 'hyp', 'lic'].each do |t|
+          ['pat', 'hyp'].each do |t|
             files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', bcp47, t))
           end
 
           if bcp47 =~ /^sh-/
             # duplicate entries (will be removed later)
             files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
-            ['chr', 'pat', 'hyp', 'lic'].each do |t|
+            ['pat', 'hyp'].each do |t|
               # duplicate entries (will be removed later)
               files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
             end
