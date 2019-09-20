@@ -124,7 +124,7 @@ describe Language do
 
     it "lists all languages" do
       # All the TeX files.  Note [no] and [mn-cyrl-x-lmc] don’t have corresponding plain text files.
-      expect(Language.languages.count).to eq 82 # Was 79; 3 more “TeX Live dummies” [ar] [fa] [grc-x-ibycus] TODO Maybe remove
+      expect(Language.languages.count).to eq 83 # Was 79; 3 more “TeX Live dummies” [ar] [fa] [grc-x-ibycus] TODO Maybe remove
     end
   end
 
@@ -134,7 +134,7 @@ describe Language do
     end
 
     it "returns 81 languages" do # That’s all of them except for [sr-cyrl]
-      expect(Language.all.count).to eq 81
+      expect(Language.all.count).to eq 82
     end
   end
 
@@ -997,7 +997,7 @@ describe Converter do
     it "runs one pass through the file" do
       converter = Converter.new
       converter.read(File.join(File.expand_path(__dir__), '..', '..', '..', 'data', 'encodings', 'macedonian.dat'))
-      converter.convert(File.join(File.expand_path(__dir__), '..', '..', '..', '..', '..', '..', '..', '..', 'lang', 'mk', 'exp', 'texmf', 'tex', 'generic', 'hyphen', 'mkhyphen.tex'))
+      converter.convert(File.join(File.expand_path(__dir__), '..', '..', '..', '..', '..', '..', '..', 'old', 'other', 'mk', 'mkhyphen.tex'))
     end
   end
 end
