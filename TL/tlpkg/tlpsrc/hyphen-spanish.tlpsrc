@@ -15,7 +15,5 @@ srcpattern d texmf-dist/source/generic/hyph-utf8/languages/es
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-es.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-es.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-es.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-es.chr.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-es.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-es.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-es.pat.txt

@@ -42,15 +42,9 @@ runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-la.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la-x-classic.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la-x-liturgic.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.chr.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-classic.pat.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-liturgic.chr.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-liturgic.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-liturgic.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la-x-liturgic.pat.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la.chr.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-la.pat.txt

@@ -12,7 +12,5 @@ execute AddHyphen \
 	file_exceptions=hyph-ia.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-ia.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-ia.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ia.chr.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ia.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ia.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ia.pat.txt

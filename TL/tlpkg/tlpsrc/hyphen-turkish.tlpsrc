@@ -20,7 +20,5 @@ srcpattern d texmf-dist/source/generic/hyph-utf8/languages/tr
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-tr.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-tr.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-tr.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-tr.chr.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-tr.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-tr.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-tr.pat.txt

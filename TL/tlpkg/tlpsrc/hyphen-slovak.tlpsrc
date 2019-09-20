@@ -15,7 +15,5 @@ execute AddHyphen \
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-sk.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-sk.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-sk.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sk.chr.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sk.hyp.txt
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sk.lic.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sk.pat.txt
