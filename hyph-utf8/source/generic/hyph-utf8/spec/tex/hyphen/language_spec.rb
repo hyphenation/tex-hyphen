@@ -737,10 +737,8 @@ describe Language do
         expect(Language.new('ka').list_run_files).to eq ['tex/generic/hyph-utf8/loadhyph/loadhyph-ka.tex',
           'tex/generic/hyph-utf8/patterns/tex/hyph-ka.tex',
           'tex/generic/hyph-utf8/patterns/ptex/hyph-ka.t8m.tex',
-          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.chr.txt',
           'tex/generic/hyph-utf8/patterns/txt/hyph-ka.pat.txt',
-          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.hyp.txt',
-          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.lic.txt']
+          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.hyp.txt']
       end
     end
 
@@ -963,7 +961,7 @@ describe Package do
     it "lists the run-time files" do
       # pending "it crashes ;-)"
       norwegian_run = norwegian.list_run_files
-      expect(norwegian_run.count).to eq 15
+      expect(norwegian_run.count).to eq 11
       expect(norwegian_run.select { |f| f =~ /tex\/hyph-[^\.]*\.tex$/ }).to eq ['tex/generic/hyph-utf8/patterns/tex/hyph-no.tex',
         'tex/generic/hyph-utf8/patterns/tex/hyph-nb.tex',
         'tex/generic/hyph-utf8/patterns/tex/hyph-nn.tex']
