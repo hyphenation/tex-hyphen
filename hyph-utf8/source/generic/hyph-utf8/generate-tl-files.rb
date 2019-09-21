@@ -75,7 +75,3 @@ File.open(ldatfile, 'w') do |file|
 		end
 	end
 end
-
-# Revert changes if only line with date was changed
-diff_lines = `git diff #{PATH::LANGUAGE_DAT}/language.dat* | egrep '^[+-](%|--) Generated' | wc -l`.strip
-`git checkout HEAD -- #{PATH::LANGUAGE_DAT}/language.dat*` if diff_lines == '4'
