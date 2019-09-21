@@ -49,16 +49,16 @@ Language.all.sort.each do |language|
 	unless language.exceptions == ""
 		file = outfile.('hyp') # This ensure a file is created, even if it may be empty
 		file.puts language.exceptions
-        end
+	end
 
-        ### FIXME Do issue #33 instead
+	### FIXME Do issue #33 instead
 	### # characters
 	### file = outfile.('chr')
 	### language.extract_characters.each do |character|
 	### 	file.puts character
 	### end
 
-        ### FIXME Do something else instead
+	### FIXME Do something else instead
 	### # comments and licence
 	### file = outfile.('lic')
 	### file.puts language.comments_and_licence

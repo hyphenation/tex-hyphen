@@ -32,9 +32,9 @@ $uniconvmacro1 = <<__EOUNIMAC1__
 % macros adapted from ConTeXt MKII; see unic-ini.mkii
 \\def\\unicodechar#1{%
 	\\ifcsname unichar@\\number#1\\endcsname
-	  \\csname unichar@\\number#1\\endcsname
+		\\csname unichar@\\number#1\\endcsname
 	\\else
-	  \\errmessage{Unicode character [#1] not in encoding.}%
+		\\errmessage{Unicode character [#1] not in encoding.}%
 	\\fi}
 __EOUNIMAC1__
 
@@ -173,5 +173,3 @@ end
 		file_out.puts
 	end
 end
-
-

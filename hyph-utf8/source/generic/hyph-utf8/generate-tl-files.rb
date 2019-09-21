@@ -26,8 +26,8 @@ Package.all.sort.each do |package|
 	# FIXME Still doesn’t work well for Latin
 	file_tlpsrc.printf "shortdesc %s.\n", package.description_s
 	package.description.split("\n").each do |line|
-    file_tlpsrc.printf "longdesc %s\n", line
-  end
+		file_tlpsrc.printf "longdesc %s\n", line
+	end
 	package.languages.each do |language|
 		file_tlpsrc.printf  "execute AddHyphen \\\n\tname=%s%s \\\n", language.babelname, language.list_synonyms
 		file_tlpsrc.printf "\t%s \\\n\t%s", language.list_hyphenmins, language.list_loader
@@ -68,7 +68,6 @@ File.open(ldatfile, 'w') do |file|
 		package.languages.each do |language|
 			# Main language name
 			file.printf "%s\t%s\n", language.babelname, language.loadhyph
-
 			# Synonyms
 			language.synonyms.each do |synonym|
 				file.printf "=%s\n", synonym

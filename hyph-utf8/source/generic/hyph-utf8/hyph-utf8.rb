@@ -9,7 +9,7 @@ class UnicodeCharacter
 		@bytes    = [code_uni].pack('U').unpack('C*')
 		@name     = name
 	end
-	
+
 	attr_reader :code_uni, :code_enc, :bytes, :name
 end
 
