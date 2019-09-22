@@ -1,0 +1,73 @@
+title: Hyphenation patterns for Slovak
+copyright: Copyright (C) 1992 Jana Chlebíková
+notice: This file is part of the hyph-utf8 package.
+    See http://www.hyphenation.org/tex for more information.
+version: 2.0 1992-04-24
+language:
+    name: Slovak
+    tag: sk
+authors:
+  -
+    name: Jana Chlebíková
+    affiliation: Department of Informatics Education, Comenius University, 842 15 Bratislava, Slovakia 
+    contact: chlebikj (at) dcs.fmph.uniba.sk
+licence:
+    name: GPL
+    version: 2
+    or_later: true
+    url: http://www.gnu.org/licenses/gpl.html
+hyphenmins:
+    typesetting:
+        left: 2
+        right: 3
+texlive:
+    encoding: ec
+    babelname: slovak
+    legacy_patterns: skhyph.tex
+    message: Slovak hyphenation patterns
+    description: |-
+        Hyphenation patterns for Slovak in T1/EC and UTF-8 encodings.
+        Original patterns 'skhyphen' are still distributed in the 'csplain'
+        package and loaded with ISO Latin 2 encoding (IL2).\n
+characters:
+    - aA
+    - bB
+    - cC
+    - dD
+    - eE
+    - fF
+    - gG
+    - hH
+    - iI
+    - jJ
+    - kK
+    - lL
+    - mM
+    - nN
+    - oO
+    - pP
+    - rR
+    - sS
+    - tT
+    - uU
+    - vV
+    - wW
+    - xX
+    - yY
+    - zZ
+    - áÁ
+    - äÄ
+    - éÉ
+    - íÍ
+    - óÓ
+    - ôÔ
+    - úÚ
+    - ýÝ
+    - čČ
+    - ďĎ
+    - ľĽ
+    - ňŇ
+    - ŕŔ
+    - šŠ
+    - ťŤ
+    - žŽ

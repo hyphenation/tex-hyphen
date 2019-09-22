@@ -1,0 +1,70 @@
+title: Hyphenation patterns for Esperanto
+copyright: Copyright (C) 1999 Sergei B. Pokrovsky (Sergio Pokrovskij)
+notice: This file is part of the hyph-utf8 package.
+    See http://www.hyphenation.org/tex for more information.
+language:
+    name: Esperanto
+    tag: eo
+version: 1.0 1999-08-10
+authors:
+  -
+    name: Sergei B. Pokrovsky
+    contact: pok (at) iis.nsk.su
+licence:
+    name: LPPL
+    version: 1
+    or_later: true
+    url: https://latex-project.org/lppl/
+changes:
+    - 1999-07-25  0.0  First try with the hyphenation patterns by Paul Peeraerts
+    - 1999-08-10  1.0  Complete redesign of the patterns by S.B. Pokrovsky
+hyphenmins:
+    typesetting:
+        left: 2
+        right: 2
+texlive:
+    encoding: il3
+    babelname: esperanto
+    legacy_patterns: eohyph.tex
+    message: Esperanto hyphenation patterns
+    description: |-
+        Hyphenation patterns for Esperanto ISO Latin 3 and UTF-8 encodings.
+        Note that TeX distributions don't ship any suitable fonts in Latin 3
+        encoding, so unless you create your own font support or want to use
+        MlTeX, using native Unicode engines is highly recommended.
+==========================================
+More documentation can be found near the end of this file.\n
+\begingroup
+Makrooj por la finaĵoj:
+\def\adj#1{#1a. #1aj. #1ajn. #1an. #1e.}
+\edef\nom#1{\adj{#1} #1o. #1oj. #1ojn. #1on.}
+\def\ver#1{#1as. #1i. #1is. #1os. #1u. #1us.}\n
+characters:
+    - aA
+    - bB
+    - cC
+    - dD
+    - eE
+    - fF
+    - gG
+    - hH
+    - iI
+    - jJ
+    - kK
+    - lL
+    - mM
+    - nN
+    - oO
+    - pP
+    - rR
+    - sS
+    - tT
+    - uU
+    - vV
+    - zZ
+    - ĉĈ
+    - ĝĜ
+    - ĥĤ
+    - ĵĴ
+    - ŝŜ
+    - ŭŬ

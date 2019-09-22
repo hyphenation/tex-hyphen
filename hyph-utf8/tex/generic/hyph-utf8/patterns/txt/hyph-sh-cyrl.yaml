@@ -1,0 +1,74 @@
+title: Hyphenation patterns for Serbo-Croatian, Cyrillic script
+copyright: Copyright (C) 1990, 2008 Dejan Muhamedagić
+notice: This file is part of the hyph-utf8 package.
+    See http://www.hyphenation.org/tex for more information.
+language:
+    name: Serbocroatian, Cyrillic script
+    tag: sh-cyrl
+version: 2.02 Jun 22, 2008
+authors:
+  -
+    name: Dejan Muhamedagić
+    contact: dejan (at) hello-penguin.com
+licence:
+    name: LPPL
+    version: 1
+    or_later: true
+    url: https://latex-project.org/lppl/
+hyphenmins:
+    generation:
+        left: 1
+        right: 2
+    typesetting:
+        left: 2 # But 1 is also possible
+        right: 2
+texlive:
+    encoding: t2a
+    babelname: serbianc
+    legacy_patterns: srhyphc.tex
+    message: Serbian hyphenation patterns in Cyrillic script
+    package: serbian
+==========================================
+Osnovni skup paterna dobijen je na osnovu fonoloških osobina
+srpskohrvatskog jezika.  Pravila i preporuke sam preuzeo iz:\n
+M. Pešikan, J. Jerković, M. Pižurica:
+Pravopis srpskoga jezika
+Matica srpska, Novi Sad, 1995.\n
+U drugom delu se nalaze izuzeci od fonoloških pravila bazirani
+na boljem psihološkom prelomu reči. Izradjen je korišćenjem
+sledećih rečnika:\n
+Rečnik srpskohrvatskoga književnog jezika
+Matica srpska, Matica hrvatska, Novi Sad, Zagreb, 1967-1976.\n
+Milan Vujaklija: Leksikon stranih reči i izraza
+Prosveta, Beograd, 1992.\n
+characters:
+    - аА
+    - бБ
+    - вВ
+    - гГ
+    - дД
+    - еЕ
+    - жЖ
+    - зЗ
+    - иИ
+    - кК
+    - лЛ
+    - мМ
+    - нН
+    - оО
+    - пП
+    - рР
+    - сС
+    - тТ
+    - уУ
+    - фФ
+    - хХ
+    - цЦ
+    - чЧ
+    - шШ
+    - ђЂ
+    - јЈ
+    - љЉ
+    - њЊ
+    - ћЋ
+    - џЏ

@@ -1,0 +1,107 @@
+title: Hyphenation patterns for German, reformed orthography (2006)\n
+notice: TeX-Trennmuster für die reformierte (2006) deutsche Rechtschreibung\n
+version: 2019-04-04\n
+authors:
+  -
+    name:    Deutschsprachige Trennmustermannschaft
+    contact: trennmuster@dante.de\n
+copyright: >
+    Copyright (C) 2013-2018
+    Stephan Hennig, Werner Lemberg, Günter Milde,
+    Sander van Geloven, Georg Pfeiffer, Gisbert W. Selke,
+    Tobias Wendorf\n
+licence:
+    name: MIT
+    url:  http://opensource.org/licenses/mit-license.php
+    text: >
+          Permission is hereby granted, free of charge, to any person
+          obtaining a copy of this software and associated documentation
+          files (the “Software”), to deal in the Software without
+          restriction, including without limitation the rights to use,
+          copy, modify, merge, publish, distribute, sublicense, and/or
+          sell copies of the Software, and to permit persons to whom the
+          Software is furnished to do so, subject to the following
+          conditions:\n
+          The above copyright notice and this permission notice shall be
+          included in all copies or substantial portions of the Software.\n
+          THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+          EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+          OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+          NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+          HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+          WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+          FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+          OTHER DEALINGS IN THE SOFTWARE.\n
+source: http://repo.or.cz/w/wortliste.git?a=commit;h=33b65bf6af8a2009ecce1a43d6670f4595b79084\n
+language:
+    name: German, reformed spelling
+    tag:  de-1996\n
+hyphenmins:
+    generation:
+        left:  2
+        right: 2
+    typesetting:
+        left:  2
+        right: 2\n
+texlive:
+    encoding: ec
+    babelname: ngerman
+    use_old_patterns_comment: Kept for the sake of backward compatibility, but newer and better patterns by WL are available.
+    legacy_patterns: dehyphn.tex
+    message: German hyphenation patterns (reformed orthography)
+    package: german\n
+===========================================================================\n
+\message{German Hyphenation Patterns (Reformed Orthography, 2006) `dehyphn-x' 2019-04-04 (WL)}\n
+The used patgen parameters are\n
+  1 1 | 1 5 | 1 1 1
+  2 2 | 2 6 | 1 2 1
+  3 3 | 3 7 | 1 1 1
+  4 4 | 4 8 | 1 4 1
+  5 5 | 5 9 | 1 1 1
+  6 6 | 6 10 | 1 6 1
+  7 7 | 7 11 | 1 4 1
+  8 8 | 8 12 | 1 8 1\n
+characters:
+    - aA
+    - bB
+    - cC
+    - dD
+    - eE
+    - fF
+    - gG
+    - hH
+    - iI
+    - jJ
+    - kK
+    - lL
+    - mM
+    - nN
+    - oO
+    - pP
+    - qQ
+    - rR
+    - sS
+    - tT
+    - uU
+    - vV
+    - wW
+    - xX
+    - yY
+    - zZ
+    - ßSS
+    - àÀ
+    - áÁ
+    - âÂ
+    - äÄ
+    - çÇ
+    - èÈ
+    - éÉ
+    - êÊ
+    - ëË
+    - íÍ
+    - ïÏ
+    - ñÑ
+    - óÓ
+    - ôÔ
+    - öÖ
+    - üÜ

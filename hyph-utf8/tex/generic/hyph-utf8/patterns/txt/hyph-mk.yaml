@@ -1,0 +1,57 @@
+title: Hyphenation patterns for Macedonian
+copyright: Copyright (C) 2006 Vasil Taneski
+notice: This file is part of the hyph-utf8 package.
+    See http://www.hyphenation.org/tex for more information.
+licence:
+    - name: GPL
+language:
+    name: Macedonian
+    tag: mk
+hyphenmins:
+    typesetting:
+        left: 2
+        right: 2
+version: 0.1
+authors:
+    -
+        name: Vasil Taneski
+        contact: vasil (dot) taneski (at) gmail (dot) com
+changes:
+    - Last change 2006-09-26
+texlive:
+    babelname: macedonian
+    message: Macedonian hyphenation patterns
+    description: |-
+        Hyphenation patterns for Macedonian\n
+characters:
+    - аА
+    - бБ
+    - вВ
+    - гГ
+    - дД
+    - еЕ
+    - жЖ
+    - зЗ
+    - иИ
+    - кК
+    - лЛ
+    - мМ
+    - нН
+    - оО
+    - пП
+    - рР
+    - сС
+    - тТ
+    - уУ
+    - фФ
+    - хХ
+    - цЦ
+    - чЧ
+    - шШ
+    - ѓЃ
+    - ѕЅ
+    - јЈ
+    - љЉ
+    - њЊ
+    - ќЌ
+    - џЏ
