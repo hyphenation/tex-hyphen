@@ -20,5 +20,5 @@ You can also visit the [TeX hyphenation page](http://www.hyphenation.org/tex) fo
 information and technical details.
 
 # Running
-`bundle` (or `bundle install`)
-`bundle exec rake` runs the default task in the Rakefile.
+* Installation: `bundle` (or `bundle install`)
+* Build and basic tests: `bundle exec rake`
