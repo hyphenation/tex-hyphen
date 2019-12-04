@@ -2,7 +2,7 @@
 
 # Mini-howto:
 # 1. docker pull adnrv/texlive
-# 2. docker run -it -v $(pwd):/home sh build.sh
+# 2. docker run -it -v $(pwd):/home adnrv/texlive sh build.sh
 
 # In Docker container from image adnrv/texlive
 WORKDIR=`mktemp -d /tmp/hyphXXXXXX`
