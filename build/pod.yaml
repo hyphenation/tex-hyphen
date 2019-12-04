@@ -1,12 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  generateName: build
+  name: build
 spec:
   containers:
   - command:
-    - sh
-    - -c
     - bash
     env:
     image: adnrv/texlive:latest
