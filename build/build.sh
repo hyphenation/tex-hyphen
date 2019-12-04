@@ -7,7 +7,7 @@
 # In Docker container from image adnrv/texlive
 WORKDIR=`mktemp -d /tmp/hyphXXXXXX`
 cd $WORKDIR
-git clone http://github.com/hyphenation/tex-hyphen
+git clone https://github.com/hyphenation/tex-hyphen
 mv -f tex-hyphen/hyph-utf8/tex/generic /usr/local/texlive/texmf-local/tex
 mv -f tex-hyphen/TL/texmf-dist/tex/generic/config/language.dat /usr/local/texlive/texmf-var/tex/generic/config
 # FIXME Get the real version 5 files! FIXME

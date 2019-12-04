@@ -9,7 +9,7 @@ spec:
     env:
     image: adnrv/texlive:latest
     imagePullPolicy: Always
-    name: test
+    name: build
     securityContext:
       privileged: true
     stdin: true
