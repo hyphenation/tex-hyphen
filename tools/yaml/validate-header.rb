@@ -20,8 +20,6 @@ class HeaderValidator
   class InternalError < StandardError
   end
 
-  @@exemptions = ['ar', 'fa', 'grc-x-ibycus']
-
   @@format = {
     title: {
       mandatory: true,
@@ -148,7 +146,7 @@ class HeaderValidator
   }
 
   def initialize
-    @errors = { InternalError => [], WellFormednessError => [], ValidationError => [] }
+    @errors = { }
   end
 
   def parse(filename)
@@ -218,8 +216,7 @@ class HeaderValidator
     begin
       run! filename
     rescue InternalError, WellFormednessError, ValidationError => err
-      # byebug
-      @errors[err.class] << [filename, err.message]
+      (@errors[filename] ||= []) << [err.class, err.message]
     end
   end
 
@@ -244,15 +241,15 @@ class HeaderValidator
       # byebug
       if File.file? arg
         print 'file ', arg
-        runfile(arg)
+        @headings << [File.basename(arg), runfile(arg)]
       elsif Dir.exists? arg
         print 'files in ', arg, ': '
-        Dir.foreach(arg) do |filename|
+        print(Dir.foreach(arg).map do |filename|
           next if filename == '.' || filename == '..'
           f = File.join(arg, filename)
-          print filename.gsub(/^hyph-/, '').gsub(/\.tex$/, ''), ' '
           @headings << [filename, runfile(f)] unless Dir.exists? f
-        end
+          filename.gsub(/^hyph-/, '').gsub(/\.tex$/, '')
+        end.compact.sort.join ' ')
       else
         puts "Argument #{arg} is neither an existing file nor an existing directory; proceeding." unless @mode == 'mojca'
       end
@@ -260,21 +257,22 @@ class HeaderValidator
       puts
     end
 
-    unless @mode == 'mojca'
-      puts "\nReport on #{arg}:" # FIXME Incorrect if multiple input files given.
+    if @mode == 'mojca'
+      @headings.sort! { |a, b| a.first <=> b.first }
+      [:title, :copyright, :notice].each do |heading|
+        puts heading.capitalize
+        puts @headings.map { |filedata| "#{filedata.first}: #{filedata.last[heading]}" }.join("\n")
+        puts ""
+      end
+    else
+      list = if Dir.exists?(arg) then arg else @headings.map(&:first).join ' ' end
+      puts "\nReport on #{list}:"
       summary = []
-      if @errors.inject(0) { |errs, klass| errs + klass.last.count } > 0
-        @errors.each do |klass, files|
-          next if files.count == 0
-          files.each do |file|
-            filename = file.first
-            message = file.last
-            exemption_regexp = Regexp.new '(' + @@exemptions.join('|') + ')'
-            # byebug
-            skip = klass == ValidationError && message =~ /^Empty metadata set for language \[#{exemption_regexp}\]$/
-            # skip = false
-            summary << "#{filename}: #{klass.name} #{message}" unless skip
-          end
+      @errors.each do |filename, messages|
+        messages.each do |file|
+          classname = file.first
+          message = file.last
+          summary << "#{filename}: #{classname} #{message}"
         end
       end
 
@@ -284,13 +282,6 @@ class HeaderValidator
         exit exitcode
       else
         puts "No errors were found."
-      end
-    else
-      @headings.sort! { |a, b| a.first <=> b.first }
-      [:title, :copyright, :notice].each do |heading|
-        puts heading.capitalize
-        puts @headings.map { |filedata| "#{filedata.first}: #{filedata.last[heading]}" }.join("\n")
-        puts ""
       end
     end
   end
