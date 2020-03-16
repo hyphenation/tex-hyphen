@@ -20,15 +20,15 @@
 \def\testengine#1#2!{\def\secondarg{#2}}\testengine Τ!\relax
 \ifx\secondarg\empty
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
-    \message{UTF-8 Classical Latin hyphenation patterns}
+    \message{UTF-8 Classical Latin hyphenation patterns, v.2.0 2019-07-03}
     \input hyph-la-x-classic.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{EC Classical Latin hyphenation patterns}
+    \message{EC Classical Latin hyphenation patterns, v.2.0-EC 2019-07-03}
     \input hyph-la-x-classic.ec.tex
 \fi\else
     % pTeX
-    \message{EC Classical Latin hyphenation patterns}
+    \message{EC Classical Latin hyphenation patterns, v.2.0-EC 2019-07-03}
     \input hyph-la-x-classic.ec.tex
 \fi
 \endgroup
