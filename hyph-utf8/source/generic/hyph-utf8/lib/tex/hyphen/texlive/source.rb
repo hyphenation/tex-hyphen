@@ -82,7 +82,7 @@ module TeX
           end
 
           files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', bcp47))
-          if encoding && encoding != "ascii" then
+          if encoding && encoding != "ascii" && bcp47 != 'la-x-classic' then
             files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
           elsif bcp47 == "cop"
             files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', legacy_patterns)

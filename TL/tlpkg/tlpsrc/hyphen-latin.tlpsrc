@@ -39,6 +39,7 @@ runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-la-x-liturgic.te
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-la.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-la-x-liturgic.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-la.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex-8bit/hyph-la-x-classic.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la-x-classic.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la-x-liturgic.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la.tex
