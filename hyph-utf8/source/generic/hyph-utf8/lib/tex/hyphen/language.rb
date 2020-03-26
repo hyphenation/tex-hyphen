@@ -160,10 +160,9 @@ module TeX
         @righthyphenmin
       end
 
-      # Strictly speaking a misnomer, because grc-x-ibycus should also return true.
-      # But useful for a number of apostrophe-related routines
+      # Useful for a number of apostrophe-related routines
       def isgreek?
-        ['grc', 'el-polyton', 'el-monoton'].include? @bcp47
+        @bcp47 =~ /^(el|grc)/
       end
 
       def serbian?
