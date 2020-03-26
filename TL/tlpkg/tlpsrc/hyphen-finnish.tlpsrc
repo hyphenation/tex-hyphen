@@ -13,5 +13,4 @@ execute AddHyphen \
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-fi.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-fi.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-fi.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fi.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fi.pat.txt

@@ -24,5 +24,4 @@ runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-mn-cyrl-x-lmc.l
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-mn-cyrl.t2a.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-mn-cyrl-x-lmc.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-mn-cyrl.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-mn-cyrl.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-mn-cyrl.pat.txt

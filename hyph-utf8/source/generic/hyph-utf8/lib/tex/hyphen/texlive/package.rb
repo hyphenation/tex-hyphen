@@ -86,7 +86,9 @@ module TeX
             sprintf("%s/generic/hyph-utf8/languages/%s", type, bcp47)
           end
 
-          (files << @@metadata.dig(name, type)).compact
+          (files << @@metadata.dig(name, type)).select do |file|
+            file !~ /hyph-utf8/ || File.exist?(File.join(PATH::TeXRoot, file))
+          end.compact
         end
 
         def list_run_files
@@ -105,7 +107,7 @@ module TeX
             end
           end
 
-          files
+          files.select { |file| file !~ /hyph-utf8/ || File.exist?(File.join(PATH::TeXRoot, file)) }
         end
 
         def <=>(other)

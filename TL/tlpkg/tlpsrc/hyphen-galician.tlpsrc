@@ -14,5 +14,4 @@ srcpattern d texmf-dist/source/generic/hyph-utf8/languages/gl
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-gl.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-gl.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-gl.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-gl.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-gl.pat.txt

@@ -14,5 +14,4 @@ execute AddHyphen \
 srcpattern d texmf-dist/source/generic/hyph-utf8/languages/hy
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-hy.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-hy.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hy.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hy.pat.txt
