@@ -2,7 +2,7 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Chinese pinyin hyphenation patterns.
-longdesc Hyphenation patterns for unaccented transliterated Mandarin Chinese
+longdesc Hyphenation patterns for transliterated Mandarin Chinese
 longdesc (pinyin) in T1/EC and UTF-8 encodings.  The latter can hyphenate pinyin
 longdesc with or without tone markers; the former only without.
 execute AddHyphen \
@@ -17,4 +17,3 @@ runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-zh-latn-pinyin.
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-zh-latn-pinyin.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-zh-latn-pinyin.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-zh-latn-pinyin.pat.txt
-runpattern f texmf-dist/tex/generic/hyphen/hyph-zh-latn-pinyin.ec.tex
