@@ -4,6 +4,7 @@ module TeX
       ROOT = File.expand_path('../../../../../../../..', __FILE__)
 
       TeXROOT = File.join(ROOT, 'hyph-utf8')
+      TeXRoot = TeXROOT
       TeX_GENERIC = File.join(TeXROOT, 'tex', 'generic')
       PAT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns')
       TXT = File.join(PAT, 'txt')

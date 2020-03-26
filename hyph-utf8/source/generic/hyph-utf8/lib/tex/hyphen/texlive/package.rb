@@ -86,11 +86,7 @@ module TeX
             sprintf("%s/generic/hyph-utf8/languages/%s", type, bcp47)
           end
 
-          if special = @@metadata.dig(name, type)
-            files << special
-          end
-
-          files
+          (files << @@metadata.dig(name, type)).compact
         end
 
         def list_run_files
