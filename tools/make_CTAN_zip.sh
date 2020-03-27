@@ -6,6 +6,6 @@ filename="$TMPDIR/$NAME.zip"
 
 oldwd=`pwd`
 cd `dirname $0`/..
-git archive --format=zip --prefix=$NAME/ --output="$filename" master:$NAME
+git archive --format=zip --prefix=$NAME/ --output="$filename" --worktree-attributes master:$NAME
 echo "$filename ready to be shipped to CTAN."
 cd $oldwd
