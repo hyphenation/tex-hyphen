@@ -1,13 +1,14 @@
 module TeX
   module Hyphen
     module PATH
-      ROOT = File.expand_path('../../../../../../../..', __FILE__)
+      ROOT = File.expand_path(File.join('..', '..', '..', '..', '..', '..', '..', '..'), __FILE__)
 
       TeXROOT = File.join(ROOT, 'hyph-utf8')
       TeX_GENERIC = File.join(TeXROOT, 'tex', 'generic')
       PAT = File.join(TeX_GENERIC, 'hyph-utf8', 'patterns')
       TXT = File.join(PAT, 'txt')
       TEX = File.join(PAT, 'tex')
+      TEX8BIT = File.join(PAT, 'tex-8bit')
       PTEX = File.join(PAT, 'ptex')
       QUOTE = File.join(PAT, 'quote')
       LOADER = File.join(TeX_GENERIC, 'hyph-utf8', 'loadhyph')

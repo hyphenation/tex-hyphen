@@ -347,7 +347,12 @@ module TeX
       def extract_metadata
         # byebug
         header = ""
-        File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', @bcp47))).each_line do |line|
+        if @contents_encoding == :utf8
+          filepath = File.join(PATH::TEX, sprintf('hyph-%s.tex', @bcp47))
+        else
+          filepath = File.join(PATH::TEX8BIT, sprintf('hyph-%s.%s.tex', @encoding, @bcp47))
+        end
+        File.read(filepath).each_line do |line|
           break if line =~ /\\patterns|#{@@eohmarker}/
           header += line.gsub(/^% /, '').gsub(/%.*/, '')
         end
