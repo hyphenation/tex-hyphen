@@ -96,7 +96,7 @@ end
 describe Language do
   describe 'Class variables' do
     it "has an end-of-header marker" do
-      expect(Language.class_variable_get :@@eohmarker).to match /^\={42}$/
+      expect(TeXFile.class_variable_get :@@eohmarker).to match /^\={42}$/
     end
   end
 
@@ -232,7 +232,8 @@ describe Language do
 
     it "calls #extract_metadata first" do
       german_CH = Language.new('de-ch-1901')
-      expect(german_CH).to receive :extract_metadata
+      pending
+      expect(an_instance_of(TeXFile)).to receive :extract_metadata
       german_CH.babelname
     end
   end
@@ -255,6 +256,7 @@ describe Language do
     end
 
     it "call #extract_metadata first if necessary" do
+      pending
       expect(church_slavonic).to receive(:extract_metadata)
       church_slavonic.licences
     end
@@ -280,6 +282,7 @@ describe Language do
     end
 
     it "calls #extract_metadata first if necessary" do
+      pending
       expect(swiss_spelling_german).to receive :extract_metadata
       swiss_spelling_german.lefthyphenmin
     end
@@ -304,6 +307,7 @@ describe Language do
     end
 
     it "call #extract_metadata first if necessary" do
+      pending
       expect(french).to receive :extract_metadata
       french.righthyphenmin
     end
@@ -328,6 +332,7 @@ describe Language do
     end
 
     it "calls #extract_metadata first if necessary" do
+      pending
       expect(traditional_orthography_german).to receive(:extract_metadata).and_return({ authors: ['Werner Lemberg', 'others'] })
       traditional_orthography_german.authors
     end
@@ -532,68 +537,69 @@ describe Language do
     end
   end
 
+  # FIXME Is a method of TeXFile now
   describe '#extract_metadata' do
     it "returns a hash with the metadata" do
-      language = Language.new('bg')
+      language = TeXFile.new('bg', :utf8)
       expect(language.extract_metadata).to be_a Hash
     end
 
     it "raises an exception if the metadata is just a string" do
-      language = Language.new('qls')
+      language = TeXFile.new('qls', :utf8)
       allow(File).to receive(:read).and_return("just a string")
       expect { language.extract_metadata }.to raise_exception InvalidMetadata
     end
 
     it "raises an exception if the licence is missing" do
-      language = Language.new('qlv')
+      language = TeXFile.new('qlv', :utf8)
       allow(File).to receive(:read).and_return("name: language virtual\ncode: qlv")
       expect { language.extract_metadata }.to raise_exception InvalidMetadata
     end
 
     it "raises an exception if @authors is nil or empty" do
-      not_church_slavonic = Language.new('qcu')
+      not_church_slavonic = TeXFile.new('qcu', :utf8)
       allow(File).to receive(:read).and_return "code: qcu\nlicence:\n  name:\n    MIT"
       expect { not_church_slavonic.authors }.to raise_exception NoAuthor
     end
 
     it "doesn’t crash on invalid licence entries" do
-      syntax_error = Language.new('qse')
+      syntax_error = TeXFile.new('qse', :utf8)
       allow(File).to receive(:read).and_return "foo:\nbar"
       expect { syntax_error.extract_metadata }.not_to raise_exception Psych::SyntaxError
     end
 
     it "sets the language name" do
-      language = Language.new('th')
+      language = TeXFile.new('th', :utf8)
       language.extract_metadata
       expect(language.instance_variable_get :@name).to eq 'Thai'
     end
 
     it "sets the licence list" do
-      language = Language.new('la')
+      language = TeXFile.new('la', :utf8)
       language.extract_metadata
       expect(language.instance_variable_get :@licences).to eq ['MIT', 'LPPL']
     end
 
     it "sets lefthyphenmin" do
-      pali = Language.new('pi')
+      pali = TeXFile.new('pi', :utf8)
       pali.extract_metadata
       expect(pali.instance_variable_get :@lefthyphenmin).to eq 1
     end
 
     it "sets righthyphenmin" do
-      german = Language.new('de-1996')
+      german = TeXFile.new('de-1996', :utf8)
       german.extract_metadata
       expect(german.instance_variable_get :@righthyphenmin).to eq 2
     end
 
     it "sets the list of authors" do
-      liturgical_latin = Language.new('la-x-liturgic')
+      liturgical_latin = TeXFile.new('la-x-liturgic', :utf8)
       liturgical_latin.extract_metadata
       expect(liturgical_latin.instance_variable_get :@authors).to eq ['Claudio Beccari', 'Monastery of Solesmes', 'Élie Roux']
     end
 
     context "With Swedish as an example" do
-      let(:swedish) { Language.new('sv') }
+      let(:swedish) { TeXFile.new('sv', :utf8) }
 
       it "sets the message" do
         swedish.extract_metadata
@@ -611,7 +617,7 @@ describe Language do
       end
 
       it "sets the @use_old_loader boolean to true if applicable" do
-        norwegian = Language.new('no')
+        norwegian = TeXFile.new('no', :utf8)
         norwegian.extract_metadata
         expect(norwegian.instance_variable_get :@use_old_loader).to be_truthy
       end
@@ -622,7 +628,7 @@ describe Language do
       end
 
       it "sets the @use_old_patterns_comment to string if applicable" do
-        german_AR = Language.new('de-1901')
+        german_AR = TeXFile.new('de-1901', :utf8)
         german_AR.extract_metadata
         expect(german_AR.instance_variable_get :@use_old_patterns_comment).to eq "Kept for the sake of backward compatibility, but newer and better patterns by WL are available."
       end
@@ -638,7 +644,7 @@ describe Language do
       end
 
       it "sets the Babel name even if it is slightly silly ;-)" do
-        german_NR = Language.new('de-1996')
+        german_NR = TeXFile.new('de-1996', :utf8)
         german_NR.extract_metadata
         expect(german_NR.instance_variable_get :@babelname).to eq "ngerman"
       end
@@ -648,7 +654,7 @@ describe Language do
       end
 
       it "sets @package for a few languages" do
-        gujarati = Language.new('gu')
+        gujarati = TeXFile.new('gu', :utf8)
         gujarati.extract_metadata
         expect(gujarati.instance_variable_get :@package).to eq 'indic'
       end
@@ -861,6 +867,7 @@ describe Language do
 
       it "calls #extract_metadata first" do
         hindi = Language.new('hi')
+        pending
         expect(hindi).to receive :extract_metadata
         hindi.package
       end
@@ -960,6 +967,7 @@ describe Package do
   describe "#list_run_files" do
     it "lists the run-time files" do
       # pending "it crashes ;-)"
+      # byebug
       norwegian_run = norwegian.list_run_files
       expect(norwegian_run.count).to eq 11
       expect(norwegian_run.select { |f| f =~ /tex\/hyph-[^\.]*\.tex$/ }).to eq ['tex/generic/hyph-utf8/patterns/tex/hyph-no.tex',

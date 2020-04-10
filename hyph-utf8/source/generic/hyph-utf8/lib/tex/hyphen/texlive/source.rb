@@ -72,6 +72,7 @@ module TeX
         end
 
         def list_run_files
+          # byebug
           return [] if use_old_loader
 
           files = []
@@ -108,8 +109,14 @@ module TeX
         end
 
         def package
-          extract_metadata
+          # byebug
+          if is_a? Language
+            @files[:utf8] ||= TeXFile.new(@bcp47, :utf8)
+            @files[:utf8].package
+          else
+          extract_metadata unless @package
           @package
+          end
         end
       end
     end

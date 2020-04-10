@@ -59,13 +59,34 @@ module TeX
 
     class Language
       attr_reader :bcp47
+    end
 
+    class TeXFile
       @@eohmarker = '=' * 42
 
+      def initialize(bcp47, contents_encoding)
+        @bcp47 = bcp47
+        @contents_encoding = contents_encoding
+      end
+    end
+
+    class Language
       def iso639
         @bcp47.split('-').first
       end
 
+      def method_missing(name)
+        if [:babelname, :description, :use_old_loader, :use_old_patterns_comment, :legacy_patterns,
+            :message, :known_bugs, :licences, :lefthyphenmin, :righthyphenmin, :authors].include? name
+          @files[:utf8] ||= TeXFile.new(@bcp47, :utf8)
+          @files[:utf8].send(name)
+        else
+          raise "Method missing: #{name}"
+        end
+      end
+    end
+
+    class TeXFile
       # FIXME Find something better than all that extract_metadata unless @blah nonsens
       def babelname
         extract_metadata unless @babelname
@@ -101,9 +122,12 @@ module TeX
         extract_metadata unless @known_bugs
         @known_bugs
       end
+    end
 
+    class Language
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
+        @files = { }
       end
 
       def self.languages
@@ -133,9 +157,11 @@ module TeX
         languages[bcp47]
       end
 
+      # TODO Add ‘x-’ tags
       def private_use?
         @bcp47.length == 3 || @bcp47[3] == '-' and @bcp47[0] == 'q' and ('a'..'t').include? @bcp47[1]
       end
+    end
 
       # TODO This should probably become “macrolanguage name” or something similar
       # @@displaynames = {
@@ -145,6 +171,7 @@ module TeX
       #   'sh' => 'Serbian',
       # }
 
+    class TeXFile
       def licences
         extract_metadata unless @licences
         @licences
@@ -159,7 +186,9 @@ module TeX
         extract_metadata unless @righthyphenmin
         @righthyphenmin
       end
+    end
 
+    class Language
       # Strictly speaking a misnomer, because grc-x-ibycus should also return true.
       # But useful for a number of apostrophe-related routines
       def isgreek?
@@ -221,12 +250,16 @@ module TeX
       def comments_and_licence # Major TODO extract everything into YAML, and write .yml
         @comments_and_licence ||= readtexfile.gsub(/(.*)\\patterns.*/m,'\1')
       end
+    end
 
+    class TeXFile
       def authors
         extract_metadata unless @authors
         @authors
       end
+    end
 
+    class Language
       def github_link
         sprintf 'https://github.com/hyphenation/tex-hyphen/tree/master/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-%s.tex', @bcp47
       end
@@ -299,7 +332,8 @@ module TeX
         unless @hydra
           begin
             # byebug
-            metadata = extract_metadata
+            @files[:utf8] ||= TeXFile.new(@bcp47, :utf8)
+            metadata = @files[:utf8].extract_metadata
             @hydra = Hydra.new patterns, :lax, '', metadata
           rescue InvalidMetadata
             @hydra = Hydra.new patterns
@@ -307,8 +341,11 @@ module TeX
         end
         @hydra.showhyphens(word)
       end
+    end
 
+    class TeXFile
       def extract_metadata
+        # byebug
         header = ""
         File.read(File.join(PATH::TEX, sprintf('hyph-%s.tex', @bcp47))).each_line do |line|
           break if line =~ /\\patterns|#{@@eohmarker}/
