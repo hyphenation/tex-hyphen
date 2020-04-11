@@ -82,7 +82,8 @@ module TeX
           if unicode_only?
             sprintf('No %s - only for Unicode engines', message)
           else
-            sprintf('%s%s', string_enc, message)
+            @files[:nonutf8] ||= TeXFile.new(@bcp47, :nonutf8)
+            sprintf('%s%s', string_enc, @files[:nonutf8].message || message)
           end
         end
 

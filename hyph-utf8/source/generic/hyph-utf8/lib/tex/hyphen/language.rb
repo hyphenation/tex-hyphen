@@ -64,9 +64,10 @@ module TeX
     class TeXFile
       @@eohmarker = '=' * 42
 
-      def initialize(bcp47, contents_encoding)
+      def initialize(bcp47, contents_encoding, utf8 = self)
         @bcp47 = bcp47
         @contents_encoding = contents_encoding
+        @utf8 = utf8
       end
     end
 
@@ -128,6 +129,8 @@ module TeX
       def initialize(bcp47 = nil)
         @bcp47 = bcp47
         @files = { }
+        @files[:utf8] = TeXFile.new(@bcp47, :utf8)
+        @files[:nonutf8] = TeXFile.new(@bcp7, :nonutf8, @files[:utf8])
       end
 
       def self.languages
@@ -349,8 +352,12 @@ module TeX
         header = ""
         if @contents_encoding == :utf8
           filepath = File.join(PATH::TEX, sprintf('hyph-%s.tex', @bcp47))
+        elsif @contents_encoding == :nonutf8
+          return { } unless @utf8.legacy_patterns # FIXME Spec
+          filepath = File.join(PATH::TEX8BIT, @utf8.legacy_patterns) # TODO Spec out
+          return { } unless File.exist? filepath # TODO Spec out too
         else
-          filepath = File.join(PATH::TEX8BIT, sprintf('hyph-%s.%s.tex', @encoding, @bcp47))
+          return { }
         end
         File.read(filepath).each_line do |line|
           break if line =~ /\\patterns|#{@@eohmarker}/
@@ -358,8 +365,10 @@ module TeX
         end
         begin
           metadata = YAML::load header
+          byebug unless metadata.is_a?(Hash) || metadata == "just a string"
           raise InvalidMetadata unless metadata.is_a? Hash
         rescue Psych::SyntaxError
+          # byebug
           raise InvalidMetadata
         end
 
@@ -382,7 +391,7 @@ module TeX
         raise NoLicence unless licences
         licences = [licences] unless licences.is_a? Array
         @licences = licences.map do |licence|
-          raise bcp47 if licence.is_a? String
+          raise @bcp47 if licence.is_a? String
           next if licence.values == [nil]
           licence.dig('name') || 'custom'
         end.compact
