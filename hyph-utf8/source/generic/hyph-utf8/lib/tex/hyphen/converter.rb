@@ -1,18 +1,24 @@
 # encoding: UTF-8
 
-require 'scanf'
 require 'byebug'
 
 module TeX
   module Hyphen
     class Converter
+      def self.scan_line(line)
+        m = line.match /^(0x\h{2})\tU\+(\h{4})(?:\t(1?)(?:\t(\w+)))?$/
+        return nil unless m
+
+        return m[1].to_i(16), m[2].to_i(16).chr(Encoding::UTF_8), m[3].to_i, m[4]
+      end
+
       def read(conversion)
         @mapping = { }
         File.read(conversion).each_line do |line|
           next if line =~ /^#/
 
-          eightbit, usv = line.scanf "0x%02X\tU+%04X"
-          @mapping[eightbit] = usv.chr(Encoding::UTF_8)
+          eightbit, usv = Converter.scan_line line
+          @mapping[eightbit] = usv.chr
         end
       end
 
