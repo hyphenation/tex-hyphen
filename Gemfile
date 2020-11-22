@@ -6,6 +6,7 @@ group :development do
     gem 'rspec'
   end
   gem 'byebug'
+  gem 'irb'
 end
 gem 'unicode'
 gem 'hydra', git: 'https://github.com/hyphenation/hydra'
