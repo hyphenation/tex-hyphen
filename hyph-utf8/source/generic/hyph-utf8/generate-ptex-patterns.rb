@@ -9,7 +9,10 @@ include TeXLive
 # this file generates patterns for pTeX out of the plain ones
 
 # load encodings
-encodings_list = ["ascii", "ec", "qx", "t2a", "lmc", "il2", "il3", "l7x", "t8m", "lth"]
+encodings_list =
+  Dir.glob(File.expand_path(File.join(__dir__, 'data/encodings/*.dat'))).map do |encdat|
+    encdat.gsub /^.*\/(.*)\.dat$/, '\1'
+end
 encodings = Hash.new
 encodings_list.each do |encoding_name|
   encodings[encoding_name] = HyphEncoding.new(encoding_name)
