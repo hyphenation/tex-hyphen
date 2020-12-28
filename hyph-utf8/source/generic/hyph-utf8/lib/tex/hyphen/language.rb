@@ -1,6 +1,5 @@
 require 'yaml'
 require 'hydra'
-require 'byebug' unless ENV['RACK_ENV'] == "production"
 
 require_relative 'path'
 
@@ -277,7 +276,6 @@ module TeX
             @exceptions = readtexfile.superstrip.gsub(/.*\\hyphenation\s*\{(.*?)\}.*/m,'\1').supersplit
             if @exceptions != ""
               @hyphenation = @exceptions.inject [] do |exceptions, exception|
-                # byebug unless exception
                 exceptions << [exception.gsub('-', ''), exception]
               end.to_h
             else
@@ -298,7 +296,6 @@ module TeX
 
         unless @hydra
           begin
-            # byebug
             metadata = extract_metadata
             @hydra = Hydra.new patterns, :lax, '', metadata
           rescue InvalidMetadata

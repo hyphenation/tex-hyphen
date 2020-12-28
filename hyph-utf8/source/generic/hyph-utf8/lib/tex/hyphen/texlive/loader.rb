@@ -143,7 +143,6 @@ module TeX
             end
           end
 
-          byebug unless specification.is_a? Hash
           comment = specification[:comment]
           message = specification[:message]
           if comment then [sprintf('%% %s', comment)] else [] end +

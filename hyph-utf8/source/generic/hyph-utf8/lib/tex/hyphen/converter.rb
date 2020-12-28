@@ -1,7 +1,5 @@
 # encoding: UTF-8
 
-require 'byebug'
-
 module TeX
   module Hyphen
     class Converter
@@ -34,7 +32,6 @@ module TeX
 
           if doconvert
             puts (line.strip.each_byte.map do |byte|
-              byebug unless @mapping[byte]
               @mapping[byte]
             end || '').join
           end

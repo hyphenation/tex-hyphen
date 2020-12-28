@@ -8,7 +8,6 @@
 
 require 'yaml'
 require 'pp'
-require 'byebug'
 
 class HeaderValidator
   class WellFormednessError < StandardError # probably not an English word ;-)

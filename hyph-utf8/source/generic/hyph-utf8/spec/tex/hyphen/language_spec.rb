@@ -413,7 +413,6 @@ describe Language do
 
     it "loads the patterns" do
       language = Language.new('fi')
-      # byebug
       expect(language.patterns[151..154]).to eq ['uu1a2', 'uu1e2', 'uu1o2', 'uu1i2']
     end
 
@@ -440,7 +439,6 @@ describe Language do
   describe '#exceptions' do
     it "returns the hyphenation exceptions" do
       language = Language.new('ga')
-      # byebug
       expect(language.exceptions[0..2]).to eq ['bhrachtaí', 'mbrachtaí', 'cháintí']
     end
 
