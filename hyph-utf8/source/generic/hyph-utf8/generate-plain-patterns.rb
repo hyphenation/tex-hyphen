@@ -4,7 +4,6 @@
 # this file generates plain patterns (one-per-line) out of TeX source
 
 # use 'gem install unicode' if unicode is missing on your computer
-require 'unicode'
 
 require_relative 'lib/tex/hyphen/language.rb'
 # include OldLanguage::TeXLive
