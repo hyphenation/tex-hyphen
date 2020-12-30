@@ -69,6 +69,8 @@ class HyphEncoding
 				elsif (c == 0x01FD or c == 0x0301) and @encoding_name == 'ec'
 					skip_this_string = true
 					new_string[i] = sprintf("[U+%04X]", c)
+				elsif c == 0x0453 || c == 0x45C # ѓ and ќ, for Macedonian
+				  skip_this_string = true
 				else
 					puts sprintf("There must be an error: character U+%04X in string '%s' is not ASCII or %s.", c, str, @encoding_name.upcase)
 				end

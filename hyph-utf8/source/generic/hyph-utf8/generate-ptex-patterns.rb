@@ -64,9 +64,9 @@ Language.all.sort.each do |language|
     file_ptex.puts("\\bgroup")
     # setting lccodes for letters
     characters.each do |c|
-      if (c == 0x01FD or c == 0x0301) and language.bcp47 == 'la-x-liturgic'
+      if ([0x01FD, 0x0301].include?(c)) and language.bcp47 == 'la-x-liturgic'
         # skip
-      elsif c >= 128 then
+      elsif c >= 128 && encoding.unicode_characters[c] then
         code = encoding.unicode_characters[c].code_enc
         file_ptex.printf("\\lccode\"%02X=\"%02X\n", code, code)
       end
