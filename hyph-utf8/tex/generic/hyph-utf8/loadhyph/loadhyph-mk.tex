@@ -5,7 +5,7 @@
 %     source/generic/hyph-utf8/generate-pattern-loaders.rb
 % See also http://tug.org/tex-hyphen
 %
-% Copyright 2008-2020 TeX Users Group.
+% Copyright 2008-2021 TeX Users Group.
 % You may freely use, modify and/or distribute this file.
 % (But consider adapting the scripts if you need modifications.)
 %
@@ -24,12 +24,12 @@
     \input hyph-mk.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{MACEDONIAN Macedonian hyphenation patterns}
-    % 2006 patterns without ѓ and ќ for 8-bit engines
-    \input hyph-mk.macedonian.tex
+    \message{T2A Macedonian hyphenation patterns}
+    \input conv-utf8-t2a.tex
+    \input hyph-mk.tex
 \fi\else
     % pTeX
-    \message{MACEDONIAN Macedonian hyphenation patterns}
-    \input hyph-mk.macedonian.tex
+    \message{T2A Macedonian hyphenation patterns}
+    \input hyph-mk.t2a.tex
 \fi
 \endgroup
