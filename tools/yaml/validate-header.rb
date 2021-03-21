@@ -174,7 +174,7 @@ class HeaderValidator
     validator.each do |key, validator|
       if validator[:mandatory]
         if !hash.include? key.to_s # Subtle difference between key not present and value is nil :-)
-          raise ValidationError.new("Key #{key} missing")
+          raise ValidationError.new("Key #{key} missing") # TODO Say where!
         end
       end
       check_mandatory(hash[key.to_s], validator[:type]) if hash[key.to_s] && validator[:type].respond_to?(:keys)

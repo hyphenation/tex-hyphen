@@ -1,3 +1,8 @@
+finish:
+  description:
+    Hyphenation patterns for Finnish in T1 and UTF-8 encodings.
+    The older set, labelled just “fi”, tries to implement etymological rules,
+    while the newer ones (fi-x-school) implements the simpler rules taught at Finnish school.
 german:
   dependency: dehyph
   description: |-
