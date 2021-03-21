@@ -1,0 +1,18 @@
+category TLCore
+depend hyphen-base
+depend hyph-utf8
+shortdesc Albanian hyphenation patterns.
+longdesc Hyphenation patterns for Albanian in UTF-8 and T1 encoding.
+execute AddHyphen \
+	name=albanian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-sq.tex \
+	file_patterns=hyph-sq.pat.txt \
+	file_exceptions=
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-sq.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-sq.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/quote/hyph-quote-sq.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-sq.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sq.hyp.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sq.pat.txt

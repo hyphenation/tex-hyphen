@@ -1,4 +1,5 @@
 afrikaans	loadhyph-af.tex
+albanian	loadhyph-sq.tex
 ancientgreek	loadhyph-grc.tex
 ibycus	ibyhyph.tex
 arabic	zerohyph.tex
@@ -26,6 +27,7 @@ ethiopic	loadhyph-mul-ethi.tex
 farsi	zerohyph.tex
 =persian
 finnish	loadhyph-fi.tex
+schoolfinnish	loadhyph-fi-x-school.tex
 french	loadhyph-fr.tex
 =patois
 =francais

@@ -1,4 +1,4 @@
-finish:
+finnish:
   description:
     Hyphenation patterns for Finnish in T1 and UTF-8 encodings.
     The older set, labelled just “fi”, tries to implement etymological rules,

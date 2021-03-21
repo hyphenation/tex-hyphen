@@ -1,35 +1,3 @@
-% title: Hyphenation patterns for Finnish according to the method taught in schools
-% copyright: Copyright (C) 2020 Teemu Likonen, Arthur Rosendahl
-% notice: This file is part of the hyph-utf8 package.
-%     See http://www.hyphenation.org/tex for more information.
-% language:
-%     name: Finnish, school hyphenation
-%     tag: fi-x-school
-% version: 1.0 2021-03-21
-% hyphenmins:
-%     generation:
-%         left: 1
-%         right: 1
-% authors:
-%     -
-%         name: Teemu Likonen
-%     -
-%         name: Arthur Rosendahl
-%         contact: arthur (at) hyphenation (dot) org
-% licence:
-%     -
-%         name: MIT
-%         url: https://opensource.org/licenses/MIT
-% changes:
-%     - April 2020 Initial development work
-%     - 21 March 2021 First public release
-% texlive:
-%     encoding: ec
-%     message: Finnish hyphenation patterns for school
-%     package: finnish
-%     babelname: schoolfinnish
-% ==========================================
-%
 .b2l2
 .b2r2
 .c2h

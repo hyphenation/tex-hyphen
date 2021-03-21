@@ -124,7 +124,7 @@ describe Language do
 
     it "lists all languages" do
       # All the TeX files.  Note [no] and [mn-cyrl-x-lmc] don’t have corresponding plain text files.
-      expect(Language.languages.count).to eq 83 # Was 79; 3 more “TeX Live dummies” [ar] [fa] [grc-x-ibycus] TODO Maybe remove
+      expect(Language.languages.count).to eq 85 # Was 79; 3 more “TeX Live dummies” [ar] [fa] [grc-x-ibycus] TODO Maybe remove
     end
   end
 
@@ -134,7 +134,7 @@ describe Language do
     end
 
     it "returns 81 languages" do # That’s all of them except for [sr-cyrl]
-      expect(Language.all.count).to eq 82
+      expect(Language.all.count).to eq 84
     end
   end
 
