@@ -1,5 +1,19 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Adjust hyphenations.
+
+	* tdict-common.txt:
+	  - Adjust ภคัน-ท-ลา-พาธ in accordance with tdict-std.txt:
+	    - ภคัน-ทลา-พาธ -> ภคัน-ท-ลา-พาธ
+	    - ภา-รตะ -> ภา-ร-ตะ
+	* tdict-std.txt:
+	  - Adjust เม-ทนี -> เม-ท-นี in accordance with เม-ท-นี-ดล
+
+	* thai-exc.pat:
+	  - Drop blocking exception for ภา~ร-ตะ
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for 'ปาฏลิ'.
 
 	* tdict-history.txt:
