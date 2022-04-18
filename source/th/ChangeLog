@@ -1,5 +1,17 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for -ปะ.
+
+	* tdict-proper.txt:
+	  - Adjust 'กัส-สปะ' -> 'กัส-ส-ปะ' (new scheme)
+
+	* thai-exc.pat:
+	  - Turn blocking exceptions into forcing for:
+	    - กัจ~ฉ-ปะ
+	    - กัส~ส-ปะ
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for -ลี.
 
 	* tdict-std.txt:
