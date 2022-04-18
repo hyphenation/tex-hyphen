@@ -1,5 +1,13 @@
 2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Rearrange exception rules for -ละ.
+
+	* thai-exc.pat:
+	  - Instead of listing possible -ละ cases,
+	    let's turn it on by default and list inhibitions instead.
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Rearrange exception rules for -ชะ.
 
 	* thai-exc.pat:
