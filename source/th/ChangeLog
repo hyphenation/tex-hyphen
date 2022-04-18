@@ -1,5 +1,14 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for -ฑะ and -ฑุ.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - เคณ-ฑะ, ปิณ-ฑะ, มุณ-ฑะ
+	    - เลณ-ฑุ, กาฐ~มาณ-ฑุ
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for -มี and -มะ.
 
 	* tdict-std-compound.txt:
