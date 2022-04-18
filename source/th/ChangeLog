@@ -1,5 +1,12 @@
 2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Adjust hyphenation for 'ลิมปนะ'.
+
+	* tdict-std.txt:
+	  - Adjust 'ลิมป-นะ' -> 'ลิม-ป-นะ' (new scheme)
+
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions.
 
 	* thai-exc.pat:
