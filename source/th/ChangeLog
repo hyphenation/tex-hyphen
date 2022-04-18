@@ -1,5 +1,15 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for 'ปาฏลิ'.
+
+	* tdict-history.txt:
+	  - Adjust ปาฏ-ลี-บุตร -> ปา-ฏ-ลี-บุตร in accordance with ปา-ฏ-ลิ.
+
+	* thai-exc.pat:
+	  - Add forcing exception for ปา~ฏ-ลิ.
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Revert 'ปัณรสี' hyphenation.
 
 	* tdict-std.txt:
