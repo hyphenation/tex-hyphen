@@ -370,9 +370,6 @@
 % Block 'สกล~น-คร' caused by 'น1ค' pattern
 % but still allow 'ครืน-ครั่น', 'ปืน-ครก', 'สวน-ครัว', 'สำ-มะ-โน-ครัว'
 น6คร.
-% Block 'เห-ยง' caused by 'เห5ยง' pattern
-% but still allow 'มเห-ยงค์'
-.เห6ยง
 % Block 'เปี่-ยม' caused by 'ปี่3' pattern
 เปี่6
 % Block 'เขี้-ยว' caused by 'ขี้1' pattern
@@ -593,6 +590,8 @@
 พ7รี.
 % Force 'เว-รี', but not 'ว-รี'
 เว7รี
+% Force 'เก~ส-รี'
+เกส7รี
 % Force '-ผล'
 5ผล
 % Force '-ดล.', but not 'โม~เ-ดล'
@@ -1228,11 +1227,16 @@
 อ7รบ.
 % Force 'พา-รณ'
 า7รณ.
+% Block 'เห-ยง' caused by 'เห5ยง' pattern
+% but still allow 'มเห-ยงค์'
+.เห6ยง
 % Force 'ยืน-ยง', 'โฉม-ยง', 'ยุ-ยง', 'สุ~ริ-ยง'
 น7ยง
 ม7ยง
 ุ7ยง
 ิ7ยง
+% Force 'เยีย~ร-ยง'
+ร7ยง
 % Force 'สุ~ริ-ยน'
 ิ7ยน
 % Force 'มหา-พน'
@@ -1506,3 +1510,19 @@
 ัม7ภก.
 % Block 'อา~ศิ-ร~พจน์', 'อา~ศิ-ร~พาท' caused by some mysterious rule
 ศิ8รพ
+% Force 'จันทร~เศ-ขร'
+ศ7ข
+% Force 'ทวา-ทศ', but not 'วา-ท~ศิลป์', 'วา-ท~ศาสตร์'
+วา7ทศ.
+% Force 'ปรัส~ส-บท'
+ส7บท.
+% Force 'ฟู~จิต-สึ', but not 'คิต-ส์'
+ิต7สึ
+% Force 'ยา~โย-อิ'
+ย7อิ
+% Force 'เบ-ตง'
+บ7ตง.
+% Force 'ไอ-นุ'
+ไอ7นุ
+% Force 'รช-นิ'
+รช7นิ

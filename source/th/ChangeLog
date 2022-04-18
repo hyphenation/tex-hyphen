@@ -1,5 +1,22 @@
 2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - เก~ส-รี
+	    - จันทร~เศ-ขร
+	    - ทวา-ทศ
+	    - ปรัส~ส-บท
+	    - เยีย~ร-ยง
+	    - ฟู~จิต-สึ
+	    - ยา~โย-อิ
+	    - เบ-ตง
+	    - ไอ-นุ
+	    - รช-นิ
+
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for 'อาศิรพจน์', 'อาศิรพาท'.
 
 	* tdict-proper.txt:
