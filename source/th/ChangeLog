@@ -1,5 +1,13 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Manage -ทะ.
+
+	* thai-exc.pat:
+	  - Force '-ทะ' with '5ทะ' in general.
+	  - Drop all other exceptions on '-ทะ'.
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for -ปะ.
 
 	* tdict-proper.txt:
