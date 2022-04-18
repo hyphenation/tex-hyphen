@@ -1,5 +1,12 @@
 2021-12-21  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Fix missing hyphens.
+
+	* tdict-std.txt:
+	  - Add missing hyphens in 'กะ~รุง-กะ-รัง' and 'กะ~รุ่ง-กะ-ริ่ง'.
+
+2021-12-21  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Update dict from libthai 0.1.29
 
 	* Makefile.am, +tdict-currency.txt:
