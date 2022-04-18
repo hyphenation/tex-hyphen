@@ -1,5 +1,14 @@
 2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for 'อาศิรพจน์', 'อาศิรพาท'.
+
+	* tdict-proper.txt:
+	  - Adjust ศิริ-พงษ์ -> ศิ-ริ-พงษ์; ศิริ-ราช -> ศิ-ริ-ราช (new scheme)
+	* thai-exc.pat:
+	  - Add SUPER blocking exceptions for 'อา~ศิ-ร~พจน์', 'อา~ศิ-ร~พาท'
+
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for 'อุปถัมภก'.
 
 	* tdict-proper.txt:
