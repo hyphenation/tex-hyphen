@@ -1,5 +1,15 @@
 2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for -ยะ.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - ตฤ~ตี-ยะ
+	    - มัต~ส-ยะ
+	    - อนา~ร-ยะ, อา~ร-ยะ, เศา~ร-ยะ
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for -ระ.
 
 	* tdict-district.txt:
