@@ -1,5 +1,17 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for -ลี.
+
+	* tdict-std.txt:
+	  - Adjust 'กติญ-ชลี' -> 'กติญ-ช-ลี' in accordance with 'อัญ-ช-ลี'.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - อัญ~ช-ลี
+	    - ปิป~ผ-ลี
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for -ติ, -ดี.
 
 	* tdict-std-compound.txt:
