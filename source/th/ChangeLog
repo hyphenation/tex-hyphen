@@ -1,5 +1,16 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for -ฑ*, -ฐี.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - มณ-ฑป
+	    - ปาณ-ฑพ
+	    - ภัณ-ฑู
+	    - กัณ-ฐี
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Manage -กะ.
 
 	* tdict-std.txt:
