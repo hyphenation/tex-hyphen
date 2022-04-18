@@ -1,3 +1,12 @@
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Rearrange exception rules for -นะ.
+
+	* thai-exc.pat:
+	  - Instead of listing possible -นะ cases, which have been growing,
+	    esp. after the recent hyphenation scheme adjustment,
+	    let's turn it on by default and list inhibitions instead.
+
 2021-12-26  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Adjust hyphenation dictionary.
