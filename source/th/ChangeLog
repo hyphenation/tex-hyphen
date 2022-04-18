@@ -1,5 +1,22 @@
 2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for -วะ.
+
+	* tdict-common.txt:
+	* tdict-history.txt:
+	  - Adjust hyphenation 'อา-สวะ' -> 'อา-ส-วะ', 'ปัล-ลวะ' -> 'ปัล-ล-วะ'.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - เก~ศ-วะ
+	    - ปุง~ค-วะ
+	    - ปัล~ล-วะ
+	    - มัท~ท-วะ
+	    - สัน~ถ-วะ
+	    - อา~ส-วะ
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for -ยะ.
 
 	* thai-exc.pat:
