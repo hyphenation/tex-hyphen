@@ -1,5 +1,22 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for -ติ, -ดี.
+
+	* tdict-std-compound.txt:
+	  - Adjust 'ตรี-มู-รติ' -> 'ตรี-มู-ร-ติ' in accordance with tdict-std.txt.
+	* tdict-std.txt:
+	  - Adjust 'กี-รติ' -> 'กี-ร-ติ' (new scheme)
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - กี~ร-ติ
+	    - มู~ร-ติ
+	    - อา~ร-ติ
+	  - Add blocking exceptions for:
+	    - อภิ~ร-ดี
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for -ฑ*, -ฐี.
 
 	* thai-exc.pat:
