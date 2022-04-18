@@ -1,3 +1,24 @@
+2021-12-26  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Adjust hyphenation dictionary.
+
+	* tdict-std.txt:
+	* tdict-collection.txt:
+	* tdict-common.txt:
+	* tdict-proper.txt:
+	* tdict-std-compound.txt:
+	  - Adjust hyphenations.
+
+	* Makefile, +thai-fixup.sed:
+	  - Add fixup mechanism to adjust patgen-generated rules
+	    which cannot be corrected using exceptions.
+	  - First fixup: '3นียะ' -> '3นี3ยะ'.
+
+	* thai-exc.pat:
+	  - Drop 'นี7ยะ' exception, duplicated with '3นี[3]ยะ'.
+	  - Drop 'ฉ6นี', 'าร6นี', 'วีช6นี', 'สส6นี', 'มท6นี', 'เสว6นะ' exceptions,
+	    according to the adjusted hyphenations.
+
 2021-12-21  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Add hyphenation exceptions.
