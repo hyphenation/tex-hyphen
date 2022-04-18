@@ -1,5 +1,12 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Revert 'ปัณรสี' hyphenation.
+
+	* tdict-std.txt:
+	  - Revert ปัณ-ร-สี -> ปัณ-รสี (compound Sanskrit)
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Manage -พี, -วี.
 
 	* tdict-std.txt:
