@@ -1,3 +1,13 @@
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for '-รา'.
+
+	* tdict-proper.txt:
+	  - Adjust exceptions ยโส-ธรา -> ยโส-ธ-รา in accordance with วสุน-ธ-รา.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for วสุน~ธ-รา, ยโส~ธ-รา.
+
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Adjust hyphenations.
