@@ -1,5 +1,22 @@
 2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for -ระ.
+
+	* tdict-district.txt:
+	  - Adjust hyphenation 'อิน-ทา-มระ' -> 'อิน-ทา-ม-ระ' for harmony with the rest.
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - โล~กุ~ต-ระ
+	    - ภา~ต-ระ
+	    - กเล~ว-ระ
+	    - มัต~ส-ระ
+	    - กุ~ร-ระ
+	    - สัง~วัจ~ฉ-ระ
+	    - อัก~ข-ระ
+	    - อิน~ทา~ม-ระ
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Rearrange exception rules for -ละ.
 
 	* thai-exc.pat:
