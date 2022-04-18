@@ -1,5 +1,15 @@
 2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add exceptions for 'อุปถัมภก'.
+
+	* tdict-proper.txt:
+	  - Adjust กุม-ภ-กรรณ -> กุมภ-กรรณ (compound Sanskrit)
+
+	* thai-exc.pat:
+	  - Add forcing exception for อุป~ถัม-ภก
+
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for '-รา'.
 
 	* tdict-proper.txt:
