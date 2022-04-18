@@ -422,9 +422,10 @@
 % but still allow 'นร-สีห์'
 ณร6สี
 % Block 'ก-นะ' caused by 'ก1น' pattern
-% but still allow 'ยก-นะ'
+% but still allow 'ยก-นะ', 'อัง~ก-นะ'
 ก6นะ
 ยก7นะ
+งก7นะ
 % Force most of '-นะ', with exceptions
 % 'กระ~แหนะ', 'กะ~ระ~หนะ', 'กะ~หนะ', 'เหนอะ~หนะ' (allowing 'เท~โว~โร~ห-นะ')
 5นะ

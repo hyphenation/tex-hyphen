@@ -1,5 +1,15 @@
 2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Handle remaining cases of -นะ.
+
+	* thai-fixup.sed:
+	  - Fixup: 'ล5กนะ' -> 'ล5ก7นะ' for 'โล~ก-นะ' inhibited by 'ก6นะ'
+	    in thai-exc.pat.
+	* thai-exc.pat:
+	  - Add exception 'งก7นะ' for 'อัง~ก-นะ'.
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Rearrange exception rules for -ณะ.
 
 	* thai-exc.pat:
