@@ -1,3 +1,28 @@
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -มี and -มะ.
+
+	* tdict-std-compound.txt:
+	  - Adjust hyphenations '{คู่,ทาน}-บา-รมี' -> '{คู่,ทาน}-บา-ร-มี'
+	    in accordance with tdict-std.txt.
+	* tdict-proper.txt:
+	  - Adjust hyphenation 'โค-ตมี' -> 'โค-ต-มี'
+	  - Also adjust 'โค-ตมะ' -> 'โค-ต-มะ'
+
+	* thai-exc.pat:
+	  - Group exceptions for -มี together.
+	  - Add forcing exceptions for:
+	    - ปัญ~จ-มี
+	    - โค~ต-มี
+	    - บา~ร-มี
+	    - ลัก~ษ-มี
+	  - Drop blocking exceptions for:
+	    - กู~ร-มะ (allowed in new scheme)
+	  - Add forcing exceptions for:
+	    - โค~ต-มะ
+	  - Drop forcing exceptions for:
+	    - ธรร-มะ (already ruled by '5มะ' and no longer blocked by 'ร6มะ')
+
 2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Add exceptions for -วะ.
