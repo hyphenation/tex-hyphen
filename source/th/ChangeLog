@@ -1,5 +1,19 @@
 2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Rearrange exception rules for -ณะ.
+
+	* thai-exc.pat:
+	  - Instead of listing possible -ณะ cases,
+	    let's turn it on by default and list inhibitions instead.
+	* thai-fixup.sed:
+	  - Fixups: 'ก5ขณะ' -> 'ก5ข5ณะ', 'ก5ขณา' -> 'ก5ข5ณา'
+	  - This requires 'ข4ณะ' early inhibition in thai-exc.pat
+	    before the special case 'ก5ข5ณะ' is applied.
+	* tdict-std.txt:
+	  - Adjust hyphenation 'อา-ปณะ' -> 'อา-ป-ณะ' for harmony with the rest.
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Rearrange exception rules for -นะ.
 
 	* thai-exc.pat:
