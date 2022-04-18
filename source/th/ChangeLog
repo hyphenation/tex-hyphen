@@ -1,5 +1,18 @@
 2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Manage -กะ.
+
+	* tdict-std.txt:
+	  - Adjust hyphenation 'อัน-ตกะ' -> 'อัน-ต-กะ' (new scheme)
+	* thai-fixup.sed:
+	  - Add fixup: 'ปิ5หก' -> 'ปิ5ห5ก'
+	    Oddly, '1กะ' got overridden by 'ปิ5หก' without any inhibition code,
+	    causing wrong hyphenation of 'ปิหกะ' as 'ปิ-หกะ', not 'ปิ-ห-กะ' as expected.
+	* thai-exc.pat:
+	  - Drop all forcing exceptions for '-กะ', as '1กะ' already rules them all.
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Add exceptions for -ฑะ and -ฑุ.
 
 	* thai-exc.pat:
