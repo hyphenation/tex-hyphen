@@ -1,5 +1,13 @@
 2021-12-21  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
+	Add hyphenation exceptions.
+
+	* thai-exc.pat:
+	  - Move 'ง1ว' fixes to be with 'ม1ว' fixes.
+	  - Add fixes for 'ร1ว'.
+
+2021-12-21  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
 	Fix missing hyphens.
 
 	* tdict-std.txt:
