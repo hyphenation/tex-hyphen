@@ -1,0 +1,76 @@
+title: Hyphenation patterns for Czech
+copyright: Copyright (C) 1995 Pavel Ševeček
+notice: This file is part of the hyph-utf8 package.
+    See http://www.hyphenation.org/tex for more information.
+language:
+    name: Czech
+    tag: cs
+version: v3, 1995
+authors:
+  -
+    name: Pavel Ševeček
+    affiliation: Lingea s.r.o., Brno, Czech Republic
+    contact: pavel (at) lingea.cz
+licence:
+    name: GPL
+    version: 2
+    or_later: true
+    url: http://www.gnu.org/licenses/gpl.html
+hyphenmins:
+    generation:
+        left: 2
+        right: 2
+    typesetting:
+        left: 2
+        right: 3
+texlive:
+    encoding: ec
+    babelname: czech
+    legacy_patterns: czhyph.tex
+    message: Czech hyphenation patterns
+    description: |-
+        Hyphenation patterns for Czech in T1/EC and UTF-8 encodings.
+        Original patterns 'czhyphen' are still distributed in the 'csplain'
+        package and loaded with ISO Latin 2 encoding (IL2).\n
+characters:
+    - aA
+    - bB
+    - cC
+    - dD
+    - eE
+    - fF
+    - gG
+    - hH
+    - iI
+    - jJ
+    - kK
+    - lL
+    - mM
+    - nN
+    - oO
+    - pP
+    - qQ
+    - rR
+    - sS
+    - tT
+    - uU
+    - vV
+    - wW
+    - xX
+    - yY
+    - zZ
+    - áÁ
+    - éÉ
+    - íÍ
+    - óÓ
+    - úÚ
+    - ýÝ
+    - čČ
+    - ďĎ
+    - ěĚ
+    - ňŇ
+    - řŘ
+    - šŠ
+    - ťŤ
+    - ůŮ
+    - žŽ

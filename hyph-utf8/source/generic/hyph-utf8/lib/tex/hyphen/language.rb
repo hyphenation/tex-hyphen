@@ -254,6 +254,10 @@ module TeX
         end
       end
 
+      def yaml
+        @yaml = readtexfile.gsub(/\\patterns.*/m, '').gsub(/^% ?/, '').gsub(/\n+$/m, '\n')
+      end
+
       def patterns
         @patterns ||= if @bcp47 == 'eo' then
           readtexfile.superstrip.
