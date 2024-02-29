@@ -1,4 +1,4 @@
-ruby '2.5.5'
+ruby '2.7.8'
 source 'https://rubygems.org'
 group :development do
   group :test do
