@@ -6,8 +6,9 @@
 
 # TODO Add the optional “source” top-level entry
 
-require 'yaml'
+require 'psych'
 require 'pp'
+require 'date'
 
 class HeaderValidator
   class WellFormednessError < StandardError # probably not an English word ;-)
@@ -162,7 +163,7 @@ class HeaderValidator
     end
 
     begin
-      @metadata = YAML::load(header)
+      @metadata = Psych::safe_load(header, permitted_classes: [Date])
       bcp47 = filename.gsub(/.*hyph-/, '').gsub(/\.tex$/, '')
       raise ValidationError.new("Empty metadata set for language [#{bcp47}]") unless @metadata
     rescue Psych::SyntaxError => err
@@ -228,12 +229,12 @@ class HeaderValidator
       if File.file? arg
         print 'file ', arg
         @headings << [File.basename(arg), runfile(arg)]
-      elsif Dir.exists? arg
+      elsif Dir.exist? arg
         print 'files in ', arg, ': '
         print(Dir.foreach(arg).map do |filename|
           next if filename == '.' || filename == '..'
           f = File.join(arg, filename)
-          @headings << [filename, runfile(f)] unless Dir.exists? f
+          @headings << [filename, runfile(f)] unless Dir.exist? f
           filename.gsub(/^hyph-/, '').gsub(/\.tex$/, '')
         end.compact.sort.join ' ')
       else
@@ -251,7 +252,7 @@ class HeaderValidator
         puts ""
       end
     else
-      list = if Dir.exists?(arg) then arg else @headings.map(&:first).join ' ' end
+      list = if Dir.exist?(arg) then arg else @headings.map(&:first).join ' ' end
       puts "\nReport on #{list}:"
       summary = []
       @errors.each do |filename, messages|

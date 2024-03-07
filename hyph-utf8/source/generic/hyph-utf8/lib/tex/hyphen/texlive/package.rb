@@ -4,7 +4,7 @@ module TeX
       class Package
         attr_reader :name
 
-        @@metadata = YAML::load File.read File.expand_path '../packages.yml', __dir__
+        @@metadata = Psych::safe_load File.read File.expand_path '../packages.yml', __dir__
 
         def initialize(name)
           @name = name

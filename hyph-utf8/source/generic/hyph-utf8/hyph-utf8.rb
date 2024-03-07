@@ -89,7 +89,7 @@ private
 		encoding_data_dir = File.expand_path("../data/encodings", __FILE__)
 		filename = "#{encoding_data_dir}/#{@encoding_name}.dat"
 
-		if File.exists?(filename) then
+		if File.exist?(filename) then
 			File.open(filename).grep(/^0x(\w+)\tU\+(\w+)\t(\d*)\t([_a-zA-Z0-9\.]*)$/) do |line|
 				# puts line
 				code_enc = $1.hex

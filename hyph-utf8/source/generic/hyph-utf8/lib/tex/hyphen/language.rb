@@ -1,6 +1,7 @@
-require 'yaml'
+require 'psych'
 require 'hydra'
 require 'byebug'
+require 'date'
 
 require_relative 'path'
 
@@ -45,7 +46,7 @@ module TeX
       attr_reader :name, :surname, :email
 
       def self.authors
-        @@authors ||= YAML::load File.read File.expand_path 'authors.yml', __dir__
+        @@authors ||= Psych::safe_load(File.read(File.expand_path('authors.yml', __dir__)), permitted_classes: [Author, Date])
       end
 
       def self.all
@@ -313,7 +314,7 @@ module TeX
           header += line.gsub(/^% /, '').gsub(/%.*/, '')
         end
         begin
-          metadata = YAML::load header
+          metadata = Psych::safe_load(header, permitted_classes: [Date])
           raise InvalidMetadata unless metadata.is_a? Hash
         rescue Psych::SyntaxError
           raise InvalidMetadata
