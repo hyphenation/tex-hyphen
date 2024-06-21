@@ -1,0 +1,80 @@
+title: Hyphenation patterns for Catalan
+copyright: Copyright (C) December 1991-January 1995, July 2003 Gonçal Badenes
+notice: This file is part of the hyph-utf8 package.
+    See http://www.hyphenation.org/tex for more information.
+language:
+    name: Catalan
+    tag: ca
+version: 1.11 15 July 2003 15:08:12 CET
+authors:
+  -
+    name: Gonçal Badenes
+    contact: g.badenes (at) ieee.org
+  -
+    name: Francina Turon
+licence:
+    name: LPPL
+    version: 1
+    or_later: true
+    url: https://latex-project.org/lppl/
+hyphenmins:
+    generation:
+        left: 2
+        right: 2
+    typesetting:
+        left: 2
+        right: 2
+changes:
+    - Version 1.11 2003-07-15 Identical to version 1.10 except for the updated copyright notice.
+    - Version 1.10 1995-01-17
+texlive:
+    encoding: ec
+    babelname: catalan
+    legacy_patterns: cahyph.tex
+    message: Catalan hyphenation patterns
+    description: Hyphenation patterns for Catalan in T1/EC and UTF-8 encodings.
+==========================================\n
+This patterns have been created using standard, conservative
+hyphenation rules for catalan. The results have refined running them
+through patgen. In that way, the number of hits has been increased.\n
+These rules produce no wrong patterns (Results checked against the
+“Diccionari Ortogràfic i de Pronúncia”, Enciclopèdia
+Catalana. The percentage of valid hyphen misses is lower than 1%\n
+Some of the patterns below represent combinations that never
+happen in Catalan. We have tried to keep them to a minimum.\n
+Please report any problem you might have to the authors!!!\n
+characters:
+    - aA
+    - bB
+    - cC
+    - dD
+    - eE
+    - fF
+    - gG
+    - hH
+    - iI
+    - jJ
+    - lL
+    - mM
+    - nN
+    - oO
+    - pP
+    - qQ
+    - rR
+    - sS
+    - tT
+    - uU
+    - vV
+    - xX
+    - yY
+    - zZ
+    - àÀ
+    - çÇ
+    - èÈ
+    - éÉ
+    - íÍ
+    - ïÏ
+    - òÒ
+    - óÓ
+    - úÚ
+    - üÜ
