@@ -13,4 +13,5 @@ execute AddHyphen \
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-ka.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-ka.t8m.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-ka.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ka.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-ka.pat.txt

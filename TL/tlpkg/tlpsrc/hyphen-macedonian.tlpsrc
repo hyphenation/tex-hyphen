@@ -13,4 +13,5 @@ execute AddHyphen \
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-mk.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex-8bit/hyph-mk.macedonian.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-mk.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-mk.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-mk.pat.txt

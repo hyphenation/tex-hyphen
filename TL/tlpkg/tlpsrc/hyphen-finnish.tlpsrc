@@ -2,7 +2,7 @@ category TLCore
 depend hyphen-base
 depend hyph-utf8
 shortdesc Finnish hyphenation patterns.
-longdesc Hyphenation patterns for Finnish in T1 and UTF-8 encodings. The older set, labelled just 'fi', tries to implement etymological rules, while the newer ones (fi-x-school) implements the simpler rules taught at Finnish school.
+longdesc Hyphenation patterns for Finnish in T1 and UTF-8 encodings. The older set, labelled just “fi”, tries to implement etymological rules, while the newer ones (fi-x-school) implements the simpler rules taught at Finnish school.
 execute AddHyphen \
 	name=finnish \
 	lefthyphenmin=2 \
@@ -23,5 +23,7 @@ runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-fi-x-school.ec.
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-fi.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-fi-x-school.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-fi.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fi-x-school.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fi-x-school.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fi.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fi.pat.txt

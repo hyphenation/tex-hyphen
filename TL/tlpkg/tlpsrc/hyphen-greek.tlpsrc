@@ -25,7 +25,9 @@ runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-el-monoton.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-el-polyton.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-el-monoton.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-el-polyton.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-el-monoton.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-el-monoton.pat.txt
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-el-polyton.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-el-polyton.pat.txt
 runpattern f texmf-dist/tex/generic/hyphen/grmhyph5.tex
 runpattern f texmf-dist/tex/generic/hyphen/grphyph5.tex

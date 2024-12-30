@@ -15,4 +15,5 @@ docpattern d texmf-dist/doc/generic/hyph-utf8/languages/hu
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-hu.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-hu.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-hu.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hu.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hu.pat.txt
