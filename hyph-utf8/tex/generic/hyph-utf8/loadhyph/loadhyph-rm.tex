@@ -13,7 +13,6 @@
 % these lines may be moved to a separate file.
 %
 \begingroup
-\lccode`\'=`\'
 % Test for pTeX
 \ifx\kanjiskip\undefined
 % Test for native UTF-8 (which gets only a single argument)
@@ -23,14 +22,13 @@
     % Unicode-aware engine (such as XeTeX or LuaTeX) only sees a single (2-byte) argument
     \message{UTF-8 Romansh hyphenation patterns}
     \input hyph-rm.tex
-    \input hyph-quote-rm.tex
 \else
     % 8-bit engine (such as TeX or pdfTeX)
-    \message{ASCII Romansh hyphenation patterns}
+    \message{Romansh hyphenation patterns}
     \input hyph-rm.tex
 \fi\else
     % pTeX
-    \message{ASCII Romansh hyphenation patterns}
+    \message{Romansh hyphenation patterns}
     \input hyph-rm.tex
 \fi
 \endgroup

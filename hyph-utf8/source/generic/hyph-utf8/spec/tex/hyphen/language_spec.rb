@@ -355,7 +355,11 @@ describe Language do
     end
 
     it "returns “ascii” if applicable" do
-      expect(Language.new('rm').encoding).to eq 'ascii'
+      expect(Language.new('pms').encoding).to eq 'ascii'
+    end
+
+    it "can also return something else" do
+      expect(Language.new('fur').encoding).to eq 'ec'
     end
 
     it "returns nil if patterns are Unicode-only" do
