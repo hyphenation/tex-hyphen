@@ -14,5 +14,4 @@ runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-be.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-be.t2a.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/quote/hyph-quote-be.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-be.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-be.hyp.txt
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-be.pat.txt
