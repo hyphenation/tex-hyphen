@@ -17,6 +17,6 @@ git add $NAME/VERSION
 git commit -m 'Add VERSION for release to CTAN.'
 
 cd `dirname $0`/..
-git archive --format=zip --prefix=$NAME/ --output="$filename" master:$NAME
+git archive --format=zip --prefix=$NAME/ --output="$filename" $release_branch:$NAME
 echo "$filename ready to be shipped to CTAN, matching contents of branch $release_branch."
 git checkout master
