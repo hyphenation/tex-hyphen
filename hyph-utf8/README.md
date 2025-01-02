@@ -8,8 +8,8 @@ distributions (TeX Live, MiKTeX, W32TeX); most TeX users should thus not
 concern themselves with this package, unless of course they’re working on the
 hyphenation patterns themselves.
 
-We upload the package to CTAN regularly and use git tags to identify versions;
-a CTAN upload has a version date in the form `yyyy-mm-dd`, corresponding to tag
+We upload the package to CTAN regularly and use git branches to identify versions;
+a CTAN upload has a version date in the form `yyyy-mm-dd`, corresponding to branch
 `CTAN-yyyy.mm.dd` in this git repository. Because the package contains
 contributions from many different sources that are not updated at the same
 time, we felt this was this best choice for version identifiers.
