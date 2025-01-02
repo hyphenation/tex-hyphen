@@ -20,11 +20,13 @@ git checkout -b $release_branch
 echo $DATE | sed -e 's/\./-/g' >$NAME/VERSION
 git add $NAME/VERSION
 git commit -m 'Add VERSION for release to CTAN.'
+git push
+git checkout master
 
 cd `dirname $0`/..
 git archive --format=zip --prefix=$NAME/ --output="$filename" $release_branch:$NAME
 TMPDIR2=`mktemp -d /tmp/hyphXXXXXX`
 unzip -d $TMPDIR2 $filename
 pkgcheck -d $TMPDIR2/$NAME
+rm -rf $TMPDIR2
 echo "$filename ready to be shipped to CTAN, matching contents of branch $release_branch."
-git checkout master
