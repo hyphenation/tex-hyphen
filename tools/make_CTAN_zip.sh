@@ -30,6 +30,7 @@ git checkout $current_branch
 cd `dirname $0`/..
 git archive --format=zip --prefix=$NAME/ --output="$tds_filename" $release_branch:$NAME
 ctan_root=$TMPDIR/$NAME/$NAME
+mkdir $ctan_root
 # Need to be in root directory.  FIXME!
 for topdir in tex doc source; do
   rsync -avP $NAME/$topdir/{generic,luatex}/$NAME/ $ctan_root/$topdir/
