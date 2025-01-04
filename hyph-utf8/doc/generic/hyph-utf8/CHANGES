@@ -1,22 +1,3 @@
-== CTAN release 2025.02.01 ==
-
-2025-02-01
-- Major update to Romansh [rm] patterns
-
-2021-10-15
-- Added MIT as licence for Greek [grc], [el-polyton] and [el-monoton]
-- Changed licence for Dutch [nl] to MIT
-
-2021-10-14
-- Changed licence for Georgian [ka] to MIT
-
-2021-08-23
-- Updated licences for Ukrainian [uk] and Galician [gl]
-
-2021-01-21
-- Added Albanian [sq] and Finnish “school rules” [fi-x-school]
-- Updates German [de-1901], [de-1996] and [de-ch-1901]
-
 == CTAN release 2020.03.25 ==
 
 2020-03-25
