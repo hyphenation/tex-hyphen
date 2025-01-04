@@ -24,17 +24,18 @@ git checkout -b $release_branch
 echo $DATE | sed -e 's/\./-/g' >$NAME/VERSION
 git add $NAME/VERSION
 git commit -m 'Add VERSION for release to CTAN.'
-git push
-git checkout $current_branch
+git push origin $release_branch
 
-cd `dirname $0`/..
-git archive --format=zip --prefix=$NAME/ --output="$tds_filename" $release_branch:$NAME
 ctan_root=$TMPDIR/$NAME/$NAME
 mkdir $ctan_root
-# Need to be in root directory.  FIXME!
-for topdir in tex doc source; do
+cd `dirname $0`/..
+rsync -avP $NAME/{README,VERSION} $ctan_root/
+git checkout $current_branch
+
+git archive --format=zip --prefix=$NAME/ --output="$tds_filename" $release_branch:$NAME
+rsync -avP $NAME/doc/generic/$NAME $ctan_root/doc/
+for topdir in tex source; do
   rsync -avP $NAME/$topdir/{generic,luatex}/$NAME/ $ctan_root/$topdir/
-  rsync -avP $NAME/{README,VERSION} $ctan_root
 done
 TMPDIR2=`mktemp -d /tmp/hyphXXXXXX`
 unzip -d $TMPDIR2 $tds_filename
