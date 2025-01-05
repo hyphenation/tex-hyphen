@@ -24,24 +24,33 @@ git checkout -b $release_branch
 echo $DATE | sed -e 's/\./-/g' >$NAME/VERSION
 git add $NAME/VERSION
 git commit -m 'Add VERSION for release to CTAN.'
-git push origin $release_branch
+# git push origin $release_branch
 
 ctan_root=$TMPDIR/$NAME/$NAME
 mkdir $ctan_root
 cd `dirname $0`/..
-rsync -avP $NAME/{README.md,VERSION} $ctan_root/
+rsync -aq $NAME/{README.md,VERSION} $ctan_root/
 git checkout $current_branch
 
 git archive --format=zip --prefix=$NAME/ --output="$tds_filename" $release_branch:$NAME
-rsync -avP $NAME/doc/generic/$NAME/ $ctan_root/doc/
-for topdir in tex source; do
-  rsync -avP $NAME/$topdir/{generic,luatex}/$NAME/ $ctan_root/$topdir/
+
+rsync -aq $NAME/source/{generic,luatex}/$NAME/ $ctan_root/source/
+for topdir in tex doc; do
+  rsync -aq $NAME/$topdir/generic/$NAME/ $ctan_root/$topdir/
 done
+rm $ctan_root/tex/patterns/{quote/hyph-quote-it.tex,txt/hyph-{nb,hi,bn}.pat.txt}
+
+git archive --format=zip --prefix=hyphen-tlpsrc/ --output=$TMPDIR/$NAME/$NAME/source/tlpsrc.zip $release_branch:TL/tlpkg/tlpsrc
+
 TMPDIR2=`mktemp -d /tmp/hyphXXXXXX`
 echo "CTAN-compliant directories:"
 pkgcheck -d $ctan_root
-unzip -d $TMPDIR2 $tds_filename
+unzip -q -d $TMPDIR2 $tds_filename
 echo "TDS zip:"
 pkgcheck -d $TMPDIR2/$NAME
 rm -rf $TMPDIR2
-echo "$tds_filename ready to be shipped to CTAN, matching contents of branch $release_branch."
+
+pushd $TMPDIR/$NAME
+zip -ryq hyph-utf8.zip hyph-utf8 hyph-utf8.tds.zip
+popd
+echo "$TMPDIR/$NAME/$NAME.zip ready to be shipped to CTAN, matching contents of branch $release_branch."
