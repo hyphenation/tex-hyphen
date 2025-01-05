@@ -33,7 +33,7 @@ rsync -avP $NAME/{README.md,VERSION} $ctan_root/
 git checkout $current_branch
 
 git archive --format=zip --prefix=$NAME/ --output="$tds_filename" $release_branch:$NAME
-rsync -avP $NAME/doc/generic/$NAME $ctan_root/doc/
+rsync -avP $NAME/doc/generic/$NAME/ $ctan_root/doc/
 for topdir in tex source; do
   rsync -avP $NAME/$topdir/{generic,luatex}/$NAME/ $ctan_root/$topdir/
 done
