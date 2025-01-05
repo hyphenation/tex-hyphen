@@ -24,7 +24,7 @@ git checkout -b $release_branch
 echo $DATE | sed -e 's/\./-/g' >$NAME/VERSION
 git add $NAME/VERSION
 git commit -m 'Add VERSION for release to CTAN.'
-# git push origin $release_branch
+git push origin $release_branch
 
 ctan_root=$TMPDIR/$NAME/$NAME
 mkdir $ctan_root

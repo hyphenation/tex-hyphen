@@ -1,6 +1,6 @@
-== CTAN release 2025.02.01 ==
+== CTAN release 2025.01.05 ==
 
-2025-02-01
+2024-12-31
 - Major update to Romansh [rm] patterns
 
 2021-10-15
@@ -13,7 +13,12 @@
 2021-08-23
 - Updated licences for Ukrainian [uk] and Galician [gl]
 
-2021-01-21
+2021-08-12
+- Changed licence for Afrikaans [af] to MIT
+
+== CTAN release 2021.03.21 ==
+
+2021-03-21
 - Added Albanian [sq] and Finnish “school rules” [fi-x-school]
 - Updates German [de-1901], [de-1996] and [de-ch-1901]
 
