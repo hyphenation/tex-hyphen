@@ -172,7 +172,7 @@ module TeX
       end
 
       def italic?
-        ['it', 'pms', 'rm'].include? @bcp47
+        ['it', 'pms'].include? @bcp47
       end
 
       def has_apostrophes?
