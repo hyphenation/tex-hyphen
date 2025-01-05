@@ -4,7 +4,7 @@ module TeX
       module Loader
 
         def unicode_only? # TODO Spec out
-          ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi', 'rm'].include? @bcp47
+          ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include? @bcp47
         end
 
         def string_enc
