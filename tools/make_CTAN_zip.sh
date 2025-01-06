@@ -50,11 +50,11 @@ git checkout $current_branch
 TMPDIR2=`mktemp -d /tmp/hyphXXXXXX`
 echo "CTAN-compliant directories:"
 pkgcheck -d $ctan_root
-echo "DEBUG: Unzipping CTAN zip ($ctan_zip_filename) in $TMPDIR2"
-unzip -q -d $TMPDIR2 $ctan_zip_filename
+echo "DEBUG: Unzipping TDS zip ($tds_filename) in $TMPDIR2"
+unzip -q -d $TMPDIR2 $tds_filename
 echo "TDS zip:"
-pkgcheck -d $TMPDIR2/$NAME
-rm -rf $TMPDIR2
+pkgcheck -d $TMPDIR2
+# rm -rf $TMPDIR2
 
 pushd $TMPDIR/$NAME
 zip -ryq hyph-utf8.zip hyph-utf8 hyph-utf8.tds.zip
