@@ -54,7 +54,7 @@ echo "DEBUG: Unzipping TDS zip ($tds_filename) in $TMPDIR2"
 unzip -q -d $TMPDIR2 $tds_filename
 echo "TDS zip:"
 pkgcheck -d $TMPDIR2
-# rm -rf $TMPDIR2
+rm -rf $TMPDIR2
 
 pushd $TMPDIR/$NAME
 zip -ryq hyph-utf8.zip hyph-utf8 hyph-utf8.tds.zip
