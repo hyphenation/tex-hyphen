@@ -71,6 +71,6 @@ pkgcheck -d $ctan_root -T $tds_filename
 # rm -rf $TMPDIR2
 
 pushd $TMPDIR/$NAME
-zip -ryq ../hyph-utf8.zip hyph-utf8 hyph-utf8.tds.zip
+zip -ryq ../hyph-utf8.zip README.md hyph-utf8 hyph-utf8.tds.zip
 popd
 echo "$TMPDIR/$NAME.zip ready to be shipped to CTAN, matching contents of branch $release_branch."
