@@ -55,7 +55,7 @@ rsync -aq $NAME/source/{generic,luatex}/$NAME/ $ctan_root/source/
 echo 'CTAN root:'
 ls -R $ctan_root
 echo 'Moving README.md ...'
-mv -f $ctan_root/source/README.md $ctan_root
+mv -f $ctan_root/source/{README.md,VERSION} $ctan_root
 echo '... moved.'
 for topdir in tex doc; do
   rsync -aq $NAME/$topdir/generic/$NAME/ $ctan_root/$topdir/
