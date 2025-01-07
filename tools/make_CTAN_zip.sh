@@ -55,7 +55,7 @@ rsync -aq $NAME/source/{generic,luatex}/$NAME/ $ctan_root/source/
 echo 'CTAN root:'
 ls -R $ctan_root
 echo 'Moving README.md ...'
-mv -f $ctan_root/source/README.md $ctan_root/..
+mv -f $ctan_root/source/README.md $ctan_root
 echo '... moved.'
 for topdir in tex doc; do
   rsync -aq $NAME/$topdir/generic/$NAME/ $ctan_root/$topdir/
@@ -71,6 +71,6 @@ pkgcheck -d $ctan_root -T $tds_filename
 # rm -rf $TMPDIR2
 
 pushd $TMPDIR/$NAME
-zip -ryq ../hyph-utf8.zip README.md hyph-utf8 hyph-utf8.tds.zip
+zip -ryq ../hyph-utf8.zip hyph-utf8 hyph-utf8.tds.zip
 popd
 echo "$TMPDIR/$NAME.zip ready to be shipped to CTAN, matching contents of branch $release_branch."
