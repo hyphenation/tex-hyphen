@@ -59,6 +59,7 @@ module TeX
     end
 
     class Language
+      # TODO .get!
       attr_reader :bcp47
 
       @@eohmarker = '=' * 42
