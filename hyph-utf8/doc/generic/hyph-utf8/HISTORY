@@ -28,7 +28,7 @@ and the author of the original file should preferraby modify
 these files instead (feel free to remove credits added by TUG from those files).
 
 If you want to change the patterns, rather than uploading directly to CTAN,
-we would be grateful if you could send it to us (http://tug.org/tex-hyphen)
+we would be grateful if you could send it to us (http://hyphenation.org/)
 or ask for credentials for SVN repository and commit it yourself;
 we will then upload the whole "package" to CTAN.
 
@@ -51,10 +51,10 @@ at least a chance to read your patterns.
 
 For more information see
 
-   http://tug.org/tex-hyphen
+   http://hyphenation.org/
 
 
-Copyright 2008-2015 by TUG
+Copyright 2008-2025 by TUG
 
 The licence for hyph-foo.tex: Respect licences of original authors.
 The licence for the rest: Use common sense when modifying and coordinate your work.
@@ -62,10 +62,10 @@ The licence for the rest: Use common sense when modifying and coordinate your wo
 Hyphenation patterns are essential to TeX;
 whatever changes you make to these files -
 make sure to coordinate your work with everyone involved.
-(TeX Live, MikTeX, CTAN, patter authors, mailing list, ...)
+(TeX Live, MikTeX, CTAN, pattern authors, mailing list, ...)
 
 People come and go, TeX evolves. We are aware of that.
-If we disapear one day and there is a need to change files,
+If we disappear one day and there is a need to change files,
 do whatever needs to be done to make TeX behave in a proper
 (backward compatible) way. And keep things clean & consistent.
 
