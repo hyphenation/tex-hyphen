@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
+require 'byebug'
+
 # this file auto-generates tlpsrc files for hyphenation patterns - to be improved
 
 require_relative 'lib/tex/hyphen'
@@ -55,6 +57,8 @@ Package.all.sort.each do |package|
 		file_tlpsrc.printf "runpattern f texmf-dist/%s\n", filename
 	end
 	file_tlpsrc.close
+  puts File.read(tlpsrcname) if ['chinese', 'latin'].include?(package.name)
+  byebug if ['chinese', 'latin'].include?(package.name)
 end
 puts
 

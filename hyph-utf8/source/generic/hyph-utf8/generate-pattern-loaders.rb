@@ -84,6 +84,7 @@ Language.all.each do |language|
 % That\'s Tau (as in Taco or ΤΕΧ, Tau-Epsilon-Chi), a 2-byte UTF-8 character
 \\def\\testengine#1#2!{\\def\\secondarg{#2}}\\testengine Τ!\\relax
 \\ifx\\secondarg\\empty'
+        byebug if language.bcp47 == 'zh-latn-pinyin'
         output(file, language.format_inputs(language.utf8_chunk), 2)
         file.puts("\\else\n")
         output(file, language.format_inputs(language.nonutf8_chunk('8-bit')), 2)

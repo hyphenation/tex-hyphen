@@ -107,6 +107,7 @@ module TeX
                 if ['la-x-classic', 'mk'].include? language.bcp47 # FIXME.  Yes, fix it ;-)
                   files << sprintf("tex/generic/hyph-utf8/patterns/tex-8bit/%s", language.legacy_patterns)
                 else
+                  byebug
                   files << sprintf("tex/generic/hyphen/%s", language.legacy_patterns)
                 end
               end

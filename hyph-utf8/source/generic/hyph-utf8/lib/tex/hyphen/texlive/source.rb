@@ -93,7 +93,8 @@ module TeX
           return files if bcp47 == "mn-cyrl-x-lmc"
 
           ['pat', 'hyp'].each do |t|
-            files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', bcp47, t))
+            file = File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', bcp47, t))
+            files << file if File.exist? File.join('hyph-utf8', file)
           end
 
           if bcp47 =~ /^sh-/
