@@ -739,8 +739,7 @@ describe Language do
         expect(Language.new('ka').list_run_files).to eq ['tex/generic/hyph-utf8/loadhyph/loadhyph-ka.tex',
           'tex/generic/hyph-utf8/patterns/tex/hyph-ka.tex',
           'tex/generic/hyph-utf8/patterns/ptex/hyph-ka.t8m.tex',
-          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.pat.txt',
-          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.hyp.txt']
+          'tex/generic/hyph-utf8/patterns/txt/hyph-ka.pat.txt']
       end
     end
 
