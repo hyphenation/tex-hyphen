@@ -106,6 +106,7 @@ module TeX
             end
           end
 
+          # byebug if bcp47 == 'zh-latn-pinyin'
           files
         end
 

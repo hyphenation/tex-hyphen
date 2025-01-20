@@ -741,6 +741,10 @@ describe Language do
           'tex/generic/hyph-utf8/patterns/ptex/hyph-ka.t8m.tex',
           'tex/generic/hyph-utf8/patterns/txt/hyph-ka.pat.txt']
       end
+
+      it "works correctly" do
+        puts Language.new('zh-latn-pinyin').list_run_files
+      end
     end
 
     describe '#patterns_line' do
