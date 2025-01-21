@@ -83,9 +83,9 @@ module TeX
 
           files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', bcp47))
           # FIXME That line is awful -- AR 2020-11-22
-          if encoding && encoding != "ascii" && !['la-x-classic', 'mk', 'zh-latn-pinyin'].include?( bcp47) then
+          if encoding && encoding != "ascii" && !['la-x-classic', 'mk'].include?( bcp47) then
             files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
-          elsif ['cop', 'mk', 'zh-latn-pinyin'].include? bcp47 # FIXME That one too!
+          elsif ['cop', 'mk'].include? bcp47 # FIXME That one too!
             files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', legacy_patterns)
           end
 
