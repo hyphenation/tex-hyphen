@@ -13,7 +13,6 @@ execute AddHyphen \
 	file_patterns=hyph-zh-latn-pinyin.pat.txt \
 	file_exceptions=
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-zh-latn-pinyin.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex-8bit/hyph-zh-latn-pinyin.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-zh-latn-pinyin.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-zh-latn-pinyin.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-zh-latn-pinyin.pat.txt
-runpattern f texmf-dist/tex/generic/hyphen/hyph-zh-latn-pinyin.ec.tex
