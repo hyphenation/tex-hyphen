@@ -57,8 +57,8 @@ Package.all.sort.each do |package|
 		file_tlpsrc.printf "runpattern f texmf-dist/%s\n", filename
 	end
 	file_tlpsrc.close
-  puts File.read(tlpsrcname) if ['chinese', 'latin'].include?(package.name)
-  byebug if ['chinese', 'latin'].include?(package.name)
+  # puts File.read(tlpsrcname) if ['chinese', 'latin'].include?(package.name)
+  # byebug if ['chinese', 'latin'].include?(package.name)
 end
 puts
 
