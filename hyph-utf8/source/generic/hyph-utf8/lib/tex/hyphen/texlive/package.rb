@@ -105,8 +105,10 @@ module TeX
             languages.each do |language|
               if language.use_old_patterns_comment and language.legacy_patterns != "zerohyph.tex" and language.bcp47 != 'cop'
                 # byebug
-                if ['la-x-classic', 'mk', 'zh-latn-pinyin'].include? language.bcp47 # FIXME.  Yes, fix it ;-)
+                if ['la-x-classic', 'mk'].include? language.bcp47 # FIXME.  Yes, fix it ;-)
                   files << sprintf("tex/generic/hyph-utf8/patterns/tex-8bit/%s", language.legacy_patterns)
+                elsif language.bcp47 == 'zh-latn-pinyin'
+                  files << sprintf("tex/generic/hyph-utf8/patterns/ptex/%s", language.legacy_patterns)
                 else
                   # byebug
                   files << sprintf("tex/generic/hyphen/%s", language.legacy_patterns)
