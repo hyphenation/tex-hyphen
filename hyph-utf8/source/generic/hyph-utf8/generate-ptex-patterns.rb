@@ -38,7 +38,7 @@ Language.all.sort.each do |language|
     else
       reason = sprintf 'encoding: %s', language.encoding.inspect
     end
-    print '([0;31m', language.bcp47, '[0m # ', reason, ') '
+    print '([0;31m', language.bcp47, '[0m [0;35m# ', reason, '[0m) '
 
     next
   else
@@ -47,7 +47,7 @@ Language.all.sort.each do |language|
 
   bcp47 = language.bcp47
 
-  print bcp47,  ' '
+  print '[0;32m', bcp47,  '[0m '
   File.open(File.join(PATH::PTEX, sprintf('hyph-%s.%s.tex', bcp47, language.encoding)), 'w') do |file_ptex|
     patterns   = language.patterns
     exceptions = language.exceptions
