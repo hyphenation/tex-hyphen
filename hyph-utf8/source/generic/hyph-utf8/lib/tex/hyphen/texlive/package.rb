@@ -104,7 +104,7 @@ module TeX
           unless has_dependency?
             languages.each do |language|
               if language.use_old_patterns_comment and language.legacy_patterns != "zerohyph.tex" and language.bcp47 != 'cop'
-                if language.isgreeek? ['la-x-classic', 'mk'].include? language.bcp47 # FIXME.  Yes, fix it ;-)
+                if language.isgreek?
                   files << sprintf("tex/generic/hyphen/%s", language.legacy_patterns)
                 else
                   files << sprintf("tex/generic/hyph-utf8/patterns/tex-8bit/%s", language.legacy_patterns)
