@@ -11,7 +11,7 @@ include TeX::Hyphen
 
 # FIXME Close files!
 # FIXME sr-cyrl?
-print '[1;36mGenerating[0m [1;34mplain files[0m for (parenthesised tags are skipped) '
+print '[1;36mGenerating[0m [0;34mplain files[0m for (parenthesised tags are skipped) '
 Language.all.sort.each do |language|
 	bcp47 = language.bcp47
 
@@ -19,7 +19,7 @@ Language.all.sort.each do |language|
 		print '([0;31m', language.bcp47, '[0m) '
 		next
 	else
-		print '[0;32m', bcp47, '[[0m '
+		print '[0;32m', bcp47, '[0m '
 	end
 
 	outfile = Proc.new do |ext|
