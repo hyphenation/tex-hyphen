@@ -735,7 +735,6 @@ describe Language do
 
     describe '#list_run_files' do
       it "returns the list of TeX file" do
-        # puts Language.new('ka').list_run_files
         expect(Language.new('ka').list_run_files).to eq ['tex/generic/hyph-utf8/loadhyph/loadhyph-ka.tex',
           'tex/generic/hyph-utf8/patterns/tex/hyph-ka.tex',
           'tex/generic/hyph-utf8/patterns/ptex/hyph-ka.t8m.tex',
@@ -743,7 +742,11 @@ describe Language do
       end
 
       it "works correctly" do
-        puts Language.new('zh-latn-pinyin').list_run_files
+        expect(Language.new('zh-latn-pinyin').list_run_files).to eq [
+          'tex/generic/hyph-utf8/loadhyph/loadhyph-zh-latn-pinyin.tex',
+          'tex/generic/hyph-utf8/patterns/tex/hyph-zh-latn-pinyin.tex',
+          'tex/generic/hyph-utf8/patterns/ptex/hyph-zh-latn-pinyin.ec.tex',
+          'tex/generic/hyph-utf8/patterns/txt/hyph-zh-latn-pinyin.pat.txt']
       end
     end
 
@@ -992,7 +995,10 @@ describe Converter do
     it "reads the conversion data" do
       converter = Converter.new
       converter.read(File.join(File.expand_path(__dir__), '..', '..', '..', 'data', 'encodings', 'macedonian.dat'))
-      puts converter.instance_variable_get(:@mapping)
+      mapping = converter.instance_variable_get(:@mapping)
+      expect(mapping).to be_a Hash
+      expect(mapping.count).to be_equal 42
+      expect(mapping[248]).to be == 'ш'
     end
   end
 
@@ -1000,7 +1006,9 @@ describe Converter do
     it "runs one pass through the file" do
       converter = Converter.new
       converter.read(File.join(File.expand_path(__dir__), '..', '..', '..', 'data', 'encodings', 'macedonian.dat'))
-      converter.convert(File.join(File.expand_path(__dir__), '..', '..', '..', '..', '..', '..', '..', 'old', 'other', 'mk', 'mkhyphen.tex'))
+      mkconv = converter.convert(File.join(File.expand_path(__dir__), '..', '..', '..', '..', '..', '..', '..', 'old', 'other', 'mk', 'mkhyphen.tex'))
+      expect(mkconv.each_line.count).to eq 725
+      expect(mkconv).to be =~ /1шу$/
     end
   end
 end

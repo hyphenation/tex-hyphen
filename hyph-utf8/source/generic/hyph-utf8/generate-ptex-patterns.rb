@@ -30,7 +30,7 @@ header = <<-HEADER
 %%
 HEADER
 
-print '[1;34mGenerating pTeX patterns[0m for (skipped # reason): '
+print '[1;36mGenerating [0;34mpTeX patterns[0m for (skipped # reason): '
 Language.all.sort.each do |language|
   if language.use_old_patterns_comment || !language.encoding || language.encoding == 'ascii'
     if language.use_old_patterns_comment
