@@ -209,7 +209,7 @@ class HeaderValidator
   end
 
   def main(args)
-    print 'Validating '
+    print '[1;36mValidating[0m '
     # TODO Sort input file list in alphabetical order of names!
     @mode = 'default'
     arg = args.shift
@@ -227,18 +227,18 @@ class HeaderValidator
       end
 
       if File.file? arg
-        print 'file ', arg
+        print '[0;34mfile[0m ', arg
         @headings << [File.basename(arg), runfile(arg)]
       elsif Dir.exist? arg
-        print 'files in ', arg, ': '
+        print '[0;34mfiles in ', arg, '[0m: '
         print(Dir.foreach(arg).map do |filename|
           next if filename == '.' || filename == '..'
           f = File.join(arg, filename)
           @headings << [filename, runfile(f)] unless Dir.exist? f
-          filename.gsub(/^hyph-/, '').gsub(/\.tex$/, '')
+          '[0;32m' + filename.gsub(/^hyph-/, '').gsub(/\.tex$/, '') + '[0m'
         end.compact.sort.join ' ')
       else
-        puts "Argument #{arg} is neither an existing file nor an existing directory; proceeding." unless @mode == 'mojca'
+        puts "[1;31mArgument [0;31m#{arg}[1;31m is neither an existing file nor an existing directory;[0m proceeding." unless @mode == 'mojca'
       end
 
       puts

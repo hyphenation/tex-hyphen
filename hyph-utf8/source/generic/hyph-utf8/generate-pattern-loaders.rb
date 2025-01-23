@@ -19,7 +19,7 @@ def output(file, string, indent = 0)
   end
 end
 
-print 'Generating loaders for '
+print '[1;36mGenerating0m [0;34mloaders[0m for '
 Language.all.each do |language|
 
 # puts language.bcp47
@@ -60,7 +60,7 @@ Language.all.each do |language|
   end
 
   next if language.use_old_loader
-    print language.bcp47, ' '
+    print '[0;32m', language.bcp47, '[0m '
 
     filename = File.join(PATH::LOADER, language.loadhyph)
     File.open(filename, "w") do |file|
