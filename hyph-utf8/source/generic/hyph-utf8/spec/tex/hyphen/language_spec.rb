@@ -686,8 +686,8 @@ describe Language do
       expect(Language.new('la').isgreek?).to be_falsey
     end
 
-    it "exceptionally returns false for Ibycus" do
-      expect(Language.new('grc-x-ibycus').isgreek?).to be_falsey
+    it "now returns true for Ibycus too" do
+      expect(Language.new('grc-x-ibycus').isgreek?).to be_truthy
     end
   end
 
