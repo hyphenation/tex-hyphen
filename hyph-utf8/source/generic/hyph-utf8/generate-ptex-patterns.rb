@@ -30,7 +30,7 @@ header = <<-HEADER
 %%
 HEADER
 
-print 'Generating pTeX patterns for (skipped # reason): '
+print '[1;34mGenerating pTeX patterns[0m for (skipped # reason): '
 Language.all.sort.each do |language|
   if language.use_old_patterns_comment || !language.encoding || language.encoding == 'ascii'
     if language.use_old_patterns_comment
@@ -38,7 +38,7 @@ Language.all.sort.each do |language|
     else
       reason = sprintf 'encoding: %s', language.encoding.inspect
     end
-    print '(', language.bcp47, ' # ', reason, ') '
+    print '([0;31m', language.bcp47, '[0m # ', reason, ') '
 
     next
   else

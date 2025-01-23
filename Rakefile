@@ -14,11 +14,15 @@ task :spec do
   task.pattern = File.join(File.expand_path('../hyph-utf8/source/generic/hyph-utf8', __FILE__), RSpec::Core::RakeTask::DEFAULT_PATTERN)
 end
 
+task :ptex do
+  ruby "hyph-utf8/source/generic/hyph-utf8/generate-ptex-patterns.rb"
+end
+
 # TODO: Rubocop
 task :build do
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-converters.rb"
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-pattern-loaders.rb"
-  ruby "hyph-utf8/source/generic/hyph-utf8/generate-ptex-patterns.rb"
+  task :ptex
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-tl-files.rb"
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-plain-patterns.rb"
   system "tools/make_CTAN_zip.sh"
