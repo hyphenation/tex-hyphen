@@ -109,9 +109,11 @@ module TeX
                   files << sprintf("tex/generic/hyph-utf8/patterns/tex-8bit/%s", language.legacy_patterns)
                 elsif language.bcp47 == 'zh-latn-pinyin'
                   files << sprintf("tex/generic/hyph-utf8/patterns/ptex/%s", language.legacy_patterns)
-                else
+                elsif language.isgreek?
                   # byebug
                   files << sprintf("tex/generic/hyphen/%s", language.legacy_patterns)
+                else
+                  raise "This should not happen"
                 end
               end
             end
