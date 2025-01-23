@@ -21,6 +21,7 @@ module TeX
       end
 
       def convert(filename)
+        output = ''
         raise "Please define the encoding mapping first with #read" unless @mapping
         doconvert = false
         File.open(filename, external_encoding: Encoding::ASCII_8BIT).each_line do |line|
@@ -31,11 +32,14 @@ module TeX
           doconvert = false if doconvert && line =~ /}/
 
           if doconvert
-            puts (line.strip.each_byte.map do |byte|
+            output += (line.strip.each_byte.map do |byte|
               @mapping[byte]
             end || '').join
+            output += "\n"
           end
         end
+
+        output
       end
     end
   end
