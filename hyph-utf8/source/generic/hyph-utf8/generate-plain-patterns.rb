@@ -11,15 +11,15 @@ include TeX::Hyphen
 
 # FIXME Close files!
 # FIXME sr-cyrl?
-print 'Generating plain files for (parenthesised tags are skipped) '
+print '[1;36mGenerating[0m [1;34mplain files[0m for (parenthesised tags are skipped) '
 Language.all.sort.each do |language|
 	bcp47 = language.bcp47
 
 	if language.use_old_loader || bcp47 == 'mn-cyrl-x-lmc'
-		print '(', language.bcp47, ') '
+		print '([0;31m', language.bcp47, '[0m) '
 		next
 	else
-		print bcp47, ' '
+		print '[0;32m', bcp47, '[[0m '
 	end
 
 	outfile = Proc.new do |ext|
