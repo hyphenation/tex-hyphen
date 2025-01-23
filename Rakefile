@@ -18,12 +18,17 @@ task :ptex do
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-ptex-patterns.rb"
 end
 
-# TODO: Rubocop
-task :build do
+task :the_rest do
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-converters.rb"
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-pattern-loaders.rb"
-  task :ptex
+end
+
+# FIXME – Obviously
+task :all_the_rest do
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-tl-files.rb"
   ruby "hyph-utf8/source/generic/hyph-utf8/generate-plain-patterns.rb"
   system "tools/make_CTAN_zip.sh"
 end
+
+# TODO: Rubocop
+task build: %w[the_rest ptex all_the_rest]
