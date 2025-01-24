@@ -19,7 +19,7 @@ def output(file, string, indent = 0)
   end
 end
 
-print '[1;36mGenerating0m [0;34mloaders[0m for '
+print '[1;36mGenerating[0m [0;34mloaders[0m for '
 Language.all.each do |language|
 
 # puts language.bcp47
