@@ -1,3 +1,6 @@
+# TODO Make it so we can load this direct;
+# at the moment require 'tex/hyphen/texlive' fails
+# unless we did require 'tex/hyphen' first (Psych isn’t found)
 require_relative 'texlive/source'
 require_relative 'texlive/loader'
 require_relative 'texlive/package'
