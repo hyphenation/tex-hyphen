@@ -97,9 +97,9 @@ module TeX
           files = []
           files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if name == "norwegian"
 
-          files = languages.inject(files) do |files, language|
-            files + language.list_run_files
-          end
+          files += languages.map do |language|
+            language.list_run_files
+          end.flatten
 
           unless has_dependency?
             languages.each do |language|
