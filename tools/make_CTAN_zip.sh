@@ -20,7 +20,11 @@ if [ ! -z "$(git status -s)" ] && [ z$DRY_RUN != ztrue ]; then
 fi
 
 DATE=`date '+%Y.%m.%d'`
-release_branch=CTAN-$DATE
+if [ z$DRY_RUN = ztrue ]; then
+  release_branch=CTAN-test-`date '+%FT%H_%M_%S%z'`
+else
+  release_branch=CTAN-$DATE
+fi
 if [ ! -z `git branch | grep -E "^\s*$release_branch$"` ]; then
   echo "The release branch $release_branch already exists; exiting."
   exit 43
