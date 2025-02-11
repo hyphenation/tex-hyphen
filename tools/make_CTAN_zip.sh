@@ -8,7 +8,13 @@ ctan_zip_filename="$TMPDIR/$NAME.zip"
 tlpsrc_filename_in_main_zip="$TMPDIR/$NAME/$NAME/source/tlpsrc.zip"
 tlpsrc_filename_in_tds_zip=$NAME/source/generic/$NAME/tlpsrc.zip
 
-if [ ! -z "$(git status -s)" ]; then
+if [ z$1 = z--dry-run ]; then
+  DRY_RUN=true
+fi
+
+echo "DRY_RUN=‘${DRY_RUN}’"
+
+if [ ! -z "$(git status -s)" ] && [ z$DRY_RUN != ztrue ]; then
   echo 'The repository is dirty; I won’t do anything.  Please clean up first.'
   exit 42
 fi
@@ -52,7 +58,9 @@ done
 rm $ctan_root/tex/patterns/{quote/hyph-quote-it.tex,txt/hyph-{nb,hi,bn}.pat.txt}
 cp $tlpsrc_filename_in_tds_zip $tlpsrc_filename_in_main_zip
 
-git push -q origin $release_branch
+if [ z$DRY_RUN != ztrue ]; then
+  git push -q origin $release_branch
+fi
 git checkout -q $current_branch
 
 pkgcheck --urlcheck -d $ctan_root -T $tds_filename
