@@ -2,7 +2,7 @@ afrikaans	loadhyph-af.tex
 albanian	loadhyph-sq.tex
 ancientgreek	loadhyph-grc.tex
 ibycus	ibyhyph.tex
-arabic	zerohyph.tex
+arabic	hyph-ar.tex
 armenian	loadhyph-hy.tex
 basque	loadhyph-eu.tex
 belarusian	loadhyph-be.tex
