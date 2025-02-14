@@ -5,7 +5,7 @@ shortdesc (No) Persian hyphenation patterns.
 longdesc Prevent hyphenation in Persian.
 execute AddHyphen \
 	name=farsi synonyms=persian \
-	lefthyphenmin= \
-	righthyphenmin= \
+	lefthyphenmin=0 \
+	righthyphenmin=0 \
 	file=hyph-fa.tex \
 	file_patterns=

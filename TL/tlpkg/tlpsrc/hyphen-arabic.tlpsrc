@@ -5,7 +5,7 @@ shortdesc (No) Arabic hyphenation patterns.
 longdesc Prevent hyphenation in Arabic.
 execute AddHyphen \
 	name=arabic \
-	lefthyphenmin= \
-	righthyphenmin= \
+	lefthyphenmin=0 \
+	righthyphenmin=0 \
 	file=hyph-ar.tex \
 	file_patterns=
