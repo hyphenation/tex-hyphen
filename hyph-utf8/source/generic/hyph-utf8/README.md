@@ -19,6 +19,10 @@ please contact the maintainers through the mailing list: tex-hyphen@tug.org
 You can also visit the [TeX hyphenation page](http://www.hyphenation.org/tex) for more
 information and technical details.
 
+# Licence
+
+Unless otherwise mentioned, all files are placed under the [MIT licence][https://opensource.org/licenses/mit].  There are, however, a number of exceptions that all occur in the “core” `hyph-*.tex` files and their derivatives, meaning that it cannot be assumed that the actual licences (and there are many of them) are suitable for any particular project.
+
 # Running
 `bundle` (or `bundle install`)
 `bundle exec rake` runs the default task in the Rakefile.
