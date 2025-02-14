@@ -7,5 +7,5 @@ execute AddHyphen \
 	name=arabic \
 	lefthyphenmin= \
 	righthyphenmin= \
-	file=zerohyph.tex \
+	file=hyph-ar.tex \
 	file_patterns=
