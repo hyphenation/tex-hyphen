@@ -24,7 +24,7 @@ estonian	loadhyph-et.tex
 ethiopic	loadhyph-mul-ethi.tex
 =amharic
 =geez
-farsi	zerohyph.tex
+farsi	hyph-fa.tex
 =persian
 finnish	loadhyph-fi.tex
 schoolfinnish	loadhyph-fi-x-school.tex
