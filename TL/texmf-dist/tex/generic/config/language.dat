@@ -3,7 +3,6 @@ albanian	loadhyph-sq.tex
 ancientgreek	loadhyph-grc.tex
 ibycus	ibyhyph.tex
 arabic	hyph-ar.tex
-arabic	hyph-he.tex
 armenian	loadhyph-hy.tex
 basque	loadhyph-eu.tex
 belarusian	loadhyph-be.tex
@@ -41,6 +40,7 @@ swissgerman	loadhyph-de-ch-1901.tex
 monogreek	loadhyph-el-monoton.tex
 greek	loadhyph-el-polyton.tex
 =polygreek
+hebrew	hyph-he.tex
 hungarian	loadhyph-hu.tex
 icelandic	loadhyph-is.tex
 assamese	loadhyph-as.tex
