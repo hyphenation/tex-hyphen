@@ -3,6 +3,7 @@ albanian	loadhyph-sq.tex
 ancientgreek	loadhyph-grc.tex
 ibycus	ibyhyph.tex
 arabic	hyph-ar.tex
+arabic	hyph-he.tex
 armenian	loadhyph-hy.tex
 basque	loadhyph-eu.tex
 belarusian	loadhyph-be.tex
@@ -93,4 +94,5 @@ turkish	loadhyph-tr.tex
 turkmen	loadhyph-tk.tex
 ukrainian	loadhyph-uk.tex
 uppersorbian	loadhyph-hsb.tex
+vietnamese	hyph-vi.tex
 welsh	loadhyph-cy.tex
