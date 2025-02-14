@@ -46,7 +46,6 @@ module TeX
         end
 
         def patterns_line
-          byebug if @bcp47 == 'he'
           plain_text_line('pat', 'patterns')
         end
 

@@ -1,0 +1,10 @@
+category TLCore
+depend hyphen-base
+depend hyph-utf8
+shortdesc Vietnamese hyphenation patterns.
+longdesc Prevents hyphenation in Vietnamese.
+execute AddHyphen \
+	name=vietnamese \
+	lefthyphenmin=0 \
+	righthyphenmin=0 \
+	file=hyph-vi.tex
