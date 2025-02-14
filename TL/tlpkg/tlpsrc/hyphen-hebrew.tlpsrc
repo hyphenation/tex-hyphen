@@ -1,0 +1,10 @@
+category TLCore
+depend hyphen-base
+depend hyph-utf8
+shortdesc Hebrew hyphenation patterns.
+longdesc Prevents hyphenation in Arabic.
+execute AddHyphen \
+	name=hebrew \
+	lefthyphenmin=0 \
+	righthyphenmin=0 \
+	file=hyph-he.tex

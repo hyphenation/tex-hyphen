@@ -21,7 +21,7 @@ fi
 
 DATE=`date '+%Y.%m.%d'`
 if [ z$DRY_RUN = ztrue ]; then
-  release_branch=CTAN-test-`date '+%FT%H_%M_%S%z'`
+  release_branch=CTAN-dry-run-`date '+%FT%H_%M_%S%z'`
 else
   release_branch=CTAN-$DATE
 fi
@@ -60,7 +60,10 @@ for topdir in tex doc; do
   rsync -aq $NAME/$topdir/generic/$NAME/ $ctan_root/$topdir/
 done
 rm $ctan_root/tex/patterns/{quote/hyph-quote-it.tex,txt/hyph-{nb,hi,bn}.pat.txt}
+echo "File?" && ls $ctan_root/source/tlpsrc.zip
+rm $ctan_root/source/tlpsrc.zip
 cp $tlpsrc_filename_in_tds_zip $tlpsrc_filename_in_main_zip
+rm $ctan_root/source/tlpsrc.zip
 
 if [ z$DRY_RUN != ztrue ]; then
   git push -q origin $release_branch

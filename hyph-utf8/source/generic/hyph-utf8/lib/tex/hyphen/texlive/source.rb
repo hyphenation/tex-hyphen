@@ -19,7 +19,7 @@ module TeX
         # ext: 'pat' or 'hyp'
         # filetype: 'patterns' or 'exceptions'
         def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
-          return "" if ['ar', 'fa', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @bcp47
+          return "" if ['ar', 'fa', 'he', 'vi', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @bcp47
 
           if @bcp47 =~ /^sh-/
             # TODO Warning AR 2018-09-12
