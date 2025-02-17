@@ -1,13 +1,5 @@
 #!/bin/sh
 
-NAME=hyph-utf8
-TMPDIR=`mktemp -d /tmp/hyphXXXXXX`
-mkdir $TMPDIR/$NAME
-tds_filename="$TMPDIR/$NAME/$NAME.tds.zip"
-ctan_zip_filename="$TMPDIR/$NAME.zip"
-tlpsrc_filename_in_main_zip="$TMPDIR/$NAME/$NAME/source/tlpsrc.zip"
-tlpsrc_filename_in_tds_zip=$NAME/source/generic/$NAME/tlpsrc.zip
-
 if [ z$1 = z--dry-run ]; then
   DRY_RUN=true
 fi
@@ -18,6 +10,14 @@ if [ ! -z "$(git status -s)" ] && [ z$DRY_RUN != ztrue ]; then
   echo 'The repository is dirty; I won’t do anything.  Please clean up first.'
   exit 42
 fi
+
+NAME=hyph-utf8
+TMPDIR=`mktemp -d /tmp/hyphXXXXXX`
+mkdir $TMPDIR/$NAME
+tds_filename="$TMPDIR/$NAME/$NAME.tds.zip"
+ctan_zip_filename="$TMPDIR/$NAME.zip"
+tlpsrc_filename_in_main_zip="$TMPDIR/$NAME/$NAME/source/tlpsrc.zip"
+tlpsrc_filename_in_tds_zip=$NAME/source/generic/$NAME/tlpsrc.zip
 
 DATE=`date '+%Y.%m.%d'`
 if [ z$DRY_RUN = ztrue ]; then
