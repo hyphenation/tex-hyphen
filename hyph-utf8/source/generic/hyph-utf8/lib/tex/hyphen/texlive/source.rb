@@ -61,9 +61,7 @@ module TeX
 
         def list_loader
           # which loader to use
-          if ['ar', 'fa'].include? @bcp47
-            sprintf "file=%s \\\n\tfile_patterns=", loadhyph
-          elsif @bcp47 == 'grc-x-ibycus'
+          if @bcp47 == 'grc-x-ibycus'
             # TODO: fix this
             sprintf "file=%s \\\n\tluaspecial=\"disabled:8-bit only\"", loadhyph
           else

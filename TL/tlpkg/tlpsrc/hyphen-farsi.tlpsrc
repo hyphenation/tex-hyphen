@@ -7,5 +7,4 @@ execute AddHyphen \
 	name=farsi synonyms=persian \
 	lefthyphenmin=0 \
 	righthyphenmin=0 \
-	file=hyph-fa.tex \
-	file_patterns=
+	file=hyph-fa.tex

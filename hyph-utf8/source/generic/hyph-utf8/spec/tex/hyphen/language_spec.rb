@@ -724,8 +724,8 @@ describe Language do
         expect(Language.new('hr').list_loader).to eq 'file=loadhyph-hr.tex'
       end
 
-      it "includes an empty line for Arabic and Farsi" do
-        expect(Language.new('ar').list_loader).to eq "file=hyph-ar.tex \\\n\tfile_patterns="
+      it "no longer includes an empty line for Arabic and Farsi" do
+        expect(Language.new('ar').list_loader).to eq "file=hyph-ar.tex" # was "file=hyph-ar.tex \\\n\tfile_patterns="
       end
 
       it "includes a Lua special line for Ibycus" do
