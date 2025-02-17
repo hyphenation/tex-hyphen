@@ -62,7 +62,7 @@ The licence for the rest: Use common sense when modifying and coordinate your wo
 Hyphenation patterns are essential to TeX;
 whatever changes you make to these files -
 make sure to coordinate your work with everyone involved.
-(TeX Live, MikTeX, CTAN, pattern authors, mailing list, ...)
+(TeX Live, MiKTeX, CTAN, pattern authors, mailing list, ...)
 
 People come and go, TeX evolves. We are aware of that.
 If we disappear one day and there is a need to change files,
