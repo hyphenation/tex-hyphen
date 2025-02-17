@@ -70,6 +70,9 @@ module TeX
         end
 
         def list_run_files
+          if ['ar', 'fa', 'he', 'vi'].include? @bcp47 then
+            return [File.join(PATH::HYPHU8, 'patterns', 'tex', "hyph-#{@bcp47}.tex")]
+          end
           return [] if use_old_loader
 
           files = []
