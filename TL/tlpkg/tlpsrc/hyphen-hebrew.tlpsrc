@@ -8,3 +8,4 @@ execute AddHyphen \
 	lefthyphenmin=0 \
 	righthyphenmin=0 \
 	file=hyph-he.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-he.tex

@@ -7,5 +7,5 @@ execute AddHyphen \
 	name=arabic \
 	lefthyphenmin=0 \
 	righthyphenmin=0 \
-	file=hyph-ar.tex \
-	file_patterns=
+	file=hyph-ar.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-ar.tex
