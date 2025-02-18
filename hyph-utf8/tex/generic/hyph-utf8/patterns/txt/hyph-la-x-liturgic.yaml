@@ -1,0 +1,89 @@
+copyright: Copyright (C) 2016-2019 Claudio Beccari, Elie Roux
+title: Hyphenation patterns for liturgical Latin
+notice: This file is part of the hyph-utf8 package.
+    See http://www.hyphenation.org/tex for more information.
+language:
+    name: Liturgical Latin
+    tag: la-x-liturgic
+version: 2019-02-04
+authors:
+    -
+        name: Claudio Beccari
+        contact: claudio.beccari (at) gmail.com
+    -
+        name: Monastery of Solesmes
+        contact: adecastelbajac (at) gmx.com
+    -
+        name: Élie Roux
+        contact: elie.roux (at) telecom-bretagne.eu
+licence:
+  -
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+    text: >
+        Permission is hereby granted, free of charge, to any person obtaining
+        a copy of this software and associated documentation files (the
+        "Software"), to deal in the Software without restriction, including
+        without limitation the rights to use, copy, modify, merge, publish,
+        distribute, sublicense, and/or sell copies of the Software, and to
+        permit persons to whom the Software is furnished to do so, subject to
+        the following conditions:\n
+        The above copyright notice and this permission notice shall be
+        included in all copies or substantial portions of the Software.\n
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+        NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+        BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+        ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+        CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+hyphenmins:
+    typesetting:
+        left: 2
+        right: 2
+texlive:
+    encoding: ec
+    babelname: liturgicallatin
+    message: Liturgical Latin hyphenation patterns
+    package: latin\n
+characters:
+    - aA
+    - bB
+    - cC
+    - dD
+    - eE
+    - fF
+    - gG
+    - hH
+    - iI
+    - jJ
+    - kK
+    - lL
+    - mM
+    - nN
+    - oO
+    - pP
+    - qQ
+    - rR
+    - sS
+    - tT
+    - uU
+    - vV
+    - wW
+    - xX
+    - yY
+    - zZ
+    - áÁ
+    - æÆ
+    - éÉ
+    - ëË
+    - íÍ
+    - ïÏ
+    - óÓ
+    - úÚ
+    - üÜ
+    - ýÝ
+    - œŒ
+    - ǽǼ
+    - ́́

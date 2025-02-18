@@ -50,17 +50,14 @@ Language.all.sort.each do |language|
 		file.puts language.exceptions
 	end
 
-	### FIXME Do issue #33 instead
-	### # characters
-	### file = outfile.('chr')
-	### language.extract_characters.each do |character|
-	### 	file.puts character
-	### end
-
-	### FIXME Do something else instead
-	### # comments and licence
-	### file = outfile.('lic')
-	### file.puts language.comments_and_licence
+	File.open(File.join(PATH::TXT, sprintf('hyph-%s.yaml', bcp47)), 'w') do |file_yaml|
+		file_yaml.puts language.yaml
+		file_yaml.puts "characters:"
+		language.extract_characters.each do |character|
+			file_yaml.puts "    - #{character}"
+		end
+		file_yaml.close
+	end
 
 	### file.close
 end
