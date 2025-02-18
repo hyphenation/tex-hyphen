@@ -121,6 +121,10 @@ class HeaderValidator
           mandatory: false,
           type: String
         },
+        luaspecial: {
+          mandatory: false,
+          type: String # TODO Or nil!
+        },
         description: {
           mandatory: false,
           type: String

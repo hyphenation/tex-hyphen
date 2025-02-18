@@ -2,6 +2,10 @@ module TeX
   module Hyphen
     module TeXLive
       module Source
+        def path(type, file)
+          File.join(PATH::HYPHU8, 'patterns', type, file)
+        end
+
         def list_synonyms
           if synonyms && synonyms.length > 0
             sprintf " synonyms=%s", synonyms.join(',')
@@ -19,7 +23,7 @@ module TeX
         # ext: 'pat' or 'hyp'
         # filetype: 'patterns' or 'exceptions'
         def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
-          return "" if ['ar', 'fa', 'he', 'vi', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @bcp47
+          return "" if use_old_loader || @bcp47 == 'mn-cyrl-x-lmc'
 
           if @bcp47 =~ /^sh-/
             # TODO Warning AR 2018-09-12
@@ -61,6 +65,9 @@ module TeX
 
         def list_loader
           # which loader to use
+          if @bcp47 == 'mn-cyrl-x-lmc'
+            return "file=loadhyph-mn-cyrl-x-lmc.tex \\\n\tluaspecial=\"#{luaspecial}\""
+          end
           if @bcp47 == 'grc-x-ibycus'
             # TODO: fix this
             sprintf "file=%s \\\n\tluaspecial=\"disabled:8-bit only\"", loadhyph
@@ -70,8 +77,12 @@ module TeX
         end
 
         def list_run_files
-          if ['ar', 'fa', 'he', 'vi'].include? @bcp47 then
-            return [File.join(PATH::HYPHU8, 'patterns', 'tex', "hyph-#{@bcp47}.tex")]
+          if use_old_loader
+            puts "[1;31mUse_old_loader[0m: [#{@bcp47}]"
+          end
+          # if ['ar', 'fa', 'he', 'vi', 'grc-x-ibycus'].include? @bcp47 then
+          if use_old_loader then
+            return [path('tex', "hyph-#{@bcp47}.tex")]
           end
           return [] if use_old_loader
 
@@ -79,31 +90,31 @@ module TeX
 
           files << File.join(PATH::HYPHU8, 'loadhyph', loadhyph)
           if has_apostrophes?
-            files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", bcp47))
+            files << path('quote', sprintf("hyph-quote-%s.tex", bcp47))
           end
 
-          files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', bcp47))
+          files << path('tex', sprintf('hyph-%s.tex', bcp47))
           # FIXME That line is awful -- AR 2020-11-22
           if encoding && encoding != "ascii" && !['la-x-classic', 'mk', 'zh-latn-pinyin'].include?( bcp47) then
-            files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
+            files << path('ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
           elsif ['cop', 'mk'].include? bcp47 # FIXME That one too!
-            files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', legacy_patterns)
+            files << path('tex-8bit', legacy_patterns)
           end
 
           # we skip the mongolian language for luatex files
           return files if bcp47 == "mn-cyrl-x-lmc"
 
           ['pat', 'hyp'].each do |t|
-            file = File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', bcp47, t))
+            file = path('txt', sprintf('hyph-%s.%s.txt', bcp47, t))
             files << file if File.exist? File.join('hyph-utf8', file)
           end
 
           if bcp47 =~ /^sh-/
             # duplicate entries (will be removed later)
-            files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
+            files << path('tex', 'hyph-sr-cyrl.tex')
             ['pat', 'hyp'].each do |t|
               # duplicate entries (will be removed later)
-              files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
+              files << path('txt', sprintf('hyph-sr-cyrl.%s.txt', t))
             end
           end
 
