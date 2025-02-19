@@ -94,6 +94,11 @@ module TeX
         @legacy_patterns
       end
 
+      def luaspecial
+        extract_metadata unless @luaspecial
+        @luaspecial
+      end
+
       def message
         extract_metadata unless @message
         @message
@@ -105,6 +110,7 @@ module TeX
       end
 
       def initialize(bcp47 = nil)
+        # byebug if bcp47 == 'mn-cyrl-x-lmc'
         @bcp47 = bcp47
       end
 
@@ -333,6 +339,7 @@ module TeX
         @legacy_patterns = metadata.dig('texlive', 'legacy_patterns')
         @use_old_loader = metadata.dig('texlive', 'use_old_loader')
         @use_old_patterns_comment = metadata.dig('texlive', 'use_old_patterns_comment')
+        @luaspecial = metadata.dig('texlive', 'luaspecial')
         @description = metadata.dig('texlive', 'description')
         @babelname = metadata.dig('texlive', 'babelname')
         @package = metadata.dig('texlive', 'package')

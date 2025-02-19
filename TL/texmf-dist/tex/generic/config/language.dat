@@ -67,7 +67,7 @@ latvian	loadhyph-lv.tex
 lithuanian	loadhyph-lt.tex
 macedonian	loadhyph-mk.tex
 mongolian	loadhyph-mn-cyrl.tex
-mongolianlmc	mnhyph.tex
+mongolianlmc	loadhyph-mn-cyrl-x-lmc.tex
 bokmal	loadhyph-nb.tex
 =norwegian
 =norsk

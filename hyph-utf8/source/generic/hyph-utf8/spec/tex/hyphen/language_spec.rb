@@ -840,6 +840,16 @@ describe Language do
       end
     end
 
+    describe '#luaspecial' do
+      it "returns the Lua special comment" do
+        expect(Language.new('mn-cyrl-x-lmc').luaspecial).to be == 'disabled:only for 8bit montex with lmc encoding'
+      end
+
+      it "returns nil otherwise" do
+        expect(Language.new('mn-cyrl').luaspecial).to be_nil
+      end
+    end
+
     describe '#description' do
       it "returns the long description" do
         text = <<-EOD

@@ -66,7 +66,7 @@ module TeX
         def list_loader
           # which loader to use
           if @bcp47 == 'mn-cyrl-x-lmc'
-            return "file=loadhyph-mn-cyrl-x-lmc.tex \\\n\tluaspecial=\"#{use_old_loader}\""
+            return "file=loadhyph-mn-cyrl-x-lmc.tex \\\n\tluaspecial=\"#{luaspecial}\""
           end
           if @bcp47 == 'grc-x-ibycus'
             # TODO: fix this
