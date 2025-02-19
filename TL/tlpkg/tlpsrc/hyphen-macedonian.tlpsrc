@@ -10,6 +10,7 @@ execute AddHyphen \
 	file=loadhyph-mk.tex \
 	file_patterns=hyph-mk.pat.txt \
 	file_exceptions=
+runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/hyph-mk.macedonian.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-mk.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex-8bit/hyph-mk.macedonian.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-mk.tex
