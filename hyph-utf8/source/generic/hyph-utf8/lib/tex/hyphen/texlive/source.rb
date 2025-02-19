@@ -2,6 +2,10 @@ module TeX
   module Hyphen
     module TeXLive
       module Source
+        def path(type, file)
+          File.join(PATH::HYPHU8, 'patterns', type, file)
+        end
+
         def list_synonyms
           if synonyms && synonyms.length > 0
             sprintf " synonyms=%s", synonyms.join(',')
@@ -71,7 +75,7 @@ module TeX
 
         def list_run_files
           if ['ar', 'fa', 'he', 'vi', 'grc-x-ibycus'].include? @bcp47 then
-            return [File.join(PATH::HYPHU8, 'patterns', 'tex', "hyph-#{@bcp47}.tex")]
+            return [path('tex', "hyph-#{@bcp47}.tex")]
           end
           return [] if use_old_loader
 
