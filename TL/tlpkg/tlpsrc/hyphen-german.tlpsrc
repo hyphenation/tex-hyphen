@@ -34,6 +34,7 @@ execute AddHyphen \
 	file=loadhyph-de-ch-1901.tex \
 	file_patterns=hyph-de-ch-1901.pat.txt \
 	file_exceptions=
+runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-de-1901.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-de-1996.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-de-ch-1901.tex

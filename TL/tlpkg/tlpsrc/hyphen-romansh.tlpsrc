@@ -13,6 +13,7 @@ execute AddHyphen \
 	file=loadhyph-rm.tex \
 	file_patterns=hyph-rm.pat.txt \
 	file_exceptions=
+runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-rm.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-rm.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-rm.tex

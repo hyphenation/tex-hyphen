@@ -11,6 +11,7 @@ execute AddHyphen \
 	file=loadhyph-pms.tex \
 	file_patterns=hyph-pms.pat.txt \
 	file_exceptions=
+runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-pms.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/quote/hyph-quote-pms.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-pms.tex

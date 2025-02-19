@@ -12,6 +12,7 @@ execute AddHyphen \
 	file=loadhyph-af.tex \
 	file_patterns=hyph-af.pat.txt \
 	file_exceptions=hyph-af.hyp.txt
+runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-af.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-af.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/quote/hyph-quote-af.tex

@@ -12,6 +12,7 @@ execute AddHyphen \
 	file_patterns=hyph-hy.pat.txt \
 	file_exceptions=
 srcpattern d texmf-dist/source/generic/hyph-utf8/languages/hy
+runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-hy.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-hy.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-hy.pat.txt

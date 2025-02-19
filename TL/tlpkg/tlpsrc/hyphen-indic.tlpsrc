@@ -89,6 +89,7 @@ execute AddHyphen \
 	file=loadhyph-te.tex \
 	file_patterns=hyph-te.pat.txt \
 	file_exceptions=
+runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-as.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-bn.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-gu.tex

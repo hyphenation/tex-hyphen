@@ -34,6 +34,8 @@ execute AddHyphen \
 	file=loadhyph-la-x-liturgic.tex \
 	file_patterns=hyph-la-x-liturgic.pat.txt \
 	file_exceptions=
+runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
+runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/hyph-la-x-classic.ec.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-la-x-classic.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-la-x-liturgic.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-la.tex
