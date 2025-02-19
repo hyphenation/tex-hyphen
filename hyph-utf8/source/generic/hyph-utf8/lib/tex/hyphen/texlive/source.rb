@@ -23,9 +23,6 @@ module TeX
         # ext: 'pat' or 'hyp'
         # filetype: 'patterns' or 'exceptions'
         def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
-          if ext == 'pat' && @bcp47 == 'mn-cyrl-x-lmc'
-            return "file_pat=mn-cyrl-x-lmc \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
-          end
           return "" if use_old_loader
 
           if @bcp47 =~ /^sh-/
@@ -68,6 +65,9 @@ module TeX
 
         def list_loader
           # which loader to use
+          if @bcp47 == 'mn-cyrl-x-lmc'
+            return "file=loadhyph-mn-cyrl-x-lmc.tex \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
+          end
           if @bcp47 == 'grc-x-ibycus'
             # TODO: fix this
             sprintf "file=%s \\\n\tluaspecial=\"disabled:8-bit only\"", loadhyph
