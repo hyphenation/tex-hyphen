@@ -23,7 +23,7 @@ module TeX
         # ext: 'pat' or 'hyp'
         # filetype: 'patterns' or 'exceptions'
         def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
-          return "" if use_old_loader
+          return "" if use_old_loader || @bcp47 == 'mn-cyrl-x-lmc'
 
           if @bcp47 =~ /^sh-/
             # TODO Warning AR 2018-09-12
