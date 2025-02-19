@@ -65,15 +65,11 @@ module TeX
 
         def list_loader
           # which loader to use
-          if @bcp47 == 'mn-cyrl-x-lmc'
-            return "file=loadhyph-mn-cyrl-x-lmc.tex \\\n\tluaspecial=\"#{luaspecial}\""
+          if luaspecial
+            return "file=#{loadhyph} \\\n\tluaspecial=\"#{luaspecial}\""
           end
-          if @bcp47 == 'grc-x-ibycus'
-            # TODO: fix this
-            sprintf "file=%s \\\n\tluaspecial=\"disabled:8-bit only\"", loadhyph
-          else
-            sprintf "file=%s", loadhyph
-          end
+
+          sprintf "file=%s", loadhyph
         end
 
         def list_run_files
