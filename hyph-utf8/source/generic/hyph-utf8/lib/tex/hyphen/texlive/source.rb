@@ -83,31 +83,31 @@ module TeX
 
           files << File.join(PATH::HYPHU8, 'loadhyph', loadhyph)
           if has_apostrophes?
-            files << File.join(PATH::HYPHU8, 'patterns', 'quote', sprintf("hyph-quote-%s.tex", bcp47))
+            files << path('quote', sprintf("hyph-quote-%s.tex", bcp47))
           end
 
-          files << File.join(PATH::HYPHU8, 'patterns', 'tex', sprintf('hyph-%s.tex', bcp47))
+          files << path('tex', sprintf('hyph-%s.tex', bcp47))
           # FIXME That line is awful -- AR 2020-11-22
           if encoding && encoding != "ascii" && !['la-x-classic', 'mk', 'zh-latn-pinyin'].include?( bcp47) then
-            files << File.join(PATH::HYPHU8, 'patterns', 'ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
+            files << path('ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
           elsif ['cop', 'mk'].include? bcp47 # FIXME That one too!
-            files << File.join(PATH::HYPHU8, 'patterns', 'tex-8bit', legacy_patterns)
+            files << path('tex-8bit', legacy_patterns)
           end
 
           # we skip the mongolian language for luatex files
           return files if bcp47 == "mn-cyrl-x-lmc"
 
           ['pat', 'hyp'].each do |t|
-            file = File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-%s.%s.txt', bcp47, t))
+            file = path('txt', sprintf('hyph-%s.%s.txt', bcp47, t))
             files << file if File.exist? File.join('hyph-utf8', file)
           end
 
           if bcp47 =~ /^sh-/
             # duplicate entries (will be removed later)
-            files << File.join(PATH::HYPHU8, 'patterns', 'tex', 'hyph-sr-cyrl.tex')
+            files << path('tex', 'hyph-sr-cyrl.tex')
             ['pat', 'hyp'].each do |t|
               # duplicate entries (will be removed later)
-              files << File.join(PATH::HYPHU8, 'patterns', 'txt', sprintf('hyph-sr-cyrl.%s.txt', t))
+              files << path('txt', sprintf('hyph-sr-cyrl.%s.txt', t))
             end
           end
 
