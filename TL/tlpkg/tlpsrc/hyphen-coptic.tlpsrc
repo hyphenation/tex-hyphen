@@ -14,6 +14,5 @@ execute AddHyphen \
 	file_patterns=hyph-cop.pat.txt \
 	file_exceptions=
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-cop.tex
-runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex-8bit/copthyph.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-cop.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cop.pat.txt
