@@ -23,7 +23,10 @@ module TeX
         # ext: 'pat' or 'hyp'
         # filetype: 'patterns' or 'exceptions'
         def plain_text_line(ext, filetype) # TODO Figure out if we will sr-cyrl to be generated again
-          return "" if ['ar', 'fa', 'he', 'vi', 'grc-x-ibycus', 'mn-cyrl-x-lmc'].include? @bcp47
+          if ext == 'pat' && @bcp47 == 'mn-cyrl-x-lmc'
+            return "file_pat=mn-cyrl-x-lmc \\\n\tluaspecial=\"disabled:only for 8bit montex with lmc encoding\""
+          end
+          return "" if use_old_loader
 
           if @bcp47 =~ /^sh-/
             # TODO Warning AR 2018-09-12
@@ -74,7 +77,11 @@ module TeX
         end
 
         def list_run_files
-          if ['ar', 'fa', 'he', 'vi', 'grc-x-ibycus'].include? @bcp47 then
+          if use_old_loader
+            puts "[1;31mUse_old_loader[0m: [#{@bcp47}]"
+          end
+          # if ['ar', 'fa', 'he', 'vi', 'grc-x-ibycus'].include? @bcp47 then
+          if use_old_loader then
             return [path('tex', "hyph-#{@bcp47}.tex")]
           end
           return [] if use_old_loader

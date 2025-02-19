@@ -17,7 +17,9 @@ execute AddHyphen \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
 	file=loadhyph-mn-cyrl-x-lmc.tex \
-	luaspecial="disabled:only for 8bit montex with lmc encoding"
+	file_pat=mn-cyrl-x-lmc \
+	luaspecial="disabled:only for 8bit montex with lmc encoding" \
+	file_exceptions=
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-mn-cyrl-x-lmc.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-mn-cyrl.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-mn-cyrl-x-lmc.lmc.tex
