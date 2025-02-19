@@ -102,7 +102,7 @@ module TeX
           end
           if legacy_patterns
           Dir.glob(File.join('hyph-utf8', path('tex-8bit', legacy_patterns.to_s))) do |file|
-            files << file
+            files << file.gsub(/^hyph-utf8\//, '')
           end
           end
 
