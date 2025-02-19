@@ -13,7 +13,6 @@ execute AddHyphen \
 	file_patterns=hyph-sa.pat.txt \
 	file_exceptions=
 docpattern d texmf-dist/doc/generic/hyph-utf8/languages/sa
-runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-sa.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-sa.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-sa.pat.txt

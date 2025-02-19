@@ -18,7 +18,6 @@ execute AddHyphen \
 	file=loadhyph-nn.tex \
 	file_patterns=hyph-nn.pat.txt \
 	file_exceptions=hyph-nn.hyp.txt
-runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-nb.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-nn.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-nb.ec.tex

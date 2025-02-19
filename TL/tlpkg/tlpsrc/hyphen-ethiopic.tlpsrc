@@ -14,7 +14,6 @@ execute AddHyphen \
 	file_patterns=hyph-mul-ethi.pat.txt \
 	file_exceptions=
 srcpattern d texmf-dist/source/generic/hyph-utf8/languages/mul-ethi
-runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-mul-ethi.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-mul-ethi.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-mul-ethi.pat.txt

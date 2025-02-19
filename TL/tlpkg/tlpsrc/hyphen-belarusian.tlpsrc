@@ -10,7 +10,6 @@ execute AddHyphen \
 	file=loadhyph-be.tex \
 	file_patterns=hyph-be.pat.txt \
 	file_exceptions=
-runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-be.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-be.t2a.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/quote/hyph-quote-be.tex

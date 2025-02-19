@@ -10,7 +10,6 @@ execute AddHyphen \
 	file=loadhyph-cu.tex \
 	file_patterns=hyph-cu.pat.txt \
 	file_exceptions=hyph-cu.hyp.txt
-runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-cu.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-cu.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-cu.hyp.txt

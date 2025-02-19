@@ -100,8 +100,10 @@ module TeX
             files << file.gsub(/^hyph-utf8\//, '')
             # files += globbed
           end
+          if legacy_patterns
           Dir.glob(File.join('hyph-utf8', path('tex-8bit', legacy_patterns.to_s))) do |file|
             files << file
+          end
           end
 
           # we skip the mongolian language for luatex files

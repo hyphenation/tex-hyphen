@@ -17,7 +17,6 @@ execute AddHyphen \
 	file=loadhyph-fi-x-school.tex \
 	file_patterns=hyph-fi-x-school.pat.txt \
 	file_exceptions=
-runpattern f texmf-dist/hyph-utf8/tex/generic/hyph-utf8/patterns/tex-8bit/
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-fi-x-school.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-fi.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-fi-x-school.ec.tex
