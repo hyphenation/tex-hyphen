@@ -67,9 +67,9 @@ module TeX
           # which loader to use
           if luaspecial
             return "file=#{loadhyph} \\\n\tluaspecial=\"#{luaspecial}\""
+          else
+            sprintf "file=%s", loadhyph
           end
-
-          sprintf "file=%s", loadhyph
         end
 
         def list_run_files
@@ -84,30 +84,14 @@ module TeX
           end
 
           files << path('tex', sprintf('hyph-%s.tex', bcp47))
-###           # FIXME That line is awful -- AR 2020-11-22
-###           if encoding && encoding != "ascii" && !['la-x-classic', 'mk', 'zh-latn-pinyin'].include?( bcp47) then
-###             puts "[1;31mGenerating loader case 1:[0m [#{bcp47}]"
-###             files << path('ptex', sprintf('hyph-%s.%s.tex', bcp47, encoding))
-###           elsif ['cop', 'mk'].include? bcp47 # FIXME That one too!
-###             puts "[1;31mGenerating loader case 2:[0m [#{bcp47}]"
-###             files << path('tex-8bit', legacy_patterns)
-###           end
-          # globbed = Dir.glob(File.join('hyph-utf8', path('ptex', "hyph-#{bcp47}.*.tex")) )
-          puts "[1;31mDEBUG[0m [#{bcp47}] Found files:"
-          byebug if bcp47 == 'lv'
-          # globbed.call do |file|
           Dir.glob(File.join('hyph-utf8', path('ptex', "hyph-#{bcp47}.*.tex"))) do |file|
             files << file.gsub(/^hyph-utf8\//, '')
-            # files += globbed
           end
           if legacy_patterns
-          Dir.glob(File.join('hyph-utf8', path('tex-8bit', legacy_patterns.to_s))) do |file|
-            files << file.gsub(/^hyph-utf8\//, '')
+            Dir.glob(File.join('hyph-utf8', path('tex-8bit', legacy_patterns.to_s))) do |file|
+              files << file.gsub(/^hyph-utf8\//, '')
+            end
           end
-          end
-
-          # we skip the mongolian language for luatex files
-          # return files if bcp47 == "mn-cyrl-x-lmc"
 
           ['pat', 'hyp'].each do |t|
             file = path('txt', sprintf('hyph-%s.%s.txt', bcp47, t))
@@ -123,7 +107,6 @@ module TeX
             end
           end
 
-          # byebug if bcp47 == 'zh-latn-pinyin'
           files
         end
 
