@@ -4,7 +4,7 @@ module TeX
       module Loader
 
         def unicode_only? # TODO Spec out
-          ['cu', 'sa','as','bn','gu','hi','hy','kn','lo','mul-ethi','ml','mr','or','pa','ta','te', 'pi'].include? @bcp47
+          encoding == nil && !(isgreek? || @bcp47 == 'cop')
         end
 
         def string_enc

@@ -33,7 +33,7 @@ HEADER
 print '[1;36mGenerating [0;34mpTeX patterns[0m for (skipped # reason): '
 Language.all.sort.each do |language|
   if language.use_old_patterns_comment || !language.encoding || language.encoding == 'ascii'
-    if language.use_old_patterns_comment
+    if language.use_old_patterns_comment # FIXME This skips [de-1996] and [de-1901]!!
       reason = 'legacy patterns'
     else
       reason = sprintf 'encoding: %s', language.encoding.inspect

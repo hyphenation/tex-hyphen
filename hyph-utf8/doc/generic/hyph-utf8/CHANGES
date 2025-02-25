@@ -1,12 +1,17 @@
+== CTAN release 2025.02.25 ==
+
+2025-02-25
+- Ruby scripts: Removed one occurence of hardcoded list of of languages
+- Rationalised Rakefile
+
 == CTAN release 2025.02.20 ==
 
 2025-02-20
 - Updated German patterns [de-1996] [de-1901] [de-ch-1901] to latest version
-  from dehyph-exptl:
-  v1.0 2024-02-28
+  from dehyph-exptl, tagged v1.0 2024-02-28
 
 2025-02-19
-- Rationalised .tlpsrc-generating code.
+- Rationalised .tlpsrc-generating code
 
 == CTAN release 2025.02.17 ==
 
@@ -32,7 +37,7 @@
 - Added colour to script output
 
 2025-01-20
-- Fixed .tlpsrc file generation for Chinese Pinyin 
+- Fixed .tlpsrc file generation for Chinese Pinyin
 
 == CTAN release 2025.01.20 ==
 
