@@ -97,8 +97,11 @@ module TeX
           files = []
           files << "tex/generic/hyph-utf8/patterns/tex/hyph-no.tex" if name == "norwegian"
 
+          # byebug if name == "ancient greek"
           languages.each do |language|
+            # puts "language is #{language.bcp47}" if name == "ancient greek"
             files += language.list_run_files
+            # puts "Files: #{files.join ', '}" if name == "ancient greek"
           end
 
           unless has_dependency?

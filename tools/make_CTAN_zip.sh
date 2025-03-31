@@ -4,8 +4,6 @@ if [ z$1 = z--dry-run ]; then
   DRY_RUN=true
 fi
 
-echo "DRY_RUN=‘${DRY_RUN}’"
-
 if [ ! -z "$(git status -s)" ] && [ z$DRY_RUN != ztrue ]; then
   echo 'The repository is dirty; I won’t do anything.  Please clean up first.'
   exit 42
@@ -16,7 +14,7 @@ TMPDIR=`mktemp -d /tmp/hyphXXXXXX`
 mkdir $TMPDIR/$NAME
 tds_filename="$TMPDIR/$NAME/$NAME.tds.zip"
 ctan_zip_filename="$TMPDIR/$NAME.zip"
-tlpsrc_filename_in_main_zip="$TMPDIR/$NAME/$NAME/source/tlpsrc.zip"
+ctan_root=$TMPDIR/$NAME/$NAME
 tlpsrc_filename_in_tds_zip=$NAME/source/generic/$NAME/tlpsrc.zip
 
 DATE=`date '+%Y.%m.%d'`
@@ -37,10 +35,12 @@ echo $DATE | sed -e 's/\./-/g' >$NAME/source/generic/$NAME/VERSION
 git add $NAME/source/generic/$NAME/VERSION
 git commit -qm 'Add VERSION for release to CTAN.'
 
-ctan_root=$TMPDIR/$NAME/$NAME
 mkdir $ctan_root
 git_root=`realpath \`dirname $0\`/..`
 cd $git_root
+
+git rm $NAME/tex/generic/hyph-utf8/patterns/tex/hyph-grc-x-ibycus.tex # FIXME AR 2025-03-31
+git commit -qm 'Silly temporary fix'
 
 git archive --format=zip --prefix=hyphen-tlpsrc/ --output=$tlpsrc_filename_in_tds_zip $release_branch:TL/tlpkg/tlpsrc
 git add $tlpsrc_filename_in_tds_zip
@@ -60,9 +60,6 @@ for topdir in tex doc; do
   rsync -aq $NAME/$topdir/generic/$NAME/ $ctan_root/$topdir/
 done
 rm $ctan_root/tex/patterns/{quote/hyph-quote-it.tex,txt/hyph-{nb,hi,bn}.pat.txt}
-echo "File?" && ls $ctan_root/source/tlpsrc.zip
-rm $ctan_root/source/tlpsrc.zip
-cp $tlpsrc_filename_in_tds_zip $tlpsrc_filename_in_main_zip
 rm $ctan_root/source/tlpsrc.zip
 
 if [ z$DRY_RUN != ztrue ]; then
