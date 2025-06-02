@@ -1,6 +1,9 @@
 #!/bin/sh
 
-if [ z$1 = z--dry-run ]; then
+if [ z$1 = z-h ] || [ z$1 = z--help ]; then
+  echo "Usage: $0 --dry-run || $0"
+  exit 0
+elif [ z$1 = z--dry-run ]; then
   DRY_RUN=true
 fi
 
