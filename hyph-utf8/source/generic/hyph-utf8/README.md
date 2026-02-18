@@ -1,5 +1,3 @@
-[![Build Status](https://api.travis-ci.com/hyphenation/tex-hyphen.svg?branch=master)](https://api.travis-ci.com/hyphenation/tex-hyphen.svg)
-
 This is the central repository for all hyphenation patterns (that we know of).
 These patterns are encoded in UTF-8, but can also be used with 8-bit TeX
 engines such as pdfTeX with the help of mechanisms provided with the package.
@@ -21,7 +19,7 @@ information and technical details.
 
 # Licence
 
-Unless otherwise mentioned, all files are placed under the [MIT licence][https://opensource.org/licenses/mit].  There are, however, a number of exceptions that all occur in the “core” `hyph-*.tex` files and their derivatives, meaning that it cannot be assumed that the actual licences (and there are many of them) are suitable for any particular project.
+Unless otherwise mentioned, all files are placed under the [MIT licence](https://opensource.org/licenses/mit).  There are, however, a number of exceptions that all occur in the “core” `hyph-*.tex` files and their derivatives, meaning that it cannot be assumed that the actual licences (and there are many of them) are suitable for any particular project.
 
 # Running
 `bundle` (or `bundle install`)
