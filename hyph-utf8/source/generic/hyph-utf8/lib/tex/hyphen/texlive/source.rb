@@ -80,9 +80,9 @@ module TeX
             else
               return []
             end
-          else # We’re not returning here, but it makes the branching clearer
-            files = [File.join(PATH::HYPHU8, 'loadhyph', loadhyph)]
           end
+
+          files = [File.join(PATH::HYPHU8, 'loadhyph', loadhyph)]
 
           if has_apostrophes?
             files << path('quote', sprintf("hyph-quote-%s.tex", bcp47))
