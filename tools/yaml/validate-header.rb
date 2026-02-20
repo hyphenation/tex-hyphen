@@ -113,7 +113,7 @@ class HeaderValidator
           mandatory: false,
           type: String
         },
-        use_old_loader: {
+        nohyphenation: {
           mandatory: false,
           # type: Bool # FIXME
         },
