@@ -6,7 +6,7 @@ class OldLanguage
 	def initialize(language_hash)
 		@use_old_patterns = language_hash["use_old_patterns"]
 		@use_old_patterns_comment = language_hash["use_old_patterns_comment"]
-		@use_old_loader = language_hash["use_old_loader"]
+		@use_old_loader = language_hash["nohyphenation"]
 		@filename_old_patterns = language_hash["filename_old_patterns"]
 		@filename_old_patterns_other = language_hash["filename_old_patterns_other"]
 		@code = language_hash["code"]

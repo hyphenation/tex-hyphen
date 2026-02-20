@@ -337,7 +337,7 @@ module TeX
         end
         @message = metadata.dig('texlive', 'message')
         @legacy_patterns = metadata.dig('texlive', 'legacy_patterns')
-        @use_old_loader = metadata.dig('texlive', 'use_old_loader')
+        @use_old_loader = metadata.dig('texlive', 'nohyphenation')
         @use_old_patterns_comment = metadata.dig('texlive', 'use_old_patterns_comment')
         @luaspecial = metadata.dig('texlive', 'luaspecial')
         @description = metadata.dig('texlive', 'description')
