@@ -17,9 +17,8 @@ execute AddHyphen \
 	name=ibycus \
 	lefthyphenmin=2 \
 	righthyphenmin=2 \
-	file=loadhyph-grc-x-ibycus.tex \
+	file=ibyhyph.tex \
 	luaspecial="disabled:8-bit only"
-runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-grc-x-ibycus.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-grc.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-grc-x-ibycus.tex
 runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-grc.tex

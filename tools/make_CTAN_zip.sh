@@ -42,9 +42,6 @@ mkdir $ctan_root
 git_root=`realpath \`dirname $0\`/..`
 cd $git_root
 
-git rm $NAME/tex/generic/hyph-utf8/patterns/tex/hyph-grc-x-ibycus.tex # FIXME AR 2025-03-31
-git commit -qm 'Silly temporary fix'
-
 git archive --format=zip --prefix=hyphen-tlpsrc/ --output=$tlpsrc_filename_in_tds_zip $release_branch:TL/tlpkg/tlpsrc
 git add $tlpsrc_filename_in_tds_zip
 git commit -qm 'Added zip file with .tlpsrc files'

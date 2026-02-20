@@ -75,11 +75,7 @@ module TeX
         def list_run_files
           # byebug if @bcp47 == "grc-x-ibycus"
           if use_old_loader
-            unless @bcp47 == "grc-x-ibycus" # FIXME AR 2025-03-31
-              return [path('tex', "hyph-#{@bcp47}.tex")]
-            else
-              return []
-            end
+            return [path('tex', "hyph-#{@bcp47}.tex")]
           end
 
           files = [File.join(PATH::HYPHU8, 'loadhyph', loadhyph)]

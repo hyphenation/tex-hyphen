@@ -183,6 +183,7 @@ module TeX
           if use_old_loader
             legacy_patterns
           else
+            return legacy_patterns if @bcp47 == "grc-x-ibycus"
             sprintf 'loadhyph-%s.tex', @bcp47.gsub(/^sh-/, 'sr-')
           end
         end
