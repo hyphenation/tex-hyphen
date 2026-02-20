@@ -35,6 +35,7 @@ task :plain do
 end
 
 task :ctan do
+  exit if ENV['DRY_RUN'] == "true"
   system "tools/make_CTAN_zip.sh"
 end
 
