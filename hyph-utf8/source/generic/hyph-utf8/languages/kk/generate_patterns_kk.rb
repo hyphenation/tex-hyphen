@@ -2,14 +2,14 @@
 #
 # This script generates hyphenation patterns for Turkmen
 #
-# This script has been written by Mojca Miklavec <mojca dot miklavec dot lists at gmail dot com>
-#mojca.miclavec.lists@gmail.com
+# This script has been modified from a script by Mojca Miklavec <mojca dot miklavec dot lists at gmail dot com>
+# Copyright (C) Mojca Miklavec 2010, Robert Ermers 2025, Arthur Rosendahl 2026
+# MIT licence (https://opensource.org/license/MIT)
 
 # open file for writing the patterns
-# $tr = File.new("hyph-tk.tex", "w")
 # in TDS
-$tr = File.new("hyph-kk.tex", "w")
-# $tr = File.new("../../../../../tex/generic/hyph-utf8/patterns/tex/hyph-kk.tex", "w")
+# $tr = File.new("hyph-kk.tex", "w")
+$tr = File.new(File.join(File.expand_path(__dir__), "../../../../../tex/generic/hyph-utf8/patterns/tex/hyph-kk.tex"), "w")
 
 # write comments into the file
 def add_comment(str)
