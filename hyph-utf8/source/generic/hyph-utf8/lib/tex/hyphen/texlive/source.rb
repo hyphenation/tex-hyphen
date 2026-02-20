@@ -104,6 +104,7 @@ module TeX
             files << file if File.exist? File.join('hyph-utf8', file)
           end
 
+          # TODO AR 2026-02-20 Remove after TeX Live freeze?
           if bcp47 =~ /^sh-/
             # duplicate entries (will be removed later)
             files << path('tex', 'hyph-sr-cyrl.tex')
