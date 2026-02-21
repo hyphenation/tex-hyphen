@@ -39,4 +39,4 @@ task :ctan do
 end
 
 # TODO: Rubocop
-task build: %w[converters loaders ptex texlive plain ctan]
+task build: %w[converters loaders ptex plain texlive ctan]
