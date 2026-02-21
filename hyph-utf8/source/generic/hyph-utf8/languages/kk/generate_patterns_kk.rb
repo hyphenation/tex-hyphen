@@ -44,20 +44,28 @@ common_suffix_consonants = %w{ш д т у с к қ г ғ л б м п ш}
 # start the file
 add_comment(
 "title: Hyphenation patterns for Kazakh (hyph-kk.tex)
-copyright Copyright (C) 2010 Mojca Miklavec, 2025 Robert Ermers, 2026 Arthur Rosendahl
+copyright: Copyright (C) 2010 Mojca Miklavec, 2025 Robert Ermers, 2026 Arthur Rosendahl
 notice: This file is part of the hyph-utf8 package.
     See https://www.hyphenation.org/tex for more information
+authors:
+  - name: Mojca Miklavec
+  - name: Robert Ermers
+  - name: Arthur Rosendahl
 language:
     name: Kazakh
     tag: kk
-license:
+licence:
     name: Public domain
-version: 0.1 Date:    7 june 2025
+version: 0.1 Date 7 june 2025
 texlive:
     encoding: t2a
     babelname: kazakh
     message: Kazkakh hyphenation patterns
     description: Hyphenation patterns for Kazakh in T2A and UTF-8 encodings.
+hyphenmins:
+    typesetting:
+        left: 2
+        right: 2
 
 ==========================================
 
