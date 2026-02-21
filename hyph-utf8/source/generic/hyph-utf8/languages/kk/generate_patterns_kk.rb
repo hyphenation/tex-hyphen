@@ -125,7 +125,7 @@ end
 
 add_comment("Patterns for triple consonants. There may be additions to this category, as this list is not exhaustive.")
 common_suffix_consonants.each do |c|
-	$tr.puts "ý2t1#{c}"
+	$tr.puts "у2т1#{c}"
 	# $tr.puts "ý2n1#{c}"
 	# $tr.puts "ý2d1#{c}"
 	# $tr.puts "r2t1#{c}"
@@ -147,13 +147,13 @@ common_suffix_consonants.each do |c|
 end
 
 add_comment("Exceptions and single word occurence patterns for words of foreign origin i.e. Russian")
-$tr.puts "s2k1d"
-$tr.puts "l1s2k"
-$tr.puts "l1s2t"
-$tr.puts "s1t2r"
-$tr.puts "n2g1l"
-$tr.puts "n1g2r"
-$tr.puts "s2k1w"
+$tr.puts "с2к1д"
+$tr.puts "л1с2к"
+$tr.puts "л1с2т"
+$tr.puts "с1т2р"
+$tr.puts "н2г1л"
+$tr.puts "н1г2р"
+$tr.puts "с2к1у" # AR 2026-02-21 Was s2k1w, I had to improvise
 
 # end the file
 $tr.puts '}'
