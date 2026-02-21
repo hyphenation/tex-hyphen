@@ -19,6 +19,7 @@ end
 # define a class of vowels and consonants
 # vowels are split into so that unnecessary permutations are not generated
 vowels = %w{а о ұ ы у ю я е ә і ү ө ё}
+# vowels = %w{а о ұ ы у ю я е ә і ү ө ё} # U+0406 / U+0456 UKRAINIAN-BYELORUSSIAN I may not be supported by T2A
 # back_vowels = %w{я а о ұ ы}
 # front_vowels = %w{е ә і ү ө э}
 # front_vowels = %w{ä e i ö ü}
