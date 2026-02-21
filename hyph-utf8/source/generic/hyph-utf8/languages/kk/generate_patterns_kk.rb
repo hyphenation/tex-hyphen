@@ -142,7 +142,7 @@ end
 
 add_comment("Patterns for triple consonants. There may be additions to this category, as this list is not exhaustive.")
 common_suffix_consonants.each do |c|
-  next if ['у', 'ш'].include? c
+  next if c == 'у'
 	$tr.puts "у2т1#{c}"
 	# $tr.puts "ý2n1#{c}"
 	# $tr.puts "ý2d1#{c}"
