@@ -25,7 +25,7 @@ vowels = %w{а о ұ ы у ю я е ә і ү ө ё}
 # back_vowels = %w{a y o u}
 consonants = %w{б в г ғ д ж з һ к қ п с т ф х ц ч ш щ й л м н ң р у}
 # This is to eliminate impossible combinations
-common_suffix_consonants = %w{ш д т у с к қ г ғ л б м п ш}
+common_suffix_consonants = %w{д т у с к қ г ғ л б м п ш}
 # common_suffix_consonants = %w{ш ç d g j k l m n p s t ý z ş}
 
 
@@ -112,9 +112,9 @@ vowels.each do |v1|
 	end
 end
 
-add_comment("These combinations occur in words of foreign origin or joined words")
+# add_comment("These combinations occur in words of foreign origin or joined words")
 consonants.each do |c|
-  	$tr.puts "а1#{c}і"
+  	# $tr.puts "а1#{c}і"
   	# $tr.puts "a1#{c}e"
 	# $tr.puts "y1#{c}ä"
 	# $tr.puts "y1#{c}i"
@@ -142,6 +142,7 @@ end
 
 add_comment("Patterns for triple consonants. There may be additions to this category, as this list is not exhaustive.")
 common_suffix_consonants.each do |c|
+  next if ['у', 'ш'].include? c
 	$tr.puts "у2т1#{c}"
 	# $tr.puts "ý2n1#{c}"
 	# $tr.puts "ý2d1#{c}"
