@@ -35,8 +35,7 @@ task :plain do
 end
 
 task :ctan do
-  exit if ENV['DRY_RUN']
-  system "tools/make_CTAN_zip.sh"
+  system "tools/make_CTAN_zip.sh" unless ENV['DRY_RUN']
 end
 
 # TODO: Rubocop
