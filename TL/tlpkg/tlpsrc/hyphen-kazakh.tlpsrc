@@ -1,0 +1,17 @@
+category TLCore
+depend hyphen-base
+depend hyph-utf8
+shortdesc Kazakh hyphenation patterns.
+longdesc Hyphenation patterns for Kazakh in T2A and UTF-8 encodings.
+execute AddHyphen \
+	name=kazakh \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-kk.tex \
+	file_patterns=hyph-kk.pat.txt \
+	file_exceptions=
+srcpattern d texmf-dist/source/generic/hyph-utf8/languages/kk
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-kk.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-kk.t2a.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-kk.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-kk.pat.txt
