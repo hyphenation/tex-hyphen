@@ -1,0 +1,167 @@
+title: Hyphenation patterns for Church Slavonic
+copyright: Copyright (C) 2016 Aleksandr Andreev, Mike Kroutikov
+notice: This file is part of the hyph-utf8 package.
+    See http://www.hyphenation.org/tex for more information.
+language:
+    name: Church Slavonic
+    tag: cu
+version: 1.1
+authors:
+  -
+    name: Aleksandr Andreev
+    contact: aleksandr.andreev (at) gmail.com
+  -
+    name: Mike Kroutikov
+    contact: pgmmpk (at) gmail.com
+licence:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+    text: >
+        Permission is hereby granted, free of charge, to any person obtaining
+        a copy of this software and associated documentation files (the
+        "Software"), to deal in the Software without restriction, including
+        without limitation the rights to use, copy, modify, merge, publish,
+        distribute, sublicense, and/or sell copies of the Software, and to
+        permit persons to whom the Software is furnished to do so, subject to
+        the following conditions:\n
+        The above copyright notice and this permission notice shall be
+        included in all copies or substantial portions of the Software.\n
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+        NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+        BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+        ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+        CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+changes:
+    - 2016-04-16 Latest change
+hyphenmins:
+    typesetting:
+        left: 1
+        right: 2
+texlive:
+    babelname: churchslavonic
+    message: Church Slavonic hyphenation patterns
+    description: Hyphenation patterns for Church Slavonic in UTF-8 encoding\n
+characters:
+    - ̀̀
+    - ́́
+    - ̆̆
+    - ̇̇
+    - ̈̈
+    - ̏̏
+    - ̑̑
+    - ̾̾
+    - аА
+    - бБ
+    - вВ
+    - гГ
+    - дД
+    - еЕ
+    - жЖ
+    - зЗ
+    - иИ
+    - йЙ
+    - кК
+    - лЛ
+    - мМ
+    - нН
+    - оО
+    - пП
+    - рР
+    - сС
+    - тТ
+    - уУ
+    - фФ
+    - хХ
+    - цЦ
+    - чЧ
+    - шШ
+    - щЩ
+    - ъЪ
+    - ыЫ
+    - ьЬ
+    - эЭ
+    - юЮ
+    - ѐЀ
+    - ёЁ
+    - єЄ
+    - ѕЅ
+    - іІ
+    - їЇ
+    - ѝЍ
+    - ѡѠ
+    - ѣѢ
+    - ѧѦ
+    - ѯѮ
+    - ѱѰ
+    - ѳѲ
+    - ѵѴ
+    - ѷѶ
+    - ѹѸ
+    - ѻѺ
+    - ѽѼ
+    - ѿѾ
+    - ҃҃
+    - ҆҆
+    - ҇҇
+    - ӓӒ
+    - ӥӤ
+    - ӧӦ
+    - ӭӬ
+    - ӱӰ
+    - ӹӸ
+    - ᲂО
+    - ᲆЪ
+    - ⷠⷠ
+    - ⷡⷡ
+    - ⷢⷢ
+    - ⷣⷣ
+    - ⷤⷤ
+    - ⷥⷥ
+    - ⷦⷦ
+    - ⷧⷧ
+    - ⷨⷨ
+    - ⷩⷩ
+    - ⷪⷪ
+    - ⷫⷫ
+    - ⷬⷬ
+    - ⷭⷭ
+    - ⷮⷮ
+    - ⷯⷯ
+    - ⷰⷰ
+    - ⷱⷱ
+    - ⷲⷲ
+    - ⷳⷳ
+    - ⷴⷴ
+    - ⷵⷵ
+    - ⷶⷶ
+    - ⷷⷷ
+    - ⷸⷸ
+    - ⷹⷹ
+    - ⷺⷺ
+    - ⷻⷻ
+    - ⷼⷼ
+    - ⷽⷽ
+    - ⷾⷾ
+    - ⷿⷿ
+    - ⸯⸯ
+    - ꙋꙊ
+    - ꙍꙌ
+    - ꙗꙖ
+    - ꙴꙴ
+    - ꙵꙵ
+    - ꙶꙶ
+    - ꙷꙷ
+    - ꙸꙸ
+    - ꙹꙹ
+    - ꙺꙺ
+    - ꙻꙻ
+    - ꙼꙼
+    - ꙽꙽
+    - ꙾꙾
+    - ꙿꙿ
+    - ︦︦
+    - ︮︮
+    - ︯︯
