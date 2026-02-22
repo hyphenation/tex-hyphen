@@ -1,3 +1,362 @@
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Adjust hyphenation for 'ลิมปนะ'.
+
+	* tdict-std.txt:
+	  - Adjust 'ลิมป-นะ' -> 'ลิม-ป-นะ' (new scheme)
+
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - เก~ส-รี
+	    - จันทร~เศ-ขร
+	    - ทวา-ทศ
+	    - ปรัส~ส-บท
+	    - เยีย~ร-ยง
+	    - ฟู~จิต-สึ
+	    - ยา~โย-อิ
+	    - เบ-ตง
+	    - ไอ-นุ
+	    - รช-นิ
+
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for 'อาศิรพจน์', 'อาศิรพาท'.
+
+	* tdict-proper.txt:
+	  - Adjust ศิริ-พงษ์ -> ศิ-ริ-พงษ์; ศิริ-ราช -> ศิ-ริ-ราช (new scheme)
+	* thai-exc.pat:
+	  - Add SUPER blocking exceptions for 'อา~ศิ-ร~พจน์', 'อา~ศิ-ร~พาท'
+
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for 'อุปถัมภก'.
+
+	* tdict-proper.txt:
+	  - Adjust กุม-ภ-กรรณ -> กุมภ-กรรณ (compound Sanskrit)
+
+	* thai-exc.pat:
+	  - Add forcing exception for อุป~ถัม-ภก
+
+2021-12-29  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for '-รา'.
+
+	* tdict-proper.txt:
+	  - Adjust exceptions ยโส-ธรา -> ยโส-ธ-รา in accordance with วสุน-ธ-รา.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for วสุน~ธ-รา, ยโส~ธ-รา.
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Adjust hyphenations.
+
+	* tdict-common.txt:
+	  - Adjust ภคัน-ท-ลา-พาธ in accordance with tdict-std.txt:
+	    - ภคัน-ทลา-พาธ -> ภคัน-ท-ลา-พาธ
+	    - ภา-รตะ -> ภา-ร-ตะ
+	* tdict-std.txt:
+	  - Adjust เม-ทนี -> เม-ท-นี in accordance with เม-ท-นี-ดล
+
+	* thai-exc.pat:
+	  - Drop blocking exception for ภา~ร-ตะ
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for 'ปาฏลิ'.
+
+	* tdict-history.txt:
+	  - Adjust ปาฏ-ลี-บุตร -> ปา-ฏ-ลี-บุตร in accordance with ปา-ฏ-ลิ.
+
+	* thai-exc.pat:
+	  - Add forcing exception for ปา~ฏ-ลิ.
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Revert 'ปัณรสี' hyphenation.
+
+	* tdict-std.txt:
+	  - Revert ปัณ-ร-สี -> ปัณ-รสี (compound Sanskrit)
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Manage -พี, -วี.
+
+	* tdict-std.txt:
+	  - Adjust อุ-รพี -> อุ-ร-พี (new scheme)
+
+	* thai-exc.pat:
+	  - Drop blocking exception for ทา~ร-พี
+	  - Drop forcing exception 'ทร7พี', as '5พี.' already covers it
+	    after the blocking 'ร6พี' was dropped.
+	  - Drop forcing exception 'เท7พี', as '5พี.' already covers it.
+	  - Group '-วี' exceptions together.
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Manage -ทะ.
+
+	* thai-exc.pat:
+	  - Force '-ทะ' with '5ทะ' in general.
+	  - Drop all other exceptions on '-ทะ'.
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -ปะ.
+
+	* tdict-proper.txt:
+	  - Adjust 'กัส-สปะ' -> 'กัส-ส-ปะ' (new scheme)
+
+	* thai-exc.pat:
+	  - Turn blocking exceptions into forcing for:
+	    - กัจ~ฉ-ปะ
+	    - กัส~ส-ปะ
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -ลี.
+
+	* tdict-std.txt:
+	  - Adjust 'กติญ-ชลี' -> 'กติญ-ช-ลี' in accordance with 'อัญ-ช-ลี'.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - อัญ~ช-ลี
+	    - ปิป~ผ-ลี
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -ติ, -ดี.
+
+	* tdict-std-compound.txt:
+	  - Adjust 'ตรี-มู-รติ' -> 'ตรี-มู-ร-ติ' in accordance with tdict-std.txt.
+	* tdict-std.txt:
+	  - Adjust 'กี-รติ' -> 'กี-ร-ติ' (new scheme)
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - กี~ร-ติ
+	    - มู~ร-ติ
+	    - อา~ร-ติ
+	  - Add blocking exceptions for:
+	    - อภิ~ร-ดี
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -ฑ*, -ฐี.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - มณ-ฑป
+	    - ปาณ-ฑพ
+	    - ภัณ-ฑู
+	    - กัณ-ฐี
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Manage -กะ.
+
+	* tdict-std.txt:
+	  - Adjust hyphenation 'อัน-ตกะ' -> 'อัน-ต-กะ' (new scheme)
+	* thai-fixup.sed:
+	  - Add fixup: 'ปิ5หก' -> 'ปิ5ห5ก'
+	    Oddly, '1กะ' got overridden by 'ปิ5หก' without any inhibition code,
+	    causing wrong hyphenation of 'ปิหกะ' as 'ปิ-หกะ', not 'ปิ-ห-กะ' as expected.
+	* thai-exc.pat:
+	  - Drop all forcing exceptions for '-กะ', as '1กะ' already rules them all.
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -ฑะ and -ฑุ.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - เคณ-ฑะ, ปิณ-ฑะ, มุณ-ฑะ
+	    - เลณ-ฑุ, กาฐ~มาณ-ฑุ
+
+2021-12-28  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -มี and -มะ.
+
+	* tdict-std-compound.txt:
+	  - Adjust hyphenations '{คู่,ทาน}-บา-รมี' -> '{คู่,ทาน}-บา-ร-มี'
+	    in accordance with tdict-std.txt.
+	* tdict-proper.txt:
+	  - Adjust hyphenation 'โค-ตมี' -> 'โค-ต-มี'
+	  - Also adjust 'โค-ตมะ' -> 'โค-ต-มะ'
+
+	* thai-exc.pat:
+	  - Group exceptions for -มี together.
+	  - Add forcing exceptions for:
+	    - ปัญ~จ-มี
+	    - โค~ต-มี
+	    - บา~ร-มี
+	    - ลัก~ษ-มี
+	  - Drop blocking exceptions for:
+	    - กู~ร-มะ (allowed in new scheme)
+	  - Add forcing exceptions for:
+	    - โค~ต-มะ
+	  - Drop forcing exceptions for:
+	    - ธรร-มะ (already ruled by '5มะ' and no longer blocked by 'ร6มะ')
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -วะ.
+
+	* tdict-common.txt:
+	* tdict-history.txt:
+	  - Adjust hyphenation 'อา-สวะ' -> 'อา-ส-วะ', 'ปัล-ลวะ' -> 'ปัล-ล-วะ'.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - เก~ศ-วะ
+	    - ปุง~ค-วะ
+	    - ปัล~ล-วะ
+	    - มัท~ท-วะ
+	    - สัน~ถ-วะ
+	    - อา~ส-วะ
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -ยะ.
+
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - ตฤ~ตี-ยะ
+	    - มัต~ส-ยะ
+	    - อนา~ร-ยะ, อา~ร-ยะ, เศา~ร-ยะ
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add exceptions for -ระ.
+
+	* tdict-district.txt:
+	  - Adjust hyphenation 'อิน-ทา-มระ' -> 'อิน-ทา-ม-ระ' for harmony with the rest.
+	* thai-exc.pat:
+	  - Add forcing exceptions for:
+	    - โล~กุ~ต-ระ
+	    - ภา~ต-ระ
+	    - กเล~ว-ระ
+	    - มัต~ส-ระ
+	    - กุ~ร-ระ
+	    - สัง~วัจ~ฉ-ระ
+	    - อัก~ข-ระ
+	    - อิน~ทา~ม-ระ
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Rearrange exception rules for -ละ.
+
+	* thai-exc.pat:
+	  - Instead of listing possible -ละ cases,
+	    let's turn it on by default and list inhibitions instead.
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Rearrange exception rules for -ชะ.
+
+	* thai-exc.pat:
+	  - Instead of listing possible -ชะ cases,
+	    let's turn it on by default and list inhibitions instead.
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Handle remaining cases of -นะ.
+
+	* thai-fixup.sed:
+	  - Fixup: 'ล5กนะ' -> 'ล5ก7นะ' for 'โล~ก-นะ' inhibited by 'ก6นะ'
+	    in thai-exc.pat.
+	* thai-exc.pat:
+	  - Add exception 'งก7นะ' for 'อัง~ก-นะ'.
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Rearrange exception rules for -ณะ.
+
+	* thai-exc.pat:
+	  - Instead of listing possible -ณะ cases,
+	    let's turn it on by default and list inhibitions instead.
+	* thai-fixup.sed:
+	  - Fixups: 'ก5ขณะ' -> 'ก5ข5ณะ', 'ก5ขณา' -> 'ก5ข5ณา'
+	  - This requires 'ข4ณะ' early inhibition in thai-exc.pat
+	    before the special case 'ก5ข5ณะ' is applied.
+	* tdict-std.txt:
+	  - Adjust hyphenation 'อา-ปณะ' -> 'อา-ป-ณะ' for harmony with the rest.
+
+2021-12-27  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Rearrange exception rules for -นะ.
+
+	* thai-exc.pat:
+	  - Instead of listing possible -นะ cases, which have been growing,
+	    esp. after the recent hyphenation scheme adjustment,
+	    let's turn it on by default and list inhibitions instead.
+
+2021-12-26  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Adjust hyphenation dictionary.
+
+	* tdict-std.txt:
+	* tdict-collection.txt:
+	* tdict-common.txt:
+	* tdict-proper.txt:
+	* tdict-std-compound.txt:
+	  - Adjust hyphenations.
+
+	* Makefile, +thai-fixup.sed:
+	  - Add fixup mechanism to adjust patgen-generated rules
+	    which cannot be corrected using exceptions.
+	  - First fixup: '3นียะ' -> '3นี3ยะ'.
+
+	* thai-exc.pat:
+	  - Drop 'นี7ยะ' exception, duplicated with '3นี[3]ยะ'.
+	  - Drop 'ฉ6นี', 'าร6นี', 'วีช6นี', 'สส6นี', 'มท6นี', 'เสว6นะ' exceptions,
+	    according to the adjusted hyphenations.
+
+2021-12-21  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Add hyphenation exceptions.
+
+	* thai-exc.pat:
+	  - Move 'ง1ว' fixes to be with 'ม1ว' fixes.
+	  - Add fixes for 'ร1ว'.
+
+2021-12-21  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Fix missing hyphens.
+
+	* tdict-std.txt:
+	  - Add missing hyphens in 'กะ~รุง-กะ-รัง' and 'กะ~รุ่ง-กะ-ริ่ง'.
+
+2021-12-21  Theppitak Karoonboonyanan  <theppitak@gmail.com>
+
+	Update dict from libthai 0.1.29
+
+	* Makefile.am, +tdict-currency.txt:
+	  - Add new list.
+
+	* tdict-city.txt:
+	* tdict-collection.txt:
+	* tdict-common.txt:
+	* tdict-district.txt:
+	* tdict-geo.txt:
+	* tdict-history.txt:
+	* tdict-ict.txt:
+	* tdict-lang-ethnic.txt:
+	* tdict-proper.txt:
+	* tdict-science.txt:
+	* tdict-slang.txt:
+	* tdict-spell.txt:
+	* tdict-std.txt:
+	  - Updated from libthai 0.1.29.
+
+	* thai-exc.pat:
+	  - Drop '<SARA-I>7ตี' exception, duplicating generated '<SARA-I>3ตี'.
+
 2018-08-03  Theppitak Karoonboonyanan  <theppitak@gmail.com>
 
 	Add hyphenation exceptions.
