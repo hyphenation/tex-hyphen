@@ -410,6 +410,7 @@ describe Language do
 
     it "calls .languages first" do
       language = Language.new('eu')
+      language.patterns
       expect(Language).to receive(:languages).and_return({ 'eu' => Language.new('eu') })
       pending "Needs pondering"
       language.patterns
@@ -443,6 +444,7 @@ describe Language do
   describe '#exceptions' do
     it "returns the hyphenation exceptions" do
       language = Language.new('ga')
+      language.exceptions
       expect(language.exceptions[0..2]).to eq ['bhrachtaí', 'mbrachtaí', 'cháintí']
     end
 
