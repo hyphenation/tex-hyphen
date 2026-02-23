@@ -743,10 +743,10 @@ describe Language do
       end
 
       it "works correctly" do
-        pending "change"
         expect(Language.new('zh-latn-pinyin').list_run_files).to eq [
           'tex/generic/hyph-utf8/loadhyph/loadhyph-zh-latn-pinyin.tex',
           'tex/generic/hyph-utf8/patterns/tex/hyph-zh-latn-pinyin.tex',
+          'tex/generic/hyph-utf8/patterns/tex-8bit/hyph-zh-latn-pinyin.ec.tex',
           'tex/generic/hyph-utf8/patterns/txt/hyph-zh-latn-pinyin.pat.txt']
       end
     end
