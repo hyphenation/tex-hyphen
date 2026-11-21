@@ -1,0 +1,18 @@
+category TLCore
+depend hyphen-base
+depend hyph-utf8
+shortdesc Western Frisian hyphenation patterns.
+longdesc Hyphenation patterns for Western Frisian (Frysk) in T1/EC and UTF-8
+longdesc encodings, following the official spelling of 2014.
+execute AddHyphen \
+	name=westernfrisian synonyms=frisian \
+	lefthyphenmin=2 \
+	righthyphenmin=2 \
+	file=loadhyph-fy.tex \
+	file_patterns=hyph-fy.pat.txt \
+	file_exceptions=
+runpattern f texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-fy.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/ptex/hyph-fy.ec.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/quote/hyph-quote-fy.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-fy.tex
+runpattern f texmf-dist/tex/generic/hyph-utf8/patterns/txt/hyph-fy.pat.txt

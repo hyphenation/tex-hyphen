@@ -97,3 +97,5 @@ ukrainian	loadhyph-uk.tex
 uppersorbian	loadhyph-hsb.tex
 vietnamese	hyph-vi.tex
 welsh	loadhyph-cy.tex
+westernfrisian	loadhyph-fy.tex
+=frisian
